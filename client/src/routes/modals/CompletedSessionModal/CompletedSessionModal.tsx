@@ -59,6 +59,7 @@ import FeedbackCard from '../../../lib/components/FeedbackCard/FeedbackCard';
 import ExerciseCardContainer from '../../../lib/components/Cards/SessionCard/ExerciseCardContainer';
 import useExercisesByTags from '../../../lib/content/hooks/useExercisesByTags';
 import {Tag as TagType} from '../../../../../shared/src/types/generated/Tag';
+import ShowMoreText from '../../../lib/components/ShowMoreText/ShowMoreText';
 
 const Content = styled(Gutters)({
   justifyContent: 'space-between',
@@ -259,7 +260,7 @@ const CompletedSessionModal = () => {
           <>
             <Spacer16 />
             <Gutters>
-              <Markdown>{exercise?.description}</Markdown>
+              <ShowMoreText>{exercise?.description}</ShowMoreText>
             </Gutters>
           </>
         )}

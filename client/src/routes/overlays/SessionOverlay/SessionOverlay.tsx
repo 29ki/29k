@@ -72,6 +72,7 @@ import useExercisesByTags from '../../../lib/content/hooks/useExercisesByTags';
 import {Tag as TagType} from '../../../../../shared/src/types/generated/Tag';
 import ExerciseCardContainer from '../../../lib/components/Cards/SessionCard/ExerciseCardContainer';
 import {take} from 'ramda';
+import ShowMoreText from '../../../lib/components/ShowMoreText/ShowMoreText';
 
 const Content = styled(Gutters)({
   justifyContent: 'space-between',
@@ -346,7 +347,7 @@ const SessionOverlay = () => {
           <>
             <Spacer16 />
             <Gutters>
-              <Markdown>{exercise?.description}</Markdown>
+              <ShowMoreText>{exercise?.description}</ShowMoreText>
             </Gutters>
           </>
         )}

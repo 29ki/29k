@@ -55,6 +55,7 @@ import HostingInviteFailModal from '../HostingInviteFailModal/HostingInviteFailM
 import useUser from '../../../lib/user/hooks/useUser';
 import UpdateProfileStep from '../CreateSessionModal/components/steps/ProfileStep';
 import useSessions from '../../../lib/sessions/hooks/useSessions';
+import ShowMoreText from '../../../lib/components/ShowMoreText/ShowMoreText';
 
 const Content = styled(Gutters)({
   justifyContent: 'space-between',
@@ -153,7 +154,7 @@ const InvitationModal: React.FC<{
         <>
           <Spacer16 />
           <Gutters>
-            <Markdown>{exercise?.description}</Markdown>
+            <ShowMoreText>{exercise?.description}</ShowMoreText>
           </Gutters>
         </>
       )}
