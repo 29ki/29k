@@ -1587,10 +1587,10 @@
     "@jridgewell/resolve-uri" "^3.0.3"
     "@jridgewell/sourcemap-codec" "^1.4.10"
 
-"@kingstinct/react-native-healthkit@^7.2.0":
-  version "7.2.0"
-  resolved "https://registry.yarnpkg.com/@kingstinct/react-native-healthkit/-/react-native-healthkit-7.2.0.tgz#1b760606371224b9625709407f02498826e6c70a"
-  integrity sha512-aXOnSJ0kktqfytHRNfxAGIIoWxfcPv/8zUwVmHiXxtBJ/Jt8VEqHULC3g0n9tTYTyFKll0x22dKl1MsCDVG0Dg==
+"@kingstinct/react-native-healthkit@^7.3.0":
+  version "7.3.0"
+  resolved "https://registry.yarnpkg.com/@kingstinct/react-native-healthkit/-/react-native-healthkit-7.3.0.tgz#6a4e6f7742cf96f7e80478c787dbaef6c4959596"
+  integrity sha512-HsRuSK/yYLqkkiuXzyzlQoIqQQLhSntoZOInvG3oAM7ROZttnpQ0+Kq7rP5pwQMcgB994YLuPwpVoZ/Ldl+OWQ==
 
 "@nodelib/fs.scandir@2.1.5":
   version "2.1.5"
@@ -2147,10 +2147,10 @@
   dependencies:
     "@sinonjs/commons" "^2.0.0"
 
-"@stripe/stripe-react-native@^0.31.1":
-  version "0.31.1"
-  resolved "https://registry.yarnpkg.com/@stripe/stripe-react-native/-/stripe-react-native-0.31.1.tgz#5f8fa9ccc7c156aec3fe8c89404752369ca01db4"
-  integrity sha512-Chdndxfofa5NjNjWEB4xzXyOc8XqSeKAWKTGjDqKG7IkEDi4XNVgenkjEMgG75PUlIxaj6Gx52K6qvv/ngZR2Q==
+"@stripe/stripe-react-native@^0.32.0":
+  version "0.32.0"
+  resolved "https://registry.yarnpkg.com/@stripe/stripe-react-native/-/stripe-react-native-0.32.0.tgz#d63fe5863eacbd839dedd7d3c32c86bbacc006e2"
+  integrity sha512-cQ+clJtJ3hNrJQy2t1D1N1ooJdzPaPrSqGdWCvvbPOlVYbxY1iT5WnYM4gU96u3ysw6YADXy7VAzW375iXVzUQ==
 
 "@szmarczak/http-timer@^5.0.1":
   version "5.0.1"
@@ -7045,15 +7045,15 @@ loose-envify@^1.0.0, loose-envify@^1.1.0, loose-envify@^1.4.0:
   dependencies:
     js-tokens "^3.0.0 || ^4.0.0"
 
-lottie-ios@^4.2.0:
-  version "4.2.0"
-  resolved "https://registry.yarnpkg.com/lottie-ios/-/lottie-ios-4.2.0.tgz#413a400923c6ea4f4edf62c6a4079d0e8c34fa4e"
-  integrity sha512-dzo66ndfeXJ7V7sqw+5nvjG8gqrhpKd+Ul3XvvVBFAdqmNY5Rj3qER4u1hVUes16GIQrwtDRNSehjH/wTeSzLw==
+lottie-ios@^4.3.0:
+  version "4.3.0"
+  resolved "https://registry.yarnpkg.com/lottie-ios/-/lottie-ios-4.3.0.tgz#a8970dc5fc6a0e0a5921df4e4390b0daea833b62"
+  integrity sha512-VNeTSpUyQlO9WA5/nsBWKlBAc/ualNMiz22AbcCl2yAVy7E9JTE5HAG/nL+pMCigdFEUUl78tTDmhtCxYbtxTA==
 
-lottie-react-native@^6.2.0:
-  version "6.2.0"
-  resolved "https://registry.yarnpkg.com/lottie-react-native/-/lottie-react-native-6.2.0.tgz#b63d358ca4b112f23997f5fe8118b6ac4662a7ed"
-  integrity sha512-r0I+BPV2oC50/c5Lr41MmLJigH7TVrh4qu/ssWRj1UPpELxVwJlofbaN4mH91ruVw4LqB2mICbXVqUBVgoP64g==
+lottie-react-native@^6.3.1:
+  version "6.3.1"
+  resolved "https://registry.yarnpkg.com/lottie-react-native/-/lottie-react-native-6.3.1.tgz#3ad152da79601e6a79ea811436a12a84fe1a4a72"
+  integrity sha512-M18nAVYeGMF//bhL27D2zuMcrFPH0jbD/deBvcWi0CCcfZf6LQfx45xt+cuDqwr5nh6dMm+ta8KfZJmkbNhtlg==
 
 lowercase-keys@^3.0.0:
   version "3.0.0"
@@ -8619,10 +8619,10 @@ react-native-fit-image@^1.5.5:
   dependencies:
     prop-types "^15.5.10"
 
-react-native-gesture-handler@^2.12.1:
-  version "2.12.1"
-  resolved "https://registry.yarnpkg.com/react-native-gesture-handler/-/react-native-gesture-handler-2.12.1.tgz#f11a99fb95169810c6886fad5efa01a17fd81660"
-  integrity sha512-deqh36bw82CFUV9EC4tTo2PP1i9HfCOORGS3Zmv71UYhEZEHkzZv18IZNPB+2Awzj45vLIidZxGYGFxHlDSQ5A==
+react-native-gesture-handler@^2.13.0:
+  version "2.13.0"
+  resolved "https://registry.yarnpkg.com/react-native-gesture-handler/-/react-native-gesture-handler-2.13.0.tgz#326f52c0e2172200225ee0c7f7534b8ffe122ec4"
+  integrity sha512-SkUAEEkSjfML24nDepgrcLzPhMyUrPOESpFLMAYmiMBsy+QJBfEs12KF5B4mMVUKBdlXQ/BQ2VA3CP29hh16lA==
   dependencies:
     "@egjs/hammerjs" "^2.0.17"
     hoist-non-react-statics "^3.3.0"
@@ -8677,10 +8677,10 @@ react-native-markdown-display@^7.0.0-alpha.2:
     prop-types "^15.7.2"
     react-native-fit-image "^1.5.5"
 
-react-native-permissions@^3.9.0:
-  version "3.9.0"
-  resolved "https://registry.yarnpkg.com/react-native-permissions/-/react-native-permissions-3.9.0.tgz#e3ba0460509dce6766e4728173dfa8bbf0886e0b"
-  integrity sha512-Z+PAx1Dld6ckQ4YecY+HvoKysbBBBLQEhawIOpPKZ8n2Pj+jy6KogRIAL00AaE2P76dEdPh6HGkWCDfR4k2siQ==
+react-native-permissions@^3.9.2:
+  version "3.9.2"
+  resolved "https://registry.yarnpkg.com/react-native-permissions/-/react-native-permissions-3.9.2.tgz#729ee7fe9ca437ee8e87f1ecec59acfe89bbb840"
+  integrity sha512-mBGoRDKi4twYH+UsPomPdi0dLpV6dGLmKzLpIgB5cLK/dzfM8Sr02Kch1xghVwT13ZkyCyd8DpcL4HgBJ4GQQg==
 
 react-native-rate@^1.2.12:
   version "1.2.12"
