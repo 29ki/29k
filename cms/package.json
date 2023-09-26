@@ -4,7 +4,7 @@
   "private": true,
   "main": "index.js",
   "engines": {
-    "node": "16"
+    "node": ">=18"
   },
   "scripts": {
     "build:content": "yarn --cwd \"../content\" build",
@@ -24,13 +24,13 @@
   },
   "devDependencies": {
     "@types/jest": "^29.5.5",
-    "@types/node": "^20.6.3",
+    "@types/node": "^20.7.0",
     "@types/react": "^18.2.22",
     "@types/react-dom": "^18.2.7",
     "@types/uuid": "^9.0.4",
     "@typescript-eslint/eslint-plugin": "^5.62.0",
     "@typescript-eslint/parser": "^5.62.0",
-    "@vitejs/plugin-react": "^4.0.4",
+    "@vitejs/plugin-react": "^4.1.0",
     "eslint": "^8.50.0",
     "eslint-config-prettier": "^9.0.0",
     "eslint-plugin-import": "^2.28.1",
