@@ -3,7 +3,7 @@
   "version": "2.0.0",
   "private": true,
   "engines": {
-    "node": "16"
+    "node": ">=18"
   },
   "scripts": {
     "android:expose": "./scripts/exposeAndroid.sh",
