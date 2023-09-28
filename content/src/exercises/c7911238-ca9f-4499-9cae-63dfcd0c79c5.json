@@ -18,7 +18,13 @@
           {
             "text": "> Press play to start the audio exercise"
           }
-        ]
+        ],
+        "content": {
+          "lottie": {
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1695908769/Audio/Bounce_back_a3osnj.mp3",
+            "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1695908736/SRT%20(captions)%20files/Bounce_back_pukuyt.srt"
+          }
+        }
       },
       {
         "type": "reflection",
