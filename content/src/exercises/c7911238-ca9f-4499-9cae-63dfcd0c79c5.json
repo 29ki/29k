@@ -86,6 +86,18 @@
     "name": "Bounce back",
     "live": true,
     "published": true,
+    "coCreators": [
+      {
+        "name": "Script and voice: Jenny Rickardsson",
+        "avatar_url": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1682602411/Images/Jenny_Rickardsson_kopia_sdodwf.jpg",
+        "link": "https://www.linkedin.com/in/jenny-rickardson-6770a959/"
+      },
+      {
+        "name": "Based on research by Lucinda Poole and Hugo Albert",
+        "avatar_url": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1695909579/Images/Lucinda%20Poole%2C%20Hugo%20Alberts.webp",
+        "link": "https://positivepsychology.com/team/"
+      }
+    ],
     "duration": 30,
     "introPortal": {
       "hostNotes": [
