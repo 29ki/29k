@@ -21,7 +21,7 @@
     "@babel/plugin-transform-modules-commonjs": "^7.23.0",
     "@types/jest": "^29.5.5",
     "@types/node": "^20.7.0",
-    "@types/ramda": "^0.29.4",
+    "@types/ramda": "^0.29.5",
     "@typescript-eslint/eslint-plugin": "^5.62.0",
     "@typescript-eslint/parser": "^5.62.0",
     "eslint": "^8.50.0",
