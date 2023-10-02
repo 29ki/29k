@@ -93,7 +93,7 @@
     "@types/debug": "^4.1.8",
     "@types/i18next": "^13.0.0",
     "@types/jest": "^29.5.5",
-    "@types/ramda": "^0.29.3",
+    "@types/ramda": "^0.29.5",
     "@types/react-native": "^0.67.3",
     "@types/react-test-renderer": "^18.0.1",
     "@types/styled-components-react-native": "^5.2.1",
