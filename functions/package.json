@@ -61,7 +61,7 @@
     "@types/node-fetch": "^2.6.6",
     "@types/ramda": "^0.29.4",
     "@types/semver": "^7.5.2",
-    "@types/supertest": "^2.0.12",
+    "@types/supertest": "^2.0.13",
     "@types/uuid": "^9.0.4",
     "@typescript-eslint/eslint-plugin": "^5.62.0",
     "@typescript-eslint/parser": "^5.62.0",
