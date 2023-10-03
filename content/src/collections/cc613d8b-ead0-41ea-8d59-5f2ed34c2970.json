@@ -1,0 +1,44 @@
+{
+  "en": {
+    "published": true,
+    "hidden": true,
+    "id": "cc613d8b-ead0-41ea-8d59-5f2ed34c2970",
+    "name": "Youth IDG with a smashing name!",
+    "description": "Learn to master skills for your own and the planet's wellbeing, practising presence, relating, resilience, future visioning and perspective taking.",
+    "exercises": [
+      "12f448d2-39bc-4232-b8cf-b6cb570c7e00",
+      "5b69ff57-10c4-4288-afc7-a6f6ed212531",
+      "648e1802-eb45-47b0-a42e-dd986669a4eb"
+    ]
+  },
+  "pt": {
+    "published": false,
+    "hidden": false,
+    "id": "cc613d8b-ead0-41ea-8d59-5f2ed34c2970",
+    "exercises": [
+      "12f448d2-39bc-4232-b8cf-b6cb570c7e00",
+      "5b69ff57-10c4-4288-afc7-a6f6ed212531",
+      "648e1802-eb45-47b0-a42e-dd986669a4eb"
+    ]
+  },
+  "sv": {
+    "published": false,
+    "hidden": false,
+    "id": "cc613d8b-ead0-41ea-8d59-5f2ed34c2970",
+    "exercises": [
+      "12f448d2-39bc-4232-b8cf-b6cb570c7e00",
+      "5b69ff57-10c4-4288-afc7-a6f6ed212531",
+      "648e1802-eb45-47b0-a42e-dd986669a4eb"
+    ]
+  },
+  "es": {
+    "published": false,
+    "hidden": false,
+    "id": "cc613d8b-ead0-41ea-8d59-5f2ed34c2970",
+    "exercises": [
+      "12f448d2-39bc-4232-b8cf-b6cb570c7e00",
+      "5b69ff57-10c4-4288-afc7-a6f6ed212531",
+      "648e1802-eb45-47b0-a42e-dd986669a4eb"
+    ]
+  }
+}
