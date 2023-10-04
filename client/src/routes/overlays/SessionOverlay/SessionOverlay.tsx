@@ -38,7 +38,6 @@ import {Body16} from '../../../lib/components/Typography/Body/Body';
 import Byline from '../../../lib/components/Bylines/Byline';
 import SessionTimeBadge from '../../../lib/components/SessionTimeBadge/SessionTimeBadge';
 import TouchableOpacity from '../../../lib/components/TouchableOpacity/TouchableOpacity';
-import Markdown from '../../../lib/components/Typography/Markdown/Markdown';
 import Tag from '../../../lib/components/Tag/Tag';
 import Interested from '../../../lib/components/Interested/Interested';
 import AnimatedButton from '../../../lib/components/Buttons/AnimatedButton';
@@ -72,6 +71,7 @@ import useExercisesByTags from '../../../lib/content/hooks/useExercisesByTags';
 import {Tag as TagType} from '../../../../../shared/src/types/generated/Tag';
 import ExerciseCardContainer from '../../../lib/components/Cards/SessionCard/ExerciseCardContainer';
 import {take} from 'ramda';
+import ShowMoreText from '../../../lib/components/ShowMoreText/ShowMoreText';
 
 const Content = styled(Gutters)({
   justifyContent: 'space-between',
@@ -346,7 +346,7 @@ const SessionOverlay = () => {
           <>
             <Spacer16 />
             <Gutters>
-              <Markdown>{exercise?.description}</Markdown>
+              <ShowMoreText>{exercise?.description}</ShowMoreText>
             </Gutters>
           </>
         )}

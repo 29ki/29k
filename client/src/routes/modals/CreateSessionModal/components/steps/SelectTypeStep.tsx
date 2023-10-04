@@ -1,8 +1,9 @@
 import React, {Fragment, useCallback, useMemo} from 'react';
 import {useTranslation} from 'react-i18next';
 import AnimatedLottieView from 'lottie-react-native';
-
+import {take} from 'ramda';
 import styled from 'styled-components/native';
+
 import {COLORS} from '../../../../../../../shared/src/constants/colors';
 import {
   LiveSessionType,
@@ -43,7 +44,6 @@ import {Heading18} from '../../../../../lib/components/Typography/Heading/Headin
 import {BottomSheetFlatList} from '@gorhom/bottom-sheet';
 import {ModalStackProps} from '../../../../../lib/navigation/constants/routes';
 import useStartAsyncSession from '../../../../../lib/session/hooks/useStartAsyncSession';
-import Markdown from '../../../../../lib/components/Typography/Markdown/Markdown';
 import useGetTagsById from '../../../../../lib/content/hooks/useGetTagsById';
 import Tag from '../../../../../lib/components/Tag/Tag';
 import IconButton from '../../../../../lib/components/Buttons/IconButton/IconButton';
@@ -57,7 +57,7 @@ import useLiveSessionsByExercise from '../../../../../lib/session/hooks/useLiveS
 import ExerciseCardContainer from '../../../../../lib/components/Cards/SessionCard/ExerciseCardContainer';
 import useExercisesByTags from '../../../../../lib/content/hooks/useExercisesByTags';
 import {Tag as TagType} from '../../../../../../../shared/src/types/generated/Tag';
-import {take} from 'ramda';
+import ShowMoreText from '../../../../../lib/components/ShowMoreText/ShowMoreText';
 
 const TypeItemWrapper = styled.View<{isLast?: boolean}>(({isLast}) => ({
   flexDirection: 'row',
@@ -416,18 +416,21 @@ const SelectTypeStep: React.FC<StepProps> = ({
               {exercise.description && (
                 <>
                   <Spacer16 />
-                  <Markdown>{exercise.description}</Markdown>
+                  <ShowMoreText>{exercise.description}</ShowMoreText>
                 </>
               )}
               {tags && (
-                <Tags>
-                  {tags.map(({id, tag}) => (
-                    <Fragment key={id}>
-                      <Tag>{tag}</Tag>
-                      <Spacer4 />
-                    </Fragment>
-                  ))}
-                </Tags>
+                <>
+                  <Spacer8 />
+                  <Tags>
+                    {tags.map(({id, tag}) => (
+                      <Fragment key={id}>
+                        <Tag>{tag}</Tag>
+                        <Spacer4 />
+                      </Fragment>
+                    ))}
+                  </Tags>
+                </>
               )}
 
               {exercise.live ? (

@@ -40,7 +40,6 @@ import SessionTimeBadge from '../../../lib/components/SessionTimeBadge/SessionTi
 import {COLORS} from '../../../../../shared/src/constants/colors';
 
 import {SPACINGS} from '../../../lib/constants/spacings';
-import Markdown from '../../../lib/components/Typography/Markdown/Markdown';
 import Tag from '../../../lib/components/Tag/Tag';
 import useGetSessionCardTags from '../../../lib/components/Cards/SessionCard/hooks/useGetSessionCardTags';
 import {LiveSessionType} from '../../../../../shared/src/schemas/Session';
@@ -55,6 +54,7 @@ import HostingInviteFailModal from '../HostingInviteFailModal/HostingInviteFailM
 import useUser from '../../../lib/user/hooks/useUser';
 import UpdateProfileStep from '../CreateSessionModal/components/steps/ProfileStep';
 import useSessions from '../../../lib/sessions/hooks/useSessions';
+import ShowMoreText from '../../../lib/components/ShowMoreText/ShowMoreText';
 
 const Content = styled(Gutters)({
   justifyContent: 'space-between',
@@ -153,7 +153,7 @@ const InvitationModal: React.FC<{
         <>
           <Spacer16 />
           <Gutters>
-            <Markdown>{exercise?.description}</Markdown>
+            <ShowMoreText>{exercise?.description}</ShowMoreText>
           </Gutters>
         </>
       )}
