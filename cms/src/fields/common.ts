@@ -336,6 +336,7 @@ export const TAGS_FIELD: CmsFieldBase & CmsFieldRelation = {
   value_field: 'id',
   display_fields: ['tag'],
   multiple: true,
+  options_length: Infinity,
   i18n: 'duplicate',
   required: false,
 };
