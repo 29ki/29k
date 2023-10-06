@@ -99,11 +99,11 @@ export interface ExerciseSlideContentSlideContentVideo {
 export interface ExerciseSlideContentSlideContentLottie {
   autoPlayLoop?: boolean;
   durationTimer?: boolean;
+  duration?: number;
   description?: string;
   source?: string;
   audio?: string;
   subtitles?: string;
-  duration?: number;
 }
 
 export interface ExerciseSlideContentSlideContent {
@@ -147,11 +147,11 @@ export interface ExerciseSlideReflectionSlideContentVideo {
 export interface ExerciseSlideReflectionSlideContentLottie {
   autoPlayLoop?: boolean;
   durationTimer?: boolean;
+  duration?: number;
   description?: string;
   source?: string;
   audio?: string;
   subtitles?: string;
-  duration?: number;
 }
 
 export interface ExerciseSlideReflectionSlideContent {
@@ -184,11 +184,11 @@ export interface ExerciseSlideSharingSlideContentVideo {
 export interface ExerciseSlideSharingSlideContentLottie {
   autoPlayLoop?: boolean;
   durationTimer?: boolean;
+  duration?: number;
   description?: string;
   source?: string;
   audio?: string;
   subtitles?: string;
-  duration?: number;
 }
 
 export interface ExerciseSlideSharingSlideContent {

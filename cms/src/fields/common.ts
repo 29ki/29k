@@ -340,3 +340,11 @@ export const TAGS_FIELD: CmsFieldBase & CmsFieldRelation = {
   i18n: 'duplicate',
   required: false,
 };
+
+export const SORT_ORDER_FIELD: CmsField = {
+  label: '#️⃣ Sort Order',
+  name: 'sortOrder',
+  widget: 'number',
+  i18n: 'duplicate',
+  required: false,
+};
