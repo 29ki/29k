@@ -5,7 +5,7 @@
         "type": "host",
         "hostNotes": [
           {
-            "text": "Welcome\n\nI am X and today we will work for around 30 minutes on resilience.\n\nWe’ll be doing an audio exercise, followed by time for reflection and sharing with each other."
+            "text": "Welcome\n\nI am X and today we will work for around 30 minutes on imagining different perspectives.\n\nWe’ll be doing an audio exercise, followed by time for reflection and then finally sharing what we experienced with each other if we’re up for it."
           },
           {
             "text": "Let’s start with a mini check-in. How are you feeling right now? Please answer in two-three words. X, would you like to start?\n\n> Let everyone in the session, including yourself, check in one by one.\n\nThank you all for checking in. Let’s get started."
@@ -14,30 +14,30 @@
       },
       {
         "type": "content",
+        "content": {
+          "lottie": {
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1695887677/Audio/Switch_perspectives_xyxqy4.mp3",
+            "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1695887709/SRT%20(captions)%20files/Switch_perspectives_ak4lwu.srt"
+          }
+        },
         "hostNotes": [
           {
             "text": "> Press play to start the audio exercise"
           }
-        ],
-        "content": {
-          "lottie": {
-            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1695908769/Audio/Bounce_back_a3osnj.mp3",
-            "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1695908736/SRT%20(captions)%20files/Bounce_back_pukuyt.srt"
-          }
-        }
+        ]
       },
       {
         "type": "reflection",
         "hostNotes": [
           {
-            "text": "Now we’ll take 1 minute to reflect on our own.\n\nWhat did you learn doing the 4S model?"
+            "text": "Now we’ll take 1 minute to reflect on our own.\n\nHow did you experience taking different perspectives?"
           },
           {
             "text": "You can take notes on a piece of paper or just mental notes in your head. And there is no right or wrong here, our answers are our own. 1 minute starting now.\n\n> Press play to start the timer.\n\nThat’s 1 minute and it’s time to move on."
           }
         ],
         "content": {
-          "heading": "What did you learn doing the 4S model?"
+          "heading": "How did you experience taking different perspectives?"
         }
       },
       {
@@ -53,16 +53,16 @@
             "text": "Who would like to start?\n\n> Let everyone (or as many as you got time for) share one by one. Press play to start the timer. Re-start for each new sharing.\n\nThank you so much everyone."
           }
         ],
+        "id": "1",
         "content": {
-          "heading": "What did you learn doing the 4S model?"
-        },
-        "id": "1"
+          "heading": "How did you experience taking different perspectives?"
+        }
       },
       {
         "type": "host",
         "hostNotes": [
           {
-            "text": "Well done. If you’re up for it, you can continue with a mission.\n\nAfter this session, apply one of the resources you identified to your current situation, and see where that takes you."
+            "text": "Well done. If you’re up for it, you can continue with a mission to bring this into your everyday life.\n\nThe next time you face a problem, imagine a few different stake holders and actively take their perspective before deciding where to go. This can help us deal with complex issues and consider both logical and emotional aspects of the things we face in life."
           },
           {
             "text": "Before we leave this space let’s do a mini check-out. \n\nHow are you feeling right now? Has anything shifted? Please answer in two-three words."
@@ -75,7 +75,7 @@
       {
         "type": "instruction",
         "content": {
-          "text": "Well done. If you’re up for it, you can continue with a mission.\n\nAfter this session, apply one of the resources you identified to your current situation, and see where that takes you."
+          "text": "Well done. If you’re up for it, you can continue with a mission to bring this into your everyday life.\n\nThe next time you face a problem, imagine a few different stake holders and actively take their perspective before deciding where to go. This can help us deal with complex issues and consider both logical and emotional aspects of the things we face in life."
         }
       }
     ],
@@ -83,32 +83,31 @@
       "textColor": "#2AE2D7"
     },
     "hidden": true,
-    "name": "Bounce back",
+    "name": "Switch perspectives",
     "live": true,
     "published": true,
     "coCreators": [
       {
         "name": "Script and voice: Jenny Rickardsson",
-        "avatar_url": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1682602411/Images/Jenny_Rickardsson_kopia_sdodwf.jpg",
+        "avatar_url": "https://res.cloudinary.com/cupcake-29k/image/upload/v1682602411/Images/Jenny_Rickardsson_kopia_sdodwf.jpg",
         "link": "https://www.linkedin.com/in/jenny-rickardson-6770a959/"
       },
       {
-        "name": "Based on research by Lucinda Poole and Hugo Albert",
-        "avatar_url": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1695909579/Images/Lucinda%20Poole%2C%20Hugo%20Alberts.webp",
-        "link": "https://positivepsychology.com/team/"
+        "name": "Inspired by: Anke de Vrieze, Transitionmakers toolbox",
+        "link": "https://www.linkedin.com/in/ankedevrieze/?locale=nl_NL",
+        "avatar_url": "https://www.sustainableplaceshaping.net/wp-content/uploads/2017/11/anke-de-vrieze.jpg"
       }
     ],
-    "duration": 30,
+    "duration": 40,
     "introPortal": {
       "hostNotes": [
         {
-          "text": "> Start the session when you're ready to begin"
+          "text": "> Start the session when you're ready to go"
         }
       ]
     },
-    "id": "c7911238-ca9f-4499-9cae-63dfcd0c79c5",
-    "async": true,
-    "description": "We all face setbacks and struggles in life. Resilience, or bouncing back, is a skill that improves with practice, and it can help us overcome or even grow from facing obstacles."
+    "id": "5b69ff57-10c4-4288-afc7-a6f6ed212531",
+    "async": true
   },
   "pt": {
     "slides": [
@@ -178,7 +177,7 @@
     "hidden": false,
     "live": true,
     "published": false,
-    "duration": 30,
+    "duration": 40,
     "introPortal": {
       "hostNotes": [
         {
@@ -186,7 +185,7 @@
         }
       ]
     },
-    "id": "c7911238-ca9f-4499-9cae-63dfcd0c79c5",
+    "id": "5b69ff57-10c4-4288-afc7-a6f6ed212531",
     "async": false
   },
   "sv": {
@@ -257,7 +256,7 @@
     "hidden": false,
     "live": true,
     "published": false,
-    "duration": 30,
+    "duration": 40,
     "introPortal": {
       "hostNotes": [
         {
@@ -265,7 +264,7 @@
         }
       ]
     },
-    "id": "c7911238-ca9f-4499-9cae-63dfcd0c79c5",
+    "id": "5b69ff57-10c4-4288-afc7-a6f6ed212531",
     "async": false
   },
   "es": {
@@ -336,7 +335,7 @@
     "hidden": false,
     "live": true,
     "published": false,
-    "duration": 30,
+    "duration": 40,
     "introPortal": {
       "hostNotes": [
         {
@@ -344,7 +343,7 @@
         }
       ]
     },
-    "id": "c7911238-ca9f-4499-9cae-63dfcd0c79c5",
+    "id": "5b69ff57-10c4-4288-afc7-a6f6ed212531",
     "async": false
   }
 }
