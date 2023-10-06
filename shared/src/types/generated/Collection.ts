@@ -23,6 +23,7 @@ export interface Collection {
   link?: string;
   image?: CollectionImage;
   tags?: any[];
+  sortOrder?: number;
   published: boolean;
   hidden?: boolean;
   exercises: any[];
