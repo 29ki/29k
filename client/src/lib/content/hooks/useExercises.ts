@@ -2,6 +2,10 @@ import {isNotNil} from 'ramda';
 import {useMemo} from 'react';
 import useExerciseIds from './useExerciseIds';
 import useGetExerciseById from './useGetExerciseById';
+import {Exercise} from '../../../../../shared/src/types/generated/Exercise';
+
+const sortByName = (a: Exercise, b: Exercise) =>
+  a.name < b.name ? -1 : a.name > b.name ? 1 : 0;
 
 const useExercises = () => {
   const exerciseIds = useExerciseIds();
@@ -12,7 +16,7 @@ const useExercises = () => {
       exerciseIds
         .map(id => getExerciseById(id))
         .filter(isNotNil)
-        .sort((a, b) => (a.name < b.name ? -1 : 1)),
+        .sort(sortByName),
     [exerciseIds, getExerciseById],
   );
 };
