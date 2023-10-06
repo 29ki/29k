@@ -3,6 +3,7 @@
     "hidden": false,
     "name": "Start here",
     "published": true,
+    "sortOrder": 1,
     "card": {
       "description": "Take the first steps to improve wellbeing and life satisfaction, backed by science.",
       "backgroundColorGradient": [
@@ -32,6 +33,7 @@
     "hidden": false,
     "name": "Começa aqui",
     "published": false,
+    "sortOrder": 1,
     "card": {
       "description": "Take the first steps to improve wellbeing and life satisfaction, backed by science.",
       "backgroundColorGradient": [
@@ -61,6 +63,7 @@
     "hidden": true,
     "name": "Kom igång",
     "published": true,
+    "sortOrder": 1,
     "card": {
       "description": "Take the first steps to improve wellbeing and life satisfaction, backed by science.",
       "backgroundColorGradient": [
@@ -99,6 +102,7 @@
     "link": "https://aware.29k.org/get-started",
     "card": {
       "description": "Take the first steps to improve wellbeing and life satisfaction, backed by science."
-    }
+    },
+    "sortOrder": 1
   }
 }
