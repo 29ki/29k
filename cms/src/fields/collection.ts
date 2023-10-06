@@ -15,9 +15,10 @@ export const EXERCISES_FIELD: CmsFieldBase & CmsFieldRelation = {
   name: 'exercises',
   widget: 'relation',
   collection: 'exercises',
-  search_fields: ['exercise'],
+  search_fields: ['name'],
   value_field: 'id',
   display_fields: ['name'],
+  options_length: Infinity,
   multiple: true,
   i18n: 'duplicate',
 };
