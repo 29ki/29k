@@ -347,4 +347,5 @@ export const SORT_ORDER_FIELD: CmsField = {
   widget: 'number',
   i18n: 'duplicate',
   required: false,
+  value_type: 'int',
 };
