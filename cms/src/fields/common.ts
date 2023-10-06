@@ -336,6 +336,16 @@ export const TAGS_FIELD: CmsFieldBase & CmsFieldRelation = {
   value_field: 'id',
   display_fields: ['tag'],
   multiple: true,
+  options_length: Infinity,
   i18n: 'duplicate',
   required: false,
+};
+
+export const SORT_ORDER_FIELD: CmsField = {
+  label: '#️⃣ Sort Order',
+  name: 'sortOrder',
+  widget: 'number',
+  i18n: 'duplicate',
+  required: false,
+  value_type: 'int',
 };

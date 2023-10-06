@@ -19,7 +19,18 @@
         }
       },
       {
-        "type": "content"
+        "type": "content",
+        "content": {
+          "lottie": {
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1696420104/Audio/Sky_gazing_ih7ox9.mp3",
+            "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1696420138/SRT%20(captions)%20files/Sky_gazing_rt4epi.srt"
+          }
+        },
+        "hostNotes": [
+          {
+            "text": "> Press play to start the audio file"
+          }
+        ]
       },
       {
         "type": "reflection",
