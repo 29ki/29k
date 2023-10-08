@@ -65,7 +65,7 @@ jobs:
       - name: Use Node.js v18
         uses: actions/setup-node@v3
         with:
-          node-version: 18.15
+          node-version: 18.x
 
       - name: Install CocoaPods
         working-directory: ./client/ios
@@ -119,14 +119,14 @@ jobs:
         run: yarn
 
       - name: Cache Client Dependencies
-        id: cache-client-node-modules
+        id: cache-client-osx-node-modules
         uses: actions/cache@v2
         with:
           path: ./client/node_modules
-          key: client-node-modules-${{ hashFiles('./client/yarn.lock') }}
+          key: client-osx-node-modules-${{ hashFiles('./client/yarn.lock') }}
 
       - name: Install Client Dependencies
-        if: steps.cache-client-node-modules.outputs.cache-hit != 'true'
+        if: steps.cache-client-osx-node-modules.outputs.cache-hit != 'true'
         working-directory: ./client
         run: yarn
 

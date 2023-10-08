@@ -60,7 +60,7 @@ jobs:
       - name: Use Node.js v18
         uses: actions/setup-node@v3
         with:
-          node-version: 18.15
+          node-version: 18.x
 
       - name: Create Dotenv File
         uses: iamsauravsharma/create-dotenv@v1.2.1
