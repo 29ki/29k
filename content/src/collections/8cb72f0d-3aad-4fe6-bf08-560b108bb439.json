@@ -1,8 +1,9 @@
 {
   "en": {
     "hidden": false,
-    "name": "Manage stress in school",
+    "name": "Manage stress",
     "published": true,
+    "sortOrder": 3,
     "tags": [
       "da15b7ab-dd95-4fc7-b085-2f022ab7282f"
     ],
@@ -20,7 +21,7 @@
       "0bcb6eb0-fdfe-466d-8603-ae6de15fcbc5",
       "b18c1cff-bb43-44b1-81a1-2877cc018ab4"
     ],
-    "description": "Learn to tackle stressful situations in school, and take care of yourself in a sustainable way."
+    "description": "Learn to tackle stressful situations, and take care of yourself in a sustainable way."
   },
   "pt": {
     "published": false,
@@ -38,12 +39,14 @@
       "0bcb6eb0-fdfe-466d-8603-ae6de15fcbc5",
       "b18c1cff-bb43-44b1-81a1-2877cc018ab4"
     ],
-    "link": "https://aware.29k.org/manage-stress-in-school"
+    "link": "https://aware.29k.org/manage-stress-in-school",
+    "sortOrder": 3
   },
   "sv": {
     "hidden": false,
-    "name": "Hantera skolstress",
+    "name": "Hantera stress",
     "published": true,
+    "sortOrder": 3,
     "tags": [
       "da15b7ab-dd95-4fc7-b085-2f022ab7282f"
     ],
@@ -79,6 +82,7 @@
       "0bcb6eb0-fdfe-466d-8603-ae6de15fcbc5",
       "b18c1cff-bb43-44b1-81a1-2877cc018ab4"
     ],
-    "link": "https://aware.29k.org/manage-stress-in-school"
+    "link": "https://aware.29k.org/manage-stress-in-school",
+    "sortOrder": 3
   }
 }
