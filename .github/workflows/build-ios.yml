@@ -68,7 +68,8 @@ jobs:
           node-version: 18.x
 
       - name: Install CocoaPods
-        run: gem install cocoapods
+        working-directory: ./client/ios
+        run: bundle install
 
       - name: Add keys repo access key
         uses: webfactory/ssh-agent@v0.5.4
@@ -118,18 +119,28 @@ jobs:
         run: yarn
 
       - name: Cache Client Dependencies
-        id: cache-client-node-modules-pods
+        id: cache-client-osx-node-modules
         uses: actions/cache@v2
         with:
-          path: |
-            ./client/node_modules
-            ./client/ios/Pods
-          key: client-node-modules-pods-${{ hashFiles('./client/yarn.lock') }}
+          path: ./client/node_modules
+          key: client-osx-node-modules-${{ hashFiles('./client/yarn.lock') }}
 
       - name: Install Client Dependencies
-        if: steps.cache-client-node-modules-pods.outputs.cache-hit != 'true'
+        if: steps.cache-client-osx-node-modules.outputs.cache-hit != 'true'
         working-directory: ./client
         run: yarn
+
+      - name: Cache Client Cocoapods Dependencies
+        id: cache-client-pods
+        uses: actions/cache@v2
+        with:
+          path: ./client/ios/Pods
+          key: client-pods-${{ hashFiles('./client/ios/Podfile.lock') }}
+
+      - name: Install Client Cocoapods Dependencies
+        if: steps.cache-client-pods.cache-hit != 'true'
+        working-directory: ./client/ios
+        run: bundle exec pod install
 
       - name: Install Fastlane Dependencies
         working-directory: ./client/fastlane
