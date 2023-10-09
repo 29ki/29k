@@ -1067,15 +1067,6 @@
     "@sentry/utils" "7.73.0"
     tslib "^2.4.1 || ^1.9.3"
 
-"@sentry/core@7.73.0":
-  version "7.73.0"
-  resolved "https://registry.yarnpkg.com/@sentry/core/-/core-7.73.0.tgz#1caeeec44f42c4d58c06cc05dec39e5497b65aa3"
-  integrity sha512-9FEz4Gq848LOgVN2OxJGYuQqxv7cIVw69VlAzWHEm3njt8mjvlTq+7UiFsGRo84+59V2FQuHxzA7vVjl90WfSg==
-  dependencies:
-    "@sentry/types" "7.73.0"
-    "@sentry/utils" "7.73.0"
-    tslib "^2.4.1 || ^1.9.3"
-
 "@sentry/integrations@^7.73.0":
   version "7.73.0"
   resolved "https://registry.yarnpkg.com/@sentry/integrations/-/integrations-7.73.0.tgz#f12d4a6422787cc6d50471bbdec52ed32611a444"
@@ -1101,23 +1092,10 @@
     lru_map "^0.3.3"
     tslib "^2.4.1 || ^1.9.3"
 
-"@sentry/types@7.70.0":
-  version "7.70.0"
-  resolved "https://registry.yarnpkg.com/@sentry/types/-/types-7.70.0.tgz#c7b533bb18144e3b020550b38cf4812c32d05ffe"
-  integrity sha512-rY4DqpiDBtXSk4MDNBH3dwWqfPbNBI/9GA7Y5WJSIcObBtfBKp0fzYliHJZD0pgM7d4DPFrDn42K9Iiumgymkw==
-
 "@sentry/types@7.73.0":
   version "7.73.0"
   resolved "https://registry.yarnpkg.com/@sentry/types/-/types-7.73.0.tgz#6d811bbe413d319df0a592a672d6d72a94a8e716"
   integrity sha512-/v8++bly8jW7r4cP2wswYiiVpn7eLLcqwnfPUMeCQze4zj3F3nTRIKc9BGHzU0V+fhHa3RwRC2ksqTGq1oJMDg==
-
-"@sentry/utils@7.70.0":
-  version "7.70.0"
-  resolved "https://registry.yarnpkg.com/@sentry/utils/-/utils-7.70.0.tgz#825387ceb10cbb1e145357394b697a1a6d60eb74"
-  integrity sha512-0cChMH0lsGp+5I3D4wOHWwjFN19HVrGUs7iWTLTO5St3EaVbdeLbI1vFXHxMxvopbwgpeZafbreHw/loIdZKpw==
-  dependencies:
-    "@sentry/types" "7.70.0"
-    tslib "^2.4.1 || ^1.9.3"
 
 "@sentry/utils@7.73.0":
   version "7.73.0"
@@ -4167,10 +4145,10 @@ firebase-functions@^4.4.0:
     node-fetch "^2.6.7"
     protobufjs "^7.2.2"
 
-firebase-tools@^12.5.4:
-  version "12.5.4"
-  resolved "https://registry.yarnpkg.com/firebase-tools/-/firebase-tools-12.5.4.tgz#5235b857cc0d384b2036cd7a25c812cd487d4746"
-  integrity sha512-fLE+91tJp3PNZPyB6kN9zfn5rkQWhzPX3mlsAGKTMJUA5TLeZA1YlfBbgPr2DJUO47cHN/9b0BYUQjYcYsBPgw==
+firebase-tools@^12.6.2:
+  version "12.6.2"
+  resolved "https://registry.yarnpkg.com/firebase-tools/-/firebase-tools-12.6.2.tgz#0b0f9903feece2d557361f5db9bab5e658ae18db"
+  integrity sha512-Z5cEtLLr11ZWDuT1AQEug4z6mqgJZSWpA7bRF4CVaOHfDAZfmxYdurZjHYOoHT1hoL+2JwS/Nf5KSrA/OhC9Lw==
   dependencies:
     "@google-cloud/pubsub" "^3.0.1"
     abort-controller "^3.0.0"
