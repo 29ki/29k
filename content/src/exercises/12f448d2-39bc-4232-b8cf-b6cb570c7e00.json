@@ -15,7 +15,10 @@
       {
         "type": "instruction",
         "content": {
-          "text": "Sky gazing practises being here and now, looking up into the sky. Start the exercise when you are outside, ready to look up for around seven minutes."
+          "text": "Sky gazing practises being here and now, looking up into the sky. Start the exercise when you are outside, ready to look up for around seven minutes.",
+          "image": {
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1697630657/Images/card_image_sky_gazing_wloxhk.png"
+          }
         }
       },
       {
