@@ -70,7 +70,8 @@
           "heading": "What did you discover?",
           "lottie": {
             "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1676639253/Lottie/default_2min_white_arvrf2.json",
-            "durationTimer": true
+            "durationTimer": true,
+            "duration": 120
           }
         }
       },
