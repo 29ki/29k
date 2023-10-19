@@ -121,6 +121,18 @@
         "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1687406076/Images/card_image_way_out_is_through_qjpv4m.png"
       }
     },
+    "coCreators": [
+      {
+        "name": "Voice: Rachel Brathen",
+        "link": "https://www.yogagirl.com/rachel-brathen",
+        "avatar_url": "https://res.cloudinary.com/cupcake-29k/image/upload/v1697722469/Images/Rachel%20Brathen.png"
+      },
+      {
+        "name": "Based on research by Kristin Neff & Chris Germer, CMSC",
+        "link": "https://centerformsc.org/",
+        "avatar_url": "https://res.cloudinary.com/cupcake-29k/image/upload/v1697723039/Images/Germer%2C%20Neff.png"
+      }
+    ],
     "duration": 30,
     "outroPortal": {
       "video": {
