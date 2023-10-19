@@ -106,7 +106,7 @@
       "textColor": "#F9F8F4",
       "backgroundColor": "#0e529c"
     },
-    "hidden": true,
+    "hidden": false,
     "name": "Sky gazing",
     "live": true,
     "published": true,
