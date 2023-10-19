@@ -18,6 +18,7 @@ import {
   ASYNC_FIELD,
   LIVE_FIELD,
   LINK_FIELD,
+  CO_CREATORS,
 } from './common';
 import {
   CONTENT_SLIDE,
@@ -63,36 +64,6 @@ export const SOCIAL_MEDIA: CmsField = {
       i18n: true,
       allow_multiple: false,
       media_library: CLOUDINARY_IMAGE_CONFIG,
-    },
-  ],
-};
-
-export const CO_CREATORS: CmsField = {
-  label: '🪡 Co-creators',
-  label_singular: '🪡 Co-creator',
-  name: 'coCreators',
-  collapsed: true,
-  required: false,
-  i18n: true,
-  widget: 'list',
-  fields: [
-    {
-      label: 'Name',
-      name: 'name',
-      widget: 'string',
-    },
-    {
-      label: 'Link',
-      name: 'link',
-      widget: 'string',
-    },
-    {
-      label: 'Avatar',
-      name: 'avatar_url',
-      widget: 'image',
-      media_library: {
-        name: 'cloudinary',
-      },
     },
   ],
 };

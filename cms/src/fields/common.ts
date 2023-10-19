@@ -6,6 +6,7 @@ import {
 } from 'netlify-cms-core';
 import {
   CLOUDINARY_AUDIO_CONFIG,
+  CLOUDINARY_COCREATOR_IMAGE_CONFIG,
   CLOUDINARY_IMAGE_CONFIG,
   CLOUDINARY_VIDEO_CONFIG,
 } from './constants';
@@ -348,4 +349,33 @@ export const SORT_ORDER_FIELD: CmsField = {
   i18n: 'duplicate',
   required: false,
   value_type: 'int',
+};
+
+export const CO_CREATORS: CmsField = {
+  label: '🪡 Co-creators',
+  label_singular: '🪡 Co-creator',
+  name: 'coCreators',
+  collapsed: true,
+  required: false,
+  i18n: true,
+  widget: 'list',
+  fields: [
+    {
+      label: '👤 Name',
+      name: 'name',
+      widget: 'string',
+    },
+    {
+      label: '🔗 Link',
+      name: 'url',
+      widget: 'string',
+    },
+    {
+      label: '🖼️ Image',
+      name: 'image',
+      widget: 'image',
+      allow_multiple: false,
+      media_library: CLOUDINARY_COCREATOR_IMAGE_CONFIG,
+    },
+  ],
 };
