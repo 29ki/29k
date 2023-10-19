@@ -226,26 +226,6 @@ const SessionOverlay = () => {
     [navigation],
   );
 
-  const coCreators = useMemo(
-    () => (
-      <>
-        {exercise?.coCreators?.map(({name, avatar_url, link}, idx) => (
-          <View key={`${name}-${idx}`}>
-            <Byline
-              small
-              prefix={false}
-              pictureURL={avatar_url}
-              name={name}
-              onPress={!link ? undefined : () => openUrl(link)}
-            />
-            <Spacer4 />
-          </View>
-        ))}
-      </>
-    ),
-    [exercise],
-  );
-
   const moreLikeThisExercises = useMemo(
     () =>
       take(MORE_LIKE_THIS_LIMIT, exercisesByTags).map((e, idx) => (
