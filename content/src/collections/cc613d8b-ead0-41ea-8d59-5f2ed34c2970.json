@@ -1,22 +1,73 @@
 {
   "en": {
-    "published": true,
+    "sv": {
+      "published": false,
+      "hidden": false,
+      "id": "cc613d8b-ead0-41ea-8d59-5f2ed34c2970",
+      "exercises": [
+        "fff6f8da-f69c-458f-8905-acee04bd1a1d",
+        "5b69ff57-10c4-4288-afc7-a6f6ed212531",
+        "12f448d2-39bc-4232-b8cf-b6cb570c7e00",
+        "648e1802-eb45-47b0-a42e-dd986669a4eb",
+        "c7911238-ca9f-4499-9cae-63dfcd0c79c5"
+      ]
+    },
+    "pt": {
+      "published": false,
+      "hidden": false,
+      "id": "cc613d8b-ead0-41ea-8d59-5f2ed34c2970",
+      "exercises": [
+        "fff6f8da-f69c-458f-8905-acee04bd1a1d",
+        "5b69ff57-10c4-4288-afc7-a6f6ed212531",
+        "12f448d2-39bc-4232-b8cf-b6cb570c7e00",
+        "648e1802-eb45-47b0-a42e-dd986669a4eb",
+        "c7911238-ca9f-4499-9cae-63dfcd0c79c5"
+      ]
+    },
+    "en": {
+      "published": true,
+      "hidden": true,
+      "id": "cc613d8b-ead0-41ea-8d59-5f2ed34c2970",
+      "name": "Youth IDG with a smashing name!",
+      "description": "Learn to master skills for your own and the planet's wellbeing, practising presence, relating, resilience, future visioning and perspective taking.",
+      "exercises": [
+        "fff6f8da-f69c-458f-8905-acee04bd1a1d",
+        "5b69ff57-10c4-4288-afc7-a6f6ed212531",
+        "12f448d2-39bc-4232-b8cf-b6cb570c7e00",
+        "648e1802-eb45-47b0-a42e-dd986669a4eb",
+        "c7911238-ca9f-4499-9cae-63dfcd0c79c5"
+      ],
+      "image": {
+        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1697618661/Images/youth_IDG_collection_roejxe.png"
+      }
+    },
     "hidden": true,
-    "id": "cc613d8b-ead0-41ea-8d59-5f2ed34c2970",
-    "name": "Youth IDG with a smashing name!",
-    "description": "Learn to master skills for your own and the planet's wellbeing, practising presence, relating, resilience, future visioning and perspective taking.",
+    "name": "Self care for the planet",
+    "es": {
+      "published": false,
+      "hidden": false,
+      "id": "cc613d8b-ead0-41ea-8d59-5f2ed34c2970",
+      "exercises": [
+        "fff6f8da-f69c-458f-8905-acee04bd1a1d",
+        "5b69ff57-10c4-4288-afc7-a6f6ed212531",
+        "12f448d2-39bc-4232-b8cf-b6cb570c7e00",
+        "648e1802-eb45-47b0-a42e-dd986669a4eb",
+        "c7911238-ca9f-4499-9cae-63dfcd0c79c5"
+      ]
+    },
+    "published": true,
+    "id": "bd2e9209-8bf7-4f3f-bc49-99c540228bfc",
     "exercises": [
       "fff6f8da-f69c-458f-8905-acee04bd1a1d",
       "5b69ff57-10c4-4288-afc7-a6f6ed212531",
       "12f448d2-39bc-4232-b8cf-b6cb570c7e00",
       "648e1802-eb45-47b0-a42e-dd986669a4eb",
       "c7911238-ca9f-4499-9cae-63dfcd0c79c5"
-    ]
+    ],
+    "description": "Doing what matters for ourselves, others and the planet – for a better tomorrow."
   },
   "pt": {
-    "published": false,
-    "hidden": false,
-    "id": "cc613d8b-ead0-41ea-8d59-5f2ed34c2970",
+    "id": "bd2e9209-8bf7-4f3f-bc49-99c540228bfc",
     "exercises": [
       "fff6f8da-f69c-458f-8905-acee04bd1a1d",
       "5b69ff57-10c4-4288-afc7-a6f6ed212531",
@@ -26,9 +77,7 @@
     ]
   },
   "sv": {
-    "published": false,
-    "hidden": false,
-    "id": "cc613d8b-ead0-41ea-8d59-5f2ed34c2970",
+    "id": "bd2e9209-8bf7-4f3f-bc49-99c540228bfc",
     "exercises": [
       "fff6f8da-f69c-458f-8905-acee04bd1a1d",
       "5b69ff57-10c4-4288-afc7-a6f6ed212531",
@@ -38,9 +87,7 @@
     ]
   },
   "es": {
-    "published": false,
-    "hidden": false,
-    "id": "cc613d8b-ead0-41ea-8d59-5f2ed34c2970",
+    "id": "bd2e9209-8bf7-4f3f-bc49-99c540228bfc",
     "exercises": [
       "fff6f8da-f69c-458f-8905-acee04bd1a1d",
       "5b69ff57-10c4-4288-afc7-a6f6ed212531",

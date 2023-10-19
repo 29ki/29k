@@ -15,7 +15,10 @@
       {
         "type": "instruction",
         "content": {
-          "text": "Sky gazing practises being here and now, looking up into the sky. Start the exercise when you are outside, ready to look up for around seven minutes."
+          "text": "Sky gazing practises being here and now, looking up into the sky. Start the exercise when you are outside, ready to look up for around seven minutes.",
+          "image": {
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1697630657/Images/card_image_sky_gazing_wloxhk.png"
+          }
         }
       },
       {
@@ -23,7 +26,9 @@
         "content": {
           "lottie": {
             "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1696420104/Audio/Sky_gazing_ih7ox9.mp3",
-            "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1696420138/SRT%20(captions)%20files/Sky_gazing_rt4epi.srt"
+            "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1696420138/SRT%20(captions)%20files/Sky_gazing_rt4epi.srt",
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1676642915/Lottie/default_audio_white_sufmbz.json",
+            "durationTimer": true
           }
         },
         "hostNotes": [
@@ -43,7 +48,11 @@
           }
         ],
         "content": {
-          "heading": "What did you discover?"
+          "heading": "What did you discover?",
+          "lottie": {
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1676642915/Lottie/default_1min_white_wvgwma.json",
+            "durationTimer": false
+          }
         }
       },
       {
@@ -61,7 +70,12 @@
         ],
         "id": "1",
         "content": {
-          "heading": "What did you discover?"
+          "heading": "What did you discover?",
+          "lottie": {
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1676639253/Lottie/default_2min_white_arvrf2.json",
+            "durationTimer": true,
+            "duration": 120
+          }
         }
       },
       {
@@ -81,17 +95,26 @@
       {
         "type": "instruction",
         "content": {
-          "text": "Well done. \n\nNoticing what’s here and now above us, can improve our sense of connection and presence. \n\nIf you’re up for it, you can continue with a mission to bring this into your everyday life.\n\nThe next two days, take a few minutes each day and look up. Pay attention to what you see in the sky, letting things come and go as they are."
+          "text": "Well done. \n\nNoticing what’s here and now above us, can improve our sense of connection and presence. \n\nIf you’re up for it, you can continue with a mission to bring this into your everyday life.\n\nThe next two days, take a few minutes each day and look up. Pay attention to what you see in the sky, letting things come and go as they are.",
+          "image": {
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1697630657/Images/card_image_sky_gazing_wloxhk.png"
+          }
         }
       }
     ],
     "theme": {
-      "textColor": "#2AE2D7"
+      "textColor": "#F9F8F4",
+      "backgroundColor": "#0e529c"
     },
-    "hidden": true,
+    "hidden": false,
     "name": "Sky gazing",
     "live": true,
     "published": true,
+    "card": {
+      "image": {
+        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1697630657/Images/card_image_sky_gazing_wloxhk.png"
+      }
+    },
     "coCreators": [],
     "duration": 30,
     "introPortal": {
@@ -99,7 +122,14 @@
         {
           "text": "> Start the session when you're ready to begin"
         }
-      ]
+      ],
+      "videoLoop": {
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1697630712/Video/portal1_sky_gazing_nzvbyk.mp4",
+        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1697630682/Audio/portal_audio__sky_gazing_zjwzsc.mp3"
+      },
+      "videoEnd": {
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1697630707/Video/portal2_sky_gazing_nlgcbd.mp4"
+      }
     },
     "tags": [
       "cfc00217-f65b-4a4d-8b82-8ccc8f852dd6",

@@ -2,9 +2,9 @@
   "en": {
     "title": "One last thing...",
     "question": "Was this meaningful for you?",
-    "comments": "Would you like to join our community of testers?",
-    "commentsPlaceholder": "Email",
-    "note": "If you’re up for it, type your email and we’ll get back to you. ",
+    "comments": "Do you have any comments?",
+    "commentsPlaceholder": "Optional...",
+    "note": "Your comments will be shared anonymously. ",
     "submit": "Submit",
     "thankYou__text": "Thank you\nso much\nfor your\nfeedback!"
   },
