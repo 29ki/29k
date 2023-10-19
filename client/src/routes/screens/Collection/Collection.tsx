@@ -42,6 +42,7 @@ import {
   ShareIcon,
 } from '../../../lib/components/Icons';
 import IconButton from '../../../lib/components/Buttons/IconButton/IconButton';
+import CoCreators from '../../../lib/components/CoCreators/CoCreators';
 
 type Section = {
   title: string;
@@ -222,7 +223,19 @@ const Collection = () => {
             </Gutters>
           }
           renderSectionHeader={renderExerciseSectionHeader}
-          ListFooterComponent={Spacer48}
+          ListFooterComponent={
+            <Gutters>
+              {Boolean(collection?.coCreators?.length) && (
+                <>
+                  <Spacer24 />
+                  <Heading16>{t('coCreatorsHeading')}</Heading16>
+                  <Spacer8 />
+                  <CoCreators coCreators={collection?.coCreators} />
+                </>
+              )}
+              <Spacer48 />
+            </Gutters>
+          }
           renderItem={renderExerciseItem}
         />
       </Wrapper>

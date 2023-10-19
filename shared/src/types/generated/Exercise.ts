@@ -3,8 +3,8 @@
 
 export interface ExerciseCoCreator {
   name: string;
-  link: string;
-  avatar_url: string;
+  url: string;
+  image: string;
 }
 
 export interface ExerciseSocialMediaMetaTags {

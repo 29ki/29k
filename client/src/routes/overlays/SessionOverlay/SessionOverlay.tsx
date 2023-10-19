@@ -5,7 +5,6 @@ import {useTranslation} from 'react-i18next';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import {Share, View} from 'react-native';
 import styled from 'styled-components/native';
-import {openUrl} from 'react-native-markdown-display';
 
 import {
   ModalStackProps,
@@ -33,7 +32,7 @@ import Gutters from '../../../lib/components/Gutters/Gutters';
 import IconButton from '../../../lib/components/Buttons/IconButton/IconButton';
 import Image from '../../../lib/components/Image/Image';
 import {Display24} from '../../../lib/components/Typography/Display/Display';
-import {Heading18} from '../../../lib/components/Typography/Heading/Heading';
+import {Heading16} from '../../../lib/components/Typography/Heading/Heading';
 import {Body16} from '../../../lib/components/Typography/Body/Body';
 import Byline from '../../../lib/components/Bylines/Byline';
 import SessionTimeBadge from '../../../lib/components/SessionTimeBadge/SessionTimeBadge';
@@ -72,6 +71,7 @@ import useExercisesByTags from '../../../lib/content/hooks/useExercisesByTags';
 import {Tag as TagType} from '../../../../../shared/src/types/generated/Tag';
 import ExerciseCardContainer from '../../../lib/components/Cards/SessionCard/ExerciseCardContainer';
 import {take} from 'ramda';
+import CoCreators from '../../../lib/components/CoCreators/CoCreators';
 
 const Content = styled(Gutters)({
   justifyContent: 'space-between',
@@ -223,26 +223,6 @@ const SessionOverlay = () => {
   const howItWorksPress = useCallback(
     () => navigation.navigate('HowItWorksModal'),
     [navigation],
-  );
-
-  const coCreators = useMemo(
-    () => (
-      <>
-        {exercise?.coCreators?.map(({name, avatar_url, link}, idx) => (
-          <View key={`${name}-${idx}`}>
-            <Byline
-              small
-              prefix={false}
-              pictureURL={avatar_url}
-              name={name}
-              onPress={!link ? undefined : () => openUrl(link)}
-            />
-            <Spacer4 />
-          </View>
-        ))}
-      </>
-    ),
-    [exercise],
   );
 
   const moreLikeThisExercises = useMemo(
@@ -422,9 +402,9 @@ const SessionOverlay = () => {
           {Boolean(exercise.coCreators?.length) && (
             <>
               <Spacer24 />
-              <Heading18>{t('coCreatorsHeading')}</Heading18>
+              <Heading16>{t('coCreatorsHeading')}</Heading16>
               <Spacer8 />
-              {coCreators}
+              <CoCreators coCreators={exercise.coCreators} />
             </>
           )}
         </Gutters>
@@ -432,7 +412,7 @@ const SessionOverlay = () => {
           <>
             <Spacer24 />
             <Gutters>
-              <Heading18>{t('feedbackHeading')}</Heading18>
+              <Heading16>{t('feedbackHeading')}</Heading16>
             </Gutters>
             <Spacer8 />
             <FeedbackCarousel feedbackItems={feedback} />
@@ -442,7 +422,7 @@ const SessionOverlay = () => {
         {Boolean(exercisesByTags?.length) && (
           <Gutters>
             <Spacer24 />
-            <Heading18>{t('moreLikeThis')}</Heading18>
+            <Heading16>{t('moreLikeThis')}</Heading16>
             <Spacer8 />
             <View>{moreLikeThisExercises}</View>
           </Gutters>
