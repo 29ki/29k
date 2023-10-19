@@ -2,7 +2,8 @@
   "en": {
     "collectionHeading": "Collection",
     "addToJourney": "My journey",
-    "sessionsHeading": "Sessions"
+    "sessionsHeading": "Sessions",
+    "coCreatorsHeading": "Co-created with"
   },
   "pt": {
     "sessionsHeading": "Sessões",
@@ -12,7 +13,8 @@
   "sv": {
     "collectionHeading": "Samling",
     "sessionsHeading": "Sessioner",
-    "addToJourney": "Min plan"
+    "addToJourney": "Min plan",
+    "coCreatorsHeading": "Skapad med "
   },
   "es": {}
 }
