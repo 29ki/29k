@@ -87,7 +87,7 @@
     "zustand": "^4.4.1"
   },
   "devDependencies": {
-    "@babel/core": "^7.22.20",
+    "@babel/core": "^7.23.2",
     "@babel/runtime": "^7.23.1",
     "@react-native-community/eslint-config": "^3.2.0",
     "@sentry/cli": "^2.21.2",
