@@ -5,7 +5,6 @@ import {useTranslation} from 'react-i18next';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import {Share, View} from 'react-native';
 import styled from 'styled-components/native';
-import {openUrl} from 'react-native-markdown-display';
 
 import {
   ModalStackProps,
