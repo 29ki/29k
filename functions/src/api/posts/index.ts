@@ -1,11 +1,7 @@
 import * as yup from 'yup';
 import {createApiAuthRouter} from '../../lib/routers';
 import {PostError} from '../../../../shared/src/errors/Post';
-import {
-  createPost,
-  deletePost,
-  getPostsByExerciseAndSharingId,
-} from '../../controllers/posts';
+import {createPost, deletePost, getPosts} from '../../controllers/posts';
 import {RequestError} from '../../controllers/errors/RequestError';
 import validation from '../lib/validation';
 import {
@@ -17,7 +13,28 @@ const postsRouter = createApiAuthRouter();
 
 const POSTS_LIMIT = 20;
 
-const GetPostsParamsSchema = yup.object({
+const GetPostsQuerySchema = yup.object({
+  limit: yup.number().max(100).default(POSTS_LIMIT),
+});
+
+postsRouter.get(
+  '/',
+  validation({
+    query: GetPostsQuerySchema,
+    response: yup.array().of(PostSchema),
+  }),
+  async ctx => {
+    const {response} = ctx;
+    const {limit} = ctx.request.query;
+
+    const posts = await getPosts(limit);
+
+    response.status = 200;
+    ctx.body = posts;
+  },
+);
+
+const GetPostsByExerciseAndSharingParamsSchema = yup.object({
   exerciseId: yup.string().required(),
   sharingId: yup.string().required(),
 });
@@ -25,18 +42,16 @@ const GetPostsParamsSchema = yup.object({
 postsRouter.get(
   '/:exerciseId/:sharingId',
   validation({
-    params: GetPostsParamsSchema,
+    query: GetPostsQuerySchema,
+    params: GetPostsByExerciseAndSharingParamsSchema,
     response: yup.array().of(PostSchema),
   }),
   async ctx => {
     const {response} = ctx;
     const {exerciseId, sharingId} = ctx.params;
+    const {limit} = ctx.request.query;
 
-    const posts = await getPostsByExerciseAndSharingId(
-      exerciseId,
-      sharingId,
-      POSTS_LIMIT,
-    );
+    const posts = await getPosts(limit, exerciseId, sharingId);
 
     response.status = 200;
     ctx.body = posts;

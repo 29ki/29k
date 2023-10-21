@@ -19,16 +19,12 @@ const safeGetPublicHostInfo = async (userId: string) => {
   }
 };
 
-export const getPostsByExerciseAndSharingId = async (
-  exerciseId: string,
-  sharingId: string,
+export const getPosts = async (
   limit: number,
+  exerciseId?: string,
+  sharingId?: string,
 ) => {
-  const posts = await postModel.getPostsByExerciseAndSharingId(
-    exerciseId,
-    sharingId,
-    limit,
-  );
+  const posts = await postModel.getPosts(limit, exerciseId, sharingId);
   return Promise.all(
     posts.map(async post => ({
       ...post,

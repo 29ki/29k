@@ -23,16 +23,24 @@ export const getPostById = async (
   return getData<PostRecord>(postDoc);
 };
 
-export const getPostsByExerciseAndSharingId = async (
-  exerciseId: string,
-  sharingId: string,
+export const getPosts = async (
   limit: number,
+  exerciseId?: string,
+  sharingId?: string,
 ): Promise<PostRecord[]> => {
-  const snapshot = await firestore()
+  let query = firestore()
     .collection(POSTS_COLLECTION)
-    .where('exerciseId', '==', exerciseId)
-    .where('sharingId', '==', sharingId)
-    .where('approved', '==', true)
+    .where('approved', '==', true);
+
+  if (exerciseId) {
+    query = query.where('exerciseId', '==', exerciseId);
+  }
+
+  if (exerciseId) {
+    query = query.where('sharingId', '==', sharingId);
+  }
+
+  const snapshot = await query
     .orderBy('createdAt', 'desc')
     .limit(limit * 2) // We need overfetching to be able to skip posts with insufficient text length
     .get();
