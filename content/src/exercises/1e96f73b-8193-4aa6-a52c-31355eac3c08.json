@@ -123,14 +123,18 @@
     },
     "coCreators": [
       {
-        "name": "Voice: Rachel Brathen",
+        "name": "Rachel Brathen, voice",
         "link": "https://www.yogagirl.com/rachel-brathen",
-        "avatar_url": "https://res.cloudinary.com/cupcake-29k/image/upload/v1697722469/Images/Rachel%20Brathen.png"
+        "avatar_url": "https://res.cloudinary.com/cupcake-29k/image/upload/v1697722469/Images/Rachel%20Brathen.png",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1697722469/Images/Rachel%20Brathen.png",
+        "url": "https://www.yogagirl.com/"
       },
       {
         "name": "Based on research by Kristin Neff & Chris Germer, CMSC",
         "link": "https://centerformsc.org/",
-        "avatar_url": "https://res.cloudinary.com/cupcake-29k/image/upload/v1697723039/Images/Germer%2C%20Neff.png"
+        "avatar_url": "https://res.cloudinary.com/cupcake-29k/image/upload/v1697723039/Images/Germer%2C%20Neff.png",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1697723039/Images/Germer%2C%20Neff.png",
+        "url": "https://centerformsc.org/"
       }
     ],
     "duration": 30,
