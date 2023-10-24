@@ -22,7 +22,8 @@
         "content": {
           "lottie": {
             "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1696324066/Audio/The_future_you_ylxso8.mp3",
-            "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1696324117/SRT%20(captions)%20files/The_future_you_gzkogk.srt"
+            "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1696324117/SRT%20(captions)%20files/The_future_you_gzkogk.srt",
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1676977421/Lottie/audio_meditation_default_black_default_omemwt.json"
           }
         }
       },
@@ -37,7 +38,10 @@
           }
         ],
         "content": {
-          "heading": "What would you like the future you to tell the current you?"
+          "heading": "What would you like the future you to tell the current you?",
+          "lottie": {
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1676642915/Lottie/default_1min_black_rosi2l.json"
+          }
         }
       },
       {
@@ -55,7 +59,12 @@
         ],
         "id": "1",
         "content": {
-          "heading": "What would you like the future you to tell the current you?"
+          "heading": "What would you like the future you to tell the current you?",
+          "lottie": {
+            "durationTimer": true,
+            "duration": 120,
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1676639253/Lottie/default_2min_black_o6egey.json"
+          }
         }
       },
       {
@@ -75,24 +84,40 @@
       {
         "type": "instruction",
         "content": {
-          "text": "Well done. If you’re up for it, you can continue with a mission to bring this into your everyday life.\n\nLet the words from the future you guide your actions for today and tomorrow. Notice how that makes you feel and act."
+          "text": "Well done. If you’re up for it, you can continue with a mission to bring this into your everyday life.\n\nLet the words from the future you guide your actions for today and tomorrow. Notice how that makes you feel and act.",
+          "image": {
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1698157752/Images/card_image_the_future_you_imvrwj.png"
+          }
         }
       }
     ],
     "theme": {
-      "textColor": "#2AE2D7"
+      "textColor": "#2E2E2E",
+      "backgroundColor": "#a49c80"
     },
     "hidden": true,
     "name": "The future you!",
     "live": true,
     "published": true,
+    "card": {
+      "image": {
+        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1698157752/Images/card_image_the_future_you_imvrwj.png"
+      }
+    },
     "duration": 30,
     "introPortal": {
       "hostNotes": [
         {
           "text": "> Start the session when you're ready to begin"
         }
-      ]
+      ],
+      "videoLoop": {
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1698157747/Video/portal1_the_future_you_ss8zxh.mp4",
+        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1698157732/Audio/portal_audio_the_future_you_ghxefe.mp3"
+      },
+      "videoEnd": {
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1698157742/Video/portal2_the_future_you_obfsqf.mp4"
+      }
     },
     "tags": [
       "9c2c08a9-7dc6-4058-bc78-016d0eb00614",
