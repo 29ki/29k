@@ -55,7 +55,7 @@ import {Heading16} from '../../../lib/components/Typography/Heading/Heading';
 import SessionCard from '../../../lib/components/Cards/SessionCard/SessionCard';
 import useLiveSessionsByExercise from '../../../lib/session/hooks/useLiveSessionsByExercise';
 import FeedbackCard from '../../../lib/components/FeedbackCard/FeedbackCard';
-import ExerciseCardContainer from '../../../lib/components/Cards/SessionCard/ExerciseCardContainer';
+import ExerciseCard from '../../../lib/components/Cards/SessionCard/ExerciseCard';
 import useExercisesByTags from '../../../lib/content/hooks/useExercisesByTags';
 import {Tag as TagType} from '../../../../../shared/src/types/generated/Tag';
 import CoCreators from '../../../lib/components/CoCreators/CoCreators';
@@ -188,7 +188,7 @@ const CompletedSessionModal = () => {
     () =>
       take(MORE_LIKE_THIS_LIMIT, exercisesByTags).map(e => (
         <Fragment key={e.id}>
-          <ExerciseCardContainer key={e.id} exercise={e} />
+          <ExerciseCard key={e.id} exercise={e} />
           <Spacer16 />
         </Fragment>
       )),

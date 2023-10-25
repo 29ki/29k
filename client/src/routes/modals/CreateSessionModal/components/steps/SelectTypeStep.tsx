@@ -52,7 +52,7 @@ import useExerciseRating from '../../../../../lib/session/hooks/useExerciseRatin
 import useExerciseFeedback from '../../../../../lib/session/hooks/useExerciseFeedback';
 import FeedbackCarousel from '../../../../../lib/components/FeedbackCarousel/FeedbackCarousel';
 import useLiveSessionsByExercise from '../../../../../lib/session/hooks/useLiveSessionsByExercise';
-import ExerciseCardContainer from '../../../../../lib/components/Cards/SessionCard/ExerciseCardContainer';
+import ExerciseCard from '../../../../../lib/components/Cards/SessionCard/ExerciseCard';
 import useExercisesByTags from '../../../../../lib/content/hooks/useExercisesByTags';
 import {Tag as TagType} from '../../../../../../../shared/src/types/generated/Tag';
 import {take} from 'ramda';
@@ -251,7 +251,7 @@ const SelectTypeStep: React.FC<StepProps> = ({
     () =>
       take(MORE_LIKE_THIS_LIMIT, exercisesByTags).map(e => (
         <Fragment key={e.id}>
-          <ExerciseCardContainer exercise={e} onPress={() => popToTop()} />
+          <ExerciseCard exercise={e} onPress={() => popToTop()} />
           <Spacer16 />
         </Fragment>
       )),

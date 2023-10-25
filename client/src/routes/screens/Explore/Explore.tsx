@@ -28,7 +28,7 @@ import {SPACINGS} from '../../../lib/constants/spacings';
 import useExercises from '../../../lib/content/hooks/useExercises';
 import useCollections from '../../../lib/content/hooks/useCollections';
 import {OverlayStackProps} from '../../../lib/navigation/constants/routes';
-import ExerciseCardContainer from '../../../lib/components/Cards/SessionCard/ExerciseCardContainer';
+import ExerciseCard from '../../../lib/components/Cards/SessionCard/ExerciseCard';
 import BottomFade from '../../../lib/components/BottomFade/BottomFade';
 import ComingSoonSlider from './components/ComingSoon';
 import styled from 'styled-components/native';
@@ -90,7 +90,7 @@ const Explore = () => {
   >(
     ({item}) => (
       <Gutters>
-        <ExerciseCardContainer exercise={item} />
+        <ExerciseCard exercise={item} />
       </Gutters>
     ),
     [],

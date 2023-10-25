@@ -9,7 +9,7 @@ import styled from 'styled-components/native';
 import {COLORS} from '../../../../../shared/src/constants/colors';
 import {Exercise} from '../../../../../shared/src/types/generated/Exercise';
 import CompletedSessionCard from '../../../lib/components/Cards/SessionCard/CompletedSessionCard';
-import ExerciseCardContainer from '../../../lib/components/Cards/SessionCard/ExerciseCardContainer';
+import ExerciseCard from '../../../lib/components/Cards/SessionCard/ExerciseCard';
 import Gutters from '../../../lib/components/Gutters/Gutters';
 import Image from '../../../lib/components/Image/Image';
 import Screen from '../../../lib/components/Screen/Screen';
@@ -143,7 +143,7 @@ const Collection = () => {
               completedSessionEvent={completedExerciseEvent}
             />
           ) : (
-            <ExerciseCardContainer exercise={item} />
+            <ExerciseCard exercise={item} />
           )}
         </Gutters>
       );

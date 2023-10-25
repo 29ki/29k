@@ -69,7 +69,7 @@ import useExerciseFeedback from '../../../lib/session/hooks/useExerciseFeedback'
 import FeedbackCarousel from '../../../lib/components/FeedbackCarousel/FeedbackCarousel';
 import useExercisesByTags from '../../../lib/content/hooks/useExercisesByTags';
 import {Tag as TagType} from '../../../../../shared/src/types/generated/Tag';
-import ExerciseCardContainer from '../../../lib/components/Cards/SessionCard/ExerciseCardContainer';
+import ExerciseCard from '../../../lib/components/Cards/SessionCard/ExerciseCard';
 import {take} from 'ramda';
 import CoCreators from '../../../lib/components/CoCreators/CoCreators';
 
@@ -229,7 +229,7 @@ const SessionOverlay = () => {
     () =>
       take(MORE_LIKE_THIS_LIMIT, exercisesByTags).map(e => (
         <Fragment key={e.id}>
-          <ExerciseCardContainer exercise={e} />
+          <ExerciseCard exercise={e} />
           <Spacer16 />
         </Fragment>
       )),

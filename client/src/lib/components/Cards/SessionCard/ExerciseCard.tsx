@@ -11,7 +11,7 @@ type ExerciseCardContainerProps = {
   onPress?: () => void;
 };
 
-const ExerciseCardContainer: React.FC<ExerciseCardContainerProps> = ({
+const ExerciseCard: React.FC<ExerciseCardContainerProps> = ({
   exercise,
   onPress = () => {},
 }) => {
@@ -36,4 +36,4 @@ const ExerciseCardContainer: React.FC<ExerciseCardContainerProps> = ({
   );
 };
 
-export default React.memo(ExerciseCardContainer);
+export default React.memo(ExerciseCard);
