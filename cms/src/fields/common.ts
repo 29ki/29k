@@ -105,6 +105,14 @@ export const DURATION_FIELD: CmsField = {
   value_type: 'int',
 };
 
+export const BACKGROUND_COLOR_FIELD: CmsField = {
+  label: '🎨 Background Color',
+  name: 'backgroundColor',
+  widget: 'color',
+  i18n: true,
+  required: false,
+};
+
 export const IMAGE_FIELD: CmsFieldBase & CmsFieldObject = {
   label: '🌅 Image',
   name: 'image',
@@ -322,6 +330,7 @@ export const CARD_FIELD: CmsFieldBase & CmsFieldObject = {
   widget: 'object',
   collapsed: true,
   fields: [
+    BACKGROUND_COLOR_FIELD,
     IMAGE_FIELD,
     {...LOTTE_FIELD, hint: 'Overrides image'},
     {...AMBASSADOR_FIELD, hint: 'Only used for the Async version'},
@@ -351,7 +360,7 @@ export const SORT_ORDER_FIELD: CmsField = {
   value_type: 'int',
 };
 
-export const CO_CREATORS: CmsField = {
+export const CO_CREATORS_FIELD: CmsField = {
   label: '🪡 Co-creators',
   label_singular: '🪡 Co-creator',
   name: 'coCreators',

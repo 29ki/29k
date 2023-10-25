@@ -18,7 +18,8 @@ import {
   ASYNC_FIELD,
   LIVE_FIELD,
   LINK_FIELD,
-  CO_CREATORS,
+  CO_CREATORS_FIELD,
+  BACKGROUND_COLOR_FIELD,
 } from './common';
 import {
   CONTENT_SLIDE,
@@ -113,13 +114,7 @@ const THEME: CmsField = {
       ],
       required: false,
     },
-    {
-      label: '🔴 Background Color',
-      name: 'backgroundColor',
-      widget: 'color',
-      i18n: true,
-      required: false,
-    },
+    BACKGROUND_COLOR_FIELD,
   ],
 };
 
@@ -145,7 +140,7 @@ const EXERCISE_FIELDS: Array<CmsField> = applyDefaults(
     NAME_FIELD,
     DESCRIPTION_FIELD,
     DURATION_FIELD,
-    CO_CREATORS,
+    CO_CREATORS_FIELD,
     TAGS_FIELD,
     LINK_FIELD,
     PUBLISHED_FIELD,

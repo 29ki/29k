@@ -29,6 +29,7 @@ export interface ExerciseCardAmbassador {
 }
 
 export interface ExerciseCard {
+  backgroundColor?: string;
   image?: ExerciseCardImage;
   lottie?: ExerciseCardLottie;
   ambassador?: ExerciseCardAmbassador;

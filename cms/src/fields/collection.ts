@@ -1,6 +1,6 @@
 import {CmsField, CmsFieldBase, CmsFieldRelation} from 'netlify-cms-core';
 import {
-  CO_CREATORS,
+  CO_CREATORS_FIELD,
   DESCRIPTION_FIELD,
   HIDDEN_FIELD,
   ID_FIELD,
@@ -29,7 +29,7 @@ export const COLLECTION_FIELDS: Array<CmsField> = [
   ID_FIELD,
   NAME_FIELD,
   DESCRIPTION_FIELD,
-  CO_CREATORS,
+  CO_CREATORS_FIELD,
   LINK_FIELD,
   IMAGE_FIELD,
   TAGS_FIELD,
