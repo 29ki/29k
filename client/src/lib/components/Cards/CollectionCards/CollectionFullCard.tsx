@@ -16,6 +16,7 @@ import {CollectionIcon} from '../../Icons';
 import {Body12} from '../../Typography/Body/Body';
 import {PlayfairDisplayMedium} from '../../../constants/fonts';
 import SETTINGS from '../../../constants/settings';
+import CardShadow from '../CardShadow';
 
 export const HEIGHT = 138;
 
@@ -115,33 +116,35 @@ const CollectionFullCard: React.FC<CollectionFullCardProps> = ({
   }, [backgroundColorGradient]);
 
   return (
-    <Container onPress={onPress}>
-      <Gradient colors={bgColors}>
-        <Row>
-          <LeftColumn>
-            <TitleWrapper>
-              <IconWrapper>
-                <CollectionIcon fill={textColor} />
-              </IconWrapper>
+    <CardShadow>
+      <Container onPress={onPress}>
+        <Gradient colors={bgColors}>
+          <Row>
+            <LeftColumn>
+              <TitleWrapper>
+                <IconWrapper>
+                  <CollectionIcon fill={textColor} />
+                </IconWrapper>
+                <Spacer8 />
+                <Heading numberOfLines={2} color={textColor}>
+                  {title}
+                </Heading>
+              </TitleWrapper>
               <Spacer8 />
-              <Heading numberOfLines={2} color={textColor}>
-                {title}
-              </Heading>
-            </TitleWrapper>
-            <Spacer8 />
-            <Description numberOfLines={2} color={textColor}>
-              {description}
-            </Description>
-          </LeftColumn>
-          <Spacer16 />
-          <GraphicsWrapper>
-            <Image source={image} />
-          </GraphicsWrapper>
-        </Row>
-        <SessionProgress items={progressItems} />
-        <Spacer4 />
-      </Gradient>
-    </Container>
+              <Description numberOfLines={2} color={textColor}>
+                {description}
+              </Description>
+            </LeftColumn>
+            <Spacer16 />
+            <GraphicsWrapper>
+              <Image source={image} />
+            </GraphicsWrapper>
+          </Row>
+          <SessionProgress items={progressItems} />
+          <Spacer4 />
+        </Gradient>
+      </Container>
+    </CardShadow>
   );
 };
 

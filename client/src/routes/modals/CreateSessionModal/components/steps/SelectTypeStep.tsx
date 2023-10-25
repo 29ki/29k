@@ -52,7 +52,7 @@ import useExerciseRating from '../../../../../lib/session/hooks/useExerciseRatin
 import useExerciseFeedback from '../../../../../lib/session/hooks/useExerciseFeedback';
 import FeedbackCarousel from '../../../../../lib/components/FeedbackCarousel/FeedbackCarousel';
 import useLiveSessionsByExercise from '../../../../../lib/session/hooks/useLiveSessionsByExercise';
-import ExerciseCardContainer from '../../../../../lib/components/Cards/SessionCard/ExerciseCardContainer';
+import ExerciseCard from '../../../../../lib/components/Cards/SessionCard/ExerciseCard';
 import useExercisesByTags from '../../../../../lib/content/hooks/useExercisesByTags';
 import {Tag as TagType} from '../../../../../../../shared/src/types/generated/Tag';
 import {take} from 'ramda';
@@ -239,35 +239,21 @@ const SelectTypeStep: React.FC<StepProps> = ({
   }, [startSession, popToTop, selectedExercise]);
 
   const renderItem = useCallback<ListRenderItem<LiveSessionType>>(
-    ({item, index}) => {
-      const hasCardBefore = index > 0;
-      const hasCardAfter = index !== sessions.length - 1;
-
-      return (
-        <Gutters>
-          <SessionCard
-            session={item}
-            hasCardBefore={hasCardBefore}
-            hasCardAfter={hasCardAfter}
-            standAlone={false}
-            onBeforeContextPress={popToTop}
-          />
-        </Gutters>
-      );
-    },
-    [sessions, popToTop],
+    ({item}) => (
+      <Gutters>
+        <SessionCard session={item} small onBeforeContextPress={popToTop} />
+      </Gutters>
+    ),
+    [popToTop],
   );
 
   const moreLikeThisExercises = useMemo(
     () =>
-      take(MORE_LIKE_THIS_LIMIT, exercisesByTags).map((e, idx) => (
-        <ExerciseCardContainer
-          key={e.id}
-          exercise={e}
-          hasCardBefore={idx !== 0}
-          hasCardAfter={idx < MORE_LIKE_THIS_LIMIT - 1}
-          onPress={() => popToTop()}
-        />
+      take(MORE_LIKE_THIS_LIMIT, exercisesByTags).map(e => (
+        <Fragment key={e.id}>
+          <ExerciseCard exercise={e} onPress={() => popToTop()} />
+          <Spacer16 />
+        </Fragment>
       )),
     [exercisesByTags, popToTop],
   );
@@ -315,6 +301,7 @@ const SelectTypeStep: React.FC<StepProps> = ({
         <BottomSheetFlatList
           data={sessions}
           renderItem={renderItem}
+          ItemSeparatorComponent={Spacer16}
           keyExtractor={keyExtractor}
           ListEmptyComponent={
             <EmptyListContainer>

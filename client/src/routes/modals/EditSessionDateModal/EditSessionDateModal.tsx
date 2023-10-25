@@ -130,7 +130,7 @@ const EditSessionDateModal = () => {
             <Button variant="secondary" onPress={onUpdateSession}>
               {t('done')}
             </Button>
-            <DeleteButton small onPress={onDelete}>
+            <DeleteButton size="small" onPress={onDelete}>
               {t('deleteButton')}
             </DeleteButton>
           </SpaceBetweenRow>

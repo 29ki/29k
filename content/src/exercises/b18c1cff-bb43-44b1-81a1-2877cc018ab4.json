@@ -31,7 +31,7 @@
             "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1674665235/Audio/meditation-breathing-anchor_mbrlw8.mp3"
           },
           "lottie": {
-            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1676977421/Lottie/audio_meditation_default_black_default_omemwt.json",
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1676977421/Lottie/audio_meditation_default_black_default_omemwt.json",
             "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1689599788/Audio/Breathing-anchor_wykjmp.mp3",
             "durationTimer": true,
             "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1689599833/SRT%20(captions)%20files/Breathing-anchor_wc2hfy.srt"
@@ -51,7 +51,7 @@
         "content": {
           "heading": "What was it like to just observe and breathe?",
           "lottie": {
-            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1676642915/Lottie/default_1min_black_rosi2l.json",
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1676642915/Lottie/default_1min_black_rosi2l.json",
             "durationTimer": true,
             "duration": 60
           }
@@ -73,7 +73,7 @@
         "content": {
           "heading": "What was it like to just observe and breathe?",
           "lottie": {
-            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1676639253/Lottie/default_2min_black_o6egey.json",
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1676639253/Lottie/default_2min_black_o6egey.json",
             "durationTimer": true,
             "duration": 120
           }
@@ -119,7 +119,7 @@
     "published": true,
     "card": {
       "image": {
-        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/v1678973954/Images/card_image_breathing_anchor_vibuvl.png"
+        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1678973954/Images/card_image_breathing_anchor_vibuvl.png"
       }
     },
     "duration": 30,
@@ -176,7 +176,7 @@
             "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1674665235/Audio/meditation-breathing-anchor_mbrlw8.mp3"
           },
           "lottie": {
-            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1676977421/Lottie/audio_meditation_default_black_default_omemwt.json",
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1676977421/Lottie/audio_meditation_default_black_default_omemwt.json",
             "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1679065398/FJN/Meditations/A_ANCORA_DA_RESPIRACAO_-_07_16_ic8tnb_m7tjbt.mp3",
             "durationTimer": true
           }
@@ -195,7 +195,7 @@
         "content": {
           "heading": "Como te sentiste apenas a observar e respirar?",
           "lottie": {
-            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1676642915/Lottie/default_1min_black_rosi2l.json",
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1676642915/Lottie/default_1min_black_rosi2l.json",
             "durationTimer": true,
             "duration": 60
           }
@@ -217,7 +217,7 @@
         "content": {
           "heading": "Como te sentiste apenas a observar e respirar?",
           "lottie": {
-            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1676639253/Lottie/default_2min_black_o6egey.json",
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1676639253/Lottie/default_2min_black_o6egey.json",
             "durationTimer": true,
             "duration": 120
           }
@@ -249,7 +249,7 @@
     "published": true,
     "card": {
       "image": {
-        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/v1678973954/Images/card_image_breathing_anchor_vibuvl.png"
+        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1678973954/Images/card_image_breathing_anchor_vibuvl.png"
       }
     },
     "duration": 30,
@@ -309,7 +309,7 @@
             "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1674665235/Audio/meditation-breathing-anchor_mbrlw8.mp3"
           },
           "lottie": {
-            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1676977421/Lottie/audio_meditation_default_black_default_omemwt.json",
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1676977421/Lottie/audio_meditation_default_black_default_omemwt.json",
             "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1693376589/Audio/Andningsankaret_c5oiik.mp3",
             "durationTimer": true,
             "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1693376621/SRT%20(captions)%20files/Andningsankaret_ytrjuh.srt"
@@ -329,7 +329,7 @@
         "content": {
           "heading": "Hur upplevde du att bara andas och observera?",
           "lottie": {
-            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1676642915/Lottie/default_1min_black_rosi2l.json",
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1676642915/Lottie/default_1min_black_rosi2l.json",
             "durationTimer": true,
             "duration": 60
           }
@@ -351,7 +351,7 @@
         "content": {
           "heading": "Hur upplevde du att bara andas och observera?",
           "lottie": {
-            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1676639253/Lottie/default_2min_black_o6egey.json",
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1676639253/Lottie/default_2min_black_o6egey.json",
             "durationTimer": true,
             "duration": 120
           }
@@ -397,7 +397,7 @@
     "published": true,
     "card": {
       "image": {
-        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/v1678973954/Images/card_image_breathing_anchor_vibuvl.png"
+        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1678973954/Images/card_image_breathing_anchor_vibuvl.png"
       }
     },
     "duration": 30,

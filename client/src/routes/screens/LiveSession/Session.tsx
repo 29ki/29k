@@ -350,7 +350,7 @@ const Session: React.FC = () => {
             {!sessionSlideState?.next && (
               <>
                 <Spacer16 />
-                <StyledButton small active onPress={endSession}>
+                <StyledButton size="small" active onPress={endSession}>
                   {t('endButton')}
                 </StyledButton>
               </>

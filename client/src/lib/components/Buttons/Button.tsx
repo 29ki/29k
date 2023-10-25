@@ -5,7 +5,11 @@ import {COLORS} from '../../../../../shared/src/constants/colors';
 import {SPACINGS} from '../../constants/spacings';
 import {Body16} from '../Typography/Body/Body';
 import {IconType} from '../Icons';
-import BaseButton, {BaseButtonProps, ButtonVariant} from './BaseButton';
+import BaseButton, {
+  BaseButtonProps,
+  ButtonSize,
+  ButtonVariant,
+} from './BaseButton';
 
 const IconWrapper = styled.View({
   width: 21,
@@ -33,20 +37,25 @@ const Spinner = styled(ActivityIndicator)({
 
 type ButtonTextProps = {
   variant?: ButtonVariant;
-  small?: boolean;
+  size?: ButtonSize;
   active?: boolean;
   disabled?: boolean;
   children: React.ReactNode;
 };
 
 const ButtonText = styled(Body16).attrs({selectable: false})<ButtonTextProps>(
-  ({variant, small, active, disabled}) => ({
+  ({variant, size, active, disabled}) => ({
     height: 20,
     color:
       disabled || active || variant !== 'tertiary'
         ? COLORS.WHITE
         : COLORS.BLACK,
-    marginVertical: small ? 8 : SPACINGS.TWELVE,
+    marginVertical:
+      size === 'xsmall'
+        ? SPACINGS.FOUR
+        : size === 'small'
+        ? SPACINGS.EIGHT
+        : SPACINGS.TWELVE,
     marginHorizontal: SPACINGS.SIXTEEN,
   }),
 );
@@ -64,7 +73,7 @@ const Button: React.FC<ButtonProps> = ({
   style,
   disabled,
   loading,
-  small,
+  size,
   LeftIcon,
   RightIcon,
   elevated,
@@ -72,16 +81,17 @@ const Button: React.FC<ButtonProps> = ({
 }) => (
   <BaseButton
     hitSlop={{
-      bottom: small ? SPACINGS.EIGHT : undefined,
+      bottom:
+        size === 'xsmall' || size === 'small' ? SPACINGS.EIGHT : undefined,
       left: undefined,
       right: undefined,
-      top: small ? SPACINGS.EIGHT : undefined,
+      top: size === 'xsmall' || size === 'small' ? SPACINGS.EIGHT : undefined,
     }}
     onPress={onPress}
     variant={variant}
     elevated={elevated}
     active={active}
-    small={small}
+    size={size}
     style={style}
     disabled={disabled}>
     {loading && (
@@ -106,7 +116,7 @@ const Button: React.FC<ButtonProps> = ({
       </LeftIconWrapper>
     )}
     <ButtonText
-      small={small}
+      size={size}
       variant={variant}
       active={active}
       disabled={disabled}

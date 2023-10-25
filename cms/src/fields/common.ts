@@ -6,7 +6,9 @@ import {
 } from 'netlify-cms-core';
 import {
   CLOUDINARY_AUDIO_CONFIG,
+  CLOUDINARY_CARD_IMAGE_CONFIG,
   CLOUDINARY_COCREATOR_IMAGE_CONFIG,
+  CLOUDINARY_FILE_CONFIG,
   CLOUDINARY_IMAGE_CONFIG,
   CLOUDINARY_VIDEO_CONFIG,
 } from './constants';
@@ -105,6 +107,14 @@ export const DURATION_FIELD: CmsField = {
   value_type: 'int',
 };
 
+export const BACKGROUND_COLOR_FIELD: CmsField = {
+  label: '🎨 Background Color',
+  name: 'backgroundColor',
+  widget: 'color',
+  i18n: true,
+  required: false,
+};
+
 export const IMAGE_FIELD: CmsFieldBase & CmsFieldObject = {
   label: '🌅 Image',
   name: 'image',
@@ -132,36 +142,36 @@ export const IMAGE_FIELD: CmsFieldBase & CmsFieldObject = {
   ],
 };
 
-export const PROFILE_FIELD: CmsFieldBase & CmsFieldObject = {
-  label: '🦹‍♂️ Profile',
-  name: 'profile',
+export const CARD_IMAGE_FIELD: CmsFieldBase & CmsFieldObject = {
+  label: '🌅 Image',
+  name: 'image',
   widget: 'object',
   collapsed: true,
   required: false,
   i18n: true,
   fields: [
     {
-      label: '📃 Name',
-      name: 'displayName',
+      label: '📃 Description',
+      name: 'description',
       widget: 'string',
       required: false,
       i18n: true,
     },
     {
-      label: '🌅 Profile image',
-      name: 'photoURL',
+      label: '🌅 Image file',
+      name: 'source',
       widget: 'image',
       required: false,
       i18n: true,
       allow_multiple: false,
-      media_library: CLOUDINARY_IMAGE_CONFIG,
+      media_library: CLOUDINARY_CARD_IMAGE_CONFIG,
     },
   ],
 };
 
-export const AMBASSADOR_FIELD: CmsFieldBase & CmsFieldObject = {
-  label: '🦹‍♂️ Ambassador',
-  name: 'ambassador',
+export const PROFILE_FIELD: CmsFieldBase & CmsFieldObject = {
+  label: '🦹‍♂️ Profile',
+  name: 'profile',
   widget: 'object',
   collapsed: true,
   required: false,
@@ -208,7 +218,7 @@ export const LOTTE_FIELD: CmsFieldBase & CmsFieldObject = {
       required: false,
       i18n: true,
       allow_multiple: false,
-      media_library: CLOUDINARY_IMAGE_CONFIG,
+      media_library: CLOUDINARY_FILE_CONFIG,
     },
   ],
 };
@@ -322,9 +332,9 @@ export const CARD_FIELD: CmsFieldBase & CmsFieldObject = {
   widget: 'object',
   collapsed: true,
   fields: [
-    IMAGE_FIELD,
+    BACKGROUND_COLOR_FIELD,
+    CARD_IMAGE_FIELD,
     {...LOTTE_FIELD, hint: 'Overrides image'},
-    {...AMBASSADOR_FIELD, hint: 'Only used for the Async version'},
   ],
 };
 
@@ -351,7 +361,7 @@ export const SORT_ORDER_FIELD: CmsField = {
   value_type: 'int',
 };
 
-export const CO_CREATORS: CmsField = {
+export const CO_CREATORS_FIELD: CmsField = {
   label: '🪡 Co-creators',
   label_singular: '🪡 Co-creator',
   name: 'coCreators',

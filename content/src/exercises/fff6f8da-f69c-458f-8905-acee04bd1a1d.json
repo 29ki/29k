@@ -40,7 +40,7 @@
         "content": {
           "heading": "What would you like the future you to tell the current you?",
           "lottie": {
-            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1676642915/Lottie/default_1min_black_rosi2l.json"
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1676642915/Lottie/default_1min_black_rosi2l.json"
           }
         }
       },
@@ -101,7 +101,7 @@
     "published": true,
     "card": {
       "image": {
-        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1698157752/Images/card_image_the_future_you_imvrwj.png"
+        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1698157752/Images/card_image_the_future_you_imvrwj.png"
       }
     },
     "duration": 30,

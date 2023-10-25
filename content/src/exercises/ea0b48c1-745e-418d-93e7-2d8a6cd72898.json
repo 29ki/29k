@@ -130,7 +130,7 @@
     "published": true,
     "card": {
       "image": {
-        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1675416302/Images/card_bring_your_fee.._cs3oph.png"
+        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1675416302/Images/card_bring_your_fee.._cs3oph.png"
       },
       "host": {
         "displayName": "Jenny",
@@ -300,7 +300,7 @@
     "published": true,
     "card": {
       "image": {
-        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1675416485/Images/card_bring_your_fee..PT_vf9to7.png"
+        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1675416485/Images/card_bring_your_fee..PT_vf9to7.png"
       }
     },
     "duration": 30,

@@ -15,7 +15,6 @@ const Container = styled.View({
   paddingVertical: 2,
   borderRadius: SPACINGS.FOUR,
   backgroundColor: COLORS.PURE_WHITE,
-  marginTop: SPACINGS.FOUR,
 });
 
 const StyledBody = styled(Body12)({

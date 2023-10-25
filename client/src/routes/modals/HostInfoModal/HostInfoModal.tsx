@@ -72,14 +72,7 @@ const HostInfoModal: React.FC = () => {
     data => {
       return (
         <Gutters>
-          <SessionCard
-            hasCardAfter={false}
-            hasCardBefore={false}
-            session={data.item}
-            standAlone
-            disableHostPress
-            onBeforeContextPress={popToTop}
-          />
+          <SessionCard session={data.item} onBeforeContextPress={popToTop} />
           <Spacer16 />
         </Gutters>
       );
