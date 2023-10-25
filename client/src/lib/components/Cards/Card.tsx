@@ -17,16 +17,9 @@ import {BellFillIcon, CheckIcon} from '../Icons';
 import {useTranslation} from 'react-i18next';
 import {UserType} from '../../../../../shared/src/schemas/User';
 import {ExerciseCard} from '../../../../../shared/src/types/generated/Exercise';
+import CardShadow from './CardShadow';
 
 export const HEIGHT = 175;
-
-const Shadow = styled.View({
-  shadowColor: COLORS.BLACK,
-  shadowOffset: `0 -${SPACINGS.EIGHT}px`,
-  shadowRadius: 20,
-  shadowOpacity: 0.1,
-  elevation: 5,
-});
 
 const Wrapper = styled(TouchableOpacity)({
   borderRadius: 16,
@@ -151,7 +144,7 @@ export const Card: React.FC<CardProps> = ({
   );
 
   return (
-    <Shadow>
+    <CardShadow>
       <Wrapper onPress={onPress} style={style}>
         <Tags>
           {interestedCount ? (
@@ -209,7 +202,7 @@ export const Card: React.FC<CardProps> = ({
           </Graphic>
         </Row>
       </Wrapper>
-    </Shadow>
+    </CardShadow>
   );
 };
 

@@ -15,16 +15,9 @@ import {Spacer4, Spacer8} from '../Spacers/Spacer';
 import Tag from '../Tag/Tag';
 import {UserType} from '../../../../../shared/src/schemas/User';
 import {ExerciseCard} from '../../../../../shared/src/types/generated/Exercise';
+import CardShadow from './CardShadow';
 
 export const HEIGHT = 80;
-
-const Shadow = styled.View({
-  shadowColor: COLORS.BLACK,
-  shadowOffset: `0 -${SPACINGS.EIGHT}px`,
-  shadowRadius: 20,
-  shadowOpacity: 0.1,
-  elevation: 5,
-});
 
 const Wrapper = styled(TouchableOpacity)<{backgroundColor: string}>(
   ({backgroundColor}) => ({
@@ -131,7 +124,7 @@ export const CardSmall: React.FC<CardProps> = ({
   );
 
   return (
-    <Shadow>
+    <CardShadow>
       <Wrapper
         onPress={onPress}
         style={style}
@@ -183,7 +176,7 @@ export const CardSmall: React.FC<CardProps> = ({
           ) : null}
         </Graphic>
       </Wrapper>
-    </Shadow>
+    </CardShadow>
   );
 };
 
