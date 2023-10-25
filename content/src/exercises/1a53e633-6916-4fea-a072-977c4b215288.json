@@ -9,7 +9,7 @@
             "durationTimer": false
           },
           "lottie": {
-            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1683721090/Lottie/dive_in_audio_visual_white_vjvfjo.json",
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1683721090/Lottie/dive_in_audio_visual_white_vjvfjo.json",
             "durationTimer": true,
             "autoPlayLoop": false,
             "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1687865086/Audio/Dive_in_spf3bt.mp3",
@@ -87,7 +87,7 @@
             "durationTimer": false
           },
           "lottie": {
-            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1683721090/Lottie/dive_in_audio_visual_white_vjvfjo.json",
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1683721090/Lottie/dive_in_audio_visual_white_vjvfjo.json",
             "durationTimer": true,
             "autoPlayLoop": false,
             "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1683708370/Audio/dive_in_intro_kn3di2.mp3"
@@ -123,7 +123,7 @@
     "published": true,
     "card": {
       "lottie": {
-        "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1683720732/Lottie/aware_logo_teal_qqweff.json"
+        "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1683720732/Lottie/aware_logo_teal_qqweff.json"
       }
     },
     "duration": 5,
@@ -161,7 +161,7 @@
             "durationTimer": false
           },
           "lottie": {
-            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1683721090/Lottie/dive_in_audio_visual_white_vjvfjo.json",
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1683721090/Lottie/dive_in_audio_visual_white_vjvfjo.json",
             "durationTimer": true,
             "autoPlayLoop": false,
             "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1693474378/Audio/Dive_in_sv_yn6ics.mp3",
@@ -198,7 +198,7 @@
     "published": true,
     "card": {
       "lottie": {
-        "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1683720732/Lottie/aware_logo_teal_qqweff.json"
+        "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1683720732/Lottie/aware_logo_teal_qqweff.json"
       },
       "image": {
         "source": ""
