@@ -6,7 +6,9 @@ import {
 } from 'netlify-cms-core';
 import {
   CLOUDINARY_AUDIO_CONFIG,
+  CLOUDINARY_CARD_IMAGE_CONFIG,
   CLOUDINARY_COCREATOR_IMAGE_CONFIG,
+  CLOUDINARY_FILE_CONFIG,
   CLOUDINARY_IMAGE_CONFIG,
   CLOUDINARY_VIDEO_CONFIG,
 } from './constants';
@@ -140,6 +142,33 @@ export const IMAGE_FIELD: CmsFieldBase & CmsFieldObject = {
   ],
 };
 
+export const CARD_IMAGE_FIELD: CmsFieldBase & CmsFieldObject = {
+  label: '🌅 Image',
+  name: 'image',
+  widget: 'object',
+  collapsed: true,
+  required: false,
+  i18n: true,
+  fields: [
+    {
+      label: '📃 Description',
+      name: 'description',
+      widget: 'string',
+      required: false,
+      i18n: true,
+    },
+    {
+      label: '🌅 Image file',
+      name: 'source',
+      widget: 'image',
+      required: false,
+      i18n: true,
+      allow_multiple: false,
+      media_library: CLOUDINARY_CARD_IMAGE_CONFIG,
+    },
+  ],
+};
+
 export const PROFILE_FIELD: CmsFieldBase & CmsFieldObject = {
   label: '🦹‍♂️ Profile',
   name: 'profile',
@@ -216,7 +245,7 @@ export const LOTTE_FIELD: CmsFieldBase & CmsFieldObject = {
       required: false,
       i18n: true,
       allow_multiple: false,
-      media_library: CLOUDINARY_IMAGE_CONFIG,
+      media_library: CLOUDINARY_FILE_CONFIG,
     },
   ],
 };
@@ -331,7 +360,7 @@ export const CARD_FIELD: CmsFieldBase & CmsFieldObject = {
   collapsed: true,
   fields: [
     BACKGROUND_COLOR_FIELD,
-    IMAGE_FIELD,
+    CARD_IMAGE_FIELD,
     {...LOTTE_FIELD, hint: 'Overrides image'},
     {...AMBASSADOR_FIELD, hint: 'Only used for the Async version'},
   ],

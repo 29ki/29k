@@ -12,7 +12,7 @@ import {
   VIDEO_FIELD,
   DURATION_FIELD,
   HIDDEN_FIELD,
-  IMAGE_FIELD,
+  CARD_IMAGE_FIELD,
   DESCRIPTION_FIELD,
   TAGS_FIELD,
   ASYNC_FIELD,
@@ -59,7 +59,7 @@ export const SOCIAL_MEDIA: CmsField = {
     {
       label: '🌅 Image',
       name: 'image',
-      hint: `Defaults to ${CARD_FIELD.label} → ${IMAGE_FIELD.label}`,
+      hint: `Defaults to ${CARD_FIELD.label} → ${CARD_IMAGE_FIELD.label}`,
       widget: 'image',
       required: false,
       i18n: true,
