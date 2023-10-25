@@ -249,14 +249,11 @@ const SelectTypeStep: React.FC<StepProps> = ({
 
   const moreLikeThisExercises = useMemo(
     () =>
-      take(MORE_LIKE_THIS_LIMIT, exercisesByTags).map((e, idx) => (
-        <ExerciseCardContainer
-          key={e.id}
-          exercise={e}
-          hasCardBefore={idx !== 0}
-          hasCardAfter={idx < MORE_LIKE_THIS_LIMIT - 1}
-          onPress={() => popToTop()}
-        />
+      take(MORE_LIKE_THIS_LIMIT, exercisesByTags).map(e => (
+        <Fragment key={e.id}>
+          <ExerciseCardContainer exercise={e} onPress={() => popToTop()} />
+          <Spacer16 />
+        </Fragment>
       )),
     [exercisesByTags, popToTop],
   );

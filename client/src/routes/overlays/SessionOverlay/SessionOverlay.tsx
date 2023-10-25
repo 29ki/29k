@@ -227,13 +227,11 @@ const SessionOverlay = () => {
 
   const moreLikeThisExercises = useMemo(
     () =>
-      take(MORE_LIKE_THIS_LIMIT, exercisesByTags).map((e, idx) => (
-        <ExerciseCardContainer
-          key={e.id}
-          exercise={e}
-          hasCardBefore={idx !== 0}
-          hasCardAfter={idx < MORE_LIKE_THIS_LIMIT - 1}
-        />
+      take(MORE_LIKE_THIS_LIMIT, exercisesByTags).map(e => (
+        <Fragment key={e.id}>
+          <ExerciseCardContainer exercise={e} />
+          <Spacer16 />
+        </Fragment>
       )),
     [exercisesByTags],
   );

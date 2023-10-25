@@ -131,26 +131,19 @@ const Collection = () => {
   const renderExerciseItem = useCallback<
     SectionListRenderItem<Exercise, Section>
   >(
-    ({item, section, index}) => {
-      const hasCardBefore = index > 0;
-      const hasCardAfter = index !== section.data.length - 1;
+    ({item}) => {
       const completedExerciseEvent = savedCollection
         ? getCompletedSessionByExerciseId(item.id, savedCollection.startedAt)
         : undefined;
+
       return (
         <Gutters>
           {completedExerciseEvent ? (
             <CompletedSessionCard
               completedSessionEvent={completedExerciseEvent}
-              hasCardBefore={hasCardBefore}
-              hasCardAfter={hasCardAfter}
             />
           ) : (
-            <ExerciseCardContainer
-              exercise={item}
-              hasCardBefore={hasCardBefore}
-              hasCardAfter={hasCardAfter}
-            />
+            <ExerciseCardContainer exercise={item} />
           )}
         </Gutters>
       );
@@ -177,6 +170,7 @@ const Collection = () => {
 
         <SectionList
           sections={exerciseSections}
+          ItemSeparatorComponent={Spacer16}
           keyExtractor={exercise => exercise.id}
           ListHeaderComponent={
             <Gutters>

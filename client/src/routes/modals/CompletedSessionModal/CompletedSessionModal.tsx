@@ -186,13 +186,11 @@ const CompletedSessionModal = () => {
 
   const moreLikeThisExercises = useMemo(
     () =>
-      take(MORE_LIKE_THIS_LIMIT, exercisesByTags).map((e, idx) => (
-        <ExerciseCardContainer
-          key={e.id}
-          exercise={e}
-          hasCardBefore={idx !== 0}
-          hasCardAfter={idx < MORE_LIKE_THIS_LIMIT - 1}
-        />
+      take(MORE_LIKE_THIS_LIMIT, exercisesByTags).map(e => (
+        <Fragment key={e.id}>
+          <ExerciseCardContainer key={e.id} exercise={e} />
+          <Spacer16 />
+        </Fragment>
       )),
     [exercisesByTags],
   );
@@ -211,16 +209,8 @@ const CompletedSessionModal = () => {
               <Display24>{formatContentName(exercise)}</Display24>
               <Spacer4 />
               <Byline
-                pictureURL={
-                  hostProfile?.photoURL
-                    ? hostProfile.photoURL
-                    : exercise.card?.ambassador?.photoURL
-                }
-                name={
-                  hostProfile?.displayName
-                    ? hostProfile.displayName
-                    : exercise.card?.ambassador?.displayName
-                }
+                pictureURL={hostProfile?.photoURL}
+                name={hostProfile?.displayName}
                 onPress={onHostPress}
               />
             </TitleContainer>

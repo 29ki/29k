@@ -87,19 +87,14 @@ const Explore = () => {
 
   const renderExerciseItem = useCallback<
     SectionListRenderItem<Exercise, Section>
-  >(({item, section, index}) => {
-    const hasCardBefore = index > 0;
-    const hasCardAfter = index !== section.data.length - 1;
-    return (
+  >(
+    ({item}) => (
       <Gutters>
-        <ExerciseCardContainer
-          exercise={item}
-          hasCardBefore={hasCardBefore}
-          hasCardAfter={hasCardAfter}
-        />
+        <ExerciseCardContainer exercise={item} />
       </Gutters>
-    );
-  }, []);
+    ),
+    [],
+  );
 
   return (
     <Screen backgroundColor={COLORS.PURE_WHITE}>
@@ -149,6 +144,7 @@ const Explore = () => {
           </>
         }
         renderSectionHeader={renderExerciseSectionHeader}
+        ItemSeparatorComponent={Spacer16}
         ListFooterComponent={Spacer48}
         renderItem={renderExerciseItem}
       />
