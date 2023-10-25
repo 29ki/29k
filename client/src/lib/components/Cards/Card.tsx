@@ -7,7 +7,6 @@ import hexToRgba from 'hex-to-rgba';
 
 import {COLORS} from '../../../../../shared/src/constants/colors';
 import {SPACINGS} from '../../constants/spacings';
-import SETTINGS from '../../constants/settings';
 import Image from '../Image/Image';
 import TouchableOpacity from '../TouchableOpacity/TouchableOpacity';
 import {Display20} from '../Typography/Display/Display';
@@ -22,7 +21,7 @@ import {ExerciseCard} from '../../../../../shared/src/types/generated/Exercise';
 export const HEIGHT = 175;
 
 const Wrapper = styled(TouchableOpacity)({
-  borderRadius: SETTINGS.BORDER_RADIUS.CARDS,
+  borderRadius: 16,
   backgroundColor: COLORS.CREAM,
   height: HEIGHT,
   padding: 16,
@@ -84,7 +83,6 @@ const Title = styled(Display20)({
 });
 
 const Content = styled.View({
-  justifyContent: 'space-between',
   alignItems: 'flex-end',
   flexDirection: 'row',
   flex: 1,
