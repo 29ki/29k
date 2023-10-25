@@ -77,7 +77,6 @@ const HostInfoModal: React.FC = () => {
             hasCardBefore={false}
             session={data.item}
             standAlone
-            disableHostPress
             onBeforeContextPress={popToTop}
           />
           <Spacer16 />

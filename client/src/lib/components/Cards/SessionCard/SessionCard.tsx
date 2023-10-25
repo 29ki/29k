@@ -31,6 +31,7 @@ import Interested from '../../Interested/Interested';
 import usePinSession from '../../../sessions/hooks/usePinSession';
 import useSessionReminder from '../../../sessions/hooks/useSessionReminder';
 import {ViewStyle} from 'react-native';
+import {BodyBold} from '../../Typography/Body/Body';
 
 const Row = styled.View({
   flexDirection: 'row',
@@ -47,7 +48,7 @@ const JoinButton: React.FC<{
   return sessionTime.isReadyToJoin ? (
     <>
       <Button small variant="secondary" onPress={onPress}>
-        {t('join')}
+        <BodyBold>{t('join')}</BodyBold>
       </Button>
       <Spacer8 />
     </>
@@ -73,7 +74,6 @@ type SessionCardProps = {
   standAlone?: boolean;
   hasCardBefore?: boolean;
   hasCardAfter?: boolean;
-  disableHostPress?: boolean;
   disableJoinButton?: boolean;
   onBeforeContextPress?: () => void;
   style?: ViewStyle;
@@ -84,7 +84,6 @@ const SessionCard: React.FC<SessionCardProps> = ({
   standAlone = true,
   hasCardBefore = false,
   hasCardAfter = false,
-  disableHostPress,
   disableJoinButton,
   onBeforeContextPress,
   style,
@@ -122,10 +121,6 @@ const SessionCard: React.FC<SessionCardProps> = ({
     });
   }, [navigate, session, onBeforeContextPress]);
 
-  const onHostPress = useCallback(() => {
-    navigate('HostInfoModal', {host: hostProfile});
-  }, [navigate, hostProfile]);
-
   const image = useMemo(
     () => ({
       uri: exercise?.card?.image?.source,
@@ -148,24 +143,12 @@ const SessionCard: React.FC<SessionCardProps> = ({
       <Card
         title={formatContentName(exercise)}
         tags={tags}
-        image={image}
-        lottie={lottie}
+        graphic={exercise?.card}
+        hostProfile={session.hostProfile}
         onPress={onContextPress}
-        onHostPress={!disableHostPress ? onHostPress : undefined}
-        hostPictureURL={
-          session.mode === SessionMode.live
-            ? hostProfile?.photoURL
-            : exercise?.card?.ambassador?.photoURL
-        }
-        hostName={
-          session.mode === SessionMode.live
-            ? hostProfile?.displayName
-            : exercise?.card?.ambassador?.displayName
-        }
-        isHost={isHost}
         isPinned={isPinned}
         reminderEnabled={reminderEnabled}
-        interestedCount={session.interestedCount}
+        interestedCount={interestedCount}
         style={style}>
         <Row>
           {!disableJoinButton && (
@@ -205,29 +188,18 @@ const SessionCard: React.FC<SessionCardProps> = ({
             <Interested
               compact
               reminder={reminderEnabled}
-              count={isHost ? session.interestedCount : undefined}
+              count={interestedCount}
             />
           </Row>
         </SessionWalletCard>
       }
       expandedComponent={
         <Card
-          inWallet
           title={formatContentName(exercise)}
           tags={tags}
-          image={image}
-          lottie={lottie}
+          graphic={exercise?.card}
+          hostProfile={session.hostProfile}
           onPress={onContextPress}
-          hostPictureURL={
-            session.mode === SessionMode.live
-              ? hostProfile?.photoURL
-              : exercise?.card?.ambassador?.photoURL
-          }
-          hostName={
-            session.mode === SessionMode.live
-              ? hostProfile?.displayName
-              : exercise?.card?.ambassador?.displayName
-          }
           isPinned={isPinned}
           reminderEnabled={reminderEnabled}
           interestedCount={interestedCount}>
