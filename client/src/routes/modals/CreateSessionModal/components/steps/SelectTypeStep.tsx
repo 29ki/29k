@@ -239,23 +239,12 @@ const SelectTypeStep: React.FC<StepProps> = ({
   }, [startSession, popToTop, selectedExercise]);
 
   const renderItem = useCallback<ListRenderItem<LiveSessionType>>(
-    ({item, index}) => {
-      const hasCardBefore = index > 0;
-      const hasCardAfter = index !== sessions.length - 1;
-
-      return (
-        <Gutters>
-          <SessionCard
-            session={item}
-            hasCardBefore={hasCardBefore}
-            hasCardAfter={hasCardAfter}
-            standAlone={false}
-            onBeforeContextPress={popToTop}
-          />
-        </Gutters>
-      );
-    },
-    [sessions, popToTop],
+    ({item}) => (
+      <Gutters>
+        <SessionCard session={item} small onBeforeContextPress={popToTop} />
+      </Gutters>
+    ),
+    [popToTop],
   );
 
   const moreLikeThisExercises = useMemo(
@@ -315,6 +304,7 @@ const SelectTypeStep: React.FC<StepProps> = ({
         <BottomSheetFlatList
           data={sessions}
           renderItem={renderItem}
+          ItemSeparatorComponent={Spacer16}
           keyExtractor={keyExtractor}
           ListEmptyComponent={
             <EmptyListContainer>

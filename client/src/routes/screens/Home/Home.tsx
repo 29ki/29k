@@ -131,22 +131,17 @@ const renderSession = ({
   item: LiveSessionType;
   section: Section;
   index: number;
-}) => {
-  const standAlone = section.type === 'comming' || section.data.length === 1;
-  const hasCardBefore = index > 0;
-  const hasCardAfter = index !== section.data.length - 1;
-  return (
-    <Gutters>
-      <SessionCard
-        session={item}
-        standAlone={standAlone}
-        hasCardBefore={hasCardBefore}
-        hasCardAfter={hasCardAfter}
-      />
-      {standAlone && <Spacer16 />}
-    </Gutters>
-  );
-};
+}) => (
+  <Gutters>
+    <SessionCard
+      session={item}
+      small={
+        section.type !== 'comming' && section.data.length >= 1 && index > 0
+      }
+    />
+    <Spacer16 />
+  </Gutters>
+);
 
 const renderListItem: SectionListRenderItem<LiveSessionType, Section> = ({
   item,

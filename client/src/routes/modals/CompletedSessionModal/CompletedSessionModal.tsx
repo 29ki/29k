@@ -314,15 +314,15 @@ const CompletedSessionModal = () => {
           <Gutters>
             <Spacer24 />
             <View>
-              {sessions.map((item, idx) => (
-                <SessionCard
-                  key={item.id}
-                  session={item}
-                  hasCardBefore={idx > 0}
-                  hasCardAfter={idx < sessions.length - 1}
-                  standAlone={false}
-                  onBeforeContextPress={popToTop}
-                />
+              {sessions.map(item => (
+                <Fragment key={item.id}>
+                  <SessionCard
+                    session={item}
+                    small
+                    onBeforeContextPress={popToTop}
+                  />
+                  <Spacer16 />
+                </Fragment>
               ))}
             </View>
           </Gutters>

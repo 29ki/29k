@@ -25,7 +25,6 @@ const Wrapper = styled(TouchableOpacity)({
   backgroundColor: COLORS.CREAM,
   height: HEIGHT,
   padding: 16,
-  paddingTop: 19,
   overflow: 'hidden',
 });
 

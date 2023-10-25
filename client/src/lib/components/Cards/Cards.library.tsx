@@ -208,6 +208,8 @@ const CardSmallsList = () => (
       hostProfile={DUMMY_HOST}
       graphic={DUMMY_IMAGE_GRAPHIC}
       onPress={() => {}}>
+      <Body14>Starts</Body14>
+      <Spacer4 />
       <Badge text="Mon, 7 Sep 17.30" IconAfter={<CommunityIcon />} />
       <Spacer4 />
       <Interested compact reminder count={2} />
@@ -218,6 +220,8 @@ const CardSmallsList = () => (
       hostProfile={DUMMY_HOST}
       graphic={DUMMY_IMAGE_GRAPHIC}
       onPress={() => {}}>
+      <Body14>Starts</Body14>
+      <Spacer4 />
       <Badge text="Mon, 7 Sep 17.30" IconAfter={<CommunityIcon />} />
       <Spacer4 />
       <Interested compact reminder count={2} />

@@ -23,6 +23,7 @@ const Wrapper = styled(TouchableOpacity)({
   borderRadius: 16,
   backgroundColor: COLORS.CREAM,
   padding: 8,
+  paddingLeft: 16,
   flexDirection: 'row',
   overflow: 'hidden',
 });
@@ -65,8 +66,8 @@ const Title = styled(Display16)({
 });
 
 const Content = styled.View({
-  alignItems: 'flex-end',
   flexDirection: 'row',
+  alignItems: 'center',
 });
 
 type CardProps = {
