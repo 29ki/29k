@@ -108,6 +108,16 @@ const ButtonList = () => {
       </RowFullWidth>
       <Spacer16 />
       <RowFullWidth>
+        <Button size="xsmall" onPress={() => {}}>
+          XSmall Button
+        </Button>
+        <Spacer16 />
+        <Button size="xsmall" onPress={() => {}} LeftIcon={HomeIcon}>
+          XSmall with icon
+        </Button>
+      </RowFullWidth>
+      <Spacer16 />
+      <RowFullWidth>
         <Button onPress={() => {}} disabled>
           Disabled
         </Button>
@@ -126,7 +136,9 @@ const ButtonList = () => {
           onPress={() => setPressed(state => !state)}>
           Animated
         </AnimatedButton>
-        <Spacer16 />
+      </RowFullWidth>
+      <Spacer16 />
+      <RowFullWidth>
         <AnimatedButton
           AnimatedIcon={PlusToCheckIconAnimated}
           fill={COLORS.WHITE}
@@ -135,6 +147,18 @@ const ButtonList = () => {
           size="small"
           onPress={() => setPressed(state => !state)}>
           Animated small
+        </AnimatedButton>
+      </RowFullWidth>
+      <Spacer16 />
+      <RowFullWidth>
+        <AnimatedButton
+          AnimatedIcon={PlusToCheckIconAnimated}
+          fill={COLORS.WHITE}
+          variant={pressed ? 'primary' : 'secondary'}
+          active={pressed}
+          size="xsmall"
+          onPress={() => setPressed(state => !state)}>
+          Animated xsmall
         </AnimatedButton>
       </RowFullWidth>
       <Spacer16 />
@@ -208,7 +232,28 @@ const IconButtonList = () => {
       </RowFullWidth>
       <Spacer16 />
       <RowFullWidth>
+        <Body16>XSmall</Body16>
+        <IconButton size="xsmall" onPress={() => {}} Icon={PlusIcon} />
+      </RowFullWidth>
+      <Spacer16 />
+      <RowFullWidth>
         <Body16>Animated</Body16>
+        <AnimatedIconButton
+          AnimatedIcon={BellIconAnimated}
+          variant={pressed ? 'primary' : 'secondary'}
+          fill={COLORS.WHITE}
+          active={pressed}
+          size="xsmall"
+          onPress={() => setPressed(state => !state)}
+        />
+        <AnimatedIconButton
+          AnimatedIcon={BellIconAnimated}
+          variant={pressed ? 'primary' : 'secondary'}
+          fill={COLORS.WHITE}
+          active={pressed}
+          size="small"
+          onPress={() => setPressed(state => !state)}
+        />
         <AnimatedIconButton
           AnimatedIcon={BellIconAnimated}
           variant={pressed ? 'primary' : 'secondary'}
@@ -299,7 +344,6 @@ const buttonVariations = getCombinations([
   {elevated: true},
   {active: true},
   {disabled: true},
-  {small: true},
   {RightIcon: HomeIcon},
   {LeftIcon: PlusIcon},
 ]);
@@ -350,7 +394,6 @@ const iconButtonVariations = getCombinations([
   {elevated: true},
   {active: true},
   {disabled: true},
-  {small: true},
 ]);
 
 export const VariationsIconButton = () => (

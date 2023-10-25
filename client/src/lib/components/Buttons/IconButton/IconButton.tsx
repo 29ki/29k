@@ -13,9 +13,9 @@ export type BaseIconButtonProps = BaseButtonProps & {
 
 const StyledIconButton = styled(BaseButton)<BaseIconButtonProps>(props => ({
   ...(props.noBackground ? {backgroundColor: 'transparent'} : {}),
-  width: props.size ? 36 : 44,
-  height: props.size ? 36 : 44,
-  padding: props.size ? 3 : 7,
+  width: props.size === 'xsmall' ? 28 : props.size === 'small' ? 36 : 44,
+  height: props.size === 'xsmall' ? 28 : props.size === 'small' ? 36 : 44,
+  padding: props.size === 'xsmall' ? 0 : props.size === 'small' ? 3 : 7,
   borderRadius: SPACINGS.SIXTEEN,
 }));
 
@@ -39,7 +39,7 @@ const IconButton: React.FC<IconButtonProps> = ({
 }) => (
   <StyledIconButton
     hitSlop={
-      size === 'small'
+      size === 'small' || size === 'xsmall'
         ? {
             bottom: SPACINGS.FOUR,
             left: SPACINGS.FOUR,
