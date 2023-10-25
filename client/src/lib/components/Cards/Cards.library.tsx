@@ -3,7 +3,7 @@ import styled from 'styled-components/native';
 
 import ScreenWrapper from '../../uiLib/decorators/ScreenWrapper';
 import Badge from '../Badge/Badge';
-import {CommunityIcon, FriendsIcon} from '../Icons';
+import {CommunityIcon, FriendsIcon, MeIcon} from '../Icons';
 import {Spacer16, Spacer4, Spacer8} from '../Spacers/Spacer';
 import {Body14, BodyBold} from '../Typography/Body/Body';
 import Card from './Card';
@@ -14,6 +14,7 @@ import {ExerciseCard} from '../../../../../shared/src/types/generated/Exercise';
 import Button from '../Buttons/Button';
 import CardSmall from './CardSmall';
 import Interested from '../Interested/Interested';
+import Node from '../Node/Node';
 
 const VerticalAlign = styled.View({
   flexDirection: 'row',
@@ -225,6 +226,31 @@ const CardSmallsList = () => (
       <Badge text="Mon, 7 Sep 17.30" IconAfter={<CommunityIcon />} />
       <Spacer4 />
       <Interested compact reminder count={2} />
+    </CardSmall>
+    <Spacer16 />
+    <CardSmall
+      title="Pure Simple Love"
+      graphic={DUMMY_IMAGE_GRAPHIC}
+      completed
+      onPress={() => {}}>
+      <Node size={16} />
+      <Spacer4 />
+      <Body14>Completed</Body14>
+      <Spacer4 />
+      <Badge text="Mon, 7 Sep 17.30" IconAfter={<MeIcon />} />
+    </CardSmall>
+    <Spacer16 />
+    <CardSmall
+      title="Accepting thoughts and feeeeeeeeeeeeeelings"
+      hostProfile={DUMMY_HOST}
+      graphic={DUMMY_IMAGE_GRAPHIC}
+      completed
+      onPress={() => {}}>
+      <Node size={16} />
+      <Spacer4 />
+      <Body14>Completed</Body14>
+      <Spacer4 />
+      <Badge text="Mon, 7 Sep 17.30" IconAfter={<CommunityIcon />} />
     </CardSmall>
   </>
 );

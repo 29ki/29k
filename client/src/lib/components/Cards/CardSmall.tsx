@@ -18,15 +18,25 @@ import {ExerciseCard} from '../../../../../shared/src/types/generated/Exercise';
 
 export const HEIGHT = 80;
 
-const Wrapper = styled(TouchableOpacity)({
-  height: HEIGHT,
-  borderRadius: 16,
-  backgroundColor: COLORS.CREAM,
-  padding: 8,
-  paddingLeft: 16,
-  flexDirection: 'row',
-  overflow: 'hidden',
+const Shadow = styled.View({
+  shadowColor: COLORS.BLACK,
+  shadowOffset: `0 -${SPACINGS.EIGHT}px`,
+  shadowRadius: 20,
+  shadowOpacity: 0.1,
+  elevation: 5,
 });
+
+const Wrapper = styled(TouchableOpacity)<{backgroundColor: string}>(
+  ({backgroundColor}) => ({
+    height: HEIGHT,
+    borderRadius: 16,
+    backgroundColor,
+    padding: 8,
+    paddingLeft: 16,
+    flexDirection: 'row',
+    overflow: 'hidden',
+  }),
+);
 
 const Graphic = styled.View<{backgroundColor?: string}>(
   ({backgroundColor}) => ({
@@ -75,9 +85,10 @@ type CardProps = {
   tags?: Array<string>;
   graphic?: ExerciseCard;
   onPress: () => void;
-  children?: React.ReactNode;
   hostProfile?: UserType | null;
+  completed?: boolean;
   style?: ViewStyle;
+  children?: React.ReactNode;
 };
 
 export const CardSmall: React.FC<CardProps> = ({
@@ -86,8 +97,9 @@ export const CardSmall: React.FC<CardProps> = ({
   graphic,
   onPress,
   hostProfile,
-  children,
+  completed,
   style,
+  children,
 }) => {
   const colors = useMemo(
     () => [
@@ -119,54 +131,59 @@ export const CardSmall: React.FC<CardProps> = ({
   );
 
   return (
-    <Wrapper onPress={onPress} style={style}>
-      <Main>
-        {tags && (
-          <>
-            <Tags>
-              {tags &&
-                tags.map(tag => (
-                  <Fragment key={tag}>
-                    <Tag>{tag}</Tag>
-                    <Spacer4 />
-                  </Fragment>
-                ))}
-              <TagsGradient
-                start={{x: 0, y: 0}}
-                end={{x: 1, y: 0}}
-                colors={colors}
+    <Shadow>
+      <Wrapper
+        onPress={onPress}
+        style={style}
+        backgroundColor={completed ? COLORS.LIGHT_GREEN : COLORS.CREAM}>
+        <Main>
+          {tags && (
+            <>
+              <Tags>
+                {tags &&
+                  tags.map(tag => (
+                    <Fragment key={tag}>
+                      <Tag>{tag}</Tag>
+                      <Spacer4 />
+                    </Fragment>
+                  ))}
+                <TagsGradient
+                  start={{x: 0, y: 0}}
+                  end={{x: 1, y: 0}}
+                  colors={colors}
+                />
+              </Tags>
+              <Spacer4 />
+            </>
+          )}
+          <Title numberOfLines={children || tags ? 1 : 2}>{title}</Title>
+          {hostProfile && (
+            <>
+              <Spacer4 />
+              <Byline
+                small
+                pictureURL={hostProfile.photoURL}
+                name={hostProfile.displayName}
               />
-            </Tags>
-            <Spacer4 />
-          </>
-        )}
-        <Title numberOfLines={children || tags ? 1 : 2}>{title}</Title>
-        {hostProfile && (
-          <>
-            <Spacer4 />
-            <Byline
-              small
-              pictureURL={hostProfile.photoURL}
-              name={hostProfile.displayName}
-            />
-          </>
-        )}
-        {children && (
-          <>
-            <Spacer4 />
-            <Content>{children}</Content>
-          </>
-        )}
-      </Main>
-      <Spacer8 />
-      <Graphic backgroundColor={graphic?.backgroundColor}>
-        {lottie ? (
-          <Lottie source={lottie} autoPlay loop />
-        ) : image ? (
-          <Image resizeMode="contain" source={image} />
-        ) : null}
-      </Graphic>
-    </Wrapper>
+            </>
+          )}
+          {children && (
+            <>
+              <Spacer4 />
+              <Content>{children}</Content>
+            </>
+          )}
+        </Main>
+        <Spacer8 />
+        <Graphic backgroundColor={graphic?.backgroundColor}>
+          {lottie ? (
+            <Lottie source={lottie} autoPlay loop />
+          ) : image ? (
+            <Image resizeMode="contain" source={image} />
+          ) : null}
+        </Graphic>
+      </Wrapper>
+    </Shadow>
   );
 };
 
