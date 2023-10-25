@@ -98,11 +98,11 @@ const ButtonList = () => {
       </RowFullWidth>
       <Spacer16 />
       <RowFullWidth>
-        <Button small onPress={() => {}}>
+        <Button size="small" onPress={() => {}}>
           Small Button
         </Button>
         <Spacer16 />
-        <Button small onPress={() => {}} LeftIcon={HomeIcon}>
+        <Button size="small" onPress={() => {}} LeftIcon={HomeIcon}>
           Small with icon
         </Button>
       </RowFullWidth>
@@ -132,7 +132,7 @@ const ButtonList = () => {
           fill={COLORS.WHITE}
           variant={pressed ? 'primary' : 'secondary'}
           active={pressed}
-          small
+          size="small"
           onPress={() => setPressed(state => !state)}>
           Animated small
         </AnimatedButton>
@@ -204,7 +204,7 @@ const IconButtonList = () => {
       <Spacer16 />
       <RowFullWidth>
         <Body16>Small</Body16>
-        <IconButton small onPress={() => {}} Icon={PlusIcon} />
+        <IconButton size="small" onPress={() => {}} Icon={PlusIcon} />
       </RowFullWidth>
       <Spacer16 />
       <RowFullWidth>

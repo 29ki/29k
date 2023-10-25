@@ -168,13 +168,13 @@ const IntroPortal: React.FC<IntroPortalProps> = ({
                 noBackground
               />
               {__DEV__ && sessionState?.started && (
-                <Button small onPress={onNavigateToSession}>
+                <Button size="small" onPress={onNavigateToSession}>
                   {t('skipPortal')}
                 </Button>
               )}
               {isHost && (
                 <Button
-                  small
+                  size="small"
                   disabled={sessionState?.started}
                   onPress={onStartSession}>
                   {sessionState?.started

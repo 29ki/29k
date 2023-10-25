@@ -47,7 +47,7 @@ const JoinButton: React.FC<{
 
   return sessionTime.isReadyToJoin ? (
     <>
-      <Button small variant="secondary" onPress={onPress}>
+      <Button size="small" variant="secondary" onPress={onPress}>
         <BodyBold>{t('join')}</BodyBold>
       </Button>
       <Spacer8 />

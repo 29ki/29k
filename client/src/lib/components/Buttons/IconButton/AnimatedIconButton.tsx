@@ -12,9 +12,9 @@ export type BaseIconButtonProps = BaseButtonProps & {
 
 const StyledIconButton = styled(BaseButton)<BaseIconButtonProps>(props => ({
   ...(props.noBackground ? {backgroundColor: 'transparent'} : {}),
-  width: props.small ? 36 : 44,
-  height: props.small ? 36 : 44,
-  padding: props.small ? 3 : 7,
+  width: props.size === 'small' ? 36 : 44,
+  height: props.size === 'small' ? 36 : 44,
+  padding: props.size === 'small' ? 3 : 7,
   borderRadius: SPACINGS.SIXTEEN,
 }));
 
@@ -28,7 +28,7 @@ const AnimatedIconButton: React.FC<IconButtonProps> = ({
   AnimatedIcon,
   style,
   disabled,
-  small,
+  size,
   elevated,
   active,
   noBackground,
@@ -58,7 +58,7 @@ const AnimatedIconButton: React.FC<IconButtonProps> = ({
   return (
     <StyledIconButton
       hitSlop={
-        small
+        size === 'small'
           ? {
               bottom: SPACINGS.FOUR,
               left: SPACINGS.FOUR,
@@ -71,7 +71,7 @@ const AnimatedIconButton: React.FC<IconButtonProps> = ({
       variant={variant}
       disabled={disabled}
       style={style}
-      small={small}
+      size={size}
       elevated={elevated}
       noBackground={noBackground}>
       <AnimatedIcon

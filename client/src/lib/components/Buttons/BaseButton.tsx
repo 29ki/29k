@@ -13,13 +13,13 @@ export type BaseButtonProps = {
   style?: ViewStyle;
   disabled?: boolean;
   children?: React.ReactNode;
-  small?: boolean;
+  size?: 'medium' | 'small' | 'xsmall';
   elevated?: boolean;
   active?: boolean;
 };
 
 const BaseButton = styled(TouchableOpacity)<BaseButtonProps>(
-  ({variant, small, elevated, disabled, active}) => ({
+  ({variant, size, elevated, disabled, active}) => ({
     backgroundColor: disabled
       ? COLORS.GREYMEDIUM
       : active
@@ -29,7 +29,7 @@ const BaseButton = styled(TouchableOpacity)<BaseButtonProps>(
       : variant === 'tertiary'
       ? COLORS.WHITE
       : COLORS.PRIMARY,
-    borderRadius: small ? SPACINGS.TWELVE : SPACINGS.SIXTEEN,
+    borderRadius: size === 'small' ? SPACINGS.TWELVE : SPACINGS.SIXTEEN,
     alignItems: 'center',
     justifyContent: 'center',
     flexDirection: 'row',

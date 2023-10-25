@@ -304,7 +304,7 @@ const CompletedSessionModal = () => {
         <Spacer24 />
         <Gutters>
           <ButtonWrapper>
-            <Button small variant="secondary" onPress={onStartSession}>
+            <Button size="small" variant="secondary" onPress={onStartSession}>
               {t('doAgainButton')}
             </Button>
           </ButtonWrapper>

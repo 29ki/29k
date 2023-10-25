@@ -15,7 +15,7 @@ const NavButton: React.FC<IconButtonProps> = ({
     onPress={onPress}
     Icon={Icon}
     noBackground
-    small
+    size="small"
     fill={COLORS.BLACK}
     disabled={disabled}
   />

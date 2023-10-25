@@ -88,7 +88,7 @@ export const AllCards = () => (
       graphic={DUMMY_TRANSPARENT_LOTTIE_GRAPHIC}
       onPress={() => {}}>
       <Row>
-        <Button small variant="secondary" onPress={() => {}}>
+        <Button size="small" variant="secondary" onPress={() => {}}>
           <BodyBold>Join</BodyBold>
         </Button>
         <Spacer8 />

@@ -299,7 +299,7 @@ const SessionOverlay = () => {
           <Row>
             {startingNow && (
               <>
-                <Button small variant="secondary" onPress={onJoin}>
+                <Button size="small" variant="secondary" onPress={onJoin}>
                   {t('join')}
                 </Button>
                 <Spacer8 />

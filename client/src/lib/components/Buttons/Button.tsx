@@ -46,7 +46,7 @@ const ButtonText = styled(Body16).attrs({selectable: false})<ButtonTextProps>(
       disabled || active || variant !== 'tertiary'
         ? COLORS.WHITE
         : COLORS.BLACK,
-    marginVertical: small ? 8 : SPACINGS.TWELVE,
+    marginVertical: small ? SPACINGS.EIGHT : SPACINGS.TWELVE,
     marginHorizontal: SPACINGS.SIXTEEN,
   }),
 );
@@ -64,7 +64,7 @@ const Button: React.FC<ButtonProps> = ({
   style,
   disabled,
   loading,
-  small,
+  size,
   LeftIcon,
   RightIcon,
   elevated,
@@ -72,16 +72,16 @@ const Button: React.FC<ButtonProps> = ({
 }) => (
   <BaseButton
     hitSlop={{
-      bottom: small ? SPACINGS.EIGHT : undefined,
+      bottom: size === 'small' ? SPACINGS.EIGHT : undefined,
       left: undefined,
       right: undefined,
-      top: small ? SPACINGS.EIGHT : undefined,
+      top: size === 'small' ? SPACINGS.EIGHT : undefined,
     }}
     onPress={onPress}
     variant={variant}
     elevated={elevated}
     active={active}
-    small={small}
+    size={size}
     style={style}
     disabled={disabled}>
     {loading && (
@@ -106,7 +106,7 @@ const Button: React.FC<ButtonProps> = ({
       </LeftIconWrapper>
     )}
     <ButtonText
-      small={small}
+      small={size}
       variant={variant}
       active={active}
       disabled={disabled}
