@@ -20,6 +20,14 @@ import {ExerciseCard} from '../../../../../shared/src/types/generated/Exercise';
 
 export const HEIGHT = 175;
 
+const Shadow = styled.View({
+  shadowColor: COLORS.BLACK,
+  shadowOffset: `0 -${SPACINGS.EIGHT}px`,
+  shadowRadius: 20,
+  shadowOpacity: 0.1,
+  elevation: 5,
+});
+
 const Wrapper = styled(TouchableOpacity)({
   borderRadius: 16,
   backgroundColor: COLORS.CREAM,
@@ -143,59 +151,65 @@ export const Card: React.FC<CardProps> = ({
   );
 
   return (
-    <Wrapper onPress={onPress} style={style}>
-      <Tags>
-        {interestedCount ? (
-          <>
-            <PinnedTag>{t('interested')}</PinnedTag>
-            <Spacer4 />
-            <InterestedTag>{interestedCount}</InterestedTag>
-            <Spacer4 />
-          </>
-        ) : (
-          isPinned && (
+    <Shadow>
+      <Wrapper onPress={onPress} style={style}>
+        <Tags>
+          {interestedCount ? (
             <>
-              <PinnedTag
-                LeftIcon={reminderEnabled ? BellFillIcon : CheckIcon}
-                iconFill={COLORS.PRIMARY}>
-                {t('myJourneyTag')}
-              </PinnedTag>
+              <PinnedTag>{t('interested')}</PinnedTag>
+              <Spacer4 />
+              <InterestedTag>{interestedCount}</InterestedTag>
               <Spacer4 />
             </>
-          )
-        )}
-        {tags &&
-          tags.map(tag => (
-            <Fragment key={tag}>
-              <Tag>{tag}</Tag>
-              <Spacer4 />
-            </Fragment>
-          ))}
-        <TagsGradient start={{x: 0, y: 0}} end={{x: 1, y: 0}} colors={colors} />
-      </Tags>
-      <Spacer4 />
-      <Row>
-        <Main>
-          <Title numberOfLines={2}>{title}</Title>
-          <Spacer4 />
-          {hostProfile && (
-            <Byline
-              pictureURL={hostProfile.photoURL}
-              name={hostProfile.displayName}
-            />
+          ) : (
+            isPinned && (
+              <>
+                <PinnedTag
+                  LeftIcon={reminderEnabled ? BellFillIcon : CheckIcon}
+                  iconFill={COLORS.PRIMARY}>
+                  {t('myJourneyTag')}
+                </PinnedTag>
+                <Spacer4 />
+              </>
+            )
           )}
-          <Content>{children}</Content>
-        </Main>
-        <Spacer8 />
-        <Graphic backgroundColor={graphic?.backgroundColor}>
-          {lottie ? (
-            <Lottie source={lottie} autoPlay loop />
-          ) : image ? (
-            <Image resizeMode="contain" source={image} />
-          ) : null}
-        </Graphic>
-      </Row>
-    </Wrapper>
+          {tags &&
+            tags.map(tag => (
+              <Fragment key={tag}>
+                <Tag>{tag}</Tag>
+                <Spacer4 />
+              </Fragment>
+            ))}
+          <TagsGradient
+            start={{x: 0, y: 0}}
+            end={{x: 1, y: 0}}
+            colors={colors}
+          />
+        </Tags>
+        <Spacer4 />
+        <Row>
+          <Main>
+            <Title numberOfLines={2}>{title}</Title>
+            <Spacer4 />
+            {hostProfile && (
+              <Byline
+                pictureURL={hostProfile.photoURL}
+                name={hostProfile.displayName}
+              />
+            )}
+            <Content>{children}</Content>
+          </Main>
+          <Spacer8 />
+          <Graphic backgroundColor={graphic?.backgroundColor}>
+            {lottie ? (
+              <Lottie source={lottie} autoPlay loop />
+            ) : image ? (
+              <Image resizeMode="contain" source={image} />
+            ) : null}
+          </Graphic>
+        </Row>
+      </Wrapper>
+    </Shadow>
   );
 };
 
