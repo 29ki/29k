@@ -196,33 +196,6 @@ export const PROFILE_FIELD: CmsFieldBase & CmsFieldObject = {
   ],
 };
 
-export const AMBASSADOR_FIELD: CmsFieldBase & CmsFieldObject = {
-  label: '🦹‍♂️ Ambassador',
-  name: 'ambassador',
-  widget: 'object',
-  collapsed: true,
-  required: false,
-  i18n: true,
-  fields: [
-    {
-      label: '📃 Name',
-      name: 'displayName',
-      widget: 'string',
-      required: false,
-      i18n: true,
-    },
-    {
-      label: '🌅 Profile image',
-      name: 'photoURL',
-      widget: 'image',
-      required: false,
-      i18n: true,
-      allow_multiple: false,
-      media_library: CLOUDINARY_IMAGE_CONFIG,
-    },
-  ],
-};
-
 export const LOTTE_FIELD: CmsFieldBase & CmsFieldObject = {
   label: '💃 Lottie',
   name: 'lottie',
@@ -362,7 +335,6 @@ export const CARD_FIELD: CmsFieldBase & CmsFieldObject = {
     BACKGROUND_COLOR_FIELD,
     CARD_IMAGE_FIELD,
     {...LOTTE_FIELD, hint: 'Overrides image'},
-    {...AMBASSADOR_FIELD, hint: 'Only used for the Async version'},
   ],
 };
 
