@@ -104,7 +104,7 @@
     "published": true,
     "card": {
       "image": {
-        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1692872012/Images/card_personal_values_xpcp9x.png"
+        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1692872012/Images/card_personal_values_xpcp9x.png"
       }
     },
     "socialMeta": {
@@ -125,9 +125,7 @@
         "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1692872040/Video/portal2_personal_values_jqisfe.mp4"
       }
     },
-    "tags": [
-      "9c2c08a9-7dc6-4058-bc78-016d0eb00614"
-    ],
+    "tags": ["9c2c08a9-7dc6-4058-bc78-016d0eb00614"],
     "id": "61adeaf2-70ab-4c6c-854c-2c16f762a3c5",
     "async": true,
     "description": "Define personal values to navigate life in both ups and downs. Living a value-based life has been proven to increase sense of purpose and long term happiness."
@@ -202,9 +200,7 @@
         }
       ]
     },
-    "tags": [
-      "9c2c08a9-7dc6-4058-bc78-016d0eb00614"
-    ],
+    "tags": ["9c2c08a9-7dc6-4058-bc78-016d0eb00614"],
     "id": "61adeaf2-70ab-4c6c-854c-2c16f762a3c5",
     "async": false
   },
@@ -278,9 +274,7 @@
         }
       ]
     },
-    "tags": [
-      "9c2c08a9-7dc6-4058-bc78-016d0eb00614"
-    ],
+    "tags": ["9c2c08a9-7dc6-4058-bc78-016d0eb00614"],
     "id": "61adeaf2-70ab-4c6c-854c-2c16f762a3c5",
     "async": false
   },
@@ -354,9 +348,7 @@
         }
       ]
     },
-    "tags": [
-      "9c2c08a9-7dc6-4058-bc78-016d0eb00614"
-    ],
+    "tags": ["9c2c08a9-7dc6-4058-bc78-016d0eb00614"],
     "id": "61adeaf2-70ab-4c6c-854c-2c16f762a3c5",
     "async": false
   }

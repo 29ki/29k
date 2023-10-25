@@ -118,7 +118,7 @@
     "published": true,
     "card": {
       "image": {
-        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1687406076/Images/card_image_way_out_is_through_qjpv4m.png"
+        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1687406076/Images/card_image_way_out_is_through_qjpv4m.png"
       }
     },
     "coCreators": [
@@ -361,7 +361,7 @@
     "published": true,
     "card": {
       "image": {
-        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1687406076/Images/card_image_way_out_is_through_qjpv4m.png"
+        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1687406076/Images/card_image_way_out_is_through_qjpv4m.png"
       }
     },
     "duration": 30,

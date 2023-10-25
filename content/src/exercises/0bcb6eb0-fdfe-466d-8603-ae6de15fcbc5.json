@@ -114,7 +114,7 @@
     "published": true,
     "card": {
       "image": {
-        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1692855592/Images/card_image_90th_birthday_noi09y.png"
+        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1692855592/Images/card_image_90th_birthday_noi09y.png"
       }
     },
     "socialMeta": {
@@ -337,7 +337,7 @@
     "published": true,
     "card": {
       "image": {
-        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1692855592/Images/card_image_90th_birthday_noi09y.png"
+        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1692855592/Images/card_image_90th_birthday_noi09y.png"
       }
     },
     "socialMeta": {

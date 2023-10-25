@@ -110,7 +110,7 @@
     "published": true,
     "card": {
       "image": {
-        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1693313695/Images/card_image_your_recovery_routine_ol7r0k.png"
+        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1693313695/Images/card_image_your_recovery_routine_ol7r0k.png"
       }
     },
     "socialMeta": {
@@ -131,9 +131,7 @@
         "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1693313475/Video/portal2_your_recovery_routine_ctnnsu.mp4"
       }
     },
-    "tags": [
-      "da15b7ab-dd95-4fc7-b085-2f022ab7282f"
-    ],
+    "tags": ["da15b7ab-dd95-4fc7-b085-2f022ab7282f"],
     "link": "https://aware.29k.org/your-recovery-routine",
     "id": "2d096e25-3f0b-48da-8557-3db607b98ef8",
     "async": true,
@@ -215,9 +213,7 @@
         }
       ]
     },
-    "tags": [
-      "da15b7ab-dd95-4fc7-b085-2f022ab7282f"
-    ],
+    "tags": ["da15b7ab-dd95-4fc7-b085-2f022ab7282f"],
     "link": "https://aware.29k.org/your-recovery-routine",
     "id": "2d096e25-3f0b-48da-8557-3db607b98ef8",
     "async": false
@@ -333,7 +329,7 @@
     "published": true,
     "card": {
       "image": {
-        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1693313695/Images/card_image_your_recovery_routine_ol7r0k.png"
+        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1693313695/Images/card_image_your_recovery_routine_ol7r0k.png"
       }
     },
     "socialMeta": {
@@ -354,9 +350,7 @@
         "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1693313475/Video/portal2_your_recovery_routine_ctnnsu.mp4"
       }
     },
-    "tags": [
-      "da15b7ab-dd95-4fc7-b085-2f022ab7282f"
-    ],
+    "tags": ["da15b7ab-dd95-4fc7-b085-2f022ab7282f"],
     "link": "https://aware.29k.org/your-recovery-routine",
     "id": "2d096e25-3f0b-48da-8557-3db607b98ef8",
     "async": true,
@@ -438,9 +432,7 @@
         }
       ]
     },
-    "tags": [
-      "da15b7ab-dd95-4fc7-b085-2f022ab7282f"
-    ],
+    "tags": ["da15b7ab-dd95-4fc7-b085-2f022ab7282f"],
     "link": "https://aware.29k.org/your-recovery-routine",
     "id": "2d096e25-3f0b-48da-8557-3db607b98ef8",
     "async": false
