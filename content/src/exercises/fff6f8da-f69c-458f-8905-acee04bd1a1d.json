@@ -21,7 +21,7 @@
         ],
         "content": {
           "lottie": {
-            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1696324066/Audio/The_future_you_ylxso8.mp3",
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1698312877/Audio/The_future_you_lxcxvt.mp3",
             "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1696324117/SRT%20(captions)%20files/The_future_you_gzkogk.srt",
             "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1676977421/Lottie/audio_meditation_default_black_default_omemwt.json"
           }
@@ -96,7 +96,7 @@
       "backgroundColor": "#a49c80"
     },
     "hidden": true,
-    "name": "The future you!",
+    "name": "The future you",
     "live": true,
     "published": true,
     "card": {
