@@ -11,7 +11,6 @@ import TouchableOpacity from '../../TouchableOpacity/TouchableOpacity';
 import {Spacer8} from '../../Spacers/Spacer';
 import {PlayfairDisplayMedium} from '../../../constants/fonts';
 import {prop} from 'ramda';
-import CardShadow from '../CardShadow';
 
 type CollectionCardProps = {
   title?: string;
@@ -82,19 +81,17 @@ const CollectionCard: React.FC<CollectionCardProps> = ({
   }, [backgroundColorGradient]);
 
   return (
-    <CardShadow>
-      <Container onPress={onPress}>
-        <Gradient colors={bgColors}>
-          <Heading color={textColor}>{title}</Heading>
-          <ImageContainer>
-            <GraphicsWrapper>
-              <Image source={image} />
-            </GraphicsWrapper>
-          </ImageContainer>
-          <Spacer8 />
-        </Gradient>
-      </Container>
-    </CardShadow>
+    <Container onPress={onPress}>
+      <Gradient colors={bgColors}>
+        <Heading color={textColor}>{title}</Heading>
+        <ImageContainer>
+          <GraphicsWrapper>
+            <Image source={image} />
+          </GraphicsWrapper>
+        </ImageContainer>
+        <Spacer8 />
+      </Gradient>
+    </Container>
   );
 };
 

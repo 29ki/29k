@@ -17,7 +17,6 @@ import {BellFillIcon, CheckIcon} from '../Icons';
 import {useTranslation} from 'react-i18next';
 import {UserType} from '../../../../../shared/src/schemas/User';
 import {ExerciseCard} from '../../../../../shared/src/types/generated/Exercise';
-import CardShadow from './CardShadow';
 
 export const HEIGHT = 175;
 
@@ -144,65 +143,59 @@ export const Card: React.FC<CardProps> = ({
   );
 
   return (
-    <CardShadow>
-      <Wrapper onPress={onPress} style={style}>
-        <Tags>
-          {interestedCount ? (
+    <Wrapper onPress={onPress} style={style}>
+      <Tags>
+        {interestedCount ? (
+          <>
+            <PinnedTag>{t('interested')}</PinnedTag>
+            <Spacer4 />
+            <InterestedTag>{interestedCount}</InterestedTag>
+            <Spacer4 />
+          </>
+        ) : (
+          isPinned && (
             <>
-              <PinnedTag>{t('interested')}</PinnedTag>
-              <Spacer4 />
-              <InterestedTag>{interestedCount}</InterestedTag>
+              <PinnedTag
+                LeftIcon={reminderEnabled ? BellFillIcon : CheckIcon}
+                iconFill={COLORS.PRIMARY}>
+                {t('myJourneyTag')}
+              </PinnedTag>
               <Spacer4 />
             </>
-          ) : (
-            isPinned && (
-              <>
-                <PinnedTag
-                  LeftIcon={reminderEnabled ? BellFillIcon : CheckIcon}
-                  iconFill={COLORS.PRIMARY}>
-                  {t('myJourneyTag')}
-                </PinnedTag>
-                <Spacer4 />
-              </>
-            )
+          )
+        )}
+        {tags &&
+          tags.map(tag => (
+            <Fragment key={tag}>
+              <Tag>{tag}</Tag>
+              <Spacer4 />
+            </Fragment>
+          ))}
+        <TagsGradient start={{x: 0, y: 0}} end={{x: 1, y: 0}} colors={colors} />
+      </Tags>
+      <Spacer4 />
+      <Row>
+        <Main>
+          <Title numberOfLines={2}>{title}</Title>
+          <Spacer4 />
+          {hostProfile && (
+            <Byline
+              pictureURL={hostProfile.photoURL}
+              name={hostProfile.displayName}
+            />
           )}
-          {tags &&
-            tags.map(tag => (
-              <Fragment key={tag}>
-                <Tag>{tag}</Tag>
-                <Spacer4 />
-              </Fragment>
-            ))}
-          <TagsGradient
-            start={{x: 0, y: 0}}
-            end={{x: 1, y: 0}}
-            colors={colors}
-          />
-        </Tags>
-        <Spacer4 />
-        <Row>
-          <Main>
-            <Title numberOfLines={2}>{title}</Title>
-            <Spacer4 />
-            {hostProfile && (
-              <Byline
-                pictureURL={hostProfile.photoURL}
-                name={hostProfile.displayName}
-              />
-            )}
-            <Content>{children}</Content>
-          </Main>
-          <Spacer8 />
-          <Graphic backgroundColor={graphic?.backgroundColor}>
-            {lottie ? (
-              <Lottie source={lottie} autoPlay loop />
-            ) : image ? (
-              <Image resizeMode="contain" source={image} />
-            ) : null}
-          </Graphic>
-        </Row>
-      </Wrapper>
-    </CardShadow>
+          <Content>{children}</Content>
+        </Main>
+        <Spacer8 />
+        <Graphic backgroundColor={graphic?.backgroundColor}>
+          {lottie ? (
+            <Lottie source={lottie} autoPlay loop />
+          ) : image ? (
+            <Image resizeMode="contain" source={image} />
+          ) : null}
+        </Graphic>
+      </Row>
+    </Wrapper>
   );
 };
 
