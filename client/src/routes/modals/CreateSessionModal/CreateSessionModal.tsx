@@ -12,7 +12,6 @@ import {
   SessionMode,
   SessionType,
 } from '../../../../../shared/src/schemas/Session';
-import {COLORS} from '../../../../../shared/src/constants/colors';
 import {UserProfileType} from '../../../../../shared/src/schemas/User';
 
 import useIsPublicHost from '../../../lib/user/hooks/useIsPublicHost';
