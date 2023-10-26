@@ -15,7 +15,6 @@ import {Spacer4, Spacer8} from '../Spacers/Spacer';
 import Tag from '../Tag/Tag';
 import {UserType} from '../../../../../shared/src/schemas/User';
 import {ExerciseCard} from '../../../../../shared/src/types/generated/Exercise';
-import CardShadow from './CardShadow';
 
 export const HEIGHT = 80;
 
@@ -124,59 +123,57 @@ export const CardSmall: React.FC<CardProps> = ({
   );
 
   return (
-    <CardShadow>
-      <Wrapper
-        onPress={onPress}
-        style={style}
-        backgroundColor={completed ? COLORS.LIGHT_GREEN : COLORS.CREAM}>
-        <Main>
-          {tags && (
-            <>
-              <Tags>
-                {tags &&
-                  tags.map(tag => (
-                    <Fragment key={tag}>
-                      <Tag>{tag}</Tag>
-                      <Spacer4 />
-                    </Fragment>
-                  ))}
-                <TagsGradient
-                  start={{x: 0, y: 0}}
-                  end={{x: 1, y: 0}}
-                  colors={colors}
-                />
-              </Tags>
-              <Spacer4 />
-            </>
-          )}
-          <Title numberOfLines={children || tags ? 1 : 2}>{title}</Title>
-          {hostProfile && (
-            <>
-              <Spacer4 />
-              <Byline
-                small
-                pictureURL={hostProfile.photoURL}
-                name={hostProfile.displayName}
+    <Wrapper
+      onPress={onPress}
+      style={style}
+      backgroundColor={completed ? COLORS.LIGHT_GREEN : COLORS.CREAM}>
+      <Main>
+        {tags && (
+          <>
+            <Tags>
+              {tags &&
+                tags.map(tag => (
+                  <Fragment key={tag}>
+                    <Tag>{tag}</Tag>
+                    <Spacer4 />
+                  </Fragment>
+                ))}
+              <TagsGradient
+                start={{x: 0, y: 0}}
+                end={{x: 1, y: 0}}
+                colors={colors}
               />
-            </>
-          )}
-          {children && (
-            <>
-              <Spacer4 />
-              <Content>{children}</Content>
-            </>
-          )}
-        </Main>
-        <Spacer8 />
-        <Graphic backgroundColor={graphic?.backgroundColor}>
-          {lottie ? (
-            <Lottie source={lottie} autoPlay loop />
-          ) : image ? (
-            <Image resizeMode="contain" source={image} />
-          ) : null}
-        </Graphic>
-      </Wrapper>
-    </CardShadow>
+            </Tags>
+            <Spacer4 />
+          </>
+        )}
+        <Title numberOfLines={children || tags ? 1 : 2}>{title}</Title>
+        {hostProfile && (
+          <>
+            <Spacer4 />
+            <Byline
+              small
+              pictureURL={hostProfile.photoURL}
+              name={hostProfile.displayName}
+            />
+          </>
+        )}
+        {children && (
+          <>
+            <Spacer4 />
+            <Content>{children}</Content>
+          </>
+        )}
+      </Main>
+      <Spacer8 />
+      <Graphic backgroundColor={graphic?.backgroundColor}>
+        {lottie ? (
+          <Lottie source={lottie} autoPlay loop />
+        ) : image ? (
+          <Image resizeMode="contain" source={image} />
+        ) : null}
+      </Graphic>
+    </Wrapper>
   );
 };
 
