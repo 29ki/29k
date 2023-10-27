@@ -112,6 +112,13 @@
     "socialMeta": {
       "image": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1692897989/Images/card_become_present_s5b47y.png"
     },
+    "coCreators": [
+      {
+        "name": "Ints Ivanovskis, art works",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413436/Contributors/Ints%20Ivanovskis.jpg",
+        "url": "https://www.linkedin.com/in/ints-ivanovskis-46ab0311a/"
+      }
+    ],
     "duration": 30,
     "introPortal": {
       "hostNotes": [
