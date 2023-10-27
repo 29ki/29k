@@ -173,6 +173,23 @@
         "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1668092579/Images/cover_letting_go_of_control_t5fi5i.png"
       }
     },
+    "coCreators": [
+      {
+        "name": "Agnes Branny, voice",
+        "url": "agnesbranny.com",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665414181/Contributors/Agnes%20Branny.png"
+      },
+      {
+        "name": "Ints Ivanovskis, art works",
+        "url": "https://www.linkedin.com/in/ints-ivanovskis-46ab0311a/",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413436/Contributors/Ints%20Ivanovskis.jpg"
+      },
+      {
+        "name": "Jenny Rickardsson, editor",
+        "url": "https://www.linkedin.com/in/jenny-rickardson-6770a959/",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413228/Contributors/Jenny%20Rickardsson.jpg"
+      }
+    ],
     "duration": 30,
     "outroPortal": {
       "video": {
