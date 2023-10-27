@@ -123,6 +123,23 @@
         "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1674395876/Images/card2_Drop_all_requirements_vd3gwl.png"
       }
     },
+    "coCreators": [
+      {
+        "name": "Agnes Branny, voice",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665414181/Contributors/Agnes%20Branny.png",
+        "url": "https://www.agnesbranny.com/"
+      },
+      {
+        "name": "Ints Ivanovskis, Art works",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413436/Contributors/Ints%20Ivanovskis.jpg",
+        "url": "https://www.linkedin.com/in/ints-ivanovskis-46ab0311a/"
+      },
+      {
+        "name": "Jenny Rickardsson, editor",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413228/Contributors/Jenny%20Rickardsson.jpg",
+        "url": "https://www.linkedin.com/in/jenny-rickardson-6770a959/"
+      }
+    ],
     "duration": 30,
     "introPortal": {
       "hostNotes": [
