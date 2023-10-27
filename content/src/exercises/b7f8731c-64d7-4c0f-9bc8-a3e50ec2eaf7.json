@@ -128,6 +128,23 @@
         "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1684313656/Images/outdoor_sensing_thumb_q68hl4.png"
       }
     },
+    "coCreators": [
+      {
+        "name": "Jenny Rickardsson, editor, voice",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413228/Contributors/Jenny%20Rickardsson.jpg",
+        "url": "https://www.linkedin.com/in/jenny-rickardson-6770a959/"
+      },
+      {
+        "name": "Göran Gennvi, original script and research",
+        "url": "https://www.gorangennvi.eu/nature-academy/",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1698408621/Contributors/Goran-Gennvi_ucyj82.jpg"
+      },
+      {
+        "name": "Ints Ivanovskis, art works",
+        "url": "https://www.linkedin.com/in/ints-ivanovskis-46ab0311a/",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413436/Contributors/Ints%20Ivanovskis.jpg"
+      }
+    ],
     "duration": 40,
     "outroPortal": {
       "video": {
