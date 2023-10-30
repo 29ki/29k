@@ -58,7 +58,7 @@
     "@types/koa-bodyparser": "^4.3.11",
     "@types/koa__router": "^12.0.3",
     "@types/mjml": "^4.7.2",
-    "@types/node-fetch": "^2.6.6",
+    "@types/node-fetch": "^2.6.7",
     "@types/ramda": "^0.29.7",
     "@types/semver": "^7.5.4",
     "@types/supertest": "^2.0.15",
