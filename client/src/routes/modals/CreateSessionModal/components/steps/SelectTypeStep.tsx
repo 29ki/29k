@@ -39,7 +39,7 @@ import {formatContentName} from '../../../../../lib/utils/string';
 import Image from '../../../../../lib/components/Image/Image';
 import {ActivityIndicator, ListRenderItem, Share, View} from 'react-native';
 import SessionCard from '../../../../../lib/components/Cards/SessionCard/SessionCard';
-import {Heading18} from '../../../../../lib/components/Typography/Heading/Heading';
+import {Heading16} from '../../../../../lib/components/Typography/Heading/Heading';
 import {BottomSheetFlatList} from '@gorhom/bottom-sheet';
 import {ModalStackProps} from '../../../../../lib/navigation/constants/routes';
 import useStartAsyncSession from '../../../../../lib/session/hooks/useStartAsyncSession';
@@ -47,17 +47,16 @@ import Markdown from '../../../../../lib/components/Typography/Markdown/Markdown
 import useGetTagsById from '../../../../../lib/content/hooks/useGetTagsById';
 import Tag from '../../../../../lib/components/Tag/Tag';
 import IconButton from '../../../../../lib/components/Buttons/IconButton/IconButton';
-import Byline from '../../../../../lib/components/Bylines/Byline';
-import {openUrl} from 'react-native-markdown-display';
 import {ThumbsUpWithoutPadding} from '../../../../../lib/components/Thumbs/Thumbs';
 import useExerciseRating from '../../../../../lib/session/hooks/useExerciseRating';
 import useExerciseFeedback from '../../../../../lib/session/hooks/useExerciseFeedback';
 import FeedbackCarousel from '../../../../../lib/components/FeedbackCarousel/FeedbackCarousel';
 import useLiveSessionsByExercise from '../../../../../lib/session/hooks/useLiveSessionsByExercise';
-import ExerciseCardContainer from '../../../../../lib/components/Cards/SessionCard/ExerciseCardContainer';
+import ExerciseCard from '../../../../../lib/components/Cards/SessionCard/ExerciseCard';
 import useExercisesByTags from '../../../../../lib/content/hooks/useExercisesByTags';
 import {Tag as TagType} from '../../../../../../../shared/src/types/generated/Tag';
 import {take} from 'ramda';
+import CoCreators from '../../../../../lib/components/CoCreators/CoCreators';
 
 const TypeItemWrapper = styled.View<{isLast?: boolean}>(({isLast}) => ({
   flexDirection: 'row',
@@ -85,7 +84,7 @@ const TypeWrapper = styled(TouchableOpacity)({
   paddingHorizontal: SPACINGS.SIXTEEN,
 });
 
-const TypeItemHeading = styled(Heading18)({
+const TypeItemHeading = styled(Heading16)({
   textAlign: 'left',
 });
 
@@ -240,56 +239,21 @@ const SelectTypeStep: React.FC<StepProps> = ({
   }, [startSession, popToTop, selectedExercise]);
 
   const renderItem = useCallback<ListRenderItem<LiveSessionType>>(
-    ({item, index}) => {
-      const hasCardBefore = index > 0;
-      const hasCardAfter = index !== sessions.length - 1;
-
-      return (
-        <Gutters>
-          <SessionCard
-            session={item}
-            hasCardBefore={hasCardBefore}
-            hasCardAfter={hasCardAfter}
-            standAlone={false}
-            onBeforeContextPress={popToTop}
-          />
-        </Gutters>
-      );
-    },
-    [sessions, popToTop],
-  );
-
-  const coCreators = useMemo(
-    () => (
-      <>
-        {exercise?.coCreators?.map(({name, avatar_url, link}, idx) => (
-          <>
-            <Byline
-              key={`${name}-${idx}`}
-              small
-              prefix={false}
-              pictureURL={avatar_url}
-              name={name}
-              onPress={!link ? undefined : () => openUrl(link)}
-            />
-            <Spacer4 />
-          </>
-        ))}
-      </>
+    ({item}) => (
+      <Gutters>
+        <SessionCard session={item} small onBeforeContextPress={popToTop} />
+      </Gutters>
     ),
-    [exercise],
+    [popToTop],
   );
 
   const moreLikeThisExercises = useMemo(
     () =>
-      take(MORE_LIKE_THIS_LIMIT, exercisesByTags).map((e, idx) => (
-        <ExerciseCardContainer
-          key={e.id}
-          exercise={e}
-          hasCardBefore={idx !== 0}
-          hasCardAfter={idx < MORE_LIKE_THIS_LIMIT - 1}
-          onPress={() => popToTop()}
-        />
+      take(MORE_LIKE_THIS_LIMIT, exercisesByTags).map(e => (
+        <Fragment key={e.id}>
+          <ExerciseCard exercise={e} onPress={() => popToTop()} />
+          <Spacer16 />
+        </Fragment>
       )),
     [exercisesByTags, popToTop],
   );
@@ -337,6 +301,7 @@ const SelectTypeStep: React.FC<StepProps> = ({
         <BottomSheetFlatList
           data={sessions}
           renderItem={renderItem}
+          ItemSeparatorComponent={Spacer16}
           keyExtractor={keyExtractor}
           ListEmptyComponent={
             <EmptyListContainer>
@@ -363,9 +328,9 @@ const SelectTypeStep: React.FC<StepProps> = ({
                 )}
                 {Boolean(exercise.coCreators?.length) && (
                   <>
-                    <Heading18>{t('coCreatorsHeading')}</Heading18>
+                    <Heading16>{t('coCreatorsHeading')}</Heading16>
                     <Spacer8 />
-                    {coCreators}
+                    <CoCreators coCreators={exercise.coCreators} />
                   </>
                 )}
               </Gutters>
@@ -373,7 +338,7 @@ const SelectTypeStep: React.FC<StepProps> = ({
                 <>
                   <Spacer24 />
                   <Gutters>
-                    <Heading18>{t('feedbackHeading')}</Heading18>
+                    <Heading16>{t('feedbackHeading')}</Heading16>
                   </Gutters>
                   <Spacer8 />
                   <FeedbackCarousel feedbackItems={feedback} />
@@ -382,7 +347,7 @@ const SelectTypeStep: React.FC<StepProps> = ({
               {Boolean(exercisesByTags?.length) && (
                 <Gutters>
                   <Spacer24 />
-                  <Heading18>{t('moreLikeThis')}</Heading18>
+                  <Heading16>{t('moreLikeThis')}</Heading16>
                   <Spacer8 />
                   <View>{moreLikeThisExercises}</View>
                 </Gutters>
@@ -439,7 +404,7 @@ const SelectTypeStep: React.FC<StepProps> = ({
                   <Spacer24 />
                   {Boolean(sessions.length) && (
                     <>
-                      <Heading18>{t('orJoinUpcoming')}</Heading18>
+                      <Heading16>{t('orJoinUpcoming')}</Heading16>
                       <Spacer16 />
                     </>
                   )}

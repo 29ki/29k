@@ -1,4 +1,5 @@
 import {CmsField} from 'netlify-cms-core';
+import {CLOUDINARY_CONTRIBUTOR_IMAGE_CONFIG} from './constants';
 
 const contributionTypes = {
   marketing: {
@@ -183,18 +184,7 @@ const CONTRIBUTORS_FIELDS: Array<CmsField> = [
         label: 'Avatar',
         name: 'avatar_url',
         widget: 'image',
-        media_library: {
-          name: 'cloudinary',
-          config: {
-            default_transformations: [
-              [
-                {
-                  transformation: 'profile_picture_square',
-                },
-              ],
-            ],
-          },
-        },
+        media_library: CLOUDINARY_CONTRIBUTOR_IMAGE_CONFIG,
       },
       {
         label: 'Profile URL',

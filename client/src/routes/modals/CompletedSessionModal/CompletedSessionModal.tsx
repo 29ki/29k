@@ -8,7 +8,6 @@ import {BottomSheetScrollView} from '@gorhom/bottom-sheet';
 import {complement, isNil, take} from 'ramda';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import AnimatedLottieView from 'lottie-react-native';
-import {openUrl} from 'react-native-markdown-display';
 
 import Button from '../../../lib/components/Buttons/Button';
 import Gutters from '../../../lib/components/Gutters/Gutters';
@@ -52,13 +51,14 @@ import Node from '../../../lib/components/Node/Node';
 import {SPACINGS} from '../../../lib/constants/spacings';
 import Tag from '../../../lib/components/Tag/Tag';
 import useGetTagsById from '../../../lib/content/hooks/useGetTagsById';
-import {Heading18} from '../../../lib/components/Typography/Heading/Heading';
+import {Heading16} from '../../../lib/components/Typography/Heading/Heading';
 import SessionCard from '../../../lib/components/Cards/SessionCard/SessionCard';
 import useLiveSessionsByExercise from '../../../lib/session/hooks/useLiveSessionsByExercise';
 import FeedbackCard from '../../../lib/components/FeedbackCard/FeedbackCard';
-import ExerciseCardContainer from '../../../lib/components/Cards/SessionCard/ExerciseCardContainer';
+import ExerciseCard from '../../../lib/components/Cards/SessionCard/ExerciseCard';
 import useExercisesByTags from '../../../lib/content/hooks/useExercisesByTags';
 import {Tag as TagType} from '../../../../../shared/src/types/generated/Tag';
+import CoCreators from '../../../lib/components/CoCreators/CoCreators';
 
 const Content = styled(Gutters)({
   justifyContent: 'space-between',
@@ -184,36 +184,13 @@ const CompletedSessionModal = () => {
     }
   }, [exercise]);
 
-  const coCreators = useMemo(
-    () => (
-      <>
-        {exercise?.coCreators?.map(({name, avatar_url, link}, idx) => (
-          <>
-            <Byline
-              key={`${name}-${idx}`}
-              small
-              prefix={false}
-              pictureURL={avatar_url}
-              name={name}
-              onPress={!link ? undefined : () => openUrl(link)}
-            />
-            <Spacer4 />
-          </>
-        ))}
-      </>
-    ),
-    [exercise],
-  );
-
   const moreLikeThisExercises = useMemo(
     () =>
-      take(MORE_LIKE_THIS_LIMIT, exercisesByTags).map((e, idx) => (
-        <ExerciseCardContainer
-          key={e.id}
-          exercise={e}
-          hasCardBefore={idx !== 0}
-          hasCardAfter={idx < MORE_LIKE_THIS_LIMIT - 1}
-        />
+      take(MORE_LIKE_THIS_LIMIT, exercisesByTags).map(e => (
+        <Fragment key={e.id}>
+          <ExerciseCard key={e.id} exercise={e} />
+          <Spacer16 />
+        </Fragment>
       )),
     [exercisesByTags],
   );
@@ -232,16 +209,8 @@ const CompletedSessionModal = () => {
               <Display24>{formatContentName(exercise)}</Display24>
               <Spacer4 />
               <Byline
-                pictureURL={
-                  hostProfile?.photoURL
-                    ? hostProfile.photoURL
-                    : exercise.card?.ambassador?.photoURL
-                }
-                name={
-                  hostProfile?.displayName
-                    ? hostProfile.displayName
-                    : exercise.card?.ambassador?.displayName
-                }
+                pictureURL={hostProfile?.photoURL}
+                name={hostProfile?.displayName}
                 onPress={onHostPress}
               />
             </TitleContainer>
@@ -325,7 +294,7 @@ const CompletedSessionModal = () => {
         <Spacer24 />
         <Gutters>
           <ButtonWrapper>
-            <Button small variant="secondary" onPress={onStartSession}>
+            <Button size="small" variant="secondary" onPress={onStartSession}>
               {t('doAgainButton')}
             </Button>
           </ButtonWrapper>
@@ -335,15 +304,15 @@ const CompletedSessionModal = () => {
           <Gutters>
             <Spacer24 />
             <View>
-              {sessions.map((item, idx) => (
-                <SessionCard
-                  key={item.id}
-                  session={item}
-                  hasCardBefore={idx > 0}
-                  hasCardAfter={idx < sessions.length - 1}
-                  standAlone={false}
-                  onBeforeContextPress={popToTop}
-                />
+              {sessions.map(item => (
+                <Fragment key={item.id}>
+                  <SessionCard
+                    session={item}
+                    small
+                    onBeforeContextPress={popToTop}
+                  />
+                  <Spacer16 />
+                </Fragment>
               ))}
             </View>
           </Gutters>
@@ -352,16 +321,16 @@ const CompletedSessionModal = () => {
         {Boolean(exercise.coCreators?.length) && (
           <Gutters>
             <Spacer24 />
-            <Heading18>{t('coCreatorsHeading')}</Heading18>
+            <Heading16>{t('coCreatorsHeading')}</Heading16>
             <Spacer8 />
-            {coCreators}
+            <CoCreators coCreators={exercise.coCreators} />
           </Gutters>
         )}
 
         {Boolean(exercisesByTags?.length) && (
           <Gutters>
             <Spacer24 />
-            <Heading18>{t('moreLikeThis')}</Heading18>
+            <Heading16>{t('moreLikeThis')}</Heading16>
             <Spacer8 />
             <View>{moreLikeThisExercises}</View>
           </Gutters>

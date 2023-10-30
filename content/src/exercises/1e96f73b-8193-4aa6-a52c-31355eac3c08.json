@@ -51,7 +51,7 @@
         "content": {
           "heading": "What would be different if you moved through difficulties?",
           "lottie": {
-            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1676642915/Lottie/default_1min_black_rosi2l.json",
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1676642915/Lottie/default_1min_black_rosi2l.json",
             "durationTimer": true,
             "duration": 60
           }
@@ -73,7 +73,7 @@
         "content": {
           "heading": "What would be different if you moved through difficulties?",
           "lottie": {
-            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1676639253/Lottie/default_2min_black_o6egey.json",
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1676639253/Lottie/default_2min_black_o6egey.json",
             "durationTimer": true,
             "duration": 120
           }
@@ -118,9 +118,25 @@
     "published": true,
     "card": {
       "image": {
-        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1687406076/Images/card_image_way_out_is_through_qjpv4m.png"
+        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1687406076/Images/card_image_way_out_is_through_qjpv4m.png"
       }
     },
+    "coCreators": [
+      {
+        "name": "Rachel Brathen, voice",
+        "link": "https://www.yogagirl.com/rachel-brathen",
+        "avatar_url": "https://res.cloudinary.com/cupcake-29k/image/upload/v1697722469/Images/Rachel%20Brathen.png",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1697722469/Images/Rachel%20Brathen.png",
+        "url": "https://www.yogagirl.com/"
+      },
+      {
+        "name": "Based on research by Kristin Neff & Chris Germer, CMSC",
+        "link": "https://centerformsc.org/",
+        "avatar_url": "https://res.cloudinary.com/cupcake-29k/image/upload/v1697723039/Images/Germer%2C%20Neff.png",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1697723039/Images/Germer%2C%20Neff.png",
+        "url": "https://centerformsc.org/"
+      }
+    ],
     "duration": 30,
     "outroPortal": {
       "video": {
@@ -278,7 +294,7 @@
         "content": {
           "heading": "What would be different if you moved through difficulties?",
           "lottie": {
-            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1676642915/Lottie/default_1min_black_rosi2l.json",
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1676642915/Lottie/default_1min_black_rosi2l.json",
             "durationTimer": true,
             "duration": 60
           }
@@ -300,7 +316,7 @@
         "content": {
           "heading": "What would be different if you moved through difficulties?",
           "lottie": {
-            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1676639253/Lottie/default_2min_black_o6egey.json",
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1676639253/Lottie/default_2min_black_o6egey.json",
             "durationTimer": true,
             "duration": 120
           }
@@ -345,7 +361,7 @@
     "published": true,
     "card": {
       "image": {
-        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1687406076/Images/card_image_way_out_is_through_qjpv4m.png"
+        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1687406076/Images/card_image_way_out_is_through_qjpv4m.png"
       }
     },
     "duration": 30,

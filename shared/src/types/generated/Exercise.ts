@@ -3,8 +3,8 @@
 
 export interface ExerciseCoCreator {
   name: string;
-  link: string;
-  avatar_url: string;
+  url: string;
+  image: string;
 }
 
 export interface ExerciseSocialMediaMetaTags {
@@ -23,15 +23,10 @@ export interface ExerciseCardLottie {
   source?: string;
 }
 
-export interface ExerciseCardAmbassador {
-  displayName?: string;
-  photoURL?: string;
-}
-
 export interface ExerciseCard {
+  backgroundColor?: string;
   image?: ExerciseCardImage;
   lottie?: ExerciseCardLottie;
-  ambassador?: ExerciseCardAmbassador;
 }
 
 export type ExerciseThemeTextColorOptions = '#F9F8F4' | '#2E2E2E';

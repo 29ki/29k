@@ -3,6 +3,13 @@
     "hidden": false,
     "name": "Forward to nature",
     "published": true,
+    "coCreators": [
+      {
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1697717486/Images/Houdini_co-creator_v2bbwc.png",
+        "name": "Houdini, initiator",
+        "url": "https://houdinisportswear.com/"
+      }
+    ],
     "tags": [
       "cfc00217-f65b-4a4d-8b82-8ccc8f852dd6",
       "9c2c08a9-7dc6-4058-bc78-016d0eb00614"
@@ -10,7 +17,7 @@
     "link": "https://aware.29k.org/forward-to-nature",
     "id": "0eda04e3-4b45-44d6-b779-7b40f43f966c",
     "image": {
-      "source": "https://res.cloudinary.com/cupcake-29k/image/upload/v1696579653/Images/ForwardToNature.png"
+      "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1696579653/Images/ForwardToNature.png"
     },
     "exercises": [
       "1a53e633-6916-4fea-a072-977c4b215288",

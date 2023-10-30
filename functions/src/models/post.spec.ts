@@ -16,7 +16,7 @@ import {
 import {firestore} from 'firebase-admin';
 import {Timestamp} from 'firebase-admin/firestore';
 
-import {addPost, getPostById, getPostsByExerciseAndSharingId} from './post';
+import {addPost, getPostById, getPosts} from './post';
 
 const posts = [
   {
@@ -77,13 +77,16 @@ describe('post model', () => {
     });
   });
 
-  describe('getPostsByExerciseAndSharingId', () => {
-    it('should filter by exerciseId, approved and public', async () => {
-      await getPostsByExerciseAndSharingId(
-        'some-exercise-id',
-        'sharing-id',
-        10,
-      );
+  describe('getPosts', () => {
+    it('should filter approved and public and limit', async () => {
+      await getPosts(10);
+      expect(mockWhere).toHaveBeenCalledWith('approved', '==', true);
+      expect(mockOrderBy).toHaveBeenCalledWith('createdAt', 'desc');
+      expect(mockLimit).toHaveBeenCalledWith(10 * 2);
+    });
+
+    it('should optionally filter by exerciseId', async () => {
+      await getPosts(10, 'some-exercise-id', 'sharing-id');
       expect(mockWhere).toHaveBeenCalledWith(
         'exerciseId',
         '==',
@@ -91,8 +94,6 @@ describe('post model', () => {
       );
       expect(mockWhere).toHaveBeenCalledWith('sharingId', '==', 'sharing-id');
       expect(mockWhere).toHaveBeenCalledWith('approved', '==', true);
-      expect(mockOrderBy).toHaveBeenCalledWith('createdAt', 'desc');
-      expect(mockLimit).toHaveBeenCalledWith(10 * 2);
     });
   });
 

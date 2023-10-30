@@ -1,6 +1,12 @@
 /* eslint-disable */
 /* tslint:disable */
 
+export interface CollectionCoCreator {
+  name: string;
+  url: string;
+  image: string;
+}
+
 export interface CollectionImage {
   description?: string;
   source?: string;
@@ -20,6 +26,7 @@ export interface Collection {
   id: any;
   name: string;
   description?: string;
+  coCreators?: CollectionCoCreator[];
   link?: string;
   image?: CollectionImage;
   tags?: any[];

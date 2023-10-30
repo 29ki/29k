@@ -11,7 +11,7 @@ import {
 } from '../../../lib/navigation/constants/routes';
 import {Spacer16, Spacer32} from '../../../lib/components/Spacers/Spacer';
 import {
-  Heading18,
+  Heading16,
   Heading24,
 } from '../../../lib/components/Typography/Heading/Heading';
 import Gutters from '../../../lib/components/Gutters/Gutters';
@@ -72,14 +72,7 @@ const HostInfoModal: React.FC = () => {
     data => {
       return (
         <Gutters>
-          <SessionCard
-            hasCardAfter={false}
-            hasCardBefore={false}
-            session={data.item}
-            standAlone
-            disableHostPress
-            onBeforeContextPress={popToTop}
-          />
+          <SessionCard session={data.item} onBeforeContextPress={popToTop} />
           <Spacer16 />
         </Gutters>
       );
@@ -129,7 +122,7 @@ const HostInfoModal: React.FC = () => {
               />
             </Row>
             <Spacer32 />
-            <Heading18>{t('sessions')}</Heading18>
+            <Heading16>{t('sessions')}</Heading16>
             <Spacer16 />
           </Gutters>
         }

@@ -116,7 +116,7 @@ const CalmDownModal = () => {
           </ContentWrapper>
           <Row>
             <IconButton
-              small
+              size="small"
               elevated
               variant="tertiary"
               Icon={RewindIcon}
@@ -124,7 +124,7 @@ const CalmDownModal = () => {
             />
             <Spacer8 />
             <IconButton
-              small
+              size="small"
               elevated
               variant="tertiary"
               Icon={paused ? Play : Pause}

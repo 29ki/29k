@@ -106,7 +106,7 @@
     "published": true,
     "card": {
       "image": {
-        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1693313331/Images/card_image_new_on_stress_zzmmvx.png"
+        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1693313331/Images/card_image_new_on_stress_zzmmvx.png"
       }
     },
     "socialMeta": {
@@ -321,7 +321,7 @@
     "published": true,
     "card": {
       "image": {
-        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1693313331/Images/card_image_new_on_stress_zzmmvx.png"
+        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1693313331/Images/card_image_new_on_stress_zzmmvx.png"
       }
     },
     "socialMeta": {

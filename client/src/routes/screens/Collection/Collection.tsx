@@ -9,7 +9,7 @@ import styled from 'styled-components/native';
 import {COLORS} from '../../../../../shared/src/constants/colors';
 import {Exercise} from '../../../../../shared/src/types/generated/Exercise';
 import CompletedSessionCard from '../../../lib/components/Cards/SessionCard/CompletedSessionCard';
-import ExerciseCardContainer from '../../../lib/components/Cards/SessionCard/ExerciseCardContainer';
+import ExerciseCard from '../../../lib/components/Cards/SessionCard/ExerciseCard';
 import Gutters from '../../../lib/components/Gutters/Gutters';
 import Image from '../../../lib/components/Image/Image';
 import Screen from '../../../lib/components/Screen/Screen';
@@ -42,6 +42,7 @@ import {
   ShareIcon,
 } from '../../../lib/components/Icons';
 import IconButton from '../../../lib/components/Buttons/IconButton/IconButton';
+import CoCreators from '../../../lib/components/CoCreators/CoCreators';
 
 type Section = {
   title: string;
@@ -130,26 +131,19 @@ const Collection = () => {
   const renderExerciseItem = useCallback<
     SectionListRenderItem<Exercise, Section>
   >(
-    ({item, section, index}) => {
-      const hasCardBefore = index > 0;
-      const hasCardAfter = index !== section.data.length - 1;
+    ({item}) => {
       const completedExerciseEvent = savedCollection
         ? getCompletedSessionByExerciseId(item.id, savedCollection.startedAt)
         : undefined;
+
       return (
         <Gutters>
           {completedExerciseEvent ? (
             <CompletedSessionCard
               completedSessionEvent={completedExerciseEvent}
-              hasCardBefore={hasCardBefore}
-              hasCardAfter={hasCardAfter}
             />
           ) : (
-            <ExerciseCardContainer
-              exercise={item}
-              hasCardBefore={hasCardBefore}
-              hasCardAfter={hasCardAfter}
-            />
+            <ExerciseCard exercise={item} />
           )}
         </Gutters>
       );
@@ -176,6 +170,7 @@ const Collection = () => {
 
         <SectionList
           sections={exerciseSections}
+          ItemSeparatorComponent={Spacer16}
           keyExtractor={exercise => exercise.id}
           ListHeaderComponent={
             <Gutters>
@@ -222,7 +217,19 @@ const Collection = () => {
             </Gutters>
           }
           renderSectionHeader={renderExerciseSectionHeader}
-          ListFooterComponent={Spacer48}
+          ListFooterComponent={
+            <Gutters>
+              {Boolean(collection?.coCreators?.length) && (
+                <>
+                  <Spacer24 />
+                  <Heading16>{t('coCreatorsHeading')}</Heading16>
+                  <Spacer8 />
+                  <CoCreators coCreators={collection?.coCreators} />
+                </>
+              )}
+              <Spacer48 />
+            </Gutters>
+          }
           renderItem={renderExerciseItem}
         />
       </Wrapper>

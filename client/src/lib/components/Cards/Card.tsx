@@ -1,58 +1,56 @@
 import React, {Fragment, useMemo} from 'react';
-import {ImageSourcePropType, ViewStyle} from 'react-native';
+import {ViewStyle} from 'react-native';
 import styled from 'styled-components/native';
-import AnimatedLottieView, {AnimationObject} from 'lottie-react-native';
+import AnimatedLottieView from 'lottie-react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import hexToRgba from 'hex-to-rgba';
 
 import {COLORS} from '../../../../../shared/src/constants/colors';
 import {SPACINGS} from '../../constants/spacings';
-import SETTINGS from '../../constants/settings';
 import Image from '../Image/Image';
 import TouchableOpacity from '../TouchableOpacity/TouchableOpacity';
 import {Display20} from '../Typography/Display/Display';
 import Byline from '../Bylines/Byline';
-import {Spacer16, Spacer4} from '../Spacers/Spacer';
-import Gutters from '../Gutters/Gutters';
+import {Spacer4, Spacer8} from '../Spacers/Spacer';
 import Tag from '../Tag/Tag';
-import {HEIGHT as WALLET_CARD_HEIGHT} from './WalletCards/SessionWalletCard';
 import {BellFillIcon, CheckIcon} from '../Icons';
 import {useTranslation} from 'react-i18next';
+import {UserType} from '../../../../../shared/src/schemas/User';
+import {ExerciseCard} from '../../../../../shared/src/types/generated/Exercise';
 
-export const HEIGHT = 184;
+export const HEIGHT = 175;
 
-const GraphicsWrapper = styled.View({
-  width: 140,
-  height: 140,
-  paddingBottom: SPACINGS.SIXTEEN,
+const Wrapper = styled(TouchableOpacity)({
+  borderRadius: 16,
+  backgroundColor: COLORS.CREAM,
+  height: HEIGHT,
+  padding: 16,
+  overflow: 'hidden',
 });
+
+const Graphic = styled.View<{backgroundColor?: string}>(
+  ({backgroundColor}) => ({
+    width: 112,
+    height: 112,
+    borderRadius: 8,
+    overflow: 'hidden',
+    alignSelf: 'flex-end',
+    backgroundColor,
+  }),
+);
 
 const Lottie = styled(AnimatedLottieView)({
   aspectRatio: '1',
 });
 
-const WalletWrapper = styled.View<{inWallet?: boolean}>(({inWallet}) => ({
-  justifyContent: 'space-between',
-  backgroundColor: COLORS.CREAM,
-  borderRadius: SETTINGS.BORDER_RADIUS.CARDS,
-  height: inWallet ? HEIGHT + WALLET_CARD_HEIGHT * 0.5 : HEIGHT,
-}));
-
-const Wrapper = styled(TouchableOpacity)({
-  justifyContent: 'space-between',
-  borderRadius: SETTINGS.BORDER_RADIUS.CARDS,
-  backgroundColor: COLORS.CREAM,
-  height: HEIGHT,
-});
-
-const ContentWrapper = styled.View({
+const Row = styled.View({
+  flex: 1,
   flexDirection: 'row',
 });
 
-const LeftCol = styled.View({
-  flex: 2,
+const Main = styled.View({
+  flex: 1,
   justifyContent: 'space-between',
-  paddingHorizontal: SPACINGS.SIXTEEN,
 });
 
 const Tags = styled.View({
@@ -79,31 +77,23 @@ const TagsGradient = styled(LinearGradient)({
   height: 20,
 });
 
-const Header = styled.View({
-  flex: 1,
+const Title = styled(Display20)({
   textOverflow: 'ellipsis',
 });
 
-const Footer = styled.View({
-  justifyContent: 'space-between',
+const Content = styled.View({
   alignItems: 'flex-end',
   flexDirection: 'row',
   flex: 1,
-  paddingBottom: SPACINGS.SIXTEEN,
 });
 
 type CardProps = {
   title?: string;
   tags?: Array<string>;
-  image?: ImageSourcePropType;
-  lottie?: AnimationObject | {uri: string};
+  graphic?: ExerciseCard;
   onPress: () => void;
-  onHostPress?: () => void;
   children?: React.ReactNode;
-  hostPictureURL?: string;
-  hostName?: string;
-  inWallet?: boolean;
-  isHost?: boolean;
+  hostProfile?: UserType | null;
   isPinned?: boolean;
   reminderEnabled?: boolean;
   interestedCount?: number;
@@ -113,15 +103,10 @@ type CardProps = {
 export const Card: React.FC<CardProps> = ({
   title,
   tags,
-  lottie,
-  image,
+  graphic,
   onPress,
-  onHostPress,
+  hostProfile,
   children,
-  hostPictureURL,
-  hostName,
-  isHost,
-  inWallet,
   isPinned,
   reminderEnabled,
   interestedCount,
@@ -136,71 +121,81 @@ export const Card: React.FC<CardProps> = ({
     ],
     [],
   );
-  return (
-    <WalletWrapper inWallet={inWallet} style={style}>
-      <Wrapper onPress={onPress}>
-        <Gutters>
-          <Spacer16 />
-          <Tags>
-            {isPinned && !isHost ? (
-              <>
-                <PinnedTag
-                  LeftIcon={reminderEnabled ? BellFillIcon : CheckIcon}
-                  iconFill={COLORS.PRIMARY}>
-                  {t('myJourneyTag')}
-                </PinnedTag>
-                <Spacer4 />
-              </>
-            ) : (
-              Boolean(interestedCount) &&
-              isHost && (
-                <>
-                  <PinnedTag>{t('interested')}</PinnedTag>
-                  <Spacer4 />
-                  <InterestedTag>{interestedCount}</InterestedTag>
-                  <Spacer4 />
-                </>
-              )
-            )}
-            {tags &&
-              tags.map(tag => (
-                <Fragment key={tag}>
-                  <Tag>{tag}</Tag>
-                  <Spacer4 />
-                </Fragment>
-              ))}
-            <TagsGradient
-              start={{x: 0, y: 0}}
-              end={{x: 1, y: 0}}
-              colors={colors}
-            />
-          </Tags>
-          <Spacer4 />
-        </Gutters>
 
-        <ContentWrapper>
-          <LeftCol>
-            <Header>
-              {title && <Display20 numberOfLines={2}>{title}</Display20>}
+  const image = useMemo(
+    () =>
+      graphic?.image?.source
+        ? {
+            uri: graphic?.image?.source,
+          }
+        : undefined,
+    [graphic?.image?.source],
+  );
+
+  const lottie = useMemo(
+    () =>
+      graphic?.lottie?.source
+        ? {
+            uri: graphic?.lottie?.source,
+          }
+        : undefined,
+    [graphic?.lottie?.source],
+  );
+
+  return (
+    <Wrapper onPress={onPress} style={style}>
+      <Tags>
+        {interestedCount ? (
+          <>
+            <PinnedTag>{t('interested')}</PinnedTag>
+            <Spacer4 />
+            <InterestedTag>{interestedCount}</InterestedTag>
+            <Spacer4 />
+          </>
+        ) : (
+          isPinned && (
+            <>
+              <PinnedTag
+                LeftIcon={reminderEnabled ? BellFillIcon : CheckIcon}
+                iconFill={COLORS.PRIMARY}>
+                {t('myJourneyTag')}
+              </PinnedTag>
               <Spacer4 />
-              <Byline
-                pictureURL={hostPictureURL}
-                name={hostName}
-                onPress={onHostPress}
-              />
-            </Header>
-            <Footer>{children}</Footer>
-          </LeftCol>
-          <GraphicsWrapper>
-            {lottie ? (
-              <Lottie source={lottie} autoPlay loop />
-            ) : image ? (
-              <Image resizeMode="contain" source={image} />
-            ) : null}
-          </GraphicsWrapper>
-        </ContentWrapper>
-      </Wrapper>
-    </WalletWrapper>
+            </>
+          )
+        )}
+        {tags &&
+          tags.map(tag => (
+            <Fragment key={tag}>
+              <Tag>{tag}</Tag>
+              <Spacer4 />
+            </Fragment>
+          ))}
+        <TagsGradient start={{x: 0, y: 0}} end={{x: 1, y: 0}} colors={colors} />
+      </Tags>
+      <Spacer4 />
+      <Row>
+        <Main>
+          <Title numberOfLines={2}>{title}</Title>
+          <Spacer4 />
+          {hostProfile && (
+            <Byline
+              pictureURL={hostProfile.photoURL}
+              name={hostProfile.displayName}
+            />
+          )}
+          <Content>{children}</Content>
+        </Main>
+        <Spacer8 />
+        <Graphic backgroundColor={graphic?.backgroundColor}>
+          {lottie ? (
+            <Lottie source={lottie} autoPlay loop />
+          ) : image ? (
+            <Image resizeMode="contain" source={image} />
+          ) : null}
+        </Graphic>
+      </Row>
+    </Wrapper>
   );
 };
 

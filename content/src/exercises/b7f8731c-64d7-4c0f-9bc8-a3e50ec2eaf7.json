@@ -56,7 +56,7 @@
           "heading": "What thoughts, feelings and experiences showed up?",
           "text": "",
           "lottie": {
-            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1676642915/Lottie/default_1min_black_rosi2l.json",
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1676642915/Lottie/default_1min_black_rosi2l.json",
             "durationTimer": true,
             "duration": 60
           }
@@ -79,7 +79,7 @@
           "heading": "What thoughts, feelings and experiences showed up?",
           "text": "",
           "lottie": {
-            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1676639253/Lottie/default_2min_black_o6egey.json",
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1676639253/Lottie/default_2min_black_o6egey.json",
             "durationTimer": true,
             "duration": 120
           }
@@ -125,9 +125,26 @@
     "published": true,
     "card": {
       "image": {
-        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1684313656/Images/outdoor_sensing_thumb_q68hl4.png"
+        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1684313656/Images/outdoor_sensing_thumb_q68hl4.png"
       }
     },
+    "coCreators": [
+      {
+        "name": "Jenny Rickardsson, editor, voice",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413228/Contributors/Jenny%20Rickardsson.jpg",
+        "url": "https://www.linkedin.com/in/jenny-rickardson-6770a959/"
+      },
+      {
+        "name": "Göran Gennvi, original script and research",
+        "url": "https://www.gorangennvi.eu/nature-academy/",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1698408621/Contributors/Goran-Gennvi_ucyj82.jpg"
+      },
+      {
+        "name": "Ints Ivanovskis, art works",
+        "url": "https://www.linkedin.com/in/ints-ivanovskis-46ab0311a/",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413436/Contributors/Ints%20Ivanovskis.jpg"
+      }
+    ],
     "duration": 40,
     "outroPortal": {
       "video": {
@@ -156,7 +173,7 @@
     "link": "https://aware.29k.org/outdoor-sensing",
     "id": "b7f8731c-64d7-4c0f-9bc8-a3e50ec2eaf7",
     "async": true,
-    "description": "In this meditation, we use all our senses to connect with ourselves and the surrounding nature **–** no matter if nature is a street, a balcony, or deep in the forest. Practising nature awareness can help us feel happier and more connected to ourselves and others.\n\nThis exercise is made in collaboration with [Nature Academy](https://www.gorangennvi.eu/nature-academy/)."
+    "description": "In this meditation, we use all our senses to connect with ourselves and the surrounding nature **–** no matter if nature is a street, a balcony, or deep in the forest. Practising nature awareness can help us feel happier and more connected to ourselves and others."
   },
   "pt": {
     "id": "b7f8731c-64d7-4c0f-9bc8-a3e50ec2eaf7",

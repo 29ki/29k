@@ -12,12 +12,14 @@ import {
   VIDEO_FIELD,
   DURATION_FIELD,
   HIDDEN_FIELD,
-  IMAGE_FIELD,
+  CARD_IMAGE_FIELD,
   DESCRIPTION_FIELD,
   TAGS_FIELD,
   ASYNC_FIELD,
   LIVE_FIELD,
   LINK_FIELD,
+  CO_CREATORS_FIELD,
+  BACKGROUND_COLOR_FIELD,
 } from './common';
 import {
   CONTENT_SLIDE,
@@ -57,42 +59,12 @@ export const SOCIAL_MEDIA: CmsField = {
     {
       label: '🌅 Image',
       name: 'image',
-      hint: `Defaults to ${CARD_FIELD.label} → ${IMAGE_FIELD.label}`,
+      hint: `Defaults to ${CARD_FIELD.label} → ${CARD_IMAGE_FIELD.label}`,
       widget: 'image',
       required: false,
       i18n: true,
       allow_multiple: false,
       media_library: CLOUDINARY_IMAGE_CONFIG,
-    },
-  ],
-};
-
-export const CO_CREATORS: CmsField = {
-  label: '🪡 Co-creators',
-  label_singular: '🪡 Co-creator',
-  name: 'coCreators',
-  collapsed: true,
-  required: false,
-  i18n: true,
-  widget: 'list',
-  fields: [
-    {
-      label: 'Name',
-      name: 'name',
-      widget: 'string',
-    },
-    {
-      label: 'Link',
-      name: 'link',
-      widget: 'string',
-    },
-    {
-      label: 'Avatar',
-      name: 'avatar_url',
-      widget: 'image',
-      media_library: {
-        name: 'cloudinary',
-      },
     },
   ],
 };
@@ -142,13 +114,7 @@ const THEME: CmsField = {
       ],
       required: false,
     },
-    {
-      label: '🔴 Background Color',
-      name: 'backgroundColor',
-      widget: 'color',
-      i18n: true,
-      required: false,
-    },
+    BACKGROUND_COLOR_FIELD,
   ],
 };
 
@@ -174,7 +140,7 @@ const EXERCISE_FIELDS: Array<CmsField> = applyDefaults(
     NAME_FIELD,
     DESCRIPTION_FIELD,
     DURATION_FIELD,
-    CO_CREATORS,
+    CO_CREATORS_FIELD,
     TAGS_FIELD,
     LINK_FIELD,
     PUBLISHED_FIELD,
