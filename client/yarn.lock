@@ -2385,10 +2385,10 @@
   resolved "https://registry.yarnpkg.com/@types/stack-utils/-/stack-utils-2.0.1.tgz#20f18294f797f2209b5f65c8e3b5c8e8261d127c"
   integrity sha512-Hl219/BT5fLAaz6NDkSuhzasy49dwQS/DSdu4MdggFB8zcXv7vflBI3xp7FEmkmdDkBUI2bPUNeMttp2knYdxw==
 
-"@types/styled-components-react-native@^5.2.3":
-  version "5.2.3"
-  resolved "https://registry.yarnpkg.com/@types/styled-components-react-native/-/styled-components-react-native-5.2.3.tgz#5aab01b418220ecf519c8fc680c45e7f9cd70ee2"
-  integrity sha512-LlLf0q4a20LGkABcRcE7xLmX67g3S9gCK9/IN/LJ9QzCQY7m8x9zsTpD0uxNovHUtn/6xjbOGUZ5+oz8fi8+Ag==
+"@types/styled-components-react-native@^5.2.4":
+  version "5.2.4"
+  resolved "https://registry.yarnpkg.com/@types/styled-components-react-native/-/styled-components-react-native-5.2.4.tgz#6e0b780db727280e61129d12762ed5b087892b25"
+  integrity sha512-rjY6dxzGVzaRqZVL1+93+KviDEV0m3KLsv4KAD3zAvH4WvTCkt26b0b3lVxTtGHXNkZVNfR/d9JCgw874XdOOw==
   dependencies:
     "@types/react" "*"
     "@types/react-native" "^0.70"
