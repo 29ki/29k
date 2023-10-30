@@ -967,11 +967,12 @@
   dependencies:
     lodash "^4.17.21"
 
-"@koa/router@^12.0.0":
-  version "12.0.0"
-  resolved "https://registry.yarnpkg.com/@koa/router/-/router-12.0.0.tgz#2ae7937093fd392761c0e5833c368379d4a35737"
-  integrity sha512-cnnxeKHXlt7XARJptflGURdJaO+ITpNkOHmQu7NHmCoRinPbyvFzce/EG/E8Zy81yQ1W9MoSdtklc3nyaDReUw==
+"@koa/router@^12.0.1":
+  version "12.0.1"
+  resolved "https://registry.yarnpkg.com/@koa/router/-/router-12.0.1.tgz#1a66f92a630c02832cf5bbf0db06c9e53e423468"
+  integrity sha512-ribfPYfHb+Uw3b27Eiw6NPqjhIhTpVFzEWLwyc/1Xp+DCdwRRyIlAUODX+9bPARF6aQtUu1+/PHzdNvRzcs/+Q==
   dependencies:
+    debug "^4.3.4"
     http-errors "^2.0.0"
     koa-compose "^4.1.0"
     methods "^1.1.2"
@@ -1550,10 +1551,10 @@
   dependencies:
     "@types/koa" "*"
 
-"@types/koa@*", "@types/koa@^2.13.9":
-  version "2.13.9"
-  resolved "https://registry.yarnpkg.com/@types/koa/-/koa-2.13.9.tgz#8d989ac17d7f033475fbe34c4f906c9287c2041a"
-  integrity sha512-tPX3cN1dGrMn+sjCDEiQqXH2AqlPoPd594S/8zxwUm/ZbPsQXKqHPUypr2gjCPhHUc+nDJLduhh5lXI/1olnGQ==
+"@types/koa@*", "@types/koa@^2.13.10":
+  version "2.13.10"
+  resolved "https://registry.yarnpkg.com/@types/koa/-/koa-2.13.10.tgz#2c2a1cdf1252d654b05f444194328a3d23a880c4"
+  integrity sha512-weKc5IBeORLDGwD1FMgPjaZIg0/mtP7KxXAXEzPRCN78k274D9U2acmccDNPL1MwyV40Jj+hQQ5N2eaV6O0z8g==
   dependencies:
     "@types/accepts" "*"
     "@types/content-disposition" "*"
@@ -1564,10 +1565,10 @@
     "@types/koa-compose" "*"
     "@types/node" "*"
 
-"@types/koa__router@^12.0.1":
-  version "12.0.1"
-  resolved "https://registry.yarnpkg.com/@types/koa__router/-/koa__router-12.0.1.tgz#e77b0c4081b1c56b004baf92afdd31766d5701f3"
-  integrity sha512-uqV+v6pCsfLZwK+Ar6XavKSZ6Cbsgw12bCEX9L0IKHj81LTWXcrayxJWkLtez5vOMQlq+ax+lZcuCyh9CgxYGw==
+"@types/koa__router@^12.0.3":
+  version "12.0.3"
+  resolved "https://registry.yarnpkg.com/@types/koa__router/-/koa__router-12.0.3.tgz#3fb74ea1991cadd6c6712b6106657aa6e64afca4"
+  integrity sha512-5YUJVv6NwM1z7m6FuYpKfNLTZ932Z6EF6xy2BbtpJSyn13DKNQEkXVffFVSnJHxvwwWh2SAeumpjAYUELqgjyw==
   dependencies:
     "@types/koa" "*"
 
@@ -1684,10 +1685,10 @@
     "@types/glob" "*"
     "@types/node" "*"
 
-"@types/semver@^7.3.12", "@types/semver@^7.5.3":
-  version "7.5.3"
-  resolved "https://registry.yarnpkg.com/@types/semver/-/semver-7.5.3.tgz#9a726e116beb26c24f1ccd6850201e1246122e04"
-  integrity sha512-OxepLK9EuNEIPxWNME+C6WwbRAOOI2o2BaQEGzz5Lu2e4Z5eDnEo+/aVEDMIXywoJitJ7xWd641wrGLZdtwRyw==
+"@types/semver@^7.3.12", "@types/semver@^7.5.4":
+  version "7.5.4"
+  resolved "https://registry.yarnpkg.com/@types/semver/-/semver-7.5.4.tgz#0a41252ad431c473158b22f9bfb9a63df7541cff"
+  integrity sha512-MMzuxN3GdFwskAnb6fz0orFvhfqi752yjaXylr0Rp4oDg5H0Zn1IuyRhDVvYOwAXoJirx2xuS16I3WjxnAIHiQ==
 
 "@types/serve-static@*":
   version "1.13.10"
@@ -5099,10 +5100,10 @@ humanize-ms@^1.2.1:
   dependencies:
     ms "^2.0.0"
 
-i18next@*, i18next@^23.5.1:
-  version "23.5.1"
-  resolved "https://registry.yarnpkg.com/i18next/-/i18next-23.5.1.tgz#7f7c35ffaa907618d9489f106d5006b09fbca3d3"
-  integrity sha512-JelYzcaCoFDaa+Ysbfz2JsGAKkrHiMG6S61+HLBUEIPaF40WMwW9hCPymlQGrP+wWawKxKPuSuD71WZscCsWHg==
+i18next@*, i18next@^23.6.0:
+  version "23.6.0"
+  resolved "https://registry.yarnpkg.com/i18next/-/i18next-23.6.0.tgz#c6e996cfd3fef0bf60be3b7c581c35338dba5a71"
+  integrity sha512-z0Cxr0MGkt+kli306WS4nNNM++9cgt2b2VCMprY92j+AIab/oclgPxdwtTZVLP1zn5t5uo8M6uLsZmYrcjr3HA==
   dependencies:
     "@babel/runtime" "^7.22.5"
 
