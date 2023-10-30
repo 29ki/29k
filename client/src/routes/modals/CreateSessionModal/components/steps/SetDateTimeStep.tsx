@@ -145,7 +145,7 @@ const SetDateTimeStep: React.FC<StepProps> = ({
         <Spacer16 />
         <Cta
           variant="secondary"
-          small
+          size="small"
           onPress={onSubmit}
           loading={isLoading}
           disabled={isLoading}>

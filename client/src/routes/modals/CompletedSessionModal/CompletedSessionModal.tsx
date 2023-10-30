@@ -55,7 +55,7 @@ import {Heading16} from '../../../lib/components/Typography/Heading/Heading';
 import SessionCard from '../../../lib/components/Cards/SessionCard/SessionCard';
 import useLiveSessionsByExercise from '../../../lib/session/hooks/useLiveSessionsByExercise';
 import FeedbackCard from '../../../lib/components/FeedbackCard/FeedbackCard';
-import ExerciseCardContainer from '../../../lib/components/Cards/SessionCard/ExerciseCardContainer';
+import ExerciseCard from '../../../lib/components/Cards/SessionCard/ExerciseCard';
 import useExercisesByTags from '../../../lib/content/hooks/useExercisesByTags';
 import {Tag as TagType} from '../../../../../shared/src/types/generated/Tag';
 import CoCreators from '../../../lib/components/CoCreators/CoCreators';
@@ -186,13 +186,11 @@ const CompletedSessionModal = () => {
 
   const moreLikeThisExercises = useMemo(
     () =>
-      take(MORE_LIKE_THIS_LIMIT, exercisesByTags).map((e, idx) => (
-        <ExerciseCardContainer
-          key={e.id}
-          exercise={e}
-          hasCardBefore={idx !== 0}
-          hasCardAfter={idx < MORE_LIKE_THIS_LIMIT - 1}
-        />
+      take(MORE_LIKE_THIS_LIMIT, exercisesByTags).map(e => (
+        <Fragment key={e.id}>
+          <ExerciseCard key={e.id} exercise={e} />
+          <Spacer16 />
+        </Fragment>
       )),
     [exercisesByTags],
   );
@@ -211,16 +209,8 @@ const CompletedSessionModal = () => {
               <Display24>{formatContentName(exercise)}</Display24>
               <Spacer4 />
               <Byline
-                pictureURL={
-                  hostProfile?.photoURL
-                    ? hostProfile.photoURL
-                    : exercise.card?.ambassador?.photoURL
-                }
-                name={
-                  hostProfile?.displayName
-                    ? hostProfile.displayName
-                    : exercise.card?.ambassador?.displayName
-                }
+                pictureURL={hostProfile?.photoURL}
+                name={hostProfile?.displayName}
                 onPress={onHostPress}
               />
             </TitleContainer>
@@ -304,7 +294,7 @@ const CompletedSessionModal = () => {
         <Spacer24 />
         <Gutters>
           <ButtonWrapper>
-            <Button small variant="secondary" onPress={onStartSession}>
+            <Button size="small" variant="secondary" onPress={onStartSession}>
               {t('doAgainButton')}
             </Button>
           </ButtonWrapper>
@@ -314,15 +304,15 @@ const CompletedSessionModal = () => {
           <Gutters>
             <Spacer24 />
             <View>
-              {sessions.map((item, idx) => (
-                <SessionCard
-                  key={item.id}
-                  session={item}
-                  hasCardBefore={idx > 0}
-                  hasCardAfter={idx < sessions.length - 1}
-                  standAlone={false}
-                  onBeforeContextPress={popToTop}
-                />
+              {sessions.map(item => (
+                <Fragment key={item.id}>
+                  <SessionCard
+                    session={item}
+                    small
+                    onBeforeContextPress={popToTop}
+                  />
+                  <Spacer16 />
+                </Fragment>
               ))}
             </View>
           </Gutters>

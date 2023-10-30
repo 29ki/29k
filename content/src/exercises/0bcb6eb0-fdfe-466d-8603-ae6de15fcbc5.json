@@ -50,7 +50,7 @@
           "heading": "What insights?",
           "text": "What simple action?",
           "lottie": {
-            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1676642915/Lottie/default_1min_black_rosi2l.json",
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1676642915/Lottie/default_1min_black_rosi2l.json",
             "durationTimer": true,
             "duration": 60
           }
@@ -73,7 +73,7 @@
           "heading": "What insights did you get?",
           "text": "",
           "lottie": {
-            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1676639253/Lottie/default_2min_black_o6egey.json",
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1676639253/Lottie/default_2min_black_o6egey.json",
             "durationTimer": true,
             "duration": 120
           }
@@ -114,7 +114,7 @@
     "published": true,
     "card": {
       "image": {
-        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1692855592/Images/card_image_90th_birthday_noi09y.png"
+        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1692855592/Images/card_image_90th_birthday_noi09y.png"
       }
     },
     "socialMeta": {
@@ -273,7 +273,7 @@
           "heading": "Vad upptäckte du?",
           "text": "Bestäm ett beteende du vill göra.",
           "lottie": {
-            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1676642915/Lottie/default_1min_black_rosi2l.json",
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1676642915/Lottie/default_1min_black_rosi2l.json",
             "durationTimer": true,
             "duration": 60
           }
@@ -296,7 +296,7 @@
           "heading": "Vad upptäckte du?",
           "text": "Bestäm ett beteende du vill göra.",
           "lottie": {
-            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1676639253/Lottie/default_2min_black_o6egey.json",
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1676639253/Lottie/default_2min_black_o6egey.json",
             "durationTimer": true,
             "duration": 120
           }
@@ -337,7 +337,7 @@
     "published": true,
     "card": {
       "image": {
-        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1692855592/Images/card_image_90th_birthday_noi09y.png"
+        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1692855592/Images/card_image_90th_birthday_noi09y.png"
       }
     },
     "socialMeta": {

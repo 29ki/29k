@@ -143,7 +143,10 @@ const ErrorBanner: React.FC<{children: React.ReactNode}> = ({children}) => {
 
             <Right hasAction={Boolean(actionConfig)}>
               {actionConfig ? (
-                <ActionButton small variant="secondary" onPress={onAction}>
+                <ActionButton
+                  size="small"
+                  variant="secondary"
+                  onPress={onAction}>
                   {actionConfig.text}
                 </ActionButton>
               ) : (

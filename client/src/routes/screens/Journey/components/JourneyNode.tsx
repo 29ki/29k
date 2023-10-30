@@ -204,18 +204,11 @@ const JourneyNode: React.FC<JourneyNodeProps> = ({
             <Display16 numberOfLines={1}>{exercise.name}</Display16>
           )}
           <Spacer2 />
-          {!hostProfile?.photoURL && !exercise?.card?.ambassador?.photoURL && (
-            <Spacer16 />
-          )}
+          {!hostProfile?.photoURL && <Spacer16 />}
           <Byline
             small
-            pictureURL={
-              hostProfile?.photoURL ?? exercise?.card?.ambassador?.photoURL
-            }
-            name={
-              hostProfile?.displayName ??
-              exercise?.card?.ambassador?.displayName
-            }
+            pictureURL={hostProfile?.photoURL}
+            name={hostProfile?.displayName}
           />
           {sharingPost && (
             <SharingPost>

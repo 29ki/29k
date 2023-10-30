@@ -117,9 +117,26 @@
     "published": true,
     "card": {
       "image": {
-        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1669043689/Images/cover2_Be_kind_to_yourself_af04b8.png"
+        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1669043689/Images/cover2_Be_kind_to_yourself_af04b8.png"
       }
     },
+    "coCreators": [
+      {
+        "name": "Lisa Lööf, voice",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413154/Contributors/Lisa%20L%C3%B6%C3%B6f.jpg",
+        "url": "https://www.linkedin.com/in/lisaloof/"
+      },
+      {
+        "name": "Ints Ivanovskis, art works",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413436/Contributors/Ints%20Ivanovskis.jpg",
+        "url": "https://www.linkedin.com/in/ints-ivanovskis-46ab0311a/"
+      },
+      {
+        "name": "Jenny Rickardsson, editor",
+        "url": "https://www.linkedin.com/in/jenny-rickardson-6770a959/",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413228/Contributors/Jenny%20Rickardsson.jpg"
+      }
+    ],
     "duration": 30,
     "introPortal": {
       "hostNotes": [
@@ -293,7 +310,7 @@
     "published": true,
     "card": {
       "image": {
-        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1669043689/Images/cover2_Be_kind_to_yourself_af04b8.png"
+        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1669043689/Images/cover2_Be_kind_to_yourself_af04b8.png"
       }
     },
     "duration": 30,

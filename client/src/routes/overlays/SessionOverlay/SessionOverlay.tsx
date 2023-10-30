@@ -69,7 +69,7 @@ import useExerciseFeedback from '../../../lib/session/hooks/useExerciseFeedback'
 import FeedbackCarousel from '../../../lib/components/FeedbackCarousel/FeedbackCarousel';
 import useExercisesByTags from '../../../lib/content/hooks/useExercisesByTags';
 import {Tag as TagType} from '../../../../../shared/src/types/generated/Tag';
-import ExerciseCardContainer from '../../../lib/components/Cards/SessionCard/ExerciseCardContainer';
+import ExerciseCard from '../../../lib/components/Cards/SessionCard/ExerciseCard';
 import {take} from 'ramda';
 import CoCreators from '../../../lib/components/CoCreators/CoCreators';
 
@@ -227,13 +227,11 @@ const SessionOverlay = () => {
 
   const moreLikeThisExercises = useMemo(
     () =>
-      take(MORE_LIKE_THIS_LIMIT, exercisesByTags).map((e, idx) => (
-        <ExerciseCardContainer
-          key={e.id}
-          exercise={e}
-          hasCardBefore={idx !== 0}
-          hasCardAfter={idx < MORE_LIKE_THIS_LIMIT - 1}
-        />
+      take(MORE_LIKE_THIS_LIMIT, exercisesByTags).map(e => (
+        <Fragment key={e.id}>
+          <ExerciseCard exercise={e} />
+          <Spacer16 />
+        </Fragment>
       )),
     [exercisesByTags],
   );
@@ -250,7 +248,7 @@ const SessionOverlay = () => {
   }
 
   return (
-    <Screen backgroundColor={COLORS.CREAM}>
+    <Screen>
       <Spacer16 />
       {rating && rating.positive > 0 ? (
         <RatingContainer>
@@ -259,11 +257,7 @@ const SessionOverlay = () => {
           <Body16>{rating.positive}</Body16>
         </RatingContainer>
       ) : null}
-      <TopBar
-        onPressClose={navigation.goBack}
-        backgroundColor={COLORS.CREAM}
-        fade
-      />
+      <TopBar onPressClose={navigation.goBack} fade />
 
       <AutoScrollView>
         <Content>
@@ -299,7 +293,7 @@ const SessionOverlay = () => {
           <Row>
             {startingNow && (
               <>
-                <Button small variant="secondary" onPress={onJoin}>
+                <Button size="small" variant="secondary" onPress={onJoin}>
                   {t('join')}
                 </Button>
                 <Spacer8 />

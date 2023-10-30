@@ -98,7 +98,7 @@ const OutroPortal: React.FC<OutroPortalProps> = ({
       {isLoading && <Spinner size="large" color={exercise?.theme?.textColor} />}
 
       <TopBar>
-        <Button variant="secondary" small onPress={onLeaveSession}>
+        <Button variant="secondary" size="small" onPress={onLeaveSession}>
           {t('leavePortal')}
         </Button>
       </TopBar>
