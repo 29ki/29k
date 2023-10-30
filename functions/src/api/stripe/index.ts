@@ -10,7 +10,7 @@ const {STRIPE_API_KEY} = config;
 const stripeRouter = createApiPreAuthRouter();
 
 const stripe = new Stripe(STRIPE_API_KEY, {
-  apiVersion: '2023-08-16',
+  apiVersion: '2023-10-16',
 });
 
 const PaymentIntentResponse = yup.object({
