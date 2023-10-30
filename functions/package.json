@@ -68,7 +68,7 @@
     "eslint": "^8.52.0",
     "eslint-config-prettier": "^9.0.0",
     "eslint-plugin-import": "^2.29.0",
-    "eslint-plugin-prettier": "^5.0.0",
+    "eslint-plugin-prettier": "^5.0.1",
     "firebase-functions-test": "^3.1.0",
     "firebase-tools": "^12.7.0",
     "firestore-jest-mock": "^0.21.0",
