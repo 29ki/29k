@@ -121,9 +121,21 @@
     "published": true,
     "card": {
       "image": {
-        "source": "https://res.cloudinary.com/twentyninek/image/upload/v1664528333/temp/pure-simple-love_rd2wvb.png"
+        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1698256076/Images/pure-simple-love_vi9ura.png"
       }
     },
+    "coCreators": [
+      {
+        "name": "Ints Ivanovskis, art works",
+        "url": "https://www.linkedin.com/in/ints-ivanovskis-46ab0311a/",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413436/Contributors/Ints%20Ivanovskis.jpg"
+      },
+      {
+        "name": "Heidi Andersen, voice",
+        "url": "https://www.linkedin.com/in/heidi-andersen-mindfuel/",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1698414650/Contributors/heidi_andersen_cutguw.jpg"
+      }
+    ],
     "duration": 30,
     "outroPortal": {
       "video": {
@@ -266,7 +278,7 @@
     "published": true,
     "card": {
       "image": {
-        "source": "https://res.cloudinary.com/twentyninek/image/upload/v1664528333/temp/pure-simple-love_rd2wvb.png"
+        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1698256076/Images/pure-simple-love_vi9ura.png"
       }
     },
     "duration": 30,
@@ -424,7 +436,7 @@
     "published": true,
     "card": {
       "image": {
-        "source": "https://res.cloudinary.com/twentyninek/image/upload/v1664528333/temp/pure-simple-love_rd2wvb.png"
+        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1698256076/Images/pure-simple-love_vi9ura.png"
       }
     },
     "duration": 30,

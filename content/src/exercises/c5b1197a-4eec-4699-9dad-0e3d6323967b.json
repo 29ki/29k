@@ -180,9 +180,26 @@
     "published": true,
     "card": {
       "image": {
-        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1674395860/Images/card_setting_boundaries_yrv35w.png"
+        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1674395860/Images/card_setting_boundaries_yrv35w.png"
       }
     },
+    "coCreators": [
+      {
+        "name": "Ints ivanovskis, art works",
+        "url": "https://www.linkedin.com/in/ints-ivanovskis-46ab0311a/",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413436/Contributors/Ints%20Ivanovskis.jpg"
+      },
+      {
+        "name": "Jacqueline Levi, original script",
+        "url": "https://www.linkedin.com/in/jacqueline-levi-292065ab/",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665414232/Contributors/Jacqueline%20Levi.png"
+      },
+      {
+        "name": "Jenny Rickardsson, editor",
+        "url": "https://www.linkedin.com/in/jenny-rickardson-6770a959/",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413228/Contributors/Jenny%20Rickardsson.jpg"
+      }
+    ],
     "duration": 30,
     "introPortal": {
       "hostNotes": [
@@ -373,7 +390,7 @@
     "published": true,
     "card": {
       "image": {
-        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1674395860/Images/card_setting_boundaries_yrv35w.png"
+        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1674395860/Images/card_setting_boundaries_yrv35w.png"
       }
     },
     "duration": 30,

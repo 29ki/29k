@@ -1,4 +1,4 @@
-import React, {useCallback, useMemo} from 'react';
+import React, {useCallback} from 'react';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import {useTranslation} from 'react-i18next';
 import dayjs from 'dayjs';
@@ -11,7 +11,6 @@ import useExerciseById from '../../../content/hooks/useExerciseById';
 
 import {formatContentName} from '../../../utils/string';
 
-import SessionWalletCard from '../WalletCards/SessionWalletCard';
 import Badge from '../../Badge/Badge';
 import {Body14} from '../../Typography/Body/Body';
 import {CommunityIcon, MeIcon} from '../../Icons';
@@ -21,11 +20,10 @@ import {CompletedSessionEvent} from '../../../../../../shared/src/types/Event';
 import useUserProfile from '../../../user/hooks/useUserProfile';
 import Node from '../../Node/Node';
 import {SPACINGS} from '../../../constants/spacings';
+import CardSmall from '../CardSmall';
 
 type CompletedSessionCardProps = {
   completedSessionEvent: CompletedSessionEvent;
-  hasCardBefore: boolean;
-  hasCardAfter: boolean;
 };
 
 const Row = styled.View({
@@ -35,8 +33,6 @@ const Row = styled.View({
 
 const CompletedSessionCard: React.FC<CompletedSessionCardProps> = ({
   completedSessionEvent,
-  hasCardBefore,
-  hasCardAfter,
 }) => {
   const {t} = useTranslation('Component.CompletedSessionCard');
   const {
@@ -58,38 +54,13 @@ const CompletedSessionCard: React.FC<CompletedSessionCardProps> = ({
     [navigate, completedSessionEvent],
   );
 
-  const image = useMemo(
-    () => ({
-      uri: exercise?.card?.image?.source,
-    }),
-    [exercise],
-  );
-
-  const lottie = useMemo(
-    () =>
-      exercise?.card?.lottie?.source
-        ? {
-            uri: exercise?.card?.lottie?.source,
-          }
-        : undefined,
-    [exercise],
-  );
-
   return (
-    <SessionWalletCard
+    <CardSmall
       title={formatContentName(exercise)}
-      image={image}
-      lottie={lottie}
-      hostPictureURL={
-        hostProfile?.photoURL || exercise?.card?.ambassador?.photoURL
-      }
-      hostName={
-        hostProfile?.displayName || exercise?.card?.ambassador?.displayName
-      }
+      graphic={exercise?.card}
+      hostProfile={hostProfile}
       onPress={onContextPress}
-      hasCardBefore={hasCardBefore}
-      hasCardAfter={hasCardAfter}
-      completed={true}>
+      completed>
       <Row>
         <Node size={SPACINGS.SIXTEEN} />
         <Spacer4 />
@@ -102,7 +73,7 @@ const CompletedSessionCard: React.FC<CompletedSessionCardProps> = ({
           }
         />
       </Row>
-    </SessionWalletCard>
+    </CardSmall>
   );
 };
 

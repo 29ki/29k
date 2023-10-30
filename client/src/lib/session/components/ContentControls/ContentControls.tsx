@@ -111,7 +111,7 @@ const ContentControls: React.FC<ContentControlsProps> = ({
     <Wrapper style={style}>
       <SlideButton
         variant="tertiary"
-        small
+        size="small"
         LeftIcon={ChevronLeftIcon}
         hidden={!slideState.previous && !async}
         disabled={!isConnected}
@@ -123,7 +123,7 @@ const ContentControls: React.FC<ContentControlsProps> = ({
         onTogglePlayingPress && (
           <MediaControls>
             <IconSlideButton
-              small
+              size="small"
               hidden={isHidden}
               disabled={!isConnected}
               variant="tertiary"
@@ -132,7 +132,7 @@ const ContentControls: React.FC<ContentControlsProps> = ({
             />
             <Spacer8 />
             <IconSlideButton
-              small
+              size="small"
               hidden={isHidden}
               disabled={!isConnected}
               variant="tertiary"
@@ -145,7 +145,7 @@ const ContentControls: React.FC<ContentControlsProps> = ({
         )}
       {async ? (
         <SlideButton
-          small
+          size="small"
           variant="tertiary"
           active={!slideState.next}
           disabled={!isConnected}
@@ -155,7 +155,7 @@ const ContentControls: React.FC<ContentControlsProps> = ({
         </SlideButton>
       ) : (
         <SlideButton
-          small
+          size="small"
           variant="tertiary"
           hidden={!slideState.next}
           disabled={!isConnected}

@@ -4,7 +4,11 @@ import styled from 'styled-components/native';
 import {COLORS} from '../../../../../shared/src/constants/colors';
 import {SPACINGS} from '../../constants/spacings';
 import {Body16} from '../Typography/Body/Body';
-import BaseButton, {BaseButtonProps, ButtonVariant} from './BaseButton';
+import BaseButton, {
+  BaseButtonProps,
+  ButtonSize,
+  ButtonVariant,
+} from './BaseButton';
 import {AnimatedIconType} from '../Icons/AnimatedIcon';
 
 const AnimationWrapper = styled.View({
@@ -18,20 +22,25 @@ const AnimationWrapper = styled.View({
 
 type ButtonTextProps = {
   variant?: ButtonVariant;
-  small?: boolean;
+  size?: ButtonSize;
   active?: boolean;
   disabled?: boolean;
   children: React.ReactNode;
 };
 
 const ButtonText = styled(Body16).attrs({selectable: false})<ButtonTextProps>(
-  ({variant, small, active, disabled}) => ({
+  ({variant, size, active, disabled}) => ({
     height: 20,
     color:
       disabled || active || variant !== 'tertiary'
         ? COLORS.WHITE
         : COLORS.BLACK,
-    marginVertical: small ? 8 : SPACINGS.TWELVE,
+    marginVertical:
+      size === 'xsmall'
+        ? SPACINGS.FOUR
+        : size === 'small'
+        ? SPACINGS.EIGHT
+        : SPACINGS.TWELVE,
     marginHorizontal: SPACINGS.SIXTEEN,
   }),
 );
@@ -46,7 +55,7 @@ const AnimatedButton: React.FC<AnimatedButtonProps> = ({
   onPress,
   style,
   disabled,
-  small,
+  size,
   AnimatedIcon,
   elevated,
   active,
@@ -77,15 +86,16 @@ const AnimatedButton: React.FC<AnimatedButtonProps> = ({
   return (
     <BaseButton
       hitSlop={{
-        bottom: small ? SPACINGS.EIGHT : undefined,
+        bottom:
+          size === 'xsmall' || size === 'small' ? SPACINGS.EIGHT : undefined,
         left: undefined,
         right: undefined,
-        top: small ? SPACINGS.EIGHT : undefined,
+        top: size === 'xsmall' || size === 'small' ? SPACINGS.EIGHT : undefined,
       }}
       onPress={animatedPress}
       variant={variant}
       elevated={elevated}
-      small={small}
+      size={size}
       style={style}
       disabled={disabled}>
       <AnimationWrapper>
@@ -98,7 +108,7 @@ const AnimatedButton: React.FC<AnimatedButtonProps> = ({
         />
       </AnimationWrapper>
       <ButtonText
-        small={small}
+        size={size}
         variant={variant}
         active={active}
         disabled={disabled}

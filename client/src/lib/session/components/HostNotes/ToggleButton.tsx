@@ -69,7 +69,7 @@ const ToggleButton: React.FC<ToggleButtonProps> = ({
 }) => {
   return (
     <Button
-      small
+      size="small"
       variant="tertiary"
       disabled={disabled}
       onPress={onPress}

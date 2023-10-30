@@ -12,7 +12,6 @@ import {
   SessionMode,
   SessionType,
 } from '../../../../../shared/src/schemas/Session';
-import {COLORS} from '../../../../../shared/src/constants/colors';
 import {UserProfileType} from '../../../../../shared/src/schemas/User';
 
 import useIsPublicHost from '../../../lib/user/hooks/useIsPublicHost';
@@ -100,21 +99,6 @@ const CreateSessionModal = () => {
     [hasProfile, selectedModeAndType, exerciseId],
   );
 
-  const backgroundColor = useMemo(() => {
-    const skipProfile =
-      selectedModeAndType?.mode === SessionMode.async || hasProfile;
-    if (currentStep === 0) {
-      return COLORS.WHITE;
-    }
-    if (skipProfile && currentStep === 1) {
-      return COLORS.WHITE;
-    }
-    if (!skipProfile && currentStep === 2) {
-      return COLORS.WHITE;
-    }
-    return COLORS.CREAM;
-  }, [hasProfile, selectedModeAndType, currentStep]);
-
   const PreviousStepComponent: React.FC<StepProps> = useMemo(
     () => currentSteps[currentStep - 1],
     [currentSteps, currentStep],
@@ -138,7 +122,7 @@ const CreateSessionModal = () => {
   const firstStep = useCallback(() => setCurrentStep(0), []);
 
   return (
-    <SheetModal backgroundColor={backgroundColor}>
+    <SheetModal>
       <Wrapper>
         {PreviousStepComponent && (
           <Fade visible={false} key={currentStep - 1}>

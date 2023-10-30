@@ -107,7 +107,7 @@ const MediaControls: React.FC<MediaControlsProps> = ({
       <Wrapper>
         <ControlsWrapper>
           <IconButton
-            small
+            size="small"
             variant={variant}
             Icon={Backward15}
             onPress={onSkipBack}
@@ -120,7 +120,7 @@ const MediaControls: React.FC<MediaControlsProps> = ({
           />
           <Spacer32 />
           <IconButton
-            small
+            size="small"
             variant={variant}
             Icon={Forward15}
             onPress={onSkipForward}
@@ -130,7 +130,7 @@ const MediaControls: React.FC<MediaControlsProps> = ({
             <SubtitlesWrapper>
               {subtitles ? (
                 <IconButton
-                  small
+                  size="small"
                   variant={variant}
                   fill={COLORS.PRIMARY}
                   Icon={SubtitlesIcon}
@@ -138,7 +138,7 @@ const MediaControls: React.FC<MediaControlsProps> = ({
                 />
               ) : (
                 <IconButton
-                  small
+                  size="small"
                   variant={variant}
                   Icon={SubtitlesIcon}
                   onPress={onToggleSubtitles}

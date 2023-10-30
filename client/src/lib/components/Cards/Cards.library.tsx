@@ -3,131 +3,266 @@ import styled from 'styled-components/native';
 
 import ScreenWrapper from '../../uiLib/decorators/ScreenWrapper';
 import Badge from '../Badge/Badge';
-import {MeIcon, CommunityIcon} from '../Icons';
-import {Spacer16, Spacer4} from '../Spacers/Spacer';
-import {Body14} from '../Typography/Body/Body';
+import {CommunityIcon, FriendsIcon, MeIcon} from '../Icons';
+import {Spacer16, Spacer4, Spacer8} from '../Spacers/Spacer';
+import {Body14, BodyBold} from '../Typography/Body/Body';
 import Card from './Card';
 import CollectionFullCard from './CollectionCards/CollectionFullCard';
 import CollectionListCard from './CollectionCards/CollectionListCard';
-import ExerciseWalletCard from './WalletCards/ExerciseWalletCard';
-import SessionWalletCard from './WalletCards/SessionWalletCard';
+import {UserProfileType} from '../../../../../shared/src/schemas/User';
+import {ExerciseCard} from '../../../../../shared/src/types/generated/Exercise';
+import Button from '../Buttons/Button';
+import CardSmall from './CardSmall';
+import Interested from '../Interested/Interested';
+import Node from '../Node/Node';
 
-const lottieSource = require('../../../assets/animations/mandala.json');
-const Row = styled.View({
+const VerticalAlign = styled.View({
   flexDirection: 'row',
   alignItems: 'center',
 });
 
-export const AllCards = () => (
-  <ScreenWrapper>
-    <Card
-      title="A nice title"
-      tags={['Gratitude']}
-      hostPictureURL="https://res.cloudinary.com/twentyninek/image/upload/q_auto,t_global/v1636016815/Singles/sticky_eng_ps00eg.png"
-      hostName="Jenny"
-      image={{
-        uri: 'https://res.cloudinary.com/twentyninek/image/upload/q_auto,t_global/v1636016815/Singles/sticky_eng_ps00eg.png',
-      }}
-      onPress={() => {}}
-    />
-    <Spacer16 />
-    <Card
-      title="A nice title"
-      hostPictureURL="https://res.cloudinary.com/twentyninek/image/upload/q_auto,t_global/v1636016815/Singles/sticky_eng_ps00eg.png"
-      hostName="Jenny WithALongName"
-      image={{
-        uri: 'https://res.cloudinary.com/twentyninek/image/upload/q_auto,t_global/v1636016815/Singles/sticky_eng_ps00eg.png',
-      }}
-      onPress={() => {}}
-    />
-    <Spacer16 />
-    <Card
-      title="A longer title and animation"
-      lottie={lottieSource}
-      image={{
-        uri: 'https://res.cloudinary.com/twentyninek/image/upload/v1646061249/Illustrations_Tests/take-test_c4qa3u.png',
-      }}
-      onPress={() => {}}
-    />
-    <Spacer16 />
+const DUMMY_TAGS = [
+  '30 min',
+  'Self-Compassion',
+  'Relationships',
+  'Anxiety',
+  'Stress',
+  'Fear',
+];
 
+const DUMMY_HOST: UserProfileType = {
+  uid: 'some-uid',
+  displayName: 'Jenny Rickardsson',
+  photoURL:
+    'https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1682602411/Images/Jenny_Rickardsson_kopia_sdodwf.jpg',
+};
+
+const DUMMY_IMAGE_GRAPHIC: ExerciseCard = {
+  backgroundColor: '#D0E2DA',
+  image: {
+    source:
+      'https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1697618661/Images/values_collection_gmhmrl.png',
+  },
+};
+
+const DUMMY_TRANSPARENT_IMAGE_GRAPHIC: ExerciseCard = {
+  image: {
+    source:
+      'https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1697618661/Images/values_collection_gmhmrl.png',
+  },
+};
+
+const DUMMY_TRANSPARENT_LOTTIE_GRAPHIC: ExerciseCard = {
+  lottie: {
+    source:
+      'https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1683720732/Lottie/aware_logo_teal_qqweff.json',
+  },
+};
+
+const DUMMY_LOTTIE_GRAPHIC: ExerciseCard = {
+  backgroundColor: '#fff',
+  lottie: {
+    source:
+      'https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1683720732/Lottie/aware_logo_teal_qqweff.json',
+  },
+};
+
+const CardsList = () => (
+  <>
     <Card
-      title="With reminder and menu"
-      image={{
-        uri: 'https://res.cloudinary.com/twentyninek/image/upload/q_auto,t_global/v1636016815/Singles/sticky_eng_ps00eg.png',
-      }}
-      onPress={() => {}}
-    />
-    <Spacer16 />
-    <Card
-      title="Private session starts soon"
-      image={{
-        uri: 'https://res.cloudinary.com/twentyninek/image/upload/q_auto,t_global/v1636016815/Singles/sticky_eng_ps00eg.png',
-      }}
+      title="Pure Simple Love"
+      tags={DUMMY_TAGS}
+      hostProfile={DUMMY_HOST}
+      graphic={DUMMY_TRANSPARENT_IMAGE_GRAPHIC}
       onPress={() => {}}>
-      <Row>
+      <VerticalAlign>
+        <Body14>Starts</Body14>
         <Spacer4 />
-        <Badge text="03:43s" IconAfter={<MeIcon />} />
-      </Row>
+        <Badge text="09:00" IconAfter={<CommunityIcon />} />
+      </VerticalAlign>
     </Card>
     <Spacer16 />
     <Card
-      title="Session starts in 24h"
-      image={{
-        uri: 'https://res.cloudinary.com/twentyninek/image/upload/q_auto,t_global/v1636016815/Singles/sticky_eng_ps00eg.png',
-      }}
+      title="Accepting thoughts and feelings"
+      tags={DUMMY_TAGS}
+      hostProfile={DUMMY_HOST}
+      graphic={DUMMY_TRANSPARENT_LOTTIE_GRAPHIC}
       onPress={() => {}}>
-      <Row>
-        <Body14>{'Starts in'}</Body14>
-        <Spacer4 />
-        <Badge text="12:43" IconAfter={<CommunityIcon />} />
-      </Row>
+      <Button size="xsmall" variant="secondary" onPress={() => {}}>
+        <BodyBold>Join</BodyBold>
+      </Button>
+      <Spacer8 />
+      <Badge text="Shortly" IconAfter={<FriendsIcon />} />
     </Card>
     <Spacer16 />
-    <SessionWalletCard
-      hasCardAfter={false}
-      hasCardBefore={false}
-      title="Private session starts soon"
-      image={{
-        uri: 'https://res.cloudinary.com/twentyninek/image/upload/q_auto,t_global/v1636016815/Singles/sticky_eng_ps00eg.png',
-      }}
-      hostPictureURL="https://res.cloudinary.com/twentyninek/image/upload/q_auto,t_global/v1636016815/Singles/sticky_eng_ps00eg.png"
-      hostName="Jenny"
+    <Card
+      title="Accepting thoughts and feeeeeeeeeeeeeelings"
+      tags={DUMMY_TAGS}
+      hostProfile={DUMMY_HOST}
+      graphic={DUMMY_IMAGE_GRAPHIC}
+      isPinned
       onPress={() => {}}>
-      <Row>
-        <Badge text="03:43s" />
-      </Row>
-    </SessionWalletCard>
+      <VerticalAlign>
+        <Body14>Starts</Body14>
+        <Spacer4 />
+        <Badge text="Mon, 7 Sep 17.30" IconAfter={<CommunityIcon />} />
+      </VerticalAlign>
+    </Card>
     <Spacer16 />
-    <ExerciseWalletCard
-      hasCardAfter={false}
-      hasCardBefore={false}
-      title="Some exercise name"
-      image={{
-        uri: 'https://res.cloudinary.com/twentyninek/image/upload/q_auto,t_global/v1636016815/Singles/sticky_eng_ps00eg.png',
-      }}
+    <Card
+      title="Accepting thoughts and feelings"
+      tags={DUMMY_TAGS}
+      hostProfile={DUMMY_HOST}
+      graphic={DUMMY_LOTTIE_GRAPHIC}
+      isPinned
+      reminderEnabled
+      onPress={() => {}}>
+      <VerticalAlign>
+        <Body14>Starts</Body14>
+        <Spacer4 />
+        <Badge text="Mon, 7 Sep 17.30" IconAfter={<CommunityIcon />} />
+      </VerticalAlign>
+    </Card>
+    <Spacer16 />
+    <Card
+      title="Accepting thoughts and feelings"
+      tags={DUMMY_TAGS}
+      hostProfile={DUMMY_HOST}
+      graphic={DUMMY_IMAGE_GRAPHIC}
+      interestedCount={3}
+      onPress={() => {}}>
+      <VerticalAlign>
+        <Body14>Starts</Body14>
+        <Spacer4 />
+        <Badge text="Mon, 7 Sep 17.30" IconAfter={<CommunityIcon />} />
+      </VerticalAlign>
+    </Card>
+  </>
+);
+
+export const Cards = () => (
+  <ScreenWrapper>
+    <CardsList />
+  </ScreenWrapper>
+);
+
+const CardSmallsList = () => (
+  <>
+    <CardSmall
+      title="Pure Simple Love"
+      graphic={DUMMY_TRANSPARENT_IMAGE_GRAPHIC}
       onPress={() => {}}
     />
     <Spacer16 />
-    <ExerciseWalletCard
-      hasCardAfter={true}
-      hasCardBefore={false}
-      title="First in wallet"
-      image={{
-        uri: 'https://res.cloudinary.com/twentyninek/image/upload/q_auto,t_global/v1636016815/Singles/sticky_eng_ps00eg.png',
-      }}
-      onPress={() => {}}
-    />
-    <ExerciseWalletCard
-      hasCardAfter={false}
-      hasCardBefore={true}
-      title="Last in wallet"
-      image={{
-        uri: 'https://res.cloudinary.com/twentyninek/image/upload/q_auto,t_global/v1636016815/Singles/sticky_eng_ps00eg.png',
-      }}
+    <CardSmall
+      title="Accepting thoughts and feeeeeeeeeeeeeelings"
+      graphic={DUMMY_TRANSPARENT_LOTTIE_GRAPHIC}
       onPress={() => {}}
     />
     <Spacer16 />
+    <CardSmall
+      title="Pure Simple Love"
+      hostProfile={DUMMY_HOST}
+      graphic={DUMMY_IMAGE_GRAPHIC}
+      onPress={() => {}}
+    />
+    <Spacer16 />
+    <CardSmall
+      title="Accepting thoughts and feeeeeeeeeeeeeelings"
+      hostProfile={DUMMY_HOST}
+      graphic={DUMMY_LOTTIE_GRAPHIC}
+      onPress={() => {}}
+    />
+    <Spacer16 />
+    <CardSmall
+      title="Pure Simple Love"
+      tags={DUMMY_TAGS}
+      graphic={DUMMY_IMAGE_GRAPHIC}
+      onPress={() => {}}
+    />
+    <Spacer16 />
+    <CardSmall
+      title="Accepting thoughts and feeeeeeeeeeeeeelings"
+      tags={DUMMY_TAGS}
+      graphic={DUMMY_IMAGE_GRAPHIC}
+      onPress={() => {}}
+    />
+    <Spacer16 />
+    <CardSmall
+      title="Pure Simple Love"
+      tags={DUMMY_TAGS}
+      hostProfile={DUMMY_HOST}
+      graphic={DUMMY_IMAGE_GRAPHIC}
+      onPress={() => {}}
+    />
+    <Spacer16 />
+    <CardSmall
+      title="Accepting thoughts and feeeeeeeeeeeeeelings"
+      tags={DUMMY_TAGS}
+      hostProfile={DUMMY_HOST}
+      graphic={DUMMY_IMAGE_GRAPHIC}
+      onPress={() => {}}
+    />
+    <Spacer16 />
+    <CardSmall
+      title="Pure Simple Love"
+      hostProfile={DUMMY_HOST}
+      graphic={DUMMY_IMAGE_GRAPHIC}
+      onPress={() => {}}>
+      <Body14>Starts</Body14>
+      <Spacer4 />
+      <Badge text="Mon, 7 Sep 17.30" IconAfter={<CommunityIcon />} />
+      <Spacer4 />
+      <Interested compact reminder count={2} />
+    </CardSmall>
+    <Spacer16 />
+    <CardSmall
+      title="Accepting thoughts and feeeeeeeeeeeeeelings"
+      hostProfile={DUMMY_HOST}
+      graphic={DUMMY_IMAGE_GRAPHIC}
+      onPress={() => {}}>
+      <Body14>Starts</Body14>
+      <Spacer4 />
+      <Badge text="Mon, 7 Sep 17.30" IconAfter={<CommunityIcon />} />
+      <Spacer4 />
+      <Interested compact reminder count={2} />
+    </CardSmall>
+    <Spacer16 />
+    <CardSmall
+      title="Pure Simple Love"
+      graphic={DUMMY_IMAGE_GRAPHIC}
+      completed
+      onPress={() => {}}>
+      <Node size={16} />
+      <Spacer4 />
+      <Body14>Completed</Body14>
+      <Spacer4 />
+      <Badge text="Mon, 7 Sep 17.30" IconAfter={<MeIcon />} />
+    </CardSmall>
+    <Spacer16 />
+    <CardSmall
+      title="Accepting thoughts and feeeeeeeeeeeeeelings"
+      hostProfile={DUMMY_HOST}
+      graphic={DUMMY_IMAGE_GRAPHIC}
+      completed
+      onPress={() => {}}>
+      <Node size={16} />
+      <Spacer4 />
+      <Body14>Completed</Body14>
+      <Spacer4 />
+      <Badge text="Mon, 7 Sep 17.30" IconAfter={<CommunityIcon />} />
+    </CardSmall>
+  </>
+);
+
+export const CardSmalls = () => (
+  <ScreenWrapper>
+    <CardSmallsList />
+  </ScreenWrapper>
+);
+
+const CollectionCardsList = () => (
+  <>
     <CollectionFullCard
       title="Collection Card full size"
       image={{
@@ -144,5 +279,21 @@ export const AllCards = () => (
       }}
       onPress={() => {}}
     />
+  </>
+);
+
+export const CollectionCards = () => (
+  <ScreenWrapper>
+    <CollectionCardsList />
+  </ScreenWrapper>
+);
+
+export const AllCards = () => (
+  <ScreenWrapper>
+    <CardsList />
+    <Spacer16 />
+    <CardSmallsList />
+    <Spacer16 />
+    <CollectionCardsList />
   </ScreenWrapper>
 );

@@ -45,14 +45,14 @@ export const DonateModal = () => {
           <Types>
             <Button
               variant={type === 'one-time' ? 'primary' : 'tertiary'}
-              small
+              size="small"
               onPress={() => setType('one-time')}>
               {t('types.one-time')}
             </Button>
             <Spacer8 />
             <Button
               variant={type === 'recurring' ? 'primary' : 'tertiary'}
-              small
+              size="small"
               onPress={() => setType('recurring')}>
               {t('types.recurring')}
             </Button>
