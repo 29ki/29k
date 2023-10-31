@@ -78,11 +78,21 @@
             "duration": 120
           },
           "video": {
-            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1698746327/Video/summer_awp_exercise1_1-90th_birthday._Sharing_ajcory.mp4",
-            "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1698746929/Images/Sharing%2090th%20birthday%20Summer.png"
+            "source": "",
+            "preview": ""
           }
         },
-        "id": "sharing1"
+        "id": "sharing1",
+        "sharingVideos": [
+          {
+            "video": {
+              "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1698746327/Video/summer_awp_exercise1_1-90th_birthday._Sharing_ajcory.mp4",
+              "profile": {
+                "displayName": "Summer"
+              }
+            }
+          }
+        ]
       },
       {
         "type": "host",
@@ -305,11 +315,22 @@
             "duration": 120
           },
           "video": {
-            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/v1698745193/Video/fernando_awp_exercise1.90th_birthday_c0g6l4.mp4",
-            "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1698745267/SRT%20(captions)%20files/fernando_awp_exercise1.mp4_xpvddf.vtt"
+            "source": "",
+            "subtitles": ""
           }
         },
-        "id": "sharing1"
+        "id": "sharing1",
+        "sharingVideos": [
+          {
+            "video": {
+              "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1698745193/Video/fernando_awp_exercise1.90th_birthday_c0g6l4.mp4",
+              "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1698745267/SRT%20(captions)%20files/fernando_awp_exercise1.mp4_xpvddf.vtt",
+              "profile": {
+                "displayName": "Fernando"
+              }
+            }
+          }
+        ]
       },
       {
         "type": "host",
