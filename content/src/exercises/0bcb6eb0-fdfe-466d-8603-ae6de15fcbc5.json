@@ -299,6 +299,10 @@
             "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1676639253/Lottie/default_2min_black_o6egey.json",
             "durationTimer": true,
             "duration": 120
+          },
+          "video": {
+            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/v1698745193/Video/fernando_awp_exercise1.90th_birthday_c0g6l4.mp4",
+            "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1698745267/SRT%20(captions)%20files/fernando_awp_exercise1.mp4_xpvddf.vtt"
           }
         },
         "id": "sharing1"
