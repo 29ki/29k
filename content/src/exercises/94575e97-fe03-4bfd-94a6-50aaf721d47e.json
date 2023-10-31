@@ -77,7 +77,19 @@
             "text": "Who would like to start?\n\n> Let everyone (or as many as you got time for) share one by one. Push play to start the timer. Re-start for each new sharing.\n\nThank you so much everyone."
           }
         ],
-        "id": "sharing"
+        "id": "sharing",
+        "sharingVideos": [
+          {
+            "video": {
+              "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1698756079/Video/lisa_exercise2opening_up_acceptance.Sharing_gfehmr.mp4"
+            }
+          },
+          {
+            "video": {
+              "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1698756119/Video/sarmad_exercise2opening_up_to_acceptance.Sharing_basq9p.mp4"
+            }
+          }
+        ]
       },
       {
         "type": "host",
