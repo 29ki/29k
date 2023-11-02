@@ -64,7 +64,7 @@ const SharingPostModal = () => {
   const videoRef = useRef<VideoLooper>(null);
   const [duration, setDuration] = useState(0);
   const [progress, setProgress] = useState(0);
-  const [paused, setPaused] = useState(true);
+  const [paused, setPaused] = useState(false);
   const [showSubtitels, setShowSubtitles] = useState<boolean | undefined>(
     subtitles ? false : undefined,
   );
