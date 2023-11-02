@@ -1,6 +1,9 @@
 import {NavigatorScreenParams} from '@react-navigation/native';
 
-import {Exercise} from '../../../../../shared/src/types/generated/Exercise';
+import {
+  Exercise,
+  ExerciseSlideSharingSlideSharingVideoVideo,
+} from '../../../../../shared/src/types/generated/Exercise';
 import {
   UserType,
   UserProfileType,
@@ -77,8 +80,7 @@ export type ModalStackProps = {
   SharingPostModal: {
     userProfile?: Pick<UserProfileType, 'displayName' | 'photoURL'> | null;
     text?: string;
-    videoSource?: string;
-    subtitles?: string;
+    video?: ExerciseSlideSharingSlideSharingVideoVideo;
   };
   SessionErrorModal: {hasEjected?: boolean} | undefined;
   AddSessionByInviteModal?: {inviteCode?: number};

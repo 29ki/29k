@@ -5,7 +5,7 @@ import useSessionState from '../../session/state/state';
 import useAddUserEvent from '../../user/hooks/useAddUserEvent';
 import useUserEvents from '../../user/hooks/useUserEvents';
 import {addPost, fetchPosts} from '../api/posts';
-import {ExerciseSlideSharingSlideSharingVideos} from '../../../../../shared/src/types/generated/Exercise';
+import {ExerciseSlideSharingSlideSharingVideo} from '../../../../../shared/src/types/generated/Exercise';
 import {PostItem, VideoPostItem} from '../types/PostItem';
 
 const useSharingPosts = (exerciseId?: string) => {
@@ -17,7 +17,7 @@ const useSharingPosts = (exerciseId?: string) => {
   const getSharingPosts = useCallback(
     async (
       sharingId: string,
-      sharingVideos: Array<ExerciseSlideSharingSlideSharingVideos> = [],
+      sharingVideos: Array<ExerciseSlideSharingSlideSharingVideo> = [],
     ): Promise<Array<PostItem>> => {
       if (exerciseId) {
         const posts = await fetchPosts(exerciseId, sharingId);
