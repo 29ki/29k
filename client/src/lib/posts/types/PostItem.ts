@@ -1,5 +1,5 @@
 import {PostType} from '../../../../../shared/src/schemas/Post';
-import {ExerciseSlideSharingSlideSharingVideos} from '../../../../../shared/src/types/generated/Exercise';
+import {ExerciseSlideSharingSlideSharingVideo} from '../../../../../shared/src/types/generated/Exercise';
 
 export type TextPostItem = {
   type: 'text';
@@ -8,7 +8,7 @@ export type TextPostItem = {
 
 export type VideoPostItem = {
   type: 'video';
-  item: ExerciseSlideSharingSlideSharingVideos;
+  item: ExerciseSlideSharingSlideSharingVideo;
 };
 
 export type PostItem = TextPostItem | VideoPostItem;

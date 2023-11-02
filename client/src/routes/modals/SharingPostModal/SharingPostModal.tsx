@@ -58,29 +58,29 @@ const SubtitleContainer = styled.View({
 
 const SharingPostModal = () => {
   const {
-    params: {userProfile, text, videoSource, subtitles},
+    params: {userProfile, text, video},
   } = useRoute<RouteProp<ModalStackProps, 'SharingPostModal'>>();
   const {goBack} = useNavigation();
   const videoRef = useRef<VideoLooper>(null);
   const [duration, setDuration] = useState(0);
   const [progress, setProgress] = useState(0);
-  const [paused, setPaused] = useState(true);
+  const [paused, setPaused] = useState(false);
   const [showSubtitels, setShowSubtitles] = useState<boolean | undefined>(
-    subtitles ? false : undefined,
+    video?.subtitles ? false : undefined,
   );
   const [isLoading, setIsLoading] = useState(true);
 
   const videoSources = useMemo(() => {
-    if (videoSource) {
+    if (video) {
       return [
         {
-          source: videoSource,
+          source: video.source,
           repeat: false,
           muted: false,
         },
       ];
     }
-  }, [videoSource]);
+  }, [video]);
 
   const onLoad = useCallback<(data: {duration: number}) => void>(
     data => {
@@ -149,10 +149,10 @@ const SharingPostModal = () => {
                 onLoad={onLoad}
                 onProgress={onProgress}
               />
-              {subtitles && showSubtitels && (
+              {video?.subtitles && showSubtitels && (
                 <SubtitleContainer>
                   <Gutters>
-                    <Subtitles src={subtitles} time={progress} />
+                    <Subtitles src={video?.subtitles} time={progress} />
                   </Gutters>
                 </SubtitleContainer>
               )}
@@ -169,7 +169,7 @@ const SharingPostModal = () => {
                 onTogglePlay={onTogglePlay}
                 onSkipForward={onSkipForward}
                 onToggleSubtitles={onToggleSubtitles}
-                subtitles={subtitles ? showSubtitels : undefined}
+                subtitles={video?.subtitles ? showSubtitels : undefined}
               />
             </Gutters>
             <Spacer32 />
