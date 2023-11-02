@@ -106,9 +106,9 @@
     "live": true,
     "published": true,
     "card": {
-      "backgroundColor": "#349dff",
+      "backgroundColor": "",
       "image": {
-        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1698917836/Images/card_image_bounce_back_m6yyaj.png"
+        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1698919598/Images/card_image_2_bounce_back_pkfg3y.png"
       }
     },
     "coCreators": [
