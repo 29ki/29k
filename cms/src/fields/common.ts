@@ -196,6 +196,16 @@ export const PROFILE_FIELD: CmsFieldBase & CmsFieldObject = {
   ],
 };
 
+const SUBTITLES_FIELD: CmsField = {
+  label: '🗒 Subtitles file',
+  name: 'subtitles',
+  widget: 'file',
+  required: false,
+  i18n: true,
+  allow_multiple: false,
+  media_library: CLOUDINARY_IMAGE_CONFIG,
+};
+
 export const LOTTE_FIELD: CmsFieldBase & CmsFieldObject = {
   label: '💃 Lottie',
   name: 'lottie',
@@ -220,6 +230,7 @@ export const LOTTE_FIELD: CmsFieldBase & CmsFieldObject = {
       allow_multiple: false,
       media_library: CLOUDINARY_FILE_CONFIG,
     },
+    SUBTITLES_FIELD,
   ],
 };
 
@@ -256,38 +267,7 @@ export const VIDEO_FIELD: CmsFieldBase & CmsFieldObject = {
       allow_multiple: false,
       media_library: CLOUDINARY_IMAGE_CONFIG,
     },
-  ],
-};
-
-const SUBTITLES_FIELD: CmsField = {
-  label: '🗒 Subtitles file',
-  name: 'subtitles',
-  widget: 'file',
-  required: false,
-  i18n: true,
-  allow_multiple: false,
-  media_library: CLOUDINARY_IMAGE_CONFIG,
-};
-
-export const SHARING_VIDEO_FIELD: CmsFieldBase & CmsFieldObject = {
-  label: '🎥 Sharing Video',
-  name: 'video',
-  widget: 'object',
-  collapsed: true,
-  required: false,
-  i18n: true,
-  fields: [
-    {
-      label: '🎥 Video file',
-      name: 'source',
-      widget: 'file',
-      required: false,
-      i18n: true,
-      allow_multiple: false,
-      media_library: CLOUDINARY_VIDEO_CONFIG,
-    },
     SUBTITLES_FIELD,
-    PROFILE_FIELD,
   ],
 };
 
@@ -309,7 +289,6 @@ export const VIDEO_FIELD_WITH_AUDIO: CmsFieldBase & CmsFieldObject = {
       ...AUDIO_FIELD,
       hint: 'This will override the audio of the video. Video will automatically loop while playing.',
     },
-    SUBTITLES_FIELD,
   ],
 };
 
@@ -321,7 +300,6 @@ export const LOTTIE_FIELD_WITH_AUDIO: CmsFieldBase & CmsFieldObject = {
       ...AUDIO_FIELD,
       hint: 'Animation will automatically loop while playing.',
     },
-    SUBTITLES_FIELD,
   ],
 };
 

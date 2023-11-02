@@ -21,6 +21,7 @@ export interface ExerciseCardImage {
 export interface ExerciseCardLottie {
   description?: string;
   source?: string;
+  subtitles?: string;
 }
 
 export interface ExerciseCard {
@@ -40,14 +41,15 @@ export interface ExerciseIntroPortalVideoLoop {
   description?: string;
   source?: string;
   preview?: string;
-  audio?: string;
   subtitles?: string;
+  audio?: string;
 }
 
 export interface ExerciseIntroPortalVideoEnd {
   description?: string;
   source?: string;
   preview?: string;
+  subtitles?: string;
 }
 
 export interface ExerciseIntroPortalHostNote {
@@ -64,8 +66,8 @@ export interface ExerciseOutroPortalVideo {
   description?: string;
   source?: string;
   preview?: string;
-  audio?: string;
   subtitles?: string;
+  audio?: string;
 }
 
 export interface ExerciseOutroPortal {
@@ -87,8 +89,8 @@ export interface ExerciseSlideContentSlideContentVideo {
   description?: string;
   source?: string;
   preview?: string;
-  audio?: string;
   subtitles?: string;
+  audio?: string;
 }
 
 export interface ExerciseSlideContentSlideContentLottie {
@@ -97,8 +99,8 @@ export interface ExerciseSlideContentSlideContentLottie {
   duration?: number;
   description?: string;
   source?: string;
-  audio?: string;
   subtitles?: string;
+  audio?: string;
 }
 
 export interface ExerciseSlideContentSlideContent {
@@ -135,8 +137,8 @@ export interface ExerciseSlideReflectionSlideContentVideo {
   description?: string;
   source?: string;
   preview?: string;
-  audio?: string;
   subtitles?: string;
+  audio?: string;
 }
 
 export interface ExerciseSlideReflectionSlideContentLottie {
@@ -145,8 +147,8 @@ export interface ExerciseSlideReflectionSlideContentLottie {
   duration?: number;
   description?: string;
   source?: string;
-  audio?: string;
   subtitles?: string;
+  audio?: string;
 }
 
 export interface ExerciseSlideReflectionSlideContent {
@@ -172,8 +174,8 @@ export interface ExerciseSlideSharingSlideContentVideo {
   description?: string;
   source?: string;
   preview?: string;
-  audio?: string;
   subtitles?: string;
+  audio?: string;
 }
 
 export interface ExerciseSlideSharingSlideContentLottie {
@@ -182,8 +184,8 @@ export interface ExerciseSlideSharingSlideContentLottie {
   duration?: number;
   description?: string;
   source?: string;
-  audio?: string;
   subtitles?: string;
+  audio?: string;
 }
 
 export interface ExerciseSlideSharingSlideContent {
@@ -194,19 +196,21 @@ export interface ExerciseSlideSharingSlideContent {
   lottie?: ExerciseSlideSharingSlideContentLottie;
 }
 
-export interface ExerciseSlideSharingSlideSharingVideosSharingVideoProfile {
+export interface ExerciseSlideSharingSlideSharingVideoVideo {
+  description?: string;
+  source?: string;
+  preview?: string;
+  subtitles?: string;
+}
+
+export interface ExerciseSlideSharingSlideSharingVideoProfile {
   displayName?: string;
   photoURL?: string;
 }
 
-export interface ExerciseSlideSharingSlideSharingVideosSharingVideo {
-  source?: string;
-  subtitles?: string;
-  profile?: ExerciseSlideSharingSlideSharingVideosSharingVideoProfile;
-}
-
-export interface ExerciseSlideSharingSlideSharingVideos {
-  video?: ExerciseSlideSharingSlideSharingVideosSharingVideo;
+export interface ExerciseSlideSharingSlideSharingVideo {
+  video?: ExerciseSlideSharingSlideSharingVideoVideo;
+  profile?: ExerciseSlideSharingSlideSharingVideoProfile;
 }
 
 export interface ExerciseSlideHostSlideHostNote {
@@ -217,6 +221,7 @@ export interface ExerciseSlideHostSlideVideo {
   description?: string;
   source?: string;
   preview?: string;
+  subtitles?: string;
 }
 
 export interface ExerciseSlideContentSlide {
@@ -241,7 +246,7 @@ export interface ExerciseSlideSharingSlide {
   id: string;
   hostNotes?: ExerciseSlideSharingSlideHostNote[];
   content?: ExerciseSlideSharingSlideContent;
-  sharingVideos?: ExerciseSlideSharingSlideSharingVideos[];
+  sharingVideos?: ExerciseSlideSharingSlideSharingVideo[];
 }
 
 export interface ExerciseSlideHostSlide {
