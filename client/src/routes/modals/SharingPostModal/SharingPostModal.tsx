@@ -148,6 +148,7 @@ const SharingPostModal = () => {
                 paused={paused}
                 onLoad={onLoad}
                 onProgress={onProgress}
+                volume={1}
               />
               {video?.subtitles && showSubtitels && (
                 <SubtitleContainer>
