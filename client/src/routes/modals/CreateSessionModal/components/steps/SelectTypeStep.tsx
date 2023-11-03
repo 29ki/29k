@@ -31,14 +31,14 @@ import {Display24} from '../../../../../lib/components/Typography/Display/Displa
 import {GUTTERS, SPACINGS} from '../../../../../lib/constants/spacings';
 import {StepProps} from '../../CreateSessionModal';
 import Button from '../../../../../lib/components/Buttons/Button';
-import {useNavigation} from '@react-navigation/native';
+import {useIsFocused, useNavigation} from '@react-navigation/native';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import useGetExerciseById from '../../../../../lib/content/hooks/useGetExerciseById';
 import {formatContentName} from '../../../../../lib/utils/string';
 import {ActivityIndicator, ListRenderItem, Share, View} from 'react-native';
 import SessionCard from '../../../../../lib/components/Cards/SessionCard/SessionCard';
 import {Heading16} from '../../../../../lib/components/Typography/Heading/Heading';
-import {BottomSheetFlatList} from '@gorhom/bottom-sheet';
+import {BottomSheetFlatList, BottomSheetScrollView} from '@gorhom/bottom-sheet';
 import {ModalStackProps} from '../../../../../lib/navigation/constants/routes';
 import useStartAsyncSession from '../../../../../lib/session/hooks/useStartAsyncSession';
 import Markdown from '../../../../../lib/components/Typography/Markdown/Markdown';
@@ -56,6 +56,7 @@ import {Tag as TagType} from '../../../../../../../shared/src/types/generated/Ta
 import {take} from 'ramda';
 import CoCreators from '../../../../../lib/components/CoCreators/CoCreators';
 import ExerciseGraphic from '../../../../../lib/components/ExerciseGraphic/ExerciseGraphic';
+import BackgroundBlock from '../../../../../lib/components/BackgroundBlock/BackgroundBlock';
 
 const TypeItemWrapper = styled.View<{isLast?: boolean}>(({isLast}) => ({
   flexDirection: 'row',
@@ -182,10 +183,7 @@ const SelectTypeStep: React.FC<StepProps> = ({
     exercise?.id,
   );
 
-  const {sessions, loading: isLoadingSessions} = useLiveSessionsByExercise(
-    exercise?.id && exercise,
-    5,
-  );
+  const {sessions} = useLiveSessionsByExercise(exercise?.id && exercise, 5);
   const tags = useGetTagsById(exercise?.tags);
 
   const onJoinByInvite = useCallback(() => {
@@ -228,15 +226,6 @@ const SelectTypeStep: React.FC<StepProps> = ({
     }
   }, [startSession, popToTop, selectedExercise]);
 
-  const renderItem = useCallback<ListRenderItem<LiveSessionType>>(
-    ({item}) => (
-      <Gutters>
-        <SessionCard session={item} small onBeforeContextPress={popToTop} />
-      </Gutters>
-    ),
-    [popToTop],
-  );
-
   const moreLikeThisExercises = useMemo(
     () =>
       take(MORE_LIKE_THIS_LIMIT, exercisesByTags).map(e => (
@@ -247,8 +236,6 @@ const SelectTypeStep: React.FC<StepProps> = ({
       )),
     [exercisesByTags, popToTop],
   );
-
-  const keyExtractor = useCallback((item: LiveSessionType) => item.id, []);
 
   const typeSelection = useMemo(
     () => (
@@ -287,133 +274,115 @@ const SelectTypeStep: React.FC<StepProps> = ({
 
   if (exercise) {
     return (
-      <>
-        <BottomSheetFlatList
-          data={sessions}
-          renderItem={renderItem}
-          ItemSeparatorComponent={Spacer16}
-          keyExtractor={keyExtractor}
-          ListEmptyComponent={
-            <EmptyListContainer>
-              {isLoadingSessions && <Spinner color={COLORS.BLACK} />}
-            </EmptyListContainer>
-          }
-          ListFooterComponent={
+      <BottomSheetScrollView focusHook={useIsFocused}>
+        <Gutters>
+          {rating && rating.positive > 0 ? (
+            <RatingContainer>
+              <FeedbackThumb />
+              <Spacer4 />
+              <Body16>{rating.positive}</Body16>
+            </RatingContainer>
+          ) : null}
+          <Spacer12 />
+          <SpaceBetweenRow>
+            <TextWrapper>
+              <Display24>{formatContentName(exercise)}</Display24>
+            </TextWrapper>
+            <Spacer16 />
+            <Graphic graphic={exercise.card} />
+          </SpaceBetweenRow>
+          {exercise.description && (
             <>
-              <Gutters>
-                <Spacer24 />
-                {exercise.link && (
-                  <>
-                    <VCenteredRow>
-                      <IconButton
-                        variant="secondary"
-                        onPress={onShare}
-                        Icon={ShareIcon}
-                      />
-                      <Spacer8 />
-                      <Body16>{t('shareHeading')}</Body16>
-                    </VCenteredRow>
-                    <Spacer24 />
-                  </>
-                )}
-                {Boolean(exercise.coCreators?.length) && (
-                  <>
-                    <Heading16>{t('coCreatorsHeading')}</Heading16>
-                    <Spacer8 />
-                    <CoCreators coCreators={exercise.coCreators} />
-                  </>
-                )}
-              </Gutters>
-              {Boolean(feedback?.length) && (
-                <>
-                  <Spacer24 />
-                  <Gutters>
-                    <Heading16>{t('feedbackHeading')}</Heading16>
-                  </Gutters>
-                  <Spacer8 />
-                  <FeedbackCarousel feedbackItems={feedback} />
-                </>
-              )}
-              {Boolean(exercisesByTags?.length) && (
-                <Gutters>
-                  <Spacer24 />
-                  <Heading16>{t('moreLikeThis')}</Heading16>
-                  <Spacer8 />
-                  <View>{moreLikeThisExercises}</View>
-                </Gutters>
-              )}
-              <BottomSafeArea minSize={SPACINGS.THIRTYTWO} />
+              <Spacer16 />
+              <Markdown>{exercise.description}</Markdown>
             </>
-          }
-          ListHeaderComponent={
-            <Gutters>
-              {rating && rating.positive > 0 ? (
-                <RatingContainer>
-                  <FeedbackThumb />
+          )}
+          {tags && (
+            <Tags>
+              {tags.map(({id, tag}) => (
+                <Fragment key={id}>
+                  <Tag>{tag}</Tag>
                   <Spacer4 />
-                  <Body16>{rating.positive}</Body16>
-                </RatingContainer>
-              ) : null}
-              <Spacer12 />
-              <SpaceBetweenRow>
-                <TextWrapper>
-                  <Display24>{formatContentName(exercise)}</Display24>
-                </TextWrapper>
-                <Spacer16 />
-                <Graphic graphic={exercise.card} />
-              </SpaceBetweenRow>
-              {exercise.description && (
-                <>
-                  <Spacer16 />
-                  <Markdown>{exercise.description}</Markdown>
-                </>
-              )}
-              {tags && (
-                <Tags>
-                  {tags.map(({id, tag}) => (
-                    <Fragment key={id}>
-                      <Tag>{tag}</Tag>
-                      <Spacer4 />
-                    </Fragment>
-                  ))}
-                </Tags>
-              )}
-
-              {exercise.live ? (
-                <>
-                  <Spacer16 />
-                  <TypeItemHeading>{t('typeHeading')}</TypeItemHeading>
-                  <Spacer8 />
-                  {typeSelection}
-                  <Spacer24 />
-                  {Boolean(sessions.length) && (
-                    <>
-                      <Heading16>{t('orJoinUpcoming')}</Heading16>
-                      <Spacer16 />
-                    </>
-                  )}
-                </>
-              ) : (
-                <>
-                  <Spacer24 />
-                  <Row>
-                    <Button variant="secondary" onPress={onStartPress}>
-                      {t('startCta')}
-                    </Button>
-                    <Spacer12 />
-                    <IconButton
-                      variant="secondary"
-                      onPress={onShare}
-                      Icon={ShareIcon}
-                    />
-                  </Row>
-                </>
-              )}
+                </Fragment>
+              ))}
+            </Tags>
+          )}
+          <Spacer16 />
+          <VCenteredRow>
+            {!exercise.live && (
+              <>
+                <Button variant="secondary" onPress={onStartPress}>
+                  {t('startCta')}
+                </Button>
+                <Spacer12 />
+              </>
+            )}
+            {exercise.link && (
+              <>
+                <IconButton
+                  variant="secondary"
+                  onPress={onShare}
+                  Icon={ShareIcon}
+                />
+                <Spacer8 />
+                <Body16>{t('shareHeading')}</Body16>
+              </>
+            )}
+          </VCenteredRow>
+          <Spacer24 />
+          {exercise.live && (
+            <>
+              <TypeItemHeading>{t('typeHeading')}</TypeItemHeading>
+              <Spacer8 />
+              {typeSelection}
+              <Spacer24 />
+            </>
+          )}
+        </Gutters>
+        {Boolean(sessions.length) && (
+          <Gutters>
+            <Heading16>{t('orJoinUpcoming')}</Heading16>
+            <Spacer16 />
+            {sessions.map(item => (
+              <SessionCard
+                session={item}
+                small
+                onBeforeContextPress={popToTop}
+              />
+            ))}
+            <Spacer24 />
+          </Gutters>
+        )}
+        {Boolean(feedback?.length) && (
+          <>
+            <Gutters>
+              <Heading16>{t('feedbackHeading')}</Heading16>
             </Gutters>
-          }
-        />
-        <Spacer24 />
-      </>
+            <Spacer8 />
+            <FeedbackCarousel feedbackItems={feedback} />
+            <Spacer8 />
+          </>
+        )}
+        {Boolean(exercisesByTags?.length) && (
+          <BackgroundBlock backgroundColor={COLORS.PURE_WHITE}>
+            <Gutters>
+              <Heading16>{t('moreLikeThis')}</Heading16>
+              <Spacer8 />
+              {moreLikeThisExercises}
+              <Spacer8 />
+            </Gutters>
+          </BackgroundBlock>
+        )}
+        {Boolean(exercise.coCreators?.length) && (
+          <Gutters>
+            <Heading16>{t('coCreatorsHeading')}</Heading16>
+            <Spacer8 />
+            <CoCreators coCreators={exercise.coCreators} />
+            <Spacer24 />
+          </Gutters>
+        )}
+        <BottomSafeArea minSize={SPACINGS.THIRTYTWO} />
+      </BottomSheetScrollView>
     );
   }
 
