@@ -106,8 +106,7 @@ const TitleContainer = styled.View({
 });
 
 const Graphic = styled(ExerciseGraphic)({
-  width: 90,
-  height: 90,
+  flex: 1,
 });
 
 const EditButton = styled(TouchableOpacity)({
