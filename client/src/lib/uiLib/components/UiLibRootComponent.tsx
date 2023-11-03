@@ -16,6 +16,7 @@ import * as ProfilePicture from '../../components/User/ProfilePicture.library';
 import * as TopBar from '../../components/TopBar/TopBar.library';
 import * as ErrorBanner from '../../components/ErrorBanner/ErrorBanner.library';
 import * as DescriptionBlock from '../../components/DescriptionBlock/DescriptionBlock.library';
+import * as ExerciseGraphic from '../../components/ExerciseGraphic/ExerciseGraphic.library';
 
 export type ComponentLibrary = {[key: string]: React.ComponentType};
 export type ComponentList = {[key: string]: Array<ComponentLibrary>};
@@ -34,6 +35,7 @@ const menuItems: ComponentList = {
   HeaderScrollView: [HeaderScrollView],
   Interested: [Interested],
   SessionComponents: [Session],
+  ExerciseGraphic: [ExerciseGraphic],
   ProfilePicture: [ProfilePicture],
   UiSettings: [UiSettings],
 };
