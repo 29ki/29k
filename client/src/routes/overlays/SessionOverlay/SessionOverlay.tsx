@@ -72,6 +72,7 @@ import ExerciseCard from '../../../lib/components/Cards/SessionCard/ExerciseCard
 import {take} from 'ramda';
 import CoCreators from '../../../lib/components/CoCreators/CoCreators';
 import ExerciseGraphic from '../../../lib/components/ExerciseGraphic/ExerciseGraphic';
+import BackgroundBlock from '../../../lib/components/BackgroundBlock/BackgroundBlock';
 
 const Content = styled(Gutters)({
   justifyContent: 'space-between',
@@ -106,8 +107,7 @@ const TitleContainer = styled.View({
 });
 
 const Graphic = styled(ExerciseGraphic)({
-  width: 90,
-  height: 90,
+  flex: 1,
 });
 
 const EditButton = styled(TouchableOpacity)({
@@ -389,35 +389,36 @@ const SessionOverlay = () => {
               {t('howItWorks')}
             </ActionButton>
           </ActionList>
-          {Boolean(exercise.coCreators?.length) && (
-            <>
-              <Spacer24 />
-              <Heading16>{t('coCreatorsHeading')}</Heading16>
-              <Spacer8 />
-              <CoCreators coCreators={exercise.coCreators} />
-            </>
-          )}
+          <Spacer24 />
         </Gutters>
         {Boolean(feedback?.length) && (
           <>
-            <Spacer24 />
             <Gutters>
               <Heading16>{t('feedbackHeading')}</Heading16>
             </Gutters>
             <Spacer8 />
             <FeedbackCarousel feedbackItems={feedback} />
+            <Spacer8 />
           </>
         )}
-
         {Boolean(exercisesByTags?.length) && (
+          <BackgroundBlock backgroundColor={COLORS.PURE_WHITE}>
+            <Gutters>
+              <Heading16>{t('moreLikeThis')}</Heading16>
+              <Spacer8 />
+              <View>{moreLikeThisExercises}</View>
+              <Spacer8 />
+            </Gutters>
+          </BackgroundBlock>
+        )}
+        {Boolean(exercise.coCreators?.length) && (
           <Gutters>
-            <Spacer24 />
-            <Heading16>{t('moreLikeThis')}</Heading16>
+            <Heading16>{t('coCreatorsHeading')}</Heading16>
             <Spacer8 />
-            <View>{moreLikeThisExercises}</View>
+            <CoCreators coCreators={exercise.coCreators} />
+            <Spacer24 />
           </Gutters>
         )}
-        <Spacer32 />
         <BottomSafeArea minSize={SPACINGS.THIRTYTWO} />
       </AutoScrollView>
     </Screen>
