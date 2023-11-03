@@ -7,12 +7,10 @@ import styled from 'styled-components/native';
 import {BottomSheetScrollView} from '@gorhom/bottom-sheet';
 import {complement, isNil, take} from 'ramda';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
-import AnimatedLottieView from 'lottie-react-native';
 
 import Button from '../../../lib/components/Buttons/Button';
 import Gutters from '../../../lib/components/Gutters/Gutters';
 
-import Image from '../../../lib/components/Image/Image';
 import SheetModal from '../../../lib/components/Modals/SheetModal';
 import {
   BottomSafeArea,
@@ -59,6 +57,7 @@ import ExerciseCard from '../../../lib/components/Cards/SessionCard/ExerciseCard
 import useExercisesByTags from '../../../lib/content/hooks/useExercisesByTags';
 import {Tag as TagType} from '../../../../../shared/src/types/generated/Tag';
 import CoCreators from '../../../lib/components/CoCreators/CoCreators';
+import ExerciseGraphic from '../../../lib/components/ExerciseGraphic/ExerciseGraphic';
 
 const Content = styled(Gutters)({
   justifyContent: 'space-between',
@@ -84,13 +83,9 @@ const TitleContainer = styled.View({
   justifyContent: 'center',
 });
 
-const GraphicsWrapper = styled.View({
+const Graphic = styled(ExerciseGraphic)({
   width: 90,
   height: 90,
-});
-
-const Lottie = styled(AnimatedLottieView)({
-  aspectRatio: 1,
 });
 
 const SharingPost = styled(MyPostCard)({
@@ -172,18 +167,6 @@ const CompletedSessionModal = () => {
     }
   }, [user]);
 
-  const exerciseImage = useMemo(() => {
-    if (exercise?.card?.image?.source) {
-      return {uri: exercise.card.image.source};
-    }
-  }, [exercise]);
-
-  const exerciseLottie = useMemo(() => {
-    if (exercise?.card?.lottie?.source) {
-      return {uri: exercise?.card?.lottie?.source};
-    }
-  }, [exercise]);
-
   const moreLikeThisExercises = useMemo(
     () =>
       take(MORE_LIKE_THIS_LIMIT, exercisesByTags).map(e => (
@@ -215,13 +198,7 @@ const CompletedSessionModal = () => {
               />
             </TitleContainer>
             <Spacer32 />
-            <GraphicsWrapper>
-              {exerciseLottie ? (
-                <Lottie source={exerciseLottie} autoPlay loop />
-              ) : (
-                <Image resizeMode="contain" source={exerciseImage} />
-              )}
-            </GraphicsWrapper>
+            <Graphic graphic={exercise.card} />
           </SpaceBetweenRow>
         </Content>
         {exercise?.description && (

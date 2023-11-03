@@ -1,6 +1,5 @@
 import React, {Fragment, useCallback, useMemo} from 'react';
 import {useTranslation} from 'react-i18next';
-import AnimatedLottieView from 'lottie-react-native';
 
 import styled from 'styled-components/native';
 import {COLORS} from '../../../../../../../shared/src/constants/colors';
@@ -36,7 +35,6 @@ import {useNavigation} from '@react-navigation/native';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import useGetExerciseById from '../../../../../lib/content/hooks/useGetExerciseById';
 import {formatContentName} from '../../../../../lib/utils/string';
-import Image from '../../../../../lib/components/Image/Image';
 import {ActivityIndicator, ListRenderItem, Share, View} from 'react-native';
 import SessionCard from '../../../../../lib/components/Cards/SessionCard/SessionCard';
 import {Heading16} from '../../../../../lib/components/Typography/Heading/Heading';
@@ -57,6 +55,7 @@ import useExercisesByTags from '../../../../../lib/content/hooks/useExercisesByT
 import {Tag as TagType} from '../../../../../../../shared/src/types/generated/Tag';
 import {take} from 'ramda';
 import CoCreators from '../../../../../lib/components/CoCreators/CoCreators';
+import ExerciseGraphic from '../../../../../lib/components/ExerciseGraphic/ExerciseGraphic';
 
 const TypeItemWrapper = styled.View<{isLast?: boolean}>(({isLast}) => ({
   flexDirection: 'row',
@@ -106,13 +105,14 @@ const VCenteredRow = styled(Row)({
   alignItems: 'center',
 });
 
-const Lottie = styled(AnimatedLottieView)({
-  aspectRatio: 1,
+const LogoWrapper = styled.View({
+  width: 90,
+  height: 90,
 });
 
-const LogoWrapper = styled.View({
-  width: 80,
-  height: 80,
+const Graphic = styled(ExerciseGraphic)({
+  width: 90,
+  height: 90,
 });
 
 const RatingContainer = styled.View({
@@ -181,16 +181,6 @@ const SelectTypeStep: React.FC<StepProps> = ({
     exercise?.tags as TagType[],
     exercise?.id,
   );
-
-  const exerciseImage = useMemo(
-    () => (exercise?.card?.image ? {uri: exercise.card.image.source} : null),
-    [exercise],
-  );
-  const exerciseLottie = useMemo(() => {
-    if (exercise?.card?.lottie?.source) {
-      return {uri: exercise?.card?.lottie?.source};
-    }
-  }, [exercise]);
 
   const {sessions, loading: isLoadingSessions} = useLiveSessionsByExercise(
     exercise?.id && exercise,
@@ -370,13 +360,7 @@ const SelectTypeStep: React.FC<StepProps> = ({
                   <Display24>{formatContentName(exercise)}</Display24>
                 </TextWrapper>
                 <Spacer16 />
-                <LogoWrapper>
-                  {exerciseLottie ? (
-                    <Lottie source={exerciseLottie} autoPlay loop />
-                  ) : exerciseImage ? (
-                    <Image source={exerciseImage} />
-                  ) : null}
-                </LogoWrapper>
+                <Graphic graphic={exercise.card} />
               </SpaceBetweenRow>
               {exercise.description && (
                 <>

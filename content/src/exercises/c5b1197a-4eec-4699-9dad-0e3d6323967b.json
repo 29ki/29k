@@ -82,7 +82,21 @@
             "durationTimer": true
           }
         },
-        "id": "sharing-1"
+        "id": "sharing-1",
+        "sharingVideos": [
+          {
+            "video": {
+              "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1698755178/Video/vanessa_exercise2setting_boundaries.Sharing_s9apmr.mp4",
+              "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1698942215/Images/vanessa_exercise1_Setting_boundaries-1_Image_eg85wb.jpg"
+            }
+          },
+          {
+            "video": {
+              "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1698755085/Video/summer_exercise2setting_boundaries.Sharing_nfbo1g.mp4",
+              "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1698942223/Images/summer_exercise2setting_boundaries_Image_qtiimj.jpg"
+            }
+          }
+        ]
       },
       {
         "type": "reflection",

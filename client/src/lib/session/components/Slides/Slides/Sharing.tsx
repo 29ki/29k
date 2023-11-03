@@ -150,9 +150,8 @@ const Sharing: React.FC<SharingProps> = ({slide}) => {
       return (
         <ItemWrapper isLast={index === posts.length - 1}>
           <ListPostCard
-            videoSource={item.item.video?.source}
-            subtitles={item.item.video?.subtitles}
-            userProfile={item.item.video?.profile ?? null}
+            video={item.item.video}
+            userProfile={item.item.profile ?? null}
           />
         </ItemWrapper>
       );

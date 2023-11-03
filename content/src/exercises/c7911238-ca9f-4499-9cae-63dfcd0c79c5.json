@@ -22,7 +22,12 @@
         "content": {
           "lottie": {
             "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1696255947/Audio/Bounce_back_ejnsty.mp3",
-            "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1696256068/SRT%20(captions)%20files/Bounce_back_tvpujy.srt"
+            "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1696256068/SRT%20(captions)%20files/Bounce_back_tvpujy.srt",
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto/v1676977421/Lottie/audio_meditation_default_black_default_omemwt.json",
+            "durationTimer": false
+          },
+          "video": {
+            "durationTimer": true
           }
         }
       },
@@ -37,7 +42,12 @@
           }
         ],
         "content": {
-          "heading": "What did you learn doing the 4S model?"
+          "heading": "What did you learn doing the 4S model?",
+          "lottie": {
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto/v1676642915/Lottie/default_1min_black_rosi2l.json",
+            "duration": 60,
+            "durationTimer": true
+          }
         }
       },
       {
@@ -54,7 +64,12 @@
           }
         ],
         "content": {
-          "heading": "What did you learn doing the 4S model?"
+          "heading": "What did you learn doing the 4S model?",
+          "lottie": {
+            "durationTimer": true,
+            "duration": 120,
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto/v1676639253/Lottie/default_2min_black_o6egey.json"
+          }
         },
         "id": "1"
       },
@@ -75,17 +90,27 @@
       {
         "type": "instruction",
         "content": {
-          "text": "Well done. If you’re up for it, you can continue with a mission.\n\nAfter this session, apply one of the resources you identified to your current situation, and see where that takes you."
+          "text": "Well done. If you’re up for it, you can continue with a mission.\n\nAfter this session, apply one of the resources you identified to your current situation, and see where that takes you.",
+          "image": {
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1698917836/Images/card_image_bounce_back_m6yyaj.png"
+          }
         }
       }
     ],
     "theme": {
-      "textColor": "#2AE2D7"
+      "textColor": "#2E2E2E",
+      "backgroundColor": "#349dff"
     },
     "hidden": true,
     "name": "Bounce back",
     "live": true,
     "published": true,
+    "card": {
+      "backgroundColor": "",
+      "image": {
+        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1698919598/Images/card_image_2_bounce_back_pkfg3y.png"
+      }
+    },
     "coCreators": [
       {
         "name": "Jenny Rickardsson, voice and editor",
@@ -104,7 +129,14 @@
         {
           "text": "> Start the session when you're ready to begin"
         }
-      ]
+      ],
+      "videoLoop": {
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1698917806/Video/portal1_bounce_back_mramav.mp4",
+        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1698917860/Audio/portal_audio_bouncing_back_myanbs.mp3"
+      },
+      "videoEnd": {
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1698917804/Video/portal2_bounce_back_otpgvf.mp4"
+      }
     },
     "id": "c7911238-ca9f-4499-9cae-63dfcd0c79c5",
     "async": true,

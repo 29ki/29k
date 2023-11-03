@@ -121,7 +121,7 @@ const Collection = () => {
     (info: {section: Section}) => React.ReactElement
   >(
     ({section: {title}}) => (
-      <StickyHeading backgroundColor={COLORS.GREYLIGHTEST}>
+      <StickyHeading backgroundColor={COLORS.PURE_WHITE}>
         <Heading16>{title}</Heading16>
       </StickyHeading>
     ),
@@ -162,7 +162,7 @@ const Collection = () => {
   return (
     <Screen
       onPressBack={goBack}
-      backgroundColor={COLORS.GREYLIGHTEST}
+      backgroundColor={COLORS.PURE_WHITE}
       title={t('collectionHeading')}>
       <Wrapper>
         <TopSafeArea />
