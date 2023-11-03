@@ -26,6 +26,7 @@ import UpdateProfileStep from './components/steps/ProfileStep';
 import {RouteProp, useRoute} from '@react-navigation/native';
 import {ModalStackProps} from '../../../lib/navigation/constants/routes';
 import Fade from '../../../lib/components/Fade/Fade';
+import {COLORS} from '../../../../../shared/src/constants/colors';
 
 const Wrapper = styled.View({flex: 1});
 
@@ -122,7 +123,8 @@ const CreateSessionModal = () => {
   const firstStep = useCallback(() => setCurrentStep(0), []);
 
   return (
-    <SheetModal>
+    <SheetModal
+      backgroundColor={currentStep === 1 ? COLORS.PURE_WHITE : COLORS.WHITE}>
       <Wrapper>
         {PreviousStepComponent && (
           <Fade visible={false} key={currentStep - 1}>
