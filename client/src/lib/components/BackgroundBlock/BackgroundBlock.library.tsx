@@ -1,5 +1,4 @@
 import React from 'react';
-import ScreenWrapper from '../../uiLib/decorators/ScreenWrapper';
 import {Spacer48, Spacer96} from '../Spacers/Spacer';
 import BackgroundBlock from './BackgroundBlock';
 import {COLORS} from '../../../../../shared/src/constants/colors';

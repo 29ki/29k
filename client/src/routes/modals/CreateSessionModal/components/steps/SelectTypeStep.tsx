@@ -1,10 +1,10 @@
 import React, {Fragment, useCallback, useMemo} from 'react';
+import {Share} from 'react-native';
 import {useTranslation} from 'react-i18next';
 
 import styled from 'styled-components/native';
 import {COLORS} from '../../../../../../../shared/src/constants/colors';
 import {
-  LiveSessionType,
   SessionMode,
   SessionType,
 } from '../../../../../../../shared/src/schemas/Session';
@@ -35,10 +35,9 @@ import {useIsFocused, useNavigation} from '@react-navigation/native';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import useGetExerciseById from '../../../../../lib/content/hooks/useGetExerciseById';
 import {formatContentName} from '../../../../../lib/utils/string';
-import {ActivityIndicator, ListRenderItem, Share, View} from 'react-native';
 import SessionCard from '../../../../../lib/components/Cards/SessionCard/SessionCard';
 import {Heading16} from '../../../../../lib/components/Typography/Heading/Heading';
-import {BottomSheetFlatList, BottomSheetScrollView} from '@gorhom/bottom-sheet';
+import {BottomSheetScrollView} from '@gorhom/bottom-sheet';
 import {ModalStackProps} from '../../../../../lib/navigation/constants/routes';
 import useStartAsyncSession from '../../../../../lib/session/hooks/useStartAsyncSession';
 import Markdown from '../../../../../lib/components/Typography/Markdown/Markdown';
@@ -138,17 +137,6 @@ const TypeItem: React.FC<{
     <Body16>{label}</Body16>
   </TypeWrapper>
 );
-
-const Spinner = styled(ActivityIndicator)({
-  marginRight: -SPACINGS.EIGHT,
-  marginLeft: SPACINGS.EIGHT,
-});
-
-const EmptyListContainer = styled.View({
-  alignItems: 'center',
-  justifyContent: 'center',
-  flex: 1,
-});
 
 const Tags = styled.View({
   flexWrap: 'wrap',
@@ -340,21 +328,23 @@ const SelectTypeStep: React.FC<StepProps> = ({
           )}
         </Gutters>
         {Boolean(sessions.length) && (
-          <Gutters>
-            <Heading16>{t('orJoinUpcoming')}</Heading16>
-            <Spacer16 />
-            {sessions.map(item => (
-              <Fragment key={item.id}>
-                <SessionCard
-                  session={item}
-                  small
-                  onBeforeContextPress={popToTop}
-                />
-                <Spacer16 />
-              </Fragment>
-            ))}
-            <Spacer8 />
-          </Gutters>
+          <BackgroundBlock backgroundColor={COLORS.PURE_WHITE}>
+            <Gutters>
+              <Heading16>{t('orJoinUpcoming')}</Heading16>
+              <Spacer16 />
+              {sessions.map(item => (
+                <Fragment key={item.id}>
+                  <SessionCard
+                    session={item}
+                    small
+                    onBeforeContextPress={popToTop}
+                  />
+                  <Spacer16 />
+                </Fragment>
+              ))}
+              <Spacer8 />
+            </Gutters>
+          </BackgroundBlock>
         )}
         {Boolean(feedback?.length) && (
           <>
