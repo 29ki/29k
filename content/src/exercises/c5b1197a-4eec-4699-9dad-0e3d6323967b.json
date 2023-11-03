@@ -137,7 +137,29 @@
             "durationTimer": true
           }
         },
-        "id": "sharing-2"
+        "id": "sharing-2",
+        "sharingVideos": [
+          {
+            "video": {
+              "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto/v1698942215/Images/vanessa_exercise1_Setting_boundaries-1_Image_eg85wb.jpg",
+              "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1699017591/SRT%20(captions)%20files/vanessa_exercise2setting_boundaries.Sharing_ijwdec.srt",
+              "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1698942215/Images/vanessa_exercise1_Setting_boundaries-1_Image_eg85wb.jpg"
+            },
+            "profile": {
+              "displayName": "Vanessa"
+            }
+          },
+          {
+            "video": {
+              "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1698755085/Video/summer_exercise2setting_boundaries.Sharing_nfbo1g.mp4",
+              "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1698942223/Images/summer_exercise2setting_boundaries_Image_qtiimj.jpg",
+              "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1699017585/SRT%20(captions)%20files/summer_exercise2setting_boundaries.Sharing_k0dbjk.srt"
+            },
+            "profile": {
+              "displayName": "Summer"
+            }
+          }
+        ]
       },
       {
         "type": "reflection",
