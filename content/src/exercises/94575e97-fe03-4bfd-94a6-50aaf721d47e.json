@@ -87,7 +87,7 @@
             },
             "profile": {
               "displayName": "Lisa",
-              "photoURL": ""
+              "photoURL": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1698941201/Images/lisa_exercise1_image_pn3u90.jpg"
             }
           },
           {
@@ -95,6 +95,10 @@
               "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1698756119/Video/sarmad_exercise2opening_up_to_acceptance.Sharing_basq9p.mp4",
               "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1698941541/Images/sarmad_exercise2_Image_o9qfgv.jpg",
               "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1699017578/SRT%20(captions)%20files/sarmad_exercise2opening_up_to_acceptance.Sharing_tnerhu.srt"
+            },
+            "profile": {
+              "displayName": "Sarmad",
+              "photoURL": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1698941541/Images/sarmad_exercise2_Image_o9qfgv.jpg"
             }
           }
         ]
