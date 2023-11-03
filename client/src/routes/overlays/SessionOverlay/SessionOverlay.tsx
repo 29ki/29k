@@ -30,7 +30,6 @@ import useExerciseRating from '../../../lib/session/hooks/useExerciseRating';
 import Button from '../../../lib/components/Buttons/Button';
 import Gutters from '../../../lib/components/Gutters/Gutters';
 import IconButton from '../../../lib/components/Buttons/IconButton/IconButton';
-import Image from '../../../lib/components/Image/Image';
 import {Display24} from '../../../lib/components/Typography/Display/Display';
 import {Heading16} from '../../../lib/components/Typography/Heading/Heading';
 import {Body16} from '../../../lib/components/Typography/Body/Body';
@@ -72,6 +71,7 @@ import {Tag as TagType} from '../../../../../shared/src/types/generated/Tag';
 import ExerciseCard from '../../../lib/components/Cards/SessionCard/ExerciseCard';
 import {take} from 'ramda';
 import CoCreators from '../../../lib/components/CoCreators/CoCreators';
+import ExerciseGraphic from '../../../lib/components/ExerciseGraphic/ExerciseGraphic';
 
 const Content = styled(Gutters)({
   justifyContent: 'space-between',
@@ -105,9 +105,8 @@ const TitleContainer = styled.View({
   flex: 2,
 });
 
-const ImageContainer = styled(Image)({
-  aspectRatio: '1',
-  flex: 1,
+const Graphic = styled(ExerciseGraphic)({
+  width: 90,
   height: 90,
 });
 
@@ -282,10 +281,7 @@ const SessionOverlay = () => {
               </Row>
             </TitleContainer>
             <Spacer32 />
-            <ImageContainer
-              resizeMode="contain"
-              source={{uri: exercise?.card?.image?.source}}
-            />
+            <Graphic graphic={exercise.card} />
           </SpaceBetweenRow>
         </Content>
 

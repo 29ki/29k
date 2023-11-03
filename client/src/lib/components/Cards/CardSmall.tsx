@@ -1,13 +1,11 @@
 import React, {Fragment, useMemo} from 'react';
 import {ViewStyle} from 'react-native';
 import styled from 'styled-components/native';
-import AnimatedLottieView from 'lottie-react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import hexToRgba from 'hex-to-rgba';
 
 import {COLORS} from '../../../../../shared/src/constants/colors';
 import {SPACINGS} from '../../constants/spacings';
-import Image from '../Image/Image';
 import TouchableOpacity from '../TouchableOpacity/TouchableOpacity';
 import {Display16} from '../Typography/Display/Display';
 import Byline from '../Bylines/Byline';
@@ -15,6 +13,7 @@ import {Spacer4, Spacer8} from '../Spacers/Spacer';
 import Tag from '../Tag/Tag';
 import {UserType} from '../../../../../shared/src/schemas/User';
 import {ExerciseCard} from '../../../../../shared/src/types/generated/Exercise';
+import ExerciseGraphic from '../ExerciseGraphic/ExerciseGraphic';
 
 export const HEIGHT = 80;
 
@@ -30,18 +29,9 @@ const Wrapper = styled(TouchableOpacity)<{backgroundColor: string}>(
   }),
 );
 
-const Graphic = styled.View<{backgroundColor?: string}>(
-  ({backgroundColor}) => ({
-    width: 64,
-    height: 64,
-    borderRadius: 8,
-    overflow: 'hidden',
-    backgroundColor,
-  }),
-);
-
-const Lottie = styled(AnimatedLottieView)({
-  aspectRatio: '1',
+const Graphic = styled(ExerciseGraphic)({
+  width: 64,
+  height: 64,
 });
 
 const Main = styled.View({
@@ -102,26 +92,6 @@ export const CardSmall: React.FC<CardProps> = ({
     [],
   );
 
-  const image = useMemo(
-    () =>
-      graphic?.image?.source
-        ? {
-            uri: graphic?.image?.source,
-          }
-        : undefined,
-    [graphic?.image?.source],
-  );
-
-  const lottie = useMemo(
-    () =>
-      graphic?.lottie?.source
-        ? {
-            uri: graphic?.lottie?.source,
-          }
-        : undefined,
-    [graphic?.lottie?.source],
-  );
-
   return (
     <Wrapper
       onPress={onPress}
@@ -166,13 +136,7 @@ export const CardSmall: React.FC<CardProps> = ({
         )}
       </Main>
       <Spacer8 />
-      <Graphic backgroundColor={graphic?.backgroundColor}>
-        {lottie ? (
-          <Lottie source={lottie} autoPlay loop />
-        ) : image ? (
-          <Image resizeMode="contain" source={image} />
-        ) : null}
-      </Graphic>
+      <Graphic graphic={graphic} />
     </Wrapper>
   );
 };

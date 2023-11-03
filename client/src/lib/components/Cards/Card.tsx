@@ -1,13 +1,11 @@
 import React, {Fragment, useMemo} from 'react';
 import {ViewStyle} from 'react-native';
 import styled from 'styled-components/native';
-import AnimatedLottieView from 'lottie-react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import hexToRgba from 'hex-to-rgba';
 
 import {COLORS} from '../../../../../shared/src/constants/colors';
 import {SPACINGS} from '../../constants/spacings';
-import Image from '../Image/Image';
 import TouchableOpacity from '../TouchableOpacity/TouchableOpacity';
 import {Display20} from '../Typography/Display/Display';
 import Byline from '../Bylines/Byline';
@@ -17,6 +15,7 @@ import {BellFillIcon, CheckIcon} from '../Icons';
 import {useTranslation} from 'react-i18next';
 import {UserType} from '../../../../../shared/src/schemas/User';
 import {ExerciseCard} from '../../../../../shared/src/types/generated/Exercise';
+import ExerciseGraphic from '../ExerciseGraphic/ExerciseGraphic';
 
 export const HEIGHT = 175;
 
@@ -28,19 +27,10 @@ const Wrapper = styled(TouchableOpacity)({
   overflow: 'hidden',
 });
 
-const Graphic = styled.View<{backgroundColor?: string}>(
-  ({backgroundColor}) => ({
-    width: 112,
-    height: 112,
-    borderRadius: 8,
-    overflow: 'hidden',
-    alignSelf: 'flex-end',
-    backgroundColor,
-  }),
-);
-
-const Lottie = styled(AnimatedLottieView)({
-  aspectRatio: '1',
+const Graphic = styled(ExerciseGraphic)({
+  width: 112,
+  height: 112,
+  alignSelf: 'flex-end',
 });
 
 const Row = styled.View({
@@ -122,26 +112,6 @@ export const Card: React.FC<CardProps> = ({
     [],
   );
 
-  const image = useMemo(
-    () =>
-      graphic?.image?.source
-        ? {
-            uri: graphic?.image?.source,
-          }
-        : undefined,
-    [graphic?.image?.source],
-  );
-
-  const lottie = useMemo(
-    () =>
-      graphic?.lottie?.source
-        ? {
-            uri: graphic?.lottie?.source,
-          }
-        : undefined,
-    [graphic?.lottie?.source],
-  );
-
   return (
     <Wrapper onPress={onPress} style={style}>
       <Tags>
@@ -187,13 +157,7 @@ export const Card: React.FC<CardProps> = ({
           <Content>{children}</Content>
         </Main>
         <Spacer8 />
-        <Graphic backgroundColor={graphic?.backgroundColor}>
-          {lottie ? (
-            <Lottie source={lottie} autoPlay loop />
-          ) : image ? (
-            <Image resizeMode="contain" source={image} />
-          ) : null}
-        </Graphic>
+        <Graphic graphic={graphic} />
       </Row>
     </Wrapper>
   );
