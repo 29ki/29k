@@ -292,7 +292,7 @@ const CompletedSessionModal = () => {
                 </Fragment>
               ))}
             </View>
-            <Spacer24 />
+            <Spacer8 />
           </Gutters>
         )}
 

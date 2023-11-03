@@ -344,13 +344,16 @@ const SelectTypeStep: React.FC<StepProps> = ({
             <Heading16>{t('orJoinUpcoming')}</Heading16>
             <Spacer16 />
             {sessions.map(item => (
-              <SessionCard
-                session={item}
-                small
-                onBeforeContextPress={popToTop}
-              />
+              <Fragment key={item.id}>
+                <SessionCard
+                  session={item}
+                  small
+                  onBeforeContextPress={popToTop}
+                />
+                <Spacer16 />
+              </Fragment>
             ))}
-            <Spacer24 />
+            <Spacer8 />
           </Gutters>
         )}
         {Boolean(feedback?.length) && (

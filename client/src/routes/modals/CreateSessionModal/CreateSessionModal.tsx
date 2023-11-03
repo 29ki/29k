@@ -124,7 +124,11 @@ const CreateSessionModal = () => {
 
   return (
     <SheetModal
-      backgroundColor={currentStep === 1 ? COLORS.PURE_WHITE : COLORS.WHITE}>
+      backgroundColor={
+        currentSteps[currentStep] === SelectContentStep
+          ? COLORS.PURE_WHITE
+          : COLORS.WHITE
+      }>
       <Wrapper>
         {PreviousStepComponent && (
           <Fade visible={false} key={currentStep - 1}>
