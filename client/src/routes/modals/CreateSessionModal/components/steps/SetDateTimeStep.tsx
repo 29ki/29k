@@ -3,13 +3,12 @@ import {BottomSheetScrollView, useBottomSheet} from '@gorhom/bottom-sheet';
 import {useIsFocused, useNavigation} from '@react-navigation/native';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import dayjs from 'dayjs';
-import {useCallback, useMemo, useState} from 'react';
+import {useCallback, useState} from 'react';
 import {useTranslation} from 'react-i18next';
 import styled from 'styled-components/native';
 
 import Button from '../../../../../lib/components/Buttons/Button';
 import Byline from '../../../../../lib/components/Bylines/Byline';
-import Image from '../../../../../lib/components/Image/Image';
 import Gutters from '../../../../../lib/components/Gutters/Gutters';
 import {
   BottomSafeArea,
@@ -28,6 +27,7 @@ import {SPACINGS} from '../../../../../lib/constants/spacings';
 import EditSessionType from '../../../../../lib/components/EditSessionType/EditSessionType';
 import {formatContentName} from '../../../../../lib/utils/string';
 import useLogSessionMetricEvents from '../../../../../lib/sessions/hooks/useLogSessionMetricEvents';
+import ExerciseGraphic from '../../../../../lib/components/ExerciseGraphic/ExerciseGraphic';
 
 const TextWrapper = styled.View({
   flex: 2,
@@ -41,9 +41,9 @@ const Row = styled.View({
 
 const Cta = styled(Button)({alignSelf: 'center'});
 
-const CardImageWrapper = styled.View({
-  width: 80,
-  height: 80,
+const Graphic = styled(ExerciseGraphic)({
+  width: 90,
+  height: 90,
 });
 
 const SetDateTimeStep: React.FC<StepProps> = ({
@@ -96,11 +96,6 @@ const SetDateTimeStep: React.FC<StepProps> = ({
     logSessionMetricEvent,
   ]);
 
-  const cardImg = useMemo(
-    () => ({uri: exercise?.card?.image?.source}),
-    [exercise],
-  );
-
   const onToggle = useCallback(
     (expanded: boolean) => (expanded ? expand() : collapse()),
     [expand, collapse],
@@ -125,9 +120,7 @@ const SetDateTimeStep: React.FC<StepProps> = ({
             />
           </TextWrapper>
           <Spacer16 />
-          <CardImageWrapper>
-            <Image source={cardImg} />
-          </CardImageWrapper>
+          <Graphic graphic={exercise?.card} />
         </Row>
         <Spacer28 />
         {isPublicHost && selectedModeAndType?.type && (

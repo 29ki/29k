@@ -13,7 +13,6 @@ import styled from 'styled-components/native';
 
 import Gutters from '../../../lib/components/Gutters/Gutters';
 
-import Image from '../../../lib/components/Image/Image';
 import SheetModal from '../../../lib/components/Modals/SheetModal';
 
 import {
@@ -55,6 +54,7 @@ import HostingInviteFailModal from '../HostingInviteFailModal/HostingInviteFailM
 import useUser from '../../../lib/user/hooks/useUser';
 import UpdateProfileStep from '../CreateSessionModal/components/steps/ProfileStep';
 import useSessions from '../../../lib/sessions/hooks/useSessions';
+import ExerciseGraphic from '../../../lib/components/ExerciseGraphic/ExerciseGraphic';
 
 const Content = styled(Gutters)({
   justifyContent: 'space-between',
@@ -75,9 +75,8 @@ const TitleContainer = styled.View({
   flex: 2,
 });
 
-const ImageContainer = styled(Image)({
-  aspectRatio: '1',
-  flex: 1,
+const Graphic = styled(ExerciseGraphic)({
+  width: 90,
   height: 90,
 });
 
@@ -143,10 +142,7 @@ const InvitationModal: React.FC<{
             </Row>
           </TitleContainer>
           <Spacer32 />
-          <ImageContainer
-            resizeMode="contain"
-            source={{uri: exercise?.card?.image?.source}}
-          />
+          <Graphic graphic={exercise?.card} />
         </SpaceBetweenRow>
       </Content>
       {exercise?.description && (
