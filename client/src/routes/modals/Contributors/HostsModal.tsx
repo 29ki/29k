@@ -34,7 +34,7 @@ const Spinner = styled(ActivityIndicator)({
 });
 
 const Profile: React.FC<{host: UserType}> = ({host}) => {
-  const {navigate, popToTop} =
+  const {navigate} =
     useNavigation<NativeStackNavigationProp<AppStackProps & ModalStackProps>>();
 
   const contributor = useMemo<Contributor>(
@@ -47,9 +47,8 @@ const Profile: React.FC<{host: UserType}> = ({host}) => {
   );
 
   const onPress = useCallback(() => {
-    popToTop();
     navigate('HostInfoModal', {host});
-  }, [navigate, popToTop, host]);
+  }, [navigate, host]);
 
   return <Contributor contributor={contributor} onPress={onPress} />;
 };
