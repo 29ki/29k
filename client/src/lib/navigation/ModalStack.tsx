@@ -42,6 +42,7 @@ import DonateModal from '../../routes/modals/DonateModal/DonateModal';
 import SimpleProfileSettingsModal from '../../routes/modals/SimpleProfileSettingsModal/SimpleProfileSettingsModal';
 import ForgotPasswordModal from '../../routes/modals/ForgotPasswordModal/ForgotPasswordModal';
 import HowItWorksModal from '../../routes/modals/HowItWorksModal/HowItWorksModal';
+import SessionModal from '../../routes/modals/SessionModal/SessionModal';
 
 const {Navigator, Screen, Group} =
   createBottomSheetNavigator<ModalStackProps>();
@@ -81,6 +82,7 @@ const modalScreenOptions: BottomSheetNavigationOptions = {
     https://github.com/gorhom/react-native-bottom-sheet/issues/618
   */
   android_keyboardInputMode: 'adjustResize',
+  stackBehavior: 'push',
 };
 
 const ModalStack = () => {
@@ -202,11 +204,16 @@ const ModalStack = () => {
           options={fullyExtendedSheetModalScreenOptions}
         />
         <Screen
+          name="SessionModal"
+          component={SessionModal}
+          options={tallSheetModalScreenOptions}
+        />
+        <Screen
           name={'CreateSessionModal'}
           component={CreateSessionModal}
           options={props =>
             props.route.params.exerciseId
-              ? fullSheetModalScreenOptions
+              ? tallSheetModalScreenOptions
               : sheetModalScreenOptions
           }
         />
