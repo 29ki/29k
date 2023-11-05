@@ -122,23 +122,6 @@ const ModalStack = () => {
     [sheetModalScreenOptions],
   );
 
-  const fullSheetModalScreenOptions = useMemo(
-    () => ({
-      ...sheetModalScreenOptions,
-      // Please note - Having a fixed snap point as first value improves keyboard input focus on Android
-      snapPoints: [800, '100%'],
-    }),
-    [sheetModalScreenOptions],
-  );
-
-  const fullyExtendedSheetModalScreenOptions = useMemo(
-    () => ({
-      ...sheetModalScreenOptions,
-      snapPoints: ['100%'],
-    }),
-    [sheetModalScreenOptions],
-  );
-
   const donateSheetModalScreenOptions = useMemo(
     () => ({
       ...sheetModalScreenOptions,
@@ -196,12 +179,12 @@ const ModalStack = () => {
         <Screen
           name={'SharingModal'}
           component={SharingModal}
-          options={fullSheetModalScreenOptions}
+          options={tallSheetModalScreenOptions}
         />
         <Screen
           name={'SharingPostModal'}
           component={SharingPostModal}
-          options={fullyExtendedSheetModalScreenOptions}
+          options={tallSheetModalScreenOptions}
         />
         <Screen
           name="SessionModal"
@@ -223,7 +206,7 @@ const ModalStack = () => {
         <Screen
           name={'ProfileSettingsModal'}
           component={ProfileSettingsModal}
-          options={fullSheetModalScreenOptions}
+          options={tallSheetModalScreenOptions}
         />
         <Screen
           name={'SimpleProfileSettingsModal'}
@@ -294,7 +277,7 @@ const ModalStack = () => {
           name={'CompletedSessionsModal'}
           component={CompletedSessionsModal}
           // Fullscreen is necessary for the scroll to work: https://github.com/gorhom/react-native-bottom-sheet/issues/459
-          options={fullyExtendedSheetModalScreenOptions}
+          options={tallSheetModalScreenOptions}
         />
         <Screen
           name="DonateModal"
