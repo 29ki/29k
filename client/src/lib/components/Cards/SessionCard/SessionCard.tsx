@@ -88,9 +88,8 @@ const SessionCard: React.FC<SessionCardProps> = ({
     if (onBeforeContextPress) {
       onBeforeContextPress();
     }
-    navigate('OverlayStack', {
-      screen: 'SessionOverlay',
-      params: {session},
+    navigate('SessionModal', {
+      session,
     });
   }, [navigate, session, onBeforeContextPress]);
 

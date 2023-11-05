@@ -10,10 +10,7 @@ import Gutters from '../../../lib/components/Gutters/Gutters';
 import {Spacer16, Spacer8} from '../../../lib/components/Spacers/Spacer';
 import {Body16} from '../../../lib/components/Typography/Body/Body';
 import VerificationCode from '../../../lib/components/VerificationCode/VerificationCode';
-import {
-  ModalStackProps,
-  OverlayStackProps,
-} from '../../../lib/navigation/constants/routes';
+import {ModalStackProps} from '../../../lib/navigation/constants/routes';
 import {joinSession} from '../../../lib/sessions/api/session';
 import useSessions from '../../../lib/sessions/hooks/useSessions';
 import CardModal from '../../../lib/components/Modals/CardModal';
@@ -28,10 +25,14 @@ const AddSessionModal = () => {
   const {params: {inviteCode} = {}} =
     useRoute<RouteProp<ModalStackProps, 'AddSessionByInviteModal'>>();
   const {fetchSessions} = useSessions();
-  const {goBack, navigate} = useNavigation<
-    NativeStackNavigationProp<ModalStackProps, 'SessionErrorModal'> &
-      NativeStackNavigationProp<OverlayStackProps, 'SessionOverlay'>
-  >();
+  const {goBack, navigate} =
+    useNavigation<
+      NativeStackNavigationProp<
+        ModalStackProps,
+        'SessionErrorModal',
+        'SessionModal'
+      >
+    >();
   const [errorString, setErrorString] = useState<string | null>(null);
   const logSessionMetricEvent = useLogSessionMetricEvents();
 
@@ -46,7 +47,7 @@ const AddSessionModal = () => {
         logSessionMetricEvent('Add Sharing Session', session);
         fetchSessions();
         goBack();
-        navigate('SessionOverlay', {session});
+        navigate('SessionModal', {session});
       } catch (err) {
         switch ((err as Error).message) {
           case JoinSessionError.notFound:

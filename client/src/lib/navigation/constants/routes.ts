@@ -61,11 +61,11 @@ export type OverlayStackProps = {
   AboutEditorialOverlay: undefined;
   CommunityEditorialOverlay: undefined;
   AboutOverlay: undefined;
-  SessionOverlay: {session: LiveSessionType};
 };
 
 export type ModalStackProps = {
   OverlayStack: NavigatorScreenParams<OverlayStackProps>;
+  SessionModal: {session: LiveSessionType};
   AssignNewHostModal: {session: LiveSessionType};
   HostSessionByInviteModal: {hostingCode: number};
   HostingInviteFailModal: {hostName?: string};
