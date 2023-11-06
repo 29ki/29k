@@ -1589,10 +1589,10 @@
     "@jridgewell/resolve-uri" "^3.0.3"
     "@jridgewell/sourcemap-codec" "^1.4.10"
 
-"@kingstinct/react-native-healthkit@^7.3.0":
-  version "7.3.0"
-  resolved "https://registry.yarnpkg.com/@kingstinct/react-native-healthkit/-/react-native-healthkit-7.3.0.tgz#6a4e6f7742cf96f7e80478c787dbaef6c4959596"
-  integrity sha512-HsRuSK/yYLqkkiuXzyzlQoIqQQLhSntoZOInvG3oAM7ROZttnpQ0+Kq7rP5pwQMcgB994YLuPwpVoZ/Ldl+OWQ==
+"@kingstinct/react-native-healthkit@^7.3.2":
+  version "7.3.2"
+  resolved "https://registry.yarnpkg.com/@kingstinct/react-native-healthkit/-/react-native-healthkit-7.3.2.tgz#c2e53afeb9a1f2e0a63b1c38e00585399c72206f"
+  integrity sha512-rUW1coZq2fXzTbkuBOjXlZoRfpvOhQFhx/sB4EO4CEnXQeO6Dkhi/yaWshmqdLz9sbJcN4VyA+CisHaihZXDYg==
 
 "@nodelib/fs.scandir@2.1.5":
   version "2.1.5"
