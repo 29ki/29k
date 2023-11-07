@@ -98,7 +98,7 @@
       "textColor": "#2E2E2E",
       "backgroundColor": "#f1e6dc"
     },
-    "hidden": true,
+    "hidden": false,
     "name": "Switch perspectives",
     "live": true,
     "published": true,
