@@ -29,8 +29,8 @@ const ImageContainer = styled.View<{small?: boolean}>(({small}) => ({
 }));
 
 type BylineProps = {
-  pictureURL?: string;
-  name?: string;
+  pictureURL?: string | null;
+  name?: string | null;
   duration?: number;
   small?: boolean;
   prefix?: boolean;
