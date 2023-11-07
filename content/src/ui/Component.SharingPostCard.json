@@ -1,0 +1,15 @@
+{
+  "en": {
+    "onlyMeLabel": "Only me",
+    "everyoneLabel": "Everyone"
+  },
+  "pt": {
+    "onlyMeLabel": "Só para mim",
+    "everyoneLabel": "Para todos"
+  },
+  "sv": {
+    "onlyMeLabel": "Bara jag",
+    "everyoneLabel": "Alla"
+  },
+  "es": {}
+}
