@@ -42,8 +42,6 @@ import {PostEvent} from '../../../../../shared/src/types/Event';
 import useSharingPosts from '../../../lib/posts/hooks/useSharingPosts';
 import {ExerciseSlideSharingSlide} from '../../../../../shared/src/types/generated/Exercise';
 import useUserProfile from '../../../lib/user/hooks/useUserProfile';
-import MyPostCard from '../../../lib/session/components/Posts/MyPostCard';
-import useUser from '../../../lib/user/hooks/useUser';
 import useGetFeedbackBySessionId from '../../../lib/user/hooks/useGetFeedbackBySessionId';
 import Node from '../../../lib/components/Node/Node';
 import {SPACINGS} from '../../../lib/constants/spacings';
@@ -52,12 +50,13 @@ import useGetTagsById from '../../../lib/content/hooks/useGetTagsById';
 import {Heading16} from '../../../lib/components/Typography/Heading/Heading';
 import SessionCard from '../../../lib/components/Cards/SessionCard/SessionCard';
 import useLiveSessionsByExercise from '../../../lib/session/hooks/useLiveSessionsByExercise';
-import FeedbackCard from '../../../lib/components/FeedbackCard/FeedbackCard';
 import ExerciseCard from '../../../lib/components/Cards/SessionCard/ExerciseCard';
 import useExercisesByTags from '../../../lib/content/hooks/useExercisesByTags';
 import {Tag as TagType} from '../../../../../shared/src/types/generated/Tag';
 import CoCreators from '../../../lib/components/CoCreators/CoCreators';
 import ExerciseGraphic from '../../../lib/components/ExerciseGraphic/ExerciseGraphic';
+import FeedbackPostCard from '../../../lib/components/PostCard/FeedbackPostCard';
+import SharingPostCard from '../../../lib/components/PostCard/SharingPostCard';
 
 const Content = styled(Gutters)({
   justifyContent: 'space-between',
@@ -88,10 +87,6 @@ const Graphic = styled(ExerciseGraphic)({
   height: 90,
 });
 
-const SharingPost = styled(MyPostCard)({
-  backgroundColor: COLORS.WHITE,
-});
-
 const Tags = styled(Gutters)({
   flexWrap: 'wrap',
   flexDirection: 'row',
@@ -112,7 +107,6 @@ const CompletedSessionModal = () => {
   const hostProfile = useUserProfile(completedSessionEvent.payload.hostId);
   const {t} = useTranslation('Modal.CompletedSession');
   const {payload, timestamp} = completedSessionEvent;
-  const user = useUser();
   const exercise = useExerciseById(payload.exerciseId, payload.language);
   const tags = useGetTagsById(exercise?.tags);
   const {getSharingPostForSession} = useSharingPosts(exercise?.id);
@@ -156,16 +150,6 @@ const CompletedSessionModal = () => {
     () => getFeedbackBySessionId(payload.id),
     [getFeedbackBySessionId, payload],
   );
-
-  const userProfile = useMemo(() => {
-    if (user?.displayName) {
-      return {
-        uid: user.uid,
-        displayName: user.displayName,
-        photoURL: user.photoURL ? user.photoURL : undefined,
-      };
-    }
-  }, [user]);
 
   const moreLikeThisExercises = useMemo(
     () =>
@@ -242,32 +226,24 @@ const CompletedSessionModal = () => {
           </VerticalAlign>
         </StatusRow>
         <Spacer16 />
-        {feedback && feedback.payload.comment && (
-          <Gutters>
-            <FeedbackCard
-              date={feedback.timestamp}
-              answer={feedback.payload.answer}>
-              {feedback.payload.comment}
-            </FeedbackCard>
-            <Spacer24 />
-          </Gutters>
-        )}
         {sharingPosts && sharingPosts.length > 0 && (
           <>
             <Gutters>
               {sharingPosts.map((post, index) => (
-                <SharingPost
-                  key={index}
-                  text={post.payload.text}
-                  isPublic={post.payload.isPublic}
-                  userProfile={
-                    !post.payload.isAnonymous ? userProfile : undefined
-                  }
-                />
+                <Fragment key={index}>
+                  <SharingPostCard sharingPost={post} />
+                  <Spacer16 />
+                </Fragment>
               ))}
               <Spacer8 />
             </Gutters>
           </>
+        )}
+        {feedback && (
+          <Gutters>
+            <FeedbackPostCard feedbackPost={feedback} />
+            <Spacer24 />
+          </Gutters>
         )}
         <Gutters>
           <ButtonWrapper>

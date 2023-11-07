@@ -6,52 +6,44 @@ import styled from 'styled-components/native';
 import {Feedback} from '../../../../../shared/src/types/Feedback';
 
 import {SPACINGS} from '../../constants/spacings';
-import FeedbackCard from '../FeedbackCard/FeedbackCard';
+import FeedbackPostCard from '../PostCard/FeedbackPostCard';
+import {COLORS} from '../../../../../shared/src/constants/colors';
+import {Spacer16} from '../Spacers/Spacer';
 
-const List = styled(FlatList)({
-  flexGrow: 0,
-  width: '100%',
-}) as unknown as FlatList;
-
-const CARD_WIDTH = 216;
-
-const PaddingWrapper = styled.View<{isLast: boolean}>(({isLast}) => ({
-  paddingLeft: SPACINGS.SIXTEEN,
-  paddingRight: isLast ? SPACINGS.SIXTEEN : undefined,
-}));
+const CARD_SIZE = 216;
 
 const CardWrapper = styled.View({
-  width: CARD_WIDTH,
-  marginBottom: SPACINGS.SIXTEEN,
+  height: CARD_SIZE,
+  width: CARD_SIZE,
 });
 
 const FeedbackCarousel: React.FC<{feedbackItems: Feedback[]}> = ({
   feedbackItems,
 }) => {
-  const keyExtractor = useCallback((item: Feedback) => item.id, []);
-
   const renderItem = useCallback<ListRenderItem<Feedback>>(
-    ({item, index}) => (
-      <PaddingWrapper isLast={index === feedbackItems.length - 1}>
-        <CardWrapper>
-          <FeedbackCard answer={item.answer} date={item.createdAt}>
-            {item.comment}
-          </FeedbackCard>
-        </CardWrapper>
-      </PaddingWrapper>
+    ({item}) => (
+      <CardWrapper>
+        <FeedbackPostCard
+          feedbackPost={item}
+          clip
+          backgroundColor={COLORS.PURE_WHITE}
+        />
+      </CardWrapper>
     ),
-    [feedbackItems],
+    [],
   );
 
   return (
-    <List
+    <FlatList
       renderItem={renderItem}
-      keyExtractor={keyExtractor}
       horizontal
       data={feedbackItems}
       snapToAlignment="center"
       decelerationRate="fast"
-      snapToInterval={CARD_WIDTH + SPACINGS.SIXTEEN}
+      ListHeaderComponent={Spacer16}
+      ListFooterComponent={Spacer16}
+      ItemSeparatorComponent={Spacer16}
+      snapToInterval={CARD_SIZE + SPACINGS.SIXTEEN}
       showsHorizontalScrollIndicator={false}
     />
   );

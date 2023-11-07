@@ -1,6 +1,11 @@
 import React, {useCallback, useMemo, useRef, useState} from 'react';
 
-import {RouteProp, useNavigation, useRoute} from '@react-navigation/native';
+import {
+  RouteProp,
+  useIsFocused,
+  useNavigation,
+  useRoute,
+} from '@react-navigation/native';
 import styled from 'styled-components/native';
 import {BottomSheetScrollView} from '@gorhom/bottom-sheet';
 
@@ -14,7 +19,6 @@ import {
 } from '../../../lib/components/Spacers/Spacer';
 import {COLORS} from '../../../../../shared/src/constants/colors';
 import {SPACINGS} from '../../../lib/constants/spacings';
-import {Body18} from '../../../lib/components/Typography/Body/Body';
 import BylineUser from '../../../lib/components/Bylines/BylineUser';
 
 import {ModalStackProps} from '../../../lib/navigation/constants/routes';
@@ -22,12 +26,7 @@ import VideoLooper from '../../../lib/components/VideoLooper/VideoLooper';
 import MediaControls from '../../../lib/components/MediaControls/MediaControls';
 import Subtitles from '../../../lib/components/Subtitles/Subtitles';
 import {StyleSheet} from 'react-native';
-
-const TextWrapper = styled.View({
-  backgroundColor: COLORS.PURE_WHITE,
-  borderRadius: 24,
-  padding: SPACINGS.SIXTEEN,
-});
+import SharingPostCard from '../../../lib/components/PostCard/SharingPostCard';
 
 const Wrapper = styled(Gutters)({
   flex: 1,
@@ -58,8 +57,12 @@ const SubtitleContainer = styled.View({
 
 const SharingPostModal = () => {
   const {
-    params: {userProfile, text, video},
+    params: {sharingPost},
   } = useRoute<RouteProp<ModalStackProps, 'SharingPostModal'>>();
+
+  const video =
+    sharingPost.type === 'video' ? sharingPost.item.video : undefined;
+
   const {goBack} = useNavigation();
   const videoRef = useRef<VideoLooper>(null);
   const [duration, setDuration] = useState(0);
@@ -116,27 +119,23 @@ const SharingPostModal = () => {
     setShowSubtitles(state => !state);
   }, [setShowSubtitles]);
 
-  if (text) {
+  if (sharingPost.type !== 'video') {
     return (
-      <SheetModal onPressClose={goBack} backgroundColor={COLORS.WHITE}>
-        <BottomSheetScrollView>
-          <Wrapper>
-            <BylineUser user={userProfile} />
-            <Spacer16 />
-
-            <TextWrapper>
-              <Body18>{text}</Body18>
-            </TextWrapper>
-          </Wrapper>
+      <SheetModal backgroundColor={COLORS.PURE_WHITE}>
+        <BottomSheetScrollView focusHook={useIsFocused}>
+          <Gutters>
+            <SharingPostCard sharingPost={sharingPost} />
+          </Gutters>
+          <BottomSafeArea minSize={SPACINGS.SIXTEEN} />
         </BottomSheetScrollView>
       </SheetModal>
     );
   }
 
   return (
-    <SheetModal onPressClose={goBack} backgroundColor={COLORS.WHITE}>
+    <SheetModal onPressClose={goBack} backgroundColor={COLORS.PURE_WHITE}>
       <Wrapper>
-        <BylineUser user={userProfile} />
+        <BylineUser user={sharingPost.item.profile} />
         <Spacer16 />
         {isLoading && <Spinner size="large" />}
         {videoSources && (

@@ -158,7 +158,7 @@ export const getSharingPosts = (): PostEvent[] => [
     payload: {
       sessionId: '10abff47-23d5-4587-9683-7c8df85c4d13',
       exerciseId: '185889ec-753b-4e2c-8322-3004013e8a6e',
-      sharingId: 'sharing-1',
+      sharingId: 'sharing',
       isPublic: true,
       isAnonymous: true,
       text: 'This is my personal public anonymous relfections that I added to the exercise etc etc etc etc etc',

@@ -1,20 +1,18 @@
 import {NavigatorScreenParams} from '@react-navigation/native';
 
-import {
-  Exercise,
-  ExerciseSlideSharingSlideSharingVideoVideo,
-} from '../../../../../shared/src/types/generated/Exercise';
-import {
-  UserType,
-  UserProfileType,
-} from '../../../../../shared/src/schemas/User';
+import {Exercise} from '../../../../../shared/src/types/generated/Exercise';
+import {UserType} from '../../../../../shared/src/schemas/User';
 import {
   AsyncSessionType,
   LiveSessionType,
   SessionMode,
   SessionType,
 } from '../../../../../shared/src/schemas/Session';
-import {CompletedSessionEvent} from '../../../../../shared/src/types/Event';
+import {
+  CompletedSessionEvent,
+  PostEvent,
+} from '../../../../../shared/src/types/Event';
+import {PostItem} from '../../posts/types/PostItem';
 
 export type TabNavigatorProps = {
   HomeStack: undefined;
@@ -78,9 +76,7 @@ export type ModalStackProps = {
   };
   SharingModal: {exerciseId: string};
   SharingPostModal: {
-    userProfile?: Pick<UserProfileType, 'displayName' | 'photoURL'> | null;
-    text?: string;
-    video?: ExerciseSlideSharingSlideSharingVideoVideo;
+    sharingPost: PostEvent | PostItem;
   };
   SessionErrorModal: {hasEjected?: boolean} | undefined;
   AddSessionByInviteModal?: {inviteCode?: number};

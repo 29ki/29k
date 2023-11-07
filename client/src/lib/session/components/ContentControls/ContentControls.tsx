@@ -8,7 +8,7 @@ import {SessionSlideState} from '../../hooks/useLiveSessionSlideState';
 import {
   ChevronRight,
   ChevronLeftIcon,
-  Play,
+  PlayIcon,
   Pause,
   RewindIcon,
 } from '../../../components/Icons';
@@ -137,7 +137,9 @@ const ContentControls: React.FC<ContentControlsProps> = ({
               disabled={!isConnected}
               variant="tertiary"
               Icon={
-                sessionState.playing && !currentContentReachedEnd ? Pause : Play
+                sessionState.playing && !currentContentReachedEnd
+                  ? Pause
+                  : PlayIcon
               }
               onPress={onTogglePlayingPress}
             />
