@@ -122,6 +122,14 @@ const ModalStack = () => {
     [sheetModalScreenOptions],
   );
 
+  const fullSheetModalScreenOptions = useMemo(
+    () => ({
+      ...sheetModalScreenOptions,
+      snapPoints: ['100%'],
+    }),
+    [sheetModalScreenOptions],
+  );
+
   const donateSheetModalScreenOptions = useMemo(
     () => ({
       ...sheetModalScreenOptions,
@@ -184,7 +192,11 @@ const ModalStack = () => {
         <Screen
           name={'SharingPostModal'}
           component={SharingPostModal}
-          options={tallSheetModalScreenOptions}
+          options={props =>
+            props.route.params.sharingPost?.type === 'video'
+              ? fullSheetModalScreenOptions
+              : tallSheetModalScreenOptions
+          }
         />
         <Screen
           name="SessionModal"
