@@ -230,10 +230,10 @@ const CompletedSessionModal = () => {
           <>
             <Gutters>
               {sharingPosts.map((post, index) => (
-                <>
-                  <SharingPostCard sharingPost={post} key={index} />
+                <Fragment key={index}>
+                  <SharingPostCard sharingPost={post} />
                   <Spacer16 />
-                </>
+                </Fragment>
               ))}
               <Spacer8 />
             </Gutters>
