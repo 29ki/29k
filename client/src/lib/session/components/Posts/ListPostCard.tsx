@@ -20,7 +20,7 @@ import BylineUser from '../../../components/Bylines/BylineUser';
 import {Spacer4, Spacer8} from '../../../components/Spacers/Spacer';
 import hexToRgba from 'hex-to-rgba';
 import Badge from '../../../components/Badge/Badge';
-import {EarthIcon, Play, PrivateEyeIcon} from '../../../components/Icons';
+import {EarthIcon, PlayIcon, PrivateEyeIcon} from '../../../components/Icons';
 import Image from '../../../components/Image/Image';
 import {ExerciseSlideSharingSlideSharingVideoVideo} from '../../../../../../shared/src/types/generated/Exercise';
 
@@ -131,7 +131,6 @@ const ListPostCard: React.FC<ListPostCardProps> = ({
           </SharingAttributesWrapper>
         </>
       )}
-
       <Spacer8 />
       {text && (
         <>
@@ -144,7 +143,7 @@ const ListPostCard: React.FC<ListPostCardProps> = ({
           <PreviewImage source={previewImage} />
           <PlayIconContainer>
             <PlayIconWrapper>
-              <Play fill={hexToRgba(COLORS.PURE_WHITE, 0.51)} />
+              <PlayIcon fill={hexToRgba(COLORS.PURE_WHITE, 0.51)} />
             </PlayIconWrapper>
           </PlayIconContainer>
         </VideoWrapper>
