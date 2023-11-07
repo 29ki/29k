@@ -13,7 +13,11 @@ import useSessionState from '../../../../state/state';
 import {VideoLooperProperties} from '../../../../../../../types/VideoLooper';
 import VideoLooper from '../../../../../components/VideoLooper/VideoLooper';
 import MediaControls from '../../../../../components/MediaControls/MediaControls';
-import {Spacer16} from '../../../../../components/Spacers/Spacer';
+import {
+  BottomSafeArea,
+  Spacer16,
+  Spacer28,
+} from '../../../../../components/Spacers/Spacer';
 import MediaWrapperResolver from './MediaWrapperResolver';
 import Subtitles from '../../../../../components/Subtitles/Subtitles';
 import Gutters from '../../../../../components/Gutters/Gutters';
@@ -223,6 +227,8 @@ const Video: React.FC<VideoProps> = ({
                 subtitles={subtitles ? showSubtitels : undefined}
               />
             </Gutters>
+            <Spacer28 />
+            <BottomSafeArea />
           </View>
         )}
       </>
@@ -263,6 +269,8 @@ const Video: React.FC<VideoProps> = ({
               subtitles={subtitles ? showSubtitels : undefined}
             />
           </Gutters>
+          <Spacer28 />
+          <BottomSafeArea />
         </View>
       )}
     </>
