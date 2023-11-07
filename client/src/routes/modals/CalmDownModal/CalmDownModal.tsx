@@ -12,7 +12,7 @@ import {useIsFocused} from '@react-navigation/native';
 import {Spacer16, Spacer8} from '../../../lib/components/Spacers/Spacer';
 import Markdown from '../../../lib/components/Typography/Markdown/Markdown';
 import IconButton from '../../../lib/components/Buttons/IconButton/IconButton';
-import {Pause, Play, RewindIcon} from '../../../lib/components/Icons';
+import {Pause, PlayIcon, RewindIcon} from '../../../lib/components/Icons';
 import styled from 'styled-components/native';
 
 import LPlayer, {
@@ -127,7 +127,7 @@ const CalmDownModal = () => {
               size="small"
               elevated
               variant="tertiary"
-              Icon={paused ? Play : Pause}
+              Icon={paused ? PlayIcon : Pause}
               onPress={onTogglePlayingPress}
             />
           </Row>

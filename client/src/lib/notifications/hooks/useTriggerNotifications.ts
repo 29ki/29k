@@ -26,7 +26,7 @@ const useTriggerNotifications = () => {
       title: string,
       body: string,
       url: string | undefined = '',
-      image: string | undefined,
+      image: string | undefined | null,
       timestamp: number,
     ) => {
       if (timestamp > new Date().getTime()) {

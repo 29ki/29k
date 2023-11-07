@@ -3,7 +3,7 @@ import {View} from 'react-native';
 import styled from 'styled-components/native';
 import IconButton from '../Buttons/IconButton/IconButton';
 
-import {Backward15, Forward15, Pause, Play, SubtitlesIcon} from '../Icons';
+import {Backward15, Forward15, Pause, PlayIcon, SubtitlesIcon} from '../Icons';
 import {Spacer16, Spacer32, Spacer8} from '../Spacers/Spacer';
 import {COLORS} from '../../../../../shared/src/constants/colors';
 import {Body14} from '../Typography/Body/Body';
@@ -115,7 +115,7 @@ const MediaControls: React.FC<MediaControlsProps> = ({
           <Spacer32 />
           <PlayPauseButton
             variant={variant}
-            Icon={playing ? Pause : Play}
+            Icon={playing ? Pause : PlayIcon}
             onPress={onTogglePlay}
           />
           <Spacer32 />

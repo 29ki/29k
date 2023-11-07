@@ -399,7 +399,7 @@ const SessionModal = () => {
             </Gutters>
             <Spacer8 />
             <FeedbackCarousel feedbackItems={feedback} />
-            <Spacer8 />
+            <Spacer24 />
           </>
         )}
         {Boolean(exercisesByTags?.length) && (

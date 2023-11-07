@@ -11,7 +11,6 @@ import useAsyncSessionMetricEvents from '../../../lib/session/hooks/useAsyncSess
 import useAddUserEvent from '../../../lib/user/hooks/useAddUserEvent';
 
 import {
-  BottomSafeArea,
   Spacer16,
   Spacer8,
   TopSafeArea,
@@ -167,8 +166,6 @@ const Session: React.FC = () => {
           </>
         )}
       </Spotlight>
-      <Spacer16 />
-      <BottomSafeArea />
     </Screen>
   );
 };

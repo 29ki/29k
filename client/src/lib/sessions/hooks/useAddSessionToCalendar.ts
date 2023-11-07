@@ -9,7 +9,7 @@ const useAddSessionToCalendar = () => {
   return useCallback(
     (
       exerciseName: string | undefined,
-      host: string | undefined,
+      host: string | undefined | null,
       url: string | undefined,
       startDate: Dayjs,
       endDate: Dayjs,
