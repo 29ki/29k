@@ -3,6 +3,7 @@ import DrawerMenu from './DrawerMenu';
 
 import * as Buttons from '../../components/Buttons/Buttons.library';
 import * as Cards from '../../components/Cards/Cards.library';
+import * as PostCards from '../../components/PostCard/PostCard.library';
 import * as Icons from '../../components/Icons/Icons.library';
 import * as Typography from '../../components/Typography/Typography.library';
 import * as UiSettings from '../../constants/UiSettings.library';
@@ -25,6 +26,7 @@ export type ComponentList = {[key: string]: Array<ComponentLibrary>};
 const menuItems: ComponentList = {
   Buttons: [Buttons],
   Cards: [Cards],
+  PostCards: [PostCards],
   Icons: [Icons],
   ActionList: [ActionList],
   DescriptionBlock: [DescriptionBlock],

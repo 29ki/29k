@@ -6,8 +6,8 @@ export enum ROLE {
 
 const UserProfileSchema = yup.object({
   uid: yup.string().required(),
-  displayName: yup.string(),
-  photoURL: yup.string(),
+  displayName: yup.string().nullable(),
+  photoURL: yup.string().nullable(),
 });
 export type UserProfileType = yup.InferType<typeof UserProfileSchema>;
 

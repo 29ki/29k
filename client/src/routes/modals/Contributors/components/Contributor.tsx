@@ -9,7 +9,7 @@ import {SPACINGS} from '../../../../lib/constants/spacings';
 
 export type Contributor = {
   name: string;
-  avatar_url?: string;
+  avatar_url?: string | null;
   profile?: string;
   contributions: string[];
 };
