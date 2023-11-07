@@ -1,13 +1,7 @@
 import {NavigatorScreenParams} from '@react-navigation/native';
 
-import {
-  Exercise,
-  ExerciseSlideSharingSlideSharingVideoVideo,
-} from '../../../../../shared/src/types/generated/Exercise';
-import {
-  UserType,
-  UserProfileType,
-} from '../../../../../shared/src/schemas/User';
+import {Exercise} from '../../../../../shared/src/types/generated/Exercise';
+import {UserType} from '../../../../../shared/src/schemas/User';
 import {
   AsyncSessionType,
   LiveSessionType,
