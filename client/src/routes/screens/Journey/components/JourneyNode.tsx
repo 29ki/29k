@@ -18,10 +18,8 @@ import Badge from '../../../../lib/components/Badge/Badge';
 import Byline from '../../../../lib/components/Bylines/Byline';
 import {
   CommunityIcon,
-  EarthIcon,
   FriendsIcon,
   MeIcon,
-  PrivateEyeIcon,
 } from '../../../../lib/components/Icons';
 import {
   Spacer16,
@@ -40,13 +38,10 @@ import {
   ThumbsUpWithoutPadding,
   ThumbsDownWithoutPadding,
 } from '../../../../lib/components/Thumbs/Thumbs';
-import useUser from '../../../../lib/user/hooks/useUser';
-import {Body14} from '../../../../lib/components/Typography/Body/Body';
-import BylineUser from '../../../../lib/components/Bylines/BylineUser';
-import {useTranslation} from 'react-i18next';
+import SharingPostCard from '../../../../lib/components/PostCard/SharingPostCard';
 
 export const HEIGHT = 93;
-export const HEIGHT_WITH_POST = 275;
+export const HEIGHT_WITH_POST = 229;
 const NODE_SIZE = 16;
 
 type JourneyNodeProps = {
@@ -109,13 +104,8 @@ const NodeContainer = styled.View<{isFirst: boolean}>({
   marginTop: 15,
 });
 
-const SharingPost = styled.View({
-  backgroundColor: COLORS.WHITE,
-  borderRadius: 24,
-  padding: SPACINGS.SIXTEEN,
-  marginBottom: SPACINGS.SIXTEEN,
-  height: 166,
-  overflow: 'hidden',
+const PostWrapper = styled.View({
+  height: 120,
 });
 
 const JourneyNode: React.FC<JourneyNodeProps> = ({
@@ -128,10 +118,8 @@ const JourneyNode: React.FC<JourneyNodeProps> = ({
     timestamp,
     sharingPost,
   } = completedSessionEvent;
-  const {t} = useTranslation('Component.MyPostCard');
   const exercise = useExerciseById(exerciseId, language);
   const hostProfile = useUserProfile(hostId);
-  const user = useUser();
   const getFeedbackBySessionId = useGetFeedbackBySessionId();
 
   const {navigate} =
@@ -151,16 +139,6 @@ const JourneyNode: React.FC<JourneyNodeProps> = ({
     () => getFeedbackBySessionId(id),
     [id, getFeedbackBySessionId],
   );
-
-  const userProfile = useMemo(() => {
-    if (user?.displayName) {
-      return {
-        uid: user.uid,
-        displayName: user.displayName,
-        photoURL: user.photoURL ? user.photoURL : undefined,
-      };
-    }
-  }, [user]);
 
   if (!exercise) {
     return null;
@@ -211,33 +189,9 @@ const JourneyNode: React.FC<JourneyNodeProps> = ({
             name={hostProfile?.displayName}
           />
           {sharingPost && (
-            <SharingPost>
-              <Row>
-                <BylineUser
-                  picSize={SPACINGS.SIXTEEN}
-                  user={
-                    !sharingPost.payload.isAnonymous ? userProfile : undefined
-                  }
-                />
-                <Spacer4 />
-                <Badge
-                  IconBefore={
-                    sharingPost.payload.isPublic ? (
-                      <EarthIcon />
-                    ) : (
-                      <PrivateEyeIcon />
-                    )
-                  }
-                  text={
-                    sharingPost.payload.isPublic
-                      ? t('everyoneLabel')
-                      : t('onlyMeLabel')
-                  }
-                />
-              </Row>
-              <Spacer8 />
-              <Body14 numberOfLines={6}>{sharingPost.payload.text}</Body14>
-            </SharingPost>
+            <PostWrapper>
+              <SharingPostCard sharingPost={sharingPost} clip />
+            </PostWrapper>
           )}
         </Column>
       </ContentContainer>
