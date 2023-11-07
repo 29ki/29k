@@ -43,12 +43,14 @@ type Props = {
   sharingPost: PostItem | PostEvent;
   clip?: boolean;
   backgroundColor?: string;
+  onPress?: () => void;
 };
 
 const SharingPostCard: React.FC<Props> = ({
   sharingPost,
   clip = false,
   backgroundColor = COLORS.WHITE,
+  onPress,
 }) => {
   const {t} = useTranslation('Component.SharingPostCard');
   const currentUser = useUser();
@@ -76,6 +78,7 @@ const SharingPostCard: React.FC<Props> = ({
 
   return (
     <PostCard
+      onPress={onPress}
       backgroundColor={backgroundColor}
       clip={sharingPost.type !== 'video' && clip}>
       <Header>

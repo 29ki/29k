@@ -28,12 +28,14 @@ type Props = {
   feedbackPost: FeedbackEvent | Feedback;
   clip?: boolean;
   backgroundColor?: string;
+  onPress?: () => void;
 };
 
 const FeedbackPostCard: React.FC<Props> = ({
   feedbackPost,
   clip = false,
   backgroundColor = COLORS.WHITE,
+  onPress,
 }) => {
   const feedback =
     'payload' in feedbackPost ? feedbackPost.payload : feedbackPost;
@@ -44,7 +46,7 @@ const FeedbackPostCard: React.FC<Props> = ({
       : feedbackPost.createdAt;
 
   return (
-    <PostCard backgroundColor={backgroundColor} clip={clip}>
+    <PostCard onPress={onPress} backgroundColor={backgroundColor} clip={clip}>
       <Header>
         <ThumbWrapper>
           {feedback.answer ? (
