@@ -1,4 +1,9 @@
-import {RouteProp, useNavigation, useRoute} from '@react-navigation/native';
+import {
+  RouteProp,
+  useIsFocused,
+  useNavigation,
+  useRoute,
+} from '@react-navigation/native';
 import dayjs from 'dayjs';
 import React, {Fragment, useCallback, useEffect, useMemo} from 'react';
 import {useTranslation} from 'react-i18next';
@@ -9,7 +14,6 @@ import styled from 'styled-components/native';
 import {
   ModalStackProps,
   AppStackProps,
-  OverlayStackProps,
 } from '../../../lib/navigation/constants/routes';
 
 import {COLORS} from '../../../../../shared/src/constants/colors';
@@ -59,11 +63,8 @@ import {
 } from '../../../lib/components/Spacers/Spacer';
 import ActionList from '../../../lib/components/ActionList/ActionList';
 import ActionButton from '../../../lib/components/ActionList/ActionItems/ActionButton';
-import Screen from '../../../lib/components/Screen/Screen';
-import TopBar from '../../../lib/components/TopBar/TopBar';
 import MagicIcon from '../../../lib/components/Icons/Magic/Magic';
 import {ThumbsUpWithoutPadding} from '../../../lib/components/Thumbs/Thumbs';
-import AutoScrollView from '../../../lib/components/AutoScrollView/AutoScrollView';
 import useExerciseFeedback from '../../../lib/session/hooks/useExerciseFeedback';
 import FeedbackCarousel from '../../../lib/components/FeedbackCarousel/FeedbackCarousel';
 import useExercisesByTags from '../../../lib/content/hooks/useExercisesByTags';
@@ -72,6 +73,9 @@ import ExerciseCard from '../../../lib/components/Cards/SessionCard/ExerciseCard
 import {take} from 'ramda';
 import CoCreators from '../../../lib/components/CoCreators/CoCreators';
 import ExerciseGraphic from '../../../lib/components/ExerciseGraphic/ExerciseGraphic';
+import BackgroundBlock from '../../../lib/components/BackgroundBlock/BackgroundBlock';
+import SheetModal from '../../../lib/components/Modals/SheetModal';
+import {BottomSheetScrollView} from '@gorhom/bottom-sheet';
 
 const Content = styled(Gutters)({
   justifyContent: 'space-between',
@@ -106,8 +110,7 @@ const TitleContainer = styled.View({
 });
 
 const Graphic = styled(ExerciseGraphic)({
-  width: 90,
-  height: 90,
+  flex: 1,
 });
 
 const EditButton = styled(TouchableOpacity)({
@@ -133,10 +136,10 @@ const Tags = styled(Gutters)({
 
 const MORE_LIKE_THIS_LIMIT = 5;
 
-const SessionOverlay = () => {
+const SessionModal = () => {
   const {
     params: {session},
-  } = useRoute<RouteProp<OverlayStackProps, 'SessionOverlay'>>();
+  } = useRoute<RouteProp<ModalStackProps, 'SessionModal'>>();
 
   const {t} = useTranslation('Overlay.Session');
   const user = useUser();
@@ -247,8 +250,7 @@ const SessionOverlay = () => {
   }
 
   return (
-    <Screen>
-      <Spacer16 />
+    <SheetModal>
       {rating && rating.positive > 0 ? (
         <RatingContainer>
           <FeedbackThumb />
@@ -256,9 +258,8 @@ const SessionOverlay = () => {
           <Body16>{rating.positive}</Body16>
         </RatingContainer>
       ) : null}
-      <TopBar onPressClose={navigation.goBack} fade />
 
-      <AutoScrollView>
+      <BottomSheetScrollView focusHook={useIsFocused}>
         <Content>
           <Spacer16 />
           <SpaceBetweenRow>
@@ -389,39 +390,40 @@ const SessionOverlay = () => {
               {t('howItWorks')}
             </ActionButton>
           </ActionList>
-          {Boolean(exercise.coCreators?.length) && (
-            <>
-              <Spacer24 />
-              <Heading16>{t('coCreatorsHeading')}</Heading16>
-              <Spacer8 />
-              <CoCreators coCreators={exercise.coCreators} />
-            </>
-          )}
+          <Spacer24 />
         </Gutters>
         {Boolean(feedback?.length) && (
           <>
-            <Spacer24 />
             <Gutters>
               <Heading16>{t('feedbackHeading')}</Heading16>
             </Gutters>
             <Spacer8 />
             <FeedbackCarousel feedbackItems={feedback} />
+            <Spacer8 />
           </>
         )}
-
         {Boolean(exercisesByTags?.length) && (
+          <BackgroundBlock backgroundColor={COLORS.PURE_WHITE}>
+            <Gutters>
+              <Heading16>{t('moreLikeThis')}</Heading16>
+              <Spacer8 />
+              <View>{moreLikeThisExercises}</View>
+              <Spacer8 />
+            </Gutters>
+          </BackgroundBlock>
+        )}
+        {Boolean(exercise.coCreators?.length) && (
           <Gutters>
-            <Spacer24 />
-            <Heading16>{t('moreLikeThis')}</Heading16>
+            <Heading16>{t('coCreatorsHeading')}</Heading16>
             <Spacer8 />
-            <View>{moreLikeThisExercises}</View>
+            <CoCreators coCreators={exercise.coCreators} />
+            <Spacer24 />
           </Gutters>
         )}
-        <Spacer32 />
         <BottomSafeArea minSize={SPACINGS.THIRTYTWO} />
-      </AutoScrollView>
-    </Screen>
+      </BottomSheetScrollView>
+    </SheetModal>
   );
 };
 
-export default SessionOverlay;
+export default SessionModal;

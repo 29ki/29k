@@ -241,19 +241,19 @@ const CompletedSessionModal = () => {
             <Spacer4 />
           </VerticalAlign>
         </StatusRow>
+        <Spacer16 />
         {feedback && feedback.payload.comment && (
           <Gutters>
-            <Spacer16 />
             <FeedbackCard
               date={feedback.timestamp}
               answer={feedback.payload.answer}>
               {feedback.payload.comment}
             </FeedbackCard>
+            <Spacer24 />
           </Gutters>
         )}
         {sharingPosts && sharingPosts.length > 0 && (
           <>
-            <Spacer24 />
             <Gutters>
               {sharingPosts.map((post, index) => (
                 <SharingPost
@@ -265,10 +265,10 @@ const CompletedSessionModal = () => {
                   }
                 />
               ))}
+              <Spacer8 />
             </Gutters>
           </>
         )}
-        <Spacer24 />
         <Gutters>
           <ButtonWrapper>
             <Button size="small" variant="secondary" onPress={onStartSession}>
@@ -276,10 +276,10 @@ const CompletedSessionModal = () => {
             </Button>
           </ButtonWrapper>
         </Gutters>
+        <Spacer24 />
 
         {Boolean(sessions?.length) && (
           <Gutters>
-            <Spacer24 />
             <View>
               {sessions.map(item => (
                 <Fragment key={item.id}>
@@ -292,24 +292,25 @@ const CompletedSessionModal = () => {
                 </Fragment>
               ))}
             </View>
-          </Gutters>
-        )}
-
-        {Boolean(exercise.coCreators?.length) && (
-          <Gutters>
-            <Spacer24 />
-            <Heading16>{t('coCreatorsHeading')}</Heading16>
             <Spacer8 />
-            <CoCreators coCreators={exercise.coCreators} />
           </Gutters>
         )}
 
         {Boolean(exercisesByTags?.length) && (
           <Gutters>
-            <Spacer24 />
             <Heading16>{t('moreLikeThis')}</Heading16>
             <Spacer8 />
-            <View>{moreLikeThisExercises}</View>
+            {moreLikeThisExercises}
+            <Spacer8 />
+          </Gutters>
+        )}
+
+        {Boolean(exercise.coCreators?.length) && (
+          <Gutters>
+            <Heading16>{t('coCreatorsHeading')}</Heading16>
+            <Spacer8 />
+            <CoCreators coCreators={exercise.coCreators} />
+            <Spacer24 />
           </Gutters>
         )}
 

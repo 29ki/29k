@@ -69,6 +69,7 @@ class VideoLooper extends React.Component {
           onLoad={this.onLoad}
           onProgress={this.onProgress}
           onError={this.onError}
+          volume={1}
           {...rest}
         />
       </Container>

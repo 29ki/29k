@@ -6,7 +6,7 @@ import {Heading16} from '../Typography/Heading/Heading';
 import DescriptionBlock from './DescriptionBlock';
 import {Body16} from '../Typography/Body/Body';
 
-export const DescriptionBlocks = () => (
+export const AllTypes = () => (
   <ScreenWrapper>
     <Heading16>DescriptionBlock</Heading16>
     <Spacer8 />

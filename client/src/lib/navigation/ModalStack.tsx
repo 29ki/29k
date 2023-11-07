@@ -42,6 +42,7 @@ import DonateModal from '../../routes/modals/DonateModal/DonateModal';
 import SimpleProfileSettingsModal from '../../routes/modals/SimpleProfileSettingsModal/SimpleProfileSettingsModal';
 import ForgotPasswordModal from '../../routes/modals/ForgotPasswordModal/ForgotPasswordModal';
 import HowItWorksModal from '../../routes/modals/HowItWorksModal/HowItWorksModal';
+import SessionModal from '../../routes/modals/SessionModal/SessionModal';
 
 const {Navigator, Screen, Group} =
   createBottomSheetNavigator<ModalStackProps>();
@@ -81,6 +82,7 @@ const modalScreenOptions: BottomSheetNavigationOptions = {
     https://github.com/gorhom/react-native-bottom-sheet/issues/618
   */
   android_keyboardInputMode: 'adjustResize',
+  stackBehavior: 'push',
 };
 
 const ModalStack = () => {
@@ -116,23 +118,6 @@ const ModalStack = () => {
       ...sheetModalScreenOptions,
       // Please note - Having a fixed snap point as first value improves keyboard input focus on Android
       snapPoints: [600, '100%'],
-    }),
-    [sheetModalScreenOptions],
-  );
-
-  const fullSheetModalScreenOptions = useMemo(
-    () => ({
-      ...sheetModalScreenOptions,
-      // Please note - Having a fixed snap point as first value improves keyboard input focus on Android
-      snapPoints: [800, '100%'],
-    }),
-    [sheetModalScreenOptions],
-  );
-
-  const fullyExtendedSheetModalScreenOptions = useMemo(
-    () => ({
-      ...sheetModalScreenOptions,
-      snapPoints: ['100%'],
     }),
     [sheetModalScreenOptions],
   );
@@ -194,19 +179,24 @@ const ModalStack = () => {
         <Screen
           name={'SharingModal'}
           component={SharingModal}
-          options={fullSheetModalScreenOptions}
+          options={tallSheetModalScreenOptions}
         />
         <Screen
           name={'SharingPostModal'}
           component={SharingPostModal}
-          options={fullyExtendedSheetModalScreenOptions}
+          options={tallSheetModalScreenOptions}
+        />
+        <Screen
+          name="SessionModal"
+          component={SessionModal}
+          options={tallSheetModalScreenOptions}
         />
         <Screen
           name={'CreateSessionModal'}
           component={CreateSessionModal}
           options={props =>
             props.route.params.exerciseId
-              ? fullSheetModalScreenOptions
+              ? tallSheetModalScreenOptions
               : sheetModalScreenOptions
           }
         />
@@ -216,7 +206,7 @@ const ModalStack = () => {
         <Screen
           name={'ProfileSettingsModal'}
           component={ProfileSettingsModal}
-          options={fullSheetModalScreenOptions}
+          options={tallSheetModalScreenOptions}
         />
         <Screen
           name={'SimpleProfileSettingsModal'}
@@ -286,8 +276,7 @@ const ModalStack = () => {
         <Screen
           name={'CompletedSessionsModal'}
           component={CompletedSessionsModal}
-          // Fullscreen is necessary for the scroll to work: https://github.com/gorhom/react-native-bottom-sheet/issues/459
-          options={fullyExtendedSheetModalScreenOptions}
+          options={tallSheetModalScreenOptions}
         />
         <Screen
           name="DonateModal"

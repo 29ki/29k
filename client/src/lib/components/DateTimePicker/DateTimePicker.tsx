@@ -14,7 +14,7 @@ import TouchableOpacity from '../TouchableOpacity/TouchableOpacity';
 import {Body16, BodyBold} from '../Typography/Body/Body';
 
 const Wrapper = styled.View({
-  backgroundColor: COLORS.WHITE,
+  backgroundColor: COLORS.PURE_WHITE,
   borderRadius: SPACINGS.EIGHT,
 });
 
