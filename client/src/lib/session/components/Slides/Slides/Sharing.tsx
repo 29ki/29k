@@ -86,10 +86,18 @@ const Sharing: React.FC<SharingProps> = ({slide}) => {
   const renderItem = useCallback<ListRenderItem<PostItem>>(
     ({item}) => (
       <CardWrapper>
-        <SharingPostCard sharingPost={item} clip />
+        <SharingPostCard
+          sharingPost={item}
+          clip
+          onPress={() => {
+            navigate('SharingPostModal', {
+              sharingPost: item,
+            });
+          }}
+        />
       </CardWrapper>
     ),
-    [],
+    [navigate],
   );
 
   const keyExtractor = useCallback(
