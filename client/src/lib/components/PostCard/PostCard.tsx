@@ -28,13 +28,13 @@ const BottomGradient = styled(LinearGradient).attrs<
   LinearGradientProps
 >(({color}) => ({
   colors: [hexToRgba(color, 0), hexToRgba(color, 1)],
-  locations: [0, 0.84],
+  locations: [0, 0.66],
 }))<BottomGradientProps>({
   position: 'absolute',
   left: 0,
   right: 0,
   bottom: 0,
-  height: 100,
+  height: 48,
 });
 
 type Props = {
