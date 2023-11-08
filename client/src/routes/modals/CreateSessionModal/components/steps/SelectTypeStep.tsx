@@ -331,7 +331,7 @@ const SelectTypeStep: React.FC<StepProps> = ({
           <BackgroundBlock backgroundColor={COLORS.PURE_WHITE}>
             <Gutters>
               <Heading16>{t('orJoinUpcoming')}</Heading16>
-              <Spacer16 />
+              <Spacer8 />
               {sessions.map(item => (
                 <Fragment key={item.id}>
                   <SessionCard
