@@ -9,6 +9,12 @@ import {SPACINGS} from '../../constants/spacings';
 import FeedbackPostCard from '../PostCard/FeedbackPostCard';
 import {COLORS} from '../../../../../shared/src/constants/colors';
 import {Spacer16} from '../Spacers/Spacer';
+import {useNavigation} from '@react-navigation/native';
+import {NativeStackNavigationProp} from '@react-navigation/native-stack';
+import {
+  AppStackProps,
+  ModalStackProps,
+} from '../../navigation/constants/routes';
 
 const CARD_SIZE = 216;
 
@@ -20,6 +26,9 @@ const CardWrapper = styled.View({
 const FeedbackCarousel: React.FC<{feedbackItems: Feedback[]}> = ({
   feedbackItems,
 }) => {
+  const {navigate} =
+    useNavigation<NativeStackNavigationProp<AppStackProps & ModalStackProps>>();
+
   const renderItem = useCallback<ListRenderItem<Feedback>>(
     ({item}) => (
       <CardWrapper>
@@ -27,10 +36,15 @@ const FeedbackCarousel: React.FC<{feedbackItems: Feedback[]}> = ({
           feedbackPost={item}
           clip
           backgroundColor={COLORS.PURE_WHITE}
+          onPress={() => {
+            navigate('FeedbackPostModal', {
+              feedbackPost: item,
+            });
+          }}
         />
       </CardWrapper>
     ),
-    [],
+    [navigate],
   );
 
   return (

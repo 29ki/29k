@@ -10,9 +10,11 @@ import {
 } from '../../../../../shared/src/schemas/Session';
 import {
   CompletedSessionEvent,
+  FeedbackEvent,
   PostEvent,
 } from '../../../../../shared/src/types/Event';
 import {PostItem} from '../../posts/types/PostItem';
+import {Feedback} from '../../../../../shared/src/types/Feedback';
 
 export type TabNavigatorProps = {
   HomeStack: undefined;
@@ -77,6 +79,9 @@ export type ModalStackProps = {
   SharingModal: {exerciseId: string};
   SharingPostModal: {
     sharingPost: PostEvent | PostItem;
+  };
+  FeedbackPostModal: {
+    feedbackPost: FeedbackEvent | Feedback;
   };
   SessionErrorModal: {hasEjected?: boolean} | undefined;
   AddSessionByInviteModal?: {inviteCode?: number};
