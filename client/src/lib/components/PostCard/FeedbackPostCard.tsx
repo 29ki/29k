@@ -57,7 +57,7 @@ const FeedbackPostCard: React.FC<Props> = ({
         </ThumbWrapper>
 
         <Spacer8 />
-        <Badge text={dayjs(timestamp).format('d MMM, YYYY')} />
+        <Badge text={dayjs(timestamp).format('ll')} />
       </Header>
       <Spacer16 />
       <Body16>{feedback.comment}</Body16>
