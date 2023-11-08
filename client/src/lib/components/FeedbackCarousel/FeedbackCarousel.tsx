@@ -1,6 +1,6 @@
 import React, {useCallback} from 'react';
 import {FlatList} from 'react-native-gesture-handler';
-import {ListRenderItem} from 'react-native';
+import {Dimensions, ListRenderItem} from 'react-native';
 import styled from 'styled-components/native';
 
 import {Feedback} from '../../../../../shared/src/types/Feedback';
@@ -16,11 +16,11 @@ import {
   ModalStackProps,
 } from '../../navigation/constants/routes';
 
-const CARD_SIZE = 216;
+const CARD_SIZE = Dimensions.get('screen').width / 2;
 
 const CardWrapper = styled.View({
-  height: CARD_SIZE,
   width: CARD_SIZE,
+  aspectRatio: 1,
 });
 
 const FeedbackCarousel: React.FC<{feedbackItems: Feedback[]}> = ({
