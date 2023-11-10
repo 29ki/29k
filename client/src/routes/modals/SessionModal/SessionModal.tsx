@@ -5,10 +5,10 @@ import {
   useRoute,
 } from '@react-navigation/native';
 import dayjs from 'dayjs';
-import React, {Fragment, useCallback, useEffect, useMemo} from 'react';
+import React, {Fragment, useCallback, useEffect} from 'react';
 import {useTranslation} from 'react-i18next';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
-import {Share, View} from 'react-native';
+import {Share} from 'react-native';
 import styled from 'styled-components/native';
 
 import {
@@ -70,7 +70,6 @@ import FeedbackCarousel from '../../../lib/components/FeedbackCarousel/FeedbackC
 import useExercisesByTags from '../../../lib/content/hooks/useExercisesByTags';
 import {Tag as TagType} from '../../../../../shared/src/types/generated/Tag';
 import ExerciseCard from '../../../lib/components/Cards/SessionCard/ExerciseCard';
-import {take} from 'ramda';
 import CoCreators from '../../../lib/components/CoCreators/CoCreators';
 import ExerciseGraphic from '../../../lib/components/ExerciseGraphic/ExerciseGraphic';
 import BackgroundBlock from '../../../lib/components/BackgroundBlock/BackgroundBlock';
@@ -159,9 +158,10 @@ const SessionModal = () => {
   const {feedback} = useExerciseFeedback(session.exerciseId, session.mode);
   const {reminderEnabled, toggleReminder} = useSessionReminder(session);
   const confirmToggleReminder = useConfirmSessionReminder(session);
-  const exercisesByTags = useExercisesByTags(
+  const relatedExercises = useExercisesByTags(
     exercise?.tags as TagType[],
     exercise?.id,
+    5,
   );
 
   const startingNow = dayjs
@@ -225,17 +225,6 @@ const SessionModal = () => {
   const howItWorksPress = useCallback(
     () => navigation.navigate('HowItWorksModal'),
     [navigation],
-  );
-
-  const moreLikeThisExercises = useMemo(
-    () =>
-      take(MORE_LIKE_THIS_LIMIT, exercisesByTags).map(e => (
-        <Fragment key={e.id}>
-          <ExerciseCard exercise={e} />
-          <Spacer16 />
-        </Fragment>
-      )),
-    [exercisesByTags],
   );
 
   useEffect(() => {
@@ -402,12 +391,17 @@ const SessionModal = () => {
             <Spacer24 />
           </>
         )}
-        {Boolean(exercisesByTags?.length) && (
+        {Boolean(relatedExercises?.length) && (
           <BackgroundBlock backgroundColor={COLORS.PURE_WHITE}>
             <Gutters>
               <Heading16>{t('moreLikeThis')}</Heading16>
               <Spacer8 />
-              <View>{moreLikeThisExercises}</View>
+              {relatedExercises.map(exerc => (
+                <Fragment key={exerc.id}>
+                  <ExerciseCard exercise={exerc} />
+                  <Spacer16 />
+                </Fragment>
+              ))}
               <Spacer8 />
             </Gutters>
           </BackgroundBlock>

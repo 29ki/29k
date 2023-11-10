@@ -5,7 +5,7 @@ import {useTranslation} from 'react-i18next';
 import {View} from 'react-native';
 import styled from 'styled-components/native';
 import {BottomSheetScrollView} from '@gorhom/bottom-sheet';
-import {complement, isNil, take} from 'ramda';
+import {complement, isNil} from 'ramda';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 
 import Button from '../../../lib/components/Buttons/Button';
@@ -111,9 +111,10 @@ const CompletedSessionModal = () => {
   const tags = useGetTagsById(exercise?.tags);
   const {getSharingPostForSession} = useSessionSharingPosts(exercise?.id);
   const getFeedbackBySessionId = useGetFeedbackBySessionId();
-  const exercisesByTags = useExercisesByTags(
+  const relatedExercises = useExercisesByTags(
     exercise?.tags as TagType[],
     exercise?.id,
+    5,
   );
 
   const sessionTime = useMemo(() => dayjs(timestamp), [timestamp]);
@@ -149,17 +150,6 @@ const CompletedSessionModal = () => {
   const feedback = useMemo(
     () => getFeedbackBySessionId(payload.id),
     [getFeedbackBySessionId, payload],
-  );
-
-  const moreLikeThisExercises = useMemo(
-    () =>
-      take(MORE_LIKE_THIS_LIMIT, exercisesByTags).map(e => (
-        <Fragment key={e.id}>
-          <ExerciseCard key={e.id} exercise={e} />
-          <Spacer16 />
-        </Fragment>
-      )),
-    [exercisesByTags],
   );
 
   if (!exercise) {
@@ -272,11 +262,16 @@ const CompletedSessionModal = () => {
           </Gutters>
         )}
 
-        {Boolean(exercisesByTags?.length) && (
+        {Boolean(relatedExercises?.length) && (
           <Gutters>
             <Heading16>{t('moreLikeThis')}</Heading16>
             <Spacer8 />
-            {moreLikeThisExercises}
+            {relatedExercises.map(exerc => (
+              <Fragment key={exerc.id}>
+                <ExerciseCard exercise={exerc} />
+                <Spacer16 />
+              </Fragment>
+            ))}
             <Spacer8 />
           </Gutters>
         )}

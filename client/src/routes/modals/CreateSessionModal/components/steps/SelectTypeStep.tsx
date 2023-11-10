@@ -52,7 +52,6 @@ import useLiveSessionsByExercise from '../../../../../lib/session/hooks/useLiveS
 import ExerciseCard from '../../../../../lib/components/Cards/SessionCard/ExerciseCard';
 import useExercisesByTags from '../../../../../lib/content/hooks/useExercisesByTags';
 import {Tag as TagType} from '../../../../../../../shared/src/types/generated/Tag';
-import {take} from 'ramda';
 import CoCreators from '../../../../../lib/components/CoCreators/CoCreators';
 import ExerciseGraphic from '../../../../../lib/components/ExerciseGraphic/ExerciseGraphic';
 import BackgroundBlock from '../../../../../lib/components/BackgroundBlock/BackgroundBlock';
@@ -166,9 +165,10 @@ const SelectTypeStep: React.FC<StepProps> = ({
     [getExerciseById, selectedExercise],
   );
 
-  const exercisesByTags = useExercisesByTags(
+  const relatedExercises = useExercisesByTags(
     exercise?.tags as TagType[],
     exercise?.id,
+    5,
   );
 
   const {sessions} = useLiveSessionsByExercise(exercise?.id && exercise, 5);
@@ -213,17 +213,6 @@ const SelectTypeStep: React.FC<StepProps> = ({
       startSession(selectedExercise);
     }
   }, [startSession, popToTop, selectedExercise]);
-
-  const moreLikeThisExercises = useMemo(
-    () =>
-      take(MORE_LIKE_THIS_LIMIT, exercisesByTags).map(e => (
-        <Fragment key={e.id}>
-          <ExerciseCard exercise={e} onPress={() => popToTop()} />
-          <Spacer16 />
-        </Fragment>
-      )),
-    [exercisesByTags, popToTop],
-  );
 
   const typeSelection = useMemo(
     () => (
@@ -356,12 +345,17 @@ const SelectTypeStep: React.FC<StepProps> = ({
             <Spacer24 />
           </>
         )}
-        {Boolean(exercisesByTags?.length) && (
+        {Boolean(relatedExercises?.length) && (
           <BackgroundBlock backgroundColor={COLORS.PURE_WHITE}>
             <Gutters>
               <Heading16>{t('moreLikeThis')}</Heading16>
               <Spacer8 />
-              {moreLikeThisExercises}
+              {relatedExercises.map(exerc => (
+                <Fragment key={exerc.id}>
+                  <ExerciseCard exercise={exerc} />
+                  <Spacer16 />
+                </Fragment>
+              ))}{' '}
               <Spacer8 />
             </Gutters>
           </BackgroundBlock>
