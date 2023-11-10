@@ -355,7 +355,7 @@ const SelectTypeStep: React.FC<StepProps> = ({
                   <ExerciseCard exercise={exerc} />
                   <Spacer16 />
                 </Fragment>
-              ))}{' '}
+              ))}
               <Spacer8 />
             </Gutters>
           </BackgroundBlock>
