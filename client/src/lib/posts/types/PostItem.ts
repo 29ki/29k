@@ -8,7 +8,10 @@ export type TextPostItem = {
 
 export type VideoPostItem = {
   type: 'video';
-  item: ExerciseSlideSharingSlideSharingVideo;
+  item: ExerciseSlideSharingSlideSharingVideo & {
+    exerciseId: string;
+    sharingId: string;
+  };
 };
 
 export type PostItem = TextPostItem | VideoPostItem;
