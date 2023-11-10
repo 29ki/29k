@@ -1,6 +1,6 @@
 import hexToRgba from 'hex-to-rgba';
 import React from 'react';
-import {TouchableOpacityProps, View, ViewStyle} from 'react-native';
+import {StyleSheet, TouchableOpacityProps, View, ViewStyle} from 'react-native';
 import styled from 'styled-components/native';
 import {COLORS} from '../../../../../shared/src/constants/colors';
 import {PlayfairDisplayRegular} from '../../constants/fonts';
@@ -23,7 +23,8 @@ const Profile = styled(TouchableOpacity)<{
   overflow: 'hidden',
   shadowColor: COLORS.GREYDARK,
   borderColor: hasError ? COLORS.ERROR : undefined,
-  borderWidth: hasError ? 1 : undefined,
+  borderWidth: hasError ? 1 : 0,
+  padding: hasError ? 0 : 1, // Compensate for lack of border
 }));
 
 const Letter = styled.Text.attrs({
@@ -32,15 +33,14 @@ const Letter = styled.Text.attrs({
 })<{size: number}>(({size}) => ({
   flex: 1,
   fontFamily: PlayfairDisplayRegular,
-  fontSize: size * 0.85,
-  lineHeight: size - 2, // Compensate for the hasError border
+  fontSize: (size - 2) * 0.8,
+  lineHeight: size - 2.3, // Compensate for the border/padding (0.3 for android issues)
   color: COLORS.BLACK,
   textAlign: 'center',
 }));
 
 const Image = styled.Image({
-  width: '100%',
-  height: '100%',
+  ...StyleSheet.absoluteFillObject,
 });
 
 const ProfileIconContainer = styled.View<{size: number}>(({size}) => {
