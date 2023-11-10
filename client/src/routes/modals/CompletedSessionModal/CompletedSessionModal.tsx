@@ -39,7 +39,7 @@ import {
   SessionType,
 } from '../../../../../shared/src/schemas/Session';
 import {PostEvent} from '../../../../../shared/src/types/Event';
-import useSharingPosts from '../../../lib/posts/hooks/useSharingPosts';
+import useSessionSharingPosts from '../../../lib/posts/hooks/useSessionSharingPosts';
 import {ExerciseSlideSharingSlide} from '../../../../../shared/src/types/generated/Exercise';
 import useUserProfile from '../../../lib/user/hooks/useUserProfile';
 import useGetFeedbackBySessionId from '../../../lib/user/hooks/useGetFeedbackBySessionId';
@@ -109,7 +109,7 @@ const CompletedSessionModal = () => {
   const {payload, timestamp} = completedSessionEvent;
   const exercise = useExerciseById(payload.exerciseId, payload.language);
   const tags = useGetTagsById(exercise?.tags);
-  const {getSharingPostForSession} = useSharingPosts(exercise?.id);
+  const {getSharingPostForSession} = useSessionSharingPosts(exercise?.id);
   const getFeedbackBySessionId = useGetFeedbackBySessionId();
   const exercisesByTags = useExercisesByTags(
     exercise?.tags as TagType[],

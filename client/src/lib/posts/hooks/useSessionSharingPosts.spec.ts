@@ -8,12 +8,12 @@ import {
 } from '../../../../../shared/src/types/Event';
 import useSessionState from '../../session/state/state';
 import useUserState from '../../user/state/state';
-import {fetchPosts, addPost} from '../api/posts';
-import useSharingPosts from './useSharingPosts';
+import {fetchExercisePosts, addPost} from '../api/posts';
+import useSessionSharingPosts from './useSessionSharingPosts';
 
 jest.mock('../api/posts');
 
-const mockFetchPosts = jest.mocked(fetchPosts);
+const mockFetchPosts = jest.mocked(fetchExercisePosts);
 const mockAddPost = jest.mocked(addPost);
 const mockLogAsyncPostMetricEvent = jest.fn();
 
@@ -26,7 +26,7 @@ afterEach(() => {
   jest.clearAllMocks();
 });
 
-describe('useSharingPosts', () => {
+describe('useSessionSharingPosts', () => {
   describe('getSharingPosts', () => {
     it('should return fetched posts as PostItems', async () => {
       mockFetchPosts.mockResolvedValueOnce([
@@ -34,7 +34,9 @@ describe('useSharingPosts', () => {
           id: 'some-post-id',
         } as PostType,
       ]);
-      const {result} = renderHook(() => useSharingPosts('some-exercise-id'));
+      const {result} = renderHook(() =>
+        useSessionSharingPosts('some-exercise-id'),
+      );
 
       await act(async () => {
         const posts = await result.current.getSharingPosts('some-sharing-id');
@@ -54,7 +56,9 @@ describe('useSharingPosts', () => {
           id: 'some-post-id',
         } as PostType,
       ]);
-      const {result} = renderHook(() => useSharingPosts('some-exercise-id'));
+      const {result} = renderHook(() =>
+        useSessionSharingPosts('some-exercise-id'),
+      );
 
       await act(async () => {
         const posts = await result.current.getSharingPosts('some-sharing-id', [
@@ -82,7 +86,9 @@ describe('useSharingPosts', () => {
           id: 'some-other-post-id',
         } as PostType,
       ]);
-      const {result} = renderHook(() => useSharingPosts('some-exercise-id'));
+      const {result} = renderHook(() =>
+        useSessionSharingPosts('some-exercise-id'),
+      );
 
       await act(async () => {
         const posts = await result.current.getSharingPosts('some-sharing-id', [
@@ -103,7 +109,7 @@ describe('useSharingPosts', () => {
     });
 
     it('should return empty list if no exerciseId', async () => {
-      const {result} = renderHook(() => useSharingPosts(undefined));
+      const {result} = renderHook(() => useSessionSharingPosts(undefined));
 
       await act(async () => {
         const posts = await result.current.getSharingPosts('some-sharing-id');
@@ -125,7 +131,9 @@ describe('useSharingPosts', () => {
           'some-user-id': {},
         },
       });
-      const {result} = renderHook(() => useSharingPosts('some-exercise-id'));
+      const {result} = renderHook(() =>
+        useSessionSharingPosts('some-exercise-id'),
+      );
 
       await act(async () => {
         await result.current.addSharingPost(
@@ -177,7 +185,9 @@ describe('useSharingPosts', () => {
           'some-user-id': {},
         },
       });
-      const {result} = renderHook(() => useSharingPosts('some-exercise-id'));
+      const {result} = renderHook(() =>
+        useSessionSharingPosts('some-exercise-id'),
+      );
 
       await act(async () => {
         await result.current.addSharingPost(
@@ -223,7 +233,7 @@ describe('useSharingPosts', () => {
           'some-user-id': {},
         },
       });
-      const {result} = renderHook(() => useSharingPosts(undefined));
+      const {result} = renderHook(() => useSessionSharingPosts(undefined));
 
       await result.current.addSharingPost(
         'some-sharing-id',
@@ -249,7 +259,9 @@ describe('useSharingPosts', () => {
           'some-user-id': {},
         },
       });
-      const {result} = renderHook(() => useSharingPosts('some-exercise-id'));
+      const {result} = renderHook(() =>
+        useSessionSharingPosts('some-exercise-id'),
+      );
 
       await result.current.addSharingPost(
         'some-sharing-id',
@@ -319,7 +331,9 @@ describe('useSharingPosts', () => {
         },
       });
 
-      const {result} = renderHook(() => useSharingPosts('some-exercise-id'));
+      const {result} = renderHook(() =>
+        useSessionSharingPosts('some-exercise-id'),
+      );
 
       const posts = result.current.getSharingPostForSession(
         'some-session-id',
@@ -391,7 +405,9 @@ describe('useSharingPosts', () => {
         },
       });
 
-      const {result} = renderHook(() => useSharingPosts('some-exercise-id'));
+      const {result} = renderHook(() =>
+        useSessionSharingPosts('some-exercise-id'),
+      );
 
       const posts =
         result.current.getSharingPostsForExercise('some-sharing-id');

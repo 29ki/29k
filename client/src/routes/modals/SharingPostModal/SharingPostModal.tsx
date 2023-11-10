@@ -27,6 +27,8 @@ import MediaControls from '../../../lib/components/MediaControls/MediaControls';
 import Subtitles from '../../../lib/components/Subtitles/Subtitles';
 import {StyleSheet} from 'react-native';
 import SharingPostCard from '../../../lib/components/PostCard/SharingPostCard';
+import ExerciseCard from '../../../lib/components/Cards/SessionCard/ExerciseCard';
+import useExerciseById from '../../../lib/content/hooks/useExerciseById';
 
 const Wrapper = styled(Gutters)({
   flex: 1,
@@ -57,11 +59,16 @@ const SubtitleContainer = styled.View({
 
 const SharingPostModal = () => {
   const {
-    params: {sharingPost},
+    params: {sharingPost, showRelated},
   } = useRoute<RouteProp<ModalStackProps, 'SharingPostModal'>>();
 
   const video =
     sharingPost.type === 'video' ? sharingPost.item.video : undefined;
+
+  const exerciseId =
+    sharingPost.type === 'post'
+      ? sharingPost.payload.exerciseId
+      : sharingPost.item.exerciseId;
 
   const {goBack} = useNavigation();
   const videoRef = useRef<VideoLooper>(null);
@@ -72,6 +79,8 @@ const SharingPostModal = () => {
     video?.subtitles ? false : undefined,
   );
   const [isLoading, setIsLoading] = useState(true);
+
+  const exercise = useExerciseById(exerciseId);
 
   const videoSources = useMemo(() => {
     if (video) {
@@ -124,6 +133,12 @@ const SharingPostModal = () => {
       <SheetModal backgroundColor={COLORS.PURE_WHITE}>
         <BottomSheetScrollView focusHook={useIsFocused}>
           <Gutters>
+            {showRelated && exercise && (
+              <>
+                <ExerciseCard exercise={exercise} />
+                <Spacer16 />
+              </>
+            )}
             <SharingPostCard sharingPost={sharingPost} />
           </Gutters>
           <BottomSafeArea minSize={SPACINGS.SIXTEEN} />

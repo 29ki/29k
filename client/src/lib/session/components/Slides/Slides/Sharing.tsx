@@ -19,7 +19,7 @@ import {
   AppStackProps,
   ModalStackProps,
 } from '../../../../navigation/constants/routes';
-import useSharingPosts from '../../../../posts/hooks/useSharingPosts';
+import useSessionSharingPosts from '../../../../posts/hooks/useSessionSharingPosts';
 import useSessionState from '../../../state/state';
 import {PostItem} from '../../../../posts/types/PostItem';
 import SharingPostCard from '../../../../components/PostCard/SharingPostCard';
@@ -61,7 +61,7 @@ const Sharing: React.FC<SharingProps> = ({slide}) => {
     useNavigation<NativeStackNavigationProp<AppStackProps & ModalStackProps>>();
   const session = useSessionState(state => state.asyncSession);
   const theme = useSessionState(state => state.exercise?.theme);
-  const {getSharingPosts, getSharingPostForSession} = useSharingPosts(
+  const {getSharingPosts, getSharingPostForSession} = useSessionSharingPosts(
     session?.exerciseId,
   );
 
