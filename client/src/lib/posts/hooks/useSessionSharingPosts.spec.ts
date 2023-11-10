@@ -66,7 +66,16 @@ describe('useSessionSharingPosts', () => {
         ]);
 
         expect(posts).toEqual([
-          {type: 'video', item: {video: {source: 'some-video'}}},
+          {
+            type: 'video',
+            item: {
+              video: {
+                source: 'some-video',
+              },
+              exerciseId: 'some-exercise-id',
+              sharingId: 'some-sharing-id',
+            },
+          },
           {type: 'text', item: {id: 'some-post-id'}},
         ]);
         expect(mockFetchPosts).toHaveBeenCalledTimes(1);
@@ -96,7 +105,14 @@ describe('useSessionSharingPosts', () => {
         ]);
 
         expect(posts).toEqual([
-          {type: 'video', item: {video: {source: 'some-video'}}},
+          {
+            type: 'video',
+            item: {
+              video: {source: 'some-video'},
+              exerciseId: 'some-exercise-id',
+              sharingId: 'some-sharing-id',
+            },
+          },
           {type: 'text', item: {id: 'some-post-id'}},
           {type: 'text', item: {id: 'some-other-post-id'}},
         ]);
