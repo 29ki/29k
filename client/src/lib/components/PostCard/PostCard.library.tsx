@@ -8,10 +8,12 @@ import {Heading16} from '../Typography/Heading/Heading';
 import styled from 'styled-components/native';
 import FeedbackPostCard from './FeedbackPostCard';
 import {Feedback} from '../../../../../shared/src/types/Feedback';
+import ExerciseSharingPostCard from './ExerciseSharingPostCard';
 
 const DUMMY_PUBLIC_SHARING_POST_EVENT = {
   type: 'post',
   payload: {
+    exerciseId: '1a53e633-6916-4fea-a072-977c4b215288',
     text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce sodales urna in turpis laoreet, et feugiat justo maximus. ',
     isAnonymous: false,
     isPublic: true,
@@ -21,6 +23,7 @@ const DUMMY_PUBLIC_SHARING_POST_EVENT = {
 const DUMMY_PUBLIC_ANONYMOUS_SHARING_POST_EVENT = {
   type: 'post',
   payload: {
+    exerciseId: '1a53e633-6916-4fea-a072-977c4b215288',
     text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce sodales urna in turpis laoreet, et feugiat justo maximus. ',
     isAnonymous: true,
     isPublic: true,
@@ -30,6 +33,7 @@ const DUMMY_PUBLIC_ANONYMOUS_SHARING_POST_EVENT = {
 const DUMMY_PRIVATE_SHARING_POST_EVENT = {
   type: 'post',
   payload: {
+    exerciseId: '1a53e633-6916-4fea-a072-977c4b215288',
     text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce sodales urna in turpis laoreet, et feugiat justo maximus. ',
     isAnonymous: true,
     isPublic: false,
@@ -39,6 +43,7 @@ const DUMMY_PRIVATE_SHARING_POST_EVENT = {
 const DUMMY_SHARING_POST = {
   type: 'text',
   item: {
+    exerciseId: '1a53e633-6916-4fea-a072-977c4b215288',
     text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce sodales urna in turpis laoreet, et feugiat justo maximus. ',
     userProfile: {
       displayName: 'Jenny Rickardsson',
@@ -51,6 +56,7 @@ const DUMMY_SHARING_POST = {
 const DUMMY_ANONYMOUS_SHARING_POST = {
   type: 'text',
   item: {
+    exerciseId: '1a53e633-6916-4fea-a072-977c4b215288',
     text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce sodales urna in turpis laoreet, et feugiat justo maximus. ',
     userProfile: null,
   },
@@ -59,6 +65,7 @@ const DUMMY_ANONYMOUS_SHARING_POST = {
 const DUMMY_VIDEO_SHARING_POST = {
   type: 'video',
   item: {
+    exerciseId: '1a53e633-6916-4fea-a072-977c4b215288',
     video: {
       source:
         'https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1698746327/Video/summer_awp_exercise1_1-90th_birthday._Sharing_ajcory.mp4',
@@ -78,6 +85,7 @@ const DUMMY_VIDEO_SHARING_POST = {
 const DUMMY_LONG_SHARING_POST = {
   type: 'text',
   item: {
+    exerciseId: '1a53e633-6916-4fea-a072-977c4b215288',
     text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce sodales urna in turpis laoreet, et feugiat justo maximus. Morbi lacinia consequat aliquam. Morbi sed varius ligula, eget gravida odio. Nulla eu enim at tellus iaculis vulputate ac suscipit elit. Praesent vulputate odio in erat elementum, id congue neque viverra. Phasellus id ligula scelerisque metus dapibus facilisis. Sed vel nibh in eros lobortis tempus nec ut diam. Nulla at congue sapien. Vivamus iaculis mi in leo placerat, egestas consequat orci consectetur. Phasellus lectus nibh, imperdiet nec est ac, ornare ullamcorper libero. Nullam ac felis ut turpis ultricies aliquam pellentesque auctor dolor.',
     userProfile: {
       displayName: 'Jenny Rickardsson',
@@ -119,6 +127,40 @@ export const SharingPostCards = () => (
     <Heading16>Clipped video sharing post</Heading16>
     <MaxHeight>
       <SharingPostCard sharingPost={DUMMY_VIDEO_SHARING_POST} clip />
+    </MaxHeight>
+  </ScreenWrapper>
+);
+
+export const ExerciseSharingPostCards = () => (
+  <ScreenWrapper>
+    <Heading16>Public sharing post event</Heading16>
+    <ExerciseSharingPostCard sharingPost={DUMMY_PUBLIC_SHARING_POST_EVENT} />
+    <Spacer28 />
+    <Heading16>Public anonymous sharing post event</Heading16>
+    <ExerciseSharingPostCard
+      sharingPost={DUMMY_PUBLIC_ANONYMOUS_SHARING_POST_EVENT}
+    />
+    <Spacer28 />
+    <Heading16>Private sharing post event</Heading16>
+    <ExerciseSharingPostCard sharingPost={DUMMY_PRIVATE_SHARING_POST_EVENT} />
+    <Spacer28 />
+    <Heading16>Sharing post</Heading16>
+    <ExerciseSharingPostCard sharingPost={DUMMY_SHARING_POST} />
+    <Spacer28 />
+    <Heading16>Anonymous sharing post</Heading16>
+    <ExerciseSharingPostCard sharingPost={DUMMY_ANONYMOUS_SHARING_POST} />
+    <Spacer28 />
+    <Heading16>Video sharing post</Heading16>
+    <ExerciseSharingPostCard sharingPost={DUMMY_VIDEO_SHARING_POST} />
+    <Spacer28 />
+    <Heading16>Clipped sharing post</Heading16>
+    <MaxHeight>
+      <ExerciseSharingPostCard sharingPost={DUMMY_LONG_SHARING_POST} clip />
+    </MaxHeight>
+    <Spacer28 />
+    <Heading16>Clipped video sharing post</Heading16>
+    <MaxHeight>
+      <ExerciseSharingPostCard sharingPost={DUMMY_VIDEO_SHARING_POST} clip />
     </MaxHeight>
   </ScreenWrapper>
 );

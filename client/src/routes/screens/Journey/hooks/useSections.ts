@@ -7,7 +7,7 @@ import {useTranslation} from 'react-i18next';
 import useCompletedSessions from '../../../../lib/sessions/hooks/useCompletedSessions';
 import useSessions from '../../../../lib/sessions/hooks/useSessions';
 import usePinnedCollections from '../../../../lib/user/hooks/usePinnedCollections';
-import useSharingPosts from '../../../../lib/posts/hooks/useSharingPosts';
+import useSessionSharingPosts from '../../../../lib/posts/hooks/useSessionSharingPosts';
 import {SessionMode} from '../../../../../../shared/src/schemas/Session';
 
 const useSections = () => {
@@ -16,7 +16,7 @@ const useSections = () => {
   const {completedSessions} = useCompletedSessions();
   const {pinnedCollections} = usePinnedCollections();
 
-  const {getSharingPostForSession} = useSharingPosts();
+  const {getSharingPostForSession} = useSessionSharingPosts();
 
   return useMemo(() => {
     let sectionsList: Section[] = [];

@@ -52,7 +52,6 @@ import useLiveSessionsByExercise from '../../../../../lib/session/hooks/useLiveS
 import ExerciseCard from '../../../../../lib/components/Cards/SessionCard/ExerciseCard';
 import useExercisesByTags from '../../../../../lib/content/hooks/useExercisesByTags';
 import {Tag as TagType} from '../../../../../../../shared/src/types/generated/Tag';
-import {take} from 'ramda';
 import CoCreators from '../../../../../lib/components/CoCreators/CoCreators';
 import ExerciseGraphic from '../../../../../lib/components/ExerciseGraphic/ExerciseGraphic';
 import BackgroundBlock from '../../../../../lib/components/BackgroundBlock/BackgroundBlock';
@@ -145,8 +144,6 @@ const Tags = styled.View({
   marginTop: -SPACINGS.FOUR,
 });
 
-const MORE_LIKE_THIS_LIMIT = 5;
-
 const SelectTypeStep: React.FC<StepProps> = ({
   setSelectedModeAndType,
   nextStep,
@@ -154,7 +151,7 @@ const SelectTypeStep: React.FC<StepProps> = ({
   selectedExercise,
 }) => {
   const {t} = useTranslation('Modal.CreateSession');
-  const {navigate, popToTop} =
+  const {navigate, goBack} =
     useNavigation<NativeStackNavigationProp<ModalStackProps>>();
   const getExerciseById = useGetExerciseById();
   const startSession = useStartAsyncSession();
@@ -166,37 +163,32 @@ const SelectTypeStep: React.FC<StepProps> = ({
     [getExerciseById, selectedExercise],
   );
 
-  const exercisesByTags = useExercisesByTags(
+  const relatedExercises = useExercisesByTags(
     exercise?.tags as TagType[],
     exercise?.id,
+    5,
   );
 
   const {sessions} = useLiveSessionsByExercise(exercise?.id && exercise, 5);
   const tags = useGetTagsById(exercise?.tags);
 
   const onJoinByInvite = useCallback(() => {
-    popToTop();
+    goBack();
     navigate('AddSessionByInviteModal');
-  }, [popToTop, navigate]);
+  }, [goBack, navigate]);
 
   const onTypePress = useCallback(
     (mode: SessionMode, type: SessionType) => () => {
       setSelectedModeAndType({mode, type});
 
       if (mode === SessionMode.async && selectedExercise) {
-        popToTop();
+        goBack();
         startSession(selectedExercise);
       } else {
         nextStep();
       }
     },
-    [
-      setSelectedModeAndType,
-      nextStep,
-      startSession,
-      popToTop,
-      selectedExercise,
-    ],
+    [setSelectedModeAndType, nextStep, startSession, goBack, selectedExercise],
   );
 
   const onShare = useCallback(() => {
@@ -209,21 +201,10 @@ const SelectTypeStep: React.FC<StepProps> = ({
 
   const onStartPress = useCallback(() => {
     if (selectedExercise) {
-      popToTop();
+      goBack();
       startSession(selectedExercise);
     }
-  }, [startSession, popToTop, selectedExercise]);
-
-  const moreLikeThisExercises = useMemo(
-    () =>
-      take(MORE_LIKE_THIS_LIMIT, exercisesByTags).map(e => (
-        <Fragment key={e.id}>
-          <ExerciseCard exercise={e} onPress={() => popToTop()} />
-          <Spacer16 />
-        </Fragment>
-      )),
-    [exercisesByTags, popToTop],
-  );
+  }, [startSession, goBack, selectedExercise]);
 
   const typeSelection = useMemo(
     () => (
@@ -337,7 +318,7 @@ const SelectTypeStep: React.FC<StepProps> = ({
                   <SessionCard
                     session={item}
                     small
-                    onBeforeContextPress={popToTop}
+                    onBeforeContextPress={goBack}
                   />
                   <Spacer16 />
                 </Fragment>
@@ -356,12 +337,17 @@ const SelectTypeStep: React.FC<StepProps> = ({
             <Spacer24 />
           </>
         )}
-        {Boolean(exercisesByTags?.length) && (
+        {Boolean(relatedExercises?.length) && (
           <BackgroundBlock backgroundColor={COLORS.PURE_WHITE}>
             <Gutters>
               <Heading16>{t('moreLikeThis')}</Heading16>
               <Spacer8 />
-              {moreLikeThisExercises}
+              {relatedExercises.map(exerc => (
+                <Fragment key={exerc.id}>
+                  <ExerciseCard exercise={exerc} onPress={goBack} />
+                  <Spacer16 />
+                </Fragment>
+              ))}
               <Spacer8 />
             </Gutters>
           </BackgroundBlock>

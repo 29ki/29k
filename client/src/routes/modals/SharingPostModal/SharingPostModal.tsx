@@ -15,6 +15,7 @@ import SheetModal from '../../../lib/components/Modals/SheetModal';
 import {
   BottomSafeArea,
   Spacer16,
+  Spacer24,
   Spacer32,
 } from '../../../lib/components/Spacers/Spacer';
 import {COLORS} from '../../../../../shared/src/constants/colors';
@@ -27,6 +28,9 @@ import MediaControls from '../../../lib/components/MediaControls/MediaControls';
 import Subtitles from '../../../lib/components/Subtitles/Subtitles';
 import {StyleSheet} from 'react-native';
 import SharingPostCard from '../../../lib/components/PostCard/SharingPostCard';
+import ExerciseCard from '../../../lib/components/Cards/SessionCard/ExerciseCard';
+import useExerciseById from '../../../lib/content/hooks/useExerciseById';
+import RelatedSessions from './components/RelatedSessions';
 
 const Wrapper = styled(Gutters)({
   flex: 1,
@@ -57,11 +61,16 @@ const SubtitleContainer = styled.View({
 
 const SharingPostModal = () => {
   const {
-    params: {sharingPost},
+    params: {sharingPost, showRelated},
   } = useRoute<RouteProp<ModalStackProps, 'SharingPostModal'>>();
 
   const video =
     sharingPost.type === 'video' ? sharingPost.item.video : undefined;
+
+  const exerciseId =
+    sharingPost.type === 'post'
+      ? sharingPost.payload.exerciseId
+      : sharingPost.item.exerciseId;
 
   const {goBack} = useNavigation();
   const videoRef = useRef<VideoLooper>(null);
@@ -72,6 +81,8 @@ const SharingPostModal = () => {
     video?.subtitles ? false : undefined,
   );
   const [isLoading, setIsLoading] = useState(true);
+
+  const exercise = useExerciseById(exerciseId);
 
   const videoSources = useMemo(() => {
     if (video) {
@@ -124,8 +135,16 @@ const SharingPostModal = () => {
       <SheetModal backgroundColor={COLORS.PURE_WHITE}>
         <BottomSheetScrollView focusHook={useIsFocused}>
           <Gutters>
+            {showRelated && exercise && (
+              <>
+                <ExerciseCard exercise={exercise} />
+                <Spacer16 />
+              </>
+            )}
             <SharingPostCard sharingPost={sharingPost} />
+            <Spacer24 />
           </Gutters>
+          {showRelated && exercise && <RelatedSessions exercise={exercise} />}
           <BottomSafeArea minSize={SPACINGS.SIXTEEN} />
         </BottomSheetScrollView>
       </SheetModal>

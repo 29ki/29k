@@ -39,7 +39,7 @@ import {
   useNavigation,
   useRoute,
 } from '@react-navigation/native';
-import useSharingPosts from '../../../lib/posts/hooks/useSharingPosts';
+import useSessionSharingPosts from '../../../lib/posts/hooks/useSessionSharingPosts';
 import {
   AppStackProps,
   ModalStackProps,
@@ -104,7 +104,7 @@ const SharingModal = () => {
   const {t} = useTranslation('Modal.Sharing');
   const user = useUser();
   const sessionState = useAsyncSessionSlideState();
-  const {addSharingPost} = useSharingPosts(exerciseId);
+  const {addSharingPost} = useSessionSharingPosts(exerciseId);
   const [isPublic, setIsPublic] = useState(true);
   const [isAnonymous, setIsAnonymous] = useState(true);
   const [text, setText] = useState('');
