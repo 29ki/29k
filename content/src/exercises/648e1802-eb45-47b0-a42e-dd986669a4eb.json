@@ -99,7 +99,7 @@
       "textColor": "#2E2E2E",
       "backgroundColor": "#f7dfc9"
     },
-    "hidden": true,
+    "hidden": false,
     "name": "Seeing kindness",
     "live": true,
     "published": true,
