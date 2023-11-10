@@ -4,7 +4,7 @@ import {transformTimestamp} from '../modelUtils/transform';
 import {LanguageSchema} from './Language';
 import {UserSchema} from './User';
 
-const PostFiledsSchema = yup.object({
+const PostFieldsSchema = yup.object({
   id: yup.string().required(),
   exerciseId: yup.string().required(),
   sharingId: yup.string().required(),
@@ -13,7 +13,7 @@ const PostFiledsSchema = yup.object({
   approved: yup.boolean().required(),
   text: yup.string().required(),
 });
-export type PostFieldsType = yup.InferType<typeof PostFiledsSchema>;
+export type PostFieldsType = yup.InferType<typeof PostFieldsSchema>;
 
 export const PostSchema = yup
   .object({
@@ -21,7 +21,7 @@ export const PostSchema = yup
     updatedAt: transformTimestamp.required(),
     userProfile: yup.object().concat(UserSchema).nullable(),
   })
-  .concat(PostFiledsSchema);
+  .concat(PostFieldsSchema);
 export type PostType = yup.InferType<typeof PostSchema>;
 
 export const CreatePostSchema = PostSchema.pick([
