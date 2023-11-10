@@ -79,6 +79,7 @@ export type ModalStackProps = {
   SharingModal: {exerciseId: string};
   SharingPostModal: {
     sharingPost: PostEvent | PostItem;
+    showRelated?: boolean;
   };
   FeedbackPostModal: {
     feedbackPost: FeedbackEvent | Feedback;

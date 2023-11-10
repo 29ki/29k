@@ -47,13 +47,21 @@ import useUserEvents from '../../../lib/user/hooks/useUserEvents';
 import CollectionCardContainer from '../../../lib/components/Cards/CollectionCards/CollectionCardContainer';
 import useGetRelativeDateGroup from '../../../lib/date/hooks/useGetRelativeDateGroup';
 import useResumeFromBackgrounded from '../../../lib/appState/hooks/useResumeFromBackgrounded';
+import useSharingPosts from '../../../lib/posts/hooks/useSharingPosts';
+import {PostItem} from '../../../lib/posts/types/PostItem';
+import SharingPosts from './components/SharingPosts';
 
-type Section = {
-  title: string;
-  data: LiveSessionType[];
-  type: 'hostedBy' | 'interested' | 'comming';
-  beyondThisWeek?: boolean;
-};
+type Section =
+  | {
+      title: string;
+      data: LiveSessionType[];
+      type: 'hostedBy' | 'interested' | 'comming';
+    }
+  | {
+      title: string;
+      data: [PostItem[]];
+      type: 'sharingPosts';
+    };
 
 const AddButton = styled(Button)({
   alignSelf: 'center',
@@ -143,11 +151,26 @@ const renderSession = ({
   </Gutters>
 );
 
-const renderListItem: SectionListRenderItem<LiveSessionType, Section> = ({
+const renderSharingPosts = ({
   item,
-  section,
-  index,
-}) => renderSession({item: item as LiveSessionType, section, index});
+}: {
+  item: PostItem[];
+  section: Section;
+  index: number;
+}) => (
+  <>
+    <SharingPosts sharingPosts={item} />
+    <Spacer16 />
+  </>
+);
+
+const renderListItem: SectionListRenderItem<
+  LiveSessionType | PostItem[],
+  Section
+> = ({item, section, index}) =>
+  section.type === 'sharingPosts'
+    ? renderSharingPosts({item: item as PostItem[], section, index})
+    : renderSession({item: item as LiveSessionType, section, index});
 
 const Home = () => {
   const {t} = useTranslation('Screen.Home');
@@ -155,6 +178,7 @@ const Home = () => {
     useNavigation<NativeStackNavigationProp<OverlayStackProps>>();
   const {fetchSessions, sessions, pinnedSessions, hostedSessions} =
     useSessions();
+  const {sharingPosts, fetchSharingPosts} = useSharingPosts();
   const getRelativeDateGroup = useGetRelativeDateGroup();
   const listRef = useRef<SectionList<LiveSessionType, Section>>(null);
   const [isLoading, setIsLoading] = useState(false);
@@ -180,6 +204,7 @@ const Home = () => {
         type: 'interested',
       });
     }
+
     if (sessions.length > 0) {
       Object.entries(
         groupBy(
@@ -195,25 +220,44 @@ const Home = () => {
       });
     }
 
+    if (sharingPosts.length > 0) {
+      sectionsList.push({
+        title: t('sections.sharingPosts'),
+        data: [sharingPosts],
+        type: 'sharingPosts',
+      });
+    }
+
     sectionsList.push(...beyondThisWeek);
 
     return sectionsList;
-  }, [sessions, pinnedSessions, hostedSessions, t, getRelativeDateGroup]);
+  }, [
+    sessions,
+    sharingPosts,
+    pinnedSessions,
+    hostedSessions,
+    t,
+    getRelativeDateGroup,
+  ]);
+
+  const fetch = useCallback(async () => {
+    await Promise.all([fetchSessions(), fetchSharingPosts()]);
+  }, [fetchSessions, fetchSharingPosts]);
 
   useEffect(() => {
-    fetchSessions();
-  }, [fetchSessions]);
+    fetch();
+  }, [fetch]);
 
   const refreshPull = useCallback(async () => {
     try {
       setIsLoading(true);
-      await fetchSessions();
+      await fetch();
       setIsLoading(false);
     } catch (e: any) {
       setIsLoading(false);
       throw e;
     }
-  }, [setIsLoading, fetchSessions]);
+  }, [setIsLoading, fetch]);
 
   const onPressEllipsis = useCallback(() => {
     navigate('AboutOverlay');
@@ -223,10 +267,10 @@ const Home = () => {
     () =>
       throttle(() => {
         if (isFocused) {
-          fetchSessions();
+          fetch();
         }
       }, 5 * 60000),
-    [fetchSessions, isFocused],
+    [fetch, isFocused],
   );
 
   useEffect(throttledRefresh, [throttledRefresh]);

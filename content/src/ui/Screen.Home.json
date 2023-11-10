@@ -5,7 +5,8 @@
     "sections": {
       "hostedBy": "Your sessions",
       "interested": "Going",
-      "comming": "Upcoming sessions"
+      "comming": "Upcoming sessions",
+      "sharingPosts": "What others are doing"
     }
   },
   "pt": {
@@ -37,7 +38,8 @@
     "sections": {
       "hostedBy": "Dina sessioner",
       "comming": "Kommande sessioner",
-      "interested": ""
+      "interested": "",
+      "sharingPosts": "Vad andra gör"
     }
   },
   "es": {}
