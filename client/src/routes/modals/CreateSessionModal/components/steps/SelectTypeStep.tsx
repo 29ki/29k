@@ -151,7 +151,7 @@ const SelectTypeStep: React.FC<StepProps> = ({
   selectedExercise,
 }) => {
   const {t} = useTranslation('Modal.CreateSession');
-  const {navigate, popToTop} =
+  const {navigate, goBack} =
     useNavigation<NativeStackNavigationProp<ModalStackProps>>();
   const getExerciseById = useGetExerciseById();
   const startSession = useStartAsyncSession();
@@ -173,28 +173,22 @@ const SelectTypeStep: React.FC<StepProps> = ({
   const tags = useGetTagsById(exercise?.tags);
 
   const onJoinByInvite = useCallback(() => {
-    popToTop();
+    goBack();
     navigate('AddSessionByInviteModal');
-  }, [popToTop, navigate]);
+  }, [goBack, navigate]);
 
   const onTypePress = useCallback(
     (mode: SessionMode, type: SessionType) => () => {
       setSelectedModeAndType({mode, type});
 
       if (mode === SessionMode.async && selectedExercise) {
-        popToTop();
+        goBack();
         startSession(selectedExercise);
       } else {
         nextStep();
       }
     },
-    [
-      setSelectedModeAndType,
-      nextStep,
-      startSession,
-      popToTop,
-      selectedExercise,
-    ],
+    [setSelectedModeAndType, nextStep, startSession, goBack, selectedExercise],
   );
 
   const onShare = useCallback(() => {
@@ -207,10 +201,10 @@ const SelectTypeStep: React.FC<StepProps> = ({
 
   const onStartPress = useCallback(() => {
     if (selectedExercise) {
-      popToTop();
+      goBack();
       startSession(selectedExercise);
     }
-  }, [startSession, popToTop, selectedExercise]);
+  }, [startSession, goBack, selectedExercise]);
 
   const typeSelection = useMemo(
     () => (
@@ -324,7 +318,7 @@ const SelectTypeStep: React.FC<StepProps> = ({
                   <SessionCard
                     session={item}
                     small
-                    onBeforeContextPress={popToTop}
+                    onBeforeContextPress={goBack}
                   />
                   <Spacer16 />
                 </Fragment>
@@ -350,7 +344,7 @@ const SelectTypeStep: React.FC<StepProps> = ({
               <Spacer8 />
               {relatedExercises.map(exerc => (
                 <Fragment key={exerc.id}>
-                  <ExerciseCard exercise={exerc} />
+                  <ExerciseCard exercise={exerc} onPress={goBack} />
                   <Spacer16 />
                 </Fragment>
               ))}
