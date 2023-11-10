@@ -1,0 +1,75 @@
+{
+  "en": {
+    "hidden": true,
+    "name": "A sustainable you",
+    "published": true,
+    "sortOrder": 2,
+    "tags": [
+      "9c2c08a9-7dc6-4058-bc78-016d0eb00614",
+      "cfc00217-f65b-4a4d-8b82-8ccc8f852dd6"
+    ],
+    "id": "dcb02b73-c515-44a1-bee3-850dbd5eb2a1",
+    "image": {
+      "source": "https://res.cloudinary.com/cupcake-29k/image/upload/v1697618661/Images/youth_IDG_collection_roejxe.png"
+    },
+    "exercises": [
+      "fff6f8da-f69c-458f-8905-acee04bd1a1d",
+      "5b69ff57-10c4-4288-afc7-a6f6ed212531",
+      "12f448d2-39bc-4232-b8cf-b6cb570c7e00",
+      "648e1802-eb45-47b0-a42e-dd986669a4eb",
+      "c7911238-ca9f-4499-9cae-63dfcd0c79c5"
+    ],
+    "description": "Doing what matters – for a better tomorrow."
+  },
+  "pt": {
+    "published": false,
+    "hidden": false,
+    "id": "dcb02b73-c515-44a1-bee3-850dbd5eb2a1",
+    "tags": [
+      "9c2c08a9-7dc6-4058-bc78-016d0eb00614",
+      "cfc00217-f65b-4a4d-8b82-8ccc8f852dd6"
+    ],
+    "sortOrder": 2,
+    "exercises": [
+      "fff6f8da-f69c-458f-8905-acee04bd1a1d",
+      "5b69ff57-10c4-4288-afc7-a6f6ed212531",
+      "12f448d2-39bc-4232-b8cf-b6cb570c7e00",
+      "648e1802-eb45-47b0-a42e-dd986669a4eb",
+      "c7911238-ca9f-4499-9cae-63dfcd0c79c5"
+    ]
+  },
+  "sv": {
+    "published": false,
+    "hidden": false,
+    "id": "dcb02b73-c515-44a1-bee3-850dbd5eb2a1",
+    "tags": [
+      "9c2c08a9-7dc6-4058-bc78-016d0eb00614",
+      "cfc00217-f65b-4a4d-8b82-8ccc8f852dd6"
+    ],
+    "sortOrder": 2,
+    "exercises": [
+      "fff6f8da-f69c-458f-8905-acee04bd1a1d",
+      "5b69ff57-10c4-4288-afc7-a6f6ed212531",
+      "12f448d2-39bc-4232-b8cf-b6cb570c7e00",
+      "648e1802-eb45-47b0-a42e-dd986669a4eb",
+      "c7911238-ca9f-4499-9cae-63dfcd0c79c5"
+    ]
+  },
+  "es": {
+    "published": false,
+    "hidden": false,
+    "id": "dcb02b73-c515-44a1-bee3-850dbd5eb2a1",
+    "tags": [
+      "9c2c08a9-7dc6-4058-bc78-016d0eb00614",
+      "cfc00217-f65b-4a4d-8b82-8ccc8f852dd6"
+    ],
+    "sortOrder": 2,
+    "exercises": [
+      "fff6f8da-f69c-458f-8905-acee04bd1a1d",
+      "5b69ff57-10c4-4288-afc7-a6f6ed212531",
+      "12f448d2-39bc-4232-b8cf-b6cb570c7e00",
+      "648e1802-eb45-47b0-a42e-dd986669a4eb",
+      "c7911238-ca9f-4499-9cae-63dfcd0c79c5"
+    ]
+  }
+}
