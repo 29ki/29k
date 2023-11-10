@@ -138,7 +138,7 @@ const SessionModal = () => {
     params: {session},
   } = useRoute<RouteProp<ModalStackProps, 'SessionModal'>>();
 
-  const {t} = useTranslation('Overlay.Session');
+  const {t} = useTranslation('Modal.Session');
   const user = useUser();
 
   const initialStartTime = dayjs(session.startTime).utc();
