@@ -59,7 +59,7 @@ type Section =
     }
   | {
       title: string;
-      data: [PostItem[]];
+      data: Array<PostItem[]>;
       type: 'sharingPosts';
     };
 
@@ -180,7 +180,7 @@ const Home = () => {
     useSessions();
   const {sharingPosts, fetchSharingPosts} = useSharingPosts();
   const getRelativeDateGroup = useGetRelativeDateGroup();
-  const listRef = useRef<SectionList<LiveSessionType, Section>>(null);
+  const listRef = useRef(null);
   const [isLoading, setIsLoading] = useState(false);
   const isFocused = useIsFocused();
 
@@ -221,14 +221,13 @@ const Home = () => {
     }
 
     if (sharingPosts.length > 0) {
-      sectionsList.push({
+      // Insert at second place
+      sectionsList.splice(2, 0, {
         title: t('sections.sharingPosts'),
         data: [sharingPosts],
         type: 'sharingPosts',
       });
     }
-
-    sectionsList.push(...beyondThisWeek);
 
     return sectionsList;
   }, [
@@ -285,10 +284,9 @@ const Home = () => {
         onPressEllipsis={onPressEllipsis}>
         <MiniProfile />
       </TopBar>
-      <SectionList
+      <SectionList<LiveSessionType | PostItem[], Section>
         ref={listRef}
         sections={sections}
-        keyExtractor={session => session.id}
         ListHeaderComponent={GetStarted}
         ListFooterComponent={Spacer48}
         stickySectionHeadersEnabled
