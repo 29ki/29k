@@ -21,24 +21,24 @@ export const AllTypes = () => (
     </Wrapper>
     <Spacer8 />
     <Wrapper>
-      <ProfilePicture size={30} />
+      <ProfilePicture size={24} />
       <Spacer8 />
-      <ProfilePicture size={30} hasError />
+      <ProfilePicture size={24} hasError />
     </Wrapper>
     <Spacer16 />
 
     <Heading16>Letter</Heading16>
     <Spacer8 />
     <Wrapper>
-      <ProfilePicture letter="A" />
+      <ProfilePicture letter="X" />
       <Spacer8 />
-      <ProfilePicture hasError letter="A" />
+      <ProfilePicture hasError letter="X" />
     </Wrapper>
     <Spacer8 />
     <Wrapper>
-      <ProfilePicture size={30} letter="A" />
+      <ProfilePicture size={24} letter="X" />
       <Spacer8 />
-      <ProfilePicture size={30} hasError letter="A" />
+      <ProfilePicture size={24} hasError letter="X" />
     </Wrapper>
     <Spacer16 />
 
@@ -55,12 +55,12 @@ export const AllTypes = () => (
     <Spacer8 />
     <Wrapper>
       <ProfilePicture
-        size={30}
+        size={24}
         pictureURL="https://camo.githubusercontent.com/2281c4cf181309c6c41eb8e1388e4f3e9d192b8b1d8d2c7e1df042968c3e79cf/68747470733a2f2f7265732e636c6f7564696e6172792e636f6d2f63757063616b652d32396b2f696d6167652f75706c6f61642f745f70726f66696c655f706963747572652f76313636353431333734302f436f6e7472696275746f72732f4e616d25323056752e706e673f733d313030"
       />
       <Spacer8 />
       <ProfilePicture
-        size={30}
+        size={24}
         hasError
         pictureURL="https://camo.githubusercontent.com/2281c4cf181309c6c41eb8e1388e4f3e9d192b8b1d8d2c7e1df042968c3e79cf/68747470733a2f2f7265732e636c6f7564696e6172792e636f6d2f63757063616b652d32396b2f696d6167652f75706c6f61642f745f70726f66696c655f706963747572652f76313636353431333734302f436f6e7472696275746f72732f4e616d25323056752e706e673f733d313030"
       />
@@ -72,16 +72,16 @@ export const AllTypes = () => (
     <Wrapper>
       <ProfilePicture backgroundColor="darksalmon" />
       <Spacer8 />
-      <ProfilePicture backgroundColor="darksalmon" letter="A" hasError />
+      <ProfilePicture backgroundColor="darksalmon" letter="X" hasError />
     </Wrapper>
     <Spacer8 />
     <Wrapper>
-      <ProfilePicture size={30} backgroundColor="darksalmon" />
+      <ProfilePicture size={24} backgroundColor="darksalmon" />
       <Spacer8 />
       <ProfilePicture
-        size={30}
+        size={24}
         backgroundColor="darksalmon"
-        letter="A"
+        letter="X"
         hasError
       />
     </Wrapper>
@@ -90,7 +90,7 @@ export const AllTypes = () => (
     <Heading16>With onPress</Heading16>
     <Spacer8 />
     <Wrapper>
-      <ProfilePicture onPress={() => Alert.alert('ACTION!')} letter="A" />
+      <ProfilePicture onPress={() => Alert.alert('ACTION!')} letter="X" />
       <Spacer8 />
       <ProfilePicture
         onPress={() => Alert.alert('ACTION!')}
@@ -100,13 +100,13 @@ export const AllTypes = () => (
     <Spacer8 />
     <Wrapper>
       <ProfilePicture
-        size={30}
+        size={24}
         onPress={() => Alert.alert('ACTION!')}
-        letter="A"
+        letter="X"
       />
       <Spacer8 />
       <ProfilePicture
-        size={30}
+        size={24}
         onPress={() => Alert.alert('ACTION!')}
         pictureURL="https://camo.githubusercontent.com/2281c4cf181309c6c41eb8e1388e4f3e9d192b8b1d8d2c7e1df042968c3e79cf/68747470733a2f2f7265732e636c6f7564696e6172792e636f6d2f63757063616b652d32396b2f696d6167652f75706c6f61642f745f70726f66696c655f706963747572652f76313636353431333734302f436f6e7472696275746f72732f4e616d25323056752e706e673f733d313030"
       />
@@ -116,7 +116,7 @@ export const AllTypes = () => (
     <Heading16>Loading</Heading16>
     <Spacer8 />
     <Wrapper>
-      <ProfilePicture loading letter="A" />
+      <ProfilePicture loading letter="X" />
       <Spacer8 />
       <ProfilePicture
         loading
@@ -125,10 +125,10 @@ export const AllTypes = () => (
     </Wrapper>
     <Spacer8 />
     <Wrapper>
-      <ProfilePicture size={30} loading letter="A" />
+      <ProfilePicture size={24} loading letter="X" />
       <Spacer8 />
       <ProfilePicture
-        size={30}
+        size={24}
         loading
         pictureURL="https://camo.githubusercontent.com/2281c4cf181309c6c41eb8e1388e4f3e9d192b8b1d8d2c7e1df042968c3e79cf/68747470733a2f2f7265732e636c6f7564696e6172792e636f6d2f63757063616b652d32396b2f696d6167652f75706c6f61642f745f70726f66696c655f706963747572652f76313636353431333734302f436f6e7472696275746f72732f4e616d25323056752e706e673f733d313030"
       />
