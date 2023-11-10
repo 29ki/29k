@@ -5,15 +5,18 @@ import {Exercise} from '../../../../../../shared/src/types/generated/Exercise';
 import {ModalStackProps} from '../../../navigation/constants/routes';
 import {formatContentName} from '../../../utils/string';
 import CardSmall from '../CardSmall';
+import {ViewStyle} from 'react-native';
 
 type ExerciseCardContainerProps = {
   exercise: Exercise;
   onPress?: () => void;
+  style?: ViewStyle;
 };
 
 const ExerciseCard: React.FC<ExerciseCardContainerProps> = ({
   exercise,
   onPress = () => {},
+  style,
 }) => {
   const {navigate} =
     useNavigation<NativeStackNavigationProp<ModalStackProps>>();
@@ -32,6 +35,7 @@ const ExerciseCard: React.FC<ExerciseCardContainerProps> = ({
       title={formatContentName(exercise)}
       graphic={exercise?.card}
       onPress={onPressHandle}
+      style={style}
     />
   );
 };
