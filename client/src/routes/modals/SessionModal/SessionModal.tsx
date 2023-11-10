@@ -133,8 +133,6 @@ const Tags = styled(Gutters)({
   marginTop: -SPACINGS.FOUR,
 });
 
-const MORE_LIKE_THIS_LIMIT = 5;
-
 const SessionModal = () => {
   const {
     params: {session},

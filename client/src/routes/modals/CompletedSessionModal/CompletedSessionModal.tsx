@@ -96,8 +96,6 @@ const Tags = styled(Gutters)({
 
 const ButtonWrapper = styled.View({flexDirection: 'row'});
 
-const MORE_LIKE_THIS_LIMIT = 5;
-
 const CompletedSessionModal = () => {
   const {
     params: {completedSessionEvent},

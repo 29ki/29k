@@ -144,8 +144,6 @@ const Tags = styled.View({
   marginTop: -SPACINGS.FOUR,
 });
 
-const MORE_LIKE_THIS_LIMIT = 5;
-
 const SelectTypeStep: React.FC<StepProps> = ({
   setSelectedModeAndType,
   nextStep,
