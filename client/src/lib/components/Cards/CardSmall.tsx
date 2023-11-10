@@ -66,7 +66,7 @@ type CardProps = {
   title?: string;
   tags?: Array<string>;
   graphic?: ExerciseCard;
-  onPress: () => void;
+  onPress?: () => void;
   hostProfile?: UserType | null;
   completed?: boolean;
   style?: ViewStyle;
@@ -95,6 +95,7 @@ export const CardSmall: React.FC<CardProps> = ({
   return (
     <Wrapper
       onPress={onPress}
+      disabled={!onPress}
       style={style}
       backgroundColor={completed ? COLORS.LIGHT_GREEN : COLORS.CREAM}>
       <Main>
@@ -117,7 +118,7 @@ export const CardSmall: React.FC<CardProps> = ({
             <Spacer4 />
           </>
         )}
-        <Title numberOfLines={children || tags ? 1 : 2}>{title}</Title>
+        <Title numberOfLines={children || tags ? 1 : 3}>{title}</Title>
         {hostProfile && (
           <>
             <Spacer4 />

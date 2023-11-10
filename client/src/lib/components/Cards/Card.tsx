@@ -113,7 +113,7 @@ export const Card: React.FC<CardProps> = ({
   );
 
   return (
-    <Wrapper onPress={onPress} style={style}>
+    <Wrapper onPress={onPress} disabled={!onPress} style={style}>
       <Tags>
         {interestedCount ? (
           <>
