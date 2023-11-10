@@ -26,7 +26,7 @@
     "@types/jest": "^29.5.7",
     "@types/node": "^20.9.0",
     "@types/react": "^18.2.36",
-    "@types/react-dom": "^18.2.14",
+    "@types/react-dom": "^18.2.15",
     "@types/uuid": "^9.0.6",
     "@typescript-eslint/eslint-plugin": "^5.62.0",
     "@typescript-eslint/parser": "^5.62.0",
