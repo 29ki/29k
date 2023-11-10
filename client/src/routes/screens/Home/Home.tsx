@@ -188,7 +188,6 @@ const Home = () => {
 
   const sections = useMemo(() => {
     let sectionsList: Section[] = [];
-    let beyondThisWeek: Section[] = [];
 
     if (hostedSessions.length > 0) {
       sectionsList.push({
