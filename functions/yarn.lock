@@ -1608,10 +1608,10 @@
   resolved "https://registry.yarnpkg.com/@types/mjml-core/-/mjml-core-4.7.1.tgz#c2627499045b54eccfca38e2b532566fb0689189"
   integrity sha512-k5IRafi93tyZBGF+0BTrcBDvG47OueI+Q7TC4V4UjGQn0AMVvL3Y+S26QF/UHMmMJW5r1hxLyv3StX2/+FatFg==
 
-"@types/mjml@^4.7.3":
-  version "4.7.3"
-  resolved "https://registry.yarnpkg.com/@types/mjml/-/mjml-4.7.3.tgz#ddefa204819c8a39d35c311c190765a9cad14e67"
-  integrity sha512-havWNfdB5mAYVds75XwCKm1aeh7GtXigBVWcxDY+zU2EAXY2TdvjZuy1AcLi76IssDqk8S9a1iwIaYtPrCb0tA==
+"@types/mjml@^4.7.4":
+  version "4.7.4"
+  resolved "https://registry.yarnpkg.com/@types/mjml/-/mjml-4.7.4.tgz#f486c9e39dd1e5cf52e13e64bdc762be116e957d"
+  integrity sha512-vyi1vzWgMzFMwZY7GSZYX0GU0dmtC8vLHwpgk+NWmwbwRSrlieVyJ9sn5elodwUfklJM7yGl0zQeet1brKTWaQ==
   dependencies:
     "@types/mjml-core" "*"
 
