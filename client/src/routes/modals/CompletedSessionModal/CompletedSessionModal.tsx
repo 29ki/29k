@@ -227,7 +227,7 @@ const CompletedSessionModal = () => {
             </Gutters>
           </>
         )}
-        {feedback && (
+        {feedback && feedback.payload.comment && (
           <Gutters>
             <FeedbackPostCard feedbackPost={feedback} />
             <Spacer24 />
