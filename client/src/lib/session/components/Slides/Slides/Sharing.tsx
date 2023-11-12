@@ -27,6 +27,13 @@ import AutoScrollView from '../../../../components/AutoScrollView/AutoScrollView
 import StickyHeading from '../../../../components/StickyHeading/StickyHeading';
 import {Heading16} from '../../../../components/Typography/Heading/Heading';
 import {SPACINGS} from '../../../../constants/spacings';
+import {Display24} from '../../../../components/Typography/Display/Display';
+
+const StyledDisplay = styled(Display24)<{textColor?: string}>(
+  ({textColor}) => ({
+    color: textColor ?? COLORS.BLACK,
+  }),
+);
 
 const StyledHeading = styled(Heading16)<{textColor?: string}>(
   ({textColor}) => ({
@@ -131,11 +138,20 @@ const Sharing: React.FC<SharingProps> = ({slide}) => {
         />
       )}
       <Spacer16 />
-      <StickyHeading backgroundColor={theme?.backgroundColor}>
-        <StyledHeading textColor={theme?.textColor}>
-          {currentPostEvent ? t('reflectionLabel') : slide.content?.heading}
-        </StyledHeading>
-      </StickyHeading>
+      {currentPostEvent ? (
+        <StickyHeading backgroundColor={theme?.backgroundColor}>
+          <StyledHeading textColor={theme?.textColor}>
+            {t('reflectionLabel')}
+          </StyledHeading>
+        </StickyHeading>
+      ) : (
+        <Gutters>
+          <StyledDisplay textColor={theme?.textColor}>
+            {slide.content?.heading}
+          </StyledDisplay>
+          <Spacer16 />
+        </Gutters>
+      )}
       <Gutters>
         {currentPostEvent ? (
           <SharingPostCard sharingPost={currentPostEvent} />

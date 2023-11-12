@@ -21,7 +21,7 @@ const StickyHeading = styled(LinearGradient).attrs<Props, LinearGradientProps>(
     ],
   }),
 )<Props>({
-  height: HEIGHT,
+  minHeight: HEIGHT,
   paddingHorizontal: GUTTERS.SMALL,
   justifyContent: 'center',
   backgroundColor: 'none',
