@@ -217,6 +217,8 @@ const CompletedSessionModal = () => {
         {sharingPosts && sharingPosts.length > 0 && (
           <>
             <Gutters>
+              <Heading16>{t('yourSharingPost')}</Heading16>
+              <Spacer8 />
               {sharingPosts.map((post, index) => (
                 <Fragment key={index}>
                   <SharingPostCard sharingPost={post} />
@@ -229,6 +231,8 @@ const CompletedSessionModal = () => {
         )}
         {feedback && feedback.payload.comment && (
           <Gutters>
+            <Heading16>{t('yourReview')}</Heading16>
+            <Spacer8 />
             <FeedbackPostCard feedbackPost={feedback} />
             <Spacer24 />
           </Gutters>
