@@ -984,7 +984,7 @@ PODS:
     - React-Core
   - react-native-idle-timer (2.2.1):
     - React-Core
-  - react-native-netinfo (11.0.0):
+  - react-native-netinfo (11.1.0):
     - React-Core
   - react-native-safe-area-context (4.7.4):
     - React-Core
@@ -1061,7 +1061,7 @@ PODS:
     - React-logger (= 0.69.9)
     - React-perflogger (= 0.69.9)
   - ReactNativeDailyJSScreenShareExtension (0.0.1)
-  - RNCAsyncStorage (1.19.3):
+  - RNCAsyncStorage (1.19.5):
     - React-Core
   - RNCPicker (2.5.1):
     - React-Core
@@ -1108,7 +1108,7 @@ PODS:
     - RNNotifee/NotifeeCore (= 7.8.0)
   - RNNotifee/NotifeeCore (7.8.0):
     - React-Core
-  - RNPermissions (3.10.0):
+  - RNPermissions (3.10.1):
     - React-Core
   - RNRate (1.2.12):
     - React-Core
@@ -1497,7 +1497,7 @@ SPEC CHECKSUMS:
   react-native-daily-js: 0ac4be07de149ce491a1802c999b3e232969b6fb
   react-native-get-random-values: dee677497c6a740b71e5612e8dbd83e7539ed5bb
   react-native-idle-timer: f1920a59fe776340d004ff9de13c4a6eedcc8807
-  react-native-netinfo: 5ddbf20865bcffab6b43d0e4e1fd8b3896beb898
+  react-native-netinfo: 3aa5637c18834966e0c932de8ae1ae56fea20a97
   react-native-safe-area-context: 2cd91d532de12acdb0a9cbc8d43ac72a8e4c897c
   react-native-volume-manager: 3c7d8047841b6831730dea7bf25250522388b4f4
   react-native-webrtc: b8f92ed95bff2f8d7189cb544dc647141e6e6dba
@@ -1514,7 +1514,7 @@ SPEC CHECKSUMS:
   React-runtimeexecutor: df1518d092e8c74cafddc56690d1ac386ec24d7a
   ReactCommon: fac40473e2c4117522384027ab33ad0cb6717dc5
   ReactNativeDailyJSScreenShareExtension: 70af702672121fcd283d7d567def4e501ce207b1
-  RNCAsyncStorage: c913ede1fa163a71cea118ed4670bbaaa4b511bb
+  RNCAsyncStorage: f2974eca860c16a3e56eea5771fda8d12e2d2057
   RNCPicker: 529d564911e93598cc399b56cc0769ce3675f8c8
   RNDateTimePicker: 8fb39263b721223e095248acaf6f406d5b7f6713
   RNDeviceInfo: bf8a32acbcb875f568217285d1793b0e8588c974
@@ -1527,7 +1527,7 @@ SPEC CHECKSUMS:
   RNImageCropPicker: 521d8ef2dcf0549f141dbf82d086c75e3a9fbe65
   RNLocalize: d4b8af4e442d4bcca54e68fc687a2129b4d71a81
   RNNotifee: f3c01b391dd8e98e67f539f9a35a9cbcd3bae744
-  RNPermissions: 759ad73ead4a24e769fcabca65e98b53428c04c2
+  RNPermissions: 42370ce230eeba6c45f61d5daa9bf5d0b9909b34
   RNRate: ef3bcff84f39bb1d1e41c5593d3eea4aab2bd73a
   RNReactNativeHapticFeedback: ec56a5f81c3941206fd85625fa669ffc7b4545f9
   RNReanimated: c6f8f70e96dd6ca21b65aef9b3e4efe4965db905

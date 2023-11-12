@@ -1652,10 +1652,10 @@
     "@pnpm/network.ca-file" "^1.0.1"
     config-chain "^1.1.11"
 
-"@react-native-async-storage/async-storage@^1.19.3":
-  version "1.19.3"
-  resolved "https://registry.yarnpkg.com/@react-native-async-storage/async-storage/-/async-storage-1.19.3.tgz#ad5fe3ed0a82d4624aa4500321c1e09c02daeb46"
-  integrity sha512-CwGfoHCWdPOTPS+2fW6YRE1fFBpT9++ahLEroX5hkgwyoQ+TkmjOaUxixdEIoVua9Pz5EF2pGOIJzqOTMWfBlA==
+"@react-native-async-storage/async-storage@^1.19.5":
+  version "1.19.5"
+  resolved "https://registry.yarnpkg.com/@react-native-async-storage/async-storage/-/async-storage-1.19.5.tgz#d59dd493b2b25346412085dd48896cabca011eed"
+  integrity sha512-zLT7oNPXpW8BxJyHyq8AJbXtlHE/eonFWuJt44y0WeCGnp4KOJ8mfqD8mtAIKLyrYHHE1uadFe/s4C+diYAi8g==
   dependencies:
     merge-options "^3.0.4"
 
@@ -1860,10 +1860,10 @@
   resolved "https://registry.yarnpkg.com/@react-native-community/eslint-plugin/-/eslint-plugin-1.2.0.tgz#7d6d789ae8edf73dc9bed1246cd48277edea8066"
   integrity sha512-o6aam+0Ug1xGK3ABYmBm0B1YuEKfM/5kaoZO0eHbZwSpw9UzDX4G5y4Nx/K20FHqUmJHkZmLvOUFYwN4N+HqKA==
 
-"@react-native-community/netinfo@^11.0.0":
-  version "11.0.0"
-  resolved "https://registry.yarnpkg.com/@react-native-community/netinfo/-/netinfo-11.0.0.tgz#64d86d5848e351514d7af9428a73c46eea7b4d5f"
-  integrity sha512-CbUEcRyORAqqnnwqv40s1h7ly1XlGBjjt6g4reRuB+nmOdLRbJJL+whhmIF5T+dwlXIzaGCNOuY7YJC+bx9GqQ==
+"@react-native-community/netinfo@^11.1.0":
+  version "11.1.0"
+  resolved "https://registry.yarnpkg.com/@react-native-community/netinfo/-/netinfo-11.1.0.tgz#b3b2ab741a5d935e445685ade8a53d48775e082b"
+  integrity sha512-pIbCuqgrY7SkngAcjUs9fMzNh1h4soQMVw1IeGp1HN5//wox3fUVOuvyIubTscUbdLFKiltJAiuQek7Nhx1bqA==
 
 "@react-native-firebase/app@^17.4.2":
   version "17.4.2"
@@ -8644,10 +8644,10 @@ react-native-markdown-display@^7.0.0-alpha.2:
     prop-types "^15.7.2"
     react-native-fit-image "^1.5.5"
 
-react-native-permissions@^3.10.0:
-  version "3.10.0"
-  resolved "https://registry.yarnpkg.com/react-native-permissions/-/react-native-permissions-3.10.0.tgz#946fa7e07908ed90620b3f07eb652f20f482196d"
-  integrity sha512-6SB6JInfC0u54Wco8M1QsRoOGThnVjrhaks5IDWyYgwfi6JpXfTIi+F9fZZmRycyyPCgU8vGtht/5gF4VWEB/A==
+react-native-permissions@^3.10.1:
+  version "3.10.1"
+  resolved "https://registry.yarnpkg.com/react-native-permissions/-/react-native-permissions-3.10.1.tgz#cb0171c8d12113869deaabbdfb979aad1a44752b"
+  integrity sha512-Gc5BxxpjZn4QNUDiVeHOO0vXh3AH7ToolmwTJozqC6DsxV7NAf3ttap+8BSmzDR8WxuAM3Cror+YNiBhHJx7/w==
 
 react-native-rate@^1.2.12:
   version "1.2.12"
