@@ -92,11 +92,9 @@ const Row = styled.View({
 });
 
 const RatingContainer = styled(Gutters)({
+  position: 'absolute',
   flexDirection: 'row',
   alignItems: 'center',
-  position: 'absolute',
-  top: 18,
-  zIndex: 2,
 });
 
 const FeedbackThumb = styled(ThumbsUpWithoutPadding)({
@@ -106,6 +104,7 @@ const FeedbackThumb = styled(ThumbsUpWithoutPadding)({
 
 const TitleContainer = styled.View({
   flex: 2,
+  justifyContent: 'center',
 });
 
 const Graphic = styled(ExerciseGraphic)({
@@ -238,16 +237,15 @@ const SessionModal = () => {
 
   return (
     <SheetModal>
-      {rating && rating.positive > 0 ? (
-        <RatingContainer>
-          <FeedbackThumb />
-          <Spacer4 />
-          <Body16>{rating.positive}</Body16>
-        </RatingContainer>
-      ) : null}
-
       <BottomSheetScrollView focusHook={useIsFocused}>
         <Content>
+          {rating && rating.positive > 0 ? (
+            <RatingContainer>
+              <FeedbackThumb />
+              <Spacer4 />
+              <Body16>{rating.positive}</Body16>
+            </RatingContainer>
+          ) : null}
           <Spacer16 />
           <SpaceBetweenRow>
             <TitleContainer>
