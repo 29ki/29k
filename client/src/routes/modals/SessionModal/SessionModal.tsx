@@ -269,8 +269,8 @@ const SessionModal = () => {
             <Spacer32 />
             <Graphic graphic={exercise.card} />
           </SpaceBetweenRow>
+          <Spacer8 />
         </Content>
-
         <Gutters>
           <Row>
             {startingNow && (

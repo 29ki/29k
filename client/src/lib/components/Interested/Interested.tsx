@@ -63,7 +63,6 @@ const Interested: React.FC<InterestedProps> = ({
             </>
           )}
           <Count>{count}</Count>
-          <Spacer4 />
         </>
       )}
     </Container>
