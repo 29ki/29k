@@ -248,10 +248,10 @@
         "type": "host",
         "hostNotes": [
           {
-            "text": "Welcome. I am X and today we will work for around 30 minutes on acceptance and willingness.\n\nWe’ll be doing a short introduction, listen to a meditation, followed by time for reflection and sharing with each other."
+            "text": "Välkommen. Jag heter X och vi kommer att jobba tillsammans i ungefär 30 minuter med acceptans och villighet\n\nVi kommer att lyssna på en meditation tillsammans, reflektera en stund för oss själva och sedan finns det möjlighet att dela sina erfarenheter för den som vill."
           },
           {
-            "text": "Let’s start with a mini check-in. What brought you here today? Please answer in two-three words. X, would you like to start?\n\n> Let everyone in the session, including yourself, check in one by one.\n\nThank you all for checking in. Let’s get started."
+            "text": "Vi börjar med en mini-check-in. Hur känner du dig just nu? Svara gärna med två-tre ord. Y, skulle du vilja börja?\n\n> Låt alla deltagare, även du själv, checka in en och en.\n\nTack för att ni checkade in. Då kör vi igång."
           }
         ],
         "video": {
@@ -263,10 +263,10 @@
         "type": "content",
         "hostNotes": [
           {
-            "text": "Running into obstacles is a natural part of life. With the things we want in life – like loving relationships, interesting work or becoming parents – the risk of being hurt is always present. Even though we seldom acknowledge it. And often try to avoid it."
+            "text": "Att möta hinder är en naturlig del av livet. Sånt vi vill ha - som kärleksfulla relationer, intressanta arbetsuppgifter eller att bli föräldrar - innehåller också alltid risken att bli sårad. Även om vi inte alltid erkänner det och ofta försöker undvika det."
           },
           {
-            "text": "In the following exercise we’ll be practising experiencing challenging or difficult emotions. Just as they are. As a way to spend less energy trying to avoid the uncomfortable, and more on what matters to us in the long run."
+            "text": "Vi ska öva på att uppleva utmanande eller svåra känslor. Precis som de är. Som ett sätt att lägga mindre energi på att försöka undvika det obekväma och mer på det som verkligen betyder något.\n\n> Tryck på play för att starta ljud-övningen."
           }
         ],
         "content": {
@@ -285,14 +285,14 @@
         "type": "reflection",
         "hostNotes": [
           {
-            "text": "Now we’ll take 1 minute to reflect on our own.\n\nWhat would be different in your life if you practised moving through your difficulties instead of trying to avoid them?"
+            "text": "Nästa steg är att tyst reflektera i en minut.\n\nVad upptäckte du under övningen?\n\nBestäm ett litet beteende som är viktigt för dig, som du kan göra direkt efter sessionen."
           },
           {
-            "text": "You can take notes on a piece of paper or just mental notes in your head. And there is no right or wrong here, our answers are our own. 1 minute starting now.\n\n> Press play to start the timer.\n\nThat’s 1 minute and it’s time to move on."
+            "text": "Om du vill kan du skriva ner dina funderingar på ett papper, eller bara tänka fritt. Det finns inga svar som är rätt eller fel här. Vad som än dyker upp är okej.\n\n> Tryck på play för att starta timern.\n\nDå har det gått en minut och det är dags att gå vidare."
           }
         ],
         "content": {
-          "heading": "What would be different if you moved through difficulties?",
+          "heading": "Vad upptäckte du? Vad kan du göra för viktigt litet beteende?",
           "lottie": {
             "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1676642915/Lottie/default_1min_black_rosi2l.json",
             "durationTimer": true,
@@ -304,17 +304,17 @@
         "type": "sharing",
         "hostNotes": [
           {
-            "text": "Now we are getting into the sharing part. We have three rules for sharing:\n\n1. **What is said in here, stays in here.**\n2. **All you need to do is listen.** There is no fixing, helping or advice-giving needed. We are just showing up and exploring what ourselves and others are going through."
+            "text": "Det här steget handlar om att dela med sig av sin upplevelse och lyssna på andras. Vi har tre regler:\n\n1. **Det som sägs här, stannar här.**\n2. **Allt som behövs är att vi lyssnar på varandra.** Inget fixande, ingen rådgivning eller annan hjälp behövs. Vi är här för att utforska våra egna och andras upplevelser."
           },
           {
-            "text": "3. **Everything on the inside is okay.** Anger, love, hatred, sadness. Whatever shows up. No wrongs, no rights. It is what it is.\n\nThere will be a timer set for 2 minutes as an indicator. If you don’t want to share you can always say ‘pass’."
+            "text": "3. **Allt som händer på insidan är okej.** Ilska, kärlek, smärta, glädje. Vad som än dyker upp, det finns inget rätt eller fel. Det bara är som det är.\n\nDet finns en timer på två minuter att hålla sig efter på ett ungefär. Om du inte vill dela med dig är det bara att säga 'pass'."
           },
           {
-            "text": "Who would like to start?\n\n> Let everyone (or as many as you got time for) share one by one. Press play to start the timer. Re-start for each new sharing.\n\nThank you so much everyone."
+            "text": "Vem vill börja?\n\n> Låt alla, eller så många som det finns tid för, dela en efter en. Tryck på play för att starta timern. Starta om för varje person.\n\nTack så mycket för att ni lyssnar och delar med er."
           }
         ],
         "content": {
-          "heading": "What would be different if you moved through difficulties?",
+          "heading": "Vad upptäckte du? Vad kan du göra för viktigt litet beteende?",
           "lottie": {
             "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1676639253/Lottie/default_2min_black_o6egey.json",
             "durationTimer": true,
@@ -327,13 +327,13 @@
         "type": "host",
         "hostNotes": [
           {
-            "text": "Well done.\n\nWe’ve just practised moving through difficulties instead of trying to avoid them. This technique can help us live more in line with our values and lead more meaningful lives."
+            "text": "Bra jobbat.\n\nVi har just tränat på att gå igenom svåra känslor i stället för att försöka undvika dem. Det kan hjälpa oss att göra mer av det som är viktigt i livet."
           },
           {
-            "text": "Before we leave this space let’s do a mini check-out.\n\nWhat can you bring from this for the rest of your day? Please answer in two-three words."
+            "text": "Innan vi avslutar så gör vi en mini-utcheckning.\n\nHur känner du dig nu? Har något ändrats? Svara med två-tre ord."
           },
           {
-            "text": "Who would like to start?\n\n> Let everyone in the session check out one by one.\n\nThank you all for checking out and for joining this session today.\n\n> Finish session to send everyone off to the exit experience."
+            "text": "Vem vill börja?\n\n> Låt alla checka ut en efter en.\n\nTack så mycket för era utcheckningar, och för att ni deltog i den här sessionen.\n\n> Avsluta sessionen för att skicka deltagarna till exit-upplevelsen."
           }
         ],
         "video": {
@@ -344,8 +344,8 @@
       {
         "type": "instruction",
         "content": {
-          "heading": "Well done",
-          "text": "We’ve just practised moving through difficulties instead of trying to avoid them. This technique can help us live more in line with our values and lead more meaningful lives.",
+          "heading": "Bra jobbat",
+          "text": "Vi har just tränat på att gå igenom svåra känslor i stället för att försöka undvika dem. Det kan hjälpa oss att göra mer av det som är viktigt i livet.",
           "image": {
             "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1687406076/Images/card_image_way_out_is_through_qjpv4m.png"
           }
@@ -356,7 +356,7 @@
       "textColor": "#2E2E2E"
     },
     "hidden": true,
-    "name": "The way out is through",
+    "name": "Vägen ut är igenom",
     "live": true,
     "published": true,
     "card": {
@@ -374,7 +374,7 @@
     "introPortal": {
       "hostNotes": [
         {
-          "text": "> Start the session when you're ready to go"
+          "text": "> Starta sessionen när du är redo att köra igång."
         }
       ],
       "videoLoop": {
@@ -391,7 +391,7 @@
     ],
     "id": "1e96f73b-8193-4aa6-a52c-31355eac3c08",
     "async": true,
-    "description": "In this meditation exercise we’ll practise moving through our difficulties instead of trying to avoid them. Letting ourselves experience the full spectrum of emotions can help us lead more meaningful and fulfilled lives."
+    "description": "I den här meditationen övar vi på att gå igenom svårigheter istället för att försöka undvika dem. Genom att tillåta oss själva att känna hela spektrat av känslor kan vi hjälpa oss själva att uppleva mer mening och leva livet fullt ut."
   },
   "es": {
     "slides": [
