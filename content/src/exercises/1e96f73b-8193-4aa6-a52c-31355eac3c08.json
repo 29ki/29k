@@ -355,7 +355,7 @@
     "theme": {
       "textColor": "#2E2E2E"
     },
-    "hidden": true,
+    "hidden": false,
     "name": "Vägen ut är igenom",
     "live": true,
     "published": true,
@@ -364,6 +364,13 @@
         "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1687406076/Images/card_image_way_out_is_through_qjpv4m.png"
       }
     },
+    "coCreators": [
+      {
+        "name": "Fredrik Livheim, manus och röst",
+        "url": "https://livskompass.se/kontakt/",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413198/Contributors/Fredrik%20Livheim.png"
+      }
+    ],
     "duration": 30,
     "outroPortal": {
       "video": {
