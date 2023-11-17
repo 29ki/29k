@@ -13,8 +13,11 @@
   },
   "sv": {
     "completed": "Klar",
-    "doAgainButton": "Gör den här övningen igen",
-    "coCreatorsHeading": "Skapad med "
+    "doAgainButton": "Gör den här sessionen igen",
+    "coCreatorsHeading": "Skapad av ",
+    "moreLikeThis": "Mer som denna",
+    "yourSharingPost": "Din reflektion",
+    "yourReview": "Din feedback"
   },
   "es": {}
 }
