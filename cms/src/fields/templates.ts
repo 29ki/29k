@@ -7,6 +7,7 @@ const EDITOR_TEXT_TEMPLATES_FIELDS: Array<CmsField> = [
     name: 'templates',
     widget: 'list',
     summary: '{{fields.name}} - {{fields.text}}',
+    min: 1,
     fields: [
       {
         label: '🔖 Name',
