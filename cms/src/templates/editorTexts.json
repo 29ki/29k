@@ -1,12 +1,3 @@
 {
-  "templates": [
-    {
-      "name": "Fooo",
-      "text": "hej hopp foo i min hopp!"
-    },
-    {
-      "name": "Meow?",
-      "text": "(199)*{200} $ < /5"
-    }
-  ]
+  "templates": []
 }
