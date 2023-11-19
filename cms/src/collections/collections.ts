@@ -7,6 +7,7 @@ import EXERCISE_DEFAULTS_FIELDS from '../fields/defaults';
 import {TAG_FIELDS} from '../fields/tag';
 import {COLLECTION_FIELDS} from '../fields/collection';
 import {DEFAULT_LANGUAGE_TAG} from '../../../shared/src/constants/i18n';
+import EDITOR_TEXT_TEMPLATES_FIELDS from '../fields/templates';
 
 export const exercises: CmsCollection = {
   name: 'exercises',
@@ -37,6 +38,12 @@ export const settings: CmsCollection = {
       name: 'exercise-defaults',
       file: '/cms/src/defaults/exercise.json',
       fields: EXERCISE_DEFAULTS_FIELDS,
+    },
+    {
+      label: '🔖 Editor text templates',
+      name: 'text-templates',
+      file: '/cms/src/templates/editorTexts.json',
+      fields: EDITOR_TEXT_TEMPLATES_FIELDS,
     },
   ],
   i18n: false,
