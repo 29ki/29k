@@ -1,12 +1,44 @@
 {
   "templates": [
     {
-      "name": "Swe host intro 1",
+      "name": "Swe intro host 1",
       "text": "Välkommen. Jag heter X och vi kommer att jobba tillsammans i ungefär 30 minuter med xx.\nVi kommer att lyssna på en ljudövning tillsammans, reflektera en stund för oss själva och sedan finns det möjlighet att dela sina erfarenheter."
     },
     {
-      "name": "Swe host intro 2",
+      "name": "Swe intro host 2",
       "text": "Vi börjar med en mini-check-in. Hur känner du dig just nu? Svara gärna med två-tre ord. X, skulle du vilja börja?\nLåt alla deltagare, inklusive dig själv, checka in en och en. \nTack för att ni checkade in. Då kör vi igång."
+    },
+    {
+      "name": "Swe refl host 1",
+      "text": "Nästa steg är att tyst reflektera i en minut.\nFrågan är x"
+    },
+    {
+      "name": "Swe refl host 2",
+      "text": "Om du vill kan du skriva ner dina funderingar på ett papper, eller bara tänka fritt. Det finns inga svar som är rätt eller fel här – vad som än dyker upp är okej.\nTryck på play för att starta timern.\nDå har det gått en minut och det är dags att gå vidare."
+    },
+    {
+      "name": "Swe shar host 1",
+      "text": "Det här steget handlar om att dela med sig av sin upplevelse och lyssna på andras. Vi har tre regler:\n\n1. Det som sägs här, stannar här.\n2. Allt som behövs är att vi lyssnar på varandra. Inget fixande, ingen rådgivning eller annan hjälp behövs. Vi är bara här för att utforska våra egna och andras upplevelser."
+    },
+    {
+      "name": "Swe shar host 2",
+      "text": "3. Allt som händer på insidan är okej. Ilska, kärlek, smärta, glädje. Vad som än dyker upp, det finns inget rätt eller fel. Det bara är som det är.\nDet finns en timer på två minuter att hålla sig efter på ett ungefär. Om du inte vill dela med dig är det bara att säga 'pass'."
+    },
+    {
+      "name": "Swe shar host 3",
+      "text": "Vem vill börja?\nLåt alla, eller så många som det finns tid för, dela en efter en. Tryck på play för att starta timern. Starta om för varje person.\nTack så mycket för att ni lyssnar och delar med er."
+    },
+    {
+      "text": "Bra jobbat.\nOm du vill så finns det ett uppdrag för dig: ",
+      "name": "Swe outro host 1"
+    },
+    {
+      "name": "Swe outro host 2",
+      "text": "Innan vi avslutar så gör vi en mini-utcheckning.\nHur känner du dig nu? Har något ändrats? Svara med två-tre ord.\nVem vill börja?"
+    },
+    {
+      "name": "Swe outro host 3",
+      "text": "Låt alla checka ut en efter en.\nTack så mycket för era utcheckningar, och för att ni deltog i den här sessionen.\nAvsluta sessionen för att skicka deltagarna till exit-upplevelsen."
     }
   ]
 }
