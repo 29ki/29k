@@ -8,7 +8,7 @@ import {
   Heading16,
   ModalHeading,
 } from './Heading/Heading';
-import {Body18, Body16, Body14, BodyBold, TextLink} from './Body/Body';
+import {Body18, Body16, Body14, BodyBold, BodyLink} from './Body/Body';
 import Input from './TextInput/TextInput';
 import MarkdownRenderer from './Markdown/Markdown';
 import {Spacer16, Spacer24, Spacer8} from '../Spacers/Spacer';
@@ -156,7 +156,7 @@ export const Layouts = () => (
     <Display22>A Display22</Display22>
     <Body16>
       With a Body16 Lorem Ipsum is simply dummy text of the printing and
-      typesetting industry. <TextLink onPress={() => {}}>Text link</TextLink>{' '}
+      typesetting industry. <BodyLink onPress={() => {}}>Text link</BodyLink>{' '}
       <BodyBold>Lorem Ipsum</BodyBold> has been the industry's standard dummy
       text ever since the 1500s.
     </Body16>
@@ -199,7 +199,7 @@ export const AllTypes = () => (
     <MarkdownList />
     <Spacer16 />
     <Display28>
-      <TextLink onPress={() => {}}>Text link</TextLink>
+      <BodyLink onPress={() => {}}>Text link</BodyLink>
     </Display28>
     <Spacer8 />
     <Input placeholder="Placeholder" />

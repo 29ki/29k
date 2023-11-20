@@ -16,4 +16,4 @@ export const Body14 = styled(MemoizedBaseText)(typeStyles.Body14);
 export const Body12 = styled(MemoizedBaseText)(typeStyles.Body12);
 export const BodyBold = styled(MemoizedBaseText)(typeStyles.BodyBold);
 export const BodyItalic = styled(MemoizedBaseText)(typeStyles.BodyItalic);
-export const TextLink = styled(MemoizedBaseText)(typeStyles.TEXTLINK);
+export const BodyLink = styled(MemoizedBaseText)(typeStyles.BodyLink);
