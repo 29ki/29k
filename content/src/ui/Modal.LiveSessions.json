@@ -1,0 +1,27 @@
+{
+  "en": {
+    "title": "Live Sessions",
+    "sections": {
+      "hostedBy": "Your sessions",
+      "interested": "Going",
+      "comming": "Upcoming sessions"
+    }
+  },
+  "pt": {
+    "sections": {
+      "hostedBy": "As tuas sessões",
+      "comming": "Próximas sessões",
+      "comingSoon": "Próximas novidades",
+      "interested": "Agendado"
+    }
+  },
+  "sv": {
+    "title": "Live-sessioner",
+    "sections": {
+      "hostedBy": "Dina sessioner",
+      "comming": "Kommande sessioner",
+      "interested": "Intresserad"
+    }
+  },
+  "es": {}
+}
