@@ -67,7 +67,7 @@ const renderSectionHeader: (info: {
   section: Section;
 }) => React.ReactElement | null = ({section: {title}}) =>
   title ? (
-    <StickyHeading backgroundColor={COLORS.PURE_WHITE}>
+    <StickyHeading>
       <Heading16>{title}</Heading16>
     </StickyHeading>
   ) : null;

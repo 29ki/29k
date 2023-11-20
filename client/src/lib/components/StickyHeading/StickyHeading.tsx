@@ -13,7 +13,7 @@ type Props = {
 };
 
 const StickyHeading = styled(LinearGradient).attrs<Props, LinearGradientProps>(
-  ({backgroundColor = COLORS.WHITE}) => ({
+  ({backgroundColor = COLORS.PURE_WHITE}) => ({
     colors: [
       hexToRgba(backgroundColor, 1),
       hexToRgba(backgroundColor, 0.9),
