@@ -147,7 +147,6 @@ const renderSession = ({
         section.type !== 'comming' && section.data.length >= 1 && index > 0
       }
     />
-    <Spacer16 />
   </Gutters>
 );
 
@@ -157,12 +156,7 @@ const renderSharingPosts = ({
   item: PostItem[];
   section: Section;
   index: number;
-}) => (
-  <>
-    <SharingPosts sharingPosts={item} />
-    <Spacer16 />
-  </>
-);
+}) => <SharingPosts sharingPosts={item} />;
 
 const renderListItem: SectionListRenderItem<
   LiveSessionType | PostItem[],
@@ -288,6 +282,7 @@ const Home = () => {
         sections={sections}
         ListHeaderComponent={GetStarted}
         ListFooterComponent={Spacer48}
+        ItemSeparatorComponent={Spacer16}
         stickySectionHeadersEnabled
         renderSectionHeader={renderSectionHeader}
         renderItem={renderListItem}

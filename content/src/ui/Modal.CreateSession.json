@@ -3,14 +3,14 @@
     "shareHeading": "Share session",
     "or": "or",
     "joinByInviteCta": "Join by invite code",
+    "typeHeading": "Do session with…",
     "profile": {
       "text": "To create and host a session you need a user name and profile picture."
     },
     "orJoinUpcoming": "Or join an upcoming session",
+    "moreLikeThis": "More like this",
     "startCta": "Start",
     "coCreatorsHeading": "Co-created with",
-    "feedbackHeading": "Reviews",
-    "moreLikeThis": "More like this",
     "selectType": {
       "live-public": {
         "title": "Anyone"
@@ -23,7 +23,6 @@
       }
     },
     "noUpcomingSessions": "🌱 No planned sessions.",
-    "typeHeading": "Do session with…",
     "setDateTime": {
       "title": "Choose a time",
       "cta": "Create session",
@@ -32,6 +31,7 @@
         "public": "Session with anyone"
       }
     },
+    "feedbackHeading": "Reviews",
     "selectContent": {
       "title": "Choose exercise"
     }
@@ -39,6 +39,7 @@
   "pt": {
     "or": "ou",
     "joinByInviteCta": "Junta-te por código de convite",
+    "typeHeading": "Criar sessão com...",
     "profile": {
       "text": "Para poderes ser um moderador autorizado tens de colocar o teu nome e a tua fotografia."
     },
@@ -55,7 +56,6 @@
       }
     },
     "noUpcomingSessions": "🌱 Não há sessões planeadas",
-    "typeHeading": "Criar sessão com...",
     "setDateTime": {
       "title": "Escolhe o horário",
       "cta": "Criar sessão",
@@ -72,11 +72,14 @@
     "shareHeading": "Dela session",
     "or": "eller",
     "joinByInviteCta": "Använd kod för att gå med",
+    "typeHeading": "Gör sessionen med...",
     "profile": {
       "text": "För att hålla i sessioner behöver du ett namn och en profilbild."
     },
     "orJoinUpcoming": "Eller gå med i en kommande session",
+    "moreLikeThis": "Mer som den här",
     "startCta": "Starta",
+    "coCreatorsHeading": "Skapad med",
     "selectType": {
       "live-public": {
         "title": "Alla"
@@ -89,9 +92,6 @@
       }
     },
     "noUpcomingSessions": "🌱 Inga planerade sessioner.",
-    "typeHeading": "Gör sessionen med...",
-    "coCreatorsHeading": "Skapad med",
-    "feedbackHeading": "Recensioner",
     "setDateTime": {
       "title": "Välj tid",
       "cta": "Skapa session",
@@ -100,6 +100,7 @@
         "public": "Session med alla"
       }
     },
+    "feedbackHeading": "Recensioner",
     "selectContent": {
       "title": "Välj övning"
     }

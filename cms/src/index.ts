@@ -15,6 +15,7 @@ import {
   email,
 } from './collections/collections';
 import {Widget as uniqueIdWidget} from './widgets/uniqueIdWidget';
+import textTemplates from './editorComponents.ts/textTemplates';
 
 CMS.init({
   config: {
@@ -50,3 +51,4 @@ CMS.init({
 
 CMS.registerWidget(uniqueIdWidget);
 CMS.registerMediaLibrary(cloudinary);
+CMS.registerEditorComponent(textTemplates);
