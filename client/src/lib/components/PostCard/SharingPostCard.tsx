@@ -59,17 +59,17 @@ const SharingPostCard: React.FC<Props> = ({
     sharingPost.type === 'text'
       ? sharingPost.item.userProfile
       : sharingPost.type === 'video'
-      ? sharingPost.item.profile
-      : sharingPost.type === 'post' && !sharingPost.payload.isAnonymous
-      ? currentUser
-      : undefined;
+        ? sharingPost.item.profile
+        : sharingPost.type === 'post' && !sharingPost.payload.isAnonymous
+          ? currentUser
+          : undefined;
 
   const text =
     sharingPost.type === 'text'
       ? sharingPost.item.text
       : sharingPost.type === 'post'
-      ? sharingPost.payload.text
-      : undefined;
+        ? sharingPost.payload.text
+        : undefined;
 
   const video =
     sharingPost.type === 'video' ? sharingPost.item.video : undefined;

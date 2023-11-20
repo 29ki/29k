@@ -10,8 +10,8 @@ const sortByOrder = (a: Collection, b: Collection) =>
       ? -1
       : 1
     : typeof a?.sortOrder === 'number'
-    ? -1
-    : 0;
+      ? -1
+      : 0;
 
 const sortByName = (a: Collection, b: Collection) =>
   a.name < b.name ? -1 : a.name > b.name ? 1 : 0;
