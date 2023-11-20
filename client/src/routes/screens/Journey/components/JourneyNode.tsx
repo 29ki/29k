@@ -41,7 +41,7 @@ import {
 import SharingPostCard from '../../../../lib/components/PostCard/SharingPostCard';
 
 export const HEIGHT = 93;
-export const HEIGHT_WITH_POST = 229;
+export const HEIGHT_WITH_POST = 214;
 const NODE_SIZE = 16;
 
 type JourneyNodeProps = {
