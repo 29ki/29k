@@ -21,7 +21,7 @@ import Gutters from '../../../lib/components/Gutters/Gutters';
 import {CompletedSessionEvent} from '../../../../../shared/src/types/Event';
 import {Spacer32, Spacer8} from '../../../lib/components/Spacers/Spacer';
 
-import useCompletedSessions from '../../../lib/sessions/hooks/useCompletedSessions';
+import useCompletedSessions from '../../../lib/user/hooks/useCompletedSessions';
 import useGetSessionsByFeedback from '../../../lib/user/hooks/useGetSessionsByFeedback';
 
 import SheetModal from '../../../lib/components/Modals/SheetModal';

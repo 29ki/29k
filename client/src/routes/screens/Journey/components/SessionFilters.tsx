@@ -11,7 +11,7 @@ import {
   ModalStackProps,
 } from '../../../../lib/navigation/constants/routes';
 import useUserEvents from '../../../../lib/user/hooks/useUserEvents';
-import useCompletedSessions from '../../../../lib/sessions/hooks/useCompletedSessions';
+import useCompletedSessions from '../../../../lib/user/hooks/useCompletedSessions';
 
 import useUser from '../../../../lib/user/hooks/useUser';
 import {useTranslation} from 'react-i18next';
