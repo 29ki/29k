@@ -13,8 +13,8 @@ const Wrapper = styled.View<{themeColor?: string; completed?: boolean}>(
     backgroundColor: completed
       ? COLORS.MEDIUM_GREEN
       : themeColor
-      ? COLORS.BLACK_TRANSPARENT_15
-      : COLORS.PURE_WHITE,
+        ? COLORS.BLACK_TRANSPARENT_15
+        : COLORS.PURE_WHITE,
     paddingVertical: 1,
     paddingHorizontal: SPACINGS.EIGHT,
     borderRadius: SPACINGS.EIGHT,

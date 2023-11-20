@@ -13,8 +13,8 @@ const usePracticeRemindersSetting = () => {
     userState?.practiceReminderConfig
       ? true
       : userState?.practiceReminderConfig === null
-      ? false
-      : undefined,
+        ? false
+        : undefined,
   );
 
   const {requestPermission, checkPermission} = useNotificationPermissions();

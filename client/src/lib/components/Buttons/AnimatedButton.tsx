@@ -39,8 +39,8 @@ const ButtonText = styled(Body16).attrs({selectable: false})<ButtonTextProps>(
       size === 'xsmall'
         ? SPACINGS.FOUR
         : size === 'small'
-        ? SPACINGS.EIGHT
-        : SPACINGS.TWELVE,
+          ? SPACINGS.EIGHT
+          : SPACINGS.TWELVE,
     marginHorizontal: SPACINGS.SIXTEEN,
   }),
 );

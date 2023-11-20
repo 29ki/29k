@@ -25,18 +25,18 @@ const BaseButton = styled(TouchableOpacity)<BaseButtonProps>(
     backgroundColor: disabled
       ? COLORS.GREYMEDIUM
       : active
-      ? COLORS.ACTIVE
-      : variant === 'secondary'
-      ? COLORS.BLACK
-      : variant === 'tertiary'
-      ? COLORS.WHITE
-      : COLORS.PRIMARY,
+        ? COLORS.ACTIVE
+        : variant === 'secondary'
+          ? COLORS.BLACK
+          : variant === 'tertiary'
+            ? COLORS.WHITE
+            : COLORS.PRIMARY,
     borderRadius:
       size === 'xsmall'
         ? SPACINGS.EIGHT
         : size === 'small'
-        ? SPACINGS.TWELVE
-        : SPACINGS.SIXTEEN,
+          ? SPACINGS.TWELVE
+          : SPACINGS.SIXTEEN,
     alignItems: 'center',
     justifyContent: 'center',
     flexDirection: 'row',
