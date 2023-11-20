@@ -1,8 +1,12 @@
 {
   "templates": [
     {
-      "name": "Test template",
-      "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque dapibus elit ac orci malesuada, eu euismod lorem porttitor. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque non tortor sed felis viverra aliquam. Maecenas iaculis tempor quam, eget eleifend nulla lacinia id. Sed sagittis tortor quis nisl vestibulum, vel consequat mauris finibus. Aenean ac elementum mauris. Praesent sed lorem aliquam, rutrum est non, maximus lectus. Aliquam eget dui euismod, accumsan sapien interdum, tincidunt dui. Nullam vel egestas erat.\n\nPellentesque quis elit sapien. Etiam rhoncus accumsan orci, eu dapibus mi mollis et. Maecenas ultrices bibendum tristique. Aliquam rhoncus sem eget tristique porttitor. Praesent bibendum id est vel dictum. Aliquam blandit bibendum convallis. Donec blandit pulvinar tempus. Suspendisse iaculis diam et consequat auctor. Morbi ac elit varius, gravida tellus vel, dictum nisi. Praesent mattis posuere euismod. Integer tempus luctus mauris et ullamcorper.\n\nMauris faucibus tempus neque, nec tincidunt dolor commodo quis. Duis non scelerisque risus. Nam suscipit mattis nisi, non dictum ex auctor nec. Vestibulum ut ultricies enim, eget congue nulla. Ut quis suscipit tellus, ac venenatis eros. Donec leo elit, euismod eu erat eu, mattis suscipit nunc. Suspendisse potenti."
+      "name": "Swe host intro 1",
+      "text": "Välkommen. Jag heter X och vi kommer att jobba tillsammans i ungefär 30 minuter med xx.\nVi kommer att lyssna på en ljudövning tillsammans, reflektera en stund för oss själva och sedan finns det möjlighet att dela sina erfarenheter."
+    },
+    {
+      "name": "Swe host intro 2",
+      "text": "Vi börjar med en mini-check-in. Hur känner du dig just nu? Svara gärna med två-tre ord. X, skulle du vilja börja?\nLåt alla deltagare, inklusive dig själv, checka in en och en. \nTack för att ni checkade in. Då kör vi igång."
     }
   ]
 }
