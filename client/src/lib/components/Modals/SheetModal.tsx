@@ -19,8 +19,6 @@ const Container = styled.View<{backgroundColor?: string}>(
   }),
 );
 
-const Content = styled.View({flex: 1});
-
 const Close = styled(CloseButton)({
   position: 'absolute',
   top: 24,
@@ -39,7 +37,7 @@ export const SheetModal: React.FC<ModalProps> = ({
   backgroundColor = COLORS.WHITE,
 }) => (
   <Container backgroundColor={backgroundColor}>
-    <Content>{children}</Content>
+    {children}
     {/* This is to compensate for the marginTop in ModalStack */}
     <TopSafeArea />
     {onPressClose && <Close onPress={onPressClose} />}

@@ -20,6 +20,9 @@ import {useIsFocused} from '@react-navigation/native';
 import BottomFade from '../../../lib/components/BottomFade/BottomFade';
 import {COLORS} from '../../../../../shared/src/constants/colors';
 import {SPACINGS} from '../../../lib/constants/spacings';
+import styled from 'styled-components/native';
+
+const Container = styled.View({flex: 1});
 
 type Section = {
   title: string;
@@ -98,18 +101,20 @@ const LiveSessionsModal = () => {
 
   return (
     <SheetModal backgroundColor={COLORS.PURE_WHITE}>
-      <ModalHeading>{t('title')}</ModalHeading>
-      <Spacer16 />
-      <BottomSheetSectionList
-        sections={sections}
-        ItemSeparatorComponent={Spacer16}
-        stickySectionHeadersEnabled
-        renderSectionHeader={renderSectionHeader}
-        renderItem={renderSectionItem}
-        ListFooterComponent={<BottomSafeArea minSize={SPACINGS.THIRTYTWO} />}
-        focusHook={useIsFocused}
-      />
-      <BottomFade color={COLORS.PURE_WHITE} />
+      <Container>
+        <ModalHeading>{t('title')}</ModalHeading>
+        <Spacer16 />
+        <BottomSheetSectionList
+          sections={sections}
+          ItemSeparatorComponent={Spacer16}
+          stickySectionHeadersEnabled
+          renderSectionHeader={renderSectionHeader}
+          renderItem={renderSectionItem}
+          ListFooterComponent={<BottomSafeArea minSize={SPACINGS.THIRTYTWO} />}
+          focusHook={useIsFocused}
+        />
+        <BottomFade color={COLORS.PURE_WHITE} />
+      </Container>
     </SheetModal>
   );
 };
