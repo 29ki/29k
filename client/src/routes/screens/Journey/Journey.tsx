@@ -50,6 +50,7 @@ import JourneyNode, {
 import {HEIGHT as FILTER_HEIGHT} from './components/SessionFilters';
 import {HEIGHT as COLLECTION_HEIGHT} from '../../../lib/components/Cards/CollectionCards/CollectionFullCard';
 import {HEIGHT as PLANNED_SESSION_HEIGHT} from '../../../lib/components/Cards/Card';
+import useThrottledFocusEffect from '../../../lib/navigation/hooks/useThrottledFocusEffect';
 
 import {Section, Item} from './types/Section';
 
@@ -156,20 +157,22 @@ const Journey = () => {
     }),
   );
 
-  useEffect(() => {
+  const fetch = useCallback(() => {
     fetchSessions();
   }, [fetchSessions]);
+
+  useThrottledFocusEffect(fetch);
 
   const refreshPull = useCallback(async () => {
     try {
       setIsLoading(true);
-      await fetchSessions();
+      await fetch();
       setIsLoading(false);
     } catch (e: any) {
       setIsLoading(false);
       throw e;
     }
-  }, [setIsLoading, fetchSessions]);
+  }, [setIsLoading, fetch]);
 
   const onPressEllipsis = useCallback(() => {
     navigate('AboutOverlay');
