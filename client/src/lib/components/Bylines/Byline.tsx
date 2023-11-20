@@ -16,8 +16,8 @@ const Container = styled(TouchableOpacity)({
   alignSelf: 'flex-start',
 });
 
-const WrapText = styled(Body14)({flexShrink: 0});
-const WrapTextSmall = styled(Body12)({flexShrink: 0});
+const WrapText = styled(Body14)({flexShrink: 1});
+const WrapTextSmall = styled(Body12)({flexShrink: 1});
 
 const ImageContainer = styled.View<{small?: boolean}>(({small}) => ({
   backgroundColor: COLORS.GREYMEDIUM,
@@ -59,7 +59,7 @@ const Byline: React.FC<BylineProps> = React.memo(
             {prefix ? `${t('with')} ${name}` : name}
           </WrapTextSmall>
         ) : (
-          <WrapText numberOfLines={2}>
+          <WrapText numberOfLines={1}>
             {prefix ? `${t('with')} ${name}` : name}
             {duration ? `· ${duration} ${t('minutesAbbreviation')}` : ''}
           </WrapText>
