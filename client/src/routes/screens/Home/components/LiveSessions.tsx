@@ -34,10 +34,9 @@ const LiveSessions: React.FC<Props> = ({sessions}) =>
       horizontal
       data={sessions}
       ListHeaderComponent={Spacer16}
-      ItemSeparatorComponent={Spacer16}
       ListFooterComponent={Spacer16}
-      snapToAlignment="start"
-      snapToInterval={CARD_WIDTH}
+      ItemSeparatorComponent={Spacer16}
+      snapToInterval={CARD_WIDTH + SPACINGS.SIXTEEN}
       decelerationRate="fast"
       showsHorizontalScrollIndicator={false}
     />

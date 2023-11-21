@@ -1,20 +1,8 @@
-import {groupBy} from 'ramda';
-import dayjs from 'dayjs';
-import React, {useCallback, useEffect, useMemo, useRef, useState} from 'react';
-import {RefreshControl, SectionList} from 'react-native';
+import React, {useCallback, useRef} from 'react';
 import {useTranslation} from 'react-i18next';
 import styled from 'styled-components/native';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
-import {
-  useIsFocused,
-  useNavigation,
-  useScrollToTop,
-} from '@react-navigation/native';
-import throttle from 'lodash.throttle';
-
-import useSessions from '../../../lib/sessions/hooks/useSessions';
-
-import {LiveSessionType} from '../../../../../shared/src/schemas/Session';
+import {useNavigation, useScrollToTop} from '@react-navigation/native';
 
 import {SPACINGS} from '../../../lib/constants/spacings';
 import {COLORS} from '../../../../../shared/src/constants/colors';
@@ -26,42 +14,26 @@ import SETTINGS from '../../../lib/constants/settings';
 import {
   Spacer12,
   Spacer16,
-  Spacer24,
-  Spacer48,
   TopSafeArea,
 } from '../../../lib/components/Spacers/Spacer';
-import Gutters from '../../../lib/components/Gutters/Gutters';
 import Button from '../../../lib/components/Buttons/Button';
-import SessionCard from '../../../lib/components/Cards/SessionCard/SessionCard';
 import {PlusIcon} from '../../../lib/components/Icons';
 import Screen from '../../../lib/components/Screen/Screen';
 import {Heading16} from '../../../lib/components/Typography/Heading/Heading';
-import {SectionListRenderItem} from 'react-native';
 import StickyHeading from '../../../lib/components/StickyHeading/StickyHeading';
 import TopBar from '../../../lib/components/TopBar/TopBar';
 import MiniProfile from '../../../lib/components/MiniProfile/MiniProfile';
 import BottomFade from '../../../lib/components/BottomFade/BottomFade';
-import usePinnedCollections from '../../../lib/user/hooks/usePinnedCollections';
-import useGetStartedCollection from '../../../lib/content/hooks/useGetStartedCollection';
-import useUserEvents from '../../../lib/user/hooks/useUserEvents';
-import CollectionCardContainer from '../../../lib/components/Cards/CollectionCards/CollectionCardContainer';
-import useGetRelativeDateGroup from '../../../lib/date/hooks/useGetRelativeDateGroup';
-import useResumeFromBackgrounded from '../../../lib/appState/hooks/useResumeFromBackgrounded';
-import useSharingPosts from '../../../lib/posts/hooks/useSharingPosts';
-import {PostItem} from '../../../lib/posts/types/PostItem';
 import SharingPosts from './components/SharingPosts';
-
-type Section =
-  | {
-      title: string;
-      data: LiveSessionType[];
-      type: 'hostedBy' | 'interested' | 'comming';
-    }
-  | {
-      title: string;
-      data: Array<PostItem[]>;
-      type: 'sharingPosts';
-    };
+import AutoScrollView from '../../../lib/components/AutoScrollView/AutoScrollView';
+import LiveSessions from './components/LiveSessions';
+import {Body16, BodyLink} from '../../../lib/components/Typography/Body/Body';
+import useSessions from '../../../lib/sessions/hooks/useSessions';
+import useSharingPosts from '../../../lib/posts/hooks/useSharingPosts';
+import useThrottledFocusEffect from '../../../lib/navigation/hooks/useThrottledFocusEffect';
+import TouchableOpacity from '../../../lib/components/TouchableOpacity/TouchableOpacity';
+import useRecommendedSessions from '../../../lib/sessions/hooks/useRecommendedSessions';
+import RecommendedSessions from './components/RecommendedSessions';
 
 const AddButton = styled(Button)({
   alignSelf: 'center',
@@ -92,6 +64,7 @@ const AddSessionForm = () => {
   );
 };
 
+/*
 const GetStarted = () => {
   const {pinnedCollections} = usePinnedCollections();
   const {getStartedCollection} = useGetStartedCollection();
@@ -122,152 +95,35 @@ const GetStarted = () => {
   }
   return <Spacer24 />;
 };
-
-const renderSectionHeader: (info: {section: Section}) => React.ReactElement = ({
-  section: {title},
-}) => (
-  <StickyHeading backgroundColor={COLORS.PURE_WHITE}>
-    <Heading16>{title}</Heading16>
-  </StickyHeading>
-);
-
-const renderSession = ({
-  item,
-  section,
-  index,
-}: {
-  item: LiveSessionType;
-  section: Section;
-  index: number;
-}) => (
-  <Gutters>
-    <SessionCard
-      session={item}
-      small={
-        section.type !== 'comming' && section.data.length >= 1 && index > 0
-      }
-    />
-  </Gutters>
-);
-
-const renderSharingPosts = ({
-  item,
-}: {
-  item: PostItem[];
-  section: Section;
-  index: number;
-}) => <SharingPosts sharingPosts={item} />;
-
-const renderListItem: SectionListRenderItem<
-  LiveSessionType | PostItem[],
-  Section
-> = ({item, section, index}) =>
-  section.type === 'sharingPosts'
-    ? renderSharingPosts({item: item as PostItem[], section, index})
-    : renderSession({item: item as LiveSessionType, section, index});
+*/
 
 const Home = () => {
   const {t} = useTranslation('Screen.Home');
   const {navigate} =
-    useNavigation<NativeStackNavigationProp<OverlayStackProps>>();
-  const {fetchSessions, sessions, pinnedSessions, hostedSessions} =
-    useSessions();
-  const {sharingPosts, fetchSharingPosts} = useSharingPosts();
-  const getRelativeDateGroup = useGetRelativeDateGroup();
-  const listRef = useRef(null);
-  const [isLoading, setIsLoading] = useState(false);
-  const isFocused = useIsFocused();
+    useNavigation<
+      NativeStackNavigationProp<OverlayStackProps & ModalStackProps>
+    >();
+  const scrollRef = useRef(null);
+  const recommendedSessions = useRecommendedSessions();
+  const {fetchSessions, otherSessions} = useSessions();
+  const {fetchSharingPosts, sharingPosts} = useSharingPosts();
 
-  useScrollToTop(listRef);
-
-  const sections = useMemo(() => {
-    let sectionsList: Section[] = [];
-
-    if (hostedSessions.length > 0) {
-      sectionsList.push({
-        title: t('sections.hostedBy'),
-        data: hostedSessions,
-        type: 'hostedBy',
-      });
-    }
-    if (pinnedSessions.length > 0) {
-      sectionsList.push({
-        title: t('sections.interested'),
-        data: pinnedSessions,
-        type: 'interested',
-      });
-    }
-
-    if (sessions.length > 0) {
-      Object.entries(
-        groupBy(
-          session => getRelativeDateGroup(dayjs(session.startTime)),
-          sessions,
-        ),
-      ).forEach(([group, items = []]) => {
-        sectionsList.push({
-          title: group,
-          data: items,
-          type: 'comming',
-        });
-      });
-    }
-
-    if (sharingPosts.length > 0) {
-      // Insert at second place
-      sectionsList.splice(2, 0, {
-        title: t('sections.sharingPosts'),
-        data: [sharingPosts],
-        type: 'sharingPosts',
-      });
-    }
-
-    return sectionsList;
-  }, [
-    sessions,
-    sharingPosts,
-    pinnedSessions,
-    hostedSessions,
-    t,
-    getRelativeDateGroup,
-  ]);
-
-  const fetch = useCallback(async () => {
-    await Promise.all([fetchSessions(), fetchSharingPosts()]);
+  const fetch = useCallback(() => {
+    fetchSessions();
+    fetchSharingPosts();
   }, [fetchSessions, fetchSharingPosts]);
 
-  useEffect(() => {
-    fetch();
-  }, [fetch]);
+  useThrottledFocusEffect(fetch, 10000);
 
-  const refreshPull = useCallback(async () => {
-    try {
-      setIsLoading(true);
-      await fetch();
-      setIsLoading(false);
-    } catch (e: any) {
-      setIsLoading(false);
-      throw e;
-    }
-  }, [setIsLoading, fetch]);
+  useScrollToTop(scrollRef);
 
   const onPressEllipsis = useCallback(() => {
     navigate('AboutOverlay');
   }, [navigate]);
 
-  const throttledRefresh = useMemo(
-    () =>
-      throttle(() => {
-        if (isFocused) {
-          fetch();
-        }
-      }, 5 * 60000),
-    [fetch, isFocused],
-  );
-
-  useEffect(throttledRefresh, [throttledRefresh]);
-
-  useResumeFromBackgrounded(throttledRefresh);
+  const onPressLiveSessions = useCallback(() => {
+    navigate('LiveSessionsModal');
+  }, [navigate]);
 
   return (
     <Screen backgroundColor={COLORS.PURE_WHITE}>
@@ -277,19 +133,46 @@ const Home = () => {
         onPressEllipsis={onPressEllipsis}>
         <MiniProfile />
       </TopBar>
-      <SectionList<LiveSessionType | PostItem[], Section>
-        ref={listRef}
-        sections={sections}
-        ListHeaderComponent={GetStarted}
-        ListFooterComponent={Spacer48}
-        ItemSeparatorComponent={Spacer16}
-        stickySectionHeadersEnabled
-        renderSectionHeader={renderSectionHeader}
-        renderItem={renderListItem}
-        refreshControl={
-          <RefreshControl refreshing={isLoading} onRefresh={refreshPull} />
-        }
-      />
+      <AutoScrollView ref={scrollRef} stickyHeaderIndices={[0, 2, 4]}>
+        {recommendedSessions.length > 0 && (
+          <StickyHeading>
+            <Heading16>{t('sections.forYou')}</Heading16>
+          </StickyHeading>
+        )}
+        {recommendedSessions.length > 0 && (
+          <>
+            <RecommendedSessions sessions={recommendedSessions} />
+            <Spacer16 />
+          </>
+        )}
+        {otherSessions.length > 0 && (
+          <StickyHeading>
+            <Heading16>{t('sections.liveSessions')}</Heading16>
+            <TouchableOpacity onPress={onPressLiveSessions}>
+              <Body16>
+                <BodyLink>{t('seeAll')}</BodyLink>
+              </Body16>
+            </TouchableOpacity>
+          </StickyHeading>
+        )}
+        {otherSessions.length > 0 && (
+          <>
+            <LiveSessions sessions={otherSessions} />
+            <Spacer16 />
+          </>
+        )}
+        {sharingPosts.length > 0 && (
+          <StickyHeading>
+            <Heading16>{t('sections.sharingPosts')}</Heading16>
+          </StickyHeading>
+        )}
+        {sharingPosts.length > 0 && (
+          <>
+            <SharingPosts sharingPosts={sharingPosts} />
+            <Spacer16 />
+          </>
+        )}
+      </AutoScrollView>
       <BottomFade />
       <AddSessionForm />
     </Screen>

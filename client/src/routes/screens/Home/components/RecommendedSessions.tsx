@@ -1,7 +1,7 @@
 import React from 'react';
 import {Dimensions, FlatList, ListRenderItem} from 'react-native';
 import styled from 'styled-components/native';
-import {Spacer16} from '../../../../lib/components/Spacers/Spacer';
+import {Spacer16, Spacer8} from '../../../../lib/components/Spacers/Spacer';
 import {SPACINGS} from '../../../../lib/constants/spacings';
 import SessionCard from '../../../../lib/components/Cards/SessionCard/SessionCard';
 import {LiveSessionType} from '../../../../../../shared/src/schemas/Session';
@@ -46,11 +46,10 @@ const RecommendedSessions: React.FC<Props> = ({sessions}) =>
       renderItem={renderSharingPost}
       horizontal
       data={sessions}
+      ListFooterComponent={Spacer16}
       ListHeaderComponent={Spacer16}
       ItemSeparatorComponent={Spacer16}
-      ListFooterComponent={Spacer16}
-      snapToAlignment="start"
-      snapToInterval={CARD_WIDTH}
+      snapToInterval={CARD_WIDTH + SPACINGS.SIXTEEN}
       decelerationRate="fast"
       showsHorizontalScrollIndicator={false}
     />

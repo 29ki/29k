@@ -2,10 +2,10 @@
   "en": {
     "heading": "Sessions",
     "add": "Session",
+    "seeAll": "See all",
     "sections": {
-      "hostedBy": "Your sessions",
-      "interested": "Going",
-      "comming": "Upcoming sessions",
+      "forYou": "For you",
+      "liveSessions": "Live sessions",
       "sharingPosts": "What others are doing"
     }
   },
@@ -35,10 +35,10 @@
   "sv": {
     "heading": "Sessioner",
     "add": "Ny session",
+    "seeAll": "Se alla",
     "sections": {
-      "hostedBy": "Dina sessioner",
-      "comming": "Kommande sessioner",
-      "interested": "",
+      "forYou": "För dig",
+      "liveSessions": "Live-sessioner",
       "sharingPosts": "Vad andra gör"
     }
   },
