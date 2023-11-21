@@ -231,7 +231,7 @@
             "text": "Välkommen. Jag heter X och vi kommer att jobba tillsammans i ungefär 30 minuter med värderingar och hur vi vill leva våra liv.\n\nVi kommer att lyssna på en ljudövning tillsammans, reflektera en stund för oss själva och sedan finns det möjlighet att dela sina erfarenheter."
           },
           {
-            "text": "Vi börjar med en mini-check-in. Hur känner du dig just nu? Svara gärna med två-tre ord. X, skulle du vilja börja?\nLåt alla deltagare, inklusive dig själv, checka in en och en. \nTack för att ni checkade in. Då kör vi igång."
+            "text": "Vi börjar med en mini-check-in. Hur känner du dig just nu? Svara gärna med två-tre ord. X, skulle du vilja börja?\n\n> Låt alla deltagare, inklusive dig själv, checka in en och en. \n\nTack för att ni checkade in. Då kör vi igång."
           }
         ]
       },
@@ -257,7 +257,7 @@
             "text": "Nästa steg är att tyst reflektera i en minut.\n\nVad skulle du vilja att ditt framtida jag berättade för dig här och nu?"
           },
           {
-            "text": "Om du vill kan du skriva ner dina funderingar på ett papper, eller bara tänka fritt. Det finns inga svar som är rätt eller fel här – vad som än dyker upp är okej.\nTryck på play för att starta timern.\nDå har det gått en minut och det är dags att gå vidare."
+            "text": "Om du vill kan du skriva ner dina funderingar på ett papper, eller bara tänka fritt. Det finns inga svar som är rätt eller fel här – vad som än dyker upp är okej.\n\n> Tryck på play för att starta timern.\n\nDå har det gått en minut och det är dags att gå vidare."
           }
         ],
         "content": {
@@ -274,10 +274,10 @@
             "text": "Det här steget handlar om att dela med sig av sin upplevelse och lyssna på andras. Vi har tre regler:\n\n1. Det som sägs här, stannar här.\n2. Allt som behövs är att vi lyssnar på varandra. Inget fixande, ingen rådgivning eller annan hjälp behövs. Vi är bara här för att utforska våra egna och andras upplevelser."
           },
           {
-            "text": "3. Allt som händer på insidan är okej. Ilska, kärlek, smärta, glädje. Vad som än dyker upp, det finns inget rätt eller fel. Det bara är som det är.\nDet finns en timer på två minuter att hålla sig efter på ett ungefär. Om du inte vill dela med dig är det bara att säga 'pass'."
+            "text": "3. Allt som händer på insidan är okej. Ilska, kärlek, smärta, glädje. Vad som än dyker upp, det finns inget rätt eller fel. Det bara är som det är.\n\nDet finns en timer på två minuter att hålla sig efter på ett ungefär. Om du inte vill dela med dig är det bara att säga 'pass'."
           },
           {
-            "text": "Vem vill börja?\nLåt alla, eller så många som det finns tid för, dela en efter en. Tryck på play för att starta timern. Starta om för varje person.\nTack så mycket för att ni lyssnar och delar med er."
+            "text": "Vem vill börja?\n\n> Låt alla, eller så många som det finns tid för, dela en efter en. Tryck på play för att starta timern. Starta om för varje person.\n\nTack så mycket för att ni lyssnar och delar med er."
           }
         ],
         "id": "1",
@@ -300,7 +300,7 @@
             "text": "Innan vi avslutar så gör vi en mini-utcheckning.\nHur känner du dig nu? Har något ändrats? Svara med två-tre ord.\nVem vill börja?"
           },
           {
-            "text": "Låt alla checka ut en efter en.\nTack så mycket för era utcheckningar, och för att ni deltog i den här sessionen.\nAvsluta sessionen för att skicka deltagarna till exit-upplevelsen."
+            "text": "> Låt alla checka ut en efter en.\n\nTack så mycket för era utcheckningar, och för att ni deltog i den här sessionen.\n\n> Avsluta sessionen för att skicka deltagarna till exit-upplevelsen."
           }
         ]
       },
@@ -343,7 +343,7 @@
     "introPortal": {
       "hostNotes": [
         {
-          "text": "> Start the session when you're ready to begin"
+          "text": "> Starta sessionen när ni är redo att börja"
         }
       ],
       "videoLoop": {
