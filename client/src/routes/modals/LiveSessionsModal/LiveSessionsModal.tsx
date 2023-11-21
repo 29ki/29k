@@ -27,7 +27,6 @@ const Container = styled.View({flex: 1});
 type Section = {
   title: string;
   data: LiveSessionType[];
-  type: 'hostedBy' | 'interested' | 'comming';
 };
 
 const renderSectionHeader: (info: {section: Section}) => React.ReactElement = ({
@@ -40,64 +39,34 @@ const renderSectionHeader: (info: {section: Section}) => React.ReactElement = ({
 
 const renderSectionItem: SectionListRenderItem<LiveSessionType, Section> = ({
   item,
-  section,
-  index,
 }) => (
   <Gutters>
-    <SessionCard
-      session={item}
-      small={
-        section.type !== 'comming' && section.data.length >= 1 && index > 0
-      }
-    />
+    <SessionCard session={item} />
   </Gutters>
 );
 
 const LiveSessionsModal = () => {
   const {t} = useTranslation('Modal.LiveSessions');
-  const {fetchSessions, sessions, pinnedSessions, hostedSessions} =
-    useSessions();
+  const {fetchSessions, sessions} = useSessions();
   const getRelativeDateGroup = useGetRelativeDateGroup();
 
   useEffect(() => {
     fetchSessions();
   }, [fetchSessions]);
 
-  const sections = useMemo(() => {
-    let sectionsList: Section[] = [];
-
-    if (hostedSessions.length > 0) {
-      sectionsList.push({
-        title: t('sections.hostedBy'),
-        data: hostedSessions,
-        type: 'hostedBy',
-      });
-    }
-    if (pinnedSessions.length > 0) {
-      sectionsList.push({
-        title: t('sections.interested'),
-        data: pinnedSessions,
-        type: 'interested',
-      });
-    }
-
-    if (sessions.length > 0) {
+  const sections = useMemo(
+    () =>
       Object.entries(
         groupBy(
           session => getRelativeDateGroup(dayjs(session.startTime)),
           sessions,
         ),
-      ).forEach(([group, items = []]) => {
-        sectionsList.push({
-          title: group,
-          data: items,
-          type: 'comming',
-        });
-      });
-    }
-
-    return sectionsList;
-  }, [sessions, pinnedSessions, hostedSessions, t, getRelativeDateGroup]);
+      ).map(([group, items = []]) => ({
+        title: group,
+        data: items,
+      })),
+    [sessions, getRelativeDateGroup],
+  );
 
   return (
     <SheetModal backgroundColor={COLORS.PURE_WHITE}>
