@@ -44,6 +44,7 @@ import ForgotPasswordModal from '../../routes/modals/ForgotPasswordModal/ForgotP
 import HowItWorksModal from '../../routes/modals/HowItWorksModal/HowItWorksModal';
 import SessionModal from '../../routes/modals/SessionModal/SessionModal';
 import FeedbackPostModal from '../../routes/modals/FeedbackPostModal/FeedbackPostModal';
+import LiveSessionsModal from '../../routes/modals/LiveSessionsModal/LiveSessionsModal';
 
 const {Navigator, Screen, Group} =
   createBottomSheetNavigator<ModalStackProps>();
@@ -207,6 +208,11 @@ const ModalStack = () => {
         <Screen
           name="SessionModal"
           component={SessionModal}
+          options={tallSheetModalScreenOptions}
+        />
+        <Screen
+          name="LiveSessionsModal"
+          component={LiveSessionsModal}
           options={tallSheetModalScreenOptions}
         />
         <Screen

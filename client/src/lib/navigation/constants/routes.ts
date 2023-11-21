@@ -76,6 +76,7 @@ export type ModalStackProps = {
   CompletedSessionModal: {
     completedSessionEvent: CompletedSessionEvent;
   };
+  LiveSessionsModal: undefined;
   SharingModal: {exerciseId: string};
   SharingPostModal: {
     sharingPost: PostEvent | PostItem;

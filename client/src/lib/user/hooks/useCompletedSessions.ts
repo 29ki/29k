@@ -1,7 +1,7 @@
 import {useMemo} from 'react';
 
-import useUserEvents from '../../user/hooks/useUserEvents';
-import useUser from '../../user/hooks/useUser';
+import useUserEvents from './useUserEvents';
+import useUser from './useUser';
 
 const useCompletedSessions = () => {
   const {completedSessionEvents} = useUserEvents();

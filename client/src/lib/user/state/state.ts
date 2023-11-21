@@ -23,7 +23,7 @@ import {REMINDER_INTERVALS} from '../../reminders/constants';
 const USER_STATE_VERSION = 6;
 const EPHEMERAL_USER_ID = 'ephemeral';
 
-type PinnedSession = {
+export type PinnedSession = {
   id: string;
   expires: Date;
 };
