@@ -39,4 +39,10 @@ describe('useExercisesByCollectionId', () => {
       {id: 'some-hidden-exercise-id', hidden: true},
     ]);
   });
+
+  it('return empty array if no collectionId is provided', () => {
+    const {result} = renderHook(() => useExercisesByCollectionId());
+
+    expect(result.current).toEqual([]);
+  });
 });

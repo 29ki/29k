@@ -5,7 +5,7 @@ const useExercisesByCollectionId = (collectionId?: string) => {
   const getExercisesByCollectionId = useGetExercisesByCollectionId();
 
   return useMemo(
-    () => (collectionId ? getExercisesByCollectionId(collectionId) : null),
+    () => (collectionId ? getExercisesByCollectionId(collectionId) : []),
     [collectionId, getExercisesByCollectionId],
   );
 };
