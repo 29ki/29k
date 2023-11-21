@@ -1,7 +1,7 @@
 import React from 'react';
 import {Dimensions, FlatList, ListRenderItem} from 'react-native';
 import styled from 'styled-components/native';
-import {Spacer16, Spacer8} from '../../../../lib/components/Spacers/Spacer';
+import {Spacer16} from '../../../../lib/components/Spacers/Spacer';
 import {SPACINGS} from '../../../../lib/constants/spacings';
 import SessionCard from '../../../../lib/components/Cards/SessionCard/SessionCard';
 import {LiveSessionType} from '../../../../../../shared/src/schemas/Session';
