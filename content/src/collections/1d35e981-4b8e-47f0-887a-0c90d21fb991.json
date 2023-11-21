@@ -1,0 +1,86 @@
+{
+  "en": {
+    "hidden": true,
+    "name": "Take care of yourself",
+    "published": true,
+    "sortOrder": 2,
+    "coCreators": [
+      {
+        "name": "Barncancerfonden",
+        "url": "https://www.barncancerfonden.se/",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1700564271/Images/Ska%CC%88rmavbild_2023-11-21_kl._11.57.31_qbyto8.png"
+      }
+    ],
+    "tags": [
+      "9c2c08a9-7dc6-4058-bc78-016d0eb00614",
+      "cfc00217-f65b-4a4d-8b82-8ccc8f852dd6"
+    ],
+    "id": "1d35e981-4b8e-47f0-887a-0c90d21fb991",
+    "image": {
+      "source": "https://res.cloudinary.com/cupcake-29k/image/upload/v1674554615/Images/thumb_meditation_accepting_thoughts_and..._id4tgl.png"
+    },
+    "exercises": [
+      "fff6f8da-f69c-458f-8905-acee04bd1a1d",
+      "961656ea-021c-4faa-ae03-46d6ace4be4b",
+      "185889ec-753b-4e2c-8322-3004013e8a6e",
+      "3188a5ed-a1d6-451c-ae2a-f44f4df37495",
+      "2d096e25-3f0b-48da-8557-3db607b98ef8",
+      "b18c1cff-bb43-44b1-81a1-2877cc018ab4"
+    ],
+    "description": "Practice and prioritize self care – also during tough times."
+  },
+  "pt": {
+    "published": false,
+    "hidden": false,
+    "id": "1d35e981-4b8e-47f0-887a-0c90d21fb991",
+    "tags": [
+      "9c2c08a9-7dc6-4058-bc78-016d0eb00614",
+      "cfc00217-f65b-4a4d-8b82-8ccc8f852dd6"
+    ],
+    "sortOrder": 2,
+    "exercises": [
+      "fff6f8da-f69c-458f-8905-acee04bd1a1d",
+      "961656ea-021c-4faa-ae03-46d6ace4be4b",
+      "185889ec-753b-4e2c-8322-3004013e8a6e",
+      "3188a5ed-a1d6-451c-ae2a-f44f4df37495",
+      "2d096e25-3f0b-48da-8557-3db607b98ef8",
+      "b18c1cff-bb43-44b1-81a1-2877cc018ab4"
+    ]
+  },
+  "sv": {
+    "published": false,
+    "hidden": false,
+    "id": "1d35e981-4b8e-47f0-887a-0c90d21fb991",
+    "tags": [
+      "9c2c08a9-7dc6-4058-bc78-016d0eb00614",
+      "cfc00217-f65b-4a4d-8b82-8ccc8f852dd6"
+    ],
+    "sortOrder": 2,
+    "exercises": [
+      "fff6f8da-f69c-458f-8905-acee04bd1a1d",
+      "961656ea-021c-4faa-ae03-46d6ace4be4b",
+      "185889ec-753b-4e2c-8322-3004013e8a6e",
+      "3188a5ed-a1d6-451c-ae2a-f44f4df37495",
+      "2d096e25-3f0b-48da-8557-3db607b98ef8",
+      "b18c1cff-bb43-44b1-81a1-2877cc018ab4"
+    ]
+  },
+  "es": {
+    "published": false,
+    "hidden": false,
+    "id": "1d35e981-4b8e-47f0-887a-0c90d21fb991",
+    "tags": [
+      "9c2c08a9-7dc6-4058-bc78-016d0eb00614",
+      "cfc00217-f65b-4a4d-8b82-8ccc8f852dd6"
+    ],
+    "sortOrder": 2,
+    "exercises": [
+      "fff6f8da-f69c-458f-8905-acee04bd1a1d",
+      "961656ea-021c-4faa-ae03-46d6ace4be4b",
+      "185889ec-753b-4e2c-8322-3004013e8a6e",
+      "3188a5ed-a1d6-451c-ae2a-f44f4df37495",
+      "2d096e25-3f0b-48da-8557-3db607b98ef8",
+      "b18c1cff-bb43-44b1-81a1-2877cc018ab4"
+    ]
+  }
+}
