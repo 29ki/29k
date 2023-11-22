@@ -70,25 +70,18 @@ describe('useRecommendedSessions', () => {
       ]);
     });
 
-    it('returns future sessions last', () => {
+    it('does not include future sessions', () => {
       const startTime = dayjs().add(1, 'day').toISOString();
 
       mockUseSessions.mockReturnValueOnce({
         pinnedSessions: [{id: 'some-pinned-session-today-id', startTime}],
         hostedSessions: [],
       });
-      mockUseExercises.mockReturnValueOnce([{id: 'some-exercise-id'}]);
 
       const {result} = renderHook(() => useRecommendedSessions());
 
       expect(mockUseSessions).toHaveBeenCalledTimes(1);
-      expect(result.current).toEqual([
-        {id: 'some-exercise-id'},
-        {
-          id: 'some-pinned-session-today-id',
-          startTime,
-        },
-      ]);
+      expect(result.current).toEqual([]);
     });
   });
 
@@ -126,25 +119,18 @@ describe('useRecommendedSessions', () => {
       ]);
     });
 
-    it('returns future sessions last', () => {
+    it('does not include future sessions', () => {
       const startTime = dayjs().add(1, 'day').toISOString();
 
       mockUseSessions.mockReturnValueOnce({
         pinnedSessions: [],
         hostedSessions: [{id: 'some-hosted-session-today-id', startTime}],
       });
-      mockUseExercises.mockReturnValueOnce([{id: 'some-exercise-id'}]);
 
       const {result} = renderHook(() => useRecommendedSessions());
 
       expect(mockUseSessions).toHaveBeenCalledTimes(1);
-      expect(result.current).toEqual([
-        {id: 'some-exercise-id'},
-        {
-          id: 'some-hosted-session-today-id',
-          startTime,
-        },
-      ]);
+      expect(result.current).toEqual([]);
     });
   });
 
@@ -280,8 +266,6 @@ describe('useRecommendedSessions', () => {
         {id: 'some-hosted-session-today-id', startTime: today},
         {id: 'some-exercise-id'},
         {id: 'some-other-exercise-id'},
-        {id: 'some-pinned-session-tomorrow-id', startTime: tomorrow},
-        {id: 'some-hosted-session-tomorrow-id', startTime: tomorrow},
       ]);
     });
 
@@ -316,8 +300,6 @@ describe('useRecommendedSessions', () => {
         {id: 'some-hosted-session-today-id', startTime: today},
         {id: expect.stringContaining('some-exercise-id')},
         {id: expect.stringContaining('some-exercise-id')},
-        {id: 'some-pinned-session-tomorrow-id', startTime: tomorrow},
-        {id: 'some-hosted-session-tomorrow-id', startTime: tomorrow},
       ]);
     });
   });
