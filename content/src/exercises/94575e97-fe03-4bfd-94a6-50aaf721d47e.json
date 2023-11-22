@@ -337,10 +337,10 @@
         "type": "host",
         "hostNotes": [
           {
-            "text": "Welcome. I am X and today we will work for around 30 minutes on acceptance.\n\nWe’ll be doing a short introduction, do a meditation exercise followed by time for reflection and sharing with each other."
+            "text": "Välkommen. Jag heter X och vi kommer att jobba tillsammans i ungefär 30 minuter med acceptans.\n\nVi kommer att lyssna på en ljudövning tillsammans, reflektera en stund för oss själva och sedan finns det möjlighet att dela sina erfarenheter."
           },
           {
-            "text": "Let’s start with a mini check-in. How are you feeling right now? Please answer in two-three words. X, would you like to start?\n\n> Let everyone in the session, including yourself, check in one by one.\n\nThank you all for checking in. Let’s get started."
+            "text": "Vi börjar med en mini-check-in. Hur känner du dig just nu? Svara gärna med två-tre ord. X, skulle du vilja börja?\n\n> Låt alla deltagare, inklusive dig själv, checka in en och en. \n\nTack för att ni checkade in. Då kör vi igång."
           }
         ],
         "video": {
@@ -352,10 +352,10 @@
         "type": "content",
         "hostNotes": [
           {
-            "text": "Practicing acceptance includes intentionally paying attention to the reality of things **without trying to change, run away from, or fix them**. Just being with whatever shows up. The reason for doing that is that fighting things on the inside often takes a lot of energy – plus it mostly doesn’t work."
+            "text": "Att öva på acceptans handlar om att medvetet observera verkligheten utan att försöka ändra, fly från eller fixa den. Bara vara närvarande med allt det som händer. Att kämpa emot det som pågår tar mycket energi och dessutom brukar det inte fungera särskilt bra."
           },
           {
-            "text": "The things we try to get rid of have a tendency to be extra persistent or even dictate more and more in life over time. So, we’re gonna take a step back and just observe. Give ourselves a break from from the daily routine.\n\n> Push play to start the meditation"
+            "text": "Det vi försöker bli av med tenderar att hamna i fokus. Kanske börjar det till och med diktera mer och mer i våra liv. Därför ska vi nu istället ta ett steg tillbaka och bara se på. Ge oss själva en paus från vardagens krav.\"\n\n> Tryck på play för att starta ljud-övningen."
           }
         ],
         "content": {
@@ -366,10 +366,6 @@
             "durationTimer": true,
             "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1674554615/Images/thumb_meditation_accepting_thoughts_and..._id4tgl.png",
             "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1697548786/SRT%20(captions)%20files/Accepting_thoughts_and_feelings_swe_fpnk6x.srt"
-          },
-          "lottie": {
-            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1697548746/Audio/Accepting_thoughts_and_feelings_swe_yn6dsx.mp3",
-            "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1697548786/SRT%20(captions)%20files/Accepting_thoughts_and_feelings_swe_fpnk6x.srt"
           }
         }
       },
@@ -377,14 +373,14 @@
         "type": "reflection",
         "hostNotes": [
           {
-            "text": "Now we’ll take 1 minute to reflect on our own. \n\nWhat did you notice during the exercise? What can you bring from this for the rest of your day?"
+            "text": "Nästa steg är att tyst reflektera i en minut.\n\nVad la du märke till under övningen? Vad kan du ta med dig under resten av dagen idag?"
           },
           {
-            "text": "You can take notes on a piece of paper or just mental notes in your head. And there is no right or wrong here, our answers are our own. 1 minute starting now.\n\n> Push play to start the timer.\n\nThat’s 1 minute. Let’s move on."
+            "text": "Om du vill kan du skriva ner dina funderingar på ett papper, eller bara tänka fritt. Det finns inga svar som är rätt eller fel här – vad som än dyker upp är okej.\n\n> Tryck på play för att starta timern.\n\nDå har det gått en minut och det är dags att gå vidare."
           }
         ],
         "content": {
-          "heading": "What did you notice?",
+          "heading": "Vad la du märke till?",
           "video": {
             "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1667317097/Video/1min_Accepting_thoughts_and_feelings_xdvlcn.mp4",
             "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1674554615/Images/thumb_timer1min_accepting_thoughts_and..._izhwhy.png",
@@ -395,7 +391,7 @@
       {
         "type": "sharing",
         "content": {
-          "heading": "What did you notice?",
+          "heading": "Vad la du märke till?",
           "video": {
             "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1667317099/Video/2min_Accepting_thoughts_and_feelings_b9bxvx.mp4",
             "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1674554616/Images/thumb_timer2min_accepting_thoughts_and..._lzejn1.png",
@@ -404,28 +400,29 @@
         },
         "hostNotes": [
           {
-            "text": "Now we are getting into the sharing part. We have three rules for sharing:\n\n1. **What is said in here, stays in here.**\n2. **All you need to do is listen.** There is no fixing, helping or advice-giving needed. We are just showing up and exploring what ourselves and others are going through."
+            "text": "Det här steget handlar om att dela med sig av sin upplevelse och lyssna på andras. Vi har tre regler:\n\n1. **Det som sägs här, stannar här.**\n2. **Allt som behövs är att vi lyssnar på varandra.** Inget fixande, ingen rådgivning eller annan hjälp behövs. Vi är bara här för att utforska våra egna och andras upplevelser."
           },
           {
-            "text": "3. **Everything on the inside is okay.** Anger, love, hatred, sadness. Whatever shows up. No wrongs, no rights. It is what it is.\n\nThere will be a timer set for 2 minutes as an indicator. If you don’t want to share you can always say ‘pass’."
+            "text": "3. **Allt som händer på insidan är okej.** Ilska, kärlek, smärta, glädje. Vad som än dyker upp, det finns inget rätt eller fel. Det bara är som det är.\n\nDet finns en timer på två minuter att hålla sig efter på ett ungefär. Om du inte vill dela med dig är det bara att säga 'pass'."
           },
           {
-            "text": "Who would like to start?\n\n> Let everyone (or as many as you got time for) share one by one. Push play to start the timer. Re-start for each new sharing.\n\nThank you so much everyone."
+            "text": "Vem vill börja?\n\n> Låt alla, eller så många som det finns tid för, dela en efter en. Tryck på play för att starta timern. Starta om för varje person.\n\nTack så mycket för att ni lyssnar och delar med er."
           }
         ],
-        "id": "sharing"
+        "id": "sharing",
+        "sharingVideos": []
       },
       {
         "type": "host",
         "hostNotes": [
           {
-            "text": "Well done. If you’re up for it, you can continue what we started here today with a mission.\n\nAs you’ve reflected on what you can bring from this to the rest of your day, take this opportunity to practice making space for things on the inside during the rest of today, and see where that takes you."
+            "text": "Bra jobbat. Om du vill kan du ta vidare det vi påbörjat här idag med en utmaning. Försök i så fall att under resten av dagen idag skapa mer utrymme för det som pågår på insidan och notera hur det påverkar dig."
           },
           {
-            "text": "Before we leave this space let’s do a mini check-out.\n\nHow are you feeling right now? Has anything shifted? Please answer in two-three words."
+            "text": "Innan vi avslutar så gör vi en mini-utcheckning.\nHur känner du dig nu? Har något ändrats? Svara med två-tre ord.\n\nVem vill börja?"
           },
           {
-            "text": "Who would like to start?\n\n> Let everyone in the session check out one by one.\n\nThank you all for checking out and for joining this session today.\n\n> Finish session to send everyone off to the exit experience."
+            "text": "> Låt alla checka ut en efter en.\n\nTack så mycket för era utcheckningar, och för att ni deltog i den här sessionen.\n\n> Avsluta sessionen för att skicka deltagarna till exit-upplevelsen."
           }
         ],
         "video": {
@@ -436,8 +433,8 @@
       {
         "type": "instruction",
         "content": {
-          "text": "If you’re up for it, you can continue with this mission:\n\nWhat can you bring from this for the rest of your day?\n\nTake this opportunity to practice making space for things on the inside during the rest of today, and see where that takes you.",
-          "heading": "Well done",
+          "text": "Vill du anta en utmaning?\n\nFörsök i så fall att under resten av dagen idag skapa mer utrymme för det som pågår på insidan och notera vad det får för effekter.",
+          "heading": "Bra jobbat",
           "image": {
             "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1667318313/Images/cover_Accepting_thoughts_and_feelings_w323ui.png"
           }
@@ -448,8 +445,8 @@
       "textColor": "#2E2E2E",
       "backgroundColor": "#fcc9b7"
     },
-    "hidden": true,
-    "name": "Tillåt och acceptera",
+    "hidden": false,
+    "name": "Tilllåt och acceptera",
     "live": true,
     "published": true,
     "card": {
@@ -457,6 +454,23 @@
         "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1667318313/Images/cover_Accepting_thoughts_and_feelings_w323ui.png"
       }
     },
+    "coCreators": [
+      {
+        "name": "Agnes Branny, röst",
+        "url": "https://www.agnesbranny.com/",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665414181/Contributors/Agnes%20Branny.png"
+      },
+      {
+        "name": "Ints Ivanovskis, illustrationer",
+        "url": "https://www.linkedin.com/in/ints-ivanovskis-46ab0311a/",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413436/Contributors/Ints%20Ivanovskis.jpg"
+      },
+      {
+        "name": "Jenny Rickardsson, manus",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413228/Contributors/Jenny%20Rickardsson.jpg",
+        "url": "https://www.linkedin.com/in/jenny-rickardson-6770a959/"
+      }
+    ],
     "duration": 30,
     "outroPortal": {
       "video": {
@@ -466,7 +480,7 @@
     "introPortal": {
       "hostNotes": [
         {
-          "text": ">Start the session when you're ready to go."
+          "text": "> Starta sessionen när ni är redo att börja"
         }
       ],
       "videoLoop": {
@@ -485,7 +499,7 @@
     "link": "https://aware.29k.org/accepting-thoughts-and-feelings",
     "id": "94575e97-fe03-4bfd-94a6-50aaf721d47e",
     "async": true,
-    "description": "A guided meditation exercise on accepting what's going on inside. Practicing acceptance can help us do more of what matters, and has proven to be an effective way of dealing with inner experiences."
+    "description": "En guidad meditationsövning som hjälper dig acceptera det som pågår på insidan. Acceptans kan hjälpa oss göra mer av det som verkligen betyder något för oss och är en bevisat effektiv metod att hantera inre upplevelser."
   },
   "es": {
     "id": "94575e97-fe03-4bfd-94a6-50aaf721d47e",
