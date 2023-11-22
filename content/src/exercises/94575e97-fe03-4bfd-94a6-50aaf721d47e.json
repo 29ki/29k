@@ -433,7 +433,7 @@
       {
         "type": "instruction",
         "content": {
-          "text": "Vill du anta en utmaning?\n\nFörsök i så fall att under resten av dagen idag skapa mer utrymme för det som pågår på insidan och notera vad det får för effekter.",
+          "text": "Vill du anta en utmaning?\n\nFörsök i så fall att under resten av dagen idag skapa mer utrymme för det som pågår på insidan. Notera vad det får för effekter.",
           "heading": "Bra jobbat",
           "image": {
             "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1667318313/Images/cover_Accepting_thoughts_and_feelings_w323ui.png"
