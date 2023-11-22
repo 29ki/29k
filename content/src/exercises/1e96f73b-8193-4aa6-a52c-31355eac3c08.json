@@ -160,7 +160,7 @@
     },
     "tags": [
       "34100e43-2eb8-4d35-8eb0-9fa9f78e4935",
-      "8558ac04-771c-4f9e-9e44-e67fc04f1c7f"
+      "cfc00217-f65b-4a4d-8b82-8ccc8f852dd6"
     ],
     "id": "1e96f73b-8193-4aa6-a52c-31355eac3c08",
     "async": true,
@@ -237,7 +237,7 @@
     },
     "tags": [
       "34100e43-2eb8-4d35-8eb0-9fa9f78e4935",
-      "8558ac04-771c-4f9e-9e44-e67fc04f1c7f"
+      "cfc00217-f65b-4a4d-8b82-8ccc8f852dd6"
     ],
     "id": "1e96f73b-8193-4aa6-a52c-31355eac3c08",
     "async": false
@@ -355,7 +355,7 @@
     "theme": {
       "textColor": "#2E2E2E"
     },
-    "hidden": true,
+    "hidden": false,
     "name": "Vägen ut är igenom",
     "live": true,
     "published": true,
@@ -364,6 +364,13 @@
         "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1687406076/Images/card_image_way_out_is_through_qjpv4m.png"
       }
     },
+    "coCreators": [
+      {
+        "name": "Fredrik Livheim, manus och röst",
+        "url": "https://livskompass.se/kontakt/",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413198/Contributors/Fredrik%20Livheim.png"
+      }
+    ],
     "duration": 30,
     "outroPortal": {
       "video": {
@@ -387,11 +394,11 @@
     },
     "tags": [
       "34100e43-2eb8-4d35-8eb0-9fa9f78e4935",
-      "8558ac04-771c-4f9e-9e44-e67fc04f1c7f"
+      "cfc00217-f65b-4a4d-8b82-8ccc8f852dd6"
     ],
     "id": "1e96f73b-8193-4aa6-a52c-31355eac3c08",
     "async": true,
-    "description": "I den här meditationen övar vi på att gå igenom svårigheter istället för att försöka undvika dem. Genom att tillåta oss själva att känna hela spektrat av känslor kan vi hjälpa oss själva att uppleva mer mening och leva livet fullt ut."
+    "description": "I den här meditationen övar vi på att gå igenom svårigheter istället för att försöka undvika dem. Genom att tillåta oss själva att känna hela spektrat av känslor kan vi uppleva mer mening och leva livet fullt ut."
   },
   "es": {
     "slides": [
@@ -464,7 +471,7 @@
     },
     "tags": [
       "34100e43-2eb8-4d35-8eb0-9fa9f78e4935",
-      "8558ac04-771c-4f9e-9e44-e67fc04f1c7f"
+      "cfc00217-f65b-4a4d-8b82-8ccc8f852dd6"
     ],
     "id": "1e96f73b-8193-4aa6-a52c-31355eac3c08",
     "async": false

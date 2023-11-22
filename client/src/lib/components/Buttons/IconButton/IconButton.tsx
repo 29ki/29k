@@ -63,8 +63,8 @@ const IconButton: React.FC<IconButtonProps> = ({
           fill
             ? fill
             : disabled || active || variant !== 'tertiary'
-            ? COLORS.WHITE
-            : COLORS.BLACK
+              ? COLORS.WHITE
+              : COLORS.BLACK
         }
       />
     ) : (
@@ -73,8 +73,8 @@ const IconButton: React.FC<IconButtonProps> = ({
           fill
             ? fill
             : disabled || active || variant !== 'tertiary'
-            ? COLORS.WHITE
-            : COLORS.BLACK
+              ? COLORS.WHITE
+              : COLORS.BLACK
         }
       />
     )}

@@ -93,6 +93,8 @@ const SessionCard: React.FC<SessionCardProps> = ({
     });
   }, [navigate, session, onBeforeContextPress]);
 
+  if (!exercise) return null;
+
   if (small) {
     return (
       <CardSmall

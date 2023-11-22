@@ -1,0 +1,12 @@
+{
+  "templates": [
+    {
+      "name": "Swe host intro 1",
+      "text": "Välkommen. Jag heter X och vi kommer att jobba tillsammans i ungefär 30 minuter med xx.\nVi kommer att lyssna på en ljudövning tillsammans, reflektera en stund för oss själva och sedan finns det möjlighet att dela sina erfarenheter."
+    },
+    {
+      "name": "Swe host intro 2",
+      "text": "Vi börjar med en mini-check-in. Hur känner du dig just nu? Svara gärna med två-tre ord. X, skulle du vilja börja?\nLåt alla deltagare, inklusive dig själv, checka in en och en. \nTack för att ni checkade in. Då kör vi igång."
+    }
+  ]
+}

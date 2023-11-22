@@ -57,8 +57,8 @@ const PortalStatus: React.FC = () => {
             started
               ? t('counterLabel.started')
               : sessionTime.isStartingShortly
-              ? t('counterLabel.shortly')
-              : sessionTime.time
+                ? t('counterLabel.shortly')
+                : sessionTime.time
           }
         />
       </StatusItem>
