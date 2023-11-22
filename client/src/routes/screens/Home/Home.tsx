@@ -1,4 +1,4 @@
-import React, {useCallback, useRef} from 'react';
+import React, {useCallback, useMemo, useRef} from 'react';
 import {useTranslation} from 'react-i18next';
 import styled from 'styled-components/native';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
@@ -105,8 +105,14 @@ const Home = () => {
     >();
   const scrollRef = useRef(null);
   const recommendedSessions = useRecommendedSessions();
-  const {fetchSessions, otherSessions} = useSessions();
+  const {fetchSessions, sessions} = useSessions();
   const {fetchSharingPosts, sharingPosts} = useSharingPosts();
+
+  const otherSessions = useMemo(
+    // Filter out recommended sessions
+    () => sessions.filter(session => !recommendedSessions.includes(session)),
+    [sessions, recommendedSessions],
+  );
 
   const fetch = useCallback(() => {
     fetchSessions();

@@ -240,38 +240,4 @@ describe('useSessions', () => {
       ]);
     });
   });
-
-  describe('otherSessions', () => {
-    beforeEach(() => {
-      fetchMock.mockResponseOnce(
-        JSON.stringify([
-          {id: 'session-id-1'},
-          {id: 'session-id-2'},
-          {id: 'session-id-3', hostId: 'user-id'},
-        ]),
-        {status: 200},
-      );
-    });
-
-    it('should return sessions that are not pinned or hosted by user', async () => {
-      useUserState.setState({
-        user: {uid: 'user-id'} as FirebaseAuthTypes.User,
-        userState: {
-          'user-id': {
-            pinnedSessions: [
-              {id: 'session-id-2', expires: new Date('2022-12-20')},
-            ],
-          },
-        },
-      });
-
-      const {result} = renderHook(() => useSessions());
-
-      await act(async () => {
-        await result.current.fetchSessions();
-      });
-
-      expect(result.current.otherSessions).toEqual([{id: 'session-id-1'}]);
-    });
-  });
 });

@@ -16,22 +16,16 @@ const useRecommendedSessions = () => {
   const allExercises = useExercises();
 
   // All pinned and hosted sessions
-  const allSessions = useMemo(
+  const committedSessions = useMemo(
     () => uniq([...pinnedSessions, ...hostedSessions]),
     [pinnedSessions, hostedSessions],
   );
 
   // Split today and future sessions
-  const {sessionsToday, futureSessions} = useMemo(
-    () => ({
-      sessionsToday: allSessions.filter(session =>
-        dayjs(session.startTime).isToday(),
-      ),
-      futureSessions: allSessions.filter(
-        session => !dayjs(session.startTime).isToday(),
-      ),
-    }),
-    [allSessions],
+  const sessionsToday = useMemo(
+    () =>
+      committedSessions.filter(session => dayjs(session.startTime).isToday()),
+    [committedSessions],
   );
 
   // All incomplete sessions from pinned collections
@@ -67,14 +61,8 @@ const useRecommendedSessions = () => {
   );
 
   return useMemo(
-    () =>
-      uniq([
-        ...sessionsToday,
-        ...collectionExercises,
-        ...randomExercises,
-        ...futureSessions,
-      ]),
-    [sessionsToday, collectionExercises, randomExercises, futureSessions],
+    () => uniq([...sessionsToday, ...collectionExercises, ...randomExercises]),
+    [sessionsToday, collectionExercises, randomExercises],
   );
 };
 
