@@ -231,81 +231,143 @@
         "type": "host",
         "hostNotes": [
           {
-            "text": "Welcome. I am X and today we will work for around 30 minutes on xx\n\nWe’ll be doing xx ex. meditation followed by time for reflection and sharing with each other."
+            "text": "Välkommen. Jag heter X och vi kommer att jobba tillsammans i ungefär 30 minuter med vänlighet och tacksamhet.\n\nVi kommer att lyssna på en ljudövning tillsammans, reflektera en stund för oss själva och sedan finns det möjlighet att dela sina erfarenheter om en vill."
           },
           {
-            "text": "Let’s start with a mini check-in. How are you feeling right now? Please answer in two-three words. X, would you like to start?\n\n> Let everyone in the session, including yourself, check in one by one.\n\nThank you all for checking in. Let’s get started."
+            "text": "Vi börjar med en mini-check-in. Hur känner du dig just nu? Svara gärna med två-tre ord. X, skulle du vilja börja?\n\n> Låt alla deltagare, även du själv, checka in en och en.\n\nTack för att ni checkade in. Då kör vi igång."
           }
         ]
       },
       {
-        "type": "content"
+        "type": "content",
+        "hostNotes": [
+          {
+            "text": "> Tryck på play för att starta ljud-övningen"
+          }
+        ],
+        "content": {
+          "lottie": {
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1699019544/Audio/Seeing_kindness_swe_wolwey.mp3",
+            "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1699019609/SRT%20(captions)%20files/Seeing_kindness_swe_lc326w.srt",
+            "durationTimer": true,
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1699620866/Lottie/meditation_visual_seeing_kindness_jyu33s.json"
+          }
+        }
       },
       {
         "type": "reflection",
         "hostNotes": [
           {
-            "text": "Now we’ll take 1 minute to reflect on our own.\n\nxxMain question\n\nxxFurther explanations of main question if needed"
+            "text": "Nästa steg är att tyst reflektera i en minut.\n\nOm du använder situationen du nyss föreställde dig som inspiration, vad motiverar den dig att göra?"
           },
           {
-            "text": "You can take notes on a piece of paper or just mental notes in your head. And there is no right or wrong here, our answers are our own. 1 minute starting now.\n\n> Press play to start the timer.\n\nThat’s 1 minute and it’s time to move on."
+            "text": "Om du vill kan du skriva ner dina funderingar på ett papper, eller bara tänka fritt. Det finns inga svar som är rätt eller fel här. Vad som än dyker upp är okej.\n\n> Tryck på play för att starta timern.\n\nDå har det gått en minut och det är dags att gå vidare."
           }
-        ]
+        ],
+        "content": {
+          "heading": "Vad får den vänliga handlingen dig att vilja göra?",
+          "lottie": {
+            "durationTimer": true,
+            "duration": 60,
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto/v1699611514/Lottie/1min_seeing_kindness_sqq5s1.json",
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1699611545/Audio/portal_audio_seeing_kindness_s2j9wc.mp3"
+          }
+        }
       },
       {
         "type": "sharing",
         "hostNotes": [
           {
-            "text": "Now we are getting into the sharing part. We have three rules for sharing:\n\n1. **What is said in here, stays in here.**\n2. **All you need to do is listen.** There is no fixing, helping or advice-giving needed. We are just showing up and exploring what ourselves and others are going through."
+            "text": "Det här steget handlar om att dela med sig av sin upplevelse och lyssna på andras. Vi har tre regler:\n\n1. **Det som sägs här, stannar här.**\n2. **Allt som behövs är att vi lyssnar på varandra.** Inget fixande, ingen rådgivning eller annan hjälp behövs. Vi är bara här för att utforska våra egna och andras upplevelser."
           },
           {
-            "text": "3. **Everything on the inside is okay.** Anger, love, hatred, sadness. Whatever shows up. No wrongs, no rights. It is what it is.\n\nThere will be a timer set for 2 minutes as an indicator. If you don’t want to share you can always say ‘pass’."
+            "text": "3. **Allt som händer på insidan är okej.** Ilska, kärlek, smärta, glädje. Vad som än dyker upp, det finns inget rätt eller fel. Det bara är som det är.\n\nDet finns en timer på två minuter att hålla sig efter på ett ungefär. Om du inte vill dela med dig är det bara att säga 'pass'."
           },
           {
-            "text": "Who would like to start?\n\n> Let everyone (or as many as you got time for) share one by one. Press play to start the timer. Re-start for each new sharing.\n\nThank you so much everyone."
+            "text": "Vem vill börja?\n\n> Låt alla, eller så många som det finns tid för, dela en efter en. Tryck på play för att starta timern. Starta om för varje person.\n\nTack så mycket för att ni lyssnar och delar med er."
           }
-        ]
+        ],
+        "id": "1",
+        "content": {
+          "heading": "Vad får den vänliga handlingen dig att vilja göra?",
+          "lottie": {
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto/v1699611515/Lottie/2min_seeing_kindness_hp4bsp.json",
+            "duration": 120,
+            "durationTimer": true
+          }
+        }
       },
       {
         "type": "host",
         "hostNotes": [
           {
-            "text": "Well done. If you’re up for it, you can continue what we started here today with a mission to bring this into your everyday life.\n\nxx mission description"
+            "text": "Bra jobbat. Att se och uppleva när andra är vänliga kan få oss att känna samhörighet och hopp. \n\nOm du vill ta dig an ett uppdrag för att fortsätta träna, planera en enkel vänlig handling som du kan göra under dagen. Lägg märke till hur det känns när du gör den – liksom hur andra påverkas av den."
           },
           {
-            "text": "Before we leave this space let’s do a mini check-out. \n\nHow are you feeling right now? Has anything shifted? Please answer in two-three words."
+            "text": "Innan vi avslutar så gör vi en mini-utcheckning.\n\nHur känner du dig nu? Har något ändrats? Svara med två-tre ord."
           },
           {
-            "text": "Who would like to start?\n\n> Let everyone in the session check out one by one.\n\nThank you all for checking out and for joining this session today.\n\n> Finish session to send everyone off to the exit experience."
+            "text": "Vem vill börja?\n\n> Låt alla checka ut en efter en.\n\nTack så mycket för era utcheckningar, och för att ni deltog i den här sessionen.\n\n> Avsluta sessionen för att skicka deltagarna till exit-upplevelsen."
           }
         ]
       },
       {
         "type": "instruction",
         "content": {
-          "text": "Well done.\n\nSummary.\n\nIf you’re up for it, you can continue with this mission.\n\nmission description"
+          "text": "Bra jobbat. Att se och uppleva när andra är vänliga kan få oss att känna samhörighet och hopp.\n\nOm du vill ta dig an ett uppdrag för att fortsätta träna, planera en enkel vänlig handling som du kan göra under dagen. Kom ihåg att lägga märke till hur det känns när du gör den – liksom hur andra påverkas av den.",
+          "image": {
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1699611439/Images/asynk_image_seeing_kindness_vfmrmu.png"
+          }
         }
       }
     ],
     "theme": {
-      "textColor": "#2AE2D7"
+      "textColor": "#2E2E2E",
+      "backgroundColor": "#f7dfc9"
     },
     "hidden": false,
+    "name": "Se det snälla",
     "live": true,
-    "published": false,
+    "published": true,
+    "card": {
+      "backgroundColor": "",
+      "image": {
+        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1699611438/Images/card_image_seeing_kindness_haxh2q.png"
+      }
+    },
+    "coCreators": [
+      {
+        "name": "Jenny Rickardsson, röst och redaktör",
+        "url": "https://www.linkedin.com/in/jenny-rickardson-6770a959/",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413228/Contributors/Jenny%20Rickardsson.jpg"
+      },
+      {
+        "name": "Ints Ivanovskis, illustrationer",
+        "url": "https://www.linkedin.com/in/ints-ivanovskis-46ab0311a/",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413436/Contributors/Ints%20Ivanovskis.jpg"
+      }
+    ],
     "duration": 30,
     "introPortal": {
       "hostNotes": [
         {
-          "text": "> Start the session when you're ready to go"
+          "text": "> Starta sessionen när ni är redo att börja"
         }
-      ]
+      ],
+      "videoLoop": {
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1699611480/Video/portal1_seeing_kindness_bnyu6v.mp4",
+        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1699611545/Audio/portal_audio_seeing_kindness_s2j9wc.mp3"
+      },
+      "videoEnd": {
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1699611475/Video/portal2_seeing_kindness_bu6lfb.mp4"
+      }
     },
     "tags": [
       "43a6dc0d-d866-4b79-9453-13c44e906128"
     ],
     "id": "648e1802-eb45-47b0-a42e-dd986669a4eb",
-    "async": false
+    "async": true,
+    "description": "Uppmärksamma och hitta inspiration i andras vänlighet. Att aktivt lägga märke till när andra göra fina saker kan väcka positiva känslor och skapa en känsla av tacksamhet och sammanhang. Vänliga handlingar kan främja hopp och samhörighet samt sprida sig som ringar på vattnet."
   },
   "es": {
     "slides": [

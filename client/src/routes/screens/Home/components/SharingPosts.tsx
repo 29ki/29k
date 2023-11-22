@@ -1,5 +1,5 @@
 import React, {useCallback} from 'react';
-import {Dimensions, FlatList} from 'react-native';
+import {Dimensions, FlatList, ListRenderItem} from 'react-native';
 import {PostItem} from '../../../../lib/posts/types/PostItem';
 import styled from 'styled-components/native';
 import ExerciseSharingPostCard from '../../../../lib/components/PostCard/ExerciseSharingPostCard';
@@ -8,6 +8,7 @@ import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import {Spacer16} from '../../../../lib/components/Spacers/Spacer';
 import {SPACINGS} from '../../../../lib/constants/spacings';
 import {ModalStackProps} from '../../../../lib/navigation/constants/routes';
+import Gutters from '../../../../lib/components/Gutters/Gutters';
 
 const SCREEN_DIMENSIONS = Dimensions.get('screen');
 const CARD_WIDTH = SCREEN_DIMENSIONS.width * 0.6;
@@ -40,26 +41,31 @@ const SharingPost: React.FC<{sharingPost: PostItem}> = ({sharingPost}) => {
   );
 };
 
-const renderSharingPost = ({item}: {item: PostItem}) => (
+const renderSharingPost: ListRenderItem<PostItem> = ({item}) => (
   <SharingPost sharingPost={item} />
 );
 
 type Props = {
   sharingPosts: PostItem[];
 };
-const SharingPosts: React.FC<Props> = ({sharingPosts}) => (
-  <FlatList
-    renderItem={renderSharingPost}
-    horizontal
-    data={sharingPosts}
-    ListHeaderComponent={Spacer16}
-    ItemSeparatorComponent={Spacer16}
-    ListFooterComponent={Spacer16}
-    snapToAlignment="center"
-    decelerationRate="fast"
-    snapToInterval={CARD_WIDTH + SPACINGS.SIXTEEN}
-    showsHorizontalScrollIndicator={false}
-  />
-);
+const SharingPosts: React.FC<Props> = ({sharingPosts}) =>
+  sharingPosts.length === 1 ? (
+    <Gutters>
+      <SharingPost sharingPost={sharingPosts[0]} />
+    </Gutters>
+  ) : (
+    <FlatList
+      renderItem={renderSharingPost}
+      horizontal
+      data={sharingPosts}
+      ListHeaderComponent={Spacer16}
+      ItemSeparatorComponent={Spacer16}
+      ListFooterComponent={Spacer16}
+      snapToAlignment="center"
+      decelerationRate="fast"
+      snapToInterval={CARD_WIDTH + SPACINGS.SIXTEEN}
+      showsHorizontalScrollIndicator={false}
+    />
+  );
 
 export default SharingPosts;

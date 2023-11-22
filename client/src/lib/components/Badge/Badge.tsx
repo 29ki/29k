@@ -20,12 +20,14 @@ const Wrapper = styled.View<{themeColor?: string; completed?: boolean}>(
     borderRadius: SPACINGS.EIGHT,
     flexDirection: 'row',
     alignItems: 'center',
+    flexShrink: 1,
   }),
 );
 
 const StatusText = styled(Body14)<{themeColor?: string}>(({themeColor}) => ({
   color: themeColor ? themeColor : COLORS.BLACK,
   fontFamily: HKGroteskBold,
+  flexShrink: 1,
 }));
 
 const BadgeIcon = styled.View({
@@ -56,7 +58,9 @@ const Badge: React.FC<BadgeProps> = ({
           <Spacer4 />
         </>
       )}
-      <StatusText themeColor={themeColor}>{text}</StatusText>
+      <StatusText themeColor={themeColor} numberOfLines={1}>
+        {text}
+      </StatusText>
       {IconAfter && (
         <>
           <Spacer4 />

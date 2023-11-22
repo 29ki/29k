@@ -1,5 +1,5 @@
 import {useNavigation} from '@react-navigation/native';
-import {renderHook} from '@testing-library/react-hooks';
+import {act, renderHook} from '@testing-library/react-hooks';
 import {FirebaseAuthTypes} from '@react-native-firebase/auth';
 
 import {getSession} from '../../sessions/api/session';
@@ -40,12 +40,13 @@ describe('useIsAllowedToJoin', () => {
 
     const {result} = renderHook(() => useIsAllowedToJoin());
 
-    const res = await result.current('some-session-id');
-
-    expect(res).toBe(true);
-    expect(mockGetSession).toHaveBeenCalledWith('some-session-id');
-    expect(mockNavigate).toHaveBeenCalledTimes(0);
-    expect(mockFetchSessions).toHaveBeenCalledTimes(0);
+    await act(async () => {
+      const res = await result.current('some-session-id');
+      expect(res).toBe(true);
+      expect(mockGetSession).toHaveBeenCalledWith('some-session-id');
+      expect(mockNavigate).toHaveBeenCalledTimes(0);
+      expect(mockFetchSessions).toHaveBeenCalledTimes(0);
+    });
   });
 
   const useTestHook = () => {
@@ -70,7 +71,9 @@ describe('useIsAllowedToJoin', () => {
     const {result} = renderHook(() => useTestHook());
 
     try {
-      await result.current.isAllowedToJoin('some-session-id');
+      await act(async () => {
+        await result.current.isAllowedToJoin('some-session-id');
+      });
     } catch (error) {}
 
     expect(mockGetSession).toHaveBeenCalledWith('some-session-id');
@@ -94,7 +97,9 @@ describe('useIsAllowedToJoin', () => {
     const {result} = renderHook(() => useTestHook());
 
     try {
-      await result.current.isAllowedToJoin('some-session-id');
+      await act(async () => {
+        await result.current.isAllowedToJoin('some-session-id');
+      });
     } catch (error) {}
 
     expect(mockGetSession).toHaveBeenCalledWith('some-session-id');
@@ -118,7 +123,9 @@ describe('useIsAllowedToJoin', () => {
     const {result} = renderHook(() => useTestHook());
 
     try {
-      await result.current.isAllowedToJoin('some-session-id');
+      await act(async () => {
+        await result.current.isAllowedToJoin('some-session-id');
+      });
     } catch (error) {}
 
     expect(mockGetSession).toHaveBeenCalledWith('some-session-id');
@@ -140,7 +147,9 @@ describe('useIsAllowedToJoin', () => {
     const {result} = renderHook(() => useTestHook());
 
     try {
-      await result.current.isAllowedToJoin('some-session-id');
+      await act(async () => {
+        await result.current.isAllowedToJoin('some-session-id');
+      });
     } catch (error) {}
 
     expect(mockGetSession).toHaveBeenCalledWith('some-session-id');

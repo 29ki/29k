@@ -22,13 +22,9 @@ const SessionTimeBadge: React.FC<{session: LiveSessionType}> = ({session}) => {
 
   return (
     <Row>
-      {!sessionTime.isReadyToJoin && (
+      {!sessionTime.isReadyToJoin && sessionTime.isInLessThanAnHour && (
         <>
-          {sessionTime.isInLessThanAnHour ? (
-            <Body14>{t('counterLabel.startsIn')}</Body14>
-          ) : (
-            <Body14>{t('counterLabel.starts')}</Body14>
-          )}
+          <Body14>{t('counterLabel.starts')}</Body14>
           <Spacer4 />
         </>
       )}
