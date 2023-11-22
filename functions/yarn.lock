@@ -1137,10 +1137,10 @@
     "@sentry/types" "7.80.0"
     "@sentry/utils" "7.80.0"
 
-"@sentry/cli@^2.21.3":
-  version "2.21.3"
-  resolved "https://registry.yarnpkg.com/@sentry/cli/-/cli-2.21.3.tgz#2d06411af8163b187d9c52e0fd59892443098dd9"
-  integrity sha512-gv8SNaMVNggiE/+6fPxEj8+y5uj9PqAQ8QS277aZ/HSXFgoidnNecE4QGHh4n+AkT0qCSQ/byxZsojVXkwkC7g==
+"@sentry/cli@^2.21.5":
+  version "2.21.5"
+  resolved "https://registry.yarnpkg.com/@sentry/cli/-/cli-2.21.5.tgz#9ee4c51b267ac5ba8cdbf9bb9d4e8b74410d9669"
+  integrity sha512-RqKBqE10pb7zh0G/YiYVdX/MqenDYIgLGcaCqbszTAfW2SSLyp9EczsnmHtRgO1fO1OQq76+gaK7UdC1TEIGqQ==
   dependencies:
     https-proxy-agent "^5.0.0"
     node-fetch "^2.6.7"
