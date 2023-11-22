@@ -4,7 +4,7 @@ import {Section} from '../types/Section';
 import dayjs from 'dayjs';
 import {useTranslation} from 'react-i18next';
 
-import useCompletedSessions from '../../../../lib/sessions/hooks/useCompletedSessions';
+import useCompletedSessions from '../../../../lib/user/hooks/useCompletedSessions';
 import useSessions from '../../../../lib/sessions/hooks/useSessions';
 import usePinnedCollections from '../../../../lib/user/hooks/usePinnedCollections';
 import useSessionSharingPosts from '../../../../lib/posts/hooks/useSessionSharingPosts';

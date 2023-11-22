@@ -1,6 +1,6 @@
 import {useCallback} from 'react';
 import useUserEvents from './useUserEvents';
-import useCompletedSessions from '../../sessions/hooks/useCompletedSessions';
+import useCompletedSessions from './useCompletedSessions';
 import {CompletedSessionEvent} from '../../../../../shared/src/types/Event';
 
 const useGetSessionsByFeedback = () => {

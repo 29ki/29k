@@ -1,23 +1,13 @@
-import {isNotNil} from 'ramda';
 import {useMemo} from 'react';
-import useCollectionById from './useCollectionById';
-import useGetExerciseById from './useGetExerciseById';
-import useAppState from '../../appState/state/state';
+import useGetExercisesByCollectionId from './useGetExercisesByCollectionId';
 
 const useExercisesByCollectionId = (collectionId?: string) => {
-  const {showHiddenContent} = useAppState(state => state.settings);
-  const collection = useCollectionById(collectionId);
-  const getExerciseById = useGetExerciseById();
+  const getExercisesByCollectionId = useGetExercisesByCollectionId();
 
-  return useMemo(() => {
-    if (collection) {
-      return collection.exercises
-        .map(id => getExerciseById(id))
-        .filter(isNotNil)
-        .filter(e => showHiddenContent || !e.hidden);
-    }
-    return [];
-  }, [collection, showHiddenContent, getExerciseById]);
+  return useMemo(
+    () => (collectionId ? getExercisesByCollectionId(collectionId) : []),
+    [collectionId, getExercisesByCollectionId],
+  );
 };
 
 export default useExercisesByCollectionId;

@@ -30,4 +30,5 @@ module.exports = {
     // Solves the issue of non transpiled modules. See https://github.com/getsentry/sentry-react-native/issues/668
     `./node_modules/(?!(${modules.join('|')}).*/)`,
   ],
+  setupFiles: ['<rootDir>/jest.setup.ts'],
 };

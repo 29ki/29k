@@ -78,7 +78,7 @@ const Explore = () => {
     (info: {section: Section}) => React.ReactElement
   >(
     ({section: {title}}) => (
-      <StickyHeading backgroundColor={COLORS.PURE_WHITE}>
+      <StickyHeading>
         <Heading16>{title}</Heading16>
       </StickyHeading>
     ),

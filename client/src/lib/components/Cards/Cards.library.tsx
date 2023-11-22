@@ -21,6 +21,10 @@ const VerticalAlign = styled.View({
   alignItems: 'center',
 });
 
+const Narrow = styled.View({
+  width: 250,
+});
+
 const DUMMY_TAGS = [
   '30 min',
   'Self-Compassion',
@@ -124,19 +128,19 @@ const CardsList = () => (
       </VerticalAlign>
     </Card>
     <Spacer16 />
-    <Card
-      title="Accepting thoughts and feelings"
-      tags={DUMMY_TAGS}
-      hostProfile={DUMMY_HOST}
-      graphic={DUMMY_IMAGE_GRAPHIC}
-      interestedCount={3}
-      onPress={() => {}}>
-      <VerticalAlign>
-        <Body14>Starts</Body14>
-        <Spacer4 />
-        <Badge text="Mon, 7 Sep 17.30" IconAfter={<CommunityIcon />} />
-      </VerticalAlign>
-    </Card>
+    <Narrow>
+      <Card
+        title="Accepting thoughts and feelings"
+        tags={DUMMY_TAGS}
+        hostProfile={DUMMY_HOST}
+        graphic={DUMMY_IMAGE_GRAPHIC}
+        interestedCount={3}
+        onPress={() => {}}>
+        <VerticalAlign>
+          <Badge text="Mon, 7 Sep 17.30" IconAfter={<CommunityIcon />} />
+        </VerticalAlign>
+      </Card>
+    </Narrow>
   </>
 );
 
@@ -252,6 +256,32 @@ const CardSmallsList = () => (
       <Spacer4 />
       <Badge text="Mon, 7 Sep 17.30" IconAfter={<CommunityIcon />} />
     </CardSmall>
+    <Spacer16 />
+    <CardSmall
+      title="Accepting thoughts and feeeeeeeeeeeeeelings"
+      hostProfile={DUMMY_HOST}
+      graphic={DUMMY_IMAGE_GRAPHIC}
+      completed
+      onPress={() => {}}>
+      <Node size={16} />
+      <Spacer4 />
+      <Body14>Completed</Body14>
+      <Spacer4 />
+      <Badge text="Mon, 7 Sep 17.30" IconAfter={<CommunityIcon />} />
+    </CardSmall>
+    <Spacer16 />
+
+    <Narrow>
+      <CardSmall
+        title="Accepting thoughts and feeeeeeeeeeeeeelings"
+        hostProfile={DUMMY_HOST}
+        graphic={DUMMY_IMAGE_GRAPHIC}
+        onPress={() => {}}>
+        <Badge text="Mon, 7 Sep 17.30" IconAfter={<CommunityIcon />} />
+        <Spacer4 />
+        <Interested compact reminder count={2} />
+      </CardSmall>
+    </Narrow>
   </>
 );
 

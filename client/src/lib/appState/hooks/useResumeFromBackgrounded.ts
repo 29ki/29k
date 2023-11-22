@@ -16,9 +16,7 @@ const useResumeFromBackgrounded = (fn = () => {}) => {
       appState.current = nextAppState;
     });
 
-    return () => {
-      subscription.remove();
-    };
+    return subscription.remove;
   }, [fn]);
 };
 

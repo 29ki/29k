@@ -1,12 +1,19 @@
 import hexToRgba from 'hex-to-rgba';
-import LinearGradient from 'react-native-linear-gradient';
+import LinearGradient, {
+  LinearGradientProps,
+} from 'react-native-linear-gradient';
 import styled from 'styled-components/native';
 import {COLORS} from '../../../../../shared/src/constants/colors';
 
-const BottomFade = styled(LinearGradient).attrs({
-  colors: [hexToRgba(COLORS.WHITE, 0), hexToRgba(COLORS.WHITE, 1)],
-  pointerEvents: 'none',
-})({
+type Props = {
+  color?: string;
+};
+const BottomFade = styled(LinearGradient).attrs<Props, LinearGradientProps>(
+  ({color = COLORS.WHITE}) => ({
+    colors: [hexToRgba(color, 0), hexToRgba(color, 1)],
+    pointerEvents: 'none',
+  }),
+)<Props>({
   position: 'absolute',
   left: 0,
   right: 0,

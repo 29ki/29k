@@ -118,6 +118,9 @@ const textStyles = StyleSheet.create({
   BodyItalic: {
     fontFamily: HKGroteskItalic,
   },
+  BodyLink: {
+    textDecorationLine: 'underline',
+  },
   NAV_TAB: {
     color: COLORS.BLACK,
     fontSize: 16,
@@ -129,10 +132,6 @@ const textStyles = StyleSheet.create({
   },
   HIGHLIGHT: {
     color: COLORS.ACTIVE,
-  },
-  TEXTLINK: {
-    color: COLORS.ACTIVE,
-    textDecorationLine: 'underline',
   },
 });
 
