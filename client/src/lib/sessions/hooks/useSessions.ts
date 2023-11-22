@@ -74,16 +74,6 @@ const useSessions = () => {
     [sessions, pinnedSessions, user],
   );
 
-  const otherSessions = useMemo(
-    () =>
-      sessions.filter(
-        session =>
-          !userHostedSessions.includes(session) &&
-          !userPinnedSessions.includes(session),
-      ),
-    [sessions, userHostedSessions, userPinnedSessions],
-  );
-
   return {
     fetchSessions,
     addSession,
@@ -91,7 +81,6 @@ const useSessions = () => {
     sessions,
     pinnedSessions: userPinnedSessions,
     hostedSessions: userHostedSessions,
-    otherSessions,
   };
 };
 
