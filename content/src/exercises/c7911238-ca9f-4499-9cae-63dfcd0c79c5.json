@@ -90,7 +90,7 @@
       {
         "type": "instruction",
         "content": {
-          "text": "Well done. If you’re up for it, you can continue with a mission.\n\nAfter this session, apply one of the resources you identified to your current situation, and see where that takes you.",
+          "text": "Well done. If you’re up for it, you can continue with a mission.\n\nAfter this session, apply one of the resources you identified to your current situation, and see where that takes you.\n\n1. Support\n2. Strategies\n3. Smartness\n4. Solution-seeking",
           "image": {
             "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1698917836/Images/card_image_bounce_back_m6yyaj.png"
           }
@@ -323,7 +323,7 @@
       {
         "type": "instruction",
         "content": {
-          "text": "Testa att nu, direkt efter sessionen, använda en av dina 4S-resurser för att hantera din nuvarande utmaning. Lägg märke till vad som händer.",
+          "text": "Testa att nu, direkt efter sessionen, använda en av dina 4S-resurser för att hantera din nuvarande utmaning. Lägg märke till vad som händer.\n\n1. Stöd\n2. Strategier\n3. Smarthet\n4. Söka lösningar-beteenden",
           "image": {
             "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1698917836/Images/card_image_bounce_back_m6yyaj.png"
           },
