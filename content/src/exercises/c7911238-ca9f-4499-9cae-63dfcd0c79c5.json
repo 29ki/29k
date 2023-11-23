@@ -275,7 +275,7 @@
           }
         ],
         "content": {
-          "heading": "Vad lärde du dig av dina 4 S?",
+          "heading": "Vad lärde du dig av dina fyra S?",
           "lottie": {
             "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto/v1676642915/Lottie/default_1min_black_rosi2l.json",
             "duration": 60,
@@ -297,7 +297,7 @@
           }
         ],
         "content": {
-          "heading": "Vad lärde du dig av dina 4 S?",
+          "heading": "Vad lärde du dig av dina fyra S?",
           "lottie": {
             "durationTimer": true,
             "duration": 120,
@@ -310,7 +310,7 @@
         "type": "host",
         "hostNotes": [
           {
-            "text": "Bra jobbat. \n\nTesta att nu, direkt efter sessionen, använda en av dina 4S-resurser för att hantera din nuvarande utmaning, och lägg märke till vad som händer."
+            "text": "Bra jobbat. \n\nTesta att nu, direkt efter sessionen, använda en av dina fyra S-resurser för att hantera din nuvarande utmaning, och lägg märke till vad som händer."
           },
           {
             "text": "Innan vi avslutar så gör vi en mini-utcheckning.\nHur känner du dig nu? Har något ändrats? Svara med två-tre ord.\n\nVem vill börja?"
@@ -323,7 +323,7 @@
       {
         "type": "instruction",
         "content": {
-          "text": "Testa att nu, direkt efter sessionen, använda en av dina 4S-resurser för att hantera din nuvarande utmaning. Lägg märke till vad som händer.\n\n1. Stöd\n2. Strategier\n3. Smarthet\n4. Söka lösningar-beteenden",
+          "text": "Testa att nu, direkt efter sessionen, använda en av dina fyra S-resurser för att hantera din nuvarande utmaning. Lägg märke till vad som händer.\n\n1. Stöd\n2. Strategier\n3. Smarthet\n4. Söka lösningar-beteenden",
           "image": {
             "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1698917836/Images/card_image_bounce_back_m6yyaj.png"
           },
