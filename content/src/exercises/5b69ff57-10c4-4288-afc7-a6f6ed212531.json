@@ -87,7 +87,7 @@
       {
         "type": "instruction",
         "content": {
-          "text": "If you’re up for it, you can continue with a mission to bring this into your everyday life.\n\nThe next time you face a problem, imagine a few different stake holders and actively take their perspective before deciding where to go. This can help us deal with complex issues and consider both logical and emotional aspects of the things we face in life.",
+          "text": "If you’re up for it, you can continue with a mission to bring this into your everyday life.\n\nThe next time you face a problem, imagine a few different stake holders and actively take their perspective before deciding where to go. \n\nThis can help us deal with complex issues and consider both logical and emotional aspects of the things we face in life.",
           "image": {
             "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1699017217/Images/card_image_switch_perspective_dyn7uv.png"
           },
@@ -319,7 +319,7 @@
       {
         "type": "instruction",
         "content": {
-          "text": "Vill du ta dig an ett uppdrag?\n\nI så fall ska du nästa gång du stöter på ett problem, föreställa dig några olika varelser som påverkas, och ta deras perspektiv innan du fattar ett beslut. Det kan hjälpa oss att hantera komplexa frågor och ta hänsyn till både logiska och känslomässiga sidor av saken.",
+          "text": "Vill du ta dig an ett uppdrag?\n\nI så fall ska du nästa gång du stöter på ett problem, föreställa dig några olika varelser som påverkas, och ta deras perspektiv innan du fattar ett beslut. \n\nDet kan hjälpa oss att hantera komplexa frågor och ta hänsyn till både logiska och känslomässiga sidor av saken.",
           "image": {
             "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1699017217/Images/card_image_switch_perspective_dyn7uv.png"
           },
