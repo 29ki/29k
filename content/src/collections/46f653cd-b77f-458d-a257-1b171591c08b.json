@@ -1,7 +1,7 @@
 {
   "en": {
     "hidden": false,
-    "name": "Start here",
+    "name": "Get started collection",
     "published": true,
     "sortOrder": 1,
     "card": {
@@ -61,7 +61,7 @@
   },
   "sv": {
     "hidden": true,
-    "name": "Kom igång",
+    "name": "Kom igång-samlingen",
     "published": true,
     "sortOrder": 1,
     "card": {
