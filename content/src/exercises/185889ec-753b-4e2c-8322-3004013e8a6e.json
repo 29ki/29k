@@ -339,17 +339,168 @@
     "description": "Muitas vezes somos duros connosco e mais compassivos com os outros. Neste exercício vamos aprender a encontrar um aliado interior compassivo que nos acompanhe em situações difíceis. A autocompaixão pode ajudar-nos a sentir mais felizes e satisfeitos com nós mesmos."
   },
   "sv": {
-    "published": false,
+    "slides": [
+      {
+        "type": "host",
+        "hostNotes": [
+          {
+            "text": "Välkommen. Jag heter X och vi kommer att jobba tillsammans i ungefär 30 minuter med relationen till, och träna på att vara snällare mot, oss själva.\n\nVi kommer att lyssna på en ljudövning tillsammans, reflektera en stund för oss själva och sedan finns det möjlighet att dela sina erfarenheter.\n\nDet kan vara bra att ha penna och papper till hands för den här övningen."
+          },
+          {
+            "text": "Vi börjar med en mini-check-in. Hur känner du dig just nu? Svara gärna med två-tre ord. X, skulle du vilja börja?\n\n> Låt alla deltagare, inklusive dig själv, checka in en och en. \n\nTack för att ni checkade in. Då kör vi igång."
+          }
+        ],
+        "video": {
+          "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1677835713/Video/bekindtoyourself_async_intro_sqmu9o.mp4",
+          "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1677835944/Images/thumb_host_bekindtoyourself_ysmcnz.png"
+        }
+      },
+      {
+        "type": "content",
+        "hostNotes": [
+          {
+            "text": "Vi ska lyssna på en övning, så ses vi här igen efteråt.\n\n> Tryck på play för att starta ljudfilen."
+          }
+        ],
+        "content": {
+          "video": {
+            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1669043753/Video/content_Be_kind_to_yourself_qfhuch.mp4",
+            "autoPlayLoop": false,
+            "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1674554605/Images/thumb_content_be_kind_to_yourself_hn38hz.png",
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1700754862/Audio/The_clothespins_Swe_qj5ldd.mp3",
+            "durationTimer": true,
+            "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1700754832/SRT%20(captions)%20files/The_clothespins_Swe_yv0ovz.srt"
+          }
+        }
+      },
+      {
+        "type": "reflection",
+        "hostNotes": [
+          {
+            "text": "Nästa steg är att tyst reflektera i en minut.\n\nFrågan är vad du tar med dig från den här övningen? Vad upptäckte du eller lärde du dig om dig själv?"
+          },
+          {
+            "text": "Om du vill kan du skriva ner dina funderingar på ett papper, eller bara tänka fritt. Det finns inga svar som är rätt eller fel här – vad som än dyker upp är okej.\n\n> Tryck på play för att starta timern.\n\nDå har det gått en minut och det är dags att gå vidare."
+          }
+        ],
+        "content": {
+          "heading": "Vad tar du med dig från den här övningen?",
+          "video": {
+            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1669043760/Video/saring1_Be_kind_to_yourself_hokenn.mp4",
+            "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1674554605/Images/thumb_timer2min_2_be_kind_to_yourself_pii45p.png",
+            "durationTimer": true
+          }
+        }
+      },
+      {
+        "type": "sharing",
+        "content": {
+          "heading": "Vad tar du med dig från den här övningen?",
+          "video": {
+            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1669043755/Video/sharing_timer_Be_kind_to_yourself_kwtwln.mp4",
+            "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1674554605/Images/thumb_timer2min_3_be_kind_to_yourself_orn39r.png",
+            "durationTimer": true
+          }
+        },
+        "hostNotes": [
+          {
+            "text": "Det här steget handlar om att dela med sig av sin upplevelse och lyssna på andras. Vi har tre regler:\n\n1. **Det som sägs här, stannar här.**\n2. **Allt som behövs är att vi lyssnar på varandra.** Inget fixande, ingen rådgivning eller annan hjälp behövs. Vi är bara här för att utforska våra egna och andras upplevelser."
+          },
+          {
+            "text": "3. **Allt som händer på insidan är okej.** Ilska, kärlek, smärta, glädje. Vad som än dyker upp, det finns inget rätt eller fel. Det bara är som det är.\n\n   Det finns en timer på två minuter att hålla sig efter på ett ungefär. Om du inte vill dela med dig är det bara att säga 'pass'."
+          },
+          {
+            "text": "Vem vill börja?\n\n> Låt alla, eller så många som det finns tid för, dela en efter en. Tryck på play för att starta timern. Starta om för varje person.\n\nTack så mycket för att ni lyssnar och delar med er."
+          }
+        ],
+        "id": "sharing"
+      },
+      {
+        "type": "host",
+        "hostNotes": [
+          {
+            "text": "Bra jobbat. Om du vill så finns det ett uppdrag för dig: "
+          },
+          {
+            "text": "De kommande dagarna - var snäll mot dig själv, särskilt i svåra situationer. Försök använda bilden av klädnyporna för att bli medveten om din inre röst. Sedan, testa att prata med dig själv på samma sätt du skulle göra om det gällde en vän. Lägg märke till hur det påverkar dig."
+          },
+          {
+            "text": "Innan vi avslutar så gör vi en mini-utcheckning.\nHur känner du dig nu? Har något ändrats? Svara med två-tre ord.\n\nVem vill börja?"
+          },
+          {
+            "text": "> Låt alla checka ut en efter en.\n\nTack så mycket för era utcheckningar, och för att ni deltog i den här sessionen.\n\n> Avsluta sessionen för att skicka deltagarna till exit-upplevelsen."
+          }
+        ],
+        "video": {
+          "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1677835705/Video/bekindtoyourself_async_outro_aadtym.mp4",
+          "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1677835944/Images/thumb_host_bekindtoyourself_ysmcnz.png"
+        }
+      },
+      {
+        "type": "instruction",
+        "content": {
+          "heading": "Bra jobbat",
+          "text": "De kommande dagarna - var snäll mot dig själv, särskilt i svåra situationer. Försök använda bilden av klädnyporna för att bli medveten om din inre röst. Sedan, testa att prata med dig själv på samma sätt du skulle göra om det gällde en vän. Lägg märke till hur det påverkar dig.",
+          "image": {
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1669043689/Images/cover2_Be_kind_to_yourself_af04b8.png"
+          }
+        }
+      }
+    ],
     "theme": {
-      "textColor": "#2AE2D7"
+      "textColor": "#2E2E2E",
+      "backgroundColor": "#ffffff"
     },
-    "id": "185889ec-753b-4e2c-8322-3004013e8a6e",
+    "hidden": false,
+    "name": "Klädnyporna",
+    "live": true,
+    "published": true,
+    "card": {
+      "image": {
+        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1669043689/Images/cover2_Be_kind_to_yourself_af04b8.png"
+      }
+    },
+    "coCreators": [
+      {
+        "name": "Jenny Rickardsson, röst & redaktör",
+        "url": "https://www.linkedin.com/in/jenny-rickardson-6770a959/",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413228/Contributors/Jenny%20Rickardsson.jpg"
+      },
+      {
+        "name": "Ints Ivanovskis, art works",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413436/Contributors/Ints%20Ivanovskis.jpg",
+        "url": "https://www.linkedin.com/in/ints-ivanovskis-46ab0311a/"
+      },
+      {
+        "name": "Jacqueline Levi, manus",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665414232/Contributors/Jacqueline%20Levi.png",
+        "url": "https://www.linkedin.com/in/jacquelinelevi/"
+      }
+    ],
     "duration": 30,
+    "introPortal": {
+      "hostNotes": [
+        {
+          "text": "> Starta sessionen när du är redo att sätta igång."
+        }
+      ],
+      "videoLoop": {
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1673626157/Video/portal1_Be_kind_to_yourself_HD_zf7i4r.mp4",
+        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1669043586/Audio/portal_audio_Be_kind_to_yourself_nnkrwz.mp3",
+        "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1674554605/Images/thumb_portal_be_kind_to_yourself_garwgm.png"
+      },
+      "videoEnd": {
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1673626159/Video/portal2_Be_kind_to_yourself_HD_rv02xs.mp4"
+      }
+    },
     "tags": [
       "db34d82a-4c48-4ddd-9de5-f562d8aa1bc9",
       "566aeb1b-1649-4f5a-96a2-0c80be27efc0"
     ],
-    "link": "https://aware.29k.org/be-kind-to-yourself"
+    "link": "https://aware.29k.org/be-kind-to-yourself",
+    "id": "185889ec-753b-4e2c-8322-3004013e8a6e",
+    "async": true,
+    "description": "Vi är ofta hårda mot oss själva och mer medkännande med andra. Träna på att hitta en medkännande inre röst som kan vara hjälpsam i svåra situationer. \n\nSjälvmedkänsla kan få oss att känna oss lyckligare och mer nöjda med oss själva."
   },
   "es": {
     "id": "185889ec-753b-4e2c-8322-3004013e8a6e",

@@ -90,7 +90,7 @@ const Explore = () => {
   >(
     ({item}) => (
       <Gutters>
-        <ExerciseCard exercise={item} />
+        <ExerciseCard exercise={item} small />
       </Gutters>
     ),
     [],
