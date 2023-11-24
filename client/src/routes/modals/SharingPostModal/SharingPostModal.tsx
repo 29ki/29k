@@ -137,7 +137,7 @@ const SharingPostModal = () => {
           <Gutters>
             {showRelated && exercise && (
               <>
-                <ExerciseCard exercise={exercise} />
+                <ExerciseCard exercise={exercise} small />
                 <Spacer16 />
               </>
             )}

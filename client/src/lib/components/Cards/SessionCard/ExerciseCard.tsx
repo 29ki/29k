@@ -6,15 +6,18 @@ import {ModalStackProps} from '../../../navigation/constants/routes';
 import {formatContentName} from '../../../utils/string';
 import CardSmall from '../CardSmall';
 import {ViewStyle} from 'react-native';
+import Card from '../Card';
 
 type ExerciseCardContainerProps = {
   exercise: Exercise;
+  small?: boolean;
   onPress?: () => void;
   style?: ViewStyle;
 };
 
 const ExerciseCard: React.FC<ExerciseCardContainerProps> = ({
   exercise,
+  small,
   onPress = () => {},
   style,
 }) => {
@@ -30,10 +33,22 @@ const ExerciseCard: React.FC<ExerciseCardContainerProps> = ({
     return null;
   }
 
+  if (small) {
+    return (
+      <CardSmall
+        title={formatContentName(exercise)}
+        graphic={exercise?.card}
+        onPress={onPressHandle}
+        style={style}
+      />
+    );
+  }
+
   return (
-    <CardSmall
+    <Card
       title={formatContentName(exercise)}
-      graphic={exercise?.card}
+      description={exercise.description}
+      graphic={exercise.card}
       onPress={onPressHandle}
       style={style}
     />
