@@ -7,6 +7,7 @@ import {formatContentName} from '../../../utils/string';
 import CardSmall from '../CardSmall';
 import {ViewStyle} from 'react-native';
 import Card from '../Card';
+import useGetSessionCardTags from './hooks/useGetSessionCardTags';
 
 type ExerciseCardContainerProps = {
   exercise: Exercise;
@@ -23,6 +24,7 @@ const ExerciseCard: React.FC<ExerciseCardContainerProps> = ({
 }) => {
   const {navigate} =
     useNavigation<NativeStackNavigationProp<ModalStackProps>>();
+  const tags = useGetSessionCardTags(exercise);
 
   const onPressHandle = useCallback(() => {
     onPress();
@@ -48,6 +50,7 @@ const ExerciseCard: React.FC<ExerciseCardContainerProps> = ({
     <Card
       title={formatContentName(exercise)}
       description={exercise.description}
+      tags={tags}
       graphic={exercise.card}
       onPress={onPressHandle}
       style={style}
