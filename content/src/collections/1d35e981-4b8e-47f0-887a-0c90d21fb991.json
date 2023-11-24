@@ -48,7 +48,7 @@
     ]
   },
   "sv": {
-    "hidden": true,
+    "hidden": false,
     "name": "Ta hand om dig",
     "published": true,
     "sortOrder": 2,
