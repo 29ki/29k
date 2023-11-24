@@ -128,6 +128,22 @@ const CardsList = () => (
       </VerticalAlign>
     </Card>
     <Spacer16 />
+    <Card
+      title="Pure Simple Love"
+      description="Visualizing our future can guide us in the present moment by shining a light on what’s important in the long run.\n\nThis can be extra helpful when we’re under pressure, when we tend to be short-sighted and out of touch with what truly matters."
+      graphic={DUMMY_IMAGE_GRAPHIC}
+      tags={DUMMY_TAGS}
+      onPress={() => {}}
+    />
+    <Spacer16 />
+    <Card
+      title="Accepting thoughts and feeeeeeeeeeeeeelings"
+      description="Visualizing our future can guide us in the present moment by shining a light on what’s important in the long run.\n\nThis can be extra helpful when we’re under pressure, when we tend to be short-sighted and out of touch with what truly matters."
+      graphic={DUMMY_IMAGE_GRAPHIC}
+      tags={DUMMY_TAGS}
+      onPress={() => {}}
+    />
+    <Spacer16 />
     <Narrow>
       <Card
         title="Accepting thoughts and feelings"
@@ -140,6 +156,15 @@ const CardsList = () => (
           <Badge text="Mon, 7 Sep 17.30" IconAfter={<CommunityIcon />} />
         </VerticalAlign>
       </Card>
+    </Narrow>
+    <Narrow>
+      <Card
+        title="Accepting thoughts and feeeeeeeeeeeeeelings"
+        description="Visualizing our future can guide us in the present moment by shining a light on what’s important in the long run.\n\nThis can be extra helpful when we’re under pressure, when we tend to be short-sighted and out of touch with what truly matters."
+        graphic={DUMMY_IMAGE_GRAPHIC}
+        tags={DUMMY_TAGS}
+        onPress={() => {}}
+      />
     </Narrow>
   </>
 );
