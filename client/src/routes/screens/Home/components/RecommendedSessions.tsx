@@ -28,7 +28,7 @@ const Recommentation: React.FC<{item: LiveSessionType | Exercise}> = ({
   item,
 }) =>
   'mode' in item ? (
-    <SessionCard session={item} small />
+    <SessionCard session={item} />
   ) : (
     <ExerciseCard exercise={item} />
   );
