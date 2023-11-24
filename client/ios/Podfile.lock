@@ -752,7 +752,7 @@ PODS:
     - Libuv-gRPC/Interface (= 0.0.10)
   - Libuv-gRPC/Interface (0.0.10)
   - lottie-ios (4.3.3)
-  - lottie-react-native (6.4.0):
+  - lottie-react-native (6.4.1):
     - lottie-ios (~> 4.3.3)
     - React-Core
   - Mute (0.6.1)
@@ -977,10 +977,10 @@ PODS:
     - React-Core
   - react-native-background-timer (2.4.1):
     - React-Core
-  - react-native-daily-js (0.51.0):
+  - react-native-daily-js (0.52.0):
     - React-Core
     - ReactNativeDailyJSScreenShareExtension (= 0.0.1)
-  - react-native-get-random-values (1.9.0):
+  - react-native-get-random-values (1.10.0):
     - React-Core
   - react-native-idle-timer (2.2.1):
     - React-Core
@@ -1092,12 +1092,12 @@ PODS:
     - RNFBApp
   - RNGestureHandler (2.13.4):
     - React-Core
-  - RNImageCropPicker (0.40.1):
+  - RNImageCropPicker (0.40.2):
     - React-Core
     - React-RCTImage
-    - RNImageCropPicker/QBImagePickerController (= 0.40.1)
+    - RNImageCropPicker/QBImagePickerController (= 0.40.2)
     - TOCropViewController
-  - RNImageCropPicker/QBImagePickerController (0.40.1):
+  - RNImageCropPicker/QBImagePickerController (0.40.2):
     - React-Core
     - React-RCTImage
     - TOCropViewController
@@ -1144,14 +1144,14 @@ PODS:
   - RNScreens (3.27.0):
     - React-Core
     - React-RCTImage
-  - RNSentry (5.12.0):
+  - RNSentry (5.13.0):
     - React-Core
-    - Sentry/HybridSDK (= 8.14.2)
-  - RNSVG (13.14.0):
+    - Sentry/HybridSDK (= 8.15.2)
+  - RNSVG (14.0.0):
     - React-Core
-  - Sentry/HybridSDK (8.14.2):
-    - SentryPrivate (= 8.14.2)
-  - SentryPrivate (8.14.2)
+  - Sentry/HybridSDK (8.15.2):
+    - SentryPrivate (= 8.15.2)
+  - SentryPrivate (8.15.2)
   - SSZipArchive (2.2.3)
   - Stripe (23.18.2):
     - StripeApplePay (= 23.18.2)
@@ -1473,7 +1473,7 @@ SPEC CHECKSUMS:
   leveldb-library: f03246171cce0484482ec291f88b6d563699ee06
   Libuv-gRPC: 55e51798e14ef436ad9bc45d12d43b77b49df378
   lottie-ios: 25e7b2675dad5c3ddad369ac9baab03560c5bfdd
-  lottie-react-native: 3a3084faddd3891c276f23fd6e797b83f2021bbc
+  lottie-react-native: a2ae9c27c273b060b2affff2957bc0ff7fdca353
   Mute: 20135a96076f140cc82bfc8b810e2d6150d8ec7e
   nanopb: b552cce312b6c8484180ef47159bc0f65a1f0431
   PromisesObjC: c50d2056b5253dadbd6c2bea79b0674bd5a52fa4
@@ -1494,8 +1494,8 @@ SPEC CHECKSUMS:
   React-logger: 96d904c5bc87c2660d48e6a36fb2edf65f9cfb11
   react-native-add-calendar-event: 34ad00f629187cbb97c2f04195e17803b2b3bc5e
   react-native-background-timer: 17ea5e06803401a379ebf1f20505b793ac44d0fe
-  react-native-daily-js: 0ac4be07de149ce491a1802c999b3e232969b6fb
-  react-native-get-random-values: dee677497c6a740b71e5612e8dbd83e7539ed5bb
+  react-native-daily-js: 4d8d1d59a667026a222bf9ea06176f71bd5a9ae7
+  react-native-get-random-values: 384787fd76976f5aec9465aff6fa9e9129af1e74
   react-native-idle-timer: f1920a59fe776340d004ff9de13c4a6eedcc8807
   react-native-netinfo: 3aa5637c18834966e0c932de8ae1ae56fea20a97
   react-native-safe-area-context: 2cd91d532de12acdb0a9cbc8d43ac72a8e4c897c
@@ -1524,7 +1524,7 @@ SPEC CHECKSUMS:
   RNFBFirestore: c505e6f96e70fb029ae1961c73965fd13ce92db5
   RNFBStorage: d40ebadfad4755ed1ef6a74cae84c9ee9ca47ffd
   RNGestureHandler: 360f9c7e91ec49ac76f03e73fb394d92e2a88e55
-  RNImageCropPicker: 521d8ef2dcf0549f141dbf82d086c75e3a9fbe65
+  RNImageCropPicker: d9616a0cb9b72e8551ff94a7a5021fbd29050aa5
   RNLocalize: d4b8af4e442d4bcca54e68fc687a2129b4d71a81
   RNNotifee: f3c01b391dd8e98e67f539f9a35a9cbcd3bae744
   RNPermissions: 42370ce230eeba6c45f61d5daa9bf5d0b9909b34
@@ -1532,10 +1532,10 @@ SPEC CHECKSUMS:
   RNReactNativeHapticFeedback: ec56a5f81c3941206fd85625fa669ffc7b4545f9
   RNReanimated: c6f8f70e96dd6ca21b65aef9b3e4efe4965db905
   RNScreens: 2b19e2471db8a581c83f381f4ea5d43071c9a3bf
-  RNSentry: 22ec5cbcdfffeea7fae88695467a3af5f8d94790
-  RNSVG: d00c8f91c3cbf6d476451313a18f04d220d4f396
-  Sentry: e0ea366f95ebb68f26d6030d8c22d6b2e6d23dd0
-  SentryPrivate: 949a21fa59872427edc73b524c3ec8456761d97f
+  RNSentry: 82667e9889782365bf801645ef4d2a731dcf60df
+  RNSVG: 255767813dac22db1ec2062c8b7e7b856d4e5ae6
+  Sentry: 6f5742b4c47c17c9adcf265f6f328cf4a0ed1923
+  SentryPrivate: b2f7996f37781080f04a946eb4e377ff63c64195
   SSZipArchive: 62d4947b08730e4cda640473b0066d209ff033c9
   Stripe: 85f24cabe407c5b88aabc24287b1e57f03688189
   stripe-react-native: 2e2dad1734c1c2b71564b66bae4395bfd8419af4
