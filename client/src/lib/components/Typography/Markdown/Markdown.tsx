@@ -1,8 +1,9 @@
-import React from 'react';
+import {mergeDeepRight} from 'ramda';
+import React, {useMemo} from 'react';
 import MarkdownDisplay, {MarkdownProps} from 'react-native-markdown-display';
 import * as linking from '../../../linking/nativeLinks';
-import rules from './rules';
-import styles from './styles';
+import baseRules from './rules';
+import baseStyles from './styles';
 
 type MarkdownDisplayProps = MarkdownProps & {
   children: React.ReactNode;
@@ -15,10 +16,23 @@ const onLinkPress = (url: string) => {
   return false; // Do not fallback to default Linking.openURL
 };
 
-const Markdown: React.FC<{children: React.ReactNode}> = ({children}) => (
-  <MarkdownDisplayTyped style={styles} rules={rules} onLinkPress={onLinkPress}>
-    {children}
-  </MarkdownDisplayTyped>
-);
+type Props = {
+  styles?: MarkdownProps['style'];
+  children: React.ReactNode;
+};
+const Markdown: React.FC<Props> = ({children, styles = {}}) => {
+  const mergedStyles = useMemo(
+    () => mergeDeepRight(baseStyles, styles),
+    [styles],
+  );
+  return (
+    <MarkdownDisplayTyped
+      style={mergedStyles}
+      rules={baseRules}
+      onLinkPress={onLinkPress}>
+      {children}
+    </MarkdownDisplayTyped>
+  );
+};
 
 export default React.memo(Markdown);

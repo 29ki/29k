@@ -47,7 +47,7 @@ const RelatedSessions: React.FC<Props> = ({exercise}) => {
           <Spacer8 />
           {relatedExercises.map(exerc => (
             <Fragment key={exerc.id}>
-              <ExerciseCard exercise={exerc} />
+              <ExerciseCard exercise={exerc} small />
               <Spacer16 />
             </Fragment>
           ))}

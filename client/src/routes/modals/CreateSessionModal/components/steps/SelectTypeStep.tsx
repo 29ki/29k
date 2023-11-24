@@ -344,7 +344,7 @@ const SelectTypeStep: React.FC<StepProps> = ({
               <Spacer8 />
               {relatedExercises.map(exerc => (
                 <Fragment key={exerc.id}>
-                  <ExerciseCard exercise={exerc} onPress={goBack} />
+                  <ExerciseCard exercise={exerc} onPress={goBack} small />
                   <Spacer16 />
                 </Fragment>
               ))}

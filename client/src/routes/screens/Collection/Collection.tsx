@@ -143,7 +143,7 @@ const Collection = () => {
               completedSessionEvent={completedExerciseEvent}
             />
           ) : (
-            <ExerciseCard exercise={item} />
+            <ExerciseCard exercise={item} small />
           )}
         </Gutters>
       );
