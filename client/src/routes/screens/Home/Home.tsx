@@ -34,6 +34,7 @@ import useThrottledFocusEffect from '../../../lib/navigation/hooks/useThrottledF
 import TouchableOpacity from '../../../lib/components/TouchableOpacity/TouchableOpacity';
 import useRecommendedSessions from '../../../lib/sessions/hooks/useRecommendedSessions';
 import RecommendedSessions from './components/RecommendedSessions';
+import WelcomeBanner from './components/WelcomeBanner';
 
 const AddButton = styled(Button)({
   alignSelf: 'center',
@@ -139,7 +140,8 @@ const Home = () => {
         onPressEllipsis={onPressEllipsis}>
         <MiniProfile />
       </TopBar>
-      <AutoScrollView ref={scrollRef} stickyHeaderIndices={[0, 2, 4]}>
+      <AutoScrollView ref={scrollRef} stickyHeaderIndices={[1, 3, 5]}>
+        <WelcomeBanner />
         {recommendedSessions.length > 0 && (
           <StickyHeading>
             <Heading16>{t('sections.forYou')}</Heading16>
