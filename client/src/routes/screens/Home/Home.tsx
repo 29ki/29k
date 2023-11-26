@@ -111,7 +111,10 @@ const Home = () => {
 
   const otherSessions = useMemo(
     // Filter out recommended sessions
-    () => sessions.filter(session => !recommendedSessions.includes(session)),
+    () =>
+      sessions
+        .filter(session => !recommendedSessions.includes(session))
+        .slice(0, 5),
     [sessions, recommendedSessions],
   );
 
