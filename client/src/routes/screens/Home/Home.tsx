@@ -107,7 +107,7 @@ const Home = () => {
     >();
   const scrollRef = useRef(null);
 
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
   const recommendedSessions = useRecommendedSessions();
   const {fetchSessions, sessions} = useSessions();
   const {fetchSharingPosts, sharingPosts} = useSharingPosts();
@@ -122,7 +122,6 @@ const Home = () => {
   );
 
   const fetch = useCallback(() => {
-    setIsLoading(true);
     Promise.all([fetchSessions(), fetchSharingPosts()]).finally(() => {
       setIsLoading(false);
     });
