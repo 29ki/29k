@@ -34,14 +34,16 @@ const useRecommendedSessions = () => {
       pinnedCollections.reduce<Exercise[]>(
         (exercises, collection) => [
           ...exercises,
-          ...getExercisesByCollectionId(collection.id).filter(
-            exercise =>
-              // Filter out exercises that have been completed
-              !getCompletedSessionByExerciseId(
-                exercise.id,
-                collection.startedAt,
-              ),
-          ),
+          ...getExercisesByCollectionId(collection.id)
+            .filter(
+              exercise =>
+                // Filter out exercises that have been completed
+                !getCompletedSessionByExerciseId(
+                  exercise.id,
+                  collection.startedAt,
+                ),
+            )
+            .slice(0, 1), // Only return one exercise per collection
         ],
         [],
       ),
@@ -53,15 +55,17 @@ const useRecommendedSessions = () => {
   );
 
   const randomExercises = useMemo(
-    () =>
-      !collectionExercises.length
-        ? allExercises.sort(() => Math.random() - 0.5).slice(0, 5)
-        : [],
-    [collectionExercises.length, allExercises],
+    () => allExercises.sort(() => Math.random() - 0.5).slice(0, 5),
+    [allExercises],
   );
 
   return useMemo(
-    () => uniq([...sessionsToday, ...collectionExercises, ...randomExercises]),
+    () =>
+      uniq([
+        ...sessionsToday,
+        ...collectionExercises,
+        ...randomExercises,
+      ]).slice(0, 5), // Only five recommended sessions
     [sessionsToday, collectionExercises, randomExercises],
   );
 };
