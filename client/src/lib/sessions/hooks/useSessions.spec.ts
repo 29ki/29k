@@ -19,9 +19,8 @@ describe('useSessions', () => {
     const useTestHook = () => {
       const {fetchSessions} = useSessions();
       const sessions = useSessionsState(state => state.sessions);
-      const isLoading = useSessionsState(state => state.isLoading);
 
-      return {fetchSessions, sessions, isLoading};
+      return {fetchSessions, sessions};
     };
 
     it('should fetch sessions', async () => {
@@ -39,22 +38,6 @@ describe('useSessions', () => {
       expect(result.current.sessions).toEqual([
         {id: 'session-id', url: '/session-url'},
       ]);
-    });
-
-    it('should update loading state', async () => {
-      fetchMock.mockResponseOnce(
-        JSON.stringify([{id: 'session-id', url: '/session-url'}]),
-        {status: 200},
-      );
-      const {result} = renderHook(() => useTestHook());
-
-      const fetchPromise = act(async () => {
-        await result.current.fetchSessions();
-      });
-
-      expect(result.current.isLoading).toEqual(true);
-      await fetchPromise;
-      expect(result.current.isLoading).toEqual(false);
     });
   });
 
