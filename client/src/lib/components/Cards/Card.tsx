@@ -18,6 +18,8 @@ import {ExerciseCard} from '../../../../../shared/src/types/generated/Exercise';
 import ExerciseGraphic from '../ExerciseGraphic/ExerciseGraphic';
 import Markdown from '../Typography/Markdown/Markdown';
 import textStyles from '../Typography/styles';
+import {Collection} from '../../../../../shared/src/types/generated/Collection';
+import CollectionTag from '../Tag/CollectionTag';
 
 export const HEIGHT = 175;
 
@@ -124,6 +126,7 @@ type CardProps = {
   isPinned?: boolean;
   reminderEnabled?: boolean;
   interestedCount?: number;
+  collection?: Collection | null;
   style?: ViewStyle;
 };
 
@@ -138,6 +141,7 @@ export const Card: React.FC<CardProps> = ({
   isPinned,
   reminderEnabled,
   interestedCount,
+  collection,
   style,
 }) => {
   const {t} = useTranslation('Component.Card');
@@ -163,6 +167,12 @@ export const Card: React.FC<CardProps> = ({
               <Spacer4 />
             </>
           )
+        )}
+        {collection && (
+          <>
+            <CollectionTag>{collection.name}</CollectionTag>
+            <Spacer4 />
+          </>
         )}
         {tags &&
           tags.map(tag => (

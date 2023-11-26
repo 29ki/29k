@@ -28,6 +28,7 @@ import useSessionReminder from '../../../sessions/hooks/useSessionReminder';
 import {ViewStyle} from 'react-native';
 import {BodyBold} from '../../Typography/Body/Body';
 import CardSmall from '../CardSmall';
+import useGetCollectionByExerciseId from '../../../content/hooks/useGetCollectionByExerciseId';
 
 const JoinButton: React.FC<{
   startTime: LiveSessionType['startTime'];
@@ -69,10 +70,13 @@ const SessionCard: React.FC<SessionCardProps> = ({
   const logSessionMetricEvent = useLogSessionMetricEvents();
   const {isPinned} = usePinSession(session);
   const {reminderEnabled} = useSessionReminder(session);
+  const getCollectionByExerciseId = useGetCollectionByExerciseId();
 
   const isHost = user?.uid === session.hostId;
   const interestedCount = isHost ? session.interestedCount : undefined;
   const tags = useGetSessionCardTags(exercise);
+
+  const collection = getCollectionByExerciseId(exerciseId);
 
   const onPress = useCallback(() => {
     logSessionMetricEvent('Join Sharing Session', session); // Log before navigating for correct Origin property in event
@@ -124,6 +128,7 @@ const SessionCard: React.FC<SessionCardProps> = ({
       isPinned={isPinned}
       reminderEnabled={reminderEnabled}
       interestedCount={interestedCount}
+      collection={collection}
       style={style}>
       {!disableJoinButton && (
         <JoinButton onPress={onPress} startTime={startTime} />

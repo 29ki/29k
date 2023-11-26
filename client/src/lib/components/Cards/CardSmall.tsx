@@ -14,6 +14,8 @@ import Tag from '../Tag/Tag';
 import {UserType} from '../../../../../shared/src/schemas/User';
 import {ExerciseCard} from '../../../../../shared/src/types/generated/Exercise';
 import ExerciseGraphic from '../ExerciseGraphic/ExerciseGraphic';
+import {Collection} from '../../../../../shared/src/types/generated/Collection';
+import CollectionTag from '../Tag/CollectionTag';
 
 export const HEIGHT = 80;
 
@@ -69,6 +71,7 @@ type CardProps = {
   onPress?: () => void;
   hostProfile?: UserType | null;
   completed?: boolean;
+  collection?: Collection | null;
   style?: ViewStyle;
   children?: React.ReactNode;
 };
@@ -80,6 +83,7 @@ export const CardSmall: React.FC<CardProps> = ({
   onPress,
   hostProfile,
   completed,
+  collection,
   style,
   children,
 }) => {
@@ -99,9 +103,15 @@ export const CardSmall: React.FC<CardProps> = ({
       style={style}
       backgroundColor={completed ? COLORS.LIGHT_GREEN : COLORS.CREAM}>
       <Main>
-        {tags && (
+        {(tags || collection) && (
           <>
             <Tags>
+              {collection && (
+                <>
+                  <CollectionTag>{collection.name}</CollectionTag>
+                  <Spacer4 />
+                </>
+              )}
               {tags &&
                 tags.map(tag => (
                   <Fragment key={tag}>
@@ -118,7 +128,9 @@ export const CardSmall: React.FC<CardProps> = ({
             <Spacer4 />
           </>
         )}
-        <Title numberOfLines={children || tags ? 1 : 3}>{title}</Title>
+        <Title numberOfLines={children || tags || collection ? 1 : 3}>
+          {title}
+        </Title>
         {hostProfile && (
           <>
             <Spacer4 />

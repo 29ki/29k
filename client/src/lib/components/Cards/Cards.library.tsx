@@ -15,6 +15,7 @@ import Button from '../Buttons/Button';
 import CardSmall from './CardSmall';
 import Interested from '../Interested/Interested';
 import Node from '../Node/Node';
+import {Collection} from '../../../../../shared/src/types/generated/Collection';
 
 const VerticalAlign = styled.View({
   flexDirection: 'row',
@@ -71,6 +72,13 @@ const DUMMY_LOTTIE_GRAPHIC: ExerciseCard = {
   },
 };
 
+const DUMMY_COLLECTION: Collection = {
+  id: 'some-id',
+  name: 'Collection name',
+  published: true,
+  exercises: [],
+};
+
 const CardsList = () => (
   <>
     <Card
@@ -105,6 +113,21 @@ const CardsList = () => (
       hostProfile={DUMMY_HOST}
       graphic={DUMMY_IMAGE_GRAPHIC}
       isPinned
+      onPress={() => {}}>
+      <VerticalAlign>
+        <Body14>Starts</Body14>
+        <Spacer4 />
+        <Badge text="Mon, 7 Sep 17.30" IconAfter={<CommunityIcon />} />
+      </VerticalAlign>
+    </Card>
+    <Spacer16 />
+    <Card
+      title="Accepting thoughts and feeeeeeeeeeeeeelings"
+      tags={DUMMY_TAGS}
+      hostProfile={DUMMY_HOST}
+      graphic={DUMMY_IMAGE_GRAPHIC}
+      isPinned
+      collection={DUMMY_COLLECTION}
       onPress={() => {}}>
       <VerticalAlign>
         <Body14>Starts</Body14>
@@ -228,6 +251,23 @@ const CardSmallsList = () => (
     <CardSmall
       title="Accepting thoughts and feeeeeeeeeeeeeelings"
       tags={DUMMY_TAGS}
+      hostProfile={DUMMY_HOST}
+      graphic={DUMMY_IMAGE_GRAPHIC}
+      onPress={() => {}}
+    />
+    <Spacer16 />
+    <CardSmall
+      title="Accepting thoughts and feeeeeeeeeeeeeelings"
+      tags={DUMMY_TAGS}
+      collection={DUMMY_COLLECTION}
+      hostProfile={DUMMY_HOST}
+      graphic={DUMMY_IMAGE_GRAPHIC}
+      onPress={() => {}}
+    />
+    <Spacer16 />
+    <CardSmall
+      title="Accepting thoughts and feeeeeeeeeeeeeelings"
+      collection={DUMMY_COLLECTION}
       hostProfile={DUMMY_HOST}
       graphic={DUMMY_IMAGE_GRAPHIC}
       onPress={() => {}}

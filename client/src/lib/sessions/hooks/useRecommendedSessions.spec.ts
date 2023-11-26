@@ -135,25 +135,30 @@ describe('useRecommendedSessions', () => {
   });
 
   describe('pinned collections', () => {
-    it('returns all pinned collection exercises', () => {
+    it('returns one exercise per pinned collection', () => {
       mockUsePinnedCollections.mockReturnValueOnce({
-        pinnedCollections: [{id: 'some-pinned-collection-id'}],
+        pinnedCollections: [
+          {id: 'some-pinned-collection-id'},
+          {id: 'some-other-pinned-collection-id'},
+        ],
       });
-      mockGetExercisesByCollectionId.mockReturnValueOnce([
-        {id: 'some-exercise-id'},
-        {id: 'some-other-exercise-id'},
-      ]);
+      mockGetExercisesByCollectionId
+        .mockReturnValueOnce([
+          {id: 'some-exercise-id'},
+          {id: 'some-other-exercise-id'},
+        ])
+        .mockReturnValueOnce([{id: 'some-third-exercise-id'}]);
 
       const {result} = renderHook(() => useRecommendedSessions());
 
       expect(mockUsePinnedCollections).toHaveBeenCalledTimes(1);
-      expect(mockGetExercisesByCollectionId).toHaveBeenCalledTimes(1);
+      expect(mockGetExercisesByCollectionId).toHaveBeenCalledTimes(2);
       expect(mockGetExercisesByCollectionId).toHaveBeenCalledWith(
         'some-pinned-collection-id',
       );
       expect(result.current).toEqual([
         {id: 'some-exercise-id'},
-        {id: 'some-other-exercise-id'},
+        {id: 'some-third-exercise-id'},
       ]);
     });
 
@@ -265,32 +270,32 @@ describe('useRecommendedSessions', () => {
         {id: 'some-pinned-session-today-id', startTime: today},
         {id: 'some-hosted-session-today-id', startTime: today},
         {id: 'some-exercise-id'},
-        {id: 'some-other-exercise-id'},
       ]);
     });
 
-    it('returns sessions combined with random exercises', () => {
+    it('returns at least 5 recommendations by filling with random exercises', () => {
       const today = dayjs().toISOString();
-      const tomorrow = dayjs().add(1, 'day').toISOString();
 
       mockUseSessions.mockReturnValueOnce({
         pinnedSessions: [
           {id: 'some-pinned-session-today-id', startTime: today},
-          {id: 'some-pinned-session-tomorrow-id', startTime: tomorrow},
         ],
         hostedSessions: [
           {id: 'some-hosted-session-today-id', startTime: today},
-          {id: 'some-hosted-session-tomorrow-id', startTime: tomorrow},
         ],
       });
 
       mockUsePinnedCollections.mockReturnValueOnce({
-        pinnedCollections: [],
+        pinnedCollections: [{id: 'some-pinned-collection-id'}],
       });
+      mockGetExercisesByCollectionId.mockReturnValueOnce([
+        {id: 'some-collection-exercise-id'},
+      ]);
 
       mockUseExercises.mockReturnValueOnce([
         {id: 'some-exercise-id-1'},
         {id: 'some-exercise-id-2'},
+        {id: 'some-exercise-id-3'},
       ]);
 
       const {result} = renderHook(() => useRecommendedSessions());
@@ -298,6 +303,7 @@ describe('useRecommendedSessions', () => {
       expect(result.current).toEqual([
         {id: 'some-pinned-session-today-id', startTime: today},
         {id: 'some-hosted-session-today-id', startTime: today},
+        {id: 'some-collection-exercise-id'},
         {id: expect.stringContaining('some-exercise-id')},
         {id: expect.stringContaining('some-exercise-id')},
       ]);
