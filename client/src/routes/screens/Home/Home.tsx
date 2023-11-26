@@ -1,4 +1,4 @@
-import React, {useCallback, useMemo, useRef} from 'react';
+import React, {useCallback, useMemo, useRef, useState} from 'react';
 import {useTranslation} from 'react-i18next';
 import styled from 'styled-components/native';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
@@ -36,6 +36,7 @@ import TouchableOpacity from '../../../lib/components/TouchableOpacity/Touchable
 import useRecommendedSessions from '../../../lib/sessions/hooks/useRecommendedSessions';
 import RecommendedSessions from './components/RecommendedSessions';
 import WelcomeBanner from './components/WelcomeBanner';
+import {use} from 'i18next';
 
 const AddButton = styled(Button)({
   alignSelf: 'center',
@@ -106,6 +107,8 @@ const Home = () => {
       NativeStackNavigationProp<OverlayStackProps & ModalStackProps>
     >();
   const scrollRef = useRef(null);
+
+  const [isLoading, setIsLoading] = useState(false);
   const recommendedSessions = useRecommendedSessions();
   const {fetchSessions, sessions} = useSessions();
   const {fetchSharingPosts, sharingPosts} = useSharingPosts();
@@ -120,9 +123,11 @@ const Home = () => {
   );
 
   const fetch = useCallback(() => {
-    fetchSessions();
-    fetchSharingPosts();
-  }, [fetchSessions, fetchSharingPosts]);
+    setIsLoading(true);
+    Promise.all([fetchSessions(), fetchSharingPosts()]).finally(() => {
+      setIsLoading(false);
+    });
+  }, [fetchSessions, fetchSharingPosts, setIsLoading]);
 
   useThrottledFocusEffect(fetch, 10000);
 
@@ -146,18 +151,18 @@ const Home = () => {
       </TopBar>
       <AutoScrollView ref={scrollRef} stickyHeaderIndices={[1, 3, 5]}>
         <WelcomeBanner />
-        {recommendedSessions.length > 0 && (
+        {!isLoading && recommendedSessions.length > 0 && (
           <StickyHeading>
             <Heading16>{t('sections.forYou')}</Heading16>
           </StickyHeading>
         )}
-        {recommendedSessions.length > 0 && (
+        {!isLoading && recommendedSessions.length > 0 && (
           <>
             <RecommendedSessions sessions={recommendedSessions} />
             <Spacer16 />
           </>
         )}
-        {otherSessions.length > 0 && (
+        {!isLoading && otherSessions.length > 0 && (
           <StickyHeading>
             <Heading16>{t('sections.liveSessions')}</Heading16>
             <TouchableOpacity onPress={onPressLiveSessions}>
@@ -167,18 +172,18 @@ const Home = () => {
             </TouchableOpacity>
           </StickyHeading>
         )}
-        {otherSessions.length > 0 && (
+        {!isLoading && otherSessions.length > 0 && (
           <>
             <LiveSessions sessions={otherSessions} />
             <Spacer16 />
           </>
         )}
-        {sharingPosts.length > 0 && (
+        {!isLoading && sharingPosts.length > 0 && (
           <StickyHeading>
             <Heading16>{t('sections.sharingPosts')}</Heading16>
           </StickyHeading>
         )}
-        {sharingPosts.length > 0 && (
+        {!isLoading && sharingPosts.length > 0 && (
           <>
             <SharingPosts sharingPosts={sharingPosts} />
             <Spacer16 />
