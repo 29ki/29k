@@ -1,5 +1,4 @@
 import {renderHook} from '@testing-library/react-hooks';
-import {act} from 'react-test-renderer';
 import useGetCollectionById from './useGetCollectionById';
 import usePinnedCollections from '../../user/hooks/usePinnedCollections';
 import useGetCollectionByExerciseId from './useGetCollectionByExerciseId';

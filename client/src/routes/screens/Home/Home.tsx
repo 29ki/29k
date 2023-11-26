@@ -36,7 +36,6 @@ import TouchableOpacity from '../../../lib/components/TouchableOpacity/Touchable
 import useRecommendedSessions from '../../../lib/sessions/hooks/useRecommendedSessions';
 import RecommendedSessions from './components/RecommendedSessions';
 import WelcomeBanner from './components/WelcomeBanner';
-import {use} from 'i18next';
 
 const AddButton = styled(Button)({
   alignSelf: 'center',
