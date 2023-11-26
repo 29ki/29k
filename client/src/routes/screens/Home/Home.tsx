@@ -127,7 +127,7 @@ const Home = () => {
     });
   }, [fetchSessions, fetchSharingPosts, setIsLoading]);
 
-  useThrottledFocusEffect(fetch, 10000);
+  useThrottledFocusEffect(fetch);
 
   useScrollToTop(scrollRef);
 
