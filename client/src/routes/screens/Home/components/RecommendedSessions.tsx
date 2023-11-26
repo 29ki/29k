@@ -30,7 +30,7 @@ const Recommentation: React.FC<{item: LiveSessionType | Exercise}> = ({
   'mode' in item ? (
     <SessionCard session={item} />
   ) : (
-    <ExerciseCard exercise={item} />
+    <ExerciseCard exercise={item} resolvePinnedCollection />
   );
 
 type Props = {
