@@ -15,7 +15,7 @@ import {UserType} from '../../../../../shared/src/schemas/User';
 import {ExerciseCard} from '../../../../../shared/src/types/generated/Exercise';
 import ExerciseGraphic from '../ExerciseGraphic/ExerciseGraphic';
 import {Collection} from '../../../../../shared/src/types/generated/Collection';
-import {WhiteCollectionIcon} from '../Icons';
+import CollectionTag from '../Tag/CollectionTag';
 
 export const HEIGHT = 80;
 
@@ -55,11 +55,6 @@ const TagsGradient = styled(LinearGradient)({
   height: 20,
 });
 
-const CollectionTag = styled(Tag)({
-  backgroundColor: COLORS.BLACK,
-  color: COLORS.WHITE,
-});
-
 const Title = styled(Display16)({
   textOverflow: 'ellipsis',
 });
@@ -76,7 +71,7 @@ type CardProps = {
   onPress?: () => void;
   hostProfile?: UserType | null;
   completed?: boolean;
-  collection?: Collection;
+  collection?: Collection | null;
   style?: ViewStyle;
   children?: React.ReactNode;
 };
@@ -113,9 +108,7 @@ export const CardSmall: React.FC<CardProps> = ({
             <Tags>
               {collection && (
                 <>
-                  <CollectionTag LeftIcon={WhiteCollectionIcon}>
-                    {collection.name}
-                  </CollectionTag>
+                  <CollectionTag>{collection.name}</CollectionTag>
                   <Spacer4 />
                 </>
               )}

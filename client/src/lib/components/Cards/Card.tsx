@@ -11,12 +11,7 @@ import {Display20} from '../Typography/Display/Display';
 import Byline from '../Bylines/Byline';
 import {Spacer4, Spacer8} from '../Spacers/Spacer';
 import Tag from '../Tag/Tag';
-import {
-  BellFillIcon,
-  CheckIcon,
-  CollectionIcon,
-  WhiteCollectionIcon,
-} from '../Icons';
+import {BellFillIcon, CheckIcon} from '../Icons';
 import {useTranslation} from 'react-i18next';
 import {UserType} from '../../../../../shared/src/schemas/User';
 import {ExerciseCard} from '../../../../../shared/src/types/generated/Exercise';
@@ -24,6 +19,7 @@ import ExerciseGraphic from '../ExerciseGraphic/ExerciseGraphic';
 import Markdown from '../Typography/Markdown/Markdown';
 import textStyles from '../Typography/styles';
 import {Collection} from '../../../../../shared/src/types/generated/Collection';
+import CollectionTag from '../Tag/CollectionTag';
 
 export const HEIGHT = 175;
 
@@ -65,11 +61,6 @@ const PinnedTag = styled(Tag)({
   backgroundColor: COLORS.CREAM,
   color: COLORS.PRIMARY,
   paddingHorizontal: 0,
-});
-
-const CollectionTag = styled(Tag)({
-  backgroundColor: COLORS.BLACK,
-  color: COLORS.WHITE,
 });
 
 const InterestedTag = styled(Tag)({
@@ -135,7 +126,7 @@ type CardProps = {
   isPinned?: boolean;
   reminderEnabled?: boolean;
   interestedCount?: number;
-  collection?: Collection;
+  collection?: Collection | null;
   style?: ViewStyle;
 };
 
@@ -179,9 +170,7 @@ export const Card: React.FC<CardProps> = ({
         )}
         {collection && (
           <>
-            <CollectionTag LeftIcon={WhiteCollectionIcon}>
-              {collection.name}
-            </CollectionTag>
+            <CollectionTag>{collection.name}</CollectionTag>
             <Spacer4 />
           </>
         )}

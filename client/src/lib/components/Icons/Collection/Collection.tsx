@@ -12,7 +12,3 @@ export const CollectionIcon: IconType = ({fill = COLORS.BLACK}) => (
     />
   </Icon>
 );
-
-export const WhiteCollectionIcon: IconType = () => (
-  <CollectionIcon fill={COLORS.WHITE} />
-);
