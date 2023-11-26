@@ -14,6 +14,7 @@ import SETTINGS from '../../../lib/constants/settings';
 import {
   Spacer12,
   Spacer16,
+  Spacer60,
   TopSafeArea,
 } from '../../../lib/components/Spacers/Spacer';
 import Button from '../../../lib/components/Buttons/Button';
@@ -183,6 +184,7 @@ const Home = () => {
             <Spacer16 />
           </>
         )}
+        <Spacer60 />
       </AutoScrollView>
       <BottomFade />
       <AddSessionForm />
