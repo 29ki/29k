@@ -14,13 +14,13 @@ import {
   HIDDEN_FIELD,
   CARD_IMAGE_FIELD,
   DESCRIPTION_FIELD,
-  TAGS_FIELD,
   ASYNC_FIELD,
   LIVE_FIELD,
   LINK_FIELD,
   CO_CREATORS_FIELD,
   BACKGROUND_COLOR_FIELD,
 } from './common';
+import {TAGS_FIELD} from './relations';
 import {
   CONTENT_SLIDE,
   HOST_NOTES,
