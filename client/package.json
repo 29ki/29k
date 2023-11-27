@@ -95,7 +95,7 @@
     "@types/jest": "^29.5.8",
     "@types/ramda": "^0.29.3",
     "@types/react-native": "^0.67.3",
-    "@types/react-test-renderer": "^18.0.3",
+    "@types/react-test-renderer": "^18.0.7",
     "@types/styled-components-react-native": "^5.2.5",
     "@types/uuid": "^9.0.6",
     "@typescript-eslint/eslint-plugin": "^5.62.0",
