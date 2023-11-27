@@ -1,0 +1,57 @@
+{
+  "en": {
+    "id": "e2d46c10-77c3-4784-a9ea-4e7b4939711d",
+    "name": "Find meaning",
+    "collections": [
+      "d9897547-18a2-4404-b12b-324458021783"
+    ],
+    "exercises": [
+      "fff6f8da-f69c-458f-8905-acee04bd1a1d",
+      "640e4d9f-bb88-44af-a032-116a82f080f6",
+      "61adeaf2-70ab-4c6c-854c-2c16f762a3c5",
+      "0bcb6eb0-fdfe-466d-8603-ae6de15fcbc5",
+      "5b69ff57-10c4-4288-afc7-a6f6ed212531"
+    ]
+  },
+  "pt": {
+    "id": "e2d46c10-77c3-4784-a9ea-4e7b4939711d",
+    "name": "",
+    "collections": [
+      "d9897547-18a2-4404-b12b-324458021783"
+    ],
+    "exercises": [
+      "fff6f8da-f69c-458f-8905-acee04bd1a1d",
+      "640e4d9f-bb88-44af-a032-116a82f080f6",
+      "61adeaf2-70ab-4c6c-854c-2c16f762a3c5",
+      "0bcb6eb0-fdfe-466d-8603-ae6de15fcbc5",
+      "5b69ff57-10c4-4288-afc7-a6f6ed212531"
+    ]
+  },
+  "sv": {
+    "id": "e2d46c10-77c3-4784-a9ea-4e7b4939711d",
+    "collections": [
+      "d9897547-18a2-4404-b12b-324458021783"
+    ],
+    "exercises": [
+      "fff6f8da-f69c-458f-8905-acee04bd1a1d",
+      "640e4d9f-bb88-44af-a032-116a82f080f6",
+      "61adeaf2-70ab-4c6c-854c-2c16f762a3c5",
+      "0bcb6eb0-fdfe-466d-8603-ae6de15fcbc5",
+      "5b69ff57-10c4-4288-afc7-a6f6ed212531"
+    ],
+    "name": "Hitta mening"
+  },
+  "es": {
+    "id": "e2d46c10-77c3-4784-a9ea-4e7b4939711d",
+    "collections": [
+      "d9897547-18a2-4404-b12b-324458021783"
+    ],
+    "exercises": [
+      "fff6f8da-f69c-458f-8905-acee04bd1a1d",
+      "640e4d9f-bb88-44af-a032-116a82f080f6",
+      "61adeaf2-70ab-4c6c-854c-2c16f762a3c5",
+      "0bcb6eb0-fdfe-466d-8603-ae6de15fcbc5",
+      "5b69ff57-10c4-4288-afc7-a6f6ed212531"
+    ]
+  }
+}
