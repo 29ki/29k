@@ -8,7 +8,6 @@ import useUser from './useUser';
 const useAuthenticateUser = () => {
   const user = useUser();
   const setUserAndClaims = useUserState(state => state.setUserAndClaims);
-  const setIntialState = useUserState(state => state.setIntialState);
   const setData = useUserState(state => state.setData);
   const resetUser = useUserState(state => state.reset);
 
@@ -22,16 +21,11 @@ const useAuthenticateUser = () => {
           user: currentUser,
           claims: idToken.claims,
         });
-        // If the user is anonymous we can assume
-        // it is a new user and set intitial state
-        if (currentUser.isAnonymous) {
-          setIntialState();
-        }
       }
     });
 
     return unsubscribe;
-  }, [setUserAndClaims, setIntialState, resetUser]);
+  }, [setUserAndClaims, resetUser]);
 
   useEffect(() => {
     if (user?.uid) {
