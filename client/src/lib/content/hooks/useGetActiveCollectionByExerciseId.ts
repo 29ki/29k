@@ -2,10 +2,12 @@ import {useCallback} from 'react';
 import usePinnedCollections from '../../user/hooks/usePinnedCollections';
 import useGetExercisesByCollectionId from './useGetExercisesByCollectionId';
 import useGetCollectionById from './useGetCollectionById';
+import useCompletedSessionByTime from '../../user/hooks/useCompletedSessionByTime';
 
-const useGetCollectionByExerciseId = () => {
+const useGetActiveCollectionByExerciseId = () => {
   const {pinnedCollections} = usePinnedCollections();
   const getExercisesByCollectionId = useGetExercisesByCollectionId();
+  const {getCompletedSessionByExerciseId} = useCompletedSessionByTime();
   const getCollectionById = useGetCollectionById();
 
   return useCallback(
@@ -16,12 +18,22 @@ const useGetCollectionByExerciseId = () => {
         ),
       );
 
-      if (pinnedCollection) {
-        return getCollectionById(pinnedCollection.id);
-      }
+      if (!pinnedCollection) return;
+
+      if (
+        getCompletedSessionByExerciseId(exerciseId, pinnedCollection.startedAt)
+      )
+        return;
+
+      return getCollectionById(pinnedCollection.id);
     },
-    [getCollectionById, pinnedCollections, getExercisesByCollectionId],
+    [
+      getCollectionById,
+      pinnedCollections,
+      getCompletedSessionByExerciseId,
+      getExercisesByCollectionId,
+    ],
   );
 };
 
-export default useGetCollectionByExerciseId;
+export default useGetActiveCollectionByExerciseId;
