@@ -1,0 +1,53 @@
+{
+  "en": {
+    "id": "4fba05de-cc63-4613-9c84-a34f4cbbc58e",
+    "name": "Improve relationships",
+    "collections": [
+      "716c2b31-612c-40c4-8e85-90f0a2af380e"
+    ],
+    "exercises": [
+      "648e1802-eb45-47b0-a42e-dd986669a4eb",
+      "c5b1197a-4eec-4699-9dad-0e3d6323967b",
+      "5b69ff57-10c4-4288-afc7-a6f6ed212531",
+      "095f9642-73b6-4c9a-ae9a-ea7dea7363f5"
+    ]
+  },
+  "pt": {
+    "id": "4fba05de-cc63-4613-9c84-a34f4cbbc58e",
+    "name": "",
+    "collections": [
+      "716c2b31-612c-40c4-8e85-90f0a2af380e"
+    ],
+    "exercises": [
+      "648e1802-eb45-47b0-a42e-dd986669a4eb",
+      "c5b1197a-4eec-4699-9dad-0e3d6323967b",
+      "5b69ff57-10c4-4288-afc7-a6f6ed212531",
+      "095f9642-73b6-4c9a-ae9a-ea7dea7363f5"
+    ]
+  },
+  "sv": {
+    "id": "4fba05de-cc63-4613-9c84-a34f4cbbc58e",
+    "collections": [
+      "716c2b31-612c-40c4-8e85-90f0a2af380e"
+    ],
+    "exercises": [
+      "648e1802-eb45-47b0-a42e-dd986669a4eb",
+      "c5b1197a-4eec-4699-9dad-0e3d6323967b",
+      "5b69ff57-10c4-4288-afc7-a6f6ed212531",
+      "095f9642-73b6-4c9a-ae9a-ea7dea7363f5"
+    ],
+    "name": "Förbättra relationer"
+  },
+  "es": {
+    "id": "4fba05de-cc63-4613-9c84-a34f4cbbc58e",
+    "collections": [
+      "716c2b31-612c-40c4-8e85-90f0a2af380e"
+    ],
+    "exercises": [
+      "648e1802-eb45-47b0-a42e-dd986669a4eb",
+      "c5b1197a-4eec-4699-9dad-0e3d6323967b",
+      "5b69ff57-10c4-4288-afc7-a6f6ed212531",
+      "095f9642-73b6-4c9a-ae9a-ea7dea7363f5"
+    ]
+  }
+}
