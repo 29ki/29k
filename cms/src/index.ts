@@ -13,6 +13,7 @@ import {
   tags,
   ui,
   email,
+  categories,
 } from './collections/collections';
 import {Widget as uniqueIdWidget} from './widgets/uniqueIdWidget';
 import textTemplates from './editorComponents.ts/textTemplates';
@@ -45,7 +46,16 @@ CMS.init({
       locales: LANGUAGE_TAGS,
       default_locale: DEFAULT_LANGUAGE_TAG,
     },
-    collections: [exercises, ui, settings, tags, collections, other, email],
+    collections: [
+      categories,
+      collections,
+      tags,
+      exercises,
+      ui,
+      email,
+      settings,
+      other,
+    ],
   },
 });
 

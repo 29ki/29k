@@ -9,21 +9,9 @@ import {
   NAME_FIELD,
   PUBLISHED_FIELD,
   SORT_ORDER_FIELD,
-  TAGS_FIELD,
 } from './common';
-
-export const EXERCISES_FIELD: CmsFieldBase & CmsFieldRelation = {
-  label: '🚴 Exercises',
-  name: 'exercises',
-  widget: 'relation',
-  collection: 'exercises',
-  search_fields: ['name'],
-  value_field: 'id',
-  display_fields: ['name'],
-  options_length: Infinity,
-  multiple: true,
-  i18n: 'duplicate',
-};
+import {TAGS_FIELD} from './relations';
+import {EXERCISES_FIELD} from './relations';
 
 export const COLLECTION_FIELDS: Array<CmsField> = [
   ID_FIELD,
