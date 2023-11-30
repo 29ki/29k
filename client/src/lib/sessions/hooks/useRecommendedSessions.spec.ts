@@ -5,7 +5,7 @@ import usePinnedCollections from '../../user/hooks/usePinnedCollections';
 import useExercises from '../../content/hooks/useExercises';
 import dayjs from 'dayjs';
 import useGetStartedExercise from '../../content/hooks/useGetStartedExercise';
-import useCompletedExerciseById from '../../user/hooks/useCompletedExerciseById';
+import useCompletedSessions from '../../user/hooks/useCompletedSessions';
 
 jest.mock('./useSessions');
 const mockUseSessions = useSessions as jest.Mock;
@@ -39,14 +39,15 @@ jest.mock('../../content/hooks/useGetStartedExercise');
 const mockUseGetStartedExercise = useGetStartedExercise as jest.Mock;
 mockUseGetStartedExercise.mockReturnValue(null);
 
-jest.mock('../../user/hooks/useCompletedExerciseById');
-const mockUseCompletedExerciseById = useCompletedExerciseById as jest.Mock;
+const mockUseCompletedSessions = useCompletedSessions as jest.Mock;
+jest.mock('../../user/hooks/useCompletedSessions');
+mockUseCompletedSessions.mockReturnValue({completedSessions: []});
 
 afterEach(jest.clearAllMocks);
 
 describe('useRecommendedSessions', () => {
   describe('get started exercise', () => {
-    it('returns exercise if not completed', () => {
+    it('returns exercise no sessions are completed', () => {
       mockUseGetStartedExercise.mockReturnValueOnce({
         id: 'get-started-id',
       });
@@ -54,10 +55,7 @@ describe('useRecommendedSessions', () => {
       const {result} = renderHook(() => useRecommendedSessions());
 
       expect(mockUseGetStartedExercise).toHaveBeenCalledTimes(1);
-      expect(mockUseCompletedExerciseById).toHaveBeenCalledTimes(1);
-      expect(mockUseCompletedExerciseById).toHaveBeenCalledWith(
-        'get-started-id',
-      );
+      expect(mockUseCompletedSessions).toHaveBeenCalledTimes(1);
       expect(result.current).toEqual([
         {
           id: 'get-started-id',
@@ -65,23 +63,18 @@ describe('useRecommendedSessions', () => {
       ]);
     });
 
-    it('does not return exercise if already completed', () => {
+    it('does not return exercise there are any completed sessions', () => {
       mockUseGetStartedExercise.mockReturnValueOnce({
         id: 'get-started-id',
       });
-      mockUseCompletedExerciseById.mockReturnValueOnce({
-        payload: {
-          exerciseId: 'get-started-id',
-        },
+      mockUseCompletedSessions.mockReturnValueOnce({
+        completedSessions: [{id: 'some-session-id'}],
       });
 
       const {result} = renderHook(() => useRecommendedSessions());
 
       expect(mockUseGetStartedExercise).toHaveBeenCalledTimes(1);
-      expect(mockUseCompletedExerciseById).toHaveBeenCalledTimes(1);
-      expect(mockUseCompletedExerciseById).toHaveBeenCalledWith(
-        'get-started-id',
-      );
+      expect(mockUseCompletedSessions).toHaveBeenCalledTimes(1);
       expect(result.current).toEqual([]);
     });
   });

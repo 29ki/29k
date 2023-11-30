@@ -8,7 +8,7 @@ import {Exercise} from '../../../../../shared/src/types/generated/Exercise';
 import useExercises from '../../content/hooks/useExercises';
 import useCompletedSessionByTime from '../../user/hooks/useCompletedSessionByTime';
 import useGetStartedExercise from '../../content/hooks/useGetStartedExercise';
-import useCompletedExerciseById from '../../user/hooks/useCompletedExerciseById';
+import useCompletedSessions from '../../user/hooks/useCompletedSessions';
 
 const useRecommendedSessions = () => {
   const {pinnedSessions, hostedSessions} = useSessions();
@@ -17,17 +17,15 @@ const useRecommendedSessions = () => {
   const {getCompletedSessionByExerciseId} = useCompletedSessionByTime();
   const allExercises = useExercises();
   const getStartedExercise = useGetStartedExercise();
-  const getStartedExerciseEvent = useCompletedExerciseById(
-    getStartedExercise?.id,
-  );
+  const {completedSessions} = useCompletedSessions();
 
   // Get started exercise if it hasn't been completed
   const recommendedExercises = useMemo(
     () =>
-      getStartedExercise && !getStartedExerciseEvent
+      getStartedExercise && !completedSessions.length
         ? [getStartedExercise]
         : [],
-    [getStartedExercise, getStartedExerciseEvent],
+    [getStartedExercise, completedSessions.length],
   );
 
   // All pinned and hosted sessions
