@@ -36,6 +36,7 @@ import TouchableOpacity from '../../../lib/components/TouchableOpacity/Touchable
 import useRecommendedSessions from '../../../lib/sessions/hooks/useRecommendedSessions';
 import RecommendedSessions from './components/RecommendedSessions';
 import WelcomeBanner from './components/WelcomeBanner';
+import GetStartedBanner from './components/GetStartedBanner';
 
 const AddButton = styled(Button)({
   alignSelf: 'center',
@@ -65,39 +66,6 @@ const AddSessionForm = () => {
     </AddSessionWrapper>
   );
 };
-
-/*
-const GetStarted = () => {
-  const {pinnedCollections} = usePinnedCollections();
-  const {getStartedCollection} = useGetStartedCollection();
-  const {completedCollectionEvents} = useUserEvents();
-
-  const getStarted = useMemo(() => {
-    const collection = pinnedCollections.find(
-      p => p.id === getStartedCollection?.id,
-    );
-    if (
-      collection &&
-      !completedCollectionEvents.find(
-        c => c.payload.id === getStartedCollection?.id,
-      )
-    ) {
-      return collection;
-    }
-    return null;
-  }, [pinnedCollections, getStartedCollection, completedCollectionEvents]);
-
-  if (getStarted) {
-    return (
-      <Gutters>
-        <Spacer24 />
-        <CollectionCardContainer collectionId={getStarted.id} />
-      </Gutters>
-    );
-  }
-  return <Spacer24 />;
-};
-*/
 
 const Home = () => {
   const {t} = useTranslation('Screen.Home');
@@ -147,8 +115,9 @@ const Home = () => {
         onPressEllipsis={onPressEllipsis}>
         <MiniProfile />
       </TopBar>
-      <AutoScrollView ref={scrollRef} stickyHeaderIndices={[1, 3, 5]}>
+      <AutoScrollView ref={scrollRef} stickyHeaderIndices={[2, 4, 6]}>
         <WelcomeBanner />
+        <GetStartedBanner />
         {!isLoading && recommendedSessions.length > 0 && (
           <StickyHeading>
             <Heading16>{t('sections.forYou')}</Heading16>
