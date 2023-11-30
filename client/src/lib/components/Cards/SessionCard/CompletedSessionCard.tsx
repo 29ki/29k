@@ -57,7 +57,7 @@ const CompletedSessionCard: React.FC<CompletedSessionCardProps> = ({
   return (
     <CardSmall
       title={formatContentName(exercise)}
-      graphic={exercise?.card}
+      cardStyle={exercise?.card}
       hostProfile={hostProfile}
       onPress={onContextPress}
       completed>

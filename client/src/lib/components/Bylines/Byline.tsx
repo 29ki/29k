@@ -16,8 +16,17 @@ const Container = styled(TouchableOpacity)({
   alignSelf: 'flex-start',
 });
 
-const WrapText = styled(Body14)({flexShrink: 1});
-const WrapTextSmall = styled(Body12)({flexShrink: 1});
+type TextProps = {
+  color?: string;
+};
+const WrapText = styled(Body14)<TextProps>(({color}) => ({
+  flexShrink: 1,
+  color,
+}));
+const WrapTextSmall = styled(Body12)<TextProps>(({color}) => ({
+  flexShrink: 1,
+  color,
+}));
 
 const ImageContainer = styled.View<{small?: boolean}>(({small}) => ({
   backgroundColor: COLORS.GREYMEDIUM,
@@ -35,10 +44,11 @@ type BylineProps = {
   small?: boolean;
   prefix?: boolean;
   onPress?: TouchableOpacityProps['onPress'];
+  textColor?: string;
 };
 
 const Byline: React.FC<BylineProps> = React.memo(
-  ({pictureURL, name, duration, small, prefix = true, onPress}) => {
+  ({pictureURL, name, duration, small, prefix = true, onPress, textColor}) => {
     const {t} = useTranslation('Component.Byline');
     if (!pictureURL && !name) {
       return null;
@@ -55,11 +65,11 @@ const Byline: React.FC<BylineProps> = React.memo(
         </ImageContainer>
         <Spacer4 />
         {small ? (
-          <WrapTextSmall numberOfLines={1}>
+          <WrapTextSmall numberOfLines={1} color={textColor}>
             {prefix ? `${t('with')} ${name}` : name}
           </WrapTextSmall>
         ) : (
-          <WrapText numberOfLines={1}>
+          <WrapText numberOfLines={1} color={textColor}>
             {prefix ? `${t('with')} ${name}` : name}
             {duration ? `· ${duration} ${t('minutesAbbreviation')}` : ''}
           </WrapText>

@@ -16,6 +16,8 @@ type ExerciseCardContainerProps = {
   resolvePinnedCollection?: boolean;
   onPress?: () => void;
   style?: ViewStyle;
+  backgroundColor?: string;
+  textColor?: string;
 };
 
 const ExerciseCard: React.FC<ExerciseCardContainerProps> = ({
@@ -24,6 +26,8 @@ const ExerciseCard: React.FC<ExerciseCardContainerProps> = ({
   resolvePinnedCollection,
   onPress = () => {},
   style,
+  backgroundColor,
+  textColor,
 }) => {
   const {navigate} =
     useNavigation<NativeStackNavigationProp<ModalStackProps>>();
@@ -47,10 +51,12 @@ const ExerciseCard: React.FC<ExerciseCardContainerProps> = ({
     return (
       <CardSmall
         title={formatContentName(exercise)}
-        graphic={exercise?.card}
+        cardStyle={exercise?.card}
         collection={collection}
         onPress={onPressHandle}
         style={style}
+        backgroundColor={backgroundColor}
+        textColor={textColor}
       />
     );
   }
@@ -60,10 +66,12 @@ const ExerciseCard: React.FC<ExerciseCardContainerProps> = ({
       title={formatContentName(exercise)}
       description={exercise.description}
       tags={tags}
-      graphic={exercise.card}
+      cardStyle={exercise.card}
       collection={collection}
       onPress={onPressHandle}
       style={style}
+      backgroundColor={backgroundColor}
+      textColor={textColor}
     />
   );
 };

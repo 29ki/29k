@@ -53,6 +53,8 @@ type SessionCardProps = {
   disableJoinButton?: boolean;
   onBeforeContextPress?: () => void;
   style?: ViewStyle;
+  backgroundColor?: string;
+  textColor?: string;
 };
 
 const SessionCard: React.FC<SessionCardProps> = ({
@@ -61,6 +63,8 @@ const SessionCard: React.FC<SessionCardProps> = ({
   disableJoinButton,
   onBeforeContextPress,
   style,
+  backgroundColor,
+  textColor,
 }) => {
   const {exerciseId, startTime, hostProfile, language} = session;
   const exercise = useExerciseById(exerciseId, language);
@@ -103,10 +107,12 @@ const SessionCard: React.FC<SessionCardProps> = ({
     return (
       <CardSmall
         title={formatContentName(exercise)}
-        graphic={exercise?.card}
+        cardStyle={exercise?.card}
         hostProfile={hostProfile}
         onPress={onContextPress}
-        style={style}>
+        style={style}
+        backgroundColor={backgroundColor}
+        textColor={textColor}>
         <SessionTimeBadge session={session} />
         <Spacer8 />
         <Interested
@@ -122,14 +128,16 @@ const SessionCard: React.FC<SessionCardProps> = ({
     <Card
       title={formatContentName(exercise)}
       tags={tags}
-      graphic={exercise?.card}
+      cardStyle={exercise?.card}
       hostProfile={hostProfile}
       onPress={onContextPress}
       isPinned={isPinned}
       reminderEnabled={reminderEnabled}
       interestedCount={interestedCount}
       collection={collection}
-      style={style}>
+      style={style}
+      backgroundColor={backgroundColor}
+      textColor={textColor}>
       {!disableJoinButton && (
         <JoinButton onPress={onPress} startTime={startTime} />
       )}
