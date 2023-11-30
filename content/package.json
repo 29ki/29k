@@ -19,7 +19,7 @@
   },
   "devDependencies": {
     "@babel/plugin-transform-modules-commonjs": "^7.23.3",
-    "@types/jest": "^29.5.8",
+    "@types/jest": "^29.5.10",
     "@types/node": "^20.9.4",
     "@types/ramda": "^0.29.9",
     "@typescript-eslint/eslint-plugin": "^5.62.0",
