@@ -13,7 +13,7 @@ import {CATEGORY_FIELD} from '../fields/category';
 export const exercises: CmsCollection = {
   name: 'exercises',
   label: '📝 Exercises',
-  label_singular: 'exercise',
+  label_singular: 'Exercise',
   folder: '/content/src/exercises',
   identifier_field: 'id',
   extension: 'json',
@@ -82,7 +82,7 @@ export const tags: CmsCollection = {
 export const categories: CmsCollection = {
   name: 'categories',
   label: '🗃️ Categories',
-  label_singular: '🗃️ Category',
+  label_singular: 'Category',
   folder: '/content/src/categories',
   identifier_field: 'id',
   fields: CATEGORY_FIELD,
@@ -102,7 +102,7 @@ export const categories: CmsCollection = {
 export const collections: CmsCollection = {
   name: 'collections',
   label: '📦 Collections',
-  label_singular: '📦 Collection',
+  label_singular: 'Collection',
   folder: '/content/src/collections',
   identifier_field: 'id',
   fields: COLLECTION_FIELDS,

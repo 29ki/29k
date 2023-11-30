@@ -102,6 +102,15 @@ export const DURATION_FIELD: CmsField = {
   value_type: 'int',
 };
 
+export const TEXT_COLOR_FIELD: CmsField = {
+  label: '🎨 Text color',
+  name: 'textColor',
+  widget: 'color',
+  i18n: true,
+  allowInput: true,
+  required: false,
+};
+
 export const BACKGROUND_COLOR_FIELD: CmsField = {
   label: '🎨 Background Color',
   name: 'backgroundColor',
@@ -295,19 +304,6 @@ export const LOTTIE_FIELD_WITH_AUDIO: CmsFieldBase & CmsFieldObject = {
       ...AUDIO_FIELD,
       hint: 'Animation will automatically loop while playing.',
     },
-  ],
-};
-
-export const CARD_FIELD: CmsFieldBase & CmsFieldObject = {
-  label: '🪪 Card',
-  name: 'card',
-  i18n: true,
-  widget: 'object',
-  collapsed: true,
-  fields: [
-    BACKGROUND_COLOR_FIELD,
-    CARD_IMAGE_FIELD,
-    {...LOTTE_FIELD, hint: 'Overrides image'},
   ],
 };
 
