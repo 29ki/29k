@@ -60,7 +60,7 @@
     "@types/mjml": "^4.7.4",
     "@types/node-fetch": "^2.6.9",
     "@types/ramda": "^0.29.9",
-    "@types/semver": "^7.5.5",
+    "@types/semver": "^7.5.6",
     "@types/supertest": "^2.0.16",
     "@types/uuid": "^9.0.7",
     "@typescript-eslint/eslint-plugin": "^5.62.0",
