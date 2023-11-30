@@ -45,7 +45,7 @@ const ExerciseGraphic: React.FC<Props> = ({graphic, style}) => {
   );
 
   return (
-    <Graphic style={style} backgroundColor={graphic?.backgroundColor}>
+    <Graphic style={style} backgroundColor={graphic?.imageBackgroundColor}>
       {lottie ? (
         <Lottie source={lottie} autoPlay loop />
       ) : image ? (

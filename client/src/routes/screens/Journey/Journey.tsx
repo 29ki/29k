@@ -223,16 +223,17 @@ const Journey = () => {
 
   if (!sections.length) {
     return (
-      <Screen backgroundColor={COLORS.GREYLIGHTEST}>
+      <Screen backgroundColor={COLORS.PURE_WHITE}>
         <TopSafeArea minSize={SPACINGS.SIXTEEN} />
         <TopBar
-          backgroundColor={COLORS.GREYLIGHTEST}
+          backgroundColor={COLORS.PURE_WHITE}
           onPressEllipsis={onPressEllipsis}>
           <MiniProfile />
         </TopBar>
         <Container>
           <Display24>{t('fallback')}</Display24>
         </Container>
+        <BottomFade />
       </Screen>
     );
   }

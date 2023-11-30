@@ -36,7 +36,7 @@ const SelectContentStep: React.FC<StepProps> = ({
       <Gutters>
         <CardSmall
           title={formatContentName(item)}
-          graphic={item?.card}
+          cardStyle={item?.card}
           onPress={() => {
             setSelectedExercise(item.id);
             if (selectedModeAndType?.mode === SessionMode.async) {

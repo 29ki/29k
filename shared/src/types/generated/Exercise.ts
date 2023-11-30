@@ -25,7 +25,7 @@ export interface ExerciseCardLottie {
 }
 
 export interface ExerciseCard {
-  backgroundColor?: string;
+  imageBackgroundColor?: string;
   image?: ExerciseCardImage;
   lottie?: ExerciseCardLottie;
 }

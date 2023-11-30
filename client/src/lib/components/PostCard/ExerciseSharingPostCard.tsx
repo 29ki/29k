@@ -52,7 +52,7 @@ const ExerciseSharingPostCard: React.FC<Props> = ({
     <Wrapper onPress={onPress} backgroundColor={backgroundColor}>
       <ExerciseCard
         title={formatContentName(exercise)}
-        graphic={exercise.card}
+        cardStyle={exercise.card}
         backgroundColor={backgroundColor}
       />
       <SharingPostCard

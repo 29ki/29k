@@ -7,6 +7,8 @@ import useGetExercisesByCollectionId from '../../content/hooks/useGetExercisesBy
 import {Exercise} from '../../../../../shared/src/types/generated/Exercise';
 import useExercises from '../../content/hooks/useExercises';
 import useCompletedSessionByTime from '../../user/hooks/useCompletedSessionByTime';
+import useGetStartedExercise from '../../content/hooks/useGetStartedExercise';
+import useCompletedSessions from '../../user/hooks/useCompletedSessions';
 
 const useRecommendedSessions = () => {
   const {pinnedSessions, hostedSessions} = useSessions();
@@ -14,6 +16,17 @@ const useRecommendedSessions = () => {
   const getExercisesByCollectionId = useGetExercisesByCollectionId();
   const {getCompletedSessionByExerciseId} = useCompletedSessionByTime();
   const allExercises = useExercises();
+  const getStartedExercise = useGetStartedExercise();
+  const {completedSessions} = useCompletedSessions();
+
+  // Get started exercise if it hasn't been completed
+  const recommendedExercises = useMemo(
+    () =>
+      getStartedExercise && !completedSessions.length
+        ? [getStartedExercise]
+        : [],
+    [getStartedExercise, completedSessions.length],
+  );
 
   // All pinned and hosted sessions
   const committedSessions = useMemo(
@@ -63,10 +76,11 @@ const useRecommendedSessions = () => {
     () =>
       uniq([
         ...sessionsToday,
+        ...recommendedExercises,
         ...collectionExercises,
         ...randomExercises,
       ]).slice(0, 5), // Only five recommended sessions
-    [sessionsToday, collectionExercises, randomExercises],
+    [sessionsToday, recommendedExercises, collectionExercises, randomExercises],
   );
 };
 

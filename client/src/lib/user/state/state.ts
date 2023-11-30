@@ -17,7 +17,6 @@ import {
 } from '../../../../../shared/src/types/Event';
 import {UserDataType} from '../../../../../shared/src/schemas/User';
 import {Collection} from '../../../../../shared/src/types/generated/Collection';
-import {GET_STARTED_COLLECTION_ID} from '../../content/constants';
 import {REMINDER_INTERVALS} from '../../reminders/constants';
 
 const USER_STATE_VERSION = 6;
@@ -73,7 +72,6 @@ export type Actions = {
     user: State['user'];
     claims: State['claims'];
   }) => void;
-  setIntialState: () => void;
   setPinnedSessions: (pinnedSessions: Array<PinnedSession>) => void;
   setPinnedCollections: (pinnedCollections: Array<PinnedCollection>) => void;
   addUserEvent: (
@@ -87,10 +85,6 @@ export type Actions = {
   setCurrentUserState: SetCurrentUserState;
   reset: (isDelete?: boolean) => void;
 };
-
-const createInitialUserState = (timestamp: string): UserState => ({
-  pinnedCollections: [{id: GET_STARTED_COLLECTION_ID, startedAt: timestamp}],
-});
 
 const initialState: State = {
   user: null,
@@ -179,12 +173,6 @@ const useUserState = create<State & Actions>()(
               },
             },
           }));
-        },
-        setIntialState: () => {
-          const currentState = getCurrentUserStateSelector(get());
-          if (!currentState?.pinnedCollections) {
-            setCurrentUserState(createInitialUserState(dayjs().utc().toJSON()));
-          }
         },
         setCurrentUserState,
         setPinnedSessions: pinnedSessions =>
