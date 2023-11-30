@@ -116,7 +116,7 @@
     "react-native-clean-project": "^4.0.1",
     "react-native-dotenv": "^3.4.9",
     "react-test-renderer": "18.2.0",
-    "typescript": "^5.2.2"
+    "typescript": "^5.3.2"
   },
   "resolutions": {
     "@types/react": "^18",
