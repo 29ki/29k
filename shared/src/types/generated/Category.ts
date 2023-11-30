@@ -4,6 +4,6 @@
 export interface Category {
   id: any;
   name: string;
-  collections?: any[];
-  exercises?: any[];
+  collections: any[];
+  exercises: any[];
 }

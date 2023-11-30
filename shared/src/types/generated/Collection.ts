@@ -33,6 +33,6 @@ export interface Collection {
   sortOrder?: number;
   published: boolean;
   hidden?: boolean;
-  exercises?: any[];
+  exercises: any[];
   card?: CollectionCard;
 }

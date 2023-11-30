@@ -25,7 +25,7 @@ export const COLLECTIONS_FIELD: CmsFieldBase & CmsFieldRelation = {
   options_length: Infinity,
   multiple: true,
   i18n: 'duplicate',
-  required: false,
+  required: true,
 };
 
 export const EXERCISES_FIELD: CmsFieldBase & CmsFieldRelation = {
@@ -39,5 +39,5 @@ export const EXERCISES_FIELD: CmsFieldBase & CmsFieldRelation = {
   options_length: Infinity,
   multiple: true,
   i18n: 'duplicate',
-  required: false,
+  required: true,
 };
