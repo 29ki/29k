@@ -19,7 +19,12 @@
             "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1701358779/Audio/1_EN_supporting_one_another_gbmqmu.mp3",
             "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1701358858/SRT%20(captions)%20files/1_EN_supporting_one_another_w9zoob.srt"
           }
-        }
+        },
+        "hostNotes": [
+          {
+            "text": "Find a comfortable position. I will start the audio exercise and we'll meet back here afterwards. \n\n> Push play to start the audio exercise"
+          }
+        ]
       },
       {
         "type": "reflection",
