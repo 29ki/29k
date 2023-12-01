@@ -13,7 +13,13 @@
         ]
       },
       {
-        "type": "content"
+        "type": "content",
+        "content": {
+          "video": {
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1701358779/Audio/1_EN_supporting_one_another_gbmqmu.mp3",
+            "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1701358858/SRT%20(captions)%20files/1_EN_supporting_one_another_w9zoob.srt"
+          }
+        }
       },
       {
         "type": "reflection",
