@@ -22,7 +22,9 @@
         "content": {
           "lottie": {
             "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1701774962/Audio/5_EN_joint_engagement_part_2_vtzvmq.mp3",
-            "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1701774944/SRT%20(captions)%20files/5_EN_joint_engagement_part_2_xlk1p0.srt"
+            "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1701774944/SRT%20(captions)%20files/5_EN_joint_engagement_part_2_xlk1p0.srt",
+            "durationTimer": true,
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto/v1676977421/Lottie/audio_meditation_default_white_default_mqfcuo.json"
           }
         }
       },
@@ -37,7 +39,13 @@
           }
         ],
         "content": {
-          "heading": "What do you bring from this exercise?"
+          "heading": "What do you bring from this exercise?",
+          "lottie": {
+            "durationTimer": true,
+            "duration": 60,
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto/v1676642915/Lottie/default_1min_white_wvgwma.json",
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1701788617/Audio/60sec_audio_climatP_jun6yl.mp3"
+          }
         }
       },
       {
@@ -54,7 +62,12 @@
           }
         ],
         "content": {
-          "heading": "What do you bring from this exercise?"
+          "heading": "What do you bring from this exercise?",
+          "lottie": {
+            "duration": 120,
+            "durationTimer": true,
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1676639253/Lottie/default_2min_white_arvrf2.json"
+          }
         },
         "id": "Sharing 1"
       },
@@ -76,24 +89,41 @@
         "type": "instruction",
         "content": {
           "text": "If you’re up for it, you can continue with this mission.\n\nThink of the way that feels most natural or motivating for you to contribute in. Identify a simple act you can do already today. Notice how it feels while doing it and afterwards.",
-          "heading": "Well done."
+          "heading": "Well done.",
+          "image": {
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1701788568/Images/Join_engagement_part2_card_image_climatP_qcitn4.png"
+          }
         }
       }
     ],
     "theme": {
-      "textColor": "#2AE2D7"
+      "textColor": "#F9F8F4",
+      "backgroundColor": "#007961"
     },
-    "hidden": false,
+    "hidden": true,
     "name": "Joint engagement part 2",
     "live": true,
-    "published": false,
+    "published": true,
+    "card": {
+      "imageBackgroundColor": "#ebf4f3",
+      "lottie": {
+        "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1701789361/Lottie/Join_engagement_part2_card_image_climatP_yzwiwq.json"
+      }
+    },
     "duration": 30,
     "introPortal": {
       "hostNotes": [
         {
           "text": "> Start the session when you're ready to go"
         }
-      ]
+      ],
+      "videoLoop": {
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1701788655/Video/portal1_climateP_ab1nv1.mp4",
+        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1701788616/Audio/portal_audio_climatP_jthdg8.mp3"
+      },
+      "videoEnd": {
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1701788649/Video/portal2_climateP_u8wilo.mp4"
+      }
     },
     "tags": [],
     "id": "9a4834e6-8d3f-420b-88e3-dd3df9a98001",
