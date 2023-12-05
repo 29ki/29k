@@ -19,7 +19,12 @@
             "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1701773170/Audio/4_EN_joint_engagement_part_1_igtjhw.mp3",
             "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1701773221/SRT%20(captions)%20files/4_EN_joint_engagement_part_1_sqk2rq.srt"
           }
-        }
+        },
+        "hostNotes": [
+          {
+            "text": "Find a comfortable position. I will start the audio exercise and we'll meet back here afterwards. \n\n> Push play to start the audio exercise"
+          }
+        ]
       },
       {
         "type": "reflection",
