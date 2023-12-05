@@ -17,7 +17,9 @@
         "content": {
           "lottie": {
             "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1701773170/Audio/4_EN_joint_engagement_part_1_igtjhw.mp3",
-            "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1701773221/SRT%20(captions)%20files/4_EN_joint_engagement_part_1_sqk2rq.srt"
+            "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1701773221/SRT%20(captions)%20files/4_EN_joint_engagement_part_1_sqk2rq.srt",
+            "durationTimer": true,
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto/v1676977421/Lottie/audio_meditation_default_white_default_mqfcuo.json"
           }
         },
         "hostNotes": [
@@ -37,7 +39,13 @@
           }
         ],
         "content": {
-          "heading": "What do you bring from this exercise?"
+          "heading": "What do you bring from this exercise?",
+          "lottie": {
+            "durationTimer": true,
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto/v1676642915/Lottie/default_1min_white_wvgwma.json",
+            "duration": 60,
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1701788617/Audio/60sec_audio_climatP_jun6yl.mp3"
+          }
         }
       },
       {
@@ -55,7 +63,12 @@
         ],
         "id": "Sharing 1",
         "content": {
-          "heading": "What do you bring from this exercise?"
+          "heading": "What do you bring from this exercise?",
+          "lottie": {
+            "durationTimer": true,
+            "duration": 120,
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1676639253/Lottie/default_2min_white_arvrf2.json"
+          }
         }
       },
       {
@@ -76,24 +89,41 @@
         "type": "instruction",
         "content": {
           "text": "If you’re up for it, you can continue with this mission.\n\nThink of someone, or a group, that you would like to connect or collaborate with. Reach out and let them know.",
-          "heading": "Well done"
+          "heading": "Well done",
+          "image": {
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1701788567/Images/Join_engagement_part1_card_image_climatP_vtdfnn.png"
+          }
         }
       }
     ],
     "theme": {
-      "textColor": "#2AE2D7"
+      "textColor": "#F9F8F4",
+      "backgroundColor": "#007961"
     },
-    "hidden": false,
+    "hidden": true,
     "name": "Joint engagement part 1",
     "live": true,
-    "published": false,
+    "published": true,
+    "card": {
+      "imageBackgroundColor": "#ebf4f3",
+      "image": {
+        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1701788567/Images/Join_engagement_part1_card_image_climatP_vtdfnn.png"
+      }
+    },
     "duration": 30,
     "introPortal": {
       "hostNotes": [
         {
           "text": "> Start the session when you're ready to go"
         }
-      ]
+      ],
+      "videoLoop": {
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1701788655/Video/portal1_climateP_ab1nv1.mp4",
+        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1701788616/Audio/portal_audio_climatP_jthdg8.mp3"
+      },
+      "videoEnd": {
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1701788649/Video/portal2_climateP_u8wilo.mp4"
+      }
     },
     "id": "654551b4-1226-485e-9424-4d86d93240ff",
     "async": true,
