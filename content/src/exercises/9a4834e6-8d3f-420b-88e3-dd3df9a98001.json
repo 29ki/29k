@@ -75,7 +75,7 @@
         "type": "host",
         "hostNotes": [
           {
-            "text": "Well done. If you’re up for it, you can continue what we started here today with a mission to bring this into your everyday life.\n\nThink of the way that feels most natural or motivating for you to contribute in. Identify a simple act you can do already today. Notice how it feels while doing it and afterwards."
+            "text": "Well done. If you’re up for it, you can continue what we started here today with a mission to bring this into your everyday life.\n\nThink of how it feels most natural or motivating for you to contribute. Identify a simple action you can take already today. Notice how it feels while doing it and afterwards."
           },
           {
             "text": "Before we leave this space let’s do a mini check-out. \n\nHow are you feeling right now? Has anything shifted? Please answer in two-three words."
@@ -88,7 +88,7 @@
       {
         "type": "instruction",
         "content": {
-          "text": "If you’re up for it, you can continue with this mission.\n\nThink of the way that feels most natural or motivating for you to contribute in. Identify a simple act you can do already today. Notice how it feels while doing it and afterwards.",
+          "text": "If you’re up for it, you can continue with this mission.\n\nThink of how it feels most natural or motivating for you to contribute. Identify a simple action you can take already today. Notice how it feels while doing it and afterwards.",
           "heading": "Well done.",
           "image": {
             "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1701788568/Images/Join_engagement_part2_card_image_climatP_qcitn4.png"
@@ -101,7 +101,7 @@
       "backgroundColor": "#007961"
     },
     "hidden": true,
-    "name": "Joint engagement part 2",
+    "name": "Joint engagement - part 2",
     "live": true,
     "published": true,
     "card": {
