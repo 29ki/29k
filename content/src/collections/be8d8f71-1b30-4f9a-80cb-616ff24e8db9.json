@@ -1,8 +1,8 @@
 {
   "en": {
-    "hidden": false,
+    "hidden": true,
     "name": "Act for sustainability",
-    "published": false,
+    "published": true,
     "card": {
       "backgroundColorGradient": [
         {
