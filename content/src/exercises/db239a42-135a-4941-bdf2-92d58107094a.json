@@ -36,14 +36,14 @@
         "type": "reflection",
         "hostNotes": [
           {
-            "text": "Now we’ll take 1 minute to reflect on our own.\n\nHow did you experience being supported by others? And how can that experience inspire you to give and receive emotional support today?"
+            "text": "Now we’ll take 1 minute to reflect on our own.\n\nHow did you experience being supported by others? And how can that experience inspire you to give or receive emotional support today?"
           },
           {
             "text": "You can take notes on a piece of paper or just mental notes in your head. And there is no right or wrong here, our answers are our own. 1 minute starting now.\n\n> Press play to start the timer.\n\nThat’s 1 minute and it’s time to move on."
           }
         ],
         "content": {
-          "heading": "What can you do to give and receive emotional support today?",
+          "heading": "What can you do to give or receive emotional support today?",
           "lottie": {
             "durationTimer": true,
             "duration": 60,
@@ -66,7 +66,7 @@
           }
         ],
         "content": {
-          "heading": "What can you do to give and receive emotional support today?",
+          "heading": "What can you do to give or receive emotional support today?",
           "lottie": {
             "durationTimer": true,
             "duration": 120,
@@ -92,7 +92,7 @@
       {
         "type": "instruction",
         "content": {
-          "text": "Summary.\n\nIf you’re up for it, you can continue with a mission:\n\nPlan a simple act of support you can do during the day, and notice how it affects others as well as yourself.",
+          "text": "If you’re up for it, you can continue with a mission:\n\nPlan a simple act of support you can do during the day, and notice how it affects others as well as yourself.",
           "heading": "Well done",
           "image": {
             "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1701788567/Images/Eco_emotions_card_image_climatP_e0z7sd.png"
