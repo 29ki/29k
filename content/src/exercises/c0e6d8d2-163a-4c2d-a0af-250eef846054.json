@@ -22,7 +22,9 @@
         "content": {
           "lottie": {
             "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1701434593/Audio/3_EN_eco_emotions_and_motivation_cqd4qs.mp3",
-            "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1701434607/SRT%20(captions)%20files/3_EN_eco_emotions_and_motivation_gtbwi9.srt"
+            "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1701434607/SRT%20(captions)%20files/3_EN_eco_emotions_and_motivation_gtbwi9.srt",
+            "durationTimer": true,
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto/v1676977421/Lottie/audio_meditation_default_white_default_mqfcuo.json"
           }
         }
       },
@@ -38,7 +40,13 @@
         ],
         "content": {
           "heading": "What eco emotion motivates you?",
-          "text": "How?"
+          "text": "How?",
+          "lottie": {
+            "durationTimer": true,
+            "duration": 60,
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto/v1676642915/Lottie/default_1min_white_wvgwma.json",
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1701788617/Audio/60sec_audio_climatP_jun6yl.mp3"
+          }
         }
       },
       {
@@ -57,7 +65,12 @@
         "id": "Sharing 1",
         "content": {
           "heading": "What eco emotion motivates you?",
-          "text": "How?"
+          "text": "How?",
+          "lottie": {
+            "durationTimer": true,
+            "duration": 120,
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1676639253/Lottie/default_2min_white_arvrf2.json"
+          }
         }
       },
       {
@@ -78,24 +91,41 @@
         "type": "instruction",
         "content": {
           "text": "Are you up for a mission to bring this into your everyday life?\n\nUse the eco emotion that motivates you to identify something you can do already today. It does not have to be big or grand. Do it and notice how it makes you feel.",
-          "heading": "Well done"
+          "heading": "Well done",
+          "image": {
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1701788567/Images/Eco_emotions_and_motivation_card_image_climatP_lirfnu.png"
+          }
         }
       }
     ],
     "theme": {
-      "textColor": "#2AE2D7"
+      "textColor": "#F9F8F4",
+      "backgroundColor": "#007961"
     },
-    "hidden": false,
+    "hidden": true,
     "name": "Eco emotions and motivation",
     "live": true,
-    "published": false,
+    "published": true,
+    "card": {
+      "imageBackgroundColor": "#ebf4f3",
+      "image": {
+        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1701788567/Images/Eco_emotions_and_motivation_card_image_climatP_lirfnu.png"
+      }
+    },
     "duration": 30,
     "introPortal": {
       "hostNotes": [
         {
           "text": "> Start the session when you're ready to go"
         }
-      ]
+      ],
+      "videoLoop": {
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1701788655/Video/portal1_climateP_ab1nv1.mp4",
+        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1701788616/Audio/portal_audio_climatP_jthdg8.mp3"
+      },
+      "videoEnd": {
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1701788649/Video/portal2_climateP_u8wilo.mp4"
+      }
     },
     "id": "c0e6d8d2-163a-4c2d-a0af-250eef846054",
     "async": true,
