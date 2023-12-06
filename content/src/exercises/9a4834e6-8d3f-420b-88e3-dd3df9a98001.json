@@ -125,10 +125,13 @@
         "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1701788649/Video/portal2_climateP_u8wilo.mp4"
       }
     },
-    "tags": [],
+    "tags": [
+      "9c2c08a9-7dc6-4058-bc78-016d0eb00614",
+      "566aeb1b-1649-4f5a-96a2-0c80be27efc0"
+    ],
     "id": "9a4834e6-8d3f-420b-88e3-dd3df9a98001",
     "async": true,
-    "description": "Creating big changes can feel incredibly difficult and frustrating when there is a rush to save what can be saved. Doing it together with others is necessary, but it is not always so easy to know where to start. In this exercise, you get to imagine how you react to different types of joint engagement.\n\nThis is part 2 of an exercise about getting involved with others. While it can be nice to start with part 1, it also works to start with this one."
+    "description": "Acting for change can be difficult and frustrating, especially when there is a feeling of emergency. Doing it with others is often necessary, but it is sometimes hard to know where to start. In this exercise, we get to imagine different types of joint engagement to explore what fits our needs.\n\nThis is part 2 of the exercise Joint engagement, the first one can be found here (link)."
   },
   "pt": {
     "slides": [
@@ -206,7 +209,10 @@
         }
       ]
     },
-    "tags": [],
+    "tags": [
+      "9c2c08a9-7dc6-4058-bc78-016d0eb00614",
+      "566aeb1b-1649-4f5a-96a2-0c80be27efc0"
+    ],
     "id": "9a4834e6-8d3f-420b-88e3-dd3df9a98001",
     "async": false
   },
@@ -286,7 +292,10 @@
         }
       ]
     },
-    "tags": [],
+    "tags": [
+      "9c2c08a9-7dc6-4058-bc78-016d0eb00614",
+      "566aeb1b-1649-4f5a-96a2-0c80be27efc0"
+    ],
     "id": "9a4834e6-8d3f-420b-88e3-dd3df9a98001",
     "async": false
   },
@@ -366,7 +375,10 @@
         }
       ]
     },
-    "tags": [],
+    "tags": [
+      "9c2c08a9-7dc6-4058-bc78-016d0eb00614",
+      "566aeb1b-1649-4f5a-96a2-0c80be27efc0"
+    ],
     "id": "9a4834e6-8d3f-420b-88e3-dd3df9a98001",
     "async": false
   }
