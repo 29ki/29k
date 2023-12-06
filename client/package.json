@@ -26,7 +26,7 @@
     "@gorhom/bottom-sheet": "^4.5.1",
     "@kingstinct/react-native-healthkit": "^7.3.2",
     "@notifee/react-native": "^7.8.0",
-    "@react-native-async-storage/async-storage": "^1.19.8",
+    "@react-native-async-storage/async-storage": "^1.21.0",
     "@react-native-community/datetimepicker": "^7.6.1",
     "@react-native-community/netinfo": "^11.1.0",
     "@react-native-firebase/app": "^17.4.2",
