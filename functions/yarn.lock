@@ -1279,10 +1279,10 @@
   dependencies:
     "@sinonjs/commons" "^1.7.0"
 
-"@slack/bolt@^3.15.0":
-  version "3.15.0"
-  resolved "https://registry.yarnpkg.com/@slack/bolt/-/bolt-3.15.0.tgz#2e464e0e8e11f2b9e6ad855e434ca4d08d2a68a8"
-  integrity sha512-B+N6oaEb1BuXXzP9eb0Yc5J/vLII+ZNYgKewia3+lAoiWTSbQ3cto6SCmglMnihsmZM6wjZUrKEK9Hg0+l90QQ==
+"@slack/bolt@^3.16.0":
+  version "3.16.0"
+  resolved "https://registry.yarnpkg.com/@slack/bolt/-/bolt-3.16.0.tgz#14060f4259528c9f530f09fe6933445ec6d5979e"
+  integrity sha512-87mxCkxJMd5nJ2hp3LyLJKWfGkrdqDhBPQnCtbE6bPJ/BS2VIllkWzSqZg4K/ZGFJMmq/GzR6/PlY4ZX+FY79Q==
   dependencies:
     "@slack/logger" "^4.0.0"
     "@slack/oauth" "^2.6.1"
