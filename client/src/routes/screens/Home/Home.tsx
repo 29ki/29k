@@ -1,4 +1,4 @@
-import React, {useCallback, useMemo, useRef} from 'react';
+import React, {useCallback, useMemo, useRef, useState} from 'react';
 import {useTranslation} from 'react-i18next';
 import styled from 'styled-components/native';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
@@ -14,6 +14,7 @@ import SETTINGS from '../../../lib/constants/settings';
 import {
   Spacer12,
   Spacer16,
+  Spacer60,
   TopSafeArea,
 } from '../../../lib/components/Spacers/Spacer';
 import Button from '../../../lib/components/Buttons/Button';
@@ -35,6 +36,7 @@ import TouchableOpacity from '../../../lib/components/TouchableOpacity/Touchable
 import useRecommendedSessions from '../../../lib/sessions/hooks/useRecommendedSessions';
 import RecommendedSessions from './components/RecommendedSessions';
 import WelcomeBanner from './components/WelcomeBanner';
+import GetStartedBanner from './components/GetStartedBanner';
 
 const AddButton = styled(Button)({
   alignSelf: 'center',
@@ -65,39 +67,6 @@ const AddSessionForm = () => {
   );
 };
 
-/*
-const GetStarted = () => {
-  const {pinnedCollections} = usePinnedCollections();
-  const {getStartedCollection} = useGetStartedCollection();
-  const {completedCollectionEvents} = useUserEvents();
-
-  const getStarted = useMemo(() => {
-    const collection = pinnedCollections.find(
-      p => p.id === getStartedCollection?.id,
-    );
-    if (
-      collection &&
-      !completedCollectionEvents.find(
-        c => c.payload.id === getStartedCollection?.id,
-      )
-    ) {
-      return collection;
-    }
-    return null;
-  }, [pinnedCollections, getStartedCollection, completedCollectionEvents]);
-
-  if (getStarted) {
-    return (
-      <Gutters>
-        <Spacer24 />
-        <CollectionCardContainer collectionId={getStarted.id} />
-      </Gutters>
-    );
-  }
-  return <Spacer24 />;
-};
-*/
-
 const Home = () => {
   const {t} = useTranslation('Screen.Home');
   const {navigate} =
@@ -105,22 +74,28 @@ const Home = () => {
       NativeStackNavigationProp<OverlayStackProps & ModalStackProps>
     >();
   const scrollRef = useRef(null);
+
+  const [isLoading, setIsLoading] = useState(true);
   const recommendedSessions = useRecommendedSessions();
   const {fetchSessions, sessions} = useSessions();
   const {fetchSharingPosts, sharingPosts} = useSharingPosts();
 
   const otherSessions = useMemo(
     // Filter out recommended sessions
-    () => sessions.filter(session => !recommendedSessions.includes(session)),
+    () =>
+      sessions
+        .filter(session => !recommendedSessions.includes(session))
+        .slice(0, 5),
     [sessions, recommendedSessions],
   );
 
   const fetch = useCallback(() => {
-    fetchSessions();
-    fetchSharingPosts();
-  }, [fetchSessions, fetchSharingPosts]);
+    Promise.all([fetchSessions(), fetchSharingPosts()]).finally(() => {
+      setIsLoading(false);
+    });
+  }, [fetchSessions, fetchSharingPosts, setIsLoading]);
 
-  useThrottledFocusEffect(fetch, 10000);
+  useThrottledFocusEffect(fetch);
 
   useScrollToTop(scrollRef);
 
@@ -140,20 +115,21 @@ const Home = () => {
         onPressEllipsis={onPressEllipsis}>
         <MiniProfile />
       </TopBar>
-      <AutoScrollView ref={scrollRef} stickyHeaderIndices={[1, 3, 5]}>
+      <AutoScrollView ref={scrollRef} stickyHeaderIndices={[2, 4, 6]}>
         <WelcomeBanner />
-        {recommendedSessions.length > 0 && (
+        <GetStartedBanner />
+        {!isLoading && recommendedSessions.length > 0 && (
           <StickyHeading>
             <Heading16>{t('sections.forYou')}</Heading16>
           </StickyHeading>
         )}
-        {recommendedSessions.length > 0 && (
+        {!isLoading && recommendedSessions.length > 0 && (
           <>
             <RecommendedSessions sessions={recommendedSessions} />
             <Spacer16 />
           </>
         )}
-        {otherSessions.length > 0 && (
+        {!isLoading && otherSessions.length > 0 && (
           <StickyHeading>
             <Heading16>{t('sections.liveSessions')}</Heading16>
             <TouchableOpacity onPress={onPressLiveSessions}>
@@ -163,23 +139,24 @@ const Home = () => {
             </TouchableOpacity>
           </StickyHeading>
         )}
-        {otherSessions.length > 0 && (
+        {!isLoading && otherSessions.length > 0 && (
           <>
             <LiveSessions sessions={otherSessions} />
             <Spacer16 />
           </>
         )}
-        {sharingPosts.length > 0 && (
+        {!isLoading && sharingPosts.length > 0 && (
           <StickyHeading>
             <Heading16>{t('sections.sharingPosts')}</Heading16>
           </StickyHeading>
         )}
-        {sharingPosts.length > 0 && (
+        {!isLoading && sharingPosts.length > 0 && (
           <>
             <SharingPosts sharingPosts={sharingPosts} />
             <Spacer16 />
           </>
         )}
+        <Spacer60 />
       </AutoScrollView>
       <BottomFade />
       <AddSessionForm />

@@ -8,11 +8,12 @@ import {TAG_FIELDS} from '../fields/tag';
 import {COLLECTION_FIELDS} from '../fields/collection';
 import {DEFAULT_LANGUAGE_TAG} from '../../../shared/src/constants/i18n';
 import EDITOR_TEXT_TEMPLATES_FIELDS from '../fields/templates';
+import {CATEGORY_FIELD} from '../fields/category';
 
 export const exercises: CmsCollection = {
   name: 'exercises',
   label: '📝 Exercises',
-  label_singular: 'exercise',
+  label_singular: 'Exercise',
   folder: '/content/src/exercises',
   identifier_field: 'id',
   extension: 'json',
@@ -73,12 +74,35 @@ export const tags: CmsCollection = {
   delete: true,
   publish: true,
   i18n: true,
+  editor: {
+    preview: false,
+  },
+};
+
+export const categories: CmsCollection = {
+  name: 'categories',
+  label: '🗃️ Categories',
+  label_singular: 'Category',
+  folder: '/content/src/categories',
+  identifier_field: 'id',
+  fields: CATEGORY_FIELD,
+  slug: '{{id}}',
+  summary: '{{fields.name}}',
+  extension: 'json',
+  create: true,
+  format: 'json',
+  delete: true,
+  publish: true,
+  i18n: true,
+  editor: {
+    preview: false,
+  },
 };
 
 export const collections: CmsCollection = {
   name: 'collections',
-  label: '🎤 Collections',
-  label_singular: 'collection',
+  label: '📦 Collections',
+  label_singular: 'Collection',
   folder: '/content/src/collections',
   identifier_field: 'id',
   fields: COLLECTION_FIELDS,

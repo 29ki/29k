@@ -1,4 +1,4 @@
-import {CmsField, CmsFieldBase, CmsFieldRelation} from 'netlify-cms-core';
+import {CmsField} from 'netlify-cms-core';
 import {
   CO_CREATORS_FIELD,
   DESCRIPTION_FIELD,
@@ -9,21 +9,10 @@ import {
   NAME_FIELD,
   PUBLISHED_FIELD,
   SORT_ORDER_FIELD,
-  TAGS_FIELD,
+  TEXT_COLOR_FIELD,
 } from './common';
-
-export const EXERCISES_FIELD: CmsFieldBase & CmsFieldRelation = {
-  label: '🚴 Exercises',
-  name: 'exercises',
-  widget: 'relation',
-  collection: 'exercises',
-  search_fields: ['name'],
-  value_field: 'id',
-  display_fields: ['name'],
-  options_length: Infinity,
-  multiple: true,
-  i18n: 'duplicate',
-};
+import {TAGS_FIELD} from './relations';
+import {EXERCISES_FIELD} from './relations';
 
 export const COLLECTION_FIELDS: Array<CmsField> = [
   ID_FIELD,
@@ -70,14 +59,7 @@ export const COLLECTION_FIELDS: Array<CmsField> = [
           },
         ],
       },
-      {
-        label: '🎨 Text color',
-        name: 'textColor',
-        widget: 'color',
-        i18n: true,
-        allowInput: true,
-        required: false,
-      },
+      TEXT_COLOR_FIELD,
     ],
   },
 ];

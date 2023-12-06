@@ -4,7 +4,6 @@ import defaults from '../defaults/exercise.json';
 
 import {COLORS} from '../../../shared/src/constants/colors';
 import {
-  CARD_FIELD,
   ID_FIELD,
   VIDEO_FIELD_WITH_AUDIO,
   NAME_FIELD,
@@ -14,13 +13,14 @@ import {
   HIDDEN_FIELD,
   CARD_IMAGE_FIELD,
   DESCRIPTION_FIELD,
-  TAGS_FIELD,
   ASYNC_FIELD,
   LIVE_FIELD,
   LINK_FIELD,
   CO_CREATORS_FIELD,
   BACKGROUND_COLOR_FIELD,
+  LOTTE_FIELD,
 } from './common';
+import {TAGS_FIELD} from './relations';
 import {
   CONTENT_SLIDE,
   HOST_NOTES,
@@ -31,6 +31,25 @@ import {
 } from './slides';
 import {CLOUDINARY_IMAGE_CONFIG} from './constants';
 import {JSONObject} from '../../../shared/src/types/JSON';
+
+const CARD_FIELD: CmsField = {
+  label: '🪪 Card',
+  name: 'card',
+  i18n: true,
+  widget: 'object',
+  collapsed: true,
+  fields: [
+    {
+      label: '🎨 Image Background Color',
+      name: 'imageBackgroundColor',
+      widget: 'color',
+      i18n: true,
+      required: false,
+    },
+    CARD_IMAGE_FIELD,
+    {...LOTTE_FIELD, hint: 'Overrides image'},
+  ],
+};
 
 export const SOCIAL_MEDIA: CmsField = {
   label: '🔗 Social Media Meta Tags',

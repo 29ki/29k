@@ -15,6 +15,8 @@ import Button from '../Buttons/Button';
 import CardSmall from './CardSmall';
 import Interested from '../Interested/Interested';
 import Node from '../Node/Node';
+import {Collection} from '../../../../../shared/src/types/generated/Collection';
+import {COLORS} from '../../../../../shared/src/constants/colors';
 
 const VerticalAlign = styled.View({
   flexDirection: 'row',
@@ -41,34 +43,41 @@ const DUMMY_HOST: UserProfileType = {
     'https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1682602411/Images/Jenny_Rickardsson_kopia_sdodwf.jpg',
 };
 
-const DUMMY_IMAGE_GRAPHIC: ExerciseCard = {
-  backgroundColor: '#D0E2DA',
+const DUMMY_IMAGE_CARD_STYLE: ExerciseCard = {
+  imageBackgroundColor: '#D0E2DA',
   image: {
     source:
       'https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1697618661/Images/values_collection_gmhmrl.png',
   },
 };
 
-const DUMMY_TRANSPARENT_IMAGE_GRAPHIC: ExerciseCard = {
+const DUMMY_TRANSPARENT_IMAGE_CARD_STYLE: ExerciseCard = {
   image: {
     source:
       'https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1697618661/Images/values_collection_gmhmrl.png',
   },
 };
 
-const DUMMY_TRANSPARENT_LOTTIE_GRAPHIC: ExerciseCard = {
+const DUMMY_TRANSPARENT_LOTTIE_CARD_STYLE: ExerciseCard = {
   lottie: {
     source:
       'https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1683720732/Lottie/aware_logo_teal_qqweff.json',
   },
 };
 
-const DUMMY_LOTTIE_GRAPHIC: ExerciseCard = {
-  backgroundColor: '#fff',
+const DUMMY_LOTTIE_CARD_STYLE: ExerciseCard = {
+  imageBackgroundColor: '#fff',
   lottie: {
     source:
       'https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1683720732/Lottie/aware_logo_teal_qqweff.json',
   },
+};
+
+const DUMMY_COLLECTION: Collection = {
+  id: 'some-id',
+  name: 'Collection name',
+  published: true,
+  exercises: [],
 };
 
 const CardsList = () => (
@@ -77,11 +86,9 @@ const CardsList = () => (
       title="Pure Simple Love"
       tags={DUMMY_TAGS}
       hostProfile={DUMMY_HOST}
-      graphic={DUMMY_TRANSPARENT_IMAGE_GRAPHIC}
+      cardStyle={DUMMY_TRANSPARENT_IMAGE_CARD_STYLE}
       onPress={() => {}}>
       <VerticalAlign>
-        <Body14>Starts</Body14>
-        <Spacer4 />
         <Badge text="09:00" IconAfter={<CommunityIcon />} />
       </VerticalAlign>
     </Card>
@@ -90,8 +97,22 @@ const CardsList = () => (
       title="Accepting thoughts and feelings"
       tags={DUMMY_TAGS}
       hostProfile={DUMMY_HOST}
-      graphic={DUMMY_TRANSPARENT_LOTTIE_GRAPHIC}
+      cardStyle={DUMMY_TRANSPARENT_LOTTIE_CARD_STYLE}
       onPress={() => {}}>
+      <Button size="xsmall" variant="secondary" onPress={() => {}}>
+        <BodyBold>Join</BodyBold>
+      </Button>
+      <Spacer8 />
+      <Badge text="Shortly" IconAfter={<FriendsIcon />} />
+    </Card>
+    <Spacer16 />
+    <Card
+      title="Accepting thoughts and feelings"
+      tags={DUMMY_TAGS}
+      hostProfile={DUMMY_HOST}
+      onPress={() => {}}
+      backgroundColor={COLORS.PRIMARY}
+      textColor={COLORS.PURE_WHITE}>
       <Button size="xsmall" variant="secondary" onPress={() => {}}>
         <BodyBold>Join</BodyBold>
       </Button>
@@ -103,12 +124,23 @@ const CardsList = () => (
       title="Accepting thoughts and feeeeeeeeeeeeeelings"
       tags={DUMMY_TAGS}
       hostProfile={DUMMY_HOST}
-      graphic={DUMMY_IMAGE_GRAPHIC}
+      cardStyle={DUMMY_IMAGE_CARD_STYLE}
       isPinned
       onPress={() => {}}>
       <VerticalAlign>
-        <Body14>Starts</Body14>
-        <Spacer4 />
+        <Badge text="Mon, 7 Sep 17.30" IconAfter={<CommunityIcon />} />
+      </VerticalAlign>
+    </Card>
+    <Spacer16 />
+    <Card
+      title="Accepting thoughts and feeeeeeeeeeeeeelings"
+      tags={DUMMY_TAGS}
+      hostProfile={DUMMY_HOST}
+      cardStyle={DUMMY_IMAGE_CARD_STYLE}
+      isPinned
+      collection={DUMMY_COLLECTION}
+      onPress={() => {}}>
+      <VerticalAlign>
         <Badge text="Mon, 7 Sep 17.30" IconAfter={<CommunityIcon />} />
       </VerticalAlign>
     </Card>
@@ -117,13 +149,11 @@ const CardsList = () => (
       title="Accepting thoughts and feelings"
       tags={DUMMY_TAGS}
       hostProfile={DUMMY_HOST}
-      graphic={DUMMY_LOTTIE_GRAPHIC}
+      cardStyle={DUMMY_LOTTIE_CARD_STYLE}
       isPinned
       reminderEnabled
       onPress={() => {}}>
       <VerticalAlign>
-        <Body14>Starts</Body14>
-        <Spacer4 />
         <Badge text="Mon, 7 Sep 17.30" IconAfter={<CommunityIcon />} />
       </VerticalAlign>
     </Card>
@@ -131,7 +161,7 @@ const CardsList = () => (
     <Card
       title="Pure Simple Love"
       description="Visualizing our future can guide us in the present moment by shining a light on what’s important in the long run.\n\nThis can be extra helpful when we’re under pressure, when we tend to be short-sighted and out of touch with what truly matters."
-      graphic={DUMMY_IMAGE_GRAPHIC}
+      cardStyle={DUMMY_IMAGE_CARD_STYLE}
       tags={DUMMY_TAGS}
       onPress={() => {}}
     />
@@ -139,9 +169,19 @@ const CardsList = () => (
     <Card
       title="Accepting thoughts and feeeeeeeeeeeeeelings"
       description="Visualizing our future can guide us in the present moment by shining a light on what’s important in the long run.\n\nThis can be extra helpful when we’re under pressure, when we tend to be short-sighted and out of touch with what truly matters."
-      graphic={DUMMY_IMAGE_GRAPHIC}
+      cardStyle={DUMMY_IMAGE_CARD_STYLE}
       tags={DUMMY_TAGS}
       onPress={() => {}}
+    />
+    <Spacer16 />
+    <Card
+      title="Accepting thoughts and feeeeeeeeeeeeeelings"
+      description="Visualizing our future can guide us in the present moment by shining a light on what’s important in the long run.\n\nThis can be extra helpful when we’re under pressure, when we tend to be short-sighted and out of touch with what truly matters."
+      cardStyle={DUMMY_IMAGE_CARD_STYLE}
+      tags={DUMMY_TAGS}
+      onPress={() => {}}
+      backgroundColor={COLORS.PRIMARY}
+      textColor={COLORS.PURE_WHITE}
     />
     <Spacer16 />
     <Narrow>
@@ -149,7 +189,7 @@ const CardsList = () => (
         title="Accepting thoughts and feelings"
         tags={DUMMY_TAGS}
         hostProfile={DUMMY_HOST}
-        graphic={DUMMY_IMAGE_GRAPHIC}
+        cardStyle={DUMMY_IMAGE_CARD_STYLE}
         interestedCount={3}
         onPress={() => {}}>
         <VerticalAlign>
@@ -161,7 +201,7 @@ const CardsList = () => (
       <Card
         title="Accepting thoughts and feeeeeeeeeeeeeelings"
         description="Visualizing our future can guide us in the present moment by shining a light on what’s important in the long run.\n\nThis can be extra helpful when we’re under pressure, when we tend to be short-sighted and out of touch with what truly matters."
-        graphic={DUMMY_IMAGE_GRAPHIC}
+        cardStyle={DUMMY_IMAGE_CARD_STYLE}
         tags={DUMMY_TAGS}
         onPress={() => {}}
       />
@@ -179,41 +219,41 @@ const CardSmallsList = () => (
   <>
     <CardSmall
       title="Pure Simple Love"
-      graphic={DUMMY_TRANSPARENT_IMAGE_GRAPHIC}
+      cardStyle={DUMMY_TRANSPARENT_IMAGE_CARD_STYLE}
       onPress={() => {}}
     />
     <Spacer16 />
     <CardSmall
       title="Accepting thoughts and feeeeeeeeeeeeeelings"
-      graphic={DUMMY_TRANSPARENT_LOTTIE_GRAPHIC}
+      cardStyle={DUMMY_TRANSPARENT_LOTTIE_CARD_STYLE}
       onPress={() => {}}
     />
     <Spacer16 />
     <CardSmall
       title="Pure Simple Love"
       hostProfile={DUMMY_HOST}
-      graphic={DUMMY_IMAGE_GRAPHIC}
+      cardStyle={DUMMY_IMAGE_CARD_STYLE}
       onPress={() => {}}
     />
     <Spacer16 />
     <CardSmall
       title="Accepting thoughts and feeeeeeeeeeeeeelings"
       hostProfile={DUMMY_HOST}
-      graphic={DUMMY_LOTTIE_GRAPHIC}
+      cardStyle={DUMMY_LOTTIE_CARD_STYLE}
       onPress={() => {}}
     />
     <Spacer16 />
     <CardSmall
       title="Pure Simple Love"
       tags={DUMMY_TAGS}
-      graphic={DUMMY_IMAGE_GRAPHIC}
+      cardStyle={DUMMY_IMAGE_CARD_STYLE}
       onPress={() => {}}
     />
     <Spacer16 />
     <CardSmall
       title="Accepting thoughts and feeeeeeeeeeeeeelings"
       tags={DUMMY_TAGS}
-      graphic={DUMMY_IMAGE_GRAPHIC}
+      cardStyle={DUMMY_IMAGE_CARD_STYLE}
       onPress={() => {}}
     />
     <Spacer16 />
@@ -221,25 +261,50 @@ const CardSmallsList = () => (
       title="Pure Simple Love"
       tags={DUMMY_TAGS}
       hostProfile={DUMMY_HOST}
-      graphic={DUMMY_IMAGE_GRAPHIC}
+      cardStyle={DUMMY_IMAGE_CARD_STYLE}
       onPress={() => {}}
+    />
+    <Spacer16 />
+    <CardSmall
+      title="Pure Simple Love"
+      tags={DUMMY_TAGS}
+      hostProfile={DUMMY_HOST}
+      cardStyle={DUMMY_IMAGE_CARD_STYLE}
+      onPress={() => {}}
+      backgroundColor={COLORS.PRIMARY}
+      textColor={COLORS.PURE_WHITE}
     />
     <Spacer16 />
     <CardSmall
       title="Accepting thoughts and feeeeeeeeeeeeeelings"
       tags={DUMMY_TAGS}
       hostProfile={DUMMY_HOST}
-      graphic={DUMMY_IMAGE_GRAPHIC}
+      cardStyle={DUMMY_IMAGE_CARD_STYLE}
+      onPress={() => {}}
+    />
+    <Spacer16 />
+    <CardSmall
+      title="Accepting thoughts and feeeeeeeeeeeeeelings"
+      tags={DUMMY_TAGS}
+      collection={DUMMY_COLLECTION}
+      hostProfile={DUMMY_HOST}
+      cardStyle={DUMMY_IMAGE_CARD_STYLE}
+      onPress={() => {}}
+    />
+    <Spacer16 />
+    <CardSmall
+      title="Accepting thoughts and feeeeeeeeeeeeeelings"
+      collection={DUMMY_COLLECTION}
+      hostProfile={DUMMY_HOST}
+      cardStyle={DUMMY_IMAGE_CARD_STYLE}
       onPress={() => {}}
     />
     <Spacer16 />
     <CardSmall
       title="Pure Simple Love"
       hostProfile={DUMMY_HOST}
-      graphic={DUMMY_IMAGE_GRAPHIC}
+      cardStyle={DUMMY_IMAGE_CARD_STYLE}
       onPress={() => {}}>
-      <Body14>Starts</Body14>
-      <Spacer4 />
       <Badge text="Mon, 7 Sep 17.30" IconAfter={<CommunityIcon />} />
       <Spacer4 />
       <Interested compact reminder count={2} />
@@ -248,10 +313,8 @@ const CardSmallsList = () => (
     <CardSmall
       title="Accepting thoughts and feeeeeeeeeeeeeelings"
       hostProfile={DUMMY_HOST}
-      graphic={DUMMY_IMAGE_GRAPHIC}
+      cardStyle={DUMMY_IMAGE_CARD_STYLE}
       onPress={() => {}}>
-      <Body14>Starts</Body14>
-      <Spacer4 />
       <Badge text="Mon, 7 Sep 17.30" IconAfter={<CommunityIcon />} />
       <Spacer4 />
       <Interested compact reminder count={2} />
@@ -259,7 +322,7 @@ const CardSmallsList = () => (
     <Spacer16 />
     <CardSmall
       title="Pure Simple Love"
-      graphic={DUMMY_IMAGE_GRAPHIC}
+      cardStyle={DUMMY_IMAGE_CARD_STYLE}
       completed
       onPress={() => {}}>
       <Node size={16} />
@@ -272,7 +335,7 @@ const CardSmallsList = () => (
     <CardSmall
       title="Accepting thoughts and feeeeeeeeeeeeeelings"
       hostProfile={DUMMY_HOST}
-      graphic={DUMMY_IMAGE_GRAPHIC}
+      cardStyle={DUMMY_IMAGE_CARD_STYLE}
       completed
       onPress={() => {}}>
       <Node size={16} />
@@ -285,7 +348,7 @@ const CardSmallsList = () => (
     <CardSmall
       title="Accepting thoughts and feeeeeeeeeeeeeelings"
       hostProfile={DUMMY_HOST}
-      graphic={DUMMY_IMAGE_GRAPHIC}
+      cardStyle={DUMMY_IMAGE_CARD_STYLE}
       completed
       onPress={() => {}}>
       <Node size={16} />
@@ -300,7 +363,7 @@ const CardSmallsList = () => (
       <CardSmall
         title="Accepting thoughts and feeeeeeeeeeeeeelings"
         hostProfile={DUMMY_HOST}
-        graphic={DUMMY_IMAGE_GRAPHIC}
+        cardStyle={DUMMY_IMAGE_CARD_STYLE}
         onPress={() => {}}>
         <Badge text="Mon, 7 Sep 17.30" IconAfter={<CommunityIcon />} />
         <Spacer4 />

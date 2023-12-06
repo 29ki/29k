@@ -10,17 +10,14 @@ import usePinnedSessions from './usePinnedSessions';
 import useUser from '../../user/hooks/useUser';
 
 const useSessions = () => {
-  const setIsLoading = useSessionsState(state => state.setIsLoading);
   const setSessions = useSessionsState(state => state.setSessions);
   const sessions = useSessionsState(state => state.sessions);
   const pinnedSessions = usePinnedSessions();
   const user = useUser();
 
   const fetchSessions = useCallback(async () => {
-    setIsLoading(true);
     setSessions(await sessionsApi.fetchSessions());
-    setIsLoading(false);
-  }, [setIsLoading, setSessions]);
+  }, [setSessions]);
 
   const addSession = useCallback(
     async ({

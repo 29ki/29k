@@ -7,6 +7,8 @@ import useGetExercisesByCollectionId from '../../content/hooks/useGetExercisesBy
 import {Exercise} from '../../../../../shared/src/types/generated/Exercise';
 import useExercises from '../../content/hooks/useExercises';
 import useCompletedSessionByTime from '../../user/hooks/useCompletedSessionByTime';
+import useGetStartedExercise from '../../content/hooks/useGetStartedExercise';
+import useCompletedSessions from '../../user/hooks/useCompletedSessions';
 
 const useRecommendedSessions = () => {
   const {pinnedSessions, hostedSessions} = useSessions();
@@ -14,6 +16,17 @@ const useRecommendedSessions = () => {
   const getExercisesByCollectionId = useGetExercisesByCollectionId();
   const {getCompletedSessionByExerciseId} = useCompletedSessionByTime();
   const allExercises = useExercises();
+  const getStartedExercise = useGetStartedExercise();
+  const {completedSessions} = useCompletedSessions();
+
+  // Get started exercise if it hasn't been completed
+  const recommendedExercises = useMemo(
+    () =>
+      getStartedExercise && !completedSessions.length
+        ? [getStartedExercise]
+        : [],
+    [getStartedExercise, completedSessions.length],
+  );
 
   // All pinned and hosted sessions
   const committedSessions = useMemo(
@@ -34,14 +47,16 @@ const useRecommendedSessions = () => {
       pinnedCollections.reduce<Exercise[]>(
         (exercises, collection) => [
           ...exercises,
-          ...getExercisesByCollectionId(collection.id).filter(
-            exercise =>
-              // Filter out exercises that have been completed
-              !getCompletedSessionByExerciseId(
-                exercise.id,
-                collection.startedAt,
-              ),
-          ),
+          ...getExercisesByCollectionId(collection.id)
+            .filter(
+              exercise =>
+                // Filter out exercises that have been completed
+                !getCompletedSessionByExerciseId(
+                  exercise.id,
+                  collection.startedAt,
+                ),
+            )
+            .slice(0, 1), // Only return one exercise per collection
         ],
         [],
       ),
@@ -54,15 +69,22 @@ const useRecommendedSessions = () => {
 
   const randomExercises = useMemo(
     () =>
-      !collectionExercises.length
-        ? allExercises.sort(() => Math.random() - 0.5).slice(0, 5)
-        : [],
-    [collectionExercises.length, allExercises],
+      allExercises
+        .filter(exercise => exercise.id !== getStartedExercise?.id)
+        .sort(() => Math.random() - 0.5)
+        .slice(0, 5),
+    [allExercises, getStartedExercise],
   );
 
   return useMemo(
-    () => uniq([...sessionsToday, ...collectionExercises, ...randomExercises]),
-    [sessionsToday, collectionExercises, randomExercises],
+    () =>
+      uniq([
+        ...sessionsToday,
+        ...recommendedExercises,
+        ...collectionExercises,
+        ...randomExercises,
+      ]).slice(0, 5), // Only five recommended sessions
+    [sessionsToday, recommendedExercises, collectionExercises, randomExercises],
   );
 };
 

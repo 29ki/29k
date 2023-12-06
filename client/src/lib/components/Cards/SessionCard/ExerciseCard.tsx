@@ -8,23 +8,31 @@ import CardSmall from '../CardSmall';
 import {ViewStyle} from 'react-native';
 import Card from '../Card';
 import useGetSessionCardTags from './hooks/useGetSessionCardTags';
+import useGetActiveCollectionByExerciseId from '../../../content/hooks/useGetActiveCollectionByExerciseId';
 
 type ExerciseCardContainerProps = {
   exercise: Exercise;
   small?: boolean;
+  resolvePinnedCollection?: boolean;
   onPress?: () => void;
   style?: ViewStyle;
+  backgroundColor?: string;
+  textColor?: string;
 };
 
 const ExerciseCard: React.FC<ExerciseCardContainerProps> = ({
   exercise,
   small,
+  resolvePinnedCollection,
   onPress = () => {},
   style,
+  backgroundColor,
+  textColor,
 }) => {
   const {navigate} =
     useNavigation<NativeStackNavigationProp<ModalStackProps>>();
   const tags = useGetSessionCardTags(exercise);
+  const getActiveCollectionByExerciseId = useGetActiveCollectionByExerciseId();
 
   const onPressHandle = useCallback(() => {
     onPress();
@@ -35,13 +43,20 @@ const ExerciseCard: React.FC<ExerciseCardContainerProps> = ({
     return null;
   }
 
+  const collection = resolvePinnedCollection
+    ? getActiveCollectionByExerciseId(exercise.id)
+    : undefined;
+
   if (small) {
     return (
       <CardSmall
         title={formatContentName(exercise)}
-        graphic={exercise?.card}
+        cardStyle={exercise?.card}
+        collection={collection}
         onPress={onPressHandle}
         style={style}
+        backgroundColor={backgroundColor}
+        textColor={textColor}
       />
     );
   }
@@ -51,9 +66,12 @@ const ExerciseCard: React.FC<ExerciseCardContainerProps> = ({
       title={formatContentName(exercise)}
       description={exercise.description}
       tags={tags}
-      graphic={exercise.card}
+      cardStyle={exercise.card}
+      collection={collection}
       onPress={onPressHandle}
       style={style}
+      backgroundColor={backgroundColor}
+      textColor={textColor}
     />
   );
 };

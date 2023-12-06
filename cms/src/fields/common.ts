@@ -1,9 +1,4 @@
-import {
-  CmsField,
-  CmsFieldBase,
-  CmsFieldObject,
-  CmsFieldRelation,
-} from 'netlify-cms-core';
+import {CmsField, CmsFieldBase, CmsFieldObject} from 'netlify-cms-core';
 import {
   CLOUDINARY_AUDIO_CONFIG,
   CLOUDINARY_CARD_IMAGE_CONFIG,
@@ -105,6 +100,15 @@ export const DURATION_FIELD: CmsField = {
   required: true,
   widget: 'number',
   value_type: 'int',
+};
+
+export const TEXT_COLOR_FIELD: CmsField = {
+  label: '🎨 Text color',
+  name: 'textColor',
+  widget: 'color',
+  i18n: true,
+  allowInput: true,
+  required: false,
 };
 
 export const BACKGROUND_COLOR_FIELD: CmsField = {
@@ -287,7 +291,7 @@ export const VIDEO_FIELD_WITH_AUDIO: CmsFieldBase & CmsFieldObject = {
     ...VIDEO_FIELD.fields,
     {
       ...AUDIO_FIELD,
-      hint: 'This will override the audio of the video. Video will automatically loop while playing.',
+      hint: '❗️ This will override the audio of the video. Video will automatically loop to the length of the audio.',
     },
   ],
 };
@@ -298,36 +302,9 @@ export const LOTTIE_FIELD_WITH_AUDIO: CmsFieldBase & CmsFieldObject = {
     ...LOTTE_FIELD.fields,
     {
       ...AUDIO_FIELD,
-      hint: 'Animation will automatically loop while playing.',
+      hint: '❗️ Lottie will automatically loop to the length of the audio.',
     },
   ],
-};
-
-export const CARD_FIELD: CmsFieldBase & CmsFieldObject = {
-  label: '🪪 Card',
-  name: 'card',
-  i18n: true,
-  widget: 'object',
-  collapsed: true,
-  fields: [
-    BACKGROUND_COLOR_FIELD,
-    CARD_IMAGE_FIELD,
-    {...LOTTE_FIELD, hint: 'Overrides image'},
-  ],
-};
-
-export const TAGS_FIELD: CmsFieldBase & CmsFieldRelation = {
-  label: '🏷 Tags',
-  name: 'tags',
-  widget: 'relation',
-  collection: 'tags',
-  search_fields: ['tag'],
-  value_field: 'id',
-  display_fields: ['tag'],
-  multiple: true,
-  options_length: Infinity,
-  i18n: 'duplicate',
-  required: false,
 };
 
 export const SORT_ORDER_FIELD: CmsField = {

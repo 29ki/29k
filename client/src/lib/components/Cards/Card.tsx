@@ -1,7 +1,9 @@
 import React, {Fragment} from 'react';
 import {ViewStyle} from 'react-native';
 import styled from 'styled-components/native';
-import LinearGradient from 'react-native-linear-gradient';
+import LinearGradient, {
+  LinearGradientProps,
+} from 'react-native-linear-gradient';
 import hexToRgba from 'hex-to-rgba';
 
 import {COLORS} from '../../../../../shared/src/constants/colors';
@@ -18,21 +20,35 @@ import {ExerciseCard} from '../../../../../shared/src/types/generated/Exercise';
 import ExerciseGraphic from '../ExerciseGraphic/ExerciseGraphic';
 import Markdown from '../Typography/Markdown/Markdown';
 import textStyles from '../Typography/styles';
+import {Collection} from '../../../../../shared/src/types/generated/Collection';
+import CollectionTag from '../Tag/CollectionTag';
 
 export const HEIGHT = 175;
 
-const markdownStyles = {
-  body: {minHeight: '100%'},
-  paragraph: {...textStyles.Body14},
+type DescriptionTextProps = {
+  textColor?: string;
 };
+const DescriptionText = styled(Markdown).attrs<DescriptionTextProps>(
+  ({textColor}) => ({
+    styles: {
+      body: {minHeight: '100%'},
+      paragraph: {
+        ...textStyles.Body14,
+        color: textColor,
+      },
+    },
+  }),
+)<DescriptionTextProps>({});
 
-const Wrapper = styled(TouchableOpacity)({
-  borderRadius: 16,
-  backgroundColor: COLORS.CREAM,
-  height: HEIGHT,
-  padding: 16,
-  overflow: 'hidden',
-});
+const Wrapper = styled(TouchableOpacity)<{backgroundColor?: string}>(
+  ({backgroundColor = COLORS.CREAM}) => ({
+    backgroundColor,
+    borderRadius: 16,
+    height: HEIGHT,
+    padding: 16,
+    overflow: 'hidden',
+  }),
+);
 
 const Graphic = styled(ExerciseGraphic)({
   width: 112,
@@ -66,15 +82,17 @@ const InterestedTag = styled(Tag)({
   color: COLORS.WHITE,
 });
 
-const TagsGradient = styled(LinearGradient).attrs({
+type TagsGradientProps = {
+  color?: string;
+};
+const TagsGradient = styled(LinearGradient).attrs<
+  TagsGradientProps,
+  LinearGradientProps
+>(({color = COLORS.CREAM}) => ({
   start: {x: 0, y: 0},
   end: {x: 1, y: 0},
-  colors: [
-    hexToRgba(COLORS.CREAM, 0),
-    hexToRgba(COLORS.CREAM, 1),
-    hexToRgba(COLORS.CREAM, 1),
-  ],
-})({
+  colors: [hexToRgba(color, 0), hexToRgba(color, 1), hexToRgba(color, 1)],
+}))<TagsGradientProps>({
   position: 'absolute',
   right: -SPACINGS.SIXTEEN,
   bottom: 0,
@@ -87,18 +105,25 @@ const TitleContainer = styled.View<{minHeight: boolean}>(({minHeight}) => ({
   justifyContent: 'center',
 }));
 
-const Title = styled(Display20)({
+const Title = styled(Display20)<{color?: string}>(({color}) => ({
   textOverflow: 'ellipsis',
-});
+  color,
+}));
 
 const Description = styled.View({
   flex: 1,
   overflow: 'hidden',
 });
 
-const DescriptionGradient = styled(LinearGradient).attrs({
-  colors: [hexToRgba(COLORS.CREAM, 0), hexToRgba(COLORS.CREAM, 1)],
-})({
+type DescriptionGradientProps = {
+  color?: string;
+};
+const DescriptionGradient = styled(LinearGradient).attrs<
+  DescriptionGradientProps,
+  LinearGradientProps
+>(({color = COLORS.CREAM}) => ({
+  colors: [hexToRgba(color, 0), hexToRgba(color, 1)],
+}))<DescriptionGradientProps>({
   position: 'absolute',
   left: 0,
   right: 0,
@@ -117,33 +142,43 @@ type CardProps = {
   title?: string;
   description?: string;
   tags?: Array<string>;
-  graphic?: ExerciseCard;
+  cardStyle?: ExerciseCard;
   onPress: () => void;
   children?: React.ReactNode;
   hostProfile?: UserType | null;
   isPinned?: boolean;
   reminderEnabled?: boolean;
   interestedCount?: number;
+  collection?: Collection | null;
   style?: ViewStyle;
+  backgroundColor?: string;
+  textColor?: string;
 };
 
 export const Card: React.FC<CardProps> = ({
   title,
   description,
   tags,
-  graphic,
+  cardStyle,
   onPress,
   hostProfile,
   children,
   isPinned,
   reminderEnabled,
   interestedCount,
+  collection,
   style,
+  backgroundColor,
+  textColor,
 }) => {
   const {t} = useTranslation('Component.Card');
 
   return (
-    <Wrapper onPress={onPress} disabled={!onPress} style={style}>
+    <Wrapper
+      onPress={onPress}
+      disabled={!onPress}
+      style={style}
+      backgroundColor={backgroundColor}>
       <Tags>
         {interestedCount ? (
           <>
@@ -164,6 +199,12 @@ export const Card: React.FC<CardProps> = ({
             </>
           )
         )}
+        {collection && (
+          <>
+            <CollectionTag>{collection.name}</CollectionTag>
+            <Spacer4 />
+          </>
+        )}
         {tags &&
           tags.map(tag => (
             <Fragment key={tag}>
@@ -171,32 +212,37 @@ export const Card: React.FC<CardProps> = ({
               <Spacer4 />
             </Fragment>
           ))}
-        <TagsGradient />
+        <TagsGradient color={backgroundColor} />
       </Tags>
       <Spacer4 />
       <Row>
         <Main>
           <TitleContainer minHeight={Boolean(description)}>
-            <Title numberOfLines={2}>{title}</Title>
+            <Title numberOfLines={2} color={textColor}>
+              {title}
+            </Title>
           </TitleContainer>
           <Spacer4 />
           {hostProfile && (
             <Byline
               pictureURL={hostProfile.photoURL}
               name={hostProfile.displayName}
+              textColor={textColor}
             />
           )}
           {description ? (
             <Description>
-              <Markdown styles={markdownStyles}>{description}</Markdown>
-              <DescriptionGradient />
+              <DescriptionText textColor={textColor}>
+                {description}
+              </DescriptionText>
+              <DescriptionGradient color={backgroundColor} />
             </Description>
           ) : (
             <Content>{children}</Content>
           )}
         </Main>
         <Spacer8 />
-        <Graphic graphic={graphic} />
+        <Graphic graphic={cardStyle} />
       </Row>
     </Wrapper>
   );

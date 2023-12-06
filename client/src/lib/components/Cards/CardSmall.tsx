@@ -1,7 +1,9 @@
-import React, {Fragment, useMemo} from 'react';
+import React, {Fragment} from 'react';
 import {ViewStyle} from 'react-native';
 import styled from 'styled-components/native';
-import LinearGradient from 'react-native-linear-gradient';
+import LinearGradient, {
+  LinearGradientProps,
+} from 'react-native-linear-gradient';
 import hexToRgba from 'hex-to-rgba';
 
 import {COLORS} from '../../../../../shared/src/constants/colors';
@@ -14,6 +16,8 @@ import Tag from '../Tag/Tag';
 import {UserType} from '../../../../../shared/src/schemas/User';
 import {ExerciseCard} from '../../../../../shared/src/types/generated/Exercise';
 import ExerciseGraphic from '../ExerciseGraphic/ExerciseGraphic';
+import {Collection} from '../../../../../shared/src/types/generated/Collection';
+import CollectionTag from '../Tag/CollectionTag';
 
 export const HEIGHT = 80;
 
@@ -45,7 +49,17 @@ const Tags = styled.View({
   overflow: 'hidden',
 });
 
-const TagsGradient = styled(LinearGradient)({
+type TagsGradientProps = {
+  color?: string;
+};
+const TagsGradient = styled(LinearGradient).attrs<
+  TagsGradientProps,
+  LinearGradientProps
+>(({color = COLORS.CREAM}) => ({
+  start: {x: 0, y: 0},
+  end: {x: 1, y: 0},
+  colors: [hexToRgba(color, 0), hexToRgba(color, 1), hexToRgba(color, 1)],
+}))<TagsGradientProps>({
   position: 'absolute',
   right: -SPACINGS.SIXTEEN,
   bottom: 0,
@@ -53,9 +67,10 @@ const TagsGradient = styled(LinearGradient)({
   height: 20,
 });
 
-const Title = styled(Display16)({
+const Title = styled(Display16)<{color?: string}>(({color}) => ({
   textOverflow: 'ellipsis',
-});
+  color,
+}));
 
 const Content = styled.View({
   flexDirection: 'row',
@@ -65,43 +80,48 @@ const Content = styled.View({
 type CardProps = {
   title?: string;
   tags?: Array<string>;
-  graphic?: ExerciseCard;
+  cardStyle?: ExerciseCard;
   onPress?: () => void;
   hostProfile?: UserType | null;
   completed?: boolean;
+  collection?: Collection | null;
   style?: ViewStyle;
   children?: React.ReactNode;
+  backgroundColor?: string;
+  textColor?: string;
 };
 
 export const CardSmall: React.FC<CardProps> = ({
   title,
   tags,
-  graphic,
+  cardStyle,
   onPress,
   hostProfile,
   completed,
+  collection,
   style,
   children,
+  backgroundColor,
+  textColor,
 }) => {
-  const colors = useMemo(
-    () => [
-      hexToRgba(COLORS.CREAM, 0),
-      hexToRgba(COLORS.CREAM, 1),
-      hexToRgba(COLORS.CREAM, 1),
-    ],
-    [],
-  );
-
   return (
     <Wrapper
       onPress={onPress}
       disabled={!onPress}
       style={style}
-      backgroundColor={completed ? COLORS.LIGHT_GREEN : COLORS.CREAM}>
+      backgroundColor={
+        completed ? COLORS.LIGHT_GREEN : backgroundColor || COLORS.CREAM
+      }>
       <Main>
-        {tags && (
+        {(tags || collection) && (
           <>
             <Tags>
+              {collection && (
+                <>
+                  <CollectionTag>{collection.name}</CollectionTag>
+                  <Spacer4 />
+                </>
+              )}
               {tags &&
                 tags.map(tag => (
                   <Fragment key={tag}>
@@ -109,16 +129,16 @@ export const CardSmall: React.FC<CardProps> = ({
                     <Spacer4 />
                   </Fragment>
                 ))}
-              <TagsGradient
-                start={{x: 0, y: 0}}
-                end={{x: 1, y: 0}}
-                colors={colors}
-              />
+              <TagsGradient color={backgroundColor} />
             </Tags>
             <Spacer4 />
           </>
         )}
-        <Title numberOfLines={children || tags ? 1 : 3}>{title}</Title>
+        <Title
+          numberOfLines={children || tags || collection ? 1 : 3}
+          color={textColor}>
+          {title}
+        </Title>
         {hostProfile && (
           <>
             <Spacer4 />
@@ -126,6 +146,7 @@ export const CardSmall: React.FC<CardProps> = ({
               small
               pictureURL={hostProfile.photoURL}
               name={hostProfile.displayName}
+              textColor={textColor}
             />
           </>
         )}
@@ -137,7 +158,7 @@ export const CardSmall: React.FC<CardProps> = ({
         )}
       </Main>
       <Spacer8 />
-      <Graphic graphic={graphic} />
+      <Graphic graphic={cardStyle} />
     </Wrapper>
   );
 };

@@ -8,6 +8,8 @@ import {LiveSessionType} from '../../../../../../shared/src/schemas/Session';
 import {Exercise} from '../../../../../../shared/src/types/generated/Exercise';
 import Gutters from '../../../../lib/components/Gutters/Gutters';
 import ExerciseCard from '../../../../lib/components/Cards/SessionCard/ExerciseCard';
+import useGetStartedExercise from '../../../../lib/content/hooks/useGetStartedExercise';
+import GetStartedExericeCard from './GetStartedExerciseCard';
 
 const SCREEN_DIMENSIONS = Dimensions.get('screen');
 const CARD_WIDTH = SCREEN_DIMENSIONS.width - SPACINGS.SIXTEEN * 4;
@@ -20,18 +22,22 @@ const renderSharingPost: ListRenderItem<LiveSessionType | Exercise> = ({
   item,
 }) => (
   <RecommendationWrapper>
-    <Recommentation item={item} />
+    <Recommendation item={item} />
   </RecommendationWrapper>
 );
 
-const Recommentation: React.FC<{item: LiveSessionType | Exercise}> = ({
+const Recommendation: React.FC<{item: LiveSessionType | Exercise}> = ({
   item,
-}) =>
-  'mode' in item ? (
+}) => {
+  const getStartedExercise = useGetStartedExercise();
+  return item.id === getStartedExercise?.id ? (
+    <GetStartedExericeCard />
+  ) : 'mode' in item ? (
     <SessionCard session={item} />
   ) : (
-    <ExerciseCard exercise={item} />
+    <ExerciseCard exercise={item} resolvePinnedCollection />
   );
+};
 
 type Props = {
   sessions: (LiveSessionType | Exercise)[];
@@ -39,7 +45,7 @@ type Props = {
 const RecommendedSessions: React.FC<Props> = ({sessions}) =>
   sessions.length === 1 ? (
     <Gutters>
-      <Recommentation item={sessions[0]} />
+      <Recommendation item={sessions[0]} />
     </Gutters>
   ) : (
     <FlatList

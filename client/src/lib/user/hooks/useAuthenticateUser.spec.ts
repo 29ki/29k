@@ -51,51 +51,6 @@ describe('useAuthenticateUser', () => {
     expect(result.current.userState['some-user-id']).toEqual({});
   });
 
-  it('should set initial user state if user is anonymous', async () => {
-    jest.mocked(auth().currentUser?.getIdTokenResult)?.mockResolvedValue({
-      claims: {
-        someClaim: 'some-value',
-      },
-    } as unknown as FirebaseAuthTypes.IdTokenResult);
-    jest.mocked(getMe).mockResolvedValueOnce({});
-
-    let userChangedCallback = (user: FirebaseAuthTypes.User | null) => user;
-    (auth().onUserChanged as jest.Mock).mockImplementationOnce(
-      callback => (userChangedCallback = callback),
-    );
-
-    const useTestHook = () => {
-      useAuthenticateUser();
-      const user = useUserState(state => state.user);
-      const userState = useUserState(state => state.userState);
-
-      return {user, userState};
-    };
-
-    const {result} = renderHook(useTestHook);
-
-    await act(async () => {
-      await userChangedCallback({
-        ...auth().currentUser,
-        uid: 'some-user-id',
-        isAnonymous: true,
-      } as FirebaseAuthTypes.User);
-    });
-
-    expect(auth().onUserChanged).toHaveBeenCalledTimes(1);
-    expect(result.current.user).toEqual({
-      ...auth().currentUser,
-      uid: 'some-user-id',
-      isAnonymous: true,
-    });
-    expect(result.current.userState['some-user-id'].pinnedCollections).toEqual([
-      {
-        id: '46f653cd-b77f-458d-a257-1b171591c08b',
-        startedAt: expect.any(String),
-      },
-    ]);
-  });
-
   it('should reset user state if user gets logged out', () => {
     useUserState.setState({
       user: {

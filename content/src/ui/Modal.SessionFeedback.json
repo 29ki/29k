@@ -18,9 +18,9 @@
   },
   "sv": {
     "title": "En sak till...",
-    "question": "Var den här sessionen meningsfull?",
-    "comments": "Skriv en kommentar:",
-    "commentsPlaceholder": "",
+    "question": "Var det här meningsfullt för dig?",
+    "comments": "Har du någon kommentar?",
+    "commentsPlaceholder": "Frivilligt...",
     "note": "Din kommentar visas anonymt. ",
     "submit": "Skicka",
     "thankYou__text": "Tack så\nmycket\nför din \nfeedback!"
