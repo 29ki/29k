@@ -86,18 +86,18 @@
   },
   "devDependencies": {
     "@babel/core": "^7.23.3",
-    "@babel/runtime": "^7.23.2",
+    "@babel/runtime": "^7.23.4",
     "@react-native-community/eslint-config": "^3.2.0",
-    "@sentry/cli": "^2.21.5",
+    "@sentry/cli": "^2.22.3",
     "@testing-library/react-hooks": "^8.0.1",
     "@types/debug": "^4.1.12",
     "@types/i18next": "^13.0.0",
-    "@types/jest": "^29.5.8",
+    "@types/jest": "^29.5.10",
     "@types/ramda": "^0.29.3",
     "@types/react-native": "^0.67.3",
-    "@types/react-test-renderer": "^18.0.3",
+    "@types/react-test-renderer": "^18.0.7",
     "@types/styled-components-react-native": "^5.2.5",
-    "@types/uuid": "^9.0.6",
+    "@types/uuid": "^9.0.7",
     "@typescript-eslint/eslint-plugin": "^5.62.0",
     "@typescript-eslint/parser": "^5.62.0",
     "appcenter-cli": "^2.14.0",
@@ -116,7 +116,7 @@
     "react-native-clean-project": "^4.0.1",
     "react-native-dotenv": "^3.4.9",
     "react-test-renderer": "18.2.0",
-    "typescript": "^5.2.2"
+    "typescript": "^5.3.2"
   },
   "resolutions": {
     "@types/react": "^18",

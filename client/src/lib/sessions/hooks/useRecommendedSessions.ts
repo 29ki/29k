@@ -68,8 +68,12 @@ const useRecommendedSessions = () => {
   );
 
   const randomExercises = useMemo(
-    () => allExercises.sort(() => Math.random() - 0.5).slice(0, 5),
-    [allExercises],
+    () =>
+      allExercises
+        .filter(exercise => exercise.id !== getStartedExercise?.id)
+        .sort(() => Math.random() - 0.5)
+        .slice(0, 5),
+    [allExercises, getStartedExercise],
   );
 
   return useMemo(
