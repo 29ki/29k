@@ -6,14 +6,15 @@
     "card": {
       "backgroundColorGradient": [
         {
-          "color": "#ebf4f3"
+          "color": "#273c4e"
         }
-      ]
+      ],
+      "textColor": "#ffffff"
     },
     "link": "",
     "id": "be8d8f71-1b30-4f9a-80cb-616ff24e8db9",
     "image": {
-      "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1701788567/Images/collection_card_climatP_snywp7.png"
+      "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1701868914/Images/collection_card_climatP_2_je7nir.png"
     },
     "exercises": [
       "db239a42-135a-4941-bdf2-92d58107094a",
