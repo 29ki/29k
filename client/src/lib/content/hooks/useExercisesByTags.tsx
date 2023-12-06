@@ -9,7 +9,7 @@ const useExercisesByTags = (
   limit?: number,
 ) => {
   const exercises = useExercises();
-  const tagNames = useMemo(() => tags?.map(t => t.tag), [tags]);
+  const tagNames = useMemo(() => tags?.map(t => t.name), [tags]);
 
   return useMemo(() => {
     const filteredExercises = tagNames

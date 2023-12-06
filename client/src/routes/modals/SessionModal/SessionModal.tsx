@@ -297,7 +297,6 @@ const SessionModal = () => {
           </Row>
           <Spacer8 />
         </Gutters>
-
         {exercise?.description && (
           <>
             <Spacer16 />
@@ -318,7 +317,6 @@ const SessionModal = () => {
           </Tags>
         )}
         <Spacer24 />
-
         <Gutters>
           <Row>
             {!isHost && !startingNow && (

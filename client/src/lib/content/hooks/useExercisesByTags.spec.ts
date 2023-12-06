@@ -19,8 +19,8 @@ describe('useExercisesByTags', () => {
   it('return exercises containing tags', () => {
     const {result} = renderHook(() =>
       useExercisesByTags([
-        {id: 'tag-1', tag: 'tag-1'},
-        {id: 'tag-2', tag: 'tag-2'},
+        {id: 'tag-1', name: 'tag-1'},
+        {id: 'tag-2', name: 'tag-2'},
       ]),
     );
 
@@ -38,9 +38,9 @@ describe('useExercisesByTags', () => {
     const {result} = renderHook(() =>
       useExercisesByTags(
         [
-          {id: 'tag-1', tag: 'tag-1'},
-          {id: 'tag-2', tag: 'tag-2'},
-          {id: 'tag-3', tag: 'tag-3'},
+          {id: 'tag-1', name: 'tag-1'},
+          {id: 'tag-2', name: 'tag-2'},
+          {id: 'tag-3', name: 'tag-3'},
         ],
         'exercise-id-2',
       ),
@@ -60,9 +60,9 @@ describe('useExercisesByTags', () => {
     const {result} = renderHook(() =>
       useExercisesByTags(
         [
-          {id: 'tag-1', tag: 'tag-1'},
-          {id: 'tag-2', tag: 'tag-2'},
-          {id: 'tag-3', tag: 'tag-3'},
+          {id: 'tag-1', name: 'tag-1'},
+          {id: 'tag-2', name: 'tag-2'},
+          {id: 'tag-3', name: 'tag-3'},
         ],
         undefined,
         2,

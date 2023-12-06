@@ -46,7 +46,7 @@ import useGetFeedbackBySessionId from '../../../lib/user/hooks/useGetFeedbackByS
 import Node from '../../../lib/components/Node/Node';
 import {SPACINGS} from '../../../lib/constants/spacings';
 import Tag from '../../../lib/components/Tag/Tag';
-import useGetTagsById from '../../../lib/content/hooks/useGetTagsById';
+import useTags from '../../../lib/content/hooks/useTags';
 import {Heading16} from '../../../lib/components/Typography/Heading/Heading';
 import SessionCard from '../../../lib/components/Cards/SessionCard/SessionCard';
 import useLiveSessionsByExercise from '../../../lib/session/hooks/useLiveSessionsByExercise';
@@ -106,7 +106,7 @@ const CompletedSessionModal = () => {
   const {t} = useTranslation('Modal.CompletedSession');
   const {payload, timestamp} = completedSessionEvent;
   const exercise = useExerciseById(payload.exerciseId, payload.language);
-  const tags = useGetTagsById(exercise?.tags);
+  const tags = useTags(exercise?.tags);
   const {getSharingPostForSession} = useSessionSharingPosts(exercise?.id);
   const getFeedbackBySessionId = useGetFeedbackBySessionId();
   const relatedExercises = useExercisesByTags(
