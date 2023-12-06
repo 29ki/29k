@@ -16,18 +16,20 @@ const sortByOrder = (a: Collection, b: Collection) =>
 const sortByName = (a: Collection, b: Collection) =>
   a.name < b.name ? -1 : a.name > b.name ? 1 : 0;
 
-const useCollections = () => {
-  const collectionIds = useCollectionIds();
+const useCollections = (collectionsIds?: string[]) => {
+  const allIds = useCollectionIds();
   const getCollectionById = useGetCollectionById();
+
+  const ids = collectionsIds ?? allIds;
 
   return useMemo(
     () =>
-      collectionIds
+      ids
         .map(id => getCollectionById(id))
         .filter(isNotNil)
         .sort(sortByName)
         .sort(sortByOrder),
-    [collectionIds, getCollectionById],
+    [ids, getCollectionById],
   );
 };
 

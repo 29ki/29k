@@ -59,4 +59,20 @@ describe('useExercises', () => {
 
     expect(result.current).toEqual([]);
   });
+
+  it('allows for specififying specific exercise ids', () => {
+    mockUseExerciseIds.mockReturnValueOnce([
+      'some-exercise-id',
+      'some-other-exercise-id',
+      'some-third-exercise-id',
+    ]);
+    renderHook(() =>
+      useExercises(['some-other-exercise-id', 'some-third-exercise-id']),
+    );
+
+    expect(mockGetExerciseById).toHaveBeenCalledTimes(2);
+    expect(mockGetExerciseById).not.toHaveBeenCalledWith('some-exercise-id');
+    expect(mockGetExerciseById).toHaveBeenCalledWith('some-other-exercise-id');
+    expect(mockGetExerciseById).toHaveBeenCalledWith('some-third-exercise-id');
+  });
 });
