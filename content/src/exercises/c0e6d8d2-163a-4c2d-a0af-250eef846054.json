@@ -127,9 +127,13 @@
         "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1701788649/Video/portal2_climateP_u8wilo.mp4"
       }
     },
+    "tags": [
+      "566aeb1b-1649-4f5a-96a2-0c80be27efc0",
+      "9c2c08a9-7dc6-4058-bc78-016d0eb00614"
+    ],
     "id": "c0e6d8d2-163a-4c2d-a0af-250eef846054",
     "async": true,
-    "description": "If we can understand and talk about our different emotions, it becomes much easier to deal with them. This exercise gives you the chance to get to know different eco emotions, and what effect they have on your motivation."
+    "description": "Allowing and labelling emotions is important for our general wellbeing. In this exercise we'll put words on and make room for all kinds of eco emotions to see how they motivate us."
   },
   "pt": {
     "slides": [
@@ -207,6 +211,10 @@
         }
       ]
     },
+    "tags": [
+      "566aeb1b-1649-4f5a-96a2-0c80be27efc0",
+      "9c2c08a9-7dc6-4058-bc78-016d0eb00614"
+    ],
     "id": "c0e6d8d2-163a-4c2d-a0af-250eef846054",
     "async": false
   },
@@ -286,6 +294,10 @@
         }
       ]
     },
+    "tags": [
+      "566aeb1b-1649-4f5a-96a2-0c80be27efc0",
+      "9c2c08a9-7dc6-4058-bc78-016d0eb00614"
+    ],
     "id": "c0e6d8d2-163a-4c2d-a0af-250eef846054",
     "async": false
   },
@@ -365,6 +377,10 @@
         }
       ]
     },
+    "tags": [
+      "566aeb1b-1649-4f5a-96a2-0c80be27efc0",
+      "9c2c08a9-7dc6-4058-bc78-016d0eb00614"
+    ],
     "id": "c0e6d8d2-163a-4c2d-a0af-250eef846054",
     "async": false
   }
