@@ -291,7 +291,7 @@ export const VIDEO_FIELD_WITH_AUDIO: CmsFieldBase & CmsFieldObject = {
     ...VIDEO_FIELD.fields,
     {
       ...AUDIO_FIELD,
-      hint: 'This will override the audio of the video. Video will automatically loop while playing.',
+      hint: '❗️ This will override the audio of the video. Video will automatically loop to the length of the audio.',
     },
   ],
 };
@@ -302,7 +302,7 @@ export const LOTTIE_FIELD_WITH_AUDIO: CmsFieldBase & CmsFieldObject = {
     ...LOTTE_FIELD.fields,
     {
       ...AUDIO_FIELD,
-      hint: 'Animation will automatically loop while playing.',
+      hint: '❗️ Lottie will automatically loop to the length of the audio.',
     },
   ],
 };
