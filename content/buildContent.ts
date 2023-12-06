@@ -1,7 +1,18 @@
 import {readFileSync, writeFileSync} from 'fs';
-import {mergeDeepRight} from 'ramda';
-import {generateI18NResources, getContentByType} from './src/utils/utils';
+import {
+  generateI18NResources,
+  getContentByType,
+  mergeDeepAll,
+} from './src/utils/utils';
 
+const categories = generateI18NResources(
+  getContentByType('categories'),
+  'categories',
+);
+const collections = generateI18NResources(
+  getContentByType('collections'),
+  'collections',
+);
 const exercises = generateI18NResources(
   getContentByType('exercises'),
   'exercises',
@@ -10,18 +21,8 @@ const exercises = generateI18NResources(
 const ui = generateI18NResources(getContentByType('ui'));
 const email = generateI18NResources(getContentByType('email'), 'email');
 const tags = generateI18NResources(getContentByType('tags'), 'tags');
-const collections = generateI18NResources(
-  getContentByType('collections'),
-  'collections',
-);
 
-const i18n = mergeDeepRight(
-  email,
-  mergeDeepRight(
-    mergeDeepRight(mergeDeepRight(ui, exercises), tags),
-    collections,
-  ),
-);
+const i18n = mergeDeepAll(categories, collections, exercises, tags, ui, email);
 
 const {contributors} = JSON.parse(
   readFileSync('../.all-contributorsrc', {encoding: 'utf8'}),
