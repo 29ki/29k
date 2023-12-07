@@ -2,6 +2,7 @@
   "en": {
     "collectionsHeading": "Collections",
     "sessionsHeading": "Sessions",
+    "skillsHeading": "Skills",
     "comingSoonHeading": "Coming soon",
     "comingSoon": {
       "description": "More content with the best tools for wellbeing and inner development.",
@@ -41,7 +42,8 @@
   },
   "sv": {
     "collectionsHeading": "Samlingar",
-    "sessionsHeading": "Sessioner"
+    "sessionsHeading": "Sessioner",
+    "skillsHeading": "Färdigheter"
   },
   "es": {}
 }
