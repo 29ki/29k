@@ -1,6 +1,6 @@
 import {useState, useEffect} from 'react';
 import {LiveSessionType} from '../../../../../shared/src/schemas/Session';
-import {fetchSessions} from '../../sessions/api/sessions';
+import {fetchSessions} from '../api/sessions';
 import {Exercise} from '../../../../../shared/src/types/generated/Exercise';
 
 const useLiveSessionsByExercise = (exercise?: Exercise, limit: number = 5) => {
