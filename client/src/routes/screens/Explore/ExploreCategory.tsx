@@ -87,7 +87,7 @@ const ExploreCategory = () => {
       title={category?.name}>
       <TopSafeArea />
       <Spacer32 />
-      <AutoScrollView stickyHeaderIndices={[3, 5]}>
+      <AutoScrollView stickyHeaderIndices={[2, 4]}>
         <Spacer16 />
         <Choices>
           {tags.map(tag => (

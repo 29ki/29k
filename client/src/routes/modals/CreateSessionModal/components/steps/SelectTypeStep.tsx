@@ -51,7 +51,6 @@ import FeedbackCarousel from '../../../../../lib/components/FeedbackCarousel/Fee
 import useLiveSessionsByExercise from '../../../../../lib/session/hooks/useLiveSessionsByExercise';
 import ExerciseCard from '../../../../../lib/components/Cards/SessionCard/ExerciseCard';
 import useExercisesByTags from '../../../../../lib/content/hooks/useExercisesByTags';
-import {Tag as TagType} from '../../../../../../../shared/src/types/generated/Tag';
 import CoCreators from '../../../../../lib/components/CoCreators/CoCreators';
 import ExerciseGraphic from '../../../../../lib/components/ExerciseGraphic/ExerciseGraphic';
 import BackgroundBlock from '../../../../../lib/components/BackgroundBlock/BackgroundBlock';
@@ -163,11 +162,7 @@ const SelectTypeStep: React.FC<StepProps> = ({
     [getExerciseById, selectedExercise],
   );
 
-  const relatedExercises = useExercisesByTags(
-    exercise?.tags as TagType[],
-    exercise?.id,
-    5,
-  );
+  const relatedExercises = useExercisesByTags(exercise?.tags, exercise?.id, 5);
 
   const {sessions} = useLiveSessionsByExercise(exercise?.id && exercise, 5);
   const tags = useTags(exercise?.tags);

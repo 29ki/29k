@@ -52,7 +52,6 @@ import SessionCard from '../../../lib/components/Cards/SessionCard/SessionCard';
 import useLiveSessionsByExercise from '../../../lib/session/hooks/useLiveSessionsByExercise';
 import ExerciseCard from '../../../lib/components/Cards/SessionCard/ExerciseCard';
 import useExercisesByTags from '../../../lib/content/hooks/useExercisesByTags';
-import {Tag as TagType} from '../../../../../shared/src/types/generated/Tag';
 import CoCreators from '../../../lib/components/CoCreators/CoCreators';
 import ExerciseGraphic from '../../../lib/components/ExerciseGraphic/ExerciseGraphic';
 import FeedbackPostCard from '../../../lib/components/PostCard/FeedbackPostCard';
@@ -109,11 +108,7 @@ const CompletedSessionModal = () => {
   const tags = useTags(exercise?.tags);
   const {getSharingPostForSession} = useSessionSharingPosts(exercise?.id);
   const getFeedbackBySessionId = useGetFeedbackBySessionId();
-  const relatedExercises = useExercisesByTags(
-    exercise?.tags as TagType[],
-    exercise?.id,
-    5,
-  );
+  const relatedExercises = useExercisesByTags(exercise?.tags, exercise?.id, 5);
 
   const sessionTime = useMemo(() => dayjs(timestamp), [timestamp]);
 
@@ -183,9 +178,9 @@ const CompletedSessionModal = () => {
         )}
         {tags && (
           <Tags>
-            {tags.map(({id, tag}) => (
-              <Fragment key={id}>
-                <Tag>{tag}</Tag>
+            {tags.map(tag => (
+              <Fragment key={tag.id}>
+                <Tag>{tag.name}</Tag>
                 <Spacer4 />
               </Fragment>
             ))}
