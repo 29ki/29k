@@ -1,21 +1,13 @@
 import {CmsField} from 'netlify-cms-core';
-import {ID_FIELD} from './common';
+import {ID_FIELD, SORT_ORDER_FIELD} from './common';
 
 export const TAG_FIELDS: Array<CmsField> = [
   ID_FIELD,
   {
-    name: 'tag',
-    label: '🏷 Tag',
+    name: 'name',
+    label: '🏷 Name',
     widget: 'string',
     i18n: true,
   },
-  {
-    label: '🔢 Order',
-    name: 'order',
-    i18n: 'duplicate',
-    widget: 'number',
-    hint: 'Where tags are featured low number will show first.',
-    required: false,
-    value_type: 'int',
-  },
+  SORT_ORDER_FIELD,
 ];
