@@ -46,13 +46,12 @@ import useGetFeedbackBySessionId from '../../../lib/user/hooks/useGetFeedbackByS
 import Node from '../../../lib/components/Node/Node';
 import {SPACINGS} from '../../../lib/constants/spacings';
 import Tag from '../../../lib/components/Tag/Tag';
-import useGetTagsById from '../../../lib/content/hooks/useGetTagsById';
+import useTags from '../../../lib/content/hooks/useTags';
 import {Heading16} from '../../../lib/components/Typography/Heading/Heading';
 import SessionCard from '../../../lib/components/Cards/SessionCard/SessionCard';
 import useLiveSessionsByExercise from '../../../lib/session/hooks/useLiveSessionsByExercise';
 import ExerciseCard from '../../../lib/components/Cards/SessionCard/ExerciseCard';
 import useExercisesByTags from '../../../lib/content/hooks/useExercisesByTags';
-import {Tag as TagType} from '../../../../../shared/src/types/generated/Tag';
 import CoCreators from '../../../lib/components/CoCreators/CoCreators';
 import ExerciseGraphic from '../../../lib/components/ExerciseGraphic/ExerciseGraphic';
 import FeedbackPostCard from '../../../lib/components/PostCard/FeedbackPostCard';
@@ -106,14 +105,10 @@ const CompletedSessionModal = () => {
   const {t} = useTranslation('Modal.CompletedSession');
   const {payload, timestamp} = completedSessionEvent;
   const exercise = useExerciseById(payload.exerciseId, payload.language);
-  const tags = useGetTagsById(exercise?.tags);
+  const tags = useTags(exercise?.tags);
   const {getSharingPostForSession} = useSessionSharingPosts(exercise?.id);
   const getFeedbackBySessionId = useGetFeedbackBySessionId();
-  const relatedExercises = useExercisesByTags(
-    exercise?.tags as TagType[],
-    exercise?.id,
-    5,
-  );
+  const relatedExercises = useExercisesByTags(exercise?.tags, exercise?.id, 5);
 
   const sessionTime = useMemo(() => dayjs(timestamp), [timestamp]);
 
@@ -183,9 +178,9 @@ const CompletedSessionModal = () => {
         )}
         {tags && (
           <Tags>
-            {tags.map(({id, tag}) => (
-              <Fragment key={id}>
-                <Tag>{tag}</Tag>
+            {tags.map(tag => (
+              <Fragment key={tag.id}>
+                <Tag>{tag.name}</Tag>
                 <Spacer4 />
               </Fragment>
             ))}

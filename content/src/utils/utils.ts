@@ -1,6 +1,7 @@
 import {readFileSync, readdirSync, existsSync} from 'fs';
 import * as path from 'path';
 import {LANGUAGE_TAG, LANGUAGE_TAGS} from '../../../shared/src/constants/i18n';
+import {mergeDeepRight, reduce, unapply} from 'ramda';
 
 type LocalizedContent<T> = Record<LANGUAGE_TAG, Record<string, T>>;
 type Content<T> = Record<string, LocalizedContent<T>>;
@@ -75,3 +76,5 @@ export const generateI18NResources = <T>(
       ),
     {} as LocalizedContent<T>,
   );
+
+export const mergeDeepAll = unapply(reduce(mergeDeepRight, {}));

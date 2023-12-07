@@ -41,7 +41,7 @@ import {BottomSheetScrollView} from '@gorhom/bottom-sheet';
 import {ModalStackProps} from '../../../../../lib/navigation/constants/routes';
 import useStartAsyncSession from '../../../../../lib/session/hooks/useStartAsyncSession';
 import Markdown from '../../../../../lib/components/Typography/Markdown/Markdown';
-import useGetTagsById from '../../../../../lib/content/hooks/useGetTagsById';
+import useTags from '../../../../../lib/content/hooks/useTags';
 import Tag from '../../../../../lib/components/Tag/Tag';
 import IconButton from '../../../../../lib/components/Buttons/IconButton/IconButton';
 import {ThumbsUpWithoutPadding} from '../../../../../lib/components/Thumbs/Thumbs';
@@ -51,7 +51,6 @@ import FeedbackCarousel from '../../../../../lib/components/FeedbackCarousel/Fee
 import useLiveSessionsByExercise from '../../../../../lib/session/hooks/useLiveSessionsByExercise';
 import ExerciseCard from '../../../../../lib/components/Cards/SessionCard/ExerciseCard';
 import useExercisesByTags from '../../../../../lib/content/hooks/useExercisesByTags';
-import {Tag as TagType} from '../../../../../../../shared/src/types/generated/Tag';
 import CoCreators from '../../../../../lib/components/CoCreators/CoCreators';
 import ExerciseGraphic from '../../../../../lib/components/ExerciseGraphic/ExerciseGraphic';
 import BackgroundBlock from '../../../../../lib/components/BackgroundBlock/BackgroundBlock';
@@ -163,14 +162,10 @@ const SelectTypeStep: React.FC<StepProps> = ({
     [getExerciseById, selectedExercise],
   );
 
-  const relatedExercises = useExercisesByTags(
-    exercise?.tags as TagType[],
-    exercise?.id,
-    5,
-  );
+  const relatedExercises = useExercisesByTags(exercise?.tags, exercise?.id, 5);
 
   const {sessions} = useLiveSessionsByExercise(exercise?.id && exercise, 5);
-  const tags = useGetTagsById(exercise?.tags);
+  const tags = useTags(exercise?.tags);
 
   const onJoinByInvite = useCallback(() => {
     goBack();
@@ -268,9 +263,9 @@ const SelectTypeStep: React.FC<StepProps> = ({
           )}
           {tags && (
             <Tags>
-              {tags.map(({id, tag}) => (
+              {tags.map(({id, name}) => (
                 <Fragment key={id}>
-                  <Tag>{tag}</Tag>
+                  <Tag>{name}</Tag>
                   <Spacer4 />
                 </Fragment>
               ))}

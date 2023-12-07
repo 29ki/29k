@@ -6,7 +6,6 @@ import Gutters from '../../../../lib/components/Gutters/Gutters';
 import {Spacer8, Spacer16} from '../../../../lib/components/Spacers/Spacer';
 import {Heading16} from '../../../../lib/components/Typography/Heading/Heading';
 import {useTranslation} from 'react-i18next';
-import {Tag} from '../../../../../../shared/src/types/generated/Tag';
 import useLiveSessionsByExercise from '../../../../lib/session/hooks/useLiveSessionsByExercise';
 import SessionCard from '../../../../lib/components/Cards/SessionCard/SessionCard';
 
@@ -18,11 +17,7 @@ const RelatedSessions: React.FC<Props> = ({exercise}) => {
 
   const {sessions} = useLiveSessionsByExercise(exercise?.id && exercise, 5);
 
-  const relatedExercises = useExercisesByTags(
-    exercise?.tags as Tag[],
-    exercise?.id,
-    5,
-  );
+  const relatedExercises = useExercisesByTags(exercise?.tags, exercise?.id, 5);
 
   if (!exercise) return null;
 
