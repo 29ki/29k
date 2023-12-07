@@ -10,6 +10,26 @@ import {DEFAULT_LANGUAGE_TAG} from '../../../shared/src/constants/i18n';
 import EDITOR_TEXT_TEMPLATES_FIELDS from '../fields/templates';
 import {CATEGORY_FIELD} from '../fields/category';
 
+export const news: CmsCollection = {
+  name: 'featured',
+  label: '✨ Featured',
+  label_singular: 'Feature',
+  folder: '/content/src/exercises',
+  identifier_field: 'id',
+  extension: 'json',
+  format: 'json',
+  create: true,
+  delete: true,
+  publish: true,
+  summary: '{{fields.name}}',
+  slug: '{{id}}',
+  editor: {
+    preview: false,
+  },
+  fields: EXERCISE_FIELDS,
+  i18n: true,
+};
+
 export const exercises: CmsCollection = {
   name: 'exercises',
   label: '📝 Exercises',
@@ -155,5 +175,5 @@ export const ui: CmsCollection = generateFilesCollectionFromi18nFiles(
   'ui',
   '📱 UI',
   content.i18n[DEFAULT_LANGUAGE_TAG],
-  [exercises.name, tags.name, collections.name, email.name],
+  [exercises.name, tags.name, collections.name, email.name, categories.name],
 );
