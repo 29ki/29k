@@ -3,7 +3,7 @@ import {useMemo} from 'react';
 import useExercises from './useExercises';
 
 const useExercisesByTags = (
-  filterTags: string[],
+  filterTags: string[] = [],
   excludeId?: string,
   limit?: number,
 ) => {
