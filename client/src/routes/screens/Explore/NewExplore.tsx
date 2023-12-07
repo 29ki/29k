@@ -2,7 +2,11 @@ import React, {useCallback} from 'react';
 import AutoScrollView from '../../../lib/components/AutoScrollView/AutoScrollView';
 import StickyHeading from '../../../lib/components/StickyHeading/StickyHeading';
 import {Heading16} from '../../../lib/components/Typography/Heading/Heading';
-import {Spacer28, TopSafeArea} from '../../../lib/components/Spacers/Spacer';
+import {
+  Spacer16,
+  Spacer28,
+  TopSafeArea,
+} from '../../../lib/components/Spacers/Spacer';
 import Screen from '../../../lib/components/Screen/Screen';
 import {COLORS} from '../../../../../shared/src/constants/colors';
 import BottomFade from '../../../lib/components/BottomFade/BottomFade';
@@ -18,12 +22,14 @@ import useCategories from '../../../lib/content/hooks/useCategories';
 import useCollections from '../../../lib/content/hooks/useCollections';
 import useTags from '../../../lib/content/hooks/useTags';
 import {Choices, Choice, Category, Label, Collection, Tag} from './Choices';
+import {useTranslation} from 'react-i18next';
 
 const Explore = () => {
   const {navigate} =
     useNavigation<
       NativeStackNavigationProp<OverlayStackProps & ExploreStackProps>
     >();
+  const {t} = useTranslation('Screen.Explore');
 
   const categories = useCategories();
   const collections = useCollections();
@@ -41,10 +47,8 @@ const Explore = () => {
         onPressEllipsis={onPressEllipsis}>
         <MiniProfile />
       </TopBar>
-      <AutoScrollView stickyHeaderIndices={[0, 2, 4, 6]}>
-        <StickyHeading>
-          <Heading16>Explore</Heading16>
-        </StickyHeading>
+      <AutoScrollView stickyHeaderIndices={[2, 4, 6]}>
+        <Spacer16 />
         <Choices>
           {categories.map(category => (
             <Choice
@@ -59,7 +63,7 @@ const Explore = () => {
           ))}
         </Choices>
         <StickyHeading>
-          <Heading16>Collections</Heading16>
+          <Heading16>{t('collectionsHeading')}</Heading16>
         </StickyHeading>
         <Choices>
           {collections.map(collection => (
@@ -75,7 +79,7 @@ const Explore = () => {
           ))}
         </Choices>
         <StickyHeading>
-          <Heading16>Skills</Heading16>
+          <Heading16>{t('skillsHeading')}</Heading16>
         </StickyHeading>
         <Choices>
           {tags.map(tag => (

@@ -24,12 +24,18 @@ import useExercises from '../../../lib/content/hooks/useExercises';
 import useCollections from '../../../lib/content/hooks/useCollections';
 import ExerciseCard from '../../../lib/components/Cards/SessionCard/ExerciseCard';
 import Gutters from '../../../lib/components/Gutters/Gutters';
-import Tag from '../../../lib/components/Tag/Tag';
 import styled from 'styled-components/native';
+import {useTranslation} from 'react-i18next';
+import {Body16} from '../../../lib/components/Typography/Body/Body';
 
-const FilterTag = styled(Tag)<{active: boolean}>(({active}) => ({
+const FilterTag = styled(Body16)<{active: boolean}>(({active}) => ({
+  paddingHorizontal: 8,
+  paddingVertical: 4,
+  borderRadius: 8,
+  marginBottom: 4,
   backgroundColor: active ? COLORS.BLACK : COLORS.CREAM,
   color: active ? COLORS.PURE_WHITE : COLORS.BLACK,
+  overflow: 'hidden',
 }));
 
 const ExploreCategory = () => {
@@ -40,6 +46,8 @@ const ExploreCategory = () => {
     useNavigation<
       NativeStackNavigationProp<OverlayStackProps & ExploreStackProps>
     >();
+  const {t} = useTranslation('Screen.Explore');
+
   const [activeTags, setActiveTags] = React.useState<string[]>([]);
 
   const category = useCategoryById(categoryId);
@@ -100,7 +108,7 @@ const ExploreCategory = () => {
         </Choices>
         {filteredCollections.length > 0 && (
           <StickyHeading>
-            <Heading16>Collections</Heading16>
+            <Heading16>{t('collectionsHeading')}</Heading16>
           </StickyHeading>
         )}
         {filteredCollections.length > 0 && (
@@ -120,7 +128,7 @@ const ExploreCategory = () => {
         )}
         {filteredExercises.length > 0 && (
           <StickyHeading>
-            <Heading16>Sessions</Heading16>
+            <Heading16>{t('sessionsHeading')}</Heading16>
           </StickyHeading>
         )}
         {filteredExercises.length > 0 && (

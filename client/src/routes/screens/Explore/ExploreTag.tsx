@@ -23,6 +23,7 @@ import {Heading16} from '../../../lib/components/Typography/Heading/Heading';
 import {Choices, Choice, Collection, Label} from './Choices';
 import useExercisesByTags from '../../../lib/content/hooks/useExercisesByTags';
 import useCollectionsByTags from '../../../lib/content/hooks/useCollectionsByTags';
+import {useTranslation} from 'react-i18next';
 
 const ExploreTag = () => {
   const {
@@ -32,6 +33,7 @@ const ExploreTag = () => {
     useNavigation<
       NativeStackNavigationProp<OverlayStackProps & ExploreStackProps>
     >();
+  const {t} = useTranslation('Screen.Explore');
 
   const tag = useTagById(tagId);
   const tagFilter = useMemo(() => (tag ? [tag.id] : []), [tag]);
@@ -49,7 +51,7 @@ const ExploreTag = () => {
         <Spacer16 />
         {collections.length > 0 && (
           <StickyHeading>
-            <Heading16>Collections</Heading16>
+            <Heading16>{t('collectionsHeading')}</Heading16>
           </StickyHeading>
         )}
         {collections.length > 0 && (
@@ -69,7 +71,7 @@ const ExploreTag = () => {
         )}
         {exercises.length > 0 && (
           <StickyHeading>
-            <Heading16>Sessions</Heading16>
+            <Heading16>{t('sessionsHeading')}</Heading16>
           </StickyHeading>
         )}
         {exercises.length > 0 && (
