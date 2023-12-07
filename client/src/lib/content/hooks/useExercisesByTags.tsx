@@ -1,28 +1,21 @@
 import {intersection} from 'ramda';
 import {useMemo} from 'react';
 import useExercises from './useExercises';
-import {Tag} from '../../../../../shared/src/types/generated/Tag';
 
 const useExercisesByTags = (
-  tags: Tag[],
+  filterTags: string[],
   excludeId?: string,
   limit?: number,
 ) => {
   const exercises = useExercises();
-  const tagNames = useMemo(() => tags?.map(t => t.name), [tags]);
 
   return useMemo(() => {
-    const filteredExercises = tagNames
-      ? exercises.filter(
-          exercise =>
-            intersection(
-              (exercise.tags || []).map(t => t.tag),
-              tagNames,
-            ).length > 0 && exercise.id !== excludeId,
-        )
-      : [];
+    const filteredExercises = exercises.filter(
+      ({id, tags = []}) =>
+        id !== excludeId && intersection(tags, filterTags).length > 0,
+    );
     return limit ? filteredExercises.slice(0, limit) : filteredExercises;
-  }, [tagNames, exercises, excludeId, limit]);
+  }, [filterTags, exercises, excludeId, limit]);
 };
 
 export default useExercisesByTags;
