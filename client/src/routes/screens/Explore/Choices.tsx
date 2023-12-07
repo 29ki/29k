@@ -6,13 +6,17 @@ import TouchableOpacity from '../../../lib/components/TouchableOpacity/Touchable
 export const Choices = styled.View({
   flexDirection: 'row',
   flexWrap: 'wrap',
-  justifyContent: 'space-between',
-  padding: 8,
+  paddingHorizontal: 12,
 });
 export const Choice = styled(TouchableOpacity)({
   minHeight: 90,
   width: '50%',
-  padding: 8,
+  paddingHorizontal: 4,
+  paddingBottom: 8,
+});
+export const FilterChoice = styled(TouchableOpacity)({
+  paddingHorizontal: 4,
+  paddingBottom: 4,
 });
 export const Category = styled.View({
   flex: 1,
@@ -47,6 +51,16 @@ export const Tag = styled.View({
   overflow: 'hidden',
   justifyContent: 'center',
 });
+
+export const FilterTag = styled.View<{active?: boolean}>(({active}) => ({
+  paddingVertical: 4,
+  paddingHorizontal: 8,
+  borderRadius: 16,
+  backgroundColor: active ? 'black' : 'tomato',
+  overflow: 'hidden',
+  justifyContent: 'center',
+}));
+
 export const Label = styled(Body16)({
   textAlign: 'center',
   color: COLORS.PURE_WHITE,

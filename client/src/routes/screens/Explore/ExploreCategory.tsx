@@ -1,4 +1,4 @@
-import React, {Fragment} from 'react';
+import React, {Fragment, useCallback, useMemo} from 'react';
 import {useRoute, RouteProp, useNavigation} from '@react-navigation/native';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import {COLORS} from '../../../../../shared/src/constants/colors';
@@ -15,16 +15,22 @@ import {
   Spacer16,
   Spacer28,
   Spacer32,
-  Spacer8,
   TopSafeArea,
 } from '../../../lib/components/Spacers/Spacer';
-import {Choice, Choices, Collection, Exercise, Label, Tag} from './Choices';
+import {Choice, Choices, Collection, FilterChoice, Label} from './Choices';
 import StickyHeading from '../../../lib/components/StickyHeading/StickyHeading';
 import {Heading16} from '../../../lib/components/Typography/Heading/Heading';
 import useExercises from '../../../lib/content/hooks/useExercises';
 import useCollections from '../../../lib/content/hooks/useCollections';
 import ExerciseCard from '../../../lib/components/Cards/SessionCard/ExerciseCard';
 import Gutters from '../../../lib/components/Gutters/Gutters';
+import Tag from '../../../lib/components/Tag/Tag';
+import styled from 'styled-components/native';
+
+const FilterTag = styled(Tag)<{active: boolean}>(({active}) => ({
+  backgroundColor: active ? COLORS.BLACK : COLORS.CREAM,
+  color: active ? COLORS.PURE_WHITE : COLORS.BLACK,
+}));
 
 const ExploreCategory = () => {
   const {
@@ -34,11 +40,45 @@ const ExploreCategory = () => {
     useNavigation<
       NativeStackNavigationProp<OverlayStackProps & ExploreStackProps>
     >();
+  const [activeTags, setActiveTags] = React.useState<string[]>([]);
 
   const category = useCategoryById(categoryId);
   const tags = useTagsByCategoryId(categoryId);
   const collections = useCollections(category?.collections);
   const exercises = useExercises(category?.exercises);
+
+  const filteredCollections = useMemo(
+    () =>
+      collections.filter(
+        collection =>
+          collection.tags?.some(
+            tag => !activeTags.length || activeTags.includes(tag),
+          ),
+      ),
+    [activeTags, collections],
+  );
+
+  const filteredExercises = useMemo(
+    () =>
+      exercises.filter(
+        exercise =>
+          exercise.tags?.some(
+            tag => !activeTags.length || activeTags.includes(tag),
+          ),
+      ),
+    [activeTags, exercises],
+  );
+
+  const onPressTag = useCallback(
+    (tagId: string) => () => {
+      setActiveTags(active =>
+        active.includes(tagId)
+          ? active.filter(id => id !== tagId)
+          : [...active, tagId],
+      );
+    },
+    [],
+  );
 
   return (
     <Screen
@@ -48,42 +88,51 @@ const ExploreCategory = () => {
       <TopSafeArea />
       <Spacer32 />
       <AutoScrollView stickyHeaderIndices={[3, 5]}>
+        <Spacer16 />
         <Choices>
           {tags.map(tag => (
-            <Choice key={tag.id}>
-              <Tag>
-                <Label>{tag.name}</Label>
-              </Tag>
-            </Choice>
+            <FilterChoice key={tag.id} onPress={onPressTag(tag.id)}>
+              <FilterTag active={activeTags.includes(tag.id)}>
+                {tag.name}
+              </FilterTag>
+            </FilterChoice>
           ))}
         </Choices>
-        <StickyHeading>
-          <Heading16>Collections</Heading16>
-        </StickyHeading>
-        <Choices>
-          {collections.map(collection => (
-            <Choice
-              key={collection.id}
-              onPress={() =>
-                navigate('Collection', {collectionId: collection.id})
-              }>
-              <Collection>
-                <Label>{collection.name}</Label>
-              </Collection>
-            </Choice>
-          ))}
-        </Choices>
-        <StickyHeading>
-          <Heading16>Sessions</Heading16>
-        </StickyHeading>
-        <Gutters>
-          {exercises.map(exercise => (
-            <Fragment key={exercise.id}>
-              <ExerciseCard exercise={exercise} small />
-              <Spacer16 />
-            </Fragment>
-          ))}
-        </Gutters>
+        {filteredCollections.length > 0 && (
+          <StickyHeading>
+            <Heading16>Collections</Heading16>
+          </StickyHeading>
+        )}
+        {filteredCollections.length > 0 && (
+          <Choices>
+            {filteredCollections.map(collection => (
+              <Choice
+                key={collection.id}
+                onPress={() =>
+                  navigate('Collection', {collectionId: collection.id})
+                }>
+                <Collection>
+                  <Label>{collection.name}</Label>
+                </Collection>
+              </Choice>
+            ))}
+          </Choices>
+        )}
+        {filteredExercises.length > 0 && (
+          <StickyHeading>
+            <Heading16>Sessions</Heading16>
+          </StickyHeading>
+        )}
+        {filteredExercises.length > 0 && (
+          <Gutters>
+            {filteredExercises.map(exercise => (
+              <Fragment key={exercise.id}>
+                <ExerciseCard exercise={exercise} small />
+                <Spacer16 />
+              </Fragment>
+            ))}
+          </Gutters>
+        )}
         <Spacer28 />
       </AutoScrollView>
       <BottomFade />
