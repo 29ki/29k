@@ -110,6 +110,23 @@
         "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1701789361/Lottie/Join_engagement_part2_card_image_climatP_yzwiwq.json"
       }
     },
+    "coCreators": [
+      {
+        "name": "Kali Andersson, voice",
+        "url": "https://www.terrapi.se/",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1702029676/Images/Kali_Andersson_1_Klimatpsy_FotografJoakimAndre%CC%81n_zvvczk.jpg"
+      },
+      {
+        "url": "https://www.terrapi.se/",
+        "name": "Terra-pi, script",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1702029819/Images/terra-pi_zhwybj.png"
+      },
+      {
+        "name": "Ints Ivanovskis, artwork",
+        "url": "https://www.linkedin.com/in/ints-ivanovskis-46ab0311a/",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413436/Contributors/Ints%20Ivanovskis.jpg"
+      }
+    ],
     "duration": 30,
     "introPortal": {
       "hostNotes": [
@@ -327,6 +344,23 @@
         "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1701789361/Lottie/Join_engagement_part2_card_image_climatP_yzwiwq.json"
       }
     },
+    "coCreators": [
+      {
+        "url": "https://www.terrapi.se/",
+        "name": "Kali Andersson, röst",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1702029676/Images/Kali_Andersson_1_Klimatpsy_FotografJoakimAndre%CC%81n_zvvczk.jpg"
+      },
+      {
+        "url": "https://www.terrapi.se/",
+        "name": "Terra-pi, manus",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1702029819/Images/terra-pi_zhwybj.png"
+      },
+      {
+        "name": "Ints Ivanovskis, illustrationer",
+        "url": "https://www.linkedin.com/in/ints-ivanovskis-46ab0311a/",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413436/Contributors/Ints%20Ivanovskis.jpg"
+      }
+    ],
     "duration": 30,
     "introPortal": {
       "hostNotes": [
