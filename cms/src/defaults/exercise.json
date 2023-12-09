@@ -12,7 +12,12 @@
       ]
     },
     {
-      "type": "content"
+      "type": "content",
+      "hostNotes": [
+        {
+          "text": "Find a comfortable position. I will start the audio exercise and we'll meet back here afterwards. \n\n> Push play to start the audio exercise"
+        }
+      ]
     },
     {
       "type": "reflection",
@@ -37,7 +42,8 @@
         {
           "text": "Who would like to start?\n\n> Let everyone (or as many as you got time for) share one by one. Press play to start the timer. Re-start for each new sharing.\n\nThank you so much everyone."
         }
-      ]
+      ],
+      "id": "Sharing 1"
     },
     {
       "type": "host",
