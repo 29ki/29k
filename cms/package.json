@@ -4,7 +4,7 @@
   "private": true,
   "main": "index.js",
   "engines": {
-    "node": "18.18"
+    "node": "18"
   },
   "scripts": {
     "build:content": "yarn --cwd \"../content\" build",
