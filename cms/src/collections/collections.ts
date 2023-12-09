@@ -9,6 +9,7 @@ import {COLLECTION_FIELDS} from '../fields/collection';
 import {DEFAULT_LANGUAGE_TAG} from '../../../shared/src/constants/i18n';
 import EDITOR_TEXT_TEMPLATES_FIELDS from '../fields/templates';
 import {CATEGORY_FIELD} from '../fields/category';
+import {FEATURED_FIELDS} from '../fields/featured';
 
 export const news: CmsCollection = {
   name: 'featured',
@@ -48,35 +49,6 @@ export const exercises: CmsCollection = {
   },
   fields: EXERCISE_FIELDS,
   i18n: true,
-};
-
-export const settings: CmsCollection = {
-  name: 'settings',
-  label: '⚙️ Settings',
-  files: [
-    {
-      label: '📝 Exercise defaults',
-      name: 'exercise-defaults',
-      file: '/cms/src/defaults/exercise.json',
-      fields: EXERCISE_DEFAULTS_FIELDS,
-    },
-    {
-      label: '🔖 Editor text templates',
-      name: 'text-templates',
-      file: '/cms/src/templates/editorTexts.json',
-      fields: EDITOR_TEXT_TEMPLATES_FIELDS,
-    },
-  ],
-  i18n: false,
-  extension: 'json',
-  format: 'json',
-  create: false,
-  delete: false,
-  publish: true,
-  identifier_field: 'label',
-  editor: {
-    preview: false,
-  },
 };
 
 export const tags: CmsCollection = {
@@ -141,10 +113,45 @@ export const collections: CmsCollection = {
   },
 };
 
+export const settings: CmsCollection = {
+  name: 'settings',
+  label: '⚙️ Settings',
+  files: [
+    {
+      label: '📝 Exercise defaults',
+      name: 'exercise-defaults',
+      file: '/cms/src/defaults/exercise.json',
+      fields: EXERCISE_DEFAULTS_FIELDS,
+    },
+    {
+      label: '🔖 Editor text templates',
+      name: 'text-templates',
+      file: '/cms/src/templates/editorTexts.json',
+      fields: EDITOR_TEXT_TEMPLATES_FIELDS,
+    },
+  ],
+  i18n: false,
+  extension: 'json',
+  format: 'json',
+  create: false,
+  delete: false,
+  publish: true,
+  identifier_field: 'label',
+  editor: {
+    preview: false,
+  },
+};
+
 export const other: CmsCollection = {
   name: 'other',
   label: '🪴 Other',
   files: [
+    {
+      label: '✨ Featured exercises',
+      name: 'featured',
+      file: '/content/src/featured/featured.json',
+      fields: FEATURED_FIELDS,
+    },
     {
       label: '👥 All Contributors',
       name: 'all-contributorsrc',
@@ -152,7 +159,6 @@ export const other: CmsCollection = {
       fields: CONTRIBUTORS_FIELDS,
     },
   ],
-  i18n: false,
   extension: 'json',
   format: 'json',
   create: false,
