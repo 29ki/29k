@@ -65,7 +65,7 @@ jobs:
       - name: Use Node.js v18.18
         uses: actions/setup-node@v3
         with:
-          node-version: 18.18.x
+          node-version: 18.18
 
       - name: Install CocoaPods
         working-directory: ./client/ios
