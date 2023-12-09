@@ -31,6 +31,7 @@
         "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413436/Contributors/Ints%20Ivanovskis.jpg"
       }
     ],
+    "tags": [],
     "link": "",
     "id": "be8d8f71-1b30-4f9a-80cb-616ff24e8db9",
     "image": {
@@ -57,7 +58,8 @@
       "9a4834e6-8d3f-420b-88e3-dd3df9a98001"
     ],
     "link": "",
-    "coCreators": []
+    "coCreators": [],
+    "tags": []
   },
   "sv": {
     "hidden": true,
@@ -80,8 +82,12 @@
         "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413436/Contributors/Ints%20Ivanovskis.jpg"
       }
     ],
+    "tags": [],
     "link": "",
     "id": "be8d8f71-1b30-4f9a-80cb-616ff24e8db9",
+    "image": {
+      "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1701868914/Images/collection_card_climatP_2_je7nir.png"
+    },
     "exercises": [
       "db239a42-135a-4941-bdf2-92d58107094a",
       "0d4c9833-6a11-4b1a-8d1e-4467db6f24ea",
@@ -102,6 +108,7 @@
       "654551b4-1226-485e-9424-4d86d93240ff",
       "9a4834e6-8d3f-420b-88e3-dd3df9a98001"
     ],
-    "link": ""
+    "link": "",
+    "tags": []
   }
 }
