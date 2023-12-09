@@ -16,10 +16,10 @@ jobs:
         with:
           fetch-depth: 0 # Required to be able to run testIfVersionNeedsBump.sh againt main branch
 
-      - name: Use Node.js v18
+      - name: Use Node.js v18.18
         uses: actions/setup-node@v3
         with:
-          node-version: 18.x
+          node-version: 18.18.x
 
       - name: Cache Shared Dependencies
         id: cache-shared-node-modules
@@ -72,10 +72,10 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - name: Use Node.js v18
+      - name: Use Node.js v18.18
         uses: actions/setup-node@v3
         with:
-          node-version: 18.x
+          node-version: 18.18.x
 
       - name: Cache Shared Dependencies
         id: cache-shared-node-modules
@@ -123,10 +123,10 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - name: Use Node.js v18
+      - name: Use Node.js v18.18
         uses: actions/setup-node@v3
         with:
-          node-version: 18.x
+          node-version: 18.18.x
 
       - name: Cache Shared Dependencies
         id: cache-shared-node-modules
@@ -174,10 +174,10 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - name: Use Node.js v18
+      - name: Use Node.js v18.18
         uses: actions/setup-node@v3
         with:
-          node-version: 18.x
+          node-version: 18.18.x
 
       - name: Cache Shared Dependencies
         id: cache-shared-node-modules
@@ -213,10 +213,10 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - name: Use Node.js v18
+      - name: Use Node.js v18.18
         uses: actions/setup-node@v3
         with:
-          node-version: 18.x
+          node-version: 18.18.x
 
       - name: Cache Shared Dependencies
         id: cache-shared-node-modules
