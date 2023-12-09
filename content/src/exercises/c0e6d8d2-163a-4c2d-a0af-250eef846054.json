@@ -112,6 +112,23 @@
         "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1701788567/Images/Eco_emotions_and_motivation_card_image_climatP_lirfnu.png"
       }
     },
+    "coCreators": [
+      {
+        "name": "Kali Andersson, voice",
+        "url": "https://www.terrapi.se/",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1702029676/Images/Kali_Andersson_1_Klimatpsy_FotografJoakimAndre%CC%81n_zvvczk.jpg"
+      },
+      {
+        "name": "Terra-pi, script",
+        "url": "https://www.terrapi.se/",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1702029819/Images/terra-pi_zhwybj.png"
+      },
+      {
+        "name": "Ints Ivanovskis, artwork",
+        "url": "https://www.linkedin.com/in/ints-ivanovskis-46ab0",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413436/Contributors/Ints%20Ivanovskis.jpg"
+      }
+    ],
     "duration": 30,
     "introPortal": {
       "hostNotes": [
@@ -203,6 +220,23 @@
     "hidden": false,
     "live": true,
     "published": false,
+    "coCreators": [
+      {
+        "name": "Kali Andersson, röst",
+        "url": "https://www.terrapi.se/",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1702029676/Images/Kali_Andersson_1_Klimatpsy_FotografJoakimAndre%CC%81n_zvvczk.jpg"
+      },
+      {
+        "name": "Terra-pi, manus",
+        "url": "https://www.terrapi.se/",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1702029819/Images/terra-pi_zhwybj.png"
+      },
+      {
+        "url": "https://www.linkedin.com/in/ints-ivanovskis-46ab0",
+        "name": "Ints Ivanovskis, illustrationer",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413436/Contributors/Ints%20Ivanovskis.jpg"
+      }
+    ],
     "duration": 30,
     "introPortal": {
       "hostNotes": [
@@ -331,6 +365,23 @@
         "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1701788567/Images/Eco_emotions_and_motivation_card_image_climatP_lirfnu.png"
       }
     },
+    "coCreators": [
+      {
+        "name": "Kali Andersson, röst",
+        "url": "https://www.terrapi.se/",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1702029676/Images/Kali_Andersson_1_Klimatpsy_FotografJoakimAndre%CC%81n_zvvczk.jpg"
+      },
+      {
+        "name": "Terra-pi, manus",
+        "url": "https://www.terrapi.se/",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1702029819/Images/terra-pi_zhwybj.png"
+      },
+      {
+        "name": "Ints Ivanovskis, illustrationer",
+        "url": "https://www.linkedin.com/in/ints-ivanovskis-46ab0",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413436/Contributors/Ints%20Ivanovskis.jpg"
+      }
+    ],
     "duration": 30,
     "introPortal": {
       "hostNotes": [

@@ -14,6 +14,23 @@
       ],
       "textColor": "#ffffff"
     },
+    "coCreators": [
+      {
+        "name": "Kali Andersson, voice",
+        "url": "https://www.terrapi.se/",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1702029676/Images/Kali_Andersson_1_Klimatpsy_FotografJoakimAndre%CC%81n_zvvczk.jpg"
+      },
+      {
+        "url": "https://www.terrapi.se/",
+        "name": "Terra-pi, research",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1702029819/Images/terra-pi_zhwybj.png"
+      },
+      {
+        "name": "Ints Ivanovskis, artwork",
+        "url": "https://www.linkedin.com/in/ints-ivanovskis-46ab0311a/",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413436/Contributors/Ints%20Ivanovskis.jpg"
+      }
+    ],
     "link": "",
     "id": "be8d8f71-1b30-4f9a-80cb-616ff24e8db9",
     "image": {
@@ -39,11 +56,31 @@
       "654551b4-1226-485e-9424-4d86d93240ff",
       "9a4834e6-8d3f-420b-88e3-dd3df9a98001"
     ],
-    "link": ""
+    "link": "",
+    "coCreators": []
   },
   "sv": {
-    "published": false,
-    "hidden": false,
+    "hidden": true,
+    "name": "Agera för hållbarhet",
+    "published": true,
+    "coCreators": [
+      {
+        "name": "Kali Andersson, röst",
+        "url": "https://www.terrapi.se/",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1702029676/Images/Kali_Andersson_1_Klimatpsy_FotografJoakimAndre%CC%81n_zvvczk.jpg"
+      },
+      {
+        "url": "https://www.terrapi.se/",
+        "name": "Terra-pi, forskning",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1702029819/Images/terra-pi_zhwybj.png"
+      },
+      {
+        "name": "Ints Ivanovskis, artwork",
+        "url": "https://www.linkedin.com/in/ints-ivanovskis-46ab0311a/",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413436/Contributors/Ints%20Ivanovskis.jpg"
+      }
+    ],
+    "link": "",
     "id": "be8d8f71-1b30-4f9a-80cb-616ff24e8db9",
     "exercises": [
       "db239a42-135a-4941-bdf2-92d58107094a",
@@ -52,7 +89,7 @@
       "654551b4-1226-485e-9424-4d86d93240ff",
       "9a4834e6-8d3f-420b-88e3-dd3df9a98001"
     ],
-    "link": ""
+    "description": "Hantera känslor, hitta stöd och sätt att samarbeta för en bättre morgondag. "
   },
   "es": {
     "published": false,
