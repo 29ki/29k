@@ -100,7 +100,7 @@
       "textColor": "#F9F8F4",
       "backgroundColor": "#007961"
     },
-    "hidden": true,
+    "hidden": false,
     "name": "Explore eco emotions",
     "live": true,
     "published": true,
@@ -334,7 +334,7 @@
       "textColor": "#F9F8F4",
       "backgroundColor": "#007961"
     },
-    "hidden": true,
+    "hidden": false,
     "name": "Utforska eko-känslor",
     "live": true,
     "published": true,
