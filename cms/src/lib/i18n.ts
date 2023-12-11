@@ -2,8 +2,7 @@
 // https://github.com/reimertz/netlify-cms/commit/8ebe03a08e4aaab8fa038caf226dd425c8e7b1b2
 
 import {CmsCollection, CmsField} from 'netlify-cms-core';
-import {Resource, ResourceKey, ResourceLanguage} from 'i18next';
-import {DEFAULT_LANGUAGE_TAG} from '../../../shared/src/constants/i18n';
+import {ResourceKey, ResourceLanguage} from 'i18next';
 
 const SUPPORTED_KEYBASED_WIDGETS = [
   'date',

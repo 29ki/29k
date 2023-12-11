@@ -1,5 +1,5 @@
 import {CmsField} from 'netlify-cms-core';
-import {ID_FIELD, SORT_ORDER_FIELD} from './common';
+import {ID_FIELD, PUBLISHED_FIELD, SORT_ORDER_FIELD} from './common';
 
 export const TAG_FIELDS: Array<CmsField> = [
   ID_FIELD,
@@ -10,4 +10,5 @@ export const TAG_FIELDS: Array<CmsField> = [
     i18n: true,
   },
   SORT_ORDER_FIELD,
+  PUBLISHED_FIELD,
 ];

@@ -383,7 +383,7 @@
     "async": true,
     "description": "Lyssna på en historia och föreställ dig att du är olika varelser som funderar på samma problem. Att medvetet ta olika perspektiv kan hjälpa oss att reglera känslor, få nya idéer och ta beslut som inte bara utgår ifrån oss själva."
   },
-  "es": {
+  "ja": {
     "slides": [
       {
         "type": "host",
