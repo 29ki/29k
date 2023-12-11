@@ -29,6 +29,8 @@ export type HomeStackProps = {
 
 export type ExploreStackProps = {
   Explore: undefined;
+  ExploreCategory: {categoryId: string};
+  ExploreTag: {tagId: string};
   Collection: {collectionId: string};
 };
 

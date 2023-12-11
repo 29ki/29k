@@ -3,6 +3,6 @@
 
 export interface Tag {
   id: any;
-  tag: string;
-  order?: number;
+  name: string;
+  sortOrder?: number;
 }

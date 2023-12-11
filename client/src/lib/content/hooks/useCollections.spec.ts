@@ -63,4 +63,26 @@ describe('useCollections', () => {
 
     expect(result.current).toEqual([]);
   });
+
+  it('allows for specififying specific collection ids', () => {
+    mockUseCollectionIds.mockReturnValueOnce([
+      'some-collection-id',
+      'some-other-collection-id',
+      'some-third-collection-id',
+    ]);
+    renderHook(() =>
+      useCollections(['some-other-collection-id', 'some-third-collection-id']),
+    );
+
+    expect(mockGetCollectionById).toHaveBeenCalledTimes(2);
+    expect(mockGetCollectionById).not.toHaveBeenCalledWith(
+      'some-collection-id',
+    );
+    expect(mockGetCollectionById).toHaveBeenCalledWith(
+      'some-other-collection-id',
+    );
+    expect(mockGetCollectionById).toHaveBeenCalledWith(
+      'some-third-collection-id',
+    );
+  });
 });

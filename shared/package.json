@@ -9,7 +9,7 @@
     "test": "yarn test:ts && yarn test:lint && yarn test:jest"
   },
   "engines": {
-    "node": ">=18"
+    "node": "18"
   },
   "devDependencies": {
     "@types/jest": "^29.2.2",

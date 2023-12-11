@@ -68,7 +68,6 @@ import {ThumbsUpWithoutPadding} from '../../../lib/components/Thumbs/Thumbs';
 import useExerciseFeedback from '../../../lib/session/hooks/useExerciseFeedback';
 import FeedbackCarousel from '../../../lib/components/FeedbackCarousel/FeedbackCarousel';
 import useExercisesByTags from '../../../lib/content/hooks/useExercisesByTags';
-import {Tag as TagType} from '../../../../../shared/src/types/generated/Tag';
 import ExerciseCard from '../../../lib/components/Cards/SessionCard/ExerciseCard';
 import CoCreators from '../../../lib/components/CoCreators/CoCreators';
 import ExerciseGraphic from '../../../lib/components/ExerciseGraphic/ExerciseGraphic';
@@ -155,11 +154,7 @@ const SessionModal = () => {
   const {feedback} = useExerciseFeedback(session.exerciseId, session.mode);
   const {reminderEnabled, toggleReminder} = useSessionReminder(session);
   const confirmToggleReminder = useConfirmSessionReminder(session);
-  const relatedExercises = useExercisesByTags(
-    exercise?.tags as TagType[],
-    exercise?.id,
-    5,
-  );
+  const relatedExercises = useExercisesByTags(exercise?.tags, exercise?.id, 5);
 
   const startingNow = dayjs
     .utc()
@@ -297,7 +292,6 @@ const SessionModal = () => {
           </Row>
           <Spacer8 />
         </Gutters>
-
         {exercise?.description && (
           <>
             <Spacer16 />
@@ -318,7 +312,6 @@ const SessionModal = () => {
           </Tags>
         )}
         <Spacer24 />
-
         <Gutters>
           <Row>
             {!isHost && !startingNow && (

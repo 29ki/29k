@@ -314,6 +314,7 @@ export const SORT_ORDER_FIELD: CmsField = {
   i18n: 'duplicate',
   required: false,
   value_type: 'int',
+  hint: 'Low number will show first.',
 };
 
 export const CO_CREATORS_FIELD: CmsField = {

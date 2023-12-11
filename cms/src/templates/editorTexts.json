@@ -9,6 +9,10 @@
       "text": "Vi börjar med en mini-check-in. Hur känner du dig just nu? Svara gärna med två-tre ord. X, skulle du vilja börja?\n\n> Låt alla deltagare, inklusive dig själv, checka in en och en. \n\nTack för att ni checkade in. Då kör vi igång."
     },
     {
+      "name": "Swe content host 1",
+      "text": "Hitta en bekväm position. Jag startar ljudövningen så möts vi här igen efteråt.\n\n> Tryck på play för att starta ljudövningen"
+    },
+    {
       "name": "Swe refl host 1",
       "text": "Nästa steg är att tyst reflektera i en minut.\n\nFrågan är x"
     },

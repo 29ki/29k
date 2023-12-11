@@ -1,21 +1,21 @@
 {
   "en": {
     "id": "43a6dc0d-d866-4b79-9453-13c44e906128",
-    "tag": "Gratitude",
-    "order": 1
+    "name": "Gratitude",
+    "sortOrder": 1
   },
   "pt": {
     "id": "43a6dc0d-d866-4b79-9453-13c44e906128",
-    "order": 1,
-    "tag": "Gratidão"
+    "sortOrder": 1,
+    "name": "Gratidão"
   },
   "sv": {
     "id": "43a6dc0d-d866-4b79-9453-13c44e906128",
-    "order": 1,
-    "tag": "Tacksamhet"
+    "sortOrder": 1,
+    "name": "Tacksamhet"
   },
   "es": {
     "id": "43a6dc0d-d866-4b79-9453-13c44e906128",
-    "order": 1
+    "sortOrder": 1
   }
 }

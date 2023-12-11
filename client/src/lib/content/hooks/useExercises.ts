@@ -7,17 +7,19 @@ import {Exercise} from '../../../../../shared/src/types/generated/Exercise';
 const sortByName = (a: Exercise, b: Exercise) =>
   a.name < b.name ? -1 : a.name > b.name ? 1 : 0;
 
-const useExercises = () => {
-  const exerciseIds = useExerciseIds();
+const useExercises = (exerciseIds?: string[]) => {
+  const allIds = useExerciseIds();
   const getExerciseById = useGetExerciseById();
+
+  const ids = exerciseIds ?? allIds;
 
   return useMemo(
     () =>
-      exerciseIds
+      ids
         .map(id => getExerciseById(id))
         .filter(isNotNil)
         .sort(sortByName),
-    [exerciseIds, getExerciseById],
+    [ids, getExerciseById],
   );
 };
 
