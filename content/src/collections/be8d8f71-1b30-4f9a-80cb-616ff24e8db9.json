@@ -31,7 +31,10 @@
         "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413436/Contributors/Ints%20Ivanovskis.jpg"
       }
     ],
-    "tags": [],
+    "tags": [
+      "566aeb1b-1649-4f5a-96a2-0c80be27efc0",
+      "9c2c08a9-7dc6-4058-bc78-016d0eb00614"
+    ],
     "link": "",
     "id": "be8d8f71-1b30-4f9a-80cb-616ff24e8db9",
     "image": {
@@ -59,7 +62,10 @@
     ],
     "link": "",
     "coCreators": [],
-    "tags": []
+    "tags": [
+      "566aeb1b-1649-4f5a-96a2-0c80be27efc0",
+      "9c2c08a9-7dc6-4058-bc78-016d0eb00614"
+    ]
   },
   "sv": {
     "hidden": false,
@@ -82,7 +88,10 @@
         "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413436/Contributors/Ints%20Ivanovskis.jpg"
       }
     ],
-    "tags": [],
+    "tags": [
+      "566aeb1b-1649-4f5a-96a2-0c80be27efc0",
+      "9c2c08a9-7dc6-4058-bc78-016d0eb00614"
+    ],
     "link": "",
     "id": "be8d8f71-1b30-4f9a-80cb-616ff24e8db9",
     "image": {
@@ -109,6 +118,9 @@
       "9a4834e6-8d3f-420b-88e3-dd3df9a98001"
     ],
     "link": "",
-    "tags": []
+    "tags": [
+      "566aeb1b-1649-4f5a-96a2-0c80be27efc0",
+      "9c2c08a9-7dc6-4058-bc78-016d0eb00614"
+    ]
   }
 }
