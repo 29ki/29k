@@ -1,153 +1,128 @@
-import {useNavigation, useScrollToTop} from '@react-navigation/native';
-import {NativeStackNavigationProp} from '@react-navigation/native-stack';
-import React, {useCallback, useMemo, useRef} from 'react';
-import {useTranslation} from 'react-i18next';
-import {SectionList, SectionListRenderItem} from 'react-native';
-import {FlatList} from 'react-native-gesture-handler';
-
-import {COLORS} from '../../../../../shared/src/constants/colors';
-import {Exercise} from '../../../../../shared/src/types/generated/Exercise';
-import Gutters from '../../../lib/components/Gutters/Gutters';
-import MiniProfile from '../../../lib/components/MiniProfile/MiniProfile';
-import Screen from '../../../lib/components/Screen/Screen';
-import CollectionCardContainer, {
-  CARD_WIDTH,
-} from './components/CollectionCardContainer';
+import React, {Fragment, useCallback} from 'react';
+import AutoScrollView from '../../../lib/components/AutoScrollView/AutoScrollView';
+import StickyHeading from '../../../lib/components/StickyHeading/StickyHeading';
+import {Heading16} from '../../../lib/components/Typography/Heading/Heading';
 import {
   Spacer16,
-  Spacer20,
-  Spacer32,
-  Spacer48,
-  Spacer8,
+  Spacer28,
   TopSafeArea,
 } from '../../../lib/components/Spacers/Spacer';
-import StickyHeading from '../../../lib/components/StickyHeading/StickyHeading';
-import TopBar from '../../../lib/components/TopBar/TopBar';
-import {Heading16} from '../../../lib/components/Typography/Heading/Heading';
-import {SPACINGS} from '../../../lib/constants/spacings';
-import useExercises from '../../../lib/content/hooks/useExercises';
-import useCollections from '../../../lib/content/hooks/useCollections';
-import {OverlayStackProps} from '../../../lib/navigation/constants/routes';
-import ExerciseCard from '../../../lib/components/Cards/SessionCard/ExerciseCard';
+import Screen from '../../../lib/components/Screen/Screen';
+import {COLORS} from '../../../../../shared/src/constants/colors';
 import BottomFade from '../../../lib/components/BottomFade/BottomFade';
-import ComingSoonSlider from './components/ComingSoon';
-import styled from 'styled-components/native';
-
-export type ComingSoonItem = {when: string; what: string};
-export type ComingSoon = {
-  description: string;
-  items: ComingSoonItem[];
-};
-
-type Section = {
-  title: string;
-  data: Exercise[];
-};
-
-const CollectionsList = styled(FlatList)({
-  flexGrow: 0,
-  width: '100%',
-  overflow: 'visible',
-}) as unknown as FlatList;
+import TopBar from '../../../lib/components/TopBar/TopBar';
+import MiniProfile from '../../../lib/components/MiniProfile/MiniProfile';
+import {useNavigation} from '@react-navigation/native';
+import {NativeStackNavigationProp} from '@react-navigation/native-stack';
+import {
+  ExploreStackProps,
+  OverlayStackProps,
+} from '../../../lib/navigation/constants/routes';
+import useCategories from '../../../lib/content/hooks/useCategories';
+import useCollections from '../../../lib/content/hooks/useCollections';
+import useTags from '../../../lib/content/hooks/useTags';
+import {Columns, Column} from './components/Columns';
+import {useTranslation} from 'react-i18next';
+import Category from './components/Category';
+import Collection from './components/Collection';
+import Tag from './components/Tag';
+import useExercises from '../../../lib/content/hooks/useExercises';
+import Gutters from '../../../lib/components/Gutters/Gutters';
+import ExerciseCard from '../../../lib/components/Cards/SessionCard/ExerciseCard';
 
 const Explore = () => {
   const {navigate} =
-    useNavigation<NativeStackNavigationProp<OverlayStackProps>>();
+    useNavigation<
+      NativeStackNavigationProp<OverlayStackProps & ExploreStackProps>
+    >();
   const {t} = useTranslation('Screen.Explore');
-  const exercises = useExercises();
-  const collections = useCollections();
-  const listRef = useRef<SectionList<Exercise, Section>>(null);
-  const comingSoonSection: ComingSoon = t('comingSoon', {returnObjects: true});
 
-  useScrollToTop(listRef);
+  const categories = useCategories();
+  const collections = useCollections();
+  const tags = useTags();
+  const exercises = useExercises();
 
   const onPressEllipsis = useCallback(() => {
     navigate('AboutOverlay');
   }, [navigate]);
 
-  const exerciseSections = useMemo(() => {
-    return [
-      {
-        title: t('sessionsHeading'),
-        data: exercises,
-      } as Section,
-    ];
-  }, [exercises, t]);
-
-  const renderExerciseSectionHeader = useCallback<
-    (info: {section: Section}) => React.ReactElement
-  >(
-    ({section: {title}}) => (
-      <StickyHeading>
-        <Heading16>{title}</Heading16>
-      </StickyHeading>
-    ),
-    [],
+  const onPressCategory = useCallback(
+    (categoryId: string) => () => {
+      navigate('ExploreCategory', {categoryId});
+    },
+    [navigate],
   );
 
-  const renderExerciseItem = useCallback<
-    SectionListRenderItem<Exercise, Section>
-  >(
-    ({item}) => (
-      <Gutters>
-        <ExerciseCard exercise={item} small />
-      </Gutters>
-    ),
-    [],
+  const onPressCollection = useCallback(
+    (collectionId: string) => () => {
+      navigate('Collection', {collectionId});
+    },
+    [navigate],
+  );
+
+  const onPressTag = useCallback(
+    (tagId: string) => () => {
+      navigate('ExploreTag', {tagId});
+    },
+    [navigate],
   );
 
   return (
     <Screen backgroundColor={COLORS.PURE_WHITE}>
-      <TopSafeArea minSize={SPACINGS.SIXTEEN} />
+      <TopSafeArea />
       <TopBar
         backgroundColor={COLORS.PURE_WHITE}
         onPressEllipsis={onPressEllipsis}>
         <MiniProfile />
       </TopBar>
-
-      <SectionList
-        ref={listRef}
-        sections={exerciseSections}
-        keyExtractor={exercise => exercise.id}
-        ListHeaderComponent={
-          <>
-            {collections.length > 0 && (
-              <Gutters>
-                <Spacer20 />
-                <Heading16>{t('collectionsHeading')}</Heading16>
-                <Spacer8 />
-                <CollectionsList
-                  data={collections}
-                  keyExtractor={collection => collection.id}
-                  snapToAlignment="center"
-                  decelerationRate="fast"
-                  snapToInterval={CARD_WIDTH + SPACINGS.SIXTEEN}
-                  showsHorizontalScrollIndicator={false}
-                  horizontal
-                  renderItem={({item}) => (
-                    <>
-                      <CollectionCardContainer collection={item} />
-                      <Spacer16 />
-                    </>
-                  )}
-                />
-                <Spacer32 />
-              </Gutters>
-            )}
-            {comingSoonSection.items?.length > 0 && (
-              <Gutters>
-                <Heading16>{t('comingSoonHeading')}</Heading16>
-                <Spacer8 />
-                <ComingSoonSlider comingSoonSection={comingSoonSection} />
-              </Gutters>
-            )}
-          </>
-        }
-        renderSectionHeader={renderExerciseSectionHeader}
-        ItemSeparatorComponent={Spacer16}
-        ListFooterComponent={Spacer48}
-        renderItem={renderExerciseItem}
-      />
+      <AutoScrollView stickyHeaderIndices={[2, 4, 6]}>
+        <Spacer16 />
+        <Columns>
+          {categories.map(category => (
+            <Column key={category.id}>
+              <Category
+                category={category}
+                onPress={onPressCategory(category.id)}
+              />
+            </Column>
+          ))}
+        </Columns>
+        <StickyHeading>
+          <Heading16>{t('collectionsHeading')}</Heading16>
+        </StickyHeading>
+        <Columns>
+          {collections.map(collection => (
+            <Column key={collection.id}>
+              <Collection
+                collection={collection}
+                onPress={onPressCollection(collection.id)}
+              />
+            </Column>
+          ))}
+        </Columns>
+        <StickyHeading>
+          <Heading16>{t('skillsHeading')}</Heading16>
+        </StickyHeading>
+        <Columns>
+          {tags.map(tag => (
+            <Column key={tag.id}>
+              <Tag tag={tag} onPress={onPressTag(tag.id)} />
+            </Column>
+          ))}
+        </Columns>
+        <StickyHeading>
+          <Heading16>{t('sessionsHeading')}</Heading16>
+        </StickyHeading>
+        <Gutters>
+          {exercises.map(exercise => (
+            <Fragment key={exercise.id}>
+              <ExerciseCard exercise={exercise} small />
+              <Spacer16 />
+            </Fragment>
+          ))}
+        </Gutters>
+        <Spacer28 />
+      </AutoScrollView>
       <BottomFade />
     </Screen>
   );
