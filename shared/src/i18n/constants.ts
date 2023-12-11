@@ -3,7 +3,7 @@ export enum LANGUAGES {
   en = 'English',
   pt = 'Português',
   sv = 'Svenska',
-  ja = 'Japanese',
+  ja = '日本語',
 }
 
 export type LANGUAGE_TAG = keyof typeof LANGUAGES;
