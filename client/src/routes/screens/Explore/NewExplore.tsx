@@ -21,10 +21,11 @@ import {
 import useCategories from '../../../lib/content/hooks/useCategories';
 import useCollections from '../../../lib/content/hooks/useCollections';
 import useTags from '../../../lib/content/hooks/useTags';
-import {Choices, Choice, Label, Tag} from './Choices';
+import {Columns, Column} from './components/Columns';
 import {useTranslation} from 'react-i18next';
 import Category from './components/Category';
 import Collection from './components/Collection';
+import Tag from './components/Tag';
 
 const Explore = () => {
   const {navigate} =
@@ -55,6 +56,13 @@ const Explore = () => {
     [navigate],
   );
 
+  const onPressTag = useCallback(
+    (tagId: string) => () => {
+      navigate('ExploreTag', {tagId});
+    },
+    [navigate],
+  );
+
   return (
     <Screen backgroundColor={COLORS.PURE_WHITE}>
       <TopSafeArea />
@@ -65,40 +73,39 @@ const Explore = () => {
       </TopBar>
       <AutoScrollView stickyHeaderIndices={[2, 4, 6]}>
         <Spacer16 />
-        <Choices>
+        <Columns>
           {categories.map(category => (
-            <Choice key={category.id}>
+            <Column key={category.id}>
               <Category
                 category={category}
                 onPress={onPressCategory(category.id)}
               />
-            </Choice>
+            </Column>
           ))}
-        </Choices>
+        </Columns>
         <StickyHeading>
           <Heading16>{t('collectionsHeading')}</Heading16>
         </StickyHeading>
-        <Choices>
+        <Columns>
           {collections.map(collection => (
-            <Choice key={collection.id}>
-              <Collection collection={collection} onPress={onPressCollection} />
-            </Choice>
+            <Column key={collection.id}>
+              <Collection
+                collection={collection}
+                onPress={onPressCollection(collection.id)}
+              />
+            </Column>
           ))}
-        </Choices>
+        </Columns>
         <StickyHeading>
           <Heading16>{t('skillsHeading')}</Heading16>
         </StickyHeading>
-        <Choices>
+        <Columns>
           {tags.map(tag => (
-            <Choice
-              key={tag.id}
-              onPress={() => navigate('ExploreTag', {tagId: tag.id})}>
-              <Tag>
-                <Label>{tag.name}</Label>
-              </Tag>
-            </Choice>
+            <Column key={tag.id}>
+              <Tag tag={tag} onPress={onPressTag(tag.id)} />
+            </Column>
           ))}
-        </Choices>
+        </Columns>
         <Spacer28 />
       </AutoScrollView>
       <BottomFade />
