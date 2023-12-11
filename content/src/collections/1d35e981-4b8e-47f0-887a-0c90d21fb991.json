@@ -4,6 +4,16 @@
     "name": "Take care of yourself",
     "published": true,
     "sortOrder": 2,
+    "card": {
+      "backgroundColorGradient": [
+        {
+          "color": "#fbf5e9"
+        },
+        {
+          "color": "#2E2E2E"
+        }
+      ]
+    },
     "coCreators": [
       {
         "name": "Barncancerfonden",
