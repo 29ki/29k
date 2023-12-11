@@ -1,7 +1,8 @@
 {
   "en": {
     "id": "db34d82a-4c48-4ddd-9de5-f562d8aa1bc9",
-    "name": "Self-compassion"
+    "name": "Self-compassion",
+    "published": true
   },
   "pt": {
     "id": "db34d82a-4c48-4ddd-9de5-f562d8aa1bc9",
@@ -9,7 +10,8 @@
   },
   "sv": {
     "id": "db34d82a-4c48-4ddd-9de5-f562d8aa1bc9",
-    "name": "Självmedkänsla"
+    "name": "Självmedkänsla",
+    "published": true
   },
   "ja": {
     "id": "db34d82a-4c48-4ddd-9de5-f562d8aa1bc9"

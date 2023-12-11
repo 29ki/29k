@@ -2,7 +2,8 @@
   "en": {
     "id": "43a6dc0d-d866-4b79-9453-13c44e906128",
     "name": "Gratitude",
-    "sortOrder": 1
+    "sortOrder": 1,
+    "published": true
   },
   "pt": {
     "id": "43a6dc0d-d866-4b79-9453-13c44e906128",
@@ -12,7 +13,8 @@
   "sv": {
     "id": "43a6dc0d-d866-4b79-9453-13c44e906128",
     "sortOrder": 1,
-    "name": "Tacksamhet"
+    "name": "Tacksamhet",
+    "published": true
   },
   "ja": {
     "id": "43a6dc0d-d866-4b79-9453-13c44e906128",

@@ -1,7 +1,8 @@
 {
   "en": {
     "id": "8558ac04-771c-4f9e-9e44-e67fc04f1c7f",
-    "name": "Anxiety - deprecated"
+    "name": "Anxiety - deprecated",
+    "published": true
   },
   "pt": {
     "id": "8558ac04-771c-4f9e-9e44-e67fc04f1c7f",
@@ -9,7 +10,8 @@
   },
   "sv": {
     "id": "8558ac04-771c-4f9e-9e44-e67fc04f1c7f",
-    "name": "Ångest"
+    "name": "Ångest",
+    "published": true
   },
   "ja": {
     "id": "8558ac04-771c-4f9e-9e44-e67fc04f1c7f"

@@ -1,7 +1,8 @@
 {
   "en": {
     "id": "aef38753-75d6-4fe4-9410-4a77ca02b05f",
-    "name": "Relationships - deprecated"
+    "name": "Relationships - deprecated",
+    "published": true
   },
   "pt": {
     "id": "aef38753-75d6-4fe4-9410-4a77ca02b05f",
@@ -9,7 +10,8 @@
   },
   "sv": {
     "id": "aef38753-75d6-4fe4-9410-4a77ca02b05f",
-    "name": "Relationer"
+    "name": "Relationer",
+    "published": true
   },
   "ja": {
     "id": "aef38753-75d6-4fe4-9410-4a77ca02b05f"

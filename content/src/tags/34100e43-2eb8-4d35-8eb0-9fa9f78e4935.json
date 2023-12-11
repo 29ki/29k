@@ -1,7 +1,8 @@
 {
   "en": {
     "id": "34100e43-2eb8-4d35-8eb0-9fa9f78e4935",
-    "name": "Acceptance"
+    "name": "Acceptance",
+    "published": true
   },
   "pt": {
     "id": "34100e43-2eb8-4d35-8eb0-9fa9f78e4935",
@@ -9,7 +10,8 @@
   },
   "sv": {
     "id": "34100e43-2eb8-4d35-8eb0-9fa9f78e4935",
-    "name": "Acceptans"
+    "name": "Acceptans",
+    "published": true
   },
   "ja": {
     "id": "34100e43-2eb8-4d35-8eb0-9fa9f78e4935"
