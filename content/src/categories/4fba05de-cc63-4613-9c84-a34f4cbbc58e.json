@@ -11,7 +11,10 @@
       "5b69ff57-10c4-4288-afc7-a6f6ed212531",
       "095f9642-73b6-4c9a-ae9a-ea7dea7363f5"
     ],
-    "published": true
+    "published": true,
+    "lottie": {
+      "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1702302654/Lottie/working_on_your.._yedzqe.json"
+    }
   },
   "pt": {
     "id": "4fba05de-cc63-4613-9c84-a34f4cbbc58e",
