@@ -1,7 +1,5 @@
 import React, {useCallback, useMemo} from 'react';
-import AnimatedLottieView from 'lottie-react-native';
 import styled from 'styled-components/native';
-import {COLORS} from '../../../../../../shared/src/constants/colors';
 import TouchableOpacity from '../../../../lib/components/TouchableOpacity/TouchableOpacity';
 import {useNavigation} from '@react-navigation/native';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
@@ -11,18 +9,17 @@ import {
 } from '../../../../lib/navigation/constants/routes';
 import {
   Body12,
-  Body18,
   BodyBold,
 } from '../../../../lib/components/Typography/Body/Body';
-import {Spacer4} from '../../../../lib/components/Spacers/Spacer';
 import {Collection as CollectionType} from '../../../../../../shared/src/types/generated/Collection';
 import {Display16} from '../../../../lib/components/Typography/Display/Display';
 import useExercisesByCollectionId from '../../../../lib/content/hooks/useExercisesByCollectionId';
 import {StyleSheet} from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import {prop} from 'ramda';
-
-const Container = styled(TouchableOpacity)({});
+import {COLORS} from '../../../../../../shared/src/constants/colors';
+import {Spacer4} from '../../../../lib/components/Spacers/Spacer';
+import {useTranslation} from 'react-i18next';
 
 const Card = styled(LinearGradient).attrs({
   angle: 180,
@@ -36,10 +33,30 @@ const BackgroundImage = styled.Image({
   ...StyleSheet.absoluteFillObject,
 });
 
+const Footer = styled(LinearGradient).attrs({
+  colors: [
+    'rgba(28, 28, 28, 0)',
+    'rgba(31, 31, 31, 0.14)',
+    'rgba(34, 34, 34, 0.34)',
+    'rgba(41, 41, 41, 0.7)',
+  ],
+})({
+  ...StyleSheet.absoluteFillObject,
+  top: '50%',
+  paddingHorizontal: 10,
+  paddingBottom: 6,
+  justifyContent: 'flex-end',
+});
+
+const Lessons = styled(Body12)({
+  color: COLORS.PURE_WHITE,
+});
+
 type Props = {
   collection: CollectionType;
 };
 const Collection: React.FC<Props> = ({collection}) => {
+  const {t} = useTranslation('Component.Collection');
   const {navigate} =
     useNavigation<
       NativeStackNavigationProp<OverlayStackProps & ExploreStackProps>
@@ -69,15 +86,20 @@ const Collection: React.FC<Props> = ({collection}) => {
   }, [navigate, collection.id]);
 
   return (
-    <Container onPress={onPress}>
+    <TouchableOpacity onPress={onPress}>
       <Card colors={bgColors}>
         <BackgroundImage source={source} />
-        <Body12>
-          <BodyBold>{exercises.length} sessions</BodyBold>
-        </Body12>
+        <Footer>
+          <Lessons>
+            <BodyBold>
+              {exercises.length} {t('sessions')}
+            </BodyBold>
+          </Lessons>
+        </Footer>
       </Card>
+      <Spacer4 />
       <Display16>{collection.name}</Display16>
-    </Container>
+    </TouchableOpacity>
   );
 };
 
