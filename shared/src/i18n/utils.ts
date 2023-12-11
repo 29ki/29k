@@ -1,5 +1,9 @@
 import {clone, keys, pickBy} from 'ramda';
-import {LANGUAGE_TAG} from '../constants/i18n';
+import {LANGUAGE_TAG} from './constants';
+import {
+  HIDEABLE_NAMESPACES,
+  PUBLISHABLE_NAMESPACES,
+} from '../content/constants';
 
 export const filterPublishedContent = <T>(content: T) =>
   pickBy<T, T>(e => e.published, content);
@@ -10,9 +14,10 @@ export const filterHiddenContent = <T>(content: T) =>
 export const removeHiddenContent = (
   resources: Record<LANGUAGE_TAG, Record<string, any>>,
 ) => {
-  return keys(resources).reduce((res, ln: LANGUAGE_TAG) => {
-    res[ln]['exercises'] = filterHiddenContent(res[ln]['exercises']);
-    res[ln]['collections'] = filterHiddenContent(res[ln]['collections']);
+  return keys(resources).reduce((res, language: LANGUAGE_TAG) => {
+    HIDEABLE_NAMESPACES.forEach(namespace => {
+      res[language][namespace] = filterHiddenContent(res[language][namespace]);
+    });
     return res;
   }, clone(resources));
 };
@@ -20,9 +25,12 @@ export const removeHiddenContent = (
 export const removeUnpublishedContent = (
   resources: Record<LANGUAGE_TAG, Record<string, any>>,
 ) => {
-  return keys(resources).reduce((res, ln: LANGUAGE_TAG) => {
-    res[ln]['exercises'] = filterPublishedContent(res[ln]['exercises']);
-    res[ln]['collections'] = filterPublishedContent(res[ln]['collections']);
+  return keys(resources).reduce((res, language: LANGUAGE_TAG) => {
+    PUBLISHABLE_NAMESPACES.forEach(namespace => {
+      res[language][namespace] = filterPublishedContent(
+        res[language][namespace],
+      );
+    });
     return res;
   }, clone(resources));
 };

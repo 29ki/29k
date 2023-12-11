@@ -10,10 +10,10 @@ import content from '../../../content/content.json';
 import {
   DEFAULT_LANGUAGE_TAG,
   LANGUAGE_TAGS,
-} from '../../../shared/src/constants/i18n';
+} from '../../../shared/src/i18n/constants';
 import {removeUnpublishedContent} from '../../../shared/src/i18n/utils';
 
-export * from '../../../shared/src/constants/i18n';
+export * from '../../../shared/src/i18n/constants';
 export type {i18n as I18nInterface} from 'i18next';
 
 dayjs.extend(localizedFormat);

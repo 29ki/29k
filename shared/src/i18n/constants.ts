@@ -3,7 +3,7 @@ export enum LANGUAGES {
   en = 'English',
   pt = 'Português',
   sv = 'Svenska',
-  es = 'Español',
+  ja = '日本語',
 }
 
 export type LANGUAGE_TAG = keyof typeof LANGUAGES;
@@ -11,7 +11,7 @@ export type LANGUAGE_TAG = keyof typeof LANGUAGES;
 // LANGUAGE_TAGS defines the supported languages
 export const LANGUAGE_TAGS = Object.keys(LANGUAGES) as LANGUAGE_TAG[];
 
-// CLIENT_LANGUAGE_TAGS defines the language tags enabled in the client
+// CLIENT_LANGUAGE_TAGS defines the fully supported client language tags
 export const CLIENT_LANGUAGE_TAGS: LANGUAGE_TAG[] = ['en'];
 
 // DEFAULT_LANGUAGE defines the default language is used when a translation for

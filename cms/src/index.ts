@@ -4,7 +4,7 @@ import cloudinary from 'netlify-cms-media-library-cloudinary';
 import {
   DEFAULT_LANGUAGE_TAG,
   LANGUAGE_TAGS,
-} from '../../shared/src/constants/i18n';
+} from '../../shared/src/i18n/constants';
 import {
   exercises,
   other,
