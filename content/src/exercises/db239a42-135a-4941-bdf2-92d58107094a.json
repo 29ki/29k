@@ -104,7 +104,7 @@
       "textColor": "#F9F8F4",
       "backgroundColor": "#007961"
     },
-    "hidden": true,
+    "hidden": false,
     "name": "Find eco support",
     "live": true,
     "published": true,
@@ -342,7 +342,7 @@
       "textColor": "#F9F8F4",
       "backgroundColor": "#007961"
     },
-    "hidden": true,
+    "hidden": false,
     "name": "Hitta eko-support",
     "live": true,
     "published": true,
