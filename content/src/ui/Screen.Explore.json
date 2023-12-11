@@ -2,43 +2,11 @@
   "en": {
     "collectionsHeading": "Collections",
     "sessionsHeading": "Sessions",
-    "skillsHeading": "Skills",
-    "comingSoonHeading": "Coming soon",
-    "comingSoon": {
-      "description": "More content with the best tools for wellbeing and inner development.",
-      "items": [
-        {
-          "what": "Living in line with your values",
-          "when": "Winter"
-        },
-        {
-          "what": "Self compassion in relationships",
-          "when": "Winter"
-        }
-      ]
-    }
+    "skillsHeading": "Skills"
   },
   "pt": {
     "sessionsHeading": "Sessões",
-    "collectionsHeading": "Coleções",
-    "comingSoonHeading": "Próximas novidades",
-    "comingSoon": {
-      "description": "Mais conteúdo com as melhores ferramentas para o bem-estar e desenvolvimento pessoal.",
-      "items": [
-        {
-          "what": "Gerir o stress na escola e no trabalho",
-          "when": "Primavera"
-        },
-        {
-          "what": "Viver de acordo com os teus valores",
-          "when": "Verão"
-        },
-        {
-          "what": "Autocompaixão nas relações",
-          "when": "Outono"
-        }
-      ]
-    }
+    "collectionsHeading": "Coleções"
   },
   "sv": {
     "collectionsHeading": "Samlingar",
