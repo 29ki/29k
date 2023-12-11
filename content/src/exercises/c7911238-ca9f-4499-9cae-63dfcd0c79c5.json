@@ -143,9 +143,7 @@
         "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1698917804/Video/portal2_bounce_back_otpgvf.mp4"
       }
     },
-    "tags": [
-      "8da0534a-5da9-430a-bdf3-242ace6460fb"
-    ],
+    "tags": ["8da0534a-5da9-430a-bdf3-242ace6460fb"],
     "link": "https://aware.29k.org/bounce-back",
     "id": "c7911238-ca9f-4499-9cae-63dfcd0c79c5",
     "async": true,
@@ -227,9 +225,7 @@
         }
       ]
     },
-    "tags": [
-      "8da0534a-5da9-430a-bdf3-242ace6460fb"
-    ],
+    "tags": ["8da0534a-5da9-430a-bdf3-242ace6460fb"],
     "link": "https://aware.29k.org/bounce-back",
     "id": "c7911238-ca9f-4499-9cae-63dfcd0c79c5",
     "async": false
@@ -379,15 +375,13 @@
         "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1698917804/Video/portal2_bounce_back_otpgvf.mp4"
       }
     },
-    "tags": [
-      "8da0534a-5da9-430a-bdf3-242ace6460fb"
-    ],
+    "tags": ["8da0534a-5da9-430a-bdf3-242ace6460fb"],
     "link": "https://aware.29k.org/bounce-back",
     "id": "c7911238-ca9f-4499-9cae-63dfcd0c79c5",
     "async": true,
     "description": "Motgångar och svårigheter är en del av livet. Återhämtningsförmåga, eller att resa sig igen, är en färdighet som blir bättre med träning och den kan hjälpa oss att övervinna och till och med utvecklas när vi möter hinder.\n\nDen här övningen funkar bäst om du har någonstans att skriva ned dina tankar."
   },
-  "es": {
+  "ja": {
     "slides": [
       {
         "type": "host",
@@ -463,9 +457,7 @@
         }
       ]
     },
-    "tags": [
-      "8da0534a-5da9-430a-bdf3-242ace6460fb"
-    ],
+    "tags": ["8da0534a-5da9-430a-bdf3-242ace6460fb"],
     "link": "https://aware.29k.org/bounce-back",
     "id": "c7911238-ca9f-4499-9cae-63dfcd0c79c5",
     "async": false
