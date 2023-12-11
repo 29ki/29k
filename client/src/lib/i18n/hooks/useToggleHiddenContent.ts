@@ -2,6 +2,7 @@ import {useCallback} from 'react';
 import {useTranslation} from 'react-i18next';
 import useAppState from '../../appState/state/state';
 import {LANGUAGE_TAGS} from '../../i18n';
+import {PUBLISHABLE_NAMESPACES} from '../../../../../shared/src/content/constants';
 
 const useToggleHiddenContent = () => {
   const {i18n} = useTranslation();
@@ -13,10 +14,11 @@ const useToggleHiddenContent = () => {
       // Needs to be removed for all languages,
       // otherwise they are not reloaded when switching language
       LANGUAGE_TAGS.forEach(lng => {
-        i18n.removeResourceBundle(lng, 'exercises');
-        i18n.removeResourceBundle(lng, 'collections');
+        PUBLISHABLE_NAMESPACES.forEach(namespace => {
+          i18n.removeResourceBundle(lng, namespace);
+        });
       });
-      i18n.reloadResources(undefined, ['exercises', 'collections']);
+      i18n.reloadResources(undefined, PUBLISHABLE_NAMESPACES);
     },
     [i18n, setSettings],
   );
