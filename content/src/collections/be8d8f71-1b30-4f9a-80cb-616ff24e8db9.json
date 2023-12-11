@@ -1,6 +1,6 @@
 {
   "en": {
-    "hidden": true,
+    "hidden": false,
     "name": "Act for sustainability",
     "published": true,
     "card": {
@@ -62,7 +62,7 @@
     "tags": []
   },
   "sv": {
-    "hidden": true,
+    "hidden": false,
     "name": "Agera för hållbarhet",
     "published": true,
     "coCreators": [
