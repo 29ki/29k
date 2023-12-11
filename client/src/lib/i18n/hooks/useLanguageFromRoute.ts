@@ -2,7 +2,7 @@ import {useEffect} from 'react';
 import {useTranslation} from 'react-i18next';
 import {useNavigation} from '@react-navigation/native';
 import {findBestAvailableLanguage} from 'react-native-localize';
-import {LANGUAGE_TAG} from '../../../../../shared/src/constants/i18n';
+import {LANGUAGE_TAG} from '../../../../../shared/src/i18n/constants';
 import useAppState from '../../appState/state/state';
 
 const useLanguageFromRoute = () => {

@@ -3,10 +3,11 @@
   "version": "2.0.0",
   "private": true,
   "scripts": {
+    "build:content": "yarn --cwd \"../content\" build",
     "test:jest": "TZ=UTC jest",
     "test:lint": "eslint --ext .js,.ts",
     "test:ts": "tsc --noEmit",
-    "test": "yarn test:ts && yarn test:lint && yarn test:jest"
+    "test": "yarn build:content && yarn test:ts && yarn test:lint && yarn test:jest"
   },
   "engines": {
     "node": "18"

@@ -1,7 +1,8 @@
 {
   "en": {
     "id": "9c2c08a9-7dc6-4058-bc78-016d0eb00614",
-    "name": "Purpose"
+    "name": "Purpose",
+    "published": true
   },
   "pt": {
     "id": "9c2c08a9-7dc6-4058-bc78-016d0eb00614",
@@ -9,9 +10,10 @@
   },
   "sv": {
     "id": "9c2c08a9-7dc6-4058-bc78-016d0eb00614",
-    "name": "Mening"
+    "name": "Mening",
+    "published": true
   },
-  "es": {
+  "ja": {
     "id": "9c2c08a9-7dc6-4058-bc78-016d0eb00614"
   }
 }

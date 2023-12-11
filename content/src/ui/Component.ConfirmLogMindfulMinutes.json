@@ -10,8 +10,7 @@
       "confirm": "Yes"
     }
   },
-  "pt": {
-  },
+  "pt": {},
   "sv": {
     "title_ios": "Logga Mindfulness-minuter",
     "title_android": "Logga Meditations-minuter",
@@ -23,5 +22,5 @@
       "confirm": "Ja"
     }
   },
-  "es": {}
+  "ja": {}
 }
