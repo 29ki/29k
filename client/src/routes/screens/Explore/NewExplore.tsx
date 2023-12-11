@@ -21,8 +21,10 @@ import {
 import useCategories from '../../../lib/content/hooks/useCategories';
 import useCollections from '../../../lib/content/hooks/useCollections';
 import useTags from '../../../lib/content/hooks/useTags';
-import {Choices, Choice, Category, Label, Collection, Tag} from './Choices';
+import {Choices, Choice, Label, Tag} from './Choices';
 import {useTranslation} from 'react-i18next';
+import Category from './components/Category';
+import Collection from './components/Collection';
 
 const Explore = () => {
   const {navigate} =
@@ -51,14 +53,8 @@ const Explore = () => {
         <Spacer16 />
         <Choices>
           {categories.map(category => (
-            <Choice
-              key={category.id}
-              onPress={() =>
-                navigate('ExploreCategory', {categoryId: category.id})
-              }>
-              <Category>
-                <Label>{category.name}</Label>
-              </Category>
+            <Choice>
+              <Category key={category.id} category={category} />
             </Choice>
           ))}
         </Choices>
@@ -72,9 +68,7 @@ const Explore = () => {
               onPress={() =>
                 navigate('Collection', {collectionId: collection.id})
               }>
-              <Collection>
-                <Label>{collection.name}</Label>
-              </Collection>
+              <Collection collection={collection} />
             </Choice>
           ))}
         </Choices>

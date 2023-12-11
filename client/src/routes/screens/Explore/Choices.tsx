@@ -6,13 +6,12 @@ import TouchableOpacity from '../../../lib/components/TouchableOpacity/Touchable
 export const Choices = styled.View({
   flexDirection: 'row',
   flexWrap: 'wrap',
-  paddingHorizontal: 12,
+  paddingHorizontal: 8,
 });
 export const Choice = styled(TouchableOpacity)({
-  minHeight: 90,
   width: '50%',
-  paddingHorizontal: 4,
-  paddingBottom: 8,
+  paddingHorizontal: 8,
+  paddingBottom: 16,
 });
 export const FilterChoice = styled(TouchableOpacity)({
   paddingHorizontal: 4,
