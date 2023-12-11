@@ -984,7 +984,7 @@ PODS:
     - React-Core
   - react-native-idle-timer (2.2.1):
     - React-Core
-  - react-native-netinfo (11.1.0):
+  - react-native-netinfo (11.1.1):
     - React-Core
   - react-native-safe-area-context (4.7.4):
     - React-Core
@@ -1061,13 +1061,13 @@ PODS:
     - React-logger (= 0.69.9)
     - React-perflogger (= 0.69.9)
   - ReactNativeDailyJSScreenShareExtension (0.0.1)
-  - RNCAsyncStorage (1.19.5):
+  - RNCAsyncStorage (1.21.0):
     - React-Core
   - RNCPicker (2.5.1):
     - React-Core
-  - RNDateTimePicker (7.6.1):
+  - RNDateTimePicker (7.6.2):
     - React-Core
-  - RNDeviceInfo (10.11.0):
+  - RNDeviceInfo (10.12.0):
     - React-Core
   - RNFBApp (17.4.2):
     - Firebase/CoreOnly (= 10.7.0)
@@ -1090,7 +1090,7 @@ PODS:
     - Firebase/Storage (= 10.7.0)
     - React-Core
     - RNFBApp
-  - RNGestureHandler (2.13.4):
+  - RNGestureHandler (2.14.0):
     - React-Core
   - RNImageCropPicker (0.40.2):
     - React-Core
@@ -1144,7 +1144,7 @@ PODS:
   - RNScreens (3.27.0):
     - React-Core
     - React-RCTImage
-  - RNSentry (5.13.0):
+  - RNSentry (5.14.1):
     - React-Core
     - Sentry/HybridSDK (= 8.15.2)
   - RNSVG (14.0.0):
@@ -1497,7 +1497,7 @@ SPEC CHECKSUMS:
   react-native-daily-js: 4d8d1d59a667026a222bf9ea06176f71bd5a9ae7
   react-native-get-random-values: 384787fd76976f5aec9465aff6fa9e9129af1e74
   react-native-idle-timer: f1920a59fe776340d004ff9de13c4a6eedcc8807
-  react-native-netinfo: 3aa5637c18834966e0c932de8ae1ae56fea20a97
+  react-native-netinfo: b0ae7d0f76302eaf249de7b2b7add297e155b1d0
   react-native-safe-area-context: 2cd91d532de12acdb0a9cbc8d43ac72a8e4c897c
   react-native-volume-manager: 3c7d8047841b6831730dea7bf25250522388b4f4
   react-native-webrtc: b8f92ed95bff2f8d7189cb544dc647141e6e6dba
@@ -1514,16 +1514,16 @@ SPEC CHECKSUMS:
   React-runtimeexecutor: df1518d092e8c74cafddc56690d1ac386ec24d7a
   ReactCommon: fac40473e2c4117522384027ab33ad0cb6717dc5
   ReactNativeDailyJSScreenShareExtension: 70af702672121fcd283d7d567def4e501ce207b1
-  RNCAsyncStorage: f2974eca860c16a3e56eea5771fda8d12e2d2057
+  RNCAsyncStorage: 618d03a5f52fbccb3d7010076bc54712844c18ef
   RNCPicker: 529d564911e93598cc399b56cc0769ce3675f8c8
-  RNDateTimePicker: 8fb39263b721223e095248acaf6f406d5b7f6713
-  RNDeviceInfo: bf8a32acbcb875f568217285d1793b0e8588c974
+  RNDateTimePicker: fc2e4f2795877d45e84d85659bebe627eba5c931
+  RNDeviceInfo: db5c64a060e66e5db3102d041ebe3ef307a85120
   RNFBApp: 55dbfc574e5ae414f2984394934f79f87eb4b050
   RNFBAuth: d30acc0f5f169bc28c7fcbf1b45cd061cc647590
   RNFBDynamicLinks: 82e9846916034c287333ebbcbdbc31435796663c
   RNFBFirestore: c505e6f96e70fb029ae1961c73965fd13ce92db5
   RNFBStorage: d40ebadfad4755ed1ef6a74cae84c9ee9ca47ffd
-  RNGestureHandler: 360f9c7e91ec49ac76f03e73fb394d92e2a88e55
+  RNGestureHandler: 4279931048471f17faf46d912b2e96e10f1da99b
   RNImageCropPicker: d9616a0cb9b72e8551ff94a7a5021fbd29050aa5
   RNLocalize: d4b8af4e442d4bcca54e68fc687a2129b4d71a81
   RNNotifee: f3c01b391dd8e98e67f539f9a35a9cbcd3bae744
@@ -1532,7 +1532,7 @@ SPEC CHECKSUMS:
   RNReactNativeHapticFeedback: ec56a5f81c3941206fd85625fa669ffc7b4545f9
   RNReanimated: c6f8f70e96dd6ca21b65aef9b3e4efe4965db905
   RNScreens: 2b19e2471db8a581c83f381f4ea5d43071c9a3bf
-  RNSentry: 82667e9889782365bf801645ef4d2a731dcf60df
+  RNSentry: 91cfc6cebef9c6a369bdfb670f3547ebf51dd60b
   RNSVG: 255767813dac22db1ec2062c8b7e7b856d4e5ae6
   Sentry: 6f5742b4c47c17c9adcf265f6f328cf4a0ed1923
   SentryPrivate: b2f7996f37781080f04a946eb4e377ff63c64195
