@@ -7,8 +7,7 @@
     "subscriptionTitle": "Problem getting progress updates",
     "subscriptionMessage": "It seems there is a problem getting updates to the session."
   },
-  "pt": {
-  },
+  "pt": {},
   "sv": {
     "title": "Tappat uppkoppling till Internet",
     "message": "Det verkar som att du inte har uppkoppling till Internet just nu.",
@@ -17,5 +16,5 @@
     "subscriptionTitle": "Problem med att få uppdateringar",
     "subscriptionMessage": "Det verkar vara problem att få sessionens uppdateringar just nu."
   },
-  "es": {}
+  "ja": {}
 }
