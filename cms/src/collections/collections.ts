@@ -6,7 +6,7 @@ import {generateFilesCollectionFromi18nFiles} from '../lib/i18n';
 import EXERCISE_DEFAULTS_FIELDS from '../fields/defaults';
 import {TAG_FIELDS} from '../fields/tag';
 import {COLLECTION_FIELDS} from '../fields/collection';
-import {DEFAULT_LANGUAGE_TAG} from '../../../shared/src/constants/i18n';
+import {DEFAULT_LANGUAGE_TAG} from '../../../shared/src/i18n/constants';
 import EDITOR_TEXT_TEMPLATES_FIELDS from '../fields/templates';
 import {CATEGORY_FIELD} from '../fields/category';
 

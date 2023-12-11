@@ -14,7 +14,7 @@ describe('utils', () => {
           pt: {
             translationKey: 'some other translation',
           },
-          es: {
+          ja: {
             translationKey: 'some other translation',
           },
         },
@@ -35,7 +35,7 @@ describe('utils', () => {
             translationKey: 'some other translation',
           },
         },
-        es: {
+        ja: {
           Component: {
             translationKey: 'some other translation',
           },
@@ -58,7 +58,7 @@ describe('utils', () => {
           },
           sv: {published: false},
           pt: {published: false},
-          es: {published: false},
+          ja: {published: false},
         },
         'some-other-exercise-id': {
           en: {
@@ -73,7 +73,7 @@ describe('utils', () => {
           },
           sv: {published: false},
           pt: {published: false},
-          es: {published: false},
+          ja: {published: false},
         },
       };
       expect(generateI18NResources(content, 'exercises')).toEqual({
@@ -95,7 +95,7 @@ describe('utils', () => {
             'some-other-exercise-id': {published: false},
           },
         },
-        es: {
+        ja: {
           exercises: {
             'some-exercise-id': {published: false},
             'some-other-exercise-id': {published: false},

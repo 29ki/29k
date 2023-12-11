@@ -365,7 +365,7 @@
     "async": true,
     "description": "Stress i sig självt är inte farligt – men brist på återhämtning kan vara det.\n\nI stressiga perioder behöver vi ofta hjälpa oss själva göra plats för återhämtning."
   },
-  "es": {
+  "ja": {
     "slides": [
       {
         "type": "host",

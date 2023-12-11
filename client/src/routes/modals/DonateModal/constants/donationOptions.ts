@@ -1,4 +1,4 @@
-import {CURRENCIES} from '../../../../../../shared/src/constants/i18n';
+import {CURRENCIES} from '../../../../../../shared/src/i18n/constants';
 
 export const ONE_TIME_AMOUNTS = {
   [CURRENCIES.USD]: [100, 50, 30, 20, 10, 5],
