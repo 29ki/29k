@@ -1,4 +1,4 @@
-import React, {Fragment, useMemo} from 'react';
+import React, {Fragment, useCallback, useMemo} from 'react';
 import {useRoute, RouteProp, useNavigation} from '@react-navigation/native';
 import {COLORS} from '../../../../../shared/src/constants/colors';
 import Screen from '../../../lib/components/Screen/Screen';
@@ -20,10 +20,11 @@ import {
 } from '../../../lib/components/Spacers/Spacer';
 import StickyHeading from '../../../lib/components/StickyHeading/StickyHeading';
 import {Heading16} from '../../../lib/components/Typography/Heading/Heading';
-import {Choices, Choice, Collection, Label} from './Choices';
+import {Columns, Column} from './components/Columns';
 import useExercisesByTags from '../../../lib/content/hooks/useExercisesByTags';
 import useCollectionsByTags from '../../../lib/content/hooks/useCollectionsByTags';
 import {useTranslation} from 'react-i18next';
+import Collection from './components/Collection';
 
 const ExploreTag = () => {
   const {
@@ -40,6 +41,13 @@ const ExploreTag = () => {
   const exercises = useExercisesByTags(tagFilter);
   const collections = useCollectionsByTags(tagFilter);
 
+  const onPressCollection = useCallback(
+    (collectionId: string) => () => {
+      navigate('Collection', {collectionId});
+    },
+    [navigate],
+  );
+
   return (
     <Screen
       onPressBack={goBack}
@@ -55,19 +63,16 @@ const ExploreTag = () => {
           </StickyHeading>
         )}
         {collections.length > 0 && (
-          <Choices>
+          <Columns>
             {collections.map(collection => (
-              <Choice
-                key={collection.id}
-                onPress={() =>
-                  navigate('Collection', {collectionId: collection.id})
-                }>
-                <Collection>
-                  <Label>{collection.name}</Label>
-                </Collection>
-              </Choice>
+              <Column key={collection.id}>
+                <Collection
+                  collection={collection}
+                  onPress={onPressCollection(collection.id)}
+                />
+              </Column>
             ))}
-          </Choices>
+          </Columns>
         )}
         {exercises.length > 0 && (
           <StickyHeading>

@@ -5,25 +5,27 @@ import TouchableOpacity from '../../../../lib/components/TouchableOpacity/Toucha
 import {Body16} from '../../../../lib/components/Typography/Body/Body';
 import {Tag as TagType} from '../../../../../../shared/src/types/generated/Tag';
 
-const Container = styled(TouchableOpacity)({
+const Container = styled(TouchableOpacity)<{active?: boolean}>(({active}) => ({
   padding: 8,
-  backgroundColor: COLORS.CREAM,
+  backgroundColor: active ? COLORS.BLACK : COLORS.CREAM,
   borderRadius: 8,
   overflow: 'hidden',
-});
+}));
 
-const Name = styled(Body16)({
+const Name = styled(Body16)<{active?: boolean}>(({active}) => ({
   textAlign: 'center',
-});
+  color: active ? COLORS.PURE_WHITE : COLORS.BLACK,
+}));
 
 type Props = {
   tag: TagType;
+  active?: boolean;
   onPress?: () => void;
 };
-const Tag: React.FC<Props> = ({tag, onPress}) => {
+const Tag: React.FC<Props> = ({tag, active, onPress}) => {
   return (
-    <Container onPress={onPress}>
-      <Name>{tag.name}</Name>
+    <Container active={active} onPress={onPress}>
+      <Name active={active}>{tag.name}</Name>
     </Container>
   );
 };
