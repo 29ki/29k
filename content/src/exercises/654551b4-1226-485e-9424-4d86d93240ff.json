@@ -100,7 +100,7 @@
       "textColor": "#F9F8F4",
       "backgroundColor": "#007961"
     },
-    "hidden": true,
+    "hidden": false,
     "name": "Engage for sustainability",
     "live": true,
     "published": true,
@@ -334,7 +334,7 @@
       "textColor": "#F9F8F4",
       "backgroundColor": "#007961"
     },
-    "hidden": true,
+    "hidden": false,
     "name": "Engagemang för hållbarhet",
     "live": true,
     "published": true,
