@@ -41,6 +41,20 @@ const Explore = () => {
     navigate('AboutOverlay');
   }, [navigate]);
 
+  const onPressCategory = useCallback(
+    (categoryId: string) => () => {
+      navigate('ExploreCategory', {categoryId});
+    },
+    [navigate],
+  );
+
+  const onPressCollection = useCallback(
+    (collectionId: string) => () => {
+      navigate('Collection', {collectionId});
+    },
+    [navigate],
+  );
+
   return (
     <Screen backgroundColor={COLORS.PURE_WHITE}>
       <TopSafeArea />
@@ -53,8 +67,11 @@ const Explore = () => {
         <Spacer16 />
         <Choices>
           {categories.map(category => (
-            <Choice>
-              <Category key={category.id} category={category} />
+            <Choice key={category.id}>
+              <Category
+                category={category}
+                onPress={onPressCategory(category.id)}
+              />
             </Choice>
           ))}
         </Choices>
@@ -63,12 +80,8 @@ const Explore = () => {
         </StickyHeading>
         <Choices>
           {collections.map(collection => (
-            <Choice
-              key={collection.id}
-              onPress={() =>
-                navigate('Collection', {collectionId: collection.id})
-              }>
-              <Collection collection={collection} />
+            <Choice key={collection.id}>
+              <Collection collection={collection} onPress={onPressCollection} />
             </Choice>
           ))}
         </Choices>

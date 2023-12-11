@@ -1,12 +1,6 @@
-import React, {useCallback, useMemo} from 'react';
+import React, {useMemo} from 'react';
 import styled from 'styled-components/native';
 import TouchableOpacity from '../../../../lib/components/TouchableOpacity/TouchableOpacity';
-import {useNavigation} from '@react-navigation/native';
-import {NativeStackNavigationProp} from '@react-navigation/native-stack';
-import {
-  OverlayStackProps,
-  ExploreStackProps,
-} from '../../../../lib/navigation/constants/routes';
 import {
   Body12,
   BodyBold,
@@ -54,13 +48,10 @@ const Lessons = styled(Body12)({
 
 type Props = {
   collection: CollectionType;
+  onPress?: () => void;
 };
-const Collection: React.FC<Props> = ({collection}) => {
+const Collection: React.FC<Props> = ({collection, onPress}) => {
   const {t} = useTranslation('Component.Collection');
-  const {navigate} =
-    useNavigation<
-      NativeStackNavigationProp<OverlayStackProps & ExploreStackProps>
-    >();
 
   const exercises = useExercisesByCollectionId(collection.id);
 
@@ -80,10 +71,6 @@ const Collection: React.FC<Props> = ({collection}) => {
     () => ({uri: collection.image?.source}),
     [collection.image],
   );
-
-  const onPress = useCallback(() => {
-    navigate('Collection', {collectionId: collection.id});
-  }, [navigate, collection.id]);
 
   return (
     <TouchableOpacity onPress={onPress}>
