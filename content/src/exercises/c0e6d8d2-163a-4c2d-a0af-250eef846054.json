@@ -102,7 +102,7 @@
       "textColor": "#F9F8F4",
       "backgroundColor": "#007961"
     },
-    "hidden": true,
+    "hidden": false,
     "name": "Act on eco emotions",
     "live": true,
     "published": true,
@@ -355,7 +355,7 @@
       "textColor": "#F9F8F4",
       "backgroundColor": "#007961"
     },
-    "hidden": true,
+    "hidden": false,
     "name": "Agera på eko-känslor",
     "live": true,
     "published": true,
