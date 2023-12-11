@@ -2,9 +2,7 @@
   "en": {
     "id": "e2d46c10-77c3-4784-a9ea-4e7b4939711d",
     "name": "Find meaning",
-    "collections": [
-      "d9897547-18a2-4404-b12b-324458021783"
-    ],
+    "collections": ["d9897547-18a2-4404-b12b-324458021783"],
     "exercises": [
       "fff6f8da-f69c-458f-8905-acee04bd1a1d",
       "640e4d9f-bb88-44af-a032-116a82f080f6",
@@ -16,9 +14,7 @@
   "pt": {
     "id": "e2d46c10-77c3-4784-a9ea-4e7b4939711d",
     "name": "",
-    "collections": [
-      "d9897547-18a2-4404-b12b-324458021783"
-    ],
+    "collections": ["d9897547-18a2-4404-b12b-324458021783"],
     "exercises": [
       "fff6f8da-f69c-458f-8905-acee04bd1a1d",
       "640e4d9f-bb88-44af-a032-116a82f080f6",
@@ -29,9 +25,7 @@
   },
   "sv": {
     "id": "e2d46c10-77c3-4784-a9ea-4e7b4939711d",
-    "collections": [
-      "d9897547-18a2-4404-b12b-324458021783"
-    ],
+    "collections": ["d9897547-18a2-4404-b12b-324458021783"],
     "exercises": [
       "fff6f8da-f69c-458f-8905-acee04bd1a1d",
       "640e4d9f-bb88-44af-a032-116a82f080f6",
@@ -41,11 +35,9 @@
     ],
     "name": "Hitta mening"
   },
-  "es": {
+  "ja": {
     "id": "e2d46c10-77c3-4784-a9ea-4e7b4939711d",
-    "collections": [
-      "d9897547-18a2-4404-b12b-324458021783"
-    ],
+    "collections": ["d9897547-18a2-4404-b12b-324458021783"],
     "exercises": [
       "fff6f8da-f69c-458f-8905-acee04bd1a1d",
       "640e4d9f-bb88-44af-a032-116a82f080f6",

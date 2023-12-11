@@ -2,9 +2,7 @@
   "en": {
     "id": "4fba05de-cc63-4613-9c84-a34f4cbbc58e",
     "name": "Work on your relationships",
-    "collections": [
-      "716c2b31-612c-40c4-8e85-90f0a2af380e"
-    ],
+    "collections": ["716c2b31-612c-40c4-8e85-90f0a2af380e"],
     "exercises": [
       "648e1802-eb45-47b0-a42e-dd986669a4eb",
       "c5b1197a-4eec-4699-9dad-0e3d6323967b",
@@ -15,9 +13,7 @@
   "pt": {
     "id": "4fba05de-cc63-4613-9c84-a34f4cbbc58e",
     "name": "",
-    "collections": [
-      "716c2b31-612c-40c4-8e85-90f0a2af380e"
-    ],
+    "collections": ["716c2b31-612c-40c4-8e85-90f0a2af380e"],
     "exercises": [
       "648e1802-eb45-47b0-a42e-dd986669a4eb",
       "c5b1197a-4eec-4699-9dad-0e3d6323967b",
@@ -27,9 +23,7 @@
   },
   "sv": {
     "id": "4fba05de-cc63-4613-9c84-a34f4cbbc58e",
-    "collections": [
-      "716c2b31-612c-40c4-8e85-90f0a2af380e"
-    ],
+    "collections": ["716c2b31-612c-40c4-8e85-90f0a2af380e"],
     "exercises": [
       "648e1802-eb45-47b0-a42e-dd986669a4eb",
       "c5b1197a-4eec-4699-9dad-0e3d6323967b",
@@ -38,11 +32,9 @@
     ],
     "name": "Jobba på dina relationer"
   },
-  "es": {
+  "ja": {
     "id": "4fba05de-cc63-4613-9c84-a34f4cbbc58e",
-    "collections": [
-      "716c2b31-612c-40c4-8e85-90f0a2af380e"
-    ],
+    "collections": ["716c2b31-612c-40c4-8e85-90f0a2af380e"],
     "exercises": [
       "648e1802-eb45-47b0-a42e-dd986669a4eb",
       "c5b1197a-4eec-4699-9dad-0e3d6323967b",

@@ -5,13 +5,12 @@
     "removeYes": "Yes, remove",
     "removeNo": "Cancel"
   },
-  "pt": {
-  },
+  "pt": {},
   "sv": {
     "removeTitle": "Ta bort {{displayName}} från sessinen",
     "removeText": "Är du säker på att du vill ta bort {{displayName}} från denna session? Användaren kommer inte kunna gå med igen.",
     "removeYes": "Ja, ta bort",
     "removeNo": "Avbryt"
   },
-  "es": {}
+  "ja": {}
 }
