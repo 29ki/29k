@@ -5,7 +5,7 @@ import {
   CLIENT_LANGUAGE_TAGS,
   LANGUAGES,
   LANGUAGE_TAG,
-} from '../../../../../shared/src/constants/i18n';
+} from '../../../../../shared/src/i18n/constants';
 import useAppState from '../../appState/state/state';
 
 const useSetPreferredLanguage = () => {

@@ -21,7 +21,8 @@
       "8cb72f0d-3aad-4fe6-bf08-560b108bb439",
       "716c2b31-612c-40c4-8e85-90f0a2af380e",
       "1d35e981-4b8e-47f0-887a-0c90d21fb991"
-    ]
+    ],
+    "published": true
   },
   "pt": {
     "id": "07c58365-832b-4b3f-b926-c09682632441",
@@ -69,9 +70,10 @@
       "716c2b31-612c-40c4-8e85-90f0a2af380e",
       "1d35e981-4b8e-47f0-887a-0c90d21fb991"
     ],
-    "name": "Hantera stress"
+    "name": "Hantera stress",
+    "published": true
   },
-  "es": {
+  "ja": {
     "id": "07c58365-832b-4b3f-b926-c09682632441",
     "exercises": [
       "961656ea-021c-4faa-ae03-46d6ace4be4b",

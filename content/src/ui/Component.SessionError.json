@@ -4,12 +4,11 @@
     "message": "Please rejoin the session.",
     "rejoinButton": "Rejoin"
   },
-  "pt": {
-  },
+  "pt": {},
   "sv": {
     "title": "Fel i sessionen",
     "message": "Försök att gå med i sessionen igen.",
     "rejoinButton": "Gå med igen"
   },
-  "es": {}
+  "ja": {}
 }

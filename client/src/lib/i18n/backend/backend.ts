@@ -1,16 +1,13 @@
 import {BackendModule, ReadCallback} from 'i18next';
 import content from '../../../../../content/content.json';
-import {
-  LANGUAGE_TAG,
-  DEFAULT_LANGUAGE_TAG,
-} from '../../../../../shared/src/constants/i18n';
+import {LANGUAGE_TAG} from '../../../../../shared/src/i18n/constants';
 import {
   filterPublishedContent,
   filterHiddenContent,
 } from '../../../../../shared/src/i18n/utils';
 import {getShowHiddenContent} from '../utils/utils';
-
-type Namespace = keyof (typeof content.i18n)[typeof DEFAULT_LANGUAGE_TAG];
+import {PUBLISHABLE_NAMESPACES} from '../../../../../shared/src/content/constants';
+import {I18nNamespace} from '../../../../../shared/src/content/types';
 
 const Backend: BackendModule = {
   type: 'backend',
@@ -18,10 +15,10 @@ const Backend: BackendModule = {
   // Loads all non included content
   read: function (
     language: LANGUAGE_TAG,
-    namespace: Namespace | 'exercises' | 'collections',
+    namespace: I18nNamespace,
     callback: ReadCallback,
   ) {
-    if (namespace === 'exercises' || namespace === 'collections') {
+    if (PUBLISHABLE_NAMESPACES.includes(namespace)) {
       const namespaceContent = filterPublishedContent(
         content.i18n[language][namespace],
       );

@@ -21,11 +21,11 @@ import {
   CLIENT_LANGUAGE_TAGS,
   DEFAULT_LANGUAGE_TAG,
   LANGUAGE_TAGS,
-} from '../../../../shared/src/constants/i18n';
+} from '../../../../shared/src/i18n/constants';
 import Backend from './backend/backend';
-import {omitExercisesAndCollections} from './utils/utils';
+import {omitUnpublishedContent} from './utils/utils';
 
-export * from '../../../../shared/src/constants/i18n';
+export * from '../../../../shared/src/i18n/constants';
 
 dayjs.extend(localizedFormat);
 dayjs.extend(isToday);
@@ -43,9 +43,9 @@ export const init = () =>
       lng: findBestAvailableLanguage(CLIENT_LANGUAGE_TAGS)?.languageTag,
       supportedLngs: LANGUAGE_TAGS,
       fallbackLng: DEFAULT_LANGUAGE_TAG,
-      // To trigger the backend middleware to load exercises they have to be removed first.
+      // To trigger the backend middleware to load publishable content they have to be removed first.
       // Removing them in buildContent creates somewhat of a mess in backend adding them back.
-      resources: omitExercisesAndCollections(content.i18n),
+      resources: omitUnpublishedContent(content.i18n),
       partialBundledLanguages: true,
       returnNull: false,
       interpolation: {

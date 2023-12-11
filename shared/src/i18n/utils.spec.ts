@@ -42,6 +42,8 @@ describe('utils', () => {
               'collection-1': {published: true},
               'collection-2': {},
             },
+            categories: {},
+            tags: {},
           },
           pt: {
             exercises: {
@@ -52,21 +54,27 @@ describe('utils', () => {
               'collection-1': {},
               'collection-2': {published: true},
             },
+            categories: {},
+            tags: {},
           },
-          sv: {exercises: {}, collections: {}},
-          es: {exercises: {}, collections: {}},
+          sv: {exercises: {}, collections: {}, categories: {}, tags: {}},
+          ja: {exercises: {}, collections: {}, categories: {}, tags: {}},
         }),
       ).toEqual({
         en: {
           exercises: {'exercise-1': {published: true}},
           collections: {'collection-1': {published: true}},
+          categories: {},
+          tags: {},
         },
         pt: {
           exercises: {'exercise-2': {published: true}},
           collections: {'collection-2': {published: true}},
+          categories: {},
+          tags: {},
         },
-        sv: {exercises: {}, collections: {}},
-        es: {exercises: {}, collections: {}},
+        sv: {exercises: {}, collections: {}, categories: {}, tags: {}},
+        ja: {exercises: {}, collections: {}, categories: {}, tags: {}},
       });
     });
   });
@@ -96,7 +104,7 @@ describe('utils', () => {
             },
           },
           sv: {exercises: {}, collections: {}},
-          es: {exercises: {}, collections: {}},
+          ja: {exercises: {}, collections: {}},
         }),
       ).toEqual({
         en: {
@@ -108,7 +116,7 @@ describe('utils', () => {
           collections: {'collection-2': {}},
         },
         sv: {exercises: {}, collections: {}},
-        es: {exercises: {}, collections: {}},
+        ja: {exercises: {}, collections: {}},
       });
     });
   });
