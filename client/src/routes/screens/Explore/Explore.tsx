@@ -1,4 +1,5 @@
-import React, {Fragment, useCallback} from 'react';
+import React, {Fragment, useCallback, useRef} from 'react';
+import {ScrollView} from 'react-native';
 import AutoScrollView from '../../../lib/components/AutoScrollView/AutoScrollView';
 import StickyHeading from '../../../lib/components/StickyHeading/StickyHeading';
 import {Heading16} from '../../../lib/components/Typography/Heading/Heading';
@@ -12,7 +13,7 @@ import {COLORS} from '../../../../../shared/src/constants/colors';
 import BottomFade from '../../../lib/components/BottomFade/BottomFade';
 import TopBar from '../../../lib/components/TopBar/TopBar';
 import MiniProfile from '../../../lib/components/MiniProfile/MiniProfile';
-import {useNavigation} from '@react-navigation/native';
+import {useNavigation, useScrollToTop} from '@react-navigation/native';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import {
   ExploreStackProps,
@@ -38,6 +39,9 @@ const Explore = () => {
       NativeStackNavigationProp<OverlayStackProps & ExploreStackProps>
     >();
   const {t} = useTranslation('Screen.Explore');
+  const scrollRef = useRef<ScrollView>(null);
+
+  useScrollToTop(scrollRef);
 
   const categories = useCategories();
   const collections = useCollections();
@@ -64,7 +68,7 @@ const Explore = () => {
         onPressEllipsis={onPressEllipsis}>
         <MiniProfile />
       </TopBar>
-      <AutoScrollView stickyHeaderIndices={[2, 4, 6, 8]}>
+      <AutoScrollView ref={scrollRef} stickyHeaderIndices={[2, 4, 6, 8]}>
         <Spacer16 />
         <Columns>
           {categories.map(category => (
