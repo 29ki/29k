@@ -22,13 +22,12 @@ import {
 } from '../../../../lib/navigation/constants/routes';
 import {useFeaturedCollectionIds} from '../../../../lib/content/hooks/useFeaturedContent';
 
-const Card = styled(LinearGradient).attrs({
-  angle: 180,
-})({
+const Card = styled.View<{backgroundColor?: string}>(({backgroundColor}) => ({
   aspectRatio: 1.3625,
   borderRadius: 16,
   overflow: 'hidden',
-});
+  backgroundColor,
+}));
 
 const New = styled(Body12)({
   position: 'absolute',
@@ -79,21 +78,9 @@ const Collection: React.FC<Props> = ({collection}) => {
   const exercises = useExercisesByCollectionId(collection.id);
   const featuredIds = useFeaturedCollectionIds();
 
-  const bgColors = useMemo(() => {
-    const colors = collection.card?.backgroundColorGradient
-      ? collection.card?.backgroundColorGradient.map(prop('color'))
-      : [];
-
-    while (colors.length < 2) {
-      colors.push('transparent');
-    }
-
-    return colors;
-  }, [collection.card?.backgroundColorGradient]);
-
   const source = useMemo(
-    () => ({uri: collection.image?.source}),
-    [collection.image],
+    () => ({uri: collection.card?.image?.source}),
+    [collection.card?.image],
   );
 
   const onPress = useCallback(() => {
@@ -102,7 +89,7 @@ const Collection: React.FC<Props> = ({collection}) => {
 
   return (
     <TouchableOpacity onPress={onPress}>
-      <Card colors={bgColors}>
+      <Card backgroundColor={collection.card?.imageBackgroundColor}>
         <BackgroundImage source={source} />
         {featuredIds.includes(collection.id) && <New>{t('new')}</New>}
         <Footer>

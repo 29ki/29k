@@ -105,7 +105,7 @@ const Collection = () => {
 
   const image = useMemo(
     () => ({
-      uri: collection?.image?.source,
+      uri: collection?.card?.image?.source,
     }),
     [collection],
   );

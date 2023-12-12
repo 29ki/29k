@@ -9,8 +9,11 @@
       "c5b1197a-4eec-4699-9dad-0e3d6323967b"
     ],
     "name": "Find calm",
-    "image": {
-      "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1682398819/Images/ease_stress_collection_cwrydu.png"
+    "card": {
+      "image": {
+        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1682398819/Images/ease_stress_collection_cwrydu.png"
+      },
+      "imageBackgroundColor": "#25a5ec"
     },
     "published": true,
     "link": "https://aware.29k.org/ease-stress"
@@ -25,8 +28,11 @@
       "c5b1197a-4eec-4699-9dad-0e3d6323967b"
     ],
     "name": "Alivia o stress",
-    "image": {
-      "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1682398819/Images/ease_stress_collection_cwrydu.png"
+    "card": {
+      "image": {
+        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1682398819/Images/ease_stress_collection_cwrydu.png"
+      },
+      "imageBackgroundColor": "#25a5ec"
     },
     "published": true,
     "link": "https://aware.29k.org/ease-stress",
@@ -42,7 +48,10 @@
     ],
     "published": false,
     "link": "https://aware.29k.org/ease-stress",
-    "hidden": true
+    "hidden": true,
+    "card": {
+      "imageBackgroundColor": "#25a5ec"
+    }
   },
   "ja": {
     "id": "af1c4ac9-1bae-4cb1-8c98-e1f98a8aea66",
@@ -54,6 +63,9 @@
     ],
     "published": false,
     "link": "https://aware.29k.org/ease-stress",
-    "hidden": true
+    "hidden": true,
+    "card": {
+      "imageBackgroundColor": "#25a5ec"
+    }
   }
 }

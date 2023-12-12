@@ -4,15 +4,10 @@
     "name": "Act for sustainability",
     "published": true,
     "card": {
-      "backgroundColorGradient": [
-        {
-          "color": "#273c4e"
-        },
-        {
-          "color": "#273c4e"
-        }
-      ],
-      "textColor": "#ffffff"
+      "imageBackgroundColor": "#273c4e",
+      "image": {
+        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1701868914/Images/collection_card_climatP_2_je7nir.png"
+      }
     },
     "coCreators": [
       {
@@ -37,9 +32,6 @@
     ],
     "link": "",
     "id": "be8d8f71-1b30-4f9a-80cb-616ff24e8db9",
-    "image": {
-      "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1701868914/Images/collection_card_climatP_2_je7nir.png"
-    },
     "exercises": [
       "db239a42-135a-4941-bdf2-92d58107094a",
       "0d4c9833-6a11-4b1a-8d1e-4467db6f24ea",
@@ -65,12 +57,21 @@
     "tags": [
       "566aeb1b-1649-4f5a-96a2-0c80be27efc0",
       "9c2c08a9-7dc6-4058-bc78-016d0eb00614"
-    ]
+    ],
+    "card": {
+      "imageBackgroundColor": "#273c4e"
+    }
   },
   "sv": {
     "hidden": false,
     "name": "Agera för hållbarhet",
     "published": true,
+    "card": {
+      "image": {
+        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1701868914/Images/collection_card_climatP_2_je7nir.png"
+      },
+      "imageBackgroundColor": "#273c4e"
+    },
     "coCreators": [
       {
         "name": "Kali Andersson, röst",
@@ -94,9 +95,6 @@
     ],
     "link": "",
     "id": "be8d8f71-1b30-4f9a-80cb-616ff24e8db9",
-    "image": {
-      "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1701868914/Images/collection_card_climatP_2_je7nir.png"
-    },
     "exercises": [
       "db239a42-135a-4941-bdf2-92d58107094a",
       "0d4c9833-6a11-4b1a-8d1e-4467db6f24ea",
@@ -121,6 +119,9 @@
     "tags": [
       "566aeb1b-1649-4f5a-96a2-0c80be27efc0",
       "9c2c08a9-7dc6-4058-bc78-016d0eb00614"
-    ]
+    ],
+    "card": {
+      "imageBackgroundColor": "#273c4e"
+    }
   }
 }

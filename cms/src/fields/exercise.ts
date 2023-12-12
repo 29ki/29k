@@ -19,6 +19,7 @@ import {
   CO_CREATORS_FIELD,
   BACKGROUND_COLOR_FIELD,
   LOTTE_FIELD,
+  IMAGE_BACKGROUND_COLOR_FIELD,
 } from './common';
 import {TAGS_FIELD} from './relations';
 import {
@@ -39,13 +40,7 @@ const CARD_FIELD: CmsField = {
   widget: 'object',
   collapsed: true,
   fields: [
-    {
-      label: '🎨 Image Background Color',
-      name: 'imageBackgroundColor',
-      widget: 'color',
-      i18n: true,
-      required: false,
-    },
+    IMAGE_BACKGROUND_COLOR_FIELD,
     CARD_IMAGE_FIELD,
     {...LOTTE_FIELD, hint: 'Overrides image'},
   ],
