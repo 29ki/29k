@@ -49,7 +49,10 @@
       "716c2b31-612c-40c4-8e85-90f0a2af380e",
       "1d35e981-4b8e-47f0-887a-0c90d21fb991"
     ],
-    "name": ""
+    "name": "",
+    "lottie": {
+      "source": null
+    }
   },
   "sv": {
     "id": "07c58365-832b-4b3f-b926-c09682632441",
@@ -74,7 +77,10 @@
       "1d35e981-4b8e-47f0-887a-0c90d21fb991"
     ],
     "name": "Hantera stress",
-    "published": true
+    "published": true,
+    "lottie": {
+      "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1702302654/Lottie/deal_with_stress_kodv1x.json"
+    }
   },
   "ja": {
     "id": "07c58365-832b-4b3f-b926-c09682632441",
