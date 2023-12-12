@@ -1,4 +1,4 @@
-import {CmsField, CmsFieldBase, CmsFieldObject} from 'netlify-cms-core';
+import {CmsField, CmsFieldBase, CmsFieldObject} from 'decap-cms-core';
 import {
   CLOUDINARY_AUDIO_CONFIG,
   CLOUDINARY_CARD_IMAGE_CONFIG,

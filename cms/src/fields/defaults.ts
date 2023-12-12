@@ -1,4 +1,4 @@
-import {CmsField} from 'netlify-cms-core';
+import {CmsField} from 'decap-cms-core';
 import {INTRO_PORTAL, OUTRO_PORTAL, SLIDES} from './exercise';
 
 const EXERCISE_DEFAULTS_FIELDS: Array<CmsField> = [

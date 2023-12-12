@@ -1,5 +1,5 @@
-import CMS from 'netlify-cms-app';
-import cloudinary from 'netlify-cms-media-library-cloudinary';
+import CMS from 'decap-cms-app';
+import cloudinary from 'decap-cms-media-library-cloudinary';
 
 import {
   DEFAULT_LANGUAGE_TAG,

@@ -1,4 +1,4 @@
-import {CmsField} from 'netlify-cms-core';
+import {CmsField} from 'decap-cms-core';
 import {ID_FIELD, LOTTE_FIELD, NAME_FIELD, PUBLISHED_FIELD} from './common';
 import {COLLECTIONS_FIELD} from './relations';
 import {EXERCISES_FIELD} from './relations';

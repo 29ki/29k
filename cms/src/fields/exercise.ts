@@ -1,4 +1,4 @@
-import {CmsField} from 'netlify-cms-core';
+import {CmsField} from 'decap-cms-core';
 import {applyDefaults} from '../lib/fields';
 import defaults from '../defaults/exercise.json';
 
