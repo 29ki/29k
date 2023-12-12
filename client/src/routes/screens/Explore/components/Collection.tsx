@@ -20,12 +20,25 @@ import {
   OverlayStackProps,
   ExploreStackProps,
 } from '../../../../lib/navigation/constants/routes';
+import {useFeaturedCollectionIds} from '../../../../lib/content/hooks/useFeaturedContent';
 
 const Card = styled(LinearGradient).attrs({
   angle: 180,
 })({
   aspectRatio: 1.3625,
   borderRadius: 16,
+  overflow: 'hidden',
+});
+
+const New = styled(Body12)({
+  position: 'absolute',
+  top: 10,
+  left: 10,
+  paddingHorizontal: 4,
+  paddingVertical: 2,
+  borderRadius: 4,
+  color: COLORS.PURE_WHITE,
+  backgroundColor: COLORS.BLACK,
   overflow: 'hidden',
 });
 
@@ -64,6 +77,7 @@ const Collection: React.FC<Props> = ({collection}) => {
   const {t} = useTranslation('Component.Collection');
 
   const exercises = useExercisesByCollectionId(collection.id);
+  const featuredIds = useFeaturedCollectionIds();
 
   const bgColors = useMemo(() => {
     const colors = collection.card?.backgroundColorGradient
@@ -90,6 +104,7 @@ const Collection: React.FC<Props> = ({collection}) => {
     <TouchableOpacity onPress={onPress}>
       <Card colors={bgColors}>
         <BackgroundImage source={source} />
+        {featuredIds.includes(collection.id) && <New>{t('new')}</New>}
         <Footer>
           <Lessons>
             <BodyBold>
