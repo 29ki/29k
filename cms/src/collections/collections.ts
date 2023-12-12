@@ -147,9 +147,9 @@ export const other: CmsCollection = {
   label: '🪴 Other',
   files: [
     {
-      label: '✨ Featured exercises',
+      label: '✨ Featured content',
       name: 'featured',
-      file: '/content/src/featured/featured.json',
+      file: '/content/src/featured/content.json',
       fields: FEATURED_FIELDS,
     },
     {
