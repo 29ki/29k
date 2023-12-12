@@ -11,7 +11,6 @@ import {Exercise} from '../../../../../shared/src/types/generated/Exercise';
 import CompletedSessionCard from '../../../lib/components/Cards/SessionCard/CompletedSessionCard';
 import ExerciseCard from '../../../lib/components/Cards/SessionCard/ExerciseCard';
 import Gutters from '../../../lib/components/Gutters/Gutters';
-import Image from '../../../lib/components/Image/Image';
 import Screen from '../../../lib/components/Screen/Screen';
 import {
   Spacer12,
@@ -69,9 +68,12 @@ const LeftColumn = styled.View({
   justifyContent: 'space-between',
 });
 
-const GraphicsWrapper = styled.View({
+const Graphic = styled.Image({
   width: 134,
   height: 134,
+  aspectRatio: 1,
+  borderRadius: 8,
+  overflow: 'hidden',
 });
 
 const Wrapper = styled.View({flex: 1});
@@ -185,9 +187,7 @@ const Collection = () => {
                   <Markdown>{collection?.description}</Markdown>
                 </LeftColumn>
                 <Spacer16 />
-                <GraphicsWrapper>
-                  <Image source={image} />
-                </GraphicsWrapper>
+                <Graphic source={image} />
               </RowJustified>
 
               <Spacer16 />
