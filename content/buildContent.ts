@@ -28,8 +28,13 @@ const {contributors} = JSON.parse(
   readFileSync('../.all-contributorsrc', {encoding: 'utf8'}),
 );
 
+const featured = JSON.parse(
+  readFileSync('./src/featured/content.json', {encoding: 'utf8'}),
+);
+
 const data = JSON.stringify({
   i18n,
+  featured,
   contributors,
 });
 
