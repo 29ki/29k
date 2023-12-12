@@ -1,4 +1,4 @@
-import React, {Fragment, useCallback, useMemo} from 'react';
+import React, {Fragment, useCallback} from 'react';
 import {useRoute, RouteProp, useNavigation} from '@react-navigation/native';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import {COLORS} from '../../../../../shared/src/constants/colors';
@@ -33,6 +33,8 @@ import useFeaturedExercises from '../../../lib/content/hooks/useFeaturedExercise
 import Sessions from './components/Sessions';
 import {CollectionIcon} from '../../../lib/components/Icons';
 import IconWrapper from './components/IconWrapper';
+import useLiveSessionsByExercises from '../../../lib/sessions/hooks/useLiveSessionsByExerciseIds';
+import useFilterContentByTags from '../../../lib/content/hooks/useFilterContentByTags';
 
 const Tags = styled.ScrollView.attrs({
   horizontal: true,
@@ -57,31 +59,19 @@ const ExploreCategory = () => {
 
   const category = useCategoryById(categoryId);
   const tags = useTagsByCategoryId(categoryId);
-  const collections = useCollections(category?.collections);
-  const exercises = useExercises(category?.exercises);
-  const featuredExercises = useFeaturedExercises(category?.exercises);
-
-  const filteredCollections = useMemo(
-    () =>
-      collections.filter(
-        collection =>
-          collection.tags?.some(
-            tag => !activeTags.length || activeTags.includes(tag),
-          ),
-      ),
-    [activeTags, collections],
+  const collections = useFilterContentByTags(
+    useCollections(category?.collections),
+    activeTags,
   );
-
-  const filteredExercises = useMemo(
-    () =>
-      exercises.filter(
-        exercise =>
-          exercise.tags?.some(
-            tag => !activeTags.length || activeTags.includes(tag),
-          ),
-      ),
-    [activeTags, exercises],
+  const exercises = useFilterContentByTags(
+    useExercises(category?.exercises),
+    activeTags,
   );
+  const featuredExercises = useFilterContentByTags(
+    useFeaturedExercises(category?.exercises),
+    activeTags,
+  );
+  const liveSessions = useLiveSessionsByExercises(exercises);
 
   const onPressTag = useCallback(
     (tagId: string) => () => {
@@ -101,7 +91,7 @@ const ExploreCategory = () => {
       title={category?.name}>
       <TopSafeArea />
       <Spacer32 />
-      <AutoScrollView stickyHeaderIndices={[3, 5, 7]}>
+      <AutoScrollView stickyHeaderIndices={[3, 5, 7, 9]}>
         <Spacer16 />
         <Tags>
           {tags.map(tag => (
@@ -117,6 +107,17 @@ const ExploreCategory = () => {
           ))}
         </Tags>
         <Spacer16 />
+        {liveSessions.length > 0 && (
+          <StickyHeading>
+            <Heading16>{t('liveSessionsHeading')}</Heading16>
+          </StickyHeading>
+        )}
+        {liveSessions.length > 0 && (
+          <>
+            <Sessions sessions={liveSessions} />
+            <Spacer16 />
+          </>
+        )}
         {!activeTags.length && featuredExercises.length > 0 && (
           <StickyHeading>
             <Heading16>{t('featuredHeading')}</Heading16>
@@ -128,30 +129,30 @@ const ExploreCategory = () => {
             <Spacer16 />
           </>
         )}
-        {filteredCollections.length > 0 && (
+        {collections.length > 0 && (
           <StickyHeading>
             <IconWrapper Icon={CollectionIcon}>
               <Heading16>{t('collectionsHeading')}</Heading16>
             </IconWrapper>
           </StickyHeading>
         )}
-        {filteredCollections.length > 0 && (
+        {collections.length > 0 && (
           <Columns>
-            {filteredCollections.map(collection => (
+            {collections.map(collection => (
               <Column key={collection.id}>
                 <Collection collection={collection} />
               </Column>
             ))}
           </Columns>
         )}
-        {filteredExercises.length > 0 && (
+        {exercises.length > 0 && (
           <StickyHeading>
             <Heading16>{t('sessionsHeading')}</Heading16>
           </StickyHeading>
         )}
-        {filteredExercises.length > 0 && (
+        {exercises.length > 0 && (
           <Gutters>
-            {filteredExercises.map(exercise => (
+            {exercises.map(exercise => (
               <Fragment key={exercise.id}>
                 <ExerciseCard exercise={exercise} small />
                 <Spacer16 />

@@ -28,6 +28,7 @@ import useFeaturedExercisesByTags from '../../../lib/content/hooks/useFeaturedEx
 import Sessions from './components/Sessions';
 import {CollectionIcon} from '../../../lib/components/Icons';
 import IconWrapper from './components/IconWrapper';
+import useLiveSessionsByTags from '../../../lib/sessions/hooks/useLiveSessionsByTags';
 
 const ExploreTag = () => {
   const {
@@ -43,6 +44,7 @@ const ExploreTag = () => {
   const tagFilter = useMemo(() => (tag ? [tag.id] : []), [tag]);
   const collections = useCollectionsByTags(tagFilter);
   const exercises = useExercisesByTags(tagFilter);
+  const liveSessions = useLiveSessionsByTags(tagFilter);
   const featuredExercises = useFeaturedExercisesByTags(tagFilter);
 
   return (
@@ -52,8 +54,19 @@ const ExploreTag = () => {
       title={tag?.name}>
       <TopSafeArea />
       <Spacer32 />
-      <AutoScrollView stickyHeaderIndices={[1, 3, 5]}>
+      <AutoScrollView stickyHeaderIndices={[1, 3, 5, 7]}>
         <Spacer16 />
+        {liveSessions.length > 0 && (
+          <StickyHeading>
+            <Heading16>{t('liveSessionsHeading')}</Heading16>
+          </StickyHeading>
+        )}
+        {liveSessions.length > 0 && (
+          <>
+            <Sessions sessions={liveSessions} />
+            <Spacer16 />
+          </>
+        )}
         {featuredExercises.length > 0 && (
           <StickyHeading>
             <Heading16>{t('featuredHeading')}</Heading16>
