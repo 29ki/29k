@@ -18,7 +18,8 @@
     "test": "yarn build:content && yarn test:ts && yarn test:lint && yarn test:jest"
   },
   "dependencies": {
-    "decap-cms-app": "^3.0.12",
+    "dayjs": "^1.11.10",
+    "decap-cms-app": "3.1.0-beta.3",
     "decap-cms-media-library-cloudinary": "^3.0.1",
     "i18next": "^23.7.8"
   },
