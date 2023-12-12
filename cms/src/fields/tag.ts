@@ -1,4 +1,4 @@
-import {CmsField} from 'netlify-cms-core';
+import {CmsField} from 'decap-cms-core';
 import {ID_FIELD, PUBLISHED_FIELD, SORT_ORDER_FIELD} from './common';
 
 export const TAG_FIELDS: Array<CmsField> = [

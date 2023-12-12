@@ -1,6 +1,6 @@
 import React, {PureComponent} from 'react';
 import {v4 as uuidv4} from 'uuid';
-import {CmsWidgetControlProps, CmsWidgetParam} from 'netlify-cms-core';
+import {CmsWidgetControlProps, CmsWidgetParam} from 'decap-cms-core';
 
 type ControlProps = CmsWidgetControlProps & {
   setActiveStyle: React.FocusEventHandler<HTMLInputElement> | undefined;

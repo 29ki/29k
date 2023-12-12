@@ -1,4 +1,4 @@
-import {CmsCollection} from 'netlify-cms-core';
+import {CmsCollection} from 'decap-cms-core';
 import EXERCISE_FIELDS from '../fields/exercise';
 import CONTRIBUTORS_FIELDS from '../fields/contributors';
 import * as content from '../../../content/content.json';
