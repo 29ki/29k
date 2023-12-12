@@ -119,6 +119,14 @@ export const BACKGROUND_COLOR_FIELD: CmsField = {
   required: false,
 };
 
+export const IMAGE_BACKGROUND_COLOR_FIELD: CmsField = {
+  label: '🎨 Image Background Color',
+  name: 'imageBackgroundColor',
+  widget: 'color',
+  i18n: 'duplicate',
+  required: false,
+};
+
 export const IMAGE_FIELD: CmsFieldBase & CmsFieldObject = {
   label: '🌅 Image',
   name: 'image',

@@ -16,8 +16,10 @@
     ],
     "link": "https://aware.29k.org/forward-to-nature",
     "id": "0eda04e3-4b45-44d6-b779-7b40f43f966c",
-    "image": {
-      "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1696579653/Images/ForwardToNature.png"
+    "card": {
+      "image": {
+        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1702310278/Images/forward_to_nature_wbpa1o.png"
+      }
     },
     "exercises": [
       "1a53e633-6916-4fea-a072-977c4b215288",

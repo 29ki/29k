@@ -7,8 +7,6 @@ import {CommunityIcon, FriendsIcon, MeIcon} from '../Icons';
 import {Spacer16, Spacer4, Spacer8} from '../Spacers/Spacer';
 import {Body14, BodyBold} from '../Typography/Body/Body';
 import Card from './Card';
-import CollectionFullCard from './CollectionCards/CollectionFullCard';
-import CollectionListCard from './CollectionCards/CollectionListCard';
 import {UserProfileType} from '../../../../../shared/src/schemas/User';
 import {ExerciseCard} from '../../../../../shared/src/types/generated/Exercise';
 import Button from '../Buttons/Button';
@@ -379,39 +377,10 @@ export const CardSmalls = () => (
   </ScreenWrapper>
 );
 
-const CollectionCardsList = () => (
-  <>
-    <CollectionFullCard
-      title="Collection Card full size"
-      image={{
-        uri: 'https://res.cloudinary.com/twentyninek/image/upload/q_auto,t_global/v1636016815/Singles/sticky_eng_ps00eg.png',
-      }}
-      progressItems={[true, true, false, false, false]}
-      onPress={() => {}}
-    />
-    <Spacer16 />
-    <CollectionListCard
-      title="Collection Card in List"
-      image={{
-        uri: 'https://res.cloudinary.com/twentyninek/image/upload/q_auto,t_global/v1636016815/Singles/sticky_eng_ps00eg.png',
-      }}
-      onPress={() => {}}
-    />
-  </>
-);
-
-export const CollectionCards = () => (
-  <ScreenWrapper>
-    <CollectionCardsList />
-  </ScreenWrapper>
-);
-
 export const AllCards = () => (
   <ScreenWrapper>
     <CardsList />
     <Spacer16 />
     <CardSmallsList />
-    <Spacer16 />
-    <CollectionCardsList />
   </ScreenWrapper>
 );

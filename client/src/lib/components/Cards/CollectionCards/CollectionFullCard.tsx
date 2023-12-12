@@ -1,12 +1,9 @@
-import React, {useMemo} from 'react';
+import React from 'react';
 import {ImageSourcePropType} from 'react-native';
 import styled from 'styled-components/native';
-import LinearGradient from 'react-native-linear-gradient';
-import {prop} from 'ramda';
 
 import {COLORS} from '../../../../../../shared/src/constants/colors';
 
-import Image from '../../Image/Image';
 import {Display22} from '../../Typography/Display/Display';
 import {SPACINGS} from '../../../constants/spacings';
 import TouchableOpacity from '../../TouchableOpacity/TouchableOpacity';
@@ -15,7 +12,6 @@ import SessionProgress from '../../SessionProgress/SessionProgress';
 import {CollectionIcon} from '../../Icons';
 import {Body12} from '../../Typography/Body/Body';
 import {PlayfairDisplayMedium} from '../../../constants/fonts';
-import SETTINGS from '../../../constants/settings';
 
 export const HEIGHT = 138;
 
@@ -24,16 +20,20 @@ type CollectionFullCardProps = {
   description?: string;
   image: ImageSourcePropType;
   progressItems: Array<boolean>;
-  backgroundColorGradient?: {color: string}[];
+  backgroundColor?: string;
   textColor?: string;
   onPress: () => void;
 };
 
-const Container = styled(TouchableOpacity)({
-  height: HEIGHT,
-  backgroundColor: COLORS.GREYLIGHTEST,
-  borderRadius: SPACINGS.SIXTEEN,
-});
+const Container = styled(TouchableOpacity)<{backgroundColor?: string}>(
+  ({backgroundColor}) => ({
+    height: HEIGHT,
+    backgroundColor: backgroundColor ?? COLORS.GREYLIGHTEST,
+    borderRadius: SPACINGS.SIXTEEN,
+    paddingVertical: SPACINGS.FOUR,
+    paddingHorizontal: SPACINGS.SIXTEEN,
+  }),
+);
 
 const Heading = styled(Display22)<{color?: string}>(
   ({color = COLORS.BLACK}) => ({
@@ -76,21 +76,12 @@ const TitleWrapper = styled.View({
   flex: 1,
 });
 
-const GraphicsWrapper = styled.View({
+const Graphic = styled.Image({
   width: 64,
   height: 64,
-});
-
-const Gradient = styled(LinearGradient).attrs<{colors: string[]}>(
-  ({colors}) => ({
-    colors,
-    angle: 180,
-  }),
-)({
-  flex: 1,
-  borderRadius: SETTINGS.BORDER_RADIUS.ACTION_LISTS,
-  paddingVertical: SPACINGS.FOUR,
-  paddingHorizontal: SPACINGS.SIXTEEN,
+  aspectRatio: 1,
+  borderRadius: 8,
+  overflow: 'hidden',
 });
 
 const CollectionFullCard: React.FC<CollectionFullCardProps> = ({
@@ -98,49 +89,33 @@ const CollectionFullCard: React.FC<CollectionFullCardProps> = ({
   image,
   description,
   progressItems,
-  backgroundColorGradient,
+  backgroundColor,
   textColor,
   onPress,
 }) => {
-  const bgColors = useMemo(() => {
-    const colors = backgroundColorGradient
-      ? backgroundColorGradient.map(prop('color'))
-      : [];
-
-    while (colors.length < 2) {
-      colors.push('transparent');
-    }
-
-    return colors;
-  }, [backgroundColorGradient]);
-
   return (
-    <Container onPress={onPress}>
-      <Gradient colors={bgColors}>
-        <Row>
-          <LeftColumn>
-            <TitleWrapper>
-              <IconWrapper>
-                <CollectionIcon fill={textColor} />
-              </IconWrapper>
-              <Spacer8 />
-              <Heading numberOfLines={2} color={textColor}>
-                {title}
-              </Heading>
-            </TitleWrapper>
+    <Container onPress={onPress} backgroundColor={backgroundColor}>
+      <Row>
+        <LeftColumn>
+          <TitleWrapper>
+            <IconWrapper>
+              <CollectionIcon fill={textColor} />
+            </IconWrapper>
             <Spacer8 />
-            <Description numberOfLines={2} color={textColor}>
-              {description}
-            </Description>
-          </LeftColumn>
-          <Spacer16 />
-          <GraphicsWrapper>
-            <Image source={image} />
-          </GraphicsWrapper>
-        </Row>
-        <SessionProgress items={progressItems} />
-        <Spacer4 />
-      </Gradient>
+            <Heading numberOfLines={2} color={textColor}>
+              {title}
+            </Heading>
+          </TitleWrapper>
+          <Spacer8 />
+          <Description numberOfLines={2} color={textColor}>
+            {description}
+          </Description>
+        </LeftColumn>
+        <Spacer16 />
+        <Graphic source={image} />
+      </Row>
+      <SessionProgress items={progressItems} />
+      <Spacer4 />
     </Container>
   );
 };
