@@ -29,6 +29,8 @@ import Tag from './components/Tag';
 import useExercises from '../../../lib/content/hooks/useExercises';
 import Gutters from '../../../lib/components/Gutters/Gutters';
 import ExerciseCard from '../../../lib/components/Cards/SessionCard/ExerciseCard';
+import useFeaturedExercises from '../../../lib/content/hooks/useFeaturedExercises';
+import Sessions from './components/Sessions';
 
 const Explore = () => {
   const {navigate} =
@@ -41,6 +43,7 @@ const Explore = () => {
   const collections = useCollections();
   const tags = useTags();
   const exercises = useExercises();
+  const featuredExercises = useFeaturedExercises();
 
   const onPressEllipsis = useCallback(() => {
     navigate('AboutOverlay');
@@ -70,6 +73,17 @@ const Explore = () => {
             </Column>
           ))}
         </Columns>
+        {featuredExercises.length > 0 && (
+          <StickyHeading>
+            <Heading16>{t('featuredHeading')}</Heading16>
+          </StickyHeading>
+        )}
+        {featuredExercises.length > 0 && (
+          <>
+            <Sessions sessions={featuredExercises} />
+            <Spacer16 />
+          </>
+        )}
         <StickyHeading>
           <Heading16>{t('collectionsHeading')}</Heading16>
         </StickyHeading>
