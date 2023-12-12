@@ -53,8 +53,8 @@ CMS.init({
       exercises,
       ui,
       email,
-      settings,
       other,
+      settings,
     ],
   },
 });

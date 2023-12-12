@@ -49,7 +49,7 @@ import Tag from '../../../lib/components/Tag/Tag';
 import useTags from '../../../lib/content/hooks/useTags';
 import {Heading16} from '../../../lib/components/Typography/Heading/Heading';
 import SessionCard from '../../../lib/components/Cards/SessionCard/SessionCard';
-import useLiveSessionsByExercise from '../../../lib/session/hooks/useLiveSessionsByExercise';
+import useLiveSessionsByExercise from '../../../lib/sessions/hooks/useLiveSessionsByExercise';
 import ExerciseCard from '../../../lib/components/Cards/SessionCard/ExerciseCard';
 import useExercisesByTags from '../../../lib/content/hooks/useExercisesByTags';
 import CoCreators from '../../../lib/components/CoCreators/CoCreators';

@@ -6,7 +6,7 @@ import Gutters from '../../../../lib/components/Gutters/Gutters';
 import {Spacer8, Spacer16} from '../../../../lib/components/Spacers/Spacer';
 import {Heading16} from '../../../../lib/components/Typography/Heading/Heading';
 import {useTranslation} from 'react-i18next';
-import useLiveSessionsByExercise from '../../../../lib/session/hooks/useLiveSessionsByExercise';
+import useLiveSessionsByExercise from '../../../../lib/sessions/hooks/useLiveSessionsByExercise';
 import SessionCard from '../../../../lib/components/Cards/SessionCard/SessionCard';
 
 type Props = {

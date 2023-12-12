@@ -48,7 +48,7 @@ import {ThumbsUpWithoutPadding} from '../../../../../lib/components/Thumbs/Thumb
 import useExerciseRating from '../../../../../lib/session/hooks/useExerciseRating';
 import useExerciseFeedback from '../../../../../lib/session/hooks/useExerciseFeedback';
 import FeedbackCarousel from '../../../../../lib/components/FeedbackCarousel/FeedbackCarousel';
-import useLiveSessionsByExercise from '../../../../../lib/session/hooks/useLiveSessionsByExercise';
+import useLiveSessionsByExercise from '../../../../../lib/sessions/hooks/useLiveSessionsByExercise';
 import ExerciseCard from '../../../../../lib/components/Cards/SessionCard/ExerciseCard';
 import useExercisesByTags from '../../../../../lib/content/hooks/useExercisesByTags';
 import CoCreators from '../../../../../lib/components/CoCreators/CoCreators';
