@@ -85,14 +85,14 @@
     "zustand": "^4.4.7"
   },
   "devDependencies": {
-    "@babel/core": "^7.23.5",
+    "@babel/core": "^7.23.6",
     "@babel/runtime": "^7.23.4",
     "@react-native-community/eslint-config": "^3.2.0",
-    "@sentry/cli": "^2.22.3",
+    "@sentry/cli": "^2.23.0",
     "@testing-library/react-hooks": "^8.0.1",
     "@types/debug": "^4.1.12",
     "@types/i18next": "^13.0.0",
-    "@types/jest": "^29.5.10",
+    "@types/jest": "^29.5.11",
     "@types/ramda": "^0.29.3",
     "@types/react-native": "^0.67.3",
     "@types/react-test-renderer": "^18.0.7",
@@ -110,13 +110,13 @@
     "jest-transform-stub": "^2.0.0",
     "metro-react-native-babel-preset": "^0.76.6",
     "mockdate": "^3.0.5",
-    "prettier": "^3.1.0",
+    "prettier": "^3.1.1",
     "react-dom": "18.2.0",
     "react-native-asset": "^2.1.1",
     "react-native-clean-project": "^4.0.3",
     "react-native-dotenv": "^3.4.9",
     "react-test-renderer": "18.2.0",
-    "typescript": "^5.3.2"
+    "typescript": "^5.3.3"
   },
   "resolutions": {
     "@types/react": "^18",

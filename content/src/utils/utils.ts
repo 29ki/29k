@@ -1,7 +1,12 @@
 import {readFileSync, readdirSync, existsSync} from 'fs';
 import * as path from 'path';
-import {LANGUAGE_TAG, LANGUAGE_TAGS} from '../../../shared/src/i18n/constants';
-import {mergeDeepRight, reduce, unapply} from 'ramda';
+import {
+  CLIENT_LANGUAGE_TAGS,
+  DEFAULT_LANGUAGE_TAG,
+  LANGUAGE_TAG,
+  LANGUAGE_TAGS,
+} from '../../../shared/src/i18n/constants';
+import {keys, mergeDeepRight, reduce, unapply, without} from 'ramda';
 
 type LocalizedContent<T> = Record<LANGUAGE_TAG, Record<string, T>>;
 type Content<T> = Record<string, LocalizedContent<T>>;
@@ -17,11 +22,30 @@ export const getContentByType = <T>(type: string) => {
       const fileKey = path.basename(fileName, '.json');
       const file = readFileSync(filePath, {encoding: 'utf8'});
       const fileJSON = JSON.parse(file) as LocalizedContent<T>;
+      const defaultLanguageContent = fileJSON[DEFAULT_LANGUAGE_TAG];
+      const defaultLanguageKeys = keys(defaultLanguageContent);
 
-      // Make sure the content defines all available languages
       LANGUAGE_TAGS.forEach(languageTag => {
-        if (fileJSON[languageTag] === undefined) {
+        const languageContent = fileJSON[languageTag];
+        const languageKeys = keys(languageContent);
+
+        // Make sure the content defines all available languages
+        if (languageContent === undefined) {
           throw new Error(`${languageTag} is not defined for ${filePath}`);
+        }
+
+        // Make sure the keys matches DEFAULT_LANGUAGE
+        const missingKeys = without(languageKeys, defaultLanguageKeys);
+        if (
+          type === 'ui' &&
+          CLIENT_LANGUAGE_TAGS.includes(languageTag) &&
+          missingKeys.length
+        ) {
+          console.warn(
+            `🚨 ${languageTag} is missing keys "${missingKeys.join(
+              '", "',
+            )}" in ${filePath}`,
+          );
         }
       });
 
