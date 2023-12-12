@@ -4,8 +4,8 @@ import {IconType} from '..';
 import {COLORS} from '../../../../../../shared/src/constants/colors';
 import Icon from '../Icon';
 
-export const ShareIcon: IconType = ({fill = COLORS.BLACK}) => (
-  <Icon>
+export const ShareIcon: IconType = ({fill = COLORS.BLACK, style}) => (
+  <Icon style={style}>
     <Path
       d="M15.255 3.033c.165.043.322.13.452.26l3.334 3.333a1 1 0 0 1-1.414 1.414L16 6.414v9.808a1 1 0 1 1-2 0V6.415L12.374 8.04a1 1 0 1 1-1.414-1.414l3.318-3.318a.997.997 0 0 1 .976-.275Z"
       fill={fill}

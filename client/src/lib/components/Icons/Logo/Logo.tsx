@@ -12,8 +12,8 @@ import Animated, {
 } from 'react-native-reanimated';
 import {useEffect} from 'react';
 
-export const LogoIcon: IconType = ({fill = COLORS.BLACK}) => (
-  <Icon>
+export const LogoIcon: IconType = ({fill = COLORS.BLACK, style}) => (
+  <Icon style={style}>
     <Path
       fill={fill}
       d="M21.217 23.91c-3.873 1.001-6.76-.244-8.706-2.374-1.995-2.184-2.65-5.364-1.734-8.146-2.959 3.131-2.613 7.25-.428 9.862 2.475 2.96 7.238 4.043 10.868.658Z"
