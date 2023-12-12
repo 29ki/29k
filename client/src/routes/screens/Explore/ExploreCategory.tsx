@@ -31,6 +31,8 @@ import Collection from './components/Collection';
 import Tag from './components/Tag';
 import useFeaturedExercises from '../../../lib/content/hooks/useFeaturedExercises';
 import Sessions from './components/Sessions';
+import {CollectionIcon} from '../../../lib/components/Icons';
+import IconWrapper from './components/IconWrapper';
 
 const Tags = styled.ScrollView.attrs({
   horizontal: true,
@@ -128,7 +130,9 @@ const ExploreCategory = () => {
         )}
         {filteredCollections.length > 0 && (
           <StickyHeading>
-            <Heading16>{t('collectionsHeading')}</Heading16>
+            <IconWrapper Icon={CollectionIcon}>
+              <Heading16>{t('collectionsHeading')}</Heading16>
+            </IconWrapper>
           </StickyHeading>
         )}
         {filteredCollections.length > 0 && (

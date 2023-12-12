@@ -32,6 +32,8 @@ import Gutters from '../../../lib/components/Gutters/Gutters';
 import ExerciseCard from '../../../lib/components/Cards/SessionCard/ExerciseCard';
 import useFeaturedExercises from '../../../lib/content/hooks/useFeaturedExercises';
 import Sessions from './components/Sessions';
+import {CollectionIcon} from '../../../lib/components/Icons';
+import IconWrapper from './components/IconWrapper';
 
 const Explore = () => {
   const {navigate} =
@@ -89,7 +91,9 @@ const Explore = () => {
           </>
         )}
         <StickyHeading>
-          <Heading16>{t('collectionsHeading')}</Heading16>
+          <IconWrapper Icon={CollectionIcon}>
+            <Heading16>{t('collectionsHeading')}</Heading16>
+          </IconWrapper>
         </StickyHeading>
         <Columns>
           {collections.map(collection => (

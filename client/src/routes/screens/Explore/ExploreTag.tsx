@@ -26,6 +26,8 @@ import {useTranslation} from 'react-i18next';
 import Collections from './components/Collections';
 import useFeaturedExercisesByTags from '../../../lib/content/hooks/useFeaturedExercisesByTags';
 import Sessions from './components/Sessions';
+import {CollectionIcon} from '../../../lib/components/Icons';
+import IconWrapper from './components/IconWrapper';
 
 const ExploreTag = () => {
   const {
@@ -65,7 +67,9 @@ const ExploreTag = () => {
         )}
         {collections.length > 0 && (
           <StickyHeading>
-            <Heading16>{t('collectionsHeading')}</Heading16>
+            <IconWrapper Icon={CollectionIcon}>
+              <Heading16>{t('collectionsHeading')}</Heading16>
+            </IconWrapper>
           </StickyHeading>
         )}
         {collections.length > 0 && <Collections collections={collections} />}
