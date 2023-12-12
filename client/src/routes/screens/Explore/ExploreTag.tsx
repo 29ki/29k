@@ -24,6 +24,8 @@ import useExercisesByTags from '../../../lib/content/hooks/useExercisesByTags';
 import useCollectionsByTags from '../../../lib/content/hooks/useCollectionsByTags';
 import {useTranslation} from 'react-i18next';
 import Collections from './components/Collections';
+import useFeaturedExercisesByTags from '../../../lib/content/hooks/useFeaturedExercisesByTags';
+import Sessions from './components/Sessions';
 
 const ExploreTag = () => {
   const {
@@ -37,8 +39,9 @@ const ExploreTag = () => {
 
   const tag = useTagById(tagId);
   const tagFilter = useMemo(() => (tag ? [tag.id] : []), [tag]);
-  const exercises = useExercisesByTags(tagFilter);
   const collections = useCollectionsByTags(tagFilter);
+  const exercises = useExercisesByTags(tagFilter);
+  const featuredExercises = useFeaturedExercisesByTags(tagFilter);
 
   return (
     <Screen
@@ -47,8 +50,19 @@ const ExploreTag = () => {
       title={tag?.name}>
       <TopSafeArea />
       <Spacer32 />
-      <AutoScrollView stickyHeaderIndices={[1, 3]}>
+      <AutoScrollView stickyHeaderIndices={[1, 3, 5]}>
         <Spacer16 />
+        {featuredExercises.length > 0 && (
+          <StickyHeading>
+            <Heading16>{t('featuredHeading')}</Heading16>
+          </StickyHeading>
+        )}
+        {featuredExercises.length > 0 && (
+          <>
+            <Sessions sessions={featuredExercises} />
+            <Spacer16 />
+          </>
+        )}
         {collections.length > 0 && (
           <StickyHeading>
             <Heading16>{t('collectionsHeading')}</Heading16>
