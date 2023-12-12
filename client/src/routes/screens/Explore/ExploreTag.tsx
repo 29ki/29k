@@ -1,4 +1,4 @@
-import React, {Fragment, useCallback, useMemo} from 'react';
+import React, {Fragment, useMemo} from 'react';
 import {useRoute, RouteProp, useNavigation} from '@react-navigation/native';
 import {COLORS} from '../../../../../shared/src/constants/colors';
 import Screen from '../../../lib/components/Screen/Screen';
@@ -20,17 +20,16 @@ import {
 } from '../../../lib/components/Spacers/Spacer';
 import StickyHeading from '../../../lib/components/StickyHeading/StickyHeading';
 import {Heading16} from '../../../lib/components/Typography/Heading/Heading';
-import {Columns, Column} from './components/Columns';
 import useExercisesByTags from '../../../lib/content/hooks/useExercisesByTags';
 import useCollectionsByTags from '../../../lib/content/hooks/useCollectionsByTags';
 import {useTranslation} from 'react-i18next';
-import Collection from './components/Collection';
+import Collections from './components/Collections';
 
 const ExploreTag = () => {
   const {
     params: {tagId},
   } = useRoute<RouteProp<ExploreStackProps, 'ExploreTag'>>();
-  const {goBack, navigate} =
+  const {goBack} =
     useNavigation<
       NativeStackNavigationProp<OverlayStackProps & ExploreStackProps>
     >();
@@ -40,13 +39,6 @@ const ExploreTag = () => {
   const tagFilter = useMemo(() => (tag ? [tag.id] : []), [tag]);
   const exercises = useExercisesByTags(tagFilter);
   const collections = useCollectionsByTags(tagFilter);
-
-  const onPressCollection = useCallback(
-    (collectionId: string) => () => {
-      navigate('Collection', {collectionId});
-    },
-    [navigate],
-  );
 
   return (
     <Screen
@@ -62,18 +54,7 @@ const ExploreTag = () => {
             <Heading16>{t('collectionsHeading')}</Heading16>
           </StickyHeading>
         )}
-        {collections.length > 0 && (
-          <Columns>
-            {collections.map(collection => (
-              <Column key={collection.id}>
-                <Collection
-                  collection={collection}
-                  onPress={onPressCollection(collection.id)}
-                />
-              </Column>
-            ))}
-          </Columns>
-        )}
+        {collections.length > 0 && <Collections collections={collections} />}
         {exercises.length > 0 && (
           <StickyHeading>
             <Heading16>{t('sessionsHeading')}</Heading16>

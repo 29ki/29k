@@ -43,7 +43,7 @@ const ExploreCategory = () => {
   const {
     params: {categoryId},
   } = useRoute<RouteProp<ExploreStackProps, 'ExploreCategory'>>();
-  const {goBack, navigate} =
+  const {goBack} =
     useNavigation<
       NativeStackNavigationProp<OverlayStackProps & ExploreStackProps>
     >();
@@ -89,13 +89,6 @@ const ExploreCategory = () => {
     [],
   );
 
-  const onPressCollection = useCallback(
-    (collectionId: string) => () => {
-      navigate('Collection', {collectionId});
-    },
-    [navigate],
-  );
-
   return (
     <Screen
       onPressBack={goBack}
@@ -128,10 +121,7 @@ const ExploreCategory = () => {
           <Columns>
             {filteredCollections.map(collection => (
               <Column key={collection.id}>
-                <Collection
-                  collection={collection}
-                  onPress={onPressCollection(collection.id)}
-                />
+                <Collection collection={collection} />
               </Column>
             ))}
           </Columns>

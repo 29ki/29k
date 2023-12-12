@@ -1,4 +1,4 @@
-import React, {useMemo} from 'react';
+import React, {useCallback, useMemo} from 'react';
 import styled from 'styled-components/native';
 import TouchableOpacity from '../../../../lib/components/TouchableOpacity/TouchableOpacity';
 import {
@@ -14,6 +14,12 @@ import {prop} from 'ramda';
 import {COLORS} from '../../../../../../shared/src/constants/colors';
 import {Spacer4} from '../../../../lib/components/Spacers/Spacer';
 import {useTranslation} from 'react-i18next';
+import {useNavigation} from '@react-navigation/native';
+import {NativeStackNavigationProp} from '@react-navigation/native-stack';
+import {
+  OverlayStackProps,
+  ExploreStackProps,
+} from '../../../../lib/navigation/constants/routes';
 
 const Card = styled(LinearGradient).attrs({
   angle: 180,
@@ -48,9 +54,13 @@ const Lessons = styled(Body12)({
 
 type Props = {
   collection: CollectionType;
-  onPress?: () => void;
 };
-const Collection: React.FC<Props> = ({collection, onPress}) => {
+const Collection: React.FC<Props> = ({collection}) => {
+  const {navigate} =
+    useNavigation<
+      NativeStackNavigationProp<OverlayStackProps & ExploreStackProps>
+    >();
+
   const {t} = useTranslation('Component.Collection');
 
   const exercises = useExercisesByCollectionId(collection.id);
@@ -71,6 +81,10 @@ const Collection: React.FC<Props> = ({collection, onPress}) => {
     () => ({uri: collection.image?.source}),
     [collection.image],
   );
+
+  const onPress = useCallback(() => {
+    navigate('Collection', {collectionId: collection.id});
+  }, [navigate, collection.id]);
 
   return (
     <TouchableOpacity onPress={onPress}>

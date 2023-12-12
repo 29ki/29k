@@ -46,20 +46,6 @@ const Explore = () => {
     navigate('AboutOverlay');
   }, [navigate]);
 
-  const onPressCategory = useCallback(
-    (categoryId: string) => () => {
-      navigate('ExploreCategory', {categoryId});
-    },
-    [navigate],
-  );
-
-  const onPressCollection = useCallback(
-    (collectionId: string) => () => {
-      navigate('Collection', {collectionId});
-    },
-    [navigate],
-  );
-
   const onPressTag = useCallback(
     (tagId: string) => () => {
       navigate('ExploreTag', {tagId});
@@ -80,10 +66,7 @@ const Explore = () => {
         <Columns>
           {categories.map(category => (
             <Column key={category.id}>
-              <Category
-                category={category}
-                onPress={onPressCategory(category.id)}
-              />
+              <Category category={category} />
             </Column>
           ))}
         </Columns>
@@ -93,10 +76,7 @@ const Explore = () => {
         <Columns>
           {collections.map(collection => (
             <Column key={collection.id}>
-              <Collection
-                collection={collection}
-                onPress={onPressCollection(collection.id)}
-              />
+              <Collection collection={collection} />
             </Column>
           ))}
         </Columns>
