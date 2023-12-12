@@ -64,7 +64,7 @@ const Explore = () => {
         onPressEllipsis={onPressEllipsis}>
         <MiniProfile />
       </TopBar>
-      <AutoScrollView stickyHeaderIndices={[2, 4, 6]}>
+      <AutoScrollView stickyHeaderIndices={[2, 4, 6, 8]}>
         <Spacer16 />
         <Columns>
           {categories.map(category => (
