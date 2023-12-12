@@ -104,4 +104,4 @@ const Collection: React.FC<Props> = ({collection}) => {
   );
 };
 
-export default Collection;
+export default React.memo(Collection);

@@ -67,4 +67,4 @@ const Category: React.FC<Props> = ({category}) => {
   );
 };
 
-export default Category;
+export default React.memo(Category);

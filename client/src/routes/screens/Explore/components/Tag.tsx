@@ -30,4 +30,4 @@ const Tag: React.FC<Props> = ({tag, active, onPress}) => {
   );
 };
 
-export default Tag;
+export default React.memo(Tag);

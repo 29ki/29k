@@ -46,4 +46,4 @@ const Collections: React.FC<Props> = ({collections}) =>
     />
   );
 
-export default Collections;
+export default React.memo(Collections);
