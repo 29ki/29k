@@ -8,7 +8,8 @@ import {Column, Columns} from './Columns';
 import {Collection as CollectionType} from '../../../../../../shared/src/types/generated/Collection';
 
 const SCREEN_DIMENSIONS = Dimensions.get('screen');
-const CARD_WIDTH = (SCREEN_DIMENSIONS.width - SPACINGS.SIXTEEN * 4) / 2;
+const CARD_WIDTH =
+  (SCREEN_DIMENSIONS.width - SPACINGS.SIXTEEN) / 2 - SPACINGS.SIXTEEN * 2;
 
 const CollectionWrapper = styled.View({
   width: CARD_WIDTH,
