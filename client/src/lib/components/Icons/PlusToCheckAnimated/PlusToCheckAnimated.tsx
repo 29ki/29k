@@ -23,6 +23,7 @@ export const PlusToCheckIconAnimated: React.FC<PlusToCheckIconAnimatedProps> =
       );
       return (
         <AnimatedIcon
+          style={style}
           colorFilters={colorFilters}
           ref={ref}
           source={animation}

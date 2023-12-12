@@ -35,6 +35,7 @@ export const BellIconAnimated: React.FC<BellAnimatedProps> = forwardRef<
     );
     return (
       <AnimatedIcon
+        style={style}
         colorFilters={colorFilters}
         ref={ref}
         source={animation}
