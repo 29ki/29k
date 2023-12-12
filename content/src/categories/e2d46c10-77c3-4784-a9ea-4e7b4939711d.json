@@ -44,7 +44,10 @@
       "5b69ff57-10c4-4288-afc7-a6f6ed212531"
     ],
     "name": "Hitta mening",
-    "published": true
+    "published": true,
+    "lottie": {
+      "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1702302654/Lottie/find_meaning_wta8nc.json"
+    }
   },
   "ja": {
     "id": "e2d46c10-77c3-4784-a9ea-4e7b4939711d",
