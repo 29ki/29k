@@ -1,4 +1,4 @@
-import {CmsFieldBase, CmsFieldRelation} from 'netlify-cms-core';
+import {CmsFieldBase, CmsFieldRelation} from 'decap-cms-core';
 
 export const TAGS_FIELD: CmsFieldBase & CmsFieldRelation = {
   label: '🏷 Tags',

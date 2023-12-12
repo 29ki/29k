@@ -1,6 +1,6 @@
 import * as fs from 'fs';
 import * as process from 'child_process';
-import createNetlifyTypes from 'netlify-ts';
+import createCMSTypes from 'netlify-ts';
 import {Collection} from 'netlify-ts/lib/types';
 import {
   categories,
@@ -16,7 +16,7 @@ const createTypeFile = (collection: Collection) => {
     ? collection.label_singular.replace(/^[a-z]/g, v => v.toUpperCase())
     : collection.label;
   const path = `${OUTPUT_PATH}/${fileName}.ts`;
-  const types = createNetlifyTypes(
+  const types = createCMSTypes(
     {
       collections: [collection] as unknown as Array<Collection>,
     },

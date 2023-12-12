@@ -3,7 +3,7 @@ import {
   CmsFieldBase,
   CmsFieldObject,
   CmsFieldList,
-} from 'netlify-cms-core';
+} from 'decap-cms-core';
 
 import {
   DURATION_FIELD,

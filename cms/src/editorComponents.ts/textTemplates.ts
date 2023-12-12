@@ -1,3 +1,4 @@
+import {EditorComponentField} from 'decap-cms-core';
 import {templates} from '../templates/editorTexts.json';
 
 const templateOptions = templates.map(template => ({
@@ -20,7 +21,8 @@ const textTemplates = {
       label: 'Template',
       widget: 'select',
       options: templateOptions,
-    },
+      fields: [],
+    } as unknown as EditorComponentField, // Bad type definition in decap-cms-core,
   ],
   pattern: templatesPattern,
   fromBlock: (match: RegExpMatchArray) => ({

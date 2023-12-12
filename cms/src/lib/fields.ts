@@ -1,4 +1,4 @@
-import {CmsField} from 'netlify-cms-core';
+import {CmsField} from 'decap-cms-core';
 import {JSONObject} from '../../../shared/src/types/JSON';
 
 // This applies field defaults to nested CMSField structures as you have to specify them individually per field

@@ -1,4 +1,4 @@
-import {CmsField} from 'netlify-cms-core';
+import {CmsField} from 'decap-cms-core';
 import {CLOUDINARY_CONTRIBUTOR_IMAGE_CONFIG} from './constants';
 
 const contributionTypes = {
