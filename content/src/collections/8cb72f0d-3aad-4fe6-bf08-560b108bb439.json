@@ -7,8 +7,10 @@
     "tags": [],
     "link": "https://aware.29k.org/manage-stress-in-school",
     "id": "8cb72f0d-3aad-4fe6-bf08-560b108bb439",
-    "image": {
-      "source": "https://res.cloudinary.com/cupcake-29k/image/upload/v1702310278/Images/manage_stress_oqdimy.png"
+    "card": {
+      "image": {
+        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/v1702310278/Images/manage_stress_oqdimy.png"
+      }
     },
     "exercises": [
       "1a53e633-6916-4fea-a072-977c4b215288",
@@ -46,8 +48,10 @@
     "tags": [],
     "link": "https://aware.29k.org/manage-stress-in-school",
     "id": "8cb72f0d-3aad-4fe6-bf08-560b108bb439",
-    "image": {
-      "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1683807355/Images/flowers_slijjk.png"
+    "card": {
+      "image": {
+        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1683807355/Images/flowers_slijjk.png"
+      }
     },
     "exercises": [
       "1a53e633-6916-4fea-a072-977c4b215288",

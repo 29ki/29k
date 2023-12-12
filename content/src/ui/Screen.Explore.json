@@ -1,5 +1,6 @@
 {
   "en": {
+    "featuredHeading": "New releases",
     "collectionsHeading": "Collections",
     "sessionsHeading": "Sessions",
     "skillsHeading": "Skills"
@@ -9,6 +10,7 @@
     "collectionsHeading": "Coleções"
   },
   "sv": {
+    "featuredHeading": "Nya releaser",
     "collectionsHeading": "Samlingar",
     "sessionsHeading": "Sessioner",
     "skillsHeading": "Färdigheter"

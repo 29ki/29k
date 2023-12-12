@@ -5,4 +5,5 @@ export interface Tag {
   id: any;
   name: string;
   sortOrder?: number;
+  published: boolean;
 }

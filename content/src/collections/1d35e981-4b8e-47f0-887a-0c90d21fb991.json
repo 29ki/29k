@@ -5,14 +5,10 @@
     "published": true,
     "sortOrder": 2,
     "card": {
-      "backgroundColorGradient": [
-        {
-          "color": "#fbf5e9"
-        },
-        {
-          "color": "#fbf5e9"
-        }
-      ]
+      "imageBackgroundColor": "#fbf5e9",
+      "image": {
+        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1669043689/Images/cover2_Be_kind_to_yourself_af04b8.png"
+      }
     },
     "coCreators": [
       {
@@ -27,9 +23,6 @@
     ],
     "link": "https://aware.29k.org/take-care-of-yourself",
     "id": "1d35e981-4b8e-47f0-887a-0c90d21fb991",
-    "image": {
-      "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1669043689/Images/cover2_Be_kind_to_yourself_af04b8.png"
-    },
     "exercises": [
       "fff6f8da-f69c-458f-8905-acee04bd1a1d",
       "961656ea-021c-4faa-ae03-46d6ace4be4b",
@@ -57,13 +50,22 @@
       "2d096e25-3f0b-48da-8557-3db607b98ef8",
       "b18c1cff-bb43-44b1-81a1-2877cc018ab4"
     ],
-    "link": "https://aware.29k.org/take-care-of-yourself"
+    "link": "https://aware.29k.org/take-care-of-yourself",
+    "card": {
+      "imageBackgroundColor": "#fbf5e9"
+    }
   },
   "sv": {
     "hidden": false,
     "name": "Ta hand om dig",
     "published": true,
     "sortOrder": 2,
+    "card": {
+      "image": {
+        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1669043689/Images/cover2_Be_kind_to_yourself_af04b8.png"
+      },
+      "imageBackgroundColor": "#fbf5e9"
+    },
     "coCreators": [
       {
         "name": "Barncancerfonden",
@@ -77,9 +79,6 @@
     ],
     "link": "https://aware.29k.org/take-care-of-yourself",
     "id": "1d35e981-4b8e-47f0-887a-0c90d21fb991",
-    "image": {
-      "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1669043689/Images/cover2_Be_kind_to_yourself_af04b8.png"
-    },
     "exercises": [
       "fff6f8da-f69c-458f-8905-acee04bd1a1d",
       "961656ea-021c-4faa-ae03-46d6ace4be4b",
@@ -107,6 +106,9 @@
       "2d096e25-3f0b-48da-8557-3db607b98ef8",
       "b18c1cff-bb43-44b1-81a1-2877cc018ab4"
     ],
-    "link": "https://aware.29k.org/take-care-of-yourself"
+    "link": "https://aware.29k.org/take-care-of-yourself",
+    "card": {
+      "imageBackgroundColor": "#fbf5e9"
+    }
   }
 }

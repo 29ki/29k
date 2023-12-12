@@ -4,6 +4,12 @@
     "name": "Sustain yourself",
     "published": true,
     "sortOrder": 2,
+    "card": {
+      "image": {
+        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/v1697618661/Images/youth_IDG_collection_roejxe.png"
+      },
+      "imageBackgroundColor": "#f6d984"
+    },
     "coCreators": [
       {
         "name": "The Inner Development Goals",
@@ -17,9 +23,6 @@
     ],
     "link": "https://aware.29k.org/sustain-yourself",
     "id": "dcb02b73-c515-44a1-bee3-850dbd5eb2a1",
-    "image": {
-      "source": "https://res.cloudinary.com/cupcake-29k/image/upload/v1697618661/Images/youth_IDG_collection_roejxe.png"
-    },
     "exercises": [
       "5b69ff57-10c4-4288-afc7-a6f6ed212531",
       "12f448d2-39bc-4232-b8cf-b6cb570c7e00",
@@ -45,13 +48,22 @@
       "c7911238-ca9f-4499-9cae-63dfcd0c79c5",
       "fff6f8da-f69c-458f-8905-acee04bd1a1d"
     ],
-    "link": "https://aware.29k.org/sustain-yourself"
+    "link": "https://aware.29k.org/sustain-yourself",
+    "card": {
+      "imageBackgroundColor": "#f6d984"
+    }
   },
   "sv": {
     "hidden": false,
     "name": "Hållbarhet för dig och vår planet",
     "published": true,
     "sortOrder": 2,
+    "card": {
+      "image": {
+        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/v1697618661/Images/youth_IDG_collection_roejxe.png"
+      },
+      "imageBackgroundColor": "#f6d984"
+    },
     "coCreators": [
       {
         "name": "The Inner Development Goals",
@@ -65,9 +77,6 @@
     ],
     "link": "https://aware.29k.org/sustain-yourself",
     "id": "dcb02b73-c515-44a1-bee3-850dbd5eb2a1",
-    "image": {
-      "source": "https://res.cloudinary.com/cupcake-29k/image/upload/v1697618661/Images/youth_IDG_collection_roejxe.png"
-    },
     "exercises": [
       "5b69ff57-10c4-4288-afc7-a6f6ed212531",
       "12f448d2-39bc-4232-b8cf-b6cb570c7e00",
@@ -93,6 +102,9 @@
       "c7911238-ca9f-4499-9cae-63dfcd0c79c5",
       "fff6f8da-f69c-458f-8905-acee04bd1a1d"
     ],
-    "link": "https://aware.29k.org/sustain-yourself"
+    "link": "https://aware.29k.org/sustain-yourself",
+    "card": {
+      "imageBackgroundColor": "#f6d984"
+    }
   }
 }
