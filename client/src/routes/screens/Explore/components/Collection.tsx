@@ -10,7 +10,6 @@ import {Display16} from '../../../../lib/components/Typography/Display/Display';
 import useExercisesByCollectionId from '../../../../lib/content/hooks/useExercisesByCollectionId';
 import {StyleSheet} from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
-import {prop} from 'ramda';
 import {COLORS} from '../../../../../../shared/src/constants/colors';
 import {Spacer4} from '../../../../lib/components/Spacers/Spacer';
 import {useTranslation} from 'react-i18next';
