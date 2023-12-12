@@ -8,7 +8,10 @@ type PlusToCheckIconAnimatedProps = Omit<AnimatedIconProps, 'source'>;
 
 export const PlusToCheckIconAnimated: React.FC<PlusToCheckIconAnimatedProps> =
   forwardRef<AnimatedLottieView, PlusToCheckIconAnimatedProps>(
-    ({fill = COLORS.BLACK, loop = true, autoPlay = true, ...props}, ref) => {
+    (
+      {fill = COLORS.BLACK, style, loop = true, autoPlay = true, ...props},
+      ref,
+    ) => {
       const colorFilters = useMemo(
         () => [
           {keypath: 'Layer 1', color: fill},
