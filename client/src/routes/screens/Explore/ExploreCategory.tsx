@@ -29,6 +29,8 @@ import styled from 'styled-components/native';
 import {useTranslation} from 'react-i18next';
 import Collection from './components/Collection';
 import Tag from './components/Tag';
+import useFeaturedExercises from '../../../lib/content/hooks/useFeaturedExercises';
+import Sessions from './components/Sessions';
 
 const Tags = styled.ScrollView.attrs({
   horizontal: true,
@@ -55,6 +57,7 @@ const ExploreCategory = () => {
   const tags = useTagsByCategoryId(categoryId);
   const collections = useCollections(category?.collections);
   const exercises = useExercises(category?.exercises);
+  const featuredExercises = useFeaturedExercises(category?.exercises);
 
   const filteredCollections = useMemo(
     () =>
@@ -96,7 +99,7 @@ const ExploreCategory = () => {
       title={category?.name}>
       <TopSafeArea />
       <Spacer32 />
-      <AutoScrollView stickyHeaderIndices={[3, 5]}>
+      <AutoScrollView stickyHeaderIndices={[3, 5, 7]}>
         <Spacer16 />
         <Tags>
           {tags.map(tag => (
@@ -112,6 +115,17 @@ const ExploreCategory = () => {
           ))}
         </Tags>
         <Spacer16 />
+        {!activeTags.length && featuredExercises.length > 0 && (
+          <StickyHeading>
+            <Heading16>{t('featuredHeading')}</Heading16>
+          </StickyHeading>
+        )}
+        {!activeTags.length && featuredExercises.length > 0 && (
+          <>
+            <Sessions sessions={featuredExercises} />
+            <Spacer16 />
+          </>
+        )}
         {filteredCollections.length > 0 && (
           <StickyHeading>
             <Heading16>{t('collectionsHeading')}</Heading16>
