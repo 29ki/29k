@@ -17,5 +17,19 @@ export default defineConfig({
   build: {
     outDir: '../dist',
   },
-  plugins: [react()],
+  plugins: [
+    react({
+      include: /\.(jsx|tsx)$/,
+      babel: {
+        plugins: ['styled-components'],
+        babelrc: false,
+        configFile: false,
+      },
+    }),
+  ],
+  resolve: {
+    alias: {
+      'react-native': 'react-native-web',
+    },
+  },
 });

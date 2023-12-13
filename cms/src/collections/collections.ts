@@ -45,7 +45,7 @@ export const exercises: CmsCollection = {
   summary: '{{fields.name}}',
   slug: '{{id}}',
   editor: {
-    preview: false,
+    preview: true,
   },
   fields: EXERCISE_FIELDS,
   i18n: true,
