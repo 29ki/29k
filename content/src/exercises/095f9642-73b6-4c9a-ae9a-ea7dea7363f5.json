@@ -416,10 +416,10 @@
             "text": "Om du vill finns det ett uppdrag: \n\nSätt en påminnelse på vilken tid du vill, varje dag kommande vecka. När du får påminnelsen, tänk på något kärleksfullt som du upplevt under det senaste dygnet. Lägg märke till hur det känns på insidan, i din kropp när du gör det."
           },
           {
-            "text": "Before we leave this space let’s do a mini check-out. \n\nHow are you feeling right now? Has anything shifted? Please answer in two-three words."
+            "text": "Innan vi avslutar så gör vi en mini-utcheckning.\nHur känner du dig nu? Har något ändrats? Svara gärna med två-tre ord.\n\nVem vill börja?"
           },
           {
-            "text": "Who would like to start?\n\n> Let everyone in the session check out one by one.\n\nThank you all for checking out and for joining this session today.\n\n> Finish session to send everyone off to the exit experience."
+            "text": "> Låt alla checka ut en efter en.\n\nTack så mycket för era utcheckningar, och för att ni deltog i den här sessionen.\n\n> Avsluta sessionen för att skicka deltagarna till exit-upplevelsen."
           }
         ],
         "video": {
@@ -430,7 +430,7 @@
       {
         "type": "instruction",
         "content": {
-          "text": "If you’re up for it, you can continue with this mission:\n\nSet a reminder at a random time of the day for a week. When the reminder goes off, reflect on a loving moment from the past 24 hours. Notice what it feels like on the inside, in your body.",
+          "text": "Vi har just dragit fram ett kärleksfullt ögonblick från minnets mörka vrår in i ljuset. Det kan hjälpa oss att väga upp våra hjärnors medfödda förmåga att fokusera på det negativa.\n\nOm du vill finns det ett uppdrag: \n\nSätt en påminnelse på valfri tid varje dag i en vecka. När du får påminnelsen, tänk på något kärleksfullt som du upplevt under det senaste dygnet. Lägg märke till hur det känns på insidan, i din kropp när du gör det.",
           "image": {
             "source": "https://res.cloudinary.com/twentyninek/image/upload/v1664528333/temp/pure-simple-love_rd2wvb.png"
           },
