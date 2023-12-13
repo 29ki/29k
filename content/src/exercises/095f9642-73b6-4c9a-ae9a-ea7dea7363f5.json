@@ -324,13 +324,10 @@
         "type": "host",
         "hostNotes": [
           {
-            "text": "Welcome. I am X and today we will work for around 30 minutes on love and connection to ourselves and others.\n\nWe’ll be doing a short meditation together, then we’ll take a moment to reflect on our own, and the final step is to share with each other what we experienced."
+            "text": "Välkommen. Jag heter X och vi kommer att jobba tillsammans i ungefär 30 minuter med att uppmärksamma något fint i livet.\n\nVi kommer att lyssna på en ljudövning tillsammans, reflektera en stund för oss själva och sedan finns det möjlighet att dela sina erfarenheter."
           },
           {
-            "text": "Before we move on into the session, let's ground ourselves in the here and now. Focusing on our breathing for three circles of inhale and exhale.\n\n> Inhale & exhale slowly x3"
-          },
-          {
-            "text": "Let’s start with a mini check-in. How are you feeling right now? Please answer in two-three words. X, would you like to start?\n\n> Let everyone in the session, including yourself, check in one by one.\n\nThank you all for checking in. Let’s get started."
+            "text": "Vi börjar med en mini-check-in. Hur känner du dig just nu? Svara gärna med två-tre ord. X, vill du börja?\n\n> Låt alla deltagare, inklusive dig själv, checka in en och en. \n\nTack för att ni checkade in. Då kör vi igång."
           }
         ],
         "video": {
@@ -341,22 +338,27 @@
       {
         "type": "content",
         "content": {
-          "heading": "Pure simple love",
+          "heading": "Enkel kärlek",
           "video": {
-            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1689597497/Video/pure_simple_love_vamjsh.mp4",
-            "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1674554578/Images/thumb_meditation_pure_simple_love_wex49u.png",
-            "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1697622804/SRT%20(captions)%20files/Pure_simple_love_swe_t1zhsg.srt",
-            "durationTimer": true,
-            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1697622758/Audio/pure_simple_love_swe_zddij7.mp3"
+            "source": "",
+            "preview": "",
+            "subtitles": "",
+            "durationTimer": false
           },
-          "image": "https://res.cloudinary.com/twentyninek/image/upload/q_auto,t_global/v1636016815/Singles/sticky_eng_ps00eg.png"
+          "image": "https://res.cloudinary.com/twentyninek/image/upload/q_auto,t_global/v1636016815/Singles/sticky_eng_ps00eg.png",
+          "lottie": {
+            "durationTimer": true,
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1676977421/Lottie/audio_meditation_default_black_default_omemwt.json",
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1697622758/Audio/pure_simple_love_swe_zddij7.mp3",
+            "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1697622804/SRT%20(captions)%20files/Pure_simple_love_swe_t1zhsg.srt"
+          }
         },
         "hostNotes": [
           {
-            "text": "Sometimes it feels like life goes on and on in a never ending treadmill. And even though we may have beautiful things in our lives, our brains are programmed to focus on the things that don’t work. The problems. Potential threats. Things in our lives that we need to solve."
+            "text": "Ibland kan det kännas som att livet bara passerar. Och även om vi har fina saker i våra liv så är våra hjärnor inprogrammerade att uppmärksamma sånt som inte funkar. Problemen. Sånt vi behöver lösa, eller saker som kan vara hotfulla."
           },
           {
-            "text": "Reminding ourselves of what’s working takes an effort. And now we’re gonna do just that. Taking a few minutes to recall a moment of love in our lives together. It's a practice that has been proven to promote happiness, a sense of purpose and slow our systems down a bit.\n\n> Press play to start the meditation."
+            "text": "Att påminna oss själva om sånt som är bra och fint kräver en ansträngning. Och precis det ska vi göra just nu. De närmaste minuterna kommer vi att påminna oss om ett fint ögonblick i livet tillsammans. Det är en övning som kan få oss att känna lycka, mening och sakta ner våra system lite grand. \n\n> Tryck på play för att starta meditationen."
           }
         ]
       },
@@ -437,7 +439,7 @@
       }
     ],
     "hidden": true,
-    "name": "Pure simple love",
+    "name": "Enkel kärlek",
     "live": true,
     "published": true,
     "card": {
@@ -445,6 +447,18 @@
         "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1698256076/Images/pure-simple-love_vi9ura.png"
       }
     },
+    "coCreators": [
+      {
+        "name": "Ints Ivanovskis, art works",
+        "url": "https://www.linkedin.com/in/ints-ivanovskis-46ab0311a/",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413436/Contributors/Ints%20Ivanovskis.jpg"
+      },
+      {
+        "name": "Jacquline Levi, voice",
+        "url": "https://www.linkedin.com/in/jacqueline-levi-292065ab/",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665414232/Contributors/Jacqueline%20Levi.png"
+      }
+    ],
     "duration": 30,
     "outroPortal": {
       "video": {
@@ -483,6 +497,7 @@
       "cfc00217-f65b-4a4d-8b82-8ccc8f852dd6",
       "43a6dc0d-d866-4b79-9453-13c44e906128"
     ],
-    "link": "https://aware.29k.org/pure-simple-love"
+    "link": "https://aware.29k.org/pure-simple-love",
+    "card": {}
   }
 }
