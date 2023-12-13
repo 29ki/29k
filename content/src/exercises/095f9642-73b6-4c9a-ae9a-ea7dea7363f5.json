@@ -365,43 +365,43 @@
       {
         "type": "reflection",
         "content": {
-          "heading": "How did this meditation affect you?",
+          "heading": "Hur upplevde du meditationen?",
           "video": {
             "source": "https://res.cloudinary.com/twentyninek/video/upload/q_auto/v1663328538/temp/1_min_eto52x.mp4",
             "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1674554578/Images/thumb_timer1min_pure_simple_love_jahzvt.png",
             "durationTimer": true
           },
-          "text": "What can you bring for the rest of the day?"
+          "text": "Vad tar du med dig?"
         },
         "hostNotes": [
           {
-            "text": "Now we’ll take 1 minute to reflect on our own.\n\nHow did this meditation affect you?\n\nWhat can you bring from this for the rest of your day?"
+            "text": "Nästa steg är att tyst reflektera i en minut.\n\nHur upplevde du att göra den meditationen? och vad du tar med dig för resten av den här dagen?"
           },
           {
-            "text": "You can take notes on a piece of paper or just mental notes in your head. And there is no right or wrong here, our answers are our own. 1 minute starting now.\n\n> Press play to start the timer.\n\nOkay, that’s 1 minute. Let’s move on."
+            "text": "Om du vill kan du skriva ner dina funderingar på ett papper eller bara tänka fritt. Det finns inga svar som är rätt eller fel här – vad som än dyker upp är okej.\n\n> Tryck på play för att starta timern.\n\nDå har det gått en minut och det är dags att gå vidare."
           }
         ]
       },
       {
         "type": "sharing",
         "content": {
-          "heading": "How did this meditation affect you?",
+          "heading": "Hur upplevde du meditationen?",
           "video": {
             "source": "https://res.cloudinary.com/twentyninek/video/upload/q_auto/v1663328538/temp/2_min_fr9hsu.mp4",
             "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1674554578/Images/thumb_timer2min_pure_simple_love_czlzbh.png",
             "durationTimer": true
           },
-          "text": "What can you bring for the rest of the day?"
+          "text": "Vad tar du med dig?"
         },
         "hostNotes": [
           {
-            "text": "Now we are getting into the sharing part. We have three rules for sharing:\n\n1. **What is said in here, stays in here.**\n2. **All you need to do is listen.** There is no fixing, helping or advice-giving needed. We are just showing up and exploring what ourselves and others are going through."
+            "text": "Det här steget handlar om att dela med sig av sin upplevelse och lyssna på andras. Vi har tre regler:\n\n1. **Det som sägs här, stannar här.**\n2. **Allt som behövs är att vi lyssnar på varandra.** Inget fixande, ingen rådgivning eller annan hjälp behövs. Vi är bara här för att utforska våra egna och andras upplevelser tillsammans."
           },
           {
-            "text": "3. **Everything on the inside is okay.** Anger, love, hatred, sadness. Whatever shows up. No wrongs, no rights. It is what it is.\n\nThere will be a timer set for 2 minutes as an indicator. If you don’t want to share you can always say ‘pass’."
+            "text": "3. **Allt som händer på insidan är okej.** Ilska, kärlek, smärta, glädje. Vad som än dyker upp, det finns inget rätt eller fel. Det bara är som det är.\n\nDet finns en timer på två minuter att hålla sig efter på ett ungefär. Om du inte vill dela med dig är det bara att säga 'pass'."
           },
           {
-            "text": "Who would like to start?\n\n> Let up to six people share one by one. Press play to start the timer. Re-start for each new person.\n\nThank you so much everyone."
+            "text": "Vem vill börja?\n\n> Låt alla, eller så många som det finns tid för, dela en efter en. Tryck på play för att starta timern. Starta om för varje person.\n\nTack så mycket för att ni lyssnar och delar med er."
           }
         ],
         "id": "sharing"
@@ -410,10 +410,10 @@
         "type": "host",
         "hostNotes": [
           {
-            "text": "We've just thought of a moment of love in our live and put one of life’s precious moment into the limelight. To help us balance our brains natural efforts to make us survive by focusing on the negative."
+            "text": "Vi har just dragit fram ett kärleksfullt ögonblick från minnets mörka vrår in i ljuset. Det kan hjälpa oss att väga upp våra hjärnors medfödda förmåga att fokusera på det negativa."
           },
           {
-            "text": "Well done. If you’re up for it, you can continue what we started here today with a mission to bring this into your everyday life.\n\nSet a reminder at a random time of the day for a week. When the reminder goes on, reflect on a loving moment from the last 24 hours. Notice what it feels like on the inside, in your body."
+            "text": "Om du vill finns det ett uppdrag: \n\nSätt en påminnelse på vilken tid du vill, varje dag kommande vecka. När du får påminnelsen, tänk på något kärleksfullt som du upplevt under det senaste dygnet. Lägg märke till hur det känns på insidan, i din kropp när du gör det."
           },
           {
             "text": "Before we leave this space let’s do a mini check-out. \n\nHow are you feeling right now? Has anything shifted? Please answer in two-three words."
@@ -454,7 +454,7 @@
         "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413436/Contributors/Ints%20Ivanovskis.jpg"
       },
       {
-        "name": "Jacquline Levi, voice",
+        "name": "Jacquline Levi, röst",
         "url": "https://www.linkedin.com/in/jacqueline-levi-292065ab/",
         "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665414232/Contributors/Jacqueline%20Levi.png"
       }
@@ -488,7 +488,7 @@
     "link": "https://aware.29k.org/pure-simple-love",
     "id": "095f9642-73b6-4c9a-ae9a-ea7dea7363f5",
     "async": true,
-    "description": "A guided meditation that brings a precious moment into the limelight. Practicing noticing what's working can help us feel happier and more fulfilled, and counteract our brains natural tendency to focus on the negative."
+    "description": "Guidad meditation där vi plockar fram ett fint minne. Att aktivt lägga märke till saker i livet som fungerar bra kan hjälpa oss att känna lycka och mening. Det kan också balansera upp våra hjärnors inbyggda tendens att fokusera på det negativa."
   },
   "ja": {
     "id": "095f9642-73b6-4c9a-ae9a-ea7dea7363f5",
