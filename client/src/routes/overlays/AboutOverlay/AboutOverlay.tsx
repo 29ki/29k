@@ -36,7 +36,7 @@ import AppVersionActionButton from './components/AppVersionActionButton';
 import {SPACINGS} from '../../../lib/constants/spacings';
 
 const BlurbImage = styled.Image({
-  aspectRatio: 1.7,
+  aspectRatio: '1.7',
   borderTopLeftRadius: SETTINGS.BORDER_RADIUS.ACTION_LISTS,
   borderTopRightRadius: SETTINGS.BORDER_RADIUS.ACTION_LISTS,
 });

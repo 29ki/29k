@@ -10,14 +10,14 @@ import {Body14} from '../../../../lib/components/Typography/Body/Body';
 import {Spacer32} from '../../../../lib/components/Spacers/Spacer';
 
 const Squares = styled.View({
-  aspectRatio: 1,
+  aspectRatio: '1',
   zIndex: 1,
 });
 
 const Square = styled.View({
   position: 'absolute',
   width: '37%',
-  aspectRatio: 1,
+  aspectRatio: '1',
   shadowColor: '#000',
   shadowOffset: '0 12px',
   shadowOpacity: 0.58,

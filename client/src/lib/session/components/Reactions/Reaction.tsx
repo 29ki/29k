@@ -19,7 +19,7 @@ const {height: windowHeight} = Dimensions.get('window');
 const Content = styled(Animated.View)({
   position: 'absolute',
   width: '15%',
-  aspectRatio: 1,
+  aspectRatio: '1',
   alignItems: 'center',
 });
 

@@ -71,7 +71,7 @@ const LeftColumn = styled.View({
 const Graphic = styled.Image({
   width: 134,
   height: 134,
-  aspectRatio: 1,
+  aspectRatio: '1',
   borderRadius: 8,
   overflow: 'hidden',
 });

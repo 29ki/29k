@@ -27,7 +27,7 @@ const banners: Banners = {
 };
 
 const Animation = styled(AnimatedLottieView)({
-  aspectRatio: 1125 / 400,
+  aspectRatio: `${1125 / 400}`,
 });
 
 const WelcomeBanner = () => {

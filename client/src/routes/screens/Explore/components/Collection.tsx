@@ -22,7 +22,7 @@ import {
 import {useFeaturedCollectionIds} from '../../../../lib/content/hooks/useFeaturedContent';
 
 const Card = styled.View<{backgroundColor?: string}>(({backgroundColor}) => ({
-  aspectRatio: 1.3625,
+  aspectRatio: '1.3625',
   borderRadius: 16,
   overflow: 'hidden',
   backgroundColor,
