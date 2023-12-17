@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components/native';
 import {SPACINGS} from '../../constants/spacings';
 
-export * from './Safearea';
+export * from './SafeArea';
 
 type Spacer = {
   size: number;
