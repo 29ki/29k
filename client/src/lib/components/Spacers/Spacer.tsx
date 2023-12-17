@@ -1,7 +1,8 @@
 import React from 'react';
 import styled from 'styled-components/native';
-import {useSafeAreaInsets} from 'react-native-safe-area-context';
 import {SPACINGS} from '../../constants/spacings';
+
+export * from './Safearea';
 
 type Spacer = {
   size: number;
@@ -16,7 +17,7 @@ const Spacer = styled.View<Spacer>(({size}) => ({
   minWidth: size,
 }));
 
-const MemoizedSpacer = React.memo(Spacer);
+export const MemoizedSpacer = React.memo(Spacer);
 
 export const Spacer4: React.FC = props => (
   <MemoizedSpacer {...props} size={SPACINGS.FOUR} />
@@ -53,11 +54,4 @@ export const Spacer60: React.FC = props => (
 );
 export const Spacer96: React.FC = props => (
   <MemoizedSpacer {...props} size={SPACINGS.NINTYSIX} />
-);
-
-export const TopSafeArea = ({minSize = 0}) => (
-  <MemoizedSpacer size={Math.max(useSafeAreaInsets().top, minSize)} />
-);
-export const BottomSafeArea = ({minSize = 0}) => (
-  <MemoizedSpacer size={Math.max(useSafeAreaInsets().bottom, minSize)} />
 );
