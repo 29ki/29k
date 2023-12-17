@@ -1,7 +1,5 @@
 import CMS from 'decap-cms-app';
 import cloudinary from 'decap-cms-media-library-cloudinary';
-import styled from 'styled-components';
-import {View} from 'react-native';
 
 import {
   DEFAULT_LANGUAGE_TAG,
@@ -19,7 +17,8 @@ import {
 } from './collections/collections';
 import {Widget as uniqueIdWidget} from './widgets/uniqueIdWidget';
 import textTemplates from './editorComponents.ts/textTemplates';
-import withStyled from './lib/withStyled';
+import withStyles from './lib/withStyled';
+import ExercisePreview from './previews/Exercise';
 
 CMS.init({
   config: {
@@ -62,16 +61,9 @@ CMS.init({
   },
 });
 
-const Foo = styled(View)`
-  width: 200px;
-  height: 200px;
-  background-color: red;
-`;
-
 CMS.registerWidget(uniqueIdWidget);
 CMS.registerMediaLibrary(cloudinary);
 CMS.registerEditorComponent(textTemplates);
-CMS.registerPreviewTemplate(
-  'exercises',
-  withStyled(() => <Foo>hej</Foo>),
-);
+
+CMS.registerPreviewStyle('./preview.css');
+CMS.registerPreviewTemplate('exercises', withStyles(ExercisePreview));

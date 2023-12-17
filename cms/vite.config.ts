@@ -8,6 +8,19 @@ import react from '@vitejs/plugin-react';
 */
 dns.setDefaultResultOrder('verbatim');
 
+const extensions = [
+  '.web.tsx',
+  '.tsx',
+  '.web.ts',
+  '.ts',
+  '.web.jsx',
+  '.jsx',
+  '.web.js',
+  '.js',
+  '.css',
+  '.json',
+];
+
 export default defineConfig({
   root: 'src',
   server: {
@@ -27,9 +40,17 @@ export default defineConfig({
       },
     }),
   ],
+  optimizeDeps: {
+    esbuildOptions: {
+      resolveExtensions: extensions,
+    },
+  },
   resolve: {
+    extensions,
     alias: {
       'react-native': 'react-native-web',
+      'react-native-linear-gradient': 'react-native-web-linear-gradient',
+      'react-native-svg': 'react-native-svg-web',
     },
   },
 });

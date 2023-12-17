@@ -1,17 +1,16 @@
 import React from 'react';
-import {StyleSheetManager} from 'styled-components';
+import {PreviewTemplateComponentProps} from 'decap-cms-core';
+import {StyleSheet} from 'react-native-web';
 
-export default Component => props => {
-  const iframe = document.querySelector('#nc-root iframe');
-  const iframeHeadElem = iframe && iframe.contentDocument.head;
-  console.log('iframeHeadElem', iframeHeadElem);
-  if (!iframeHeadElem) {
-    return null;
-  }
+const withStyles =
+  (Component: React.ComponentType<PreviewTemplateComponentProps>) =>
+  (props: PreviewTemplateComponentProps) => {
+    return (
+      <>
+        <Component {...props} />
+        <style>{StyleSheet.getSheet().textContent}</style>
+      </>
+    );
+  };
 
-  return (
-    <StyleSheetManager target={iframeHeadElem}>
-      <Component {...props} />
-    </StyleSheetManager>
-  );
-};
+export default withStyles;
