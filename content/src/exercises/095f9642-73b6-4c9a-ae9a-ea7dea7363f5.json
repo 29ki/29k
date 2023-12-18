@@ -438,7 +438,7 @@
         }
       }
     ],
-    "hidden": true,
+    "hidden": false,
     "name": "Enkel kärlek",
     "live": true,
     "published": true,
