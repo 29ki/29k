@@ -338,7 +338,7 @@
       {
         "type": "content",
         "content": {
-          "heading": "Enkel kärlek",
+          "heading": "",
           "video": {
             "source": "",
             "preview": "",
@@ -375,7 +375,7 @@
         },
         "hostNotes": [
           {
-            "text": "Nästa steg är att tyst reflektera i en minut.\n\nHur upplevde du att göra den meditationen? och vad du tar med dig för resten av den här dagen?"
+            "text": "Nästa steg är att tyst reflektera i en minut.\n\nHur upplevde du att göra den här meditationen? Vad tar du med dig för resten av den här dagen?"
           },
           {
             "text": "Om du vill kan du skriva ner dina funderingar på ett papper eller bara tänka fritt. Det finns inga svar som är rätt eller fel här – vad som än dyker upp är okej.\n\n> Tryck på play för att starta timern.\n\nDå har det gått en minut och det är dags att gå vidare."
@@ -413,7 +413,7 @@
             "text": "Vi har just dragit fram ett kärleksfullt ögonblick från minnets mörka vrår in i ljuset. Det kan hjälpa oss att väga upp våra hjärnors medfödda förmåga att fokusera på det negativa."
           },
           {
-            "text": "Om du vill finns det ett uppdrag: \n\nSätt en påminnelse på vilken tid du vill, varje dag kommande vecka. När du får påminnelsen, tänk på något kärleksfullt som du upplevt under det senaste dygnet. Lägg märke till hur det känns på insidan, i din kropp när du gör det."
+            "text": "Om du vill finns det ett uppdrag du kan ta dig an: \n\nSätt en påminnelse på vilken tid du vill, varje dag kommande vecka. När du får påminnelsen, tänk på något kärleksfullt som du upplevt under det senaste dygnet. Lägg märke till hur det känns på insidan, i din kropp, när du gör det."
           },
           {
             "text": "Innan vi avslutar så gör vi en mini-utcheckning.\nHur känner du dig nu? Har något ändrats? Svara gärna med två-tre ord.\n\nVem vill börja?"
@@ -430,11 +430,11 @@
       {
         "type": "instruction",
         "content": {
-          "text": "Vi har just dragit fram ett kärleksfullt ögonblick från minnets mörka vrår in i ljuset. Det kan hjälpa oss att väga upp våra hjärnors medfödda förmåga att fokusera på det negativa.\n\nOm du vill finns det ett uppdrag: \n\nSätt en påminnelse på valfri tid varje dag i en vecka. När du får påminnelsen, tänk på något kärleksfullt som du upplevt under det senaste dygnet. Lägg märke till hur det känns på insidan, i din kropp när du gör det.",
+          "text": "Vi har just dragit fram ett kärleksfullt ögonblick från minnets mörka vrår in i ljuset. Det kan hjälpa oss att väga upp våra hjärnors medfödda förmåga att fokusera på det negativa.\n\nVill du ta dig an en utmaning? \n\nSätt en påminnelse på valfri tid varje dag i en vecka. När du får påminnelsen, tänk på något kärleksfullt som du upplevt under det senaste dygnet. Lägg märke till hur det känns på insidan, i din kropp när du gör det.",
           "image": {
             "source": "https://res.cloudinary.com/twentyninek/image/upload/v1664528333/temp/pure-simple-love_rd2wvb.png"
           },
-          "heading": "Well done"
+          "heading": "Bra jobbat"
         }
       }
     ],
@@ -449,7 +449,7 @@
     },
     "coCreators": [
       {
-        "name": "Ints Ivanovskis, art works",
+        "name": "Ints Ivanovskis, illustrationer",
         "url": "https://www.linkedin.com/in/ints-ivanovskis-46ab0311a/",
         "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413436/Contributors/Ints%20Ivanovskis.jpg"
       },
@@ -488,7 +488,7 @@
     "link": "https://aware.29k.org/pure-simple-love",
     "id": "095f9642-73b6-4c9a-ae9a-ea7dea7363f5",
     "async": true,
-    "description": "Guidad meditation där vi plockar fram ett fint minne. Att aktivt lägga märke till saker i livet som fungerar bra kan hjälpa oss att känna lycka och mening. Det kan också balansera upp våra hjärnors inbyggda tendens att fokusera på det negativa."
+    "description": "En guidad meditation där vi plockar fram ett fint minne. Att aktivt lägga märke till saker i livet som fungerar bra kan hjälpa oss att känna lycka och mening. Det kan också balansera upp våra hjärnors inbyggda tendens att fokusera på det negativa."
   },
   "ja": {
     "id": "095f9642-73b6-4c9a-ae9a-ea7dea7363f5",
