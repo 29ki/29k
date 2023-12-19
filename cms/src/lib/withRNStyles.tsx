@@ -1,5 +1,7 @@
 import React from 'react';
 import {PreviewTemplateComponentProps} from 'decap-cms-core';
+import {SafeAreaProvider} from 'react-native-safe-area-context';
+
 import {StyleSheetManager} from 'styled-components';
 // eslint-disable-next-line
 // @ts-ignore
@@ -19,7 +21,9 @@ const withRNStyles =
     return (
       // This is to force styled-components to add styles to iframe head
       <StyleSheetManager target={iframeHeadElem}>
-        <Component {...props} />
+        <SafeAreaProvider>
+          <Component {...props} />
+        </SafeAreaProvider>
       </StyleSheetManager>
     );
   };
