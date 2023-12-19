@@ -9,7 +9,7 @@ import {createSheet} from 'react-native-web/dist/exports/StyleSheet/dom';
 
 const withRNStyles =
   (Component: React.ComponentType<PreviewTemplateComponentProps>) =>
-  (props: PreviewTemplateComponentProps & {target: HTMLElement}) => {
+  (props: PreviewTemplateComponentProps) => {
     const iframe = document.getElementById(
       'preview-pane',
     ) as HTMLIFrameElement | null;
