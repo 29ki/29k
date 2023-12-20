@@ -5,7 +5,7 @@ import React, {
   useImperativeHandle,
   useRef,
 } from 'react';
-import {VideoLooperProperties} from '../../../../types/VideoLooper';
+import {VideoLooperProperties} from './VideoLooper';
 import styled from 'styled-components';
 
 const Video = styled.video({
@@ -17,7 +17,7 @@ export type VideoPlayerHandle = {
 };
 
 const VideoLooper = forwardRef<VideoPlayerHandle, VideoLooperProperties>(
-  ({sources, style, paused, loop, onProgress, onLoad}, ref) => {
+  ({sources, style, paused, repeat, onProgress, onLoad}, ref) => {
     const videoRef = useRef<HTMLVideoElement>(null);
 
     const togglePaused = useCallback((pause?: boolean) => {
@@ -58,7 +58,7 @@ const VideoLooper = forwardRef<VideoPlayerHandle, VideoLooperProperties>(
         ref={videoRef}
         onLoadedData={onLoadedData}
         onTimeUpdate={onTimeUpdate}
-        loop={sources[0]?.repeat}>
+        loop={repeat}>
         {sources.map(({source}) => (
           <source src={source} />
         ))}
