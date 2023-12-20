@@ -1,6 +1,6 @@
 import React from 'react';
 import {useMemo} from 'react';
-import {StyleSheet, TextStyle, ViewStyle} from 'react-native';
+import {TextStyle, ViewStyle} from 'react-native';
 import RNSubtitles from 'react-native-subtitles';
 import hexToRgba from 'hex-to-rgba';
 

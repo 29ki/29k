@@ -1,8 +1,8 @@
-import React, {Fragment} from 'react';
+import React from 'react';
+import {View} from 'react-native';
 import RMarkdown, {Components} from 'react-markdown';
 import {Spacer16} from '../../Spacers/Spacer';
 import styles from './styles';
-import {View, ViewStyle} from 'react-native';
 
 const components: Components = {
   p: ({children}) => (
@@ -15,7 +15,6 @@ const components: Components = {
 
 type Props = {
   children: string;
-  style: ViewStyle;
 };
 const Markdown = ({children}: Props) => (
   <RMarkdown components={components}>{children}</RMarkdown>

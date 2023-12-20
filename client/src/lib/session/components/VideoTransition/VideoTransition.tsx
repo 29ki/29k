@@ -3,7 +3,7 @@ import Sentry from '../../../sentry';
 import styled from 'styled-components/native';
 import {StyleSheet} from 'react-native';
 import VideoLooper from '../../../components/VideoLooper/VideoLooper';
-import {SourceConfig} from '../../../../../types/VideoLooper';
+import {SourceConfig} from '../../../components/VideoLooper/VideoLooper';
 
 const reverseVideo = (url: string) => {
   const transformFlags = (url.match(/cloudinary.*\/upload\/?(.*)\/v/) ?? [])[1];
