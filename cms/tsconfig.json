@@ -17,8 +17,8 @@
     "typeRoots": ["./types", "./node_modules/@types", "../client/types", "../client/node_modules/@types"],
     "paths": {
       "react-native-web": ["../client/node_modules/react-native/index"],
-    }
+    },
   },
-  "include": ["src", "types", "vite.config.ts", "generateTypes.ts", "../client/types"],
+  "include": ["src", "types", "vite.config.ts", "generateTypes.ts", "../client/types", "../client/src"],
 }
 
