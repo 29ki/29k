@@ -6,7 +6,6 @@ import hexToRgba from 'hex-to-rgba';
 
 import {COLORS} from '../../../../../shared/src/constants/colors';
 import {SPACINGS} from '../../constants/spacings';
-import {HKGroteskRegular} from '../../constants/fonts';
 import textStyles from '../Typography/styles';
 
 type SubtitleProps = {

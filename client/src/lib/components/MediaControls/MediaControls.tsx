@@ -7,7 +7,6 @@ import {Backward15, Forward15, Pause, PlayIcon, SubtitlesIcon} from '../Icons';
 import {Spacer16, Spacer32, Spacer8} from '../Spacers/Spacer';
 import {COLORS} from '../../../../../shared/src/constants/colors';
 import {Body14} from '../Typography/Body/Body';
-import {SPACINGS} from '../../constants/spacings';
 import useSessionState from '../../session/state/state';
 import TimeProgressBar from './TimeProgressBar';
 
