@@ -31,7 +31,6 @@ const ProgressWrapper = styled.View({
 const TimeWrapper = styled.View({
   flexDirection: 'row',
   justifyContent: 'space-between',
-  paddingHorizontal: SPACINGS.SIXTEEN,
 });
 
 const TimeLabel = styled(Body14)<{color?: string}>(({color}) => ({
