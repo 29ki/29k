@@ -6,6 +6,8 @@ import hexToRgba from 'hex-to-rgba';
 
 import {COLORS} from '../../../../../shared/src/constants/colors';
 import {SPACINGS} from '../../constants/spacings';
+import {HKGroteskRegular} from '../../constants/fonts';
+import textStyles from '../Typography/styles';
 
 type SubtitleProps = {
   src: string;
@@ -24,15 +26,12 @@ const containerStyle: ViewStyle = {
 };
 
 const textStyle: TextStyle = {
-  textAlign: 'center',
-  borderRadius: 4,
-  fontSize: 16,
-  fontFamily: 'HK Grotesk',
-  backgroundColor: undefined,
+  ...textStyles.Body16,
   color: COLORS.BLACK,
   paddingVertical: 6,
   paddingHorizontal: SPACINGS.FOUR,
   alignSelf: undefined,
+  backgroundColor: undefined,
   textShadowColor: undefined,
   textShadowOffset: undefined,
   textShadowRadius: undefined,
