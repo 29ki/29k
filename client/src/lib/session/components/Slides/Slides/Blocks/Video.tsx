@@ -10,7 +10,7 @@ import styled from 'styled-components/native';
 import {View} from 'react-native';
 
 import useSessionState from '../../../../state/state';
-import {VideoLooperProperties} from '../../../../../../../types/VideoLooper';
+import {VideoLooperProperties} from '../../../../../components/VideoLooper/VideoLooper';
 import VideoLooper from '../../../../../components/VideoLooper/VideoLooper';
 import MediaControls from '../../../../../components/MediaControls/MediaControls';
 import {

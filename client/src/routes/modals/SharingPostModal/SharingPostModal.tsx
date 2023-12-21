@@ -85,7 +85,7 @@ const SharingPostModal = () => {
   const exercise = useExerciseById(exerciseId);
 
   const videoSources = useMemo(() => {
-    if (video) {
+    if (video?.source) {
       return [
         {
           source: video.source,

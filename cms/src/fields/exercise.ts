@@ -1,4 +1,4 @@
-import {CmsField} from 'decap-cms-core';
+import {CmsField, CmsFieldBase, CmsFieldList} from 'decap-cms-core';
 import {applyDefaults} from '../lib/fields';
 import defaults from '../defaults/exercise.json';
 
@@ -132,7 +132,7 @@ const THEME: CmsField = {
   ],
 };
 
-export const SLIDES: CmsField = {
+export const SLIDES: CmsFieldBase & CmsFieldList = {
   label: '🖼️ Slides',
   label_singular: '🖼️ Slide',
   name: 'slides',

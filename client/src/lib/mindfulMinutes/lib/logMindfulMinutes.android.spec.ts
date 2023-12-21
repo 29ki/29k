@@ -23,7 +23,12 @@ describe('logMindfulMinutes.android', () => {
 
   describe('log', () => {
     it('returns false', async () => {
-      expect(await logMindfulMinutes.log()).toBe(false);
+      expect(
+        await logMindfulMinutes.log(
+          new Date('2001-01-01T01:01:01Z'),
+          new Date('2002-02-02T02:02:02Z'),
+        ),
+      ).toBe(false);
     });
   });
 });

@@ -7,7 +7,6 @@ import {Backward15, Forward15, Pause, PlayIcon, SubtitlesIcon} from '../Icons';
 import {Spacer16, Spacer32, Spacer8} from '../Spacers/Spacer';
 import {COLORS} from '../../../../../shared/src/constants/colors';
 import {Body14} from '../Typography/Body/Body';
-import {SPACINGS} from '../../constants/spacings';
 import useSessionState from '../../session/state/state';
 import TimeProgressBar from './TimeProgressBar';
 
@@ -31,7 +30,6 @@ const ProgressWrapper = styled.View({
 const TimeWrapper = styled.View({
   flexDirection: 'row',
   justifyContent: 'space-between',
-  paddingHorizontal: SPACINGS.SIXTEEN,
 });
 
 const TimeLabel = styled(Body14)<{color?: string}>(({color}) => ({
@@ -58,8 +56,8 @@ type MediaControlsProps = {
   duration: number;
   playing: boolean;
   subtitles?: boolean;
-  onSkipForward: () => void;
-  onSkipBack: () => void;
+  onSkipForward?: () => void;
+  onSkipBack?: () => void;
   onTogglePlay: () => void;
   onToggleSubtitles?: () => void;
   light?: boolean;
@@ -106,25 +104,33 @@ const MediaControls: React.FC<MediaControlsProps> = ({
 
       <Wrapper>
         <ControlsWrapper>
-          <IconButton
-            size="small"
-            variant={variant}
-            Icon={Backward15}
-            onPress={onSkipBack}
-          />
-          <Spacer32 />
+          {onSkipBack && (
+            <>
+              <IconButton
+                size="small"
+                variant={variant}
+                Icon={Backward15}
+                onPress={onSkipBack}
+              />
+              <Spacer32 />
+            </>
+          )}
           <PlayPauseButton
             variant={variant}
             Icon={playing ? Pause : PlayIcon}
             onPress={onTogglePlay}
           />
-          <Spacer32 />
-          <IconButton
-            size="small"
-            variant={variant}
-            Icon={Forward15}
-            onPress={onSkipForward}
-          />
+          {onSkipForward && (
+            <>
+              <Spacer32 />
+              <IconButton
+                size="small"
+                variant={variant}
+                Icon={Forward15}
+                onPress={onSkipForward}
+              />
+            </>
+          )}
 
           {subtitles !== undefined && onToggleSubtitles && (
             <SubtitlesWrapper>

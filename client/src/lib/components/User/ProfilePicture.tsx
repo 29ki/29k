@@ -17,7 +17,7 @@ const Profile = styled(TouchableOpacity)<{
   height: size,
   backgroundColor: backgroundColor ? backgroundColor : COLORS.PURE_WHITE,
   borderRadius: size / 2,
-  aspectRatio: 1,
+  aspectRatio: '1',
   alignItems: 'center',
   justifyContent: 'center',
   overflow: 'hidden',

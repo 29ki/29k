@@ -20,7 +20,7 @@ const CARD_SIZE = Dimensions.get('screen').width / 2;
 
 const CardWrapper = styled.View({
   width: CARD_SIZE,
-  aspectRatio: 1,
+  aspectRatio: '1',
 });
 
 const FeedbackCarousel: React.FC<{feedbackItems: Feedback[]}> = ({

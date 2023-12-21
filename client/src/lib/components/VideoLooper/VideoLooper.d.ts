@@ -3,6 +3,7 @@ export interface SourceConfig {
   repeat?: boolean;
 }
 export interface VideoLooperProperties extends ViewProps {
+  style?: ViewStyle;
   sources: Array<SourceConfig>;
   paused?: boolean;
   repeat?: boolean;
