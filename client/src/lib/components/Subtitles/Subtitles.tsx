@@ -1,11 +1,10 @@
 import React from 'react';
 import {useMemo} from 'react';
 import {TextStyle, ViewStyle} from 'react-native';
-import RNSubtitles from 'react-native-subtitles';
+import RNSubtitles from '../../subtitles';
 import hexToRgba from 'hex-to-rgba';
 
 import {COLORS} from '../../../../../shared/src/constants/colors';
-import {SPACINGS} from '../../constants/spacings';
 import textStyles from '../Typography/styles';
 
 type SubtitleProps = {
@@ -20,20 +19,17 @@ const containerStyle: ViewStyle = {
   flexDirection: 'row',
   justifyContent: 'center',
   alignItems: 'center',
-  borderRadius: 4,
-  backgroundColor: hexToRgba(COLORS.PURE_WHITE, 0.51),
 };
 
 const textStyle: TextStyle = {
   ...textStyles.Body16,
   color: COLORS.BLACK,
-  paddingVertical: 6,
-  paddingHorizontal: SPACINGS.FOUR,
-  alignSelf: undefined,
-  backgroundColor: undefined,
-  textShadowColor: undefined,
-  textShadowOffset: undefined,
-  textShadowRadius: undefined,
+  padding: 6,
+  textAlign: 'center',
+  alignSelf: 'center',
+  borderRadius: 4,
+  backgroundColor: hexToRgba(COLORS.PURE_WHITE, 0.51),
+  overflow: 'hidden',
 };
 
 const Subtitles: React.FC<SubtitleProps> = ({src, time, backgroundColor}) => {
