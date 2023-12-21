@@ -9,7 +9,7 @@ import react from '@vitejs/plugin-react';
 dns.setDefaultResultOrder('verbatim');
 
 /*
-  react-native-web specific config origjnates from these source:
+  react-native-web specific config originates from these sources:
   https://github.com/necolas/react-native-web/issues/2446
   https://dev.to/xiongemi/using-react-native-web-with-vite-4in8
   https://stereobooster.com/posts/react-native-web-with-vite/
