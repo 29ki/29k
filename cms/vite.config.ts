@@ -8,7 +8,13 @@ import react from '@vitejs/plugin-react';
 */
 dns.setDefaultResultOrder('verbatim');
 
-// react-native-web specific
+/*
+  react-native-web specific config origjnates from these source:
+  https://github.com/necolas/react-native-web/issues/2446
+  https://dev.to/xiongemi/using-react-native-web-with-vite-4in8
+  https://stereobooster.com/posts/react-native-web-with-vite/
+*/
+
 const extensions = [
   '.web.tsx',
   '.tsx',
@@ -20,6 +26,7 @@ const extensions = [
   '.js',
   '.css',
   '.json',
+  '.mjs',
 ];
 
 export default defineConfig({
@@ -30,22 +37,26 @@ export default defineConfig({
   },
   build: {
     outDir: '../dist',
+    // react-native-web specific
+    commonjsOptions: {
+      transformMixedEsModules: true,
+    },
   },
-  plugins: [
-    react({
-      include: /\.(jsx|tsx)$/,
-      babel: {
-        plugins: ['styled-components'],
-        babelrc: false,
-        configFile: false,
-      },
-    }),
-  ],
+  plugins: [react()],
 
   // react-native-web specific
   optimizeDeps: {
     esbuildOptions: {
       resolveExtensions: extensions,
+      // https://github.com/vitejs/vite-plugin-react/issues/192#issuecomment-1627384670
+      jsx: 'automatic',
+      // need either this or the plugin below
+      loader: {'.js': 'jsx'},
+      // plugins: [
+      //   esbuildFlowPlugin(/\.(flow|jsx?)$/, (path) =>
+      //     /\.jsx$/.test(path) ? "jsx" : "jsx"
+      //   ),
+      // ],
     },
   },
   resolve: {
