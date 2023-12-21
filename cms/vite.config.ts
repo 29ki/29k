@@ -61,6 +61,16 @@ export default defineConfig({
   },
   resolve: {
     extensions,
+    // Keep in sync with shared deps between client and cms
+    dedupe: [
+      'dayjs',
+      'i18next',
+      'react-native-safe-area-context',
+      'react-native-web',
+      'react-native',
+      'react',
+      'styled-components',
+    ],
     alias: {
       'react-native': 'react-native-web',
       'react-native-linear-gradient': 'react-native-web-linear-gradient',
