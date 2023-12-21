@@ -19,6 +19,7 @@ import {Widget as uniqueIdWidget} from './widgets/uniqueIdWidget';
 import textTemplates from './editorComponents.ts/textTemplates';
 import withRNStyles from './lib/withRNStyles';
 import ExercisePreview from './previews/Exercise';
+import previewCss from './preview.css?inline';
 
 CMS.init({
   config: {
@@ -65,5 +66,5 @@ CMS.registerWidget(uniqueIdWidget);
 CMS.registerMediaLibrary(cloudinary);
 CMS.registerEditorComponent(textTemplates);
 
-CMS.registerPreviewStyle('./preview.css');
+CMS.registerPreviewStyle(previewCss, {raw: true});
 CMS.registerPreviewTemplate(exercises.name, withRNStyles(ExercisePreview));
