@@ -14,7 +14,7 @@ import Markdown from '../../../../lib/components/Typography/Markdown/Markdown';
 import {Platform} from 'react-native';
 
 const BlurbImage = styled.Image({
-  aspectRatio: 2.2,
+  aspectRatio: '2.2',
 });
 
 const imageSource = {

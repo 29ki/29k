@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components/native';
-import {useSafeAreaInsets} from 'react-native-safe-area-context';
 import {SPACINGS} from '../../constants/spacings';
+import {useSafeAreaInsets} from 'react-native-safe-area-context';
 
 type Spacer = {
   size: number;

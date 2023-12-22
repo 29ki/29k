@@ -7,6 +7,7 @@ import enMorning from '../../../../assets/animations/welcome/en-morning.json';
 import enAfternoon from '../../../../assets/animations/welcome/en-afternoon.json';
 import enEvening from '../../../../assets/animations/welcome/en-evening.json';
 import enWelcome from '../../../../assets/animations/welcome/en-welcome.json';
+import {Spacer16} from '../../../../lib/components/Spacers/Spacer';
 
 type Banners = {
   [language: string]: {
@@ -27,7 +28,7 @@ const banners: Banners = {
 };
 
 const Animation = styled(AnimatedLottieView)({
-  aspectRatio: 1125 / 400,
+  aspectRatio: `${1125 / 400}`,
 });
 
 const WelcomeBanner = () => {
@@ -53,7 +54,7 @@ const WelcomeBanner = () => {
     return <Animation source={banner} autoPlay loop={false} />;
   }
 
-  return null;
+  return <Spacer16 />;
 };
 
 export default WelcomeBanner;

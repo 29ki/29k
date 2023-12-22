@@ -7,7 +7,7 @@ import Image from '../Image/Image';
 
 const Graphic = styled.View<{backgroundColor?: string}>(
   ({backgroundColor}) => ({
-    aspectRatio: 1,
+    aspectRatio: '1',
     borderRadius: 8,
     overflow: 'hidden',
     backgroundColor,

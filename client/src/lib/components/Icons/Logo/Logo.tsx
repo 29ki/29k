@@ -3,14 +3,6 @@ import {Path} from 'react-native-svg';
 import {IconType} from '..';
 import {COLORS} from '../../../../../../shared/src/constants/colors';
 import Icon from '../Icon';
-import Animated, {
-  Easing,
-  useAnimatedStyle,
-  useSharedValue,
-  withRepeat,
-  withTiming,
-} from 'react-native-reanimated';
-import {useEffect} from 'react';
 
 export const LogoIcon: IconType = ({fill = COLORS.BLACK, style}) => (
   <Icon style={style}>
@@ -40,29 +32,3 @@ export const LogoIcon: IconType = ({fill = COLORS.BLACK, style}) => (
     />
   </Icon>
 );
-
-type LogoAnimatedProps = {fill?: string};
-export const LogoIconAnimated = React.memo<LogoAnimatedProps>(({fill}) => {
-  const rotation = useSharedValue(0);
-
-  useEffect(() => {
-    rotation.value = withRepeat(
-      withTiming(360, {duration: 30000, easing: Easing.linear}),
-      -1,
-      false,
-    );
-  });
-
-  const animatedStyle = useAnimatedStyle(
-    () => ({
-      transform: [{rotateZ: `${rotation.value}deg`}],
-    }),
-    [rotation.value],
-  );
-
-  return (
-    <Animated.View style={animatedStyle}>
-      <LogoIcon fill={fill} />
-    </Animated.View>
-  );
-});

@@ -5,7 +5,7 @@
         "type": "host",
         "hostNotes": [
           {
-            "text": "Welcome. I am X and today we will work for around 30 minutes on connecting with- and being kind to ourselves.\n\nWe’ll be doing a meditation exercise and there will be time for reflecting on our own and sharing with each other. Note that it can be useful to keep pen and paper near by."
+            "text": "Welcome. I am X and today we will work for around 30 minutes on connecting with- and being kind to ourselves.\n\nWe’ll listen to an audio exercise together, there will be time for reflecting on our own and finally sharing with each other. Note that it can be useful to keep pen and paper near by."
           },
           {
             "text": "Let’s start with a mini check-in. How are you feeling right now? Please answer in two-three words. X, would you like to start?\n\n> Let everyone in the session, including yourself, check in one by one.\n\nThank you all for checking in. Let’s get started."
@@ -38,10 +38,10 @@
         "type": "reflection",
         "hostNotes": [
           {
-            "text": "Now we’ll take 2 minutes to reflect on our own.\n\nWhat do you bring from this exercise? What did you notice or learn about yourself?"
+            "text": "Now we’ll take 1 minute to reflect on our own.\n\nWhat do you bring from this exercise? What did you notice or learn about yourself?"
           },
           {
-            "text": "You can take notes on a piece of paper or just mental notes in your head. And there is no right or wrong answer, our responses are our own. 2 minutes starting now.\n\n> Press play to start the timer.\n\nThat’s 2 minutes and it’s time to move on."
+            "text": "You can take notes on a piece of paper or just mental notes in your head. And there is no right or wrong answer, our responses are our own. 1 minute starting now.\n\n> Press play to start the timer.\n\nThat’s 1 minute and it’s time to move on."
           }
         ],
         "content": {

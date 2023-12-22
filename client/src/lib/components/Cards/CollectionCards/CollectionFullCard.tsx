@@ -79,7 +79,7 @@ const TitleWrapper = styled.View({
 const Graphic = styled.Image({
   width: 64,
   height: 64,
-  aspectRatio: 1,
+  aspectRatio: '1',
   borderRadius: 8,
   overflow: 'hidden',
 });

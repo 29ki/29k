@@ -274,7 +274,7 @@
       {
         "type": "instruction",
         "content": {
-          "text": "You’ve just completed the Dive in session. Well done.\n\nNow you’re ready to continue your journey – on your own, with friends or new connections.",
+          "text": "おめでとうございます！最初のセッションが終了しました。\n\nひとりでも、友人や新しい仲間と一緒でもよし。AWAREで旅を続けましょう！",
           "heading": "",
           "image": {
             "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1683790808/Images/journey_icon_ja3ug7.png"
@@ -300,14 +300,19 @@
     },
     "coCreators": [
       {
-        "name": "Maki Kobayashi, script and voice",
-        "url": "https://www.linkedin.com/in/makikobayashi/",
-        "image": null
+        "name": "Jenny Rickardsson, script",
+        "url": "https://www.linkedin.com/in/jenny-rickardson-6770a959/",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413228/Contributors/Jenny%20Rickardsson.jpg"
       },
       {
-        "name": "",
-        "url": "",
-        "image": ""
+        "name": "Ints Ivanovskis, art works",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413436/Contributors/Ints%20Ivanovskis.jpg",
+        "url": "https://www.linkedin.com/in/ints-ivanovskis-46ab0311a/"
+      },
+      {
+        "name": "Maki Kobayashi, translations and voice",
+        "url": "https://www.linkedin.com/in/makikobayashi/",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1702460385/Images/Maki_sdvmbz.jpg"
       }
     ],
     "duration": 5,

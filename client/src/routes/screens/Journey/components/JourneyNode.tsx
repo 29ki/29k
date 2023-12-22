@@ -91,13 +91,13 @@ const Spacer2 = styled.View({height: 2});
 const ThumbsUp = styled(ThumbsUpWithoutPadding)({
   position: 'static',
   width: 22,
-  aspectRatio: 1,
+  aspectRatio: '1',
 });
 
 const ThumbsDown = styled(ThumbsDownWithoutPadding)({
   position: 'static',
   width: 22,
-  aspectRatio: 1,
+  aspectRatio: '1',
 });
 
 const NodeContainer = styled.View<{isFirst: boolean}>({

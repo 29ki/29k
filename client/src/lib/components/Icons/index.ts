@@ -49,6 +49,7 @@ export * from './JourneyFill/JourneyFill';
 export * from './Languages/Languages';
 export * from './Link/Link';
 export * from './Logo/Logo';
+export * from './Logo/LogoAnimated';
 export * from './Magic/Magic';
 export * from './Me/Me';
 export * from './Megaphone/Megaphone';
