@@ -1207,14 +1207,14 @@
     "@sentry/types" "7.88.0"
     "@sentry/utils" "7.88.0"
 
-"@sentry/integrations@^7.86.0":
-  version "7.86.0"
-  resolved "https://registry.yarnpkg.com/@sentry/integrations/-/integrations-7.86.0.tgz#70240b354428dbaac32c2224b27539f295593c2b"
-  integrity sha512-BStRH1yBhhUsvmCXWx88/1+cY93l4B+3RW60RPeYcupvUQ1DJ8qxfN918+nA9XoZt9XELXvs8USCqqynG/aEkg==
+"@sentry/integrations@^7.88.0":
+  version "7.88.0"
+  resolved "https://registry.yarnpkg.com/@sentry/integrations/-/integrations-7.88.0.tgz#38179405ff6673a9526cebbea656c7c6c69ccd06"
+  integrity sha512-YBYPAtJeylMaaCmGntgiDpp1nk3IT6+FBXsmHxMdTKlrpt5ELj/jcc8gEgaRNeSBjx4Kv1OVzmZcYyWwEhkR4Q==
   dependencies:
-    "@sentry/core" "7.86.0"
-    "@sentry/types" "7.86.0"
-    "@sentry/utils" "7.86.0"
+    "@sentry/core" "7.88.0"
+    "@sentry/types" "7.88.0"
+    "@sentry/utils" "7.88.0"
     localforage "^1.8.1"
 
 "@sentry/node@^7.88.0":
