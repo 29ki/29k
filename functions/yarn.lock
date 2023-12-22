@@ -4188,10 +4188,10 @@ firebase-functions@^4.4.0:
     node-fetch "^2.6.7"
     protobufjs "^7.2.2"
 
-firebase-tools@^13.0.1:
-  version "13.0.1"
-  resolved "https://registry.yarnpkg.com/firebase-tools/-/firebase-tools-13.0.1.tgz#70b5fe8eb77c113f9e0ed8a4c12bbdc0f359fb86"
-  integrity sha512-t3HqDGp8YXs/b54Xm/nWdQuG/JsKKgSl0esiOSY15U8LMd6u6zXHru8BCtmpPuyWnp8rKJCMX+/I3yib2qHBvg==
+firebase-tools@^13.0.2:
+  version "13.0.2"
+  resolved "https://registry.yarnpkg.com/firebase-tools/-/firebase-tools-13.0.2.tgz#ae2786e4e28dcf5ad0c8a1a6b004e65e37f6e967"
+  integrity sha512-8XL1Xm/RnuWc4XoGwuAB30zU8t+13PP+YwZVOiZuhGbp9TtqrKK/43R17rX5igGs/8e2PrMnzytlzUxwmI/rZA==
   dependencies:
     "@google-cloud/pubsub" "^3.0.1"
     abort-controller "^3.0.0"
