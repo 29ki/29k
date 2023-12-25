@@ -1191,14 +1191,6 @@
     "@sentry/cli-win32-i686" "2.23.0"
     "@sentry/cli-win32-x64" "2.23.0"
 
-"@sentry/core@7.86.0":
-  version "7.86.0"
-  resolved "https://registry.yarnpkg.com/@sentry/core/-/core-7.86.0.tgz#d01f538783dee9a0d79141a63145392ad2c1cb89"
-  integrity sha512-SbLvqd1bRYzhDS42u7GMnmbDMfth/zRiLElQWbLK/shmuZzTcfQSwNNdF4Yj+VfjOkqPFgGmICHSHVUc9dh01g==
-  dependencies:
-    "@sentry/types" "7.86.0"
-    "@sentry/utils" "7.86.0"
-
 "@sentry/core@7.88.0":
   version "7.88.0"
   resolved "https://registry.yarnpkg.com/@sentry/core/-/core-7.88.0.tgz#46f1526e9b98de96a0e93fd69917a990db5d5a37"
@@ -1228,22 +1220,10 @@
     "@sentry/utils" "7.88.0"
     https-proxy-agent "^5.0.0"
 
-"@sentry/types@7.86.0":
-  version "7.86.0"
-  resolved "https://registry.yarnpkg.com/@sentry/types/-/types-7.86.0.tgz#56ed2f5b15e8130ea5ecfbbc4102d88eaa3b3a67"
-  integrity sha512-pGAt0+bMfWgo0KG2epthfNV4Wae03tURpoxNjGo5Fr4cXxvLTSijSAQ6rmmO4bXBJ7+rErEjX30g30o/eEdP9g==
-
 "@sentry/types@7.88.0":
   version "7.88.0"
   resolved "https://registry.yarnpkg.com/@sentry/types/-/types-7.88.0.tgz#b3a09733a7bfad3634687b77764c5767d646d6e7"
   integrity sha512-FvwvmX1pWAZKicPj4EpKyho8Wm+C4+r5LiepbbBF8oKwSPJdD2QV1fo/LWxsrzNxWOllFIVIXF5Ed3nPYQWpTw==
-
-"@sentry/utils@7.86.0":
-  version "7.86.0"
-  resolved "https://registry.yarnpkg.com/@sentry/utils/-/utils-7.86.0.tgz#356ec19bf1e3e5c40935dd987fd15bee8c6b37ba"
-  integrity sha512-6PejFtw9VTFFy5vu0ks+U7Ozkqz+eMt+HN8AZKBKErYzX5/xs0kpkOcSRpu3ETdTYcZf8VAmLVgFgE2BE+3WuQ==
-  dependencies:
-    "@sentry/types" "7.86.0"
 
 "@sentry/utils@7.88.0":
   version "7.88.0"
@@ -8764,10 +8744,10 @@ strip-json-comments@~2.0.1:
   resolved "https://registry.yarnpkg.com/strip-json-comments/-/strip-json-comments-2.0.1.tgz#3c531942e908c2697c0ec344858c286c7ca0a60a"
   integrity sha512-4gB8na07fecVVkOI6Rs4e7T6NOTki5EmL7TUduTs6bu3EdnSycntVJ4re8kgZA+wx9IueI2Y11bfbgwtzuE0KQ==
 
-stripe@^14.9.0:
-  version "14.9.0"
-  resolved "https://registry.yarnpkg.com/stripe/-/stripe-14.9.0.tgz#e814a3da09f47258bec87e24516c3f3e33041148"
-  integrity sha512-t2XdpNbRH4x3MYEoxNWhwUPl9D80aUd5OHds0zhDiwRYPZ0H7MrUI/dj9wOSYlzycD3xdvjn0q7pWeFWljtMUQ==
+stripe@^14.10.0:
+  version "14.10.0"
+  resolved "https://registry.yarnpkg.com/stripe/-/stripe-14.10.0.tgz#3d351ad9180a4c20e1dda50bc79bcee6b44757da"
+  integrity sha512-zI6yxYVFJtjibgb06Xn08KsJy1Zq+KE3jLkhZ8bJOTrxNVi2CtCreQdUn+NjXN5lTEdiNhxIqL0NmuSza+rOGw==
   dependencies:
     "@types/node" ">=8.1.0"
     qs "^6.11.0"
