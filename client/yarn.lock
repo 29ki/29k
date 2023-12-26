@@ -1113,14 +1113,14 @@
   resolved "https://registry.yarnpkg.com/@discoveryjs/json-ext/-/json-ext-0.5.7.tgz#1d572bfbbe14b7704e0ba0f39b74815b84870d70"
   integrity sha512-dBVuXR082gk3jsFp7Rd/JI4kytwGHecnCoTtXFb7DB6CNHp4rg5k1bhg0nWdLGLnOV71lmDzGQaLMy8iPLY0pw==
 
-"@dotlottie/common@0.7.3":
-  version "0.7.3"
-  resolved "https://registry.yarnpkg.com/@dotlottie/common/-/common-0.7.3.tgz#67bd59da7615d621ead13636ca2df9571819b474"
-  integrity sha512-ZKERcyhyqstxDK+BbNACAbptoxlX/canUEtPfNhegBoTn1o/MHoD2JZuuIgIV/OGqX1oxXW7yYgb2BTuauQugQ==
+"@dotlottie/common@0.7.4":
+  version "0.7.4"
+  resolved "https://registry.yarnpkg.com/@dotlottie/common/-/common-0.7.4.tgz#ab205cfdb354ba3941a1edbc84d405574b49a4c7"
+  integrity sha512-vzxzp5C0k/m1uFa/So7TaTNhBaey+gNFekfTys5x3S3htbRHNrtlYsVMKMj5SuxbLlxjony32t3EP4Ld0vYbVA==
   dependencies:
     "@dotlottie/dotlottie-js" "0.6.0"
     "@lottiefiles/relottie" "1.0.0"
-    "@lottiefiles/relottie-style" "0.4.1"
+    "@lottiefiles/relottie-style" "0.4.3"
     "@preact/signals-core" "^1.2.3"
     howler "^2.2.3"
     lottie-web "^5.12.2"
@@ -1137,12 +1137,12 @@
     sharp-phash "2.1.0"
     valibot "^0.13.1"
 
-"@dotlottie/react-player@^1.6.6":
-  version "1.6.6"
-  resolved "https://registry.yarnpkg.com/@dotlottie/react-player/-/react-player-1.6.6.tgz#b9400624ebbf9ce2ef2528e55eb9e6c28e605895"
-  integrity sha512-9OS0yMI+ypvrP0uQbDC69tdB0k56NXzBd3vzcWAb+qQNhRHlA+qXo3aOJ/B/ogUfrUqOYI0aMtzcdmqy/zq+UQ==
+"@dotlottie/react-player@^1.6.9":
+  version "1.6.9"
+  resolved "https://registry.yarnpkg.com/@dotlottie/react-player/-/react-player-1.6.9.tgz#b3751a99bdf56d3e3d46c2d9856e946c10c6381f"
+  integrity sha512-HZavM2h0yh/er50yx+gj7zVbM9ADxn7EB2du5wJtStYqz99/kU2a8N6XEacnCQNWpdoGqMBuE6GlY3Mr+mx2gw==
   dependencies:
-    "@dotlottie/common" "0.7.3"
+    "@dotlottie/common" "0.7.4"
 
 "@egjs/hammerjs@^2.0.17":
   version "2.0.17"
@@ -1639,10 +1639,10 @@
   resolved "https://registry.yarnpkg.com/@lottiefiles/last/-/last-1.0.0.tgz#1fdfe5d126269d8d53798e58d39b0c3f8edbe4c9"
   integrity sha512-kYN6WNglPtVDnupTiYiQCmExJS5PO4MFMeT495fd2RXcbXcWuIz2nVrzuJtwDXhSvsqydIxeTnEkrs6WchV2dg==
 
-"@lottiefiles/lottie-style-sheets@0.0.1":
-  version "0.0.1"
-  resolved "https://registry.yarnpkg.com/@lottiefiles/lottie-style-sheets/-/lottie-style-sheets-0.0.1.tgz#5757632cc6e74257b76b80050019165f533ba8c6"
-  integrity sha512-K8NUc8R2qZfMwBY9HwMbD9pdIH7VgrAXEe+RP3PgQg/0pTlhGC9yjZCmr/2mCe7EB1R1GA0e+ZKPs89PtOX5Vg==
+"@lottiefiles/lottie-style-sheets@0.0.2":
+  version "0.0.2"
+  resolved "https://registry.yarnpkg.com/@lottiefiles/lottie-style-sheets/-/lottie-style-sheets-0.0.2.tgz#d6f79b834a236aaf4a69f462ab942c08a6ae83d9"
+  integrity sha512-1ojHB9of9oq7CNljqUZwXBdV9SkrjIbOojezMA/2W+rsZG1h+KbnAvYjYfR2GLIQAT0BwVAwvk6dR71e9irozg==
   dependencies:
     postcss "8.4.24"
     unist-builder "3.0.1"
@@ -1674,12 +1674,12 @@
   dependencies:
     "@lottiefiles/last" "1.0.0"
 
-"@lottiefiles/relottie-style@0.4.1":
-  version "0.4.1"
-  resolved "https://registry.yarnpkg.com/@lottiefiles/relottie-style/-/relottie-style-0.4.1.tgz#f75f71e364c1ad753a619fa5713e1b6843ef99ea"
-  integrity sha512-JJ2PjuJBwiJr6x/86sLsNJGqZyM5o+NU0GURxGGtm8yLZn9SjNczKf7bFrk2kRmqi927/4PrwQDVTFukAnnCmA==
+"@lottiefiles/relottie-style@0.4.3":
+  version "0.4.3"
+  resolved "https://registry.yarnpkg.com/@lottiefiles/relottie-style/-/relottie-style-0.4.3.tgz#a1e81c514052dda8d240a2a07dc64fc5898f86fd"
+  integrity sha512-hH1SwA6bHJtwCTCxM5RMg3R7UWvk8/fNFFjtmqHxXkcGRQm0/4aeV2TRlxgf+kBqaqmkpxUQrwORf4tnDLBvYQ==
   dependencies:
-    "@lottiefiles/lottie-style-sheets" "0.0.1"
+    "@lottiefiles/lottie-style-sheets" "0.0.2"
     colord "2.9.3"
     gradient-parser "1.0.2"
     parsel-js "1.1.1"
@@ -2186,37 +2186,72 @@
   resolved "https://registry.yarnpkg.com/@sentry/cli-darwin/-/cli-darwin-2.23.0.tgz#1a4f149071a77f2e767a9cd7997b0b9257eae59f"
   integrity sha512-tWuTxvb6P5pA0E+O1/7jKQ6AP45DOOW+BAd7mwBMHZ+5xG3nsvvrRS9hOIzBNPTeB2RyIEXgpQ2Mb6NdD21DBQ==
 
+"@sentry/cli-darwin@2.23.1":
+  version "2.23.1"
+  resolved "https://registry.yarnpkg.com/@sentry/cli-darwin/-/cli-darwin-2.23.1.tgz#28c7736587f3e18953922022a5b7fd6329c8429b"
+  integrity sha512-jSHORd9p/69BmKZRfJXFw4WFYODlw3mH1vBCi8LTWDimR9L3tthlCqYM1v5A26mUACqyNPI3s/6xvw5GOAsIhw==
+
 "@sentry/cli-linux-arm64@2.23.0":
   version "2.23.0"
   resolved "https://registry.yarnpkg.com/@sentry/cli-linux-arm64/-/cli-linux-arm64-2.23.0.tgz#f3f154dc9ee68b4c3e6386ececb7c4b7dbe6cdbe"
   integrity sha512-KsOckP+b0xAzrRuoP4eiqJ6ASD6SqIplL8BCHOAODQfvWn9rgNwsJWOgKlWwfrJnkJYkpWVYvYeyx0oeUx3N0g==
+
+"@sentry/cli-linux-arm64@2.23.1":
+  version "2.23.1"
+  resolved "https://registry.yarnpkg.com/@sentry/cli-linux-arm64/-/cli-linux-arm64-2.23.1.tgz#c3db938171e78f2e140ff735fc2d92e6e208bbd1"
+  integrity sha512-f6e1x5zudglp8XdgN07hRhX8HVIeiY/dLAcvaV7qPNtZLd9pjsPgS2nyJlPPEC2WgG1FC439t3JmxIhRTjRA9g==
 
 "@sentry/cli-linux-arm@2.23.0":
   version "2.23.0"
   resolved "https://registry.yarnpkg.com/@sentry/cli-linux-arm/-/cli-linux-arm-2.23.0.tgz#93afbf73c21b69c0e7b605d7508ee8002f90bba0"
   integrity sha512-1R8ngBDKtPw++Km6VnVTx76ndrBL9BuBBNpF9TUCGftK3ArdaifqoIx8cZ8aKu8sWXLAKO7lHzxL4BNPZvlDiw==
 
+"@sentry/cli-linux-arm@2.23.1":
+  version "2.23.1"
+  resolved "https://registry.yarnpkg.com/@sentry/cli-linux-arm/-/cli-linux-arm-2.23.1.tgz#181f52c82eb3879eb1ba956d5bda6df756c2c922"
+  integrity sha512-ur7DFWwHXrLRJLa0+vL22Wkr8FC1NIQwo0mfKI+51Y9ijKsfo8R7pO5MPRCYQz0DKR12VPXkq05KPsCNq5AtZQ==
+
 "@sentry/cli-linux-i686@2.23.0":
   version "2.23.0"
   resolved "https://registry.yarnpkg.com/@sentry/cli-linux-i686/-/cli-linux-i686-2.23.0.tgz#4a2db236f94474aea127abcb73402c5aa5a48f89"
   integrity sha512-KRqB98KstBkKh33ZqUq+q8O0U4c01aTWCNPpVrqAX7zikSk0AAJTG8eAtqwDSx949IkKUl8xa6PFLfz+Nb2EMQ==
+
+"@sentry/cli-linux-i686@2.23.1":
+  version "2.23.1"
+  resolved "https://registry.yarnpkg.com/@sentry/cli-linux-i686/-/cli-linux-i686-2.23.1.tgz#a8aca1a141671dcb9096fa861529174cd624cc80"
+  integrity sha512-nm3iDgBwkwAZGkz2Oq44pdh0xdECOq/EumF8mAPA6YS2MKUWGsFQEb5/f6HLnqBULrd88RK1wrEW0eBIuIJs9Q==
 
 "@sentry/cli-linux-x64@2.23.0":
   version "2.23.0"
   resolved "https://registry.yarnpkg.com/@sentry/cli-linux-x64/-/cli-linux-x64-2.23.0.tgz#fd0a1ac2fe4841247dcf89e43f3df9a416719259"
   integrity sha512-USHZ0zzg9qujGYAyRjLeUfLDZOMgNjCr82m0BSBMmlFs4oKwHmO6bSvdi9UzNNcpmkOavNAdUM4jnZWk11i46Q==
 
+"@sentry/cli-linux-x64@2.23.1":
+  version "2.23.1"
+  resolved "https://registry.yarnpkg.com/@sentry/cli-linux-x64/-/cli-linux-x64-2.23.1.tgz#4275acaf981207d18f4c1b77e5e615de15ae05fb"
+  integrity sha512-W8QWaxbkIOW2wpAQ1zUzA7+3bOX8lUu5bPxAfstGLobUtxZcTgydJ+58KCeyE6je/jhgzxu+fieat1bzTUrfdg==
+
 "@sentry/cli-win32-i686@2.23.0":
   version "2.23.0"
   resolved "https://registry.yarnpkg.com/@sentry/cli-win32-i686/-/cli-win32-i686-2.23.0.tgz#0201030d2128a2fba79e3fd7e644052151bb21ed"
   integrity sha512-lS/B3pONDl18IEu/I//3vcMnosThobyXpqfAm4WYUtFTiw/wwDHgwGgaIjZWm5wMRkPFzYoRFpZfPlUrJd/4cQ==
+
+"@sentry/cli-win32-i686@2.23.1":
+  version "2.23.1"
+  resolved "https://registry.yarnpkg.com/@sentry/cli-win32-i686/-/cli-win32-i686-2.23.1.tgz#27e3b02dd943c5358c609a8f50e7479bec30c85a"
+  integrity sha512-h8u2OUH9SvWJpRc3f0halzXut7+/BpbLc5eiViPqrcSosmngDSuy0TOGNqwsDW4hpkqm7RcTXWIUhLJcKtFFdA==
 
 "@sentry/cli-win32-x64@2.23.0":
   version "2.23.0"
   resolved "https://registry.yarnpkg.com/@sentry/cli-win32-x64/-/cli-win32-x64-2.23.0.tgz#648b99be78af130dbb0a53506d5c55bbe0d46472"
   integrity sha512-7LP6wA3w93ViYKQR8tMN2i/SfpQzaXqM2SAHI3yfJ3bdREHOV3+/N0mNiWVRvgL0TKNQJS42v2IILLhiDxufHQ==
 
-"@sentry/cli@2.23.0", "@sentry/cli@^2.23.0":
+"@sentry/cli-win32-x64@2.23.1":
+  version "2.23.1"
+  resolved "https://registry.yarnpkg.com/@sentry/cli-win32-x64/-/cli-win32-x64-2.23.1.tgz#fe3781747b46f62f2ed627b71325a4db415b533e"
+  integrity sha512-DG+oyQ1bsG5A7yd3c+gt2aD6V3IsR+mutV6h1QYQ9Y8PoloGhOWmt/fnZ5CT20/HyzejykMfASnscsJGHmXp4w==
+
+"@sentry/cli@2.23.0":
   version "2.23.0"
   resolved "https://registry.yarnpkg.com/@sentry/cli/-/cli-2.23.0.tgz#d8fa6a514aedfe316a8afc046435b96746e7099f"
   integrity sha512-xFTv7YOaKWMCSPgN8A1jZpxJQhwdES89pqMTWjJOgjmkwFvziuaTM7O7kazps/cACDhJp2lK2j6AT6imhr4t9w==
@@ -2234,6 +2269,25 @@
     "@sentry/cli-linux-x64" "2.23.0"
     "@sentry/cli-win32-i686" "2.23.0"
     "@sentry/cli-win32-x64" "2.23.0"
+
+"@sentry/cli@^2.23.1":
+  version "2.23.1"
+  resolved "https://registry.yarnpkg.com/@sentry/cli/-/cli-2.23.1.tgz#12e7d53dc46c5903650db3bfd3eff225b4068b6e"
+  integrity sha512-3Tg3qzrdNWQAkuRyXniVhT+aNAwucshw0UKr/J2hxQgA72vxzcZlK4G0+Im9gIFwmzuBaD8jSGVpkzATuCeoNA==
+  dependencies:
+    https-proxy-agent "^5.0.0"
+    node-fetch "^2.6.7"
+    progress "^2.0.3"
+    proxy-from-env "^1.1.0"
+    which "^2.0.2"
+  optionalDependencies:
+    "@sentry/cli-darwin" "2.23.1"
+    "@sentry/cli-linux-arm" "2.23.1"
+    "@sentry/cli-linux-arm64" "2.23.1"
+    "@sentry/cli-linux-i686" "2.23.1"
+    "@sentry/cli-linux-x64" "2.23.1"
+    "@sentry/cli-win32-i686" "2.23.1"
+    "@sentry/cli-win32-x64" "2.23.1"
 
 "@sentry/core@7.81.1":
   version "7.81.1"
@@ -8541,14 +8595,14 @@ node-dir@^0.1.17:
   dependencies:
     minimatch "^3.0.2"
 
-node-fetch@2.6.7, node-fetch@^2.2.0, node-fetch@^2.6.0, node-fetch@^2.6.7, node-fetch@~2.6.7:
+node-fetch@2.6.7, node-fetch@~2.6.7:
   version "2.6.7"
   resolved "https://registry.yarnpkg.com/node-fetch/-/node-fetch-2.6.7.tgz#24de9fba827e3b4ae44dc8b20256a379160052ad"
   integrity sha512-ZjMPFEfVx5j+y2yF35Kzx5sF7kDzxuDj6ziH4FFbOp87zKDZNx8yExJIb05OGF4Nlt9IHFIMBkRl41VdvcNdbQ==
   dependencies:
     whatwg-url "^5.0.0"
 
-node-fetch@^2.6.12:
+node-fetch@^2.2.0, node-fetch@^2.6.0, node-fetch@^2.6.12, node-fetch@^2.6.7:
   version "2.7.0"
   resolved "https://registry.yarnpkg.com/node-fetch/-/node-fetch-2.7.0.tgz#d0f0fa6e3e2dc1d27efcd8ad99d550bda94d187d"
   integrity sha512-c4FRfUm/dbcWZ7U+1Wq0AwCyFL+3nt2bEw05wfxSz+DWpWsitgmSgYmy2dQdWyKC1694ELPqMs/YzUSNozLt8A==
@@ -9137,10 +9191,10 @@ postcss@8.4.24:
     picocolors "^1.0.0"
     source-map-js "^1.0.2"
 
-posthog-react-native@^2.9.1:
-  version "2.9.1"
-  resolved "https://registry.yarnpkg.com/posthog-react-native/-/posthog-react-native-2.9.1.tgz#2ef5efd12ee12823bc58b862d5c30caf552c42c3"
-  integrity sha512-sxgngeck8XAMxpDgnbk6KRsobKeJQbhsuOQzTUpQ0MnhT4WpoUyQPIeXbBKtjohrxWFpG1hIb5lhz62VLOoAuw==
+posthog-react-native@^2.9.2:
+  version "2.9.2"
+  resolved "https://registry.yarnpkg.com/posthog-react-native/-/posthog-react-native-2.9.2.tgz#b8f3f35005e47a5af7e4b3de4773ab3ace7c785d"
+  integrity sha512-am2IYeo09ZNPTxxMX6FKhuM6mfI2rQDwrbCzrhZKW1SojFk+OoDZacxmHqZOc5UEuQ8XVX5CukF+CeNjMFeadg==
 
 prebuild-install@^7.1.1:
   version "7.1.1"
@@ -9449,10 +9503,10 @@ react-freeze@^1.0.0:
   resolved "https://registry.yarnpkg.com/react-freeze/-/react-freeze-1.0.0.tgz#b21c65fe1783743007c8c9a2952b1c8879a77354"
   integrity sha512-yQaiOqDmoKqks56LN9MTgY06O0qQHgV4FUrikH357DydArSZHQhl0BJFqGKIZoTqi8JizF9Dxhuk1FIZD6qCaw==
 
-react-i18next@^13.5.0:
-  version "13.5.0"
-  resolved "https://registry.yarnpkg.com/react-i18next/-/react-i18next-13.5.0.tgz#44198f747628267a115c565f0c736a50a76b1ab0"
-  integrity sha512-CFJ5NDGJ2MUyBohEHxljOq/39NQ972rh1ajnadG9BjTk+UXbHLq4z5DKEbEQBDoIhUmmbuS/fIMJKo6VOax1HA==
+react-i18next@^14.0.0:
+  version "14.0.0"
+  resolved "https://registry.yarnpkg.com/react-i18next/-/react-i18next-14.0.0.tgz#eb39d2245fd1024237828c955f770e409a1ccb12"
+  integrity sha512-OCrS8rHNAmnr8ggGRDxjakzihrMW7HCbsplduTm3EuuQ6fyvWGT41ksZpqbduYoqJurBmEsEVZ1pILSUWkHZng==
   dependencies:
     "@babel/runtime" "^7.22.5"
     html-parse-stringify "^3.0.1"
