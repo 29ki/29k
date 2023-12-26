@@ -1098,9 +1098,9 @@
   resolved "https://registry.npmjs.org/@petamoriken/float16/-/float16-3.7.0.tgz"
   integrity sha512-g7w35q4bt7MoM3nZKrk5COiIO+qevZjjS7bJO5pYrB0ZKABUXFBOgr2VBY66LmeI3FzkH5AZ+1uNmNHYjeuUjQ==
 
-"@pkgr/utils@^2.3.1":
+"@pkgr/utils@^2.4.2":
   version "2.4.2"
-  resolved "https://registry.npmjs.org/@pkgr/utils/-/utils-2.4.2.tgz"
+  resolved "https://registry.yarnpkg.com/@pkgr/utils/-/utils-2.4.2.tgz#9e638bbe9a6a6f165580dc943f138fd3309a2cbc"
   integrity sha512-POgTXhjrTfbTV63DiFXav4lBHiICLKKwDeaKn9Nphwj7WH6m0hMMCaJkMyRWjgtPFyRKRVoMXXjczsTQRDEhYw==
   dependencies:
     cross-spawn "^7.0.3"
@@ -3219,13 +3219,13 @@ eslint-plugin-import@^2.29.1:
     semver "^6.3.1"
     tsconfig-paths "^3.15.0"
 
-eslint-plugin-prettier@^5.0.1:
-  version "5.0.1"
-  resolved "https://registry.npmjs.org/eslint-plugin-prettier/-/eslint-plugin-prettier-5.0.1.tgz"
-  integrity sha512-m3u5RnR56asrwV/lDC4GHorlW75DsFfmUcjfCYylTUs85dBRnB7VM6xG8eCMJdeDRnppzmxZVf1GEPJvl1JmNg==
+eslint-plugin-prettier@^5.1.2:
+  version "5.1.2"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-prettier/-/eslint-plugin-prettier-5.1.2.tgz#584c94d4bf31329b2d4cbeb10fd600d17d6de742"
+  integrity sha512-dhlpWc9vOwohcWmClFcA+HjlvUpuyynYs0Rf+L/P6/0iQE6vlHW9l5bkfzN62/Stm9fbq8ku46qzde76T1xlSg==
   dependencies:
     prettier-linter-helpers "^1.0.0"
-    synckit "^0.8.5"
+    synckit "^0.8.6"
 
 eslint-scope@^5.1.1:
   version "5.1.1"
@@ -7176,13 +7176,13 @@ symbol-observable@^1.0.2:
   resolved "https://registry.npmjs.org/symbol-observable/-/symbol-observable-1.2.0.tgz"
   integrity sha512-e900nM8RRtGhlV36KGEU9k65K3mPb1WV70OdjfxlG2EAuM1noi/E/BaW/uMhL7bPEssK8QV57vN3esixjUvcXQ==
 
-synckit@^0.8.5:
-  version "0.8.5"
-  resolved "https://registry.npmjs.org/synckit/-/synckit-0.8.5.tgz"
-  integrity sha512-L1dapNV6vu2s/4Sputv8xGsCdAVlb5nRDMFU/E27D44l5U6cw1g0dGd45uLc+OXjNMmF4ntiMdCimzcjFKQI8Q==
+synckit@^0.8.6:
+  version "0.8.6"
+  resolved "https://registry.yarnpkg.com/synckit/-/synckit-0.8.6.tgz#b69b7fbce3917c2673cbdc0d87fb324db4a5b409"
+  integrity sha512-laHF2savN6sMeHCjLRkheIU4wo3Zg9Ln5YOjOo7sZ5dVQW8yF5pPE5SIw1dsPhq3TRp1jisKRCdPhfs/1WMqDA==
   dependencies:
-    "@pkgr/utils" "^2.3.1"
-    tslib "^2.5.0"
+    "@pkgr/utils" "^2.4.2"
+    tslib "^2.6.2"
 
 teeny-tap@^0.2.0:
   version "0.2.0"
@@ -7357,7 +7357,7 @@ tslib@^1.10.0, tslib@^1.8.1, tslib@^1.9.3:
   resolved "https://registry.npmjs.org/tslib/-/tslib-1.14.1.tgz"
   integrity sha512-Xni35NKzjgMrwevysHTCArtLDpPvye8zV/0E4EyYn43P7/7qvQwPh9BGkHewbMulVntbigmcT7rdX3BNo9wRJg==
 
-tslib@^2.0.0, tslib@^2.4.0:
+tslib@^2.0.0, tslib@^2.4.0, tslib@^2.6.2:
   version "2.6.2"
   resolved "https://registry.npmjs.org/tslib/-/tslib-2.6.2.tgz"
   integrity sha512-AEYxH93jGFPn/a2iVAwW87VuUIkR1FVUKB77NwMF7nBTDkDrrT/Hpt/IrCJ0QXhW27jTBDcf5ZY7w6RiqTMw2Q==
