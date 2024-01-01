@@ -7595,10 +7595,10 @@ lottie-ios@^4.3.4:
   resolved "https://registry.yarnpkg.com/lottie-ios/-/lottie-ios-4.3.4.tgz#b7b5682ac34563cf6e5a6e527c9de197f22867a1"
   integrity sha512-OY1tT3ewy0ElgsaHU2UCA/4ArRFukOg5NGfzBDJY2ccQLdekypPedCiwAwvXB11JP1eW9KVR/gBv0nFEcfbpjQ==
 
-lottie-react-native@^6.4.1:
-  version "6.4.1"
-  resolved "https://registry.yarnpkg.com/lottie-react-native/-/lottie-react-native-6.4.1.tgz#0b3202a0fb914db4f236c4b0658f21b97cb997d7"
-  integrity sha512-DPsUPSxLc3ZffeRQ/AtKtcUl4PzmJEEPt965tNpWSE4vhDkoGFxRe0TPZ45xX8/3HbGsUl48aMdLlAu28MEDsQ==
+lottie-react-native@^6.5.0:
+  version "6.5.0"
+  resolved "https://registry.yarnpkg.com/lottie-react-native/-/lottie-react-native-6.5.0.tgz#53be58688d0ef047e7f4c3df99c5ed23df6ad88f"
+  integrity sha512-5KA5eAlMYsvcczR5JbJp1JjK3i56Oeilb/5RPs/QmFcn99HVHK+FzxrzGQxyxowaO/jkZkIwR8ccyu0fIsemBA==
 
 lottie-web@^5.10.2, lottie-web@^5.12.2:
   version "5.12.2"
