@@ -23,6 +23,7 @@ import {
   BottomSafeArea,
   Spacer16,
   Spacer28,
+  Spacer32,
   Spacer48,
   TopSafeArea,
 } from '../../../../../lib/components/Spacers/Spacer';
@@ -47,15 +48,14 @@ import useSubscribeToSessionIfFocused from '../../../../../lib/session/hooks/use
 import {joinSession} from '../../../../../lib/sessions/api/session';
 import useLiveSessionMetricEvents from '../../../../../lib/session/hooks/useLiveSessionMetricEvents';
 import useCheckPermissions from '../../../../../lib/session/hooks/useCheckPermissions';
+import Question from './Question';
+import AutoScrollView from '../../../../../lib/components/AutoScrollView/AutoScrollView';
 
 const KeyboardWrapper = styled.KeyboardAvoidingView.attrs({
-  behavior: Platform.select({ios: 'padding', android: undefined}),
-})({
-  flex: 1,
-  justifyContent: 'center',
-});
+  behavior: Platform.select({ios: 'position', android: undefined}),
+})({});
 
-const ScrollWrapper = styled.ScrollView.attrs({
+const ScrollWrapper = styled(AutoScrollView).attrs({
   contentContainerStyle: {flex: 1},
 })({
   flex: 1,
@@ -207,70 +207,71 @@ const HairCheck = () => {
   return (
     <Screen onPressBack={goBack}>
       <ScrollWrapper>
-        <TopSafeArea />
         <KeyboardWrapper>
-          <>
-            <VideoWrapper>
-              {isFocused && hasVideo ? (
-                <DailyMediaViewWrapper
-                  videoTrack={me?.tracks.video.persistentTrack ?? null}
-                  audioTrack={me?.tracks.audio.persistentTrack ?? null}
-                  objectFit={'cover'}
-                  mirror={me?.local}
-                />
-              ) : user?.photoURL ? (
-                <ImageContainer>
-                  <Image source={{uri: user.photoURL}} />
-                </ImageContainer>
-              ) : (
-                <VideoText>{t('cameraOff')}</VideoText>
-              )}
-              <Audio muted={!hasAudio} />
-            </VideoWrapper>
-
-            <Spacer28 />
-            <Gutters>
-              <Controls>
-                <IconButton
-                  disabled
-                  onPress={toggleAudioPress}
-                  active={hasAudio}
-                  variant="secondary"
-                  Icon={hasAudio ? MicrophoneIcon : MicrophoneOffIcon}
-                />
-                <Spacer16 />
-                <IconButton
-                  onPress={toggleVideoPress}
-                  active={hasVideo}
-                  variant="secondary"
-                  Icon={hasVideo ? FilmCameraIcon : FilmCameraOffIcon}
-                />
-              </Controls>
-              <Spacer48 />
-              <InputWrapper>
-                <StyledTextInput
-                  autoFocus={!user?.displayName}
-                  onChangeText={setLocalUserName}
-                  onSubmitEditing={joinPress}
-                  autoCapitalize="words"
-                  autoCorrect={false}
-                  maxLength={20}
-                  defaultValue={localUserName}
-                  placeholder={t('placeholder')}
-                />
-                <Spacer28 />
-                <Button
-                  variant="secondary"
-                  onPress={joinPress}
-                  loading={joiningMeeting}
-                  disabled={!localUserName.length || joiningMeeting}>
-                  {t('join_button')}
-                </Button>
-              </InputWrapper>
-            </Gutters>
-          </>
+          <TopSafeArea />
+          <Spacer48 />
+          <Gutters big>
+            <Question />
+          </Gutters>
+          <Spacer32 />
+          <VideoWrapper>
+            {isFocused && hasVideo ? (
+              <DailyMediaViewWrapper
+                videoTrack={me?.tracks.video.persistentTrack ?? null}
+                audioTrack={me?.tracks.audio.persistentTrack ?? null}
+                objectFit={'cover'}
+                mirror={me?.local}
+              />
+            ) : user?.photoURL ? (
+              <ImageContainer>
+                <Image source={{uri: user.photoURL}} />
+              </ImageContainer>
+            ) : (
+              <VideoText>{t('cameraOff')}</VideoText>
+            )}
+            <Audio muted={!hasAudio} />
+          </VideoWrapper>
+          <Spacer28 />
+          <Gutters>
+            <Controls>
+              <IconButton
+                disabled
+                onPress={toggleAudioPress}
+                active={hasAudio}
+                variant="secondary"
+                Icon={hasAudio ? MicrophoneIcon : MicrophoneOffIcon}
+              />
+              <Spacer16 />
+              <IconButton
+                onPress={toggleVideoPress}
+                active={hasVideo}
+                variant="secondary"
+                Icon={hasVideo ? FilmCameraIcon : FilmCameraOffIcon}
+              />
+            </Controls>
+            <Spacer48 />
+            <InputWrapper>
+              <StyledTextInput
+                onChangeText={setLocalUserName}
+                onSubmitEditing={joinPress}
+                autoCapitalize="words"
+                autoCorrect={false}
+                maxLength={20}
+                defaultValue={localUserName}
+                placeholder={t('placeholder')}
+              />
+              <Spacer28 />
+              <Button
+                variant="secondary"
+                onPress={joinPress}
+                loading={joiningMeeting}
+                disabled={!localUserName.length || joiningMeeting}>
+                {t('join_button')}
+              </Button>
+            </InputWrapper>
+          </Gutters>
+          <BottomSafeArea minSize={SPACINGS.TWENTYEIGHT} />
         </KeyboardWrapper>
-        <BottomSafeArea minSize={SPACINGS.TWENTYEIGHT} />
       </ScrollWrapper>
     </Screen>
   );
