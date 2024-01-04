@@ -37,7 +37,7 @@
     "firebase-admin": "^11.11.1",
     "firebase-functions": "^4.4.0",
     "handlebars": "^4.7.8",
-    "i18next": "^23.7.11",
+    "i18next": "^23.7.13",
     "ical-generator": "^5.0.1",
     "jsonwebtoken": "^9.0.2",
     "koa": "^2.14.2",
