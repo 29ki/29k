@@ -1730,7 +1730,7 @@
   resolved "https://registry.yarnpkg.com/@opentelemetry/api/-/api-1.4.1.tgz#ff22eb2e5d476fbc2450a196e40dd243cc20c28f"
   integrity sha512-O2yRJce1GOc6PAy3QxFM4NzFiWzvScDC1/5ihYBL6BUEVdq0XMWN01sppE+H6bBXbaFYipjwFLEWLg5PaSOThA==
 
-"@pkgr/utils@^2.3.1":
+"@pkgr/utils@^2.4.2":
   version "2.4.2"
   resolved "https://registry.yarnpkg.com/@pkgr/utils/-/utils-2.4.2.tgz#9e638bbe9a6a6f165580dc943f138fd3309a2cbc"
   integrity sha512-POgTXhjrTfbTV63DiFXav4lBHiICLKKwDeaKn9Nphwj7WH6m0hMMCaJkMyRWjgtPFyRKRVoMXXjczsTQRDEhYw==
@@ -2019,12 +2019,12 @@
   resolved "https://registry.yarnpkg.com/@react-native/assets/-/assets-1.0.0.tgz#c6f9bf63d274bafc8e970628de24986b30a55c8e"
   integrity sha512-KrwSpS1tKI70wuKl68DwJZYEvXktDHdZMG0k2AXD/rJVSlB23/X2CB2cutVR0HwNMJIal9HOUOBB2rVfa6UGtQ==
 
-"@react-native/normalize-color@2.0.0", "@react-native/normalize-color@^2.0.0":
+"@react-native/normalize-color@2.0.0":
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/@react-native/normalize-color/-/normalize-color-2.0.0.tgz#da955909432474a9a0fe1cbffc66576a0447f567"
   integrity sha512-Wip/xsc5lw8vsBlmY2MO/gFLp3MvuZ2baBZjDeTjjndMgM0h5sxz7AZR62RDPGgstp8Np7JzjvVqVT7tpFZqsw==
 
-"@react-native/normalize-color@^2.1.0":
+"@react-native/normalize-color@^2.0.0", "@react-native/normalize-color@^2.1.0":
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/@react-native/normalize-color/-/normalize-color-2.1.0.tgz#939b87a9849e81687d3640c5efa2a486ac266f91"
   integrity sha512-Z1jQI2NpdFJCVgpY+8Dq/Bt3d+YUi1928Q+/CZm/oh66fzM0RUl54vvuXlPJKybH4pdCZey1eDTPaLHkMPNgWA==
@@ -4908,13 +4908,13 @@ eslint-plugin-prettier@^4.2.1:
   dependencies:
     prettier-linter-helpers "^1.0.0"
 
-eslint-plugin-prettier@^5.0.1:
-  version "5.0.1"
-  resolved "https://registry.yarnpkg.com/eslint-plugin-prettier/-/eslint-plugin-prettier-5.0.1.tgz#a3b399f04378f79f066379f544e42d6b73f11515"
-  integrity sha512-m3u5RnR56asrwV/lDC4GHorlW75DsFfmUcjfCYylTUs85dBRnB7VM6xG8eCMJdeDRnppzmxZVf1GEPJvl1JmNg==
+eslint-plugin-prettier@^5.1.2:
+  version "5.1.2"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-prettier/-/eslint-plugin-prettier-5.1.2.tgz#584c94d4bf31329b2d4cbeb10fd600d17d6de742"
+  integrity sha512-dhlpWc9vOwohcWmClFcA+HjlvUpuyynYs0Rf+L/P6/0iQE6vlHW9l5bkfzN62/Stm9fbq8ku46qzde76T1xlSg==
   dependencies:
     prettier-linter-helpers "^1.0.0"
-    synckit "^0.8.5"
+    synckit "^0.8.6"
 
 eslint-plugin-react-hooks@^4.6.0:
   version "4.6.0"
@@ -6130,10 +6130,10 @@ hyphenate-style-name@^1.0.3:
   resolved "https://registry.yarnpkg.com/hyphenate-style-name/-/hyphenate-style-name-1.0.4.tgz#691879af8e220aea5750e8827db4ef62a54e361d"
   integrity sha512-ygGZLjmXfPHj+ZWh6LwbC37l43MhfztxetbFCoYTM2VjkIUpeHgSNn7QIyVFj7YQ1Wl9Cbw5sholVJPzWvC2MQ==
 
-i18next@*, i18next@^23.7.11:
-  version "23.7.11"
-  resolved "https://registry.yarnpkg.com/i18next/-/i18next-23.7.11.tgz#ee4dfa58f9b27807ebf57d7c33a6c4a0bb4bf7c8"
-  integrity sha512-A/vOkw8vY99YHU9A1Td3I1dcTiYaPnwBWzrpVzfXUXSYgogK3cmBcmop/0cnXPc6QpUWIyqaugKNxRUEZVk9Nw==
+i18next@*, i18next@^23.7.13:
+  version "23.7.13"
+  resolved "https://registry.yarnpkg.com/i18next/-/i18next-23.7.13.tgz#2dda870cbf63e168e1d4eb8f6f700b5c26794a3d"
+  integrity sha512-DbCPlw6VmURSZa43iOnycxq9o15e+WuBWDBZ3aj+gQZcDz4sgnuKwrcwmP1n8gSSCwCN7CRFGTpnwTd93A16Mg==
   dependencies:
     "@babel/runtime" "^7.23.2"
 
@@ -7595,10 +7595,10 @@ lottie-ios@^4.3.4:
   resolved "https://registry.yarnpkg.com/lottie-ios/-/lottie-ios-4.3.4.tgz#b7b5682ac34563cf6e5a6e527c9de197f22867a1"
   integrity sha512-OY1tT3ewy0ElgsaHU2UCA/4ArRFukOg5NGfzBDJY2ccQLdekypPedCiwAwvXB11JP1eW9KVR/gBv0nFEcfbpjQ==
 
-lottie-react-native@^6.4.1:
-  version "6.4.1"
-  resolved "https://registry.yarnpkg.com/lottie-react-native/-/lottie-react-native-6.4.1.tgz#0b3202a0fb914db4f236c4b0658f21b97cb997d7"
-  integrity sha512-DPsUPSxLc3ZffeRQ/AtKtcUl4PzmJEEPt965tNpWSE4vhDkoGFxRe0TPZ45xX8/3HbGsUl48aMdLlAu28MEDsQ==
+lottie-react-native@^6.5.0:
+  version "6.5.0"
+  resolved "https://registry.yarnpkg.com/lottie-react-native/-/lottie-react-native-6.5.0.tgz#53be58688d0ef047e7f4c3df99c5ed23df6ad88f"
+  integrity sha512-5KA5eAlMYsvcczR5JbJp1JjK3i56Oeilb/5RPs/QmFcn99HVHK+FzxrzGQxyxowaO/jkZkIwR8ccyu0fIsemBA==
 
 lottie-web@^5.10.2, lottie-web@^5.12.2:
   version "5.12.2"
@@ -9741,10 +9741,10 @@ react-native-web-linear-gradient@^1.1.2:
   resolved "https://registry.yarnpkg.com/react-native-web-linear-gradient/-/react-native-web-linear-gradient-1.1.2.tgz#33f85f7085a0bb5ffa5106faf02ed105b92a9ed7"
   integrity sha512-SmUnpwT49CEe78pXvIvYf72Es8Pv+ZYKCnEOgb2zAKpEUDMo0+xElfRJhwt5nfI8krJ5WbFPKnoDgD0uUjAN1A==
 
-react-native-web@^0.19.9:
-  version "0.19.9"
-  resolved "https://registry.yarnpkg.com/react-native-web/-/react-native-web-0.19.9.tgz#6ee43e6c64d886b1d739f100fed07927541ee003"
-  integrity sha512-m69arZbS6FV+BNSKE6R/NQwUX+CzxCkYM7AJlSLlS8dz3BDzlaxG8Bzqtzv/r3r1YFowhnZLBXVKIwovKDw49g==
+react-native-web@^0.19.10:
+  version "0.19.10"
+  resolved "https://registry.yarnpkg.com/react-native-web/-/react-native-web-0.19.10.tgz#5f7205f8909c0889bc89c9fde7c6e287defa7c63"
+  integrity sha512-IQoHiTQq8egBCVVwmTrYcFLgEFyb4LMZYEktHn4k22JMk9+QTCEz5WTfvr+jdNoeqj/7rtE81xgowKbfGO74qg==
   dependencies:
     "@babel/runtime" "^7.18.6"
     "@react-native/normalize-color" "^2.1.0"
@@ -11033,13 +11033,13 @@ supports-preserve-symlinks-flag@^1.0.0:
   resolved "https://registry.yarnpkg.com/supports-preserve-symlinks-flag/-/supports-preserve-symlinks-flag-1.0.0.tgz#6eda4bd344a3c94aea376d4cc31bc77311039e09"
   integrity sha512-ot0WnXS9fgdkgIcePe6RHNk1WA8+muPa6cSjeR3V8K27q9BB1rTE3R1p7Hv0z1ZyAc8s6Vvv8DIyWf681MAt0w==
 
-synckit@^0.8.5:
-  version "0.8.5"
-  resolved "https://registry.yarnpkg.com/synckit/-/synckit-0.8.5.tgz#b7f4358f9bb559437f9f167eb6bc46b3c9818fa3"
-  integrity sha512-L1dapNV6vu2s/4Sputv8xGsCdAVlb5nRDMFU/E27D44l5U6cw1g0dGd45uLc+OXjNMmF4ntiMdCimzcjFKQI8Q==
+synckit@^0.8.6:
+  version "0.8.7"
+  resolved "https://registry.yarnpkg.com/synckit/-/synckit-0.8.7.tgz#7812bc5f42113c9cec2db4c2b952f7e9e0aff0f3"
+  integrity sha512-Ic2DW4WMr0gJ7z9rXYGlWPNBVzmsIZLFfKeVhmuVBUtw6ZOFB1GZnCcWQLc7OuBFLVLHKFAdaIZNc/yyUEvZ1g==
   dependencies:
-    "@pkgr/utils" "^2.3.1"
-    tslib "^2.5.0"
+    "@pkgr/utils" "^2.4.2"
+    tslib "^2.6.2"
 
 tar-fs@^2.0.0:
   version "2.1.1"
@@ -11271,10 +11271,15 @@ tslib@^2.2.0:
   resolved "https://registry.yarnpkg.com/tslib/-/tslib-2.5.0.tgz#42bfed86f5787aeb41d031866c8f402429e0fddf"
   integrity sha512-336iVw3rtn2BUK7ORdIAHTyxHGRIHVReokCR3XjbckJMK7ms8FysBfhLR8IXnAgy7T0PTPNBWKiH514FOW/WSg==
 
-tslib@^2.5.0, tslib@^2.6.0:
+tslib@^2.6.0:
   version "2.6.1"
   resolved "https://registry.yarnpkg.com/tslib/-/tslib-2.6.1.tgz#fd8c9a0ff42590b25703c0acb3de3d3f4ede0410"
   integrity sha512-t0hLfiEKfMUoqhG+U1oid7Pva4bbDPHYfJNiB7BiIjRkj1pyC++4N3huJfqY6aRH6VTB0rvtzQwjM4K6qpfOig==
+
+tslib@^2.6.2:
+  version "2.6.2"
+  resolved "https://registry.yarnpkg.com/tslib/-/tslib-2.6.2.tgz#703ac29425e7b37cd6fd456e92404d46d1f3e4ae"
+  integrity sha512-AEYxH93jGFPn/a2iVAwW87VuUIkR1FVUKB77NwMF7nBTDkDrrT/Hpt/IrCJ0QXhW27jTBDcf5ZY7w6RiqTMw2Q==
 
 tsutils@^3.21.0:
   version "3.21.0"
