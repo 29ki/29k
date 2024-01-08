@@ -320,7 +320,7 @@
       {
         "type": "instruction",
         "content": {
-          "text": "Bra jobbat. \n\nAtt lägga märke till vad som sker ovanför våra huvuden kan förbättra vår känsla av sammanhang och närvaro. \n\nOm du vill så finns det ett uppdrag för dig: \nDe kommande två dagarna, ta ett par minuter per dag och titta upp. Lägg märke till vad du ser i himlen och låt saker komma och gå, både på in- och utsida.",
+          "text": "Bra jobbat. \n\nAtt lägga märke till vad som sker ovanför våra huvuden kan förbättra vår känsla av sammanhang och närvaro. \n\nOm du vill så finns det ett uppdrag för dig: \nDe kommande två dagarna, ta ett par minuter per dag och titta upp. Lägg märke till vad du ser i himlen och låt saker komma och gå, både på in- och utsidan.",
           "image": {
             "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1697630657/Images/card_image_sky_gazing_wloxhk.png"
           }
@@ -331,7 +331,7 @@
       "textColor": "#F9F8F4",
       "backgroundColor": "#0e529c"
     },
-    "hidden": true,
+    "hidden": false,
     "name": "Sky gazing",
     "live": true,
     "published": true,
