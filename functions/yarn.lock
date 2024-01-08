@@ -4260,10 +4260,10 @@ firebase-tools@^13.0.2:
     winston-transport "^4.4.0"
     ws "^7.2.3"
 
-firestore-jest-mock@^0.21.0:
-  version "0.21.0"
-  resolved "https://registry.yarnpkg.com/firestore-jest-mock/-/firestore-jest-mock-0.21.0.tgz#ce91a1f8b17eeffe016ab45d06ee637152fa2e03"
-  integrity sha512-pGMFVNxBJ+VLI/VCqC4OAXWfWPku0BwgluEXtoiZUyoVH7sXmAlcTDNEy8y8BFWhRFA/mQ2x2oZh3IFHmFmjFg==
+firestore-jest-mock@^0.23.0:
+  version "0.23.0"
+  resolved "https://registry.yarnpkg.com/firestore-jest-mock/-/firestore-jest-mock-0.23.0.tgz#1e7afb767afcc843a7718af7c38c961f36241ac1"
+  integrity sha512-U0jWYTiVEsLlVlM95C/gUsJh6ZAhpVLX7rdKSk6hmqPuGw+HDEzJ+y6IdJL0+sMp8kpmzsg+Sr9nt7B+QCuSDw==
 
 flat-cache@^3.0.4:
   version "3.0.4"
