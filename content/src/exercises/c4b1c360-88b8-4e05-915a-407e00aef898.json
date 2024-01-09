@@ -56,10 +56,10 @@
         "type": "host",
         "hostNotes": [
           {
-            "text": "Good job. We've explored how our negative thoughts can get in a way of our actions. By accepting their presence instead of trying to control or run away from them, we get to focus our energy on our actions and take steps towards the life we want."
+            "text": "Good job. We've explored how inner obstacles can get in the way of our actions. By accepting their presence we get to focus our energy on our actions and take steps towards the life we want."
           },
           {
-            "text": "Well done. If you’re up for it, you can continue what we started here today with a mission to bring this into your everyday life.\n\nxx mission description"
+            "text": "If we're up for it, continue what we started here today with a mission:\n\nPractice willingness by taking a small step towards an important goal each day for the coming three days. Plan the step you will take and the hindering thoughts with you."
           },
           {
             "text": "Before we leave this space let’s do a mini check-out. \n\nHow are you feeling right now? Has anything shifted? Please answer in two-three words."
@@ -72,7 +72,8 @@
       {
         "type": "instruction",
         "content": {
-          "text": "Well done.\n\nSummary.\n\nIf you’re up for it, you can continue with this mission.\n\nmission description"
+          "text": "We've explored how inner obstacles can get in the way of our actions. By accepting their presence we get to focus our energy on our actions and take steps towards the life we want.\n\nHere's a mission for you: Practice willingness by taking a small step towards an important goal each day for the coming three days. Plan the step you will take, and take the hindering thoughts with you.",
+          "heading": "Good job"
         }
       }
     ],
