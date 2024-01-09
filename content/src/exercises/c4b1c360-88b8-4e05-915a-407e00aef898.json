@@ -16,7 +16,7 @@
         "type": "content",
         "hostNotes": [
           {
-            "text": "Find a comfortable position. I will start the audio exercise and we'll meet back here afterwards. \n\n> Push play to start the audio exercise"
+            "text": "Find a comfortable position. I will start the audio exercise and we'll meet back here afterwards. \n\n> Tap play to start the audio exercise"
           }
         ]
       },
@@ -59,7 +59,7 @@
             "text": "Good job. We've explored how inner obstacles can get in the way of our actions. By accepting their presence we get to focus our energy on our actions and take steps towards the life we want."
           },
           {
-            "text": "If we're up for it, continue what we started here today with a mission:\n\nPractice willingness by taking a small step towards an important goal each day for the coming three days. Plan the step you will take and the hindering thoughts with you."
+            "text": "If we're up for it, we can continue with a mission:\n\nPractice willingness by taking a small step towards an important goal each day for the coming three days. Plan the step you will take and take the hindering thoughts with you."
           },
           {
             "text": "Before we leave this space let’s do a mini check-out. \n\nHow are you feeling right now? Has anything shifted? Please answer in two-three words."
@@ -78,7 +78,7 @@
       }
     ],
     "theme": {
-      "textColor": "#2AE2D7"
+      "textColor": "#2E2E2E"
     },
     "hidden": true,
     "name": "Angry mob",
