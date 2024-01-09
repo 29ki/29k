@@ -473,6 +473,13 @@
     "hidden": false,
     "name": "90歳の誕生日",
     "published": false,
+    "coCreators": [
+      {
+        "name": "Yoshihiro Ito, translation",
+        "image": "https://res.cloudinary.com/dlfcg3kbn/image/upload/v1704763684/itou_2_a7vihj.jpg",
+        "url": "https://www.linkedin.com/in/itouyoshihiro/"
+      }
+    ],
     "duration": 30,
     "introPortal": {
       "hostNotes": [
