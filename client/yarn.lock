@@ -1113,10 +1113,10 @@
   resolved "https://registry.yarnpkg.com/@discoveryjs/json-ext/-/json-ext-0.5.7.tgz#1d572bfbbe14b7704e0ba0f39b74815b84870d70"
   integrity sha512-dBVuXR082gk3jsFp7Rd/JI4kytwGHecnCoTtXFb7DB6CNHp4rg5k1bhg0nWdLGLnOV71lmDzGQaLMy8iPLY0pw==
 
-"@dotlottie/common@0.7.4":
-  version "0.7.4"
-  resolved "https://registry.yarnpkg.com/@dotlottie/common/-/common-0.7.4.tgz#ab205cfdb354ba3941a1edbc84d405574b49a4c7"
-  integrity sha512-vzxzp5C0k/m1uFa/So7TaTNhBaey+gNFekfTys5x3S3htbRHNrtlYsVMKMj5SuxbLlxjony32t3EP4Ld0vYbVA==
+"@dotlottie/common@0.7.6":
+  version "0.7.6"
+  resolved "https://registry.yarnpkg.com/@dotlottie/common/-/common-0.7.6.tgz#22f61b32e8e08998aa9aa0a1a6b242c25979ca75"
+  integrity sha512-sbZNaOcE0XxGdRReokQrgYw/GIVGoIvKrUgul9wRpBsCZNrdYMRaNH6ofPjqbGT/pStlxIXl3f2G+0fAx72MmA==
   dependencies:
     "@dotlottie/dotlottie-js" "0.6.0"
     "@lottiefiles/relottie" "1.0.0"
@@ -1137,12 +1137,12 @@
     sharp-phash "2.1.0"
     valibot "^0.13.1"
 
-"@dotlottie/react-player@^1.6.9":
-  version "1.6.9"
-  resolved "https://registry.yarnpkg.com/@dotlottie/react-player/-/react-player-1.6.9.tgz#b3751a99bdf56d3e3d46c2d9856e946c10c6381f"
-  integrity sha512-HZavM2h0yh/er50yx+gj7zVbM9ADxn7EB2du5wJtStYqz99/kU2a8N6XEacnCQNWpdoGqMBuE6GlY3Mr+mx2gw==
+"@dotlottie/react-player@^1.6.12":
+  version "1.6.12"
+  resolved "https://registry.yarnpkg.com/@dotlottie/react-player/-/react-player-1.6.12.tgz#46b8ba792ae1c040a7925e85f928cff3c6a49b9c"
+  integrity sha512-j4wLpTvWWG+EBrkXVvYcsBR/BQ3zC1IgBn3Euf0rAc9nkqU5tdYauwMvT4w8JfGypzz6qlhID0bCfSzyJ2kHSg==
   dependencies:
-    "@dotlottie/common" "0.7.4"
+    "@dotlottie/common" "0.7.6"
 
 "@egjs/hammerjs@^2.0.17":
   version "2.0.17"
