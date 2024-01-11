@@ -752,7 +752,7 @@ PODS:
     - Libuv-gRPC/Interface (= 0.0.10)
   - Libuv-gRPC/Interface (0.0.10)
   - lottie-ios (4.3.4)
-  - lottie-react-native (6.5.0):
+  - lottie-react-native (6.5.1):
     - lottie-ios (~> 4.3.3)
     - React-Core
   - Mute (0.6.1)
@@ -1444,7 +1444,7 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   abseil: ebe5b5529fb05d93a8bdb7951607be08b7fa71bc
   Base64: cecfb41a004124895a7bcee567a89bae5a89d49b
-  boost: aa35e27b639bf67de7573b279486f84a3c6546c2
+  boost: a7c83b31436843459a1961bfd74b96033dc77234
   BoringSSL-GRPC: 3175b25143e648463a56daeaaa499c6cb86dad33
   BVLinearGradient: 916632041121a658c704df89d99f04acb038de0f
   CodePush: dce1b253fde81078249ea9cd4b948e4ac7b761a9
@@ -1473,7 +1473,7 @@ SPEC CHECKSUMS:
   leveldb-library: f03246171cce0484482ec291f88b6d563699ee06
   Libuv-gRPC: 55e51798e14ef436ad9bc45d12d43b77b49df378
   lottie-ios: 3d98679b41fa6fd6aff2352b3953dbd3df8a397e
-  lottie-react-native: 9a3b9fa5780b96b421dce9d7ad8f8532406a7a85
+  lottie-react-native: cdeae481649c11d586084b8662f03251c4dd8249
   Mute: 20135a96076f140cc82bfc8b810e2d6150d8ec7e
   nanopb: b552cce312b6c8484180ef47159bc0f65a1f0431
   PromisesObjC: c50d2056b5253dadbd6c2bea79b0674bd5a52fa4
