@@ -48,8 +48,9 @@ import useSubscribeToSessionIfFocused from '../../../../../lib/session/hooks/use
 import {joinSession} from '../../../../../lib/sessions/api/session';
 import useLiveSessionMetricEvents from '../../../../../lib/session/hooks/useLiveSessionMetricEvents';
 import useCheckPermissions from '../../../../../lib/session/hooks/useCheckPermissions';
-import Question from './Question';
+import SessionMood from './SessionMood';
 import AutoScrollView from '../../../../../lib/components/AutoScrollView/AutoScrollView';
+import useLogSessionMood from '../hooks/useLogSessionMood';
 
 const KeyboardWrapper = styled.KeyboardAvoidingView.attrs({
   behavior: Platform.select({ios: 'position', android: undefined}),
@@ -141,6 +142,7 @@ const HairCheck = () => {
     checkAndPromptCameraPermissions,
     checkAndPromptMicrophonePermissions,
   } = useCheckPermissions();
+  const logSessionMood = useLogSessionMood();
 
   const hasAudio = Boolean(me?.tracks.audio.state !== 'off');
   const hasVideo = Boolean(me?.tracks.video.state !== 'off');
@@ -158,6 +160,7 @@ const HairCheck = () => {
   }, [isReJoining, isFocused]);
 
   const join = useCallback(async () => {
+    logSessionMood();
     setJoiningMeeting(true);
     if (sessionState?.started) {
       await joinMeeting();
@@ -176,6 +179,7 @@ const HairCheck = () => {
     navigate,
     setUserData,
     session,
+    logSessionMood,
   ]);
 
   const joinPress = useCallback(async () => {
@@ -211,7 +215,7 @@ const HairCheck = () => {
           <TopSafeArea />
           <Spacer48 />
           <Gutters big>
-            <Question />
+            <SessionMood />
           </Gutters>
           <Spacer32 />
           <VideoWrapper>
