@@ -1,22 +1,17 @@
 {
   "compilerOptions": {
-    "target": "ES2017",
-    "useDefineForClassFields": true,
-    "lib": ["DOM", "DOM.Iterable", "ESNext"],
+    "target": "es2020",
+    "module": "commonjs",
     "allowJs": true, // until content is converted into ts
-    "skipLibCheck": true,
-    "esModuleInterop": false,
-    "allowSyntheticDefaultImports": true,
-    "strict": true,
+    "esModuleInterop": true,
+    "allowImportingTsExtensions": true,
     "forceConsistentCasingInFileNames": true,
-    "module": "CommonJS",
-    "moduleResolution": "Node",
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
     "jsx": "react-jsx",
     "typeRoots": ["./types", "./node_modules/@types"],
   },
-  "include": ["src", "types", "buildContent.ts", "jest.config.js"]
+  "include": ["src", "types", "buildContent.ts", "exportToCsv.ts", "jest.config.js"],
 }
 
