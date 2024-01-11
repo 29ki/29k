@@ -1,5 +1,5 @@
-import React, {useCallback, useState} from 'react';
-import {StyleSheet, View} from 'react-native';
+import React, {useCallback} from 'react';
+import {StyleSheet} from 'react-native';
 import {Slider} from 'react-native-awesome-slider';
 import Animated, {
   SharedValue,
@@ -16,12 +16,14 @@ import {
 } from '../../../../../lib/components/Typography/Body/Body';
 import {Spacer16, Spacer8} from '../../../../../lib/components/Spacers/Spacer';
 import textStyles from '../../../../../lib/components/Typography/styles';
+import useSessionState from '../../../../../lib/session/state/state';
+import {useTranslation} from 'react-i18next';
 
 const SliderWrapper = styled.View({
   height: 36,
 });
 
-const QuestionSlider = styled(Slider).attrs({
+const MoodSlider = styled(Slider).attrs({
   sliderHeight: 36,
   thumbWidth: 36,
   containerStyle: {
@@ -42,21 +44,22 @@ const QuestionSlider = styled(Slider).attrs({
 const Thumb = styled.View<{active: boolean}>(({active}) => ({
   width: 36,
   height: 36,
-  opacity: active ? 1 : 0.5,
+  borderRadius: 18,
+  backgroundColor: active ? undefined : COLORS.PRIMARY,
 }));
 
 const Emoji = styled(Animated.Image)({
   ...StyleSheet.absoluteFillObject,
 });
 
-const EmojiExcited = styled(Emoji).attrs({
-  source: {uri: 'emoji_excited'},
+const EmojiGrinning = styled(Emoji).attrs({
+  source: {uri: 'emoji_grinning'},
 })({});
-const EmojiNeutral = styled(Emoji).attrs({
-  source: {uri: 'emoji_neutral'},
+const EmojiSmiling = styled(Emoji).attrs({
+  source: {uri: 'emoji_smiling'},
 })({});
-const EmojiNervous = styled(Emoji).attrs({
-  source: {uri: 'emoji_nervous'},
+const EmojiAnxious = styled(Emoji).attrs({
+  source: {uri: 'emoji_anxious'},
 })({});
 
 type Props = {
@@ -64,12 +67,20 @@ type Props = {
   active: boolean;
 };
 const AnimatedThumb = ({progress, active}: Props) => {
-  const excitedStyle = useAnimatedStyle(() => ({
+  const smilingStyle = useAnimatedStyle(() => ({
+    opacity: withTiming(
+      progress.value >= 1.5 && progress.value <= 2.5 ? 1 : 0,
+      {
+        duration: 400,
+      },
+    ),
+  }));
+  const grinningStyle = useAnimatedStyle(() => ({
     opacity: withTiming(progress.value <= 1.5 ? 1 : 0, {
       duration: 400,
     }),
   }));
-  const nervousStyle = useAnimatedStyle(() => ({
+  const anxiousStyle = useAnimatedStyle(() => ({
     opacity: withTiming(progress.value >= 2.5 ? 1 : 0, {
       duration: 400,
     }),
@@ -77,9 +88,13 @@ const AnimatedThumb = ({progress, active}: Props) => {
 
   return (
     <Thumb active={active}>
-      <EmojiNeutral />
-      <EmojiExcited style={excitedStyle} />
-      <EmojiNervous style={nervousStyle} />
+      {active && (
+        <>
+          <EmojiSmiling style={smilingStyle} />
+          <EmojiGrinning style={grinningStyle} />
+          <EmojiAnxious style={anxiousStyle} />
+        </>
+      )}
     </Thumb>
   );
 };
@@ -93,10 +108,12 @@ const ScaleLabel = styled(Body14)<{active?: boolean}>(
   ({active}) => active && textStyles.BodyBold,
 );
 
-const Question = () => {
-  const [value, setValue] = useState(0);
-  const stepValue = Math.round(value);
-  const active = Boolean(stepValue);
+const SessionMood = () => {
+  const {t} = useTranslation('Component.SharingSessionMood');
+  const value = useSessionState(state => state.mood);
+  const setValue = useSessionState(state => state.setMood);
+  const stepValue = Math.round(value ?? 0);
+  const active = Boolean(value);
 
   const min = useSharedValue(1);
   const max = useSharedValue(3);
@@ -110,11 +127,11 @@ const Question = () => {
   return (
     <>
       <Body16>
-        <BodyBold>How do you feel about joining this live session?</BodyBold>
+        <BodyBold>{t('question')}</BodyBold>
       </Body16>
       <Spacer16 />
       <SliderWrapper>
-        <QuestionSlider
+        <MoodSlider
           minimumValue={min}
           maximumValue={max}
           progress={progress}
@@ -124,32 +141,24 @@ const Question = () => {
       </SliderWrapper>
       <Spacer8 />
       <Scale>
-        <ScaleLabel active={stepValue === 1}>Excited</ScaleLabel>
-        <ScaleLabel active={stepValue === 2}>Neutral</ScaleLabel>
-        <ScaleLabel active={stepValue === 3}>Nervous</ScaleLabel>
+        <ScaleLabel active={stepValue === 1}>
+          {t('step', {context: 1})}
+        </ScaleLabel>
+        <ScaleLabel active={stepValue === 2}>
+          {t('step', {context: 2})}
+        </ScaleLabel>
+        <ScaleLabel active={stepValue === 3}>
+          {t('step', {context: 3})}
+        </ScaleLabel>
       </Scale>
-      <Spacer16 />
-      {stepValue === 1 && (
-        <Body16>
-          Nice! Thanks for being here. Your presence makes the session great.
-        </Body16>
-      )}
-      {stepValue === 2 && (
-        <Body16>
-          Thanks for showing up. If you feel a bit uncertain, you’re in the
-          right place. We’ll guide you through the experience, so you can listen
-          in or participate in any way you like.{' '}
-        </Body16>
-      )}
-      {stepValue === 3 && (
-        <Body16>
-          Thanks for sharing. In this place, all of you is welcome. We’re here
-          to support. And it’s okay to just listen in with the camera off – we
-          appreciate your presence in any form.
-        </Body16>
+      {Boolean(stepValue) && (
+        <>
+          <Spacer16 />
+          <Body16>{t('answer', {context: stepValue})}</Body16>
+        </>
       )}
     </>
   );
 };
 
-export default Question;
+export default SessionMood;
