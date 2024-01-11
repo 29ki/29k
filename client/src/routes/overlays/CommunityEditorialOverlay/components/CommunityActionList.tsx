@@ -1,4 +1,5 @@
 import React, {useCallback} from 'react';
+import {Platform} from 'react-native';
 import {useNavigation} from '@react-navigation/native';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import {useTranslation} from 'react-i18next';
@@ -25,7 +26,14 @@ const CommunityActionList = () => {
     () => linking.openURL(t('corporateLink')),
     [t],
   );
-  const donatePress = useCallback(() => navigate('DonateModal'), [navigate]);
+  const donatePress = useCallback(() => {
+    if (Platform.OS === 'ios') {
+      // This is a temporary fix for iOS, until we're allowed to accept in-app donations on iOS by Apple
+      linking.openURL('https://29k.org/donate');
+    } else {
+      navigate('DonateModal');
+    }
+  }, [navigate]);
   const contributePress = useCallback(
     () => linking.openURL(t('contributeLink')),
     [t],

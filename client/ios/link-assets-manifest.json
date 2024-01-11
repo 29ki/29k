@@ -126,6 +126,18 @@
       "sha1": "983b2c3e18d36ca8438440e6333bd80544bbe529"
     },
     {
+      "path": "src/assets/images/emoji_anxious.png",
+      "sha1": "a83b7b3deea30c68c912780f33803b16892eeeaf"
+    },
+    {
+      "path": "src/assets/images/emoji_grinning.png",
+      "sha1": "875ecd6fdd962f3dccff11bea37838e5097a0074"
+    },
+    {
+      "path": "src/assets/images/emoji_smiling.png",
+      "sha1": "b746e315e6e91bfc09304a90e4c496baee56616e"
+    },
+    {
       "path": "src/assets/images/forest.jpg",
       "sha1": "4c6d5694b37203a6a8746f80ca837c5aaa164068"
     },

@@ -23,6 +23,7 @@ import {
   BottomSafeArea,
   Spacer16,
   Spacer28,
+  Spacer32,
   Spacer48,
   TopSafeArea,
 } from '../../../../../lib/components/Spacers/Spacer';
@@ -47,19 +48,13 @@ import useSubscribeToSessionIfFocused from '../../../../../lib/session/hooks/use
 import {joinSession} from '../../../../../lib/sessions/api/session';
 import useLiveSessionMetricEvents from '../../../../../lib/session/hooks/useLiveSessionMetricEvents';
 import useCheckPermissions from '../../../../../lib/session/hooks/useCheckPermissions';
+import SessionMood from './SessionMood';
+import AutoScrollView from '../../../../../lib/components/AutoScrollView/AutoScrollView';
+import useLogSessionMood from '../hooks/useLogSessionMood';
 
 const KeyboardWrapper = styled.KeyboardAvoidingView.attrs({
-  behavior: Platform.select({ios: 'padding', android: undefined}),
-})({
-  flex: 1,
-  justifyContent: 'center',
-});
-
-const ScrollWrapper = styled.ScrollView.attrs({
-  contentContainerStyle: {flex: 1},
-})({
-  flex: 1,
-});
+  behavior: Platform.select({ios: 'position', android: undefined}),
+})({});
 
 const Controls = styled.View({
   flexDirection: 'row',
@@ -141,6 +136,7 @@ const HairCheck = () => {
     checkAndPromptCameraPermissions,
     checkAndPromptMicrophonePermissions,
   } = useCheckPermissions();
+  const logSessionMood = useLogSessionMood();
 
   const hasAudio = Boolean(me?.tracks.audio.state !== 'off');
   const hasVideo = Boolean(me?.tracks.video.state !== 'off');
@@ -158,6 +154,7 @@ const HairCheck = () => {
   }, [isReJoining, isFocused]);
 
   const join = useCallback(async () => {
+    logSessionMood();
     setJoiningMeeting(true);
     if (sessionState?.started) {
       await joinMeeting();
@@ -176,6 +173,7 @@ const HairCheck = () => {
     navigate,
     setUserData,
     session,
+    logSessionMood,
   ]);
 
   const joinPress = useCallback(async () => {
@@ -206,72 +204,73 @@ const HairCheck = () => {
 
   return (
     <Screen onPressBack={goBack}>
-      <ScrollWrapper>
-        <TopSafeArea />
-        <KeyboardWrapper>
-          <>
-            <VideoWrapper>
-              {isFocused && hasVideo ? (
-                <DailyMediaViewWrapper
-                  videoTrack={me?.tracks.video.persistentTrack ?? null}
-                  audioTrack={me?.tracks.audio.persistentTrack ?? null}
-                  objectFit={'cover'}
-                  mirror={me?.local}
-                />
-              ) : user?.photoURL ? (
-                <ImageContainer>
-                  <Image source={{uri: user.photoURL}} />
-                </ImageContainer>
-              ) : (
-                <VideoText>{t('cameraOff')}</VideoText>
-              )}
-              <Audio muted={!hasAudio} />
-            </VideoWrapper>
-
-            <Spacer28 />
-            <Gutters>
-              <Controls>
-                <IconButton
-                  disabled
-                  onPress={toggleAudioPress}
-                  active={hasAudio}
-                  variant="secondary"
-                  Icon={hasAudio ? MicrophoneIcon : MicrophoneOffIcon}
-                />
-                <Spacer16 />
-                <IconButton
-                  onPress={toggleVideoPress}
-                  active={hasVideo}
-                  variant="secondary"
-                  Icon={hasVideo ? FilmCameraIcon : FilmCameraOffIcon}
-                />
-              </Controls>
-              <Spacer48 />
-              <InputWrapper>
-                <StyledTextInput
-                  autoFocus={!user?.displayName}
-                  onChangeText={setLocalUserName}
-                  onSubmitEditing={joinPress}
-                  autoCapitalize="words"
-                  autoCorrect={false}
-                  maxLength={20}
-                  defaultValue={localUserName}
-                  placeholder={t('placeholder')}
-                />
-                <Spacer28 />
-                <Button
-                  variant="secondary"
-                  onPress={joinPress}
-                  loading={joiningMeeting}
-                  disabled={!localUserName.length || joiningMeeting}>
-                  {t('join_button')}
-                </Button>
-              </InputWrapper>
-            </Gutters>
-          </>
-        </KeyboardWrapper>
-        <BottomSafeArea minSize={SPACINGS.TWENTYEIGHT} />
-      </ScrollWrapper>
+      <KeyboardWrapper>
+        <AutoScrollView>
+          <TopSafeArea />
+          <Spacer48 />
+          <Gutters big>
+            <SessionMood />
+          </Gutters>
+          <Spacer32 />
+          <VideoWrapper>
+            {isFocused && hasVideo ? (
+              <DailyMediaViewWrapper
+                videoTrack={me?.tracks.video.persistentTrack ?? null}
+                audioTrack={me?.tracks.audio.persistentTrack ?? null}
+                objectFit={'cover'}
+                mirror={me?.local}
+              />
+            ) : user?.photoURL ? (
+              <ImageContainer>
+                <Image source={{uri: user.photoURL}} />
+              </ImageContainer>
+            ) : (
+              <VideoText>{t('cameraOff')}</VideoText>
+            )}
+            <Audio muted={!hasAudio} />
+          </VideoWrapper>
+          <Spacer28 />
+          <Gutters>
+            <Controls>
+              <IconButton
+                disabled
+                onPress={toggleAudioPress}
+                active={hasAudio}
+                variant="secondary"
+                Icon={hasAudio ? MicrophoneIcon : MicrophoneOffIcon}
+              />
+              <Spacer16 />
+              <IconButton
+                onPress={toggleVideoPress}
+                active={hasVideo}
+                variant="secondary"
+                Icon={hasVideo ? FilmCameraIcon : FilmCameraOffIcon}
+              />
+            </Controls>
+            <Spacer48 />
+            <InputWrapper>
+              <StyledTextInput
+                onChangeText={setLocalUserName}
+                onSubmitEditing={joinPress}
+                autoCapitalize="words"
+                autoCorrect={false}
+                maxLength={20}
+                defaultValue={localUserName}
+                placeholder={t('placeholder')}
+              />
+              <Spacer28 />
+              <Button
+                variant="secondary"
+                onPress={joinPress}
+                loading={joiningMeeting}
+                disabled={!localUserName.length || joiningMeeting}>
+                {t('join_button')}
+              </Button>
+            </InputWrapper>
+          </Gutters>
+          <BottomSafeArea minSize={SPACINGS.TWENTYEIGHT} />
+        </AutoScrollView>
+      </KeyboardWrapper>
     </Screen>
   );
 };

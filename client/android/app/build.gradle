@@ -144,8 +144,8 @@ android {
     defaultConfig {
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode 157
-        versionName "2.43.0"
+        versionCode 160
+        versionName "2.44.0"
         buildConfigField "boolean", "IS_NEW_ARCHITECTURE_ENABLED", isNewArchitectureEnabled().toString()
 
         // Solving the issue with binary resource modify time with code push
@@ -295,6 +295,20 @@ android {
             manifestPlaceholders.deepLinkHost3 = 'dev.open.awareapp.org'
             manifestPlaceholders.deepLinkScheme = 'org.twentyninek.app.cupcake'
         }
+    }
+}
+
+// Fixes issue with wrong local image being shown on Android https://github.com/facebook/fresco/issues/2667
+configurations.all {
+    resolutionStrategy {
+        force "com.facebook.fresco:fresco:2.5.0"
+        force "com.facebook.fresco:fbcore:2.5.0"
+        force "com.facebook.fresco:imagepipeline:2.5.0"
+        force "com.facebook.fresco:imagepipeline-base:2.5.0"
+        force "com.facebook.fresco:imagepipeline-native:2.5.0"
+        force "com.facebook.fresco:memory-type-ashmem:2.5.0"
+        force "com.facebook.fresco:memory-type-native:2.5.0"
+        force "com.facebook.fresco:memory-type-java:2.5.0"
     }
 }
 
