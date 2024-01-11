@@ -30,6 +30,12 @@
 		20AC303729B6146F0083FDD0 /* VideoLooperManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20AC303429B6146F0083FDD0 /* VideoLooperManager.swift */; };
 		2534018508E87E505AF96201 /* Pods_production.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3917496B3DD7B39A251F220E /* Pods_production.framework */; };
 		358C4F2723F64259BA21F041 /* HKGrotesk-SemiBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2F984EB2C23C413EAD170059 /* HKGrotesk-SemiBoldItalic.ttf */; };
+		36051E392B4C5E23005EEF89 /* emoji_grinning.png in Resources */ = {isa = PBXBuildFile; fileRef = BA0C869358D3406BBB820DCD /* emoji_grinning.png */; };
+		36051E3A2B4C5E23005EEF89 /* emoji_anxious.png in Resources */ = {isa = PBXBuildFile; fileRef = AC3478987B5D4523842A8EBF /* emoji_anxious.png */; };
+		36051E3B2B4C5E23005EEF89 /* emoji_smiling.png in Resources */ = {isa = PBXBuildFile; fileRef = E46A3E30BB244120BC8F9CA9 /* emoji_smiling.png */; };
+		36051E3C2B4C5E24005EEF89 /* emoji_grinning.png in Resources */ = {isa = PBXBuildFile; fileRef = BA0C869358D3406BBB820DCD /* emoji_grinning.png */; };
+		36051E3D2B4C5E24005EEF89 /* emoji_anxious.png in Resources */ = {isa = PBXBuildFile; fileRef = AC3478987B5D4523842A8EBF /* emoji_anxious.png */; };
+		36051E3E2B4C5E24005EEF89 /* emoji_smiling.png in Resources */ = {isa = PBXBuildFile; fileRef = E46A3E30BB244120BC8F9CA9 /* emoji_smiling.png */; };
 		36210DE829DEDA0300552260 /* thumbs_up_silouette.png in Resources */ = {isa = PBXBuildFile; fileRef = 7697D543D27245AFB5F40FE5 /* thumbs_up_silouette.png */; };
 		36210DE929DEDA0300552260 /* forest.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F7F60DFD1E4B498AA08A6194 /* forest.jpg */; };
 		36210DEA29DEDA0300552260 /* thumbs_up.png in Resources */ = {isa = PBXBuildFile; fileRef = 12A592D3B045465ABD8A445D /* thumbs_up.png */; };
@@ -125,6 +131,7 @@
 		5DB405A75D724943AEF04D2E /* PlayfairDisplay-ExtraBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 61A8F5BA383445C59ADAA18A /* PlayfairDisplay-ExtraBoldItalic.ttf */; };
 		603DFC37750546B786EF64E1 /* HKGrotesk-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D4DC8D4A3FCD42879BD2D25D /* HKGrotesk-Regular.ttf */; };
 		61AF23D5BAF44C79B8C88620 /* PlayfairDisplay-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0C60BDAB4BE94BBC97B83082 /* PlayfairDisplay-Black.ttf */; };
+		69313C85A6144E188A656F1B /* emoji_grinning.png in Resources */ = {isa = PBXBuildFile; fileRef = BA0C869358D3406BBB820DCD /* emoji_grinning.png */; };
 		6C4AAC59C1E14B75BF46AE59 /* PlayfairDisplay-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 64EC0C45BF0040A2AEAB9C0F /* PlayfairDisplay-Italic.ttf */; };
 		6CCB426AB87A49E596107039 /* HKGrotesk-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A056520304664C35A018EACD /* HKGrotesk-Bold.ttf */; };
 		703B7B72A48842758EC19F1D /* forest.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F7F60DFD1E4B498AA08A6194 /* forest.jpg */; };
@@ -143,9 +150,11 @@
 		A004DA0332A84139837B70E3 /* HKGrotesk-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FDC97632AC9A41E683B57B63 /* HKGrotesk-ExtraBold.ttf */; };
 		A0396F9773F344FE8F381035 /* HKGrotesk-ExtraBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F8B60BFB051E4200971A1E5D /* HKGrotesk-ExtraBoldItalic.ttf */; };
 		A2D0FF0B865E4996AAAEED8C /* PlayfairDisplay-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 47BAB9D11CC441EE8D9AD069 /* PlayfairDisplay-SemiBold.ttf */; };
+		BA94C0F7A9A24B15A631D72B /* emoji_anxious.png in Resources */ = {isa = PBXBuildFile; fileRef = AC3478987B5D4523842A8EBF /* emoji_anxious.png */; };
 		CC00E8A87ADB412797C6FF99 /* clouds.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 9F96356237624EFF865AE911 /* clouds.mp4 */; };
 		CD86BEA31AC24020B0EDF7F9 /* HKGrotesk-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C7A9AC015F0444D78702CDB8 /* HKGrotesk-Medium.ttf */; };
 		D27C808E13974943B12A51A1 /* HKGrotesk-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 38098D4E3BE44FE192B788F7 /* HKGrotesk-Light.ttf */; };
+		F7A5A4715A27415A8B5D1A4D /* emoji_smiling.png in Resources */ = {isa = PBXBuildFile; fileRef = E46A3E30BB244120BC8F9CA9 /* emoji_smiling.png */; };
 		F972E6872EEC4680BFA871D4 /* PlayfairDisplay-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5D604BD0BA9D4700B61615BC /* PlayfairDisplay-Bold.ttf */; };
 		FB406F7E72B143368045E1E2 /* PlayfairDisplay-SemiBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 70541B4723CC4589BC286F20 /* PlayfairDisplay-SemiBoldItalic.ttf */; };
 		FCDDAFDDFE4F4A1FABA34E33 /* HKGrotesk-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6955B7D500CF486496F2FAC1 /* HKGrotesk-Thin.ttf */; };
@@ -203,14 +212,17 @@
 		A04E9BC6F04F675C7BAB9A0B /* Pods_staging.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_staging.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A056520304664C35A018EACD /* HKGrotesk-Bold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "HKGrotesk-Bold.ttf"; path = "../src/assets/fonts/HKGrotesk-Bold.ttf"; sourceTree = "<group>"; };
 		A25751351AC74C9899C05A2B /* PlayfairDisplay-BoldItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "PlayfairDisplay-BoldItalic.ttf"; path = "../src/assets/fonts/PlayfairDisplay-BoldItalic.ttf"; sourceTree = "<group>"; };
+		AC3478987B5D4523842A8EBF /* emoji_anxious.png */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = emoji_anxious.png; path = ../src/assets/images/emoji_anxious.png; sourceTree = "<group>"; };
 		B6008BB1F74B44A6834189D2 /* onboarding_person2.mp4 */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = onboarding_person2.mp4; path = ../src/assets/videos/onboarding_person2.mp4; sourceTree = "<group>"; };
 		B8268BC6140D4234847163B1 /* HKGrotesk-BoldItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "HKGrotesk-BoldItalic.ttf"; path = "../src/assets/fonts/HKGrotesk-BoldItalic.ttf"; sourceTree = "<group>"; };
 		B969669E9C09454993930592 /* PlayfairDisplay-ExtraBold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "PlayfairDisplay-ExtraBold.ttf"; path = "../src/assets/fonts/PlayfairDisplay-ExtraBold.ttf"; sourceTree = "<group>"; };
+		BA0C869358D3406BBB820DCD /* emoji_grinning.png */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = emoji_grinning.png; path = ../src/assets/images/emoji_grinning.png; sourceTree = "<group>"; };
 		BF33B8F1B88F43168FDB6B0F /* HKGrotesk-ExtraLight.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "HKGrotesk-ExtraLight.ttf"; path = "../src/assets/fonts/HKGrotesk-ExtraLight.ttf"; sourceTree = "<group>"; };
 		C7A9AC015F0444D78702CDB8 /* HKGrotesk-Medium.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "HKGrotesk-Medium.ttf"; path = "../src/assets/fonts/HKGrotesk-Medium.ttf"; sourceTree = "<group>"; };
 		CB7EF2B3981F4C15B5A80B41 /* HKGrotesk-LightItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "HKGrotesk-LightItalic.ttf"; path = "../src/assets/fonts/HKGrotesk-LightItalic.ttf"; sourceTree = "<group>"; };
 		D23A9D3469D04DCBA3B5B6DE /* HKGrotesk-ThinItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "HKGrotesk-ThinItalic.ttf"; path = "../src/assets/fonts/HKGrotesk-ThinItalic.ttf"; sourceTree = "<group>"; };
 		D4DC8D4A3FCD42879BD2D25D /* HKGrotesk-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "HKGrotesk-Regular.ttf"; path = "../src/assets/fonts/HKGrotesk-Regular.ttf"; sourceTree = "<group>"; };
+		E46A3E30BB244120BC8F9CA9 /* emoji_smiling.png */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = emoji_smiling.png; path = ../src/assets/images/emoji_smiling.png; sourceTree = "<group>"; };
 		E7B0369A69A5459EBF311F36 /* HKGrotesk-MediumItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "HKGrotesk-MediumItalic.ttf"; path = "../src/assets/fonts/HKGrotesk-MediumItalic.ttf"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		EFA4006C7CCA4AB2B2917E80 /* HKGrotesk-ExtraLightItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "HKGrotesk-ExtraLightItalic.ttf"; path = "../src/assets/fonts/HKGrotesk-ExtraLightItalic.ttf"; sourceTree = "<group>"; };
@@ -308,6 +320,9 @@
 				B6008BB1F74B44A6834189D2 /* onboarding_person2.mp4 */,
 				5E65577751A442C9A89337E6 /* onboarding_person3.mp4 */,
 				11C7F314F4714C2F8F532671 /* community.jpg */,
+				AC3478987B5D4523842A8EBF /* emoji_anxious.png */,
+				BA0C869358D3406BBB820DCD /* emoji_grinning.png */,
+				E46A3E30BB244120BC8F9CA9 /* emoji_smiling.png */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -576,6 +591,9 @@
 				4165E584BCCE4696A369367F /* onboarding_person2.mp4 in Resources */,
 				8A43D0260D4F4E1F9DACF13F /* onboarding_person3.mp4 in Resources */,
 				071F0984601345C1A4433655 /* community.jpg in Resources */,
+				BA94C0F7A9A24B15A631D72B /* emoji_anxious.png in Resources */,
+				69313C85A6144E188A656F1B /* emoji_grinning.png in Resources */,
+				F7A5A4715A27415A8B5D1A4D /* emoji_smiling.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -589,11 +607,13 @@
 				36EE4A1229EE919A00795841 /* clouds.mp4 in Resources */,
 				36EE4A1129EE919A00795841 /* onboarding_person2.mp4 in Resources */,
 				36C49FEC28D8AA11001878A6 /* HKGrotesk-Medium.ttf in Resources */,
+				36051E3D2B4C5E24005EEF89 /* emoji_anxious.png in Resources */,
 				36303A1A28D9B0910025F147 /* PlayfairDisplay-Medium.ttf in Resources */,
 				36303A1928D9B0910025F147 /* PlayfairDisplay-BoldItalic.ttf in Resources */,
 				36B9FA1628625FFA00563812 /* LaunchScreen.storyboard in Resources */,
 				36303A1528D9B0910025F147 /* PlayfairDisplay-Italic.ttf in Resources */,
 				36210DEB29DEDA0300552260 /* thumbs_up_silouette.png in Resources */,
+				36051E3C2B4C5E24005EEF89 /* emoji_grinning.png in Resources */,
 				36C49FF428D8AA11001878A6 /* HKGrotesk-Black.ttf in Resources */,
 				36C49FE428D8AA11001878A6 /* HKGrotesk-Regular.ttf in Resources */,
 				36EE4A1829EE973A00795841 /* community.jpg in Resources */,
@@ -601,6 +621,7 @@
 				36210DED29DEDA0300552260 /* thumbs_up.png in Resources */,
 				36C49FF328D8AA11001878A6 /* HKGrotesk-ExtraBoldItalic.ttf in Resources */,
 				3690D8902865069900A0F937 /* Images.xcassets in Resources */,
+				36051E3E2B4C5E24005EEF89 /* emoji_smiling.png in Resources */,
 				36A3687929E69FFE00B8E859 /* thumbs_up_silouette.png in Resources */,
 				36303A1C28D9B0910025F147 /* PlayfairDisplay-SemiBoldItalic.ttf in Resources */,
 				36C49FE528D8AA11001878A6 /* HKGrotesk-Thin.ttf in Resources */,
@@ -638,11 +659,13 @@
 				36EE4A0E29EE919900795841 /* clouds.mp4 in Resources */,
 				36EE4A0D29EE919900795841 /* onboarding_person2.mp4 in Resources */,
 				36C49FDA28D8AA11001878A6 /* HKGrotesk-Medium.ttf in Resources */,
+				36051E3A2B4C5E23005EEF89 /* emoji_anxious.png in Resources */,
 				36303A0E28D9B0910025F147 /* PlayfairDisplay-Medium.ttf in Resources */,
 				36303A0D28D9B0910025F147 /* PlayfairDisplay-BoldItalic.ttf in Resources */,
 				3690D88F2865069800A0F937 /* Images.xcassets in Resources */,
 				36303A0928D9B0910025F147 /* PlayfairDisplay-Italic.ttf in Resources */,
 				36210DE829DEDA0300552260 /* thumbs_up_silouette.png in Resources */,
+				36051E392B4C5E23005EEF89 /* emoji_grinning.png in Resources */,
 				36C49FE228D8AA11001878A6 /* HKGrotesk-Black.ttf in Resources */,
 				36C49FD228D8AA11001878A6 /* HKGrotesk-Regular.ttf in Resources */,
 				36EE4A1729EE973900795841 /* community.jpg in Resources */,
@@ -650,6 +673,7 @@
 				36210DEA29DEDA0300552260 /* thumbs_up.png in Resources */,
 				36C49FE128D8AA11001878A6 /* HKGrotesk-ExtraBoldItalic.ttf in Resources */,
 				7880A5192862029F0063B482 /* LaunchScreen.storyboard in Resources */,
+				36051E3B2B4C5E23005EEF89 /* emoji_smiling.png in Resources */,
 				36A3687729E69FFD00B8E859 /* thumbs_up_silouette.png in Resources */,
 				36303A1028D9B0910025F147 /* PlayfairDisplay-SemiBoldItalic.ttf in Resources */,
 				36C49FD328D8AA11001878A6 /* HKGrotesk-Thin.ttf in Resources */,

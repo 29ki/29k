@@ -49,6 +49,11 @@ export type SharingSessionPost = {
   'Sharing Session Post Anonymous': boolean;
 };
 
+export type SharingSessionMood = {
+  'Sharing Session Mood Question': string;
+  'Sharing Session Mood': number;
+};
+
 // Feedback properties
 export type FeedbackProperties = {
   'Feedback Question': string;

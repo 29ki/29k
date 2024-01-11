@@ -21,6 +21,7 @@ export type Reaction = {
 };
 
 type State = {
+  mood: number | null;
   liveSession: LiveSessionType | null;
   asyncSession: AsyncSessionType | null;
   sessionState: SessionStateType | null;
@@ -31,6 +32,7 @@ type State = {
 };
 
 type Actions = {
+  setMood: (joinFeeling: number | null) => void;
   setPartialSessionState: (sessionState: Partial<SessionStateType>) => void;
   setSessionState: (sessionState: SessionStateType) => void;
   setLiveSession: (liveSession: LiveSessionType) => void;
@@ -43,6 +45,7 @@ type Actions = {
 };
 
 const initialState: State = {
+  mood: null,
   liveSession: null,
   asyncSession: null,
   sessionState: null,
@@ -54,6 +57,7 @@ const initialState: State = {
 
 const useSessionState = create<State & Actions>()((set, get) => ({
   ...initialState,
+  setMood: mood => set({mood}),
   setPartialSessionState: (sessionState: Partial<SessionStateType>) => {
     const existingState = get().sessionState;
     if (existingState) {

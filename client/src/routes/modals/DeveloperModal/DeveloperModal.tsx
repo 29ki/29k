@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useCallback} from 'react';
 import {useTranslation} from 'react-i18next';
 
 import ActionList from '../../../lib/components/ActionList/ActionList';
@@ -19,6 +19,7 @@ import useClearUpdates from '../../../lib/codePush/hooks/useClearUpdates';
 import useCheckForUpdate from '../../../lib/codePush/hooks/useCheckForUpdate';
 import ActionSwitch from '../../../lib/components/ActionList/ActionItems/ActionSwitch';
 import useAddDevUserEvents from './hooks/useAddDevUserEvents';
+import useCurrentUserState from '../../../lib/user/hooks/useCurrentUserState';
 
 const DeveloperModal = () => {
   const {t} = useTranslation('Modal.Developer');
@@ -30,6 +31,11 @@ const DeveloperModal = () => {
   const clearUpdates = useClearUpdates();
   const checkForUpdate = useCheckForUpdate();
   const addDevUserEvents = useAddDevUserEvents();
+  const userEvents = useCurrentUserState();
+
+  const logUserEvents = useCallback(() => {
+    console.log(JSON.stringify(userEvents, null, 2));
+  }, [userEvents]);
 
   return (
     <SheetModal>
@@ -56,6 +62,9 @@ const DeveloperModal = () => {
         <ActionList>
           <ActionButton onPress={addDevUserEvents}>
             {t('addDevUserEvents')}
+          </ActionButton>
+          <ActionButton onPress={logUserEvents}>
+            {t('logUserEvents')}
           </ActionButton>
         </ActionList>
       </Gutters>

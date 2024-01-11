@@ -10,6 +10,7 @@ import {
   Enable,
   ReminderSettingsProperties,
   ReminderProperties,
+  SharingSessionMood,
 } from './Properties';
 
 type Events = {
@@ -47,6 +48,9 @@ type Events = {
   'Create Async Post': SharingSessionProperties & SharingSessionPost;
   'Completed Async Session': SharingSessionProperties;
   'Share Async Session': SharingSessionProperties;
+
+  // Sharing Session Mood
+  'Answer Sharing Session Mood': SharingSessionMood;
 
   // Feedback
   'Sharing Session Feedback': FeedbackProperties;
