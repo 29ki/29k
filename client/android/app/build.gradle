@@ -298,6 +298,20 @@ android {
     }
 }
 
+// Fixes issue with wrong local image being shown on Android https://github.com/facebook/fresco/issues/2667
+configurations.all {
+    resolutionStrategy {
+        force "com.facebook.fresco:fresco:2.5.0"
+        force "com.facebook.fresco:fbcore:2.5.0"
+        force "com.facebook.fresco:imagepipeline:2.5.0"
+        force "com.facebook.fresco:imagepipeline-base:2.5.0"
+        force "com.facebook.fresco:imagepipeline-native:2.5.0"
+        force "com.facebook.fresco:memory-type-ashmem:2.5.0"
+        force "com.facebook.fresco:memory-type-native:2.5.0"
+        force "com.facebook.fresco:memory-type-java:2.5.0"
+    }
+}
+
 dependencies {
     implementation fileTree(dir: "libs", include: ["*.jar"])
 
