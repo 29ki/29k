@@ -56,12 +56,6 @@ const KeyboardWrapper = styled.KeyboardAvoidingView.attrs({
   behavior: Platform.select({ios: 'position', android: undefined}),
 })({});
 
-const ScrollWrapper = styled(AutoScrollView).attrs({
-  contentContainerStyle: {flex: 1},
-})({
-  flex: 1,
-});
-
 const Controls = styled.View({
   flexDirection: 'row',
   alignItems: 'center',
@@ -210,8 +204,8 @@ const HairCheck = () => {
 
   return (
     <Screen onPressBack={goBack}>
-      <ScrollWrapper>
-        <KeyboardWrapper>
+      <KeyboardWrapper>
+        <AutoScrollView>
           <TopSafeArea />
           <Spacer48 />
           <Gutters big>
@@ -275,8 +269,8 @@ const HairCheck = () => {
             </InputWrapper>
           </Gutters>
           <BottomSafeArea minSize={SPACINGS.TWENTYEIGHT} />
-        </KeyboardWrapper>
-      </ScrollWrapper>
+        </AutoScrollView>
+      </KeyboardWrapper>
     </Screen>
   );
 };
