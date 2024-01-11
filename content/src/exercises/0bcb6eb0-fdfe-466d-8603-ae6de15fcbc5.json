@@ -471,7 +471,15 @@
       "textColor": "#2AE2D7"
     },
     "hidden": false,
+    "name": "90歳の誕生日",
     "published": false,
+    "coCreators": [
+      {
+        "name": "Yoshihiro Ito, translation",
+        "image": "https://res.cloudinary.com/dlfcg3kbn/image/upload/v1704763684/itou_2_a7vihj.jpg",
+        "url": "https://www.linkedin.com/in/itouyoshihiro/"
+      }
+    ],
     "duration": 30,
     "introPortal": {
       "hostNotes": [
@@ -486,6 +494,7 @@
     ],
     "link": "https://aware.29k.org/your-90th-birthday",
     "id": "0bcb6eb0-fdfe-466d-8603-ae6de15fcbc5",
-    "async": false
+    "async": false,
+    "description": "将来を見える化することは、長い目で見て何が大切かを明らかにすることで、今この瞬間の私たちに指針を与えてくれる。\n\nこれは、プレッシャーにさらされている時や、物事に対して近視眼的になりがちな時に、特に役立つ。"
   }
 }
