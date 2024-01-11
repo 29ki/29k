@@ -1072,10 +1072,10 @@
   resolved "https://registry.yarnpkg.com/@colors/colors/-/colors-1.5.0.tgz#bb504579c1cae923e6576a4f5da43d25f97bdbd9"
   integrity sha512-ooWCrlZP11i8GImSjTHYHLkvFDP48nS4+204nGb1RiX/WXYHmJA2III9/e2DWVabCESdW7hBAEzHRqUn9OUVvQ==
 
-"@daily-co/daily-js@^0.55.1":
-  version "0.55.1"
-  resolved "https://registry.yarnpkg.com/@daily-co/daily-js/-/daily-js-0.55.1.tgz#e4c8199d141c52f829f6ec1002fb514793b798d1"
-  integrity sha512-UaTFBHeGfeR+169uTuRSkcv0Sj9n2q5mORNs3Gez/rq0by9UHosnK7uO56AKvXCH/fR0dx/yLIR7p9Lamv2mkQ==
+"@daily-co/daily-js@^0.56.0":
+  version "0.56.0"
+  resolved "https://registry.yarnpkg.com/@daily-co/daily-js/-/daily-js-0.56.0.tgz#4ac53eb48dfba2ad18d7b7d67be2b7d0d3cce184"
+  integrity sha512-1nIVWFddldr1Virwzmqn9L5rHw+cZDLtM8f5Ap7kZ2f/V1A2KbgwQz16/1PX0G9z8A1+T6AbG7ynBkK1bPxqug==
   dependencies:
     "@babel/runtime" "^7.12.5"
     "@sentry/browser" "^7.60.1"
@@ -1085,12 +1085,12 @@
     fast-equals "^1.6.3"
     lodash "^4.17.15"
 
-"@daily-co/react-native-daily-js@0.53.1":
-  version "0.53.1"
-  resolved "https://registry.yarnpkg.com/@daily-co/react-native-daily-js/-/react-native-daily-js-0.53.1.tgz#c0d072297fc5be2765889ad22f1d69cce69e65fd"
-  integrity sha512-Ug4+pxT74h+by1oP3eZJqebgNRPMfZJJwSed9khhy+dPrOBjqxPkoLebxHE6UClSzYMCsJRM2LLBbWEBZJt8/A==
+"@daily-co/react-native-daily-js@0.54.0":
+  version "0.54.0"
+  resolved "https://registry.yarnpkg.com/@daily-co/react-native-daily-js/-/react-native-daily-js-0.54.0.tgz#eb9056a217bdfd70bc3f60947fb97130c7db3470"
+  integrity sha512-Ob4yCuoysqexrqjZGVsaD5Dsct5xlJzvxRlAyf0Nute+8H4VJ4faXorEXWx265HPn8q8Lf5sLoa/keKrO+iSHg==
   dependencies:
-    "@daily-co/daily-js" "^0.55.1"
+    "@daily-co/daily-js" "^0.56.0"
     "@types/react-native-background-timer" "^2.0.0"
     base-64 "^1.0.0"
     react-native-url-polyfill "^1.1.2"
@@ -1720,10 +1720,10 @@
     "@nodelib/fs.scandir" "2.1.5"
     fastq "^1.6.0"
 
-"@notifee/react-native@^7.8.0":
-  version "7.8.0"
-  resolved "https://registry.yarnpkg.com/@notifee/react-native/-/react-native-7.8.0.tgz#2990883753990f3585aa0cb5becc5cbdbcd87a43"
-  integrity sha512-sx8h62U4FrR4pqlbN1rkgPsdamDt9Tad0zgfO6VtP6rNJq/78k8nxUnh0xIX3WPDcCV8KAzdYCE7+UNvhF1CpQ==
+"@notifee/react-native@^7.8.2":
+  version "7.8.2"
+  resolved "https://registry.yarnpkg.com/@notifee/react-native/-/react-native-7.8.2.tgz#72d3199ae830b4128ddaef3c1c2f11604759c9c4"
+  integrity sha512-VG4IkWJIlOKqXwa3aExC3WFCVCGCC9BA55Ivg0SMRfEs+ruvYy/zlLANcrVGiPtgkUEryXDhA8SXx9+JcO8oLA==
 
 "@opentelemetry/api@^1.0.1":
   version "1.4.1"
@@ -1970,10 +1970,10 @@
   resolved "https://registry.yarnpkg.com/@react-native-community/eslint-plugin/-/eslint-plugin-1.2.0.tgz#7d6d789ae8edf73dc9bed1246cd48277edea8066"
   integrity sha512-o6aam+0Ug1xGK3ABYmBm0B1YuEKfM/5kaoZO0eHbZwSpw9UzDX4G5y4Nx/K20FHqUmJHkZmLvOUFYwN4N+HqKA==
 
-"@react-native-community/netinfo@^11.2.0":
-  version "11.2.0"
-  resolved "https://registry.yarnpkg.com/@react-native-community/netinfo/-/netinfo-11.2.0.tgz#2f0808ee8559905beed631bc79abd9d88fd9e8b7"
-  integrity sha512-Zpq8/BTBUUI4kito41VUtn/dGQZU1/SCNHvPZkjlUo41Mec38z13ntxeaIC+2LP5Dw0xKpZ/Lql47BZeXk+Ocg==
+"@react-native-community/netinfo@^11.2.1":
+  version "11.2.1"
+  resolved "https://registry.yarnpkg.com/@react-native-community/netinfo/-/netinfo-11.2.1.tgz#177f5409f2ac41fd51ede6e4994307bb0edb2178"
+  integrity sha512-n9kgmH7vLaU7Cdo8vGfJGGwhrlgppaOSq5zKj9I7H4k5iRM3aNtwURw83mgrc22Ip7nSye2afZV2xDiIyvHttQ==
 
 "@react-native-firebase/app@^17.4.2":
   version "17.4.2"
@@ -2324,10 +2324,10 @@
     "@sentry/utils" "7.81.1"
     localforage "^1.8.1"
 
-"@sentry/react-native@^5.15.1":
-  version "5.15.1"
-  resolved "https://registry.yarnpkg.com/@sentry/react-native/-/react-native-5.15.1.tgz#6e7c1afb4f9404025f300e9d6c783041ca5d0f55"
-  integrity sha512-t/t3HZ2rAgOKS1BmjT3jThuT/mi+3hqLnsEZQlrM3oAbqQ/JYo++oMCv5kXLSSKtyXWyANlXSpC3mfiDrJiNDw==
+"@sentry/react-native@^5.15.2":
+  version "5.15.2"
+  resolved "https://registry.yarnpkg.com/@sentry/react-native/-/react-native-5.15.2.tgz#a081d090e881a447b28821ed51ccf65c60bfbac9"
+  integrity sha512-X9yYdgIvVloR4WUrX8zSU0SXbmqY5Yq1W68TT2xe4LyKpWYJHFFbeJUaFAXFn65JXOSJvjEpEFYYyGJ9dzQ9rg==
   dependencies:
     "@sentry/browser" "7.81.1"
     "@sentry/cli" "2.23.0"
@@ -9191,10 +9191,10 @@ postcss@8.4.24:
     picocolors "^1.0.0"
     source-map-js "^1.0.2"
 
-posthog-react-native@^2.9.0:
-  version "2.9.0"
-  resolved "https://registry.yarnpkg.com/posthog-react-native/-/posthog-react-native-2.9.0.tgz#a27a4015525ce385287e1589be3ab9a6744ddb4a"
-  integrity sha512-ErwF5sj6Eu94lbZ7XkgeIoxAAwK1eJXK8z8OA4D6Dzm+wgrWmwt1K8pxPP64y2ObLhsbCaLCZFRqFDdyVNiZkQ==
+posthog-react-native@^2.9.2:
+  version "2.9.2"
+  resolved "https://registry.yarnpkg.com/posthog-react-native/-/posthog-react-native-2.9.2.tgz#b8f3f35005e47a5af7e4b3de4773ab3ace7c785d"
+  integrity sha512-am2IYeo09ZNPTxxMX6FKhuM6mfI2rQDwrbCzrhZKW1SojFk+OoDZacxmHqZOc5UEuQ8XVX5CukF+CeNjMFeadg==
 
 prebuild-install@^7.1.1:
   version "7.1.1"
@@ -9703,10 +9703,10 @@ react-native-reanimated@^2.17.0:
     setimmediate "^1.0.5"
     string-hash-64 "^1.0.3"
 
-react-native-safe-area-context@^4.8.0:
-  version "4.8.0"
-  resolved "https://registry.yarnpkg.com/react-native-safe-area-context/-/react-native-safe-area-context-4.8.0.tgz#9fce29095b11deeead8da0abce32ee729fb3eb41"
-  integrity sha512-UTmn0jvikcA8LeCQuEV4/bQ1ZLODSaaEXKSK3wUskNwmtIgHFzT3lLXOBucFnyDYIxviJSWJeVc77eeBXc0UCA==
+react-native-safe-area-context@^4.8.2:
+  version "4.8.2"
+  resolved "https://registry.yarnpkg.com/react-native-safe-area-context/-/react-native-safe-area-context-4.8.2.tgz#e6b3d8acf3c6afcb4b5db03a97f9c37df7668f65"
+  integrity sha512-ffUOv8BJQ6RqO3nLml5gxJ6ab3EestPiyWekxdzO/1MQ7NF8fW1Mzh1C5QE9yq573Xefnc7FuzGXjtesZGv7cQ==
 
 react-native-screens@^3.29.0:
   version "3.29.0"
