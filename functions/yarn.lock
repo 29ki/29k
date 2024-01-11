@@ -1191,14 +1191,6 @@
     "@sentry/cli-win32-i686" "2.24.1"
     "@sentry/cli-win32-x64" "2.24.1"
 
-"@sentry/core@7.91.0":
-  version "7.91.0"
-  resolved "https://registry.yarnpkg.com/@sentry/core/-/core-7.91.0.tgz#229334d7f03dd5d90a17495e61ce4215ab730b2a"
-  integrity sha512-tu+gYq4JrTdrR+YSh5IVHF0fJi/Pi9y0HZ5H9HnYy+UMcXIotxf6hIEaC6ZKGeLWkGXffz2gKpQLe/g6vy/lPA==
-  dependencies:
-    "@sentry/types" "7.91.0"
-    "@sentry/utils" "7.91.0"
-
 "@sentry/core@7.92.0":
   version "7.92.0"
   resolved "https://registry.yarnpkg.com/@sentry/core/-/core-7.92.0.tgz#4e74c1959348b698226c49ead7a24e165502b55c"
@@ -1228,22 +1220,10 @@
     "@sentry/utils" "7.92.0"
     https-proxy-agent "^5.0.0"
 
-"@sentry/types@7.91.0":
-  version "7.91.0"
-  resolved "https://registry.yarnpkg.com/@sentry/types/-/types-7.91.0.tgz#5b68954e08986fecb0d4bef168df58eef62c32c7"
-  integrity sha512-bcQnb7J3P3equbCUc+sPuHog2Y47yGD2sCkzmnZBjvBT0Z1B4f36fI/5WjyZhTjLSiOdg3F2otwvikbMjmBDew==
-
 "@sentry/types@7.92.0":
   version "7.92.0"
   resolved "https://registry.yarnpkg.com/@sentry/types/-/types-7.92.0.tgz#4c308fdb316c0272f55f0816230fe87e7b9b551a"
   integrity sha512-APmSOuZuoRGpbPpPeYIbMSplPjiWNLZRQa73QiXuTflW4Tu/ItDlU8hOa2+A6JKVkJCuD2EN6yUrxDGSMyNXeg==
-
-"@sentry/utils@7.91.0":
-  version "7.91.0"
-  resolved "https://registry.yarnpkg.com/@sentry/utils/-/utils-7.91.0.tgz#3b1a94c053c885877908cd3e1365e3d23e21a73f"
-  integrity sha512-fvxjrEbk6T6Otu++Ax9ntlQ0sGRiwSC179w68aC3u26Wr30FAIRKqHTCCdc2jyWk7Gd9uWRT/cq+g8NG/8BfSg==
-  dependencies:
-    "@sentry/types" "7.91.0"
 
 "@sentry/utils@7.92.0":
   version "7.92.0"
@@ -9649,10 +9629,10 @@ yocto-queue@^0.1.0:
   resolved "https://registry.yarnpkg.com/yocto-queue/-/yocto-queue-0.1.0.tgz#0294eb3dee05028d31ee1a5fa2c556a6aaf10a1b"
   integrity sha512-rVksvsnNCdJ/ohGc6xgPwyN8eheCxsiLM8mxuE/t/mOVqJewPuO1miLpTHQiRgTKCLexL4MeAFVagts7HmNZ2Q==
 
-yup@^1.2.0:
-  version "1.2.0"
-  resolved "https://registry.yarnpkg.com/yup/-/yup-1.2.0.tgz#9e51af0c63bdfc9be0fdc6c10aa0710899d8aff6"
-  integrity sha512-PPqYKSAXjpRCgLgLKVGPA33v5c/WgEx3wi6NFjIiegz90zSwyMpvTFp/uGcVnnbx6to28pgnzp/q8ih3QRjLMQ==
+yup@^1.3.3:
+  version "1.3.3"
+  resolved "https://registry.yarnpkg.com/yup/-/yup-1.3.3.tgz#d2f6020ad1679754c5f8178a29243d5447dead04"
+  integrity sha512-v8QwZSsHH2K3/G9WSkp6mZKO+hugKT1EmnMqLNUcfu51HU9MDyhlETT/JgtzprnrnQHPWsjc6MUDMBp/l9fNnw==
   dependencies:
     property-expr "^2.0.5"
     tiny-case "^1.0.3"
