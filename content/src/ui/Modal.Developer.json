@@ -5,7 +5,8 @@
     "checkUpdate": "Check for update",
     "clearUpdate": "Clear update",
     "showHiddenContent": "Show hidden content",
-    "addDevUserEvents": "Add development user events"
+    "addDevUserEvents": "Add development user events",
+    "logUserEvents": "Log user events"
   },
   "pt": {
     "uiLib": "Biblioteca UI",
