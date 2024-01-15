@@ -9191,10 +9191,10 @@ postcss@8.4.24:
     picocolors "^1.0.0"
     source-map-js "^1.0.2"
 
-posthog-react-native@^2.9.2:
-  version "2.9.2"
-  resolved "https://registry.yarnpkg.com/posthog-react-native/-/posthog-react-native-2.9.2.tgz#b8f3f35005e47a5af7e4b3de4773ab3ace7c785d"
-  integrity sha512-am2IYeo09ZNPTxxMX6FKhuM6mfI2rQDwrbCzrhZKW1SojFk+OoDZacxmHqZOc5UEuQ8XVX5CukF+CeNjMFeadg==
+posthog-react-native@^2.10.1:
+  version "2.10.1"
+  resolved "https://registry.yarnpkg.com/posthog-react-native/-/posthog-react-native-2.10.1.tgz#f167afb201a308e7030872cc94477160114be87f"
+  integrity sha512-Q1J7ViUBrgW/fVAbvxi6aZvUXkxp5R3vGe0FRGvN76n03bIpxmDlcGSduHWSc8sZdsLCnqPhwiHg96dMpI+/Fg==
 
 prebuild-install@^7.1.1:
   version "7.1.1"
