@@ -21,7 +21,7 @@
     "@babel/plugin-transform-modules-commonjs": "^7.23.3",
     "@fast-csv/format": "^4.3.5",
     "@types/jest": "^29.5.11",
-    "@types/node": "^20.10.7",
+    "@types/node": "^20.11.2",
     "@types/ramda": "^0.29.9",
     "@typescript-eslint/eslint-plugin": "^5.62.0",
     "@typescript-eslint/parser": "^5.62.0",
