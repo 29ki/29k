@@ -89,12 +89,12 @@
       }
     ],
     "theme": {
-      "textColor": "#2AE2D7"
+      "textColor": "#2E2E2E"
     },
-    "hidden": false,
+    "hidden": true,
     "name": "Relationship values",
     "live": true,
-    "published": false,
+    "published": true,
     "coCreators": [
       {
         "name": "Jenny Rickardsson, manuscript",
@@ -125,7 +125,7 @@
       "8da0534a-5da9-430a-bdf3-242ace6460fb"
     ],
     "id": "df2c5312-c869-4ab7-8ac1-1875a04e2229",
-    "async": false,
+    "async": true,
     "description": "Defining your relationship values can help you navigate how to relate to the people in your life. Living a value-based life has been proven to increase sense of purpose and long-term happiness.\n\nFor this exercise you will need something to take notes on."
   },
   "pt": {
