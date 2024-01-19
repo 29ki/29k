@@ -104,10 +104,10 @@
       "textColor": "#F9F8F4",
       "backgroundColor": "#2f406e"
     },
-    "hidden": true,
+    "hidden": false,
     "name": "Relationship values DELETE",
     "live": true,
-    "published": true,
+    "published": false,
     "card": {
       "image": {
         "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1705652126/Images/card_relationship_values_isbzpe.png"
