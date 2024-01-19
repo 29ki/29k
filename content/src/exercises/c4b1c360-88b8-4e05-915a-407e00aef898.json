@@ -86,7 +86,10 @@
         "type": "instruction",
         "content": {
           "text": "We've explored how inner obstacles can get in the way of our actions. By accepting their presence we get to focus our energy on our actions and take steps towards the life we want.\n\nHere's a mission for you: Practice willingness by taking a small step towards an important goal each day for the coming three days. Plan the step you will take, and take the hindering thoughts with you.",
-          "heading": "Good job"
+          "heading": "Good job",
+          "image": {
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1705652113/Images/async_angry_mob_lhaccf.png"
+          }
         }
       }
     ],
