@@ -13,6 +13,12 @@
         ]
       },
       {
+        "type": "instruction",
+        "content": {
+          "text": "Heads up you'll need pen and paper for this exercise."
+        }
+      },
+      {
         "type": "content",
         "hostNotes": [
           {
