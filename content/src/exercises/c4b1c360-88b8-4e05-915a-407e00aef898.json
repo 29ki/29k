@@ -22,7 +22,9 @@
         "content": {
           "lottie": {
             "durationTimer": true,
-            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto/v1676977421/Lottie/audio_meditation_default_black_default_omemwt.json"
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto/v1676977421/Lottie/audio_meditation_default_black_default_omemwt.json",
+            "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1706193275/SRT%20(captions)%20files/Angry_mob_wb2mfu.srt",
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1706193320/Audio/Angry_mob_de2gjo.mp3"
           }
         }
       },
@@ -106,6 +108,18 @@
         "source": "https://res.cloudinary.com/cupcake-29k/image/upload/v1705652115/Images/card_angry_mob_txuwiw.png"
       }
     },
+    "coCreators": [
+      {
+        "name": "Jenny Rickardsson, script and voice",
+        "url": "https://www.linkedin.com/in/jenny-rickardson-6770a959/",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/v1665413228/Contributors/Jenny%20Rickardsson.jpg"
+      },
+      {
+        "name": "Ints Ivanovskis",
+        "url": "https://www.linkedin.com/in/ints-ivanovskis-46ab0311a/",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413436/Contributors/Ints%20Ivanovskis.jpg"
+      }
+    ],
     "duration": 30,
     "introPortal": {
       "hostNotes": [
