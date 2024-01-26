@@ -1,0 +1,64 @@
+{
+  "en": {
+    "published": true,
+    "hidden": true,
+    "id": "9739d765-08e4-401c-88e9-3318e75ce41a",
+    "name": "Values II: overcome obstacles",
+    "description": "Living a value-based life will make us run into obstacles on the way. Often they come in the form of thoughts and feelings. Learn to navigate through them.",
+    "tags": [
+      "9c2c08a9-7dc6-4058-bc78-016d0eb00614",
+      "8da0534a-5da9-430a-bdf3-242ace6460fb"
+    ],
+    "exercises": [
+      "b1e6cc8e-03a4-4f74-8884-2896c391ab07",
+      "961656ea-021c-4faa-ae03-46d6ace4be4b",
+      "c4b1c360-88b8-4e05-915a-407e00aef898",
+      "1e96f73b-8193-4aa6-a52c-31355eac3c08"
+    ]
+  },
+  "pt": {
+    "published": false,
+    "hidden": false,
+    "id": "9739d765-08e4-401c-88e9-3318e75ce41a",
+    "tags": [
+      "9c2c08a9-7dc6-4058-bc78-016d0eb00614",
+      "8da0534a-5da9-430a-bdf3-242ace6460fb"
+    ],
+    "exercises": [
+      "b1e6cc8e-03a4-4f74-8884-2896c391ab07",
+      "961656ea-021c-4faa-ae03-46d6ace4be4b",
+      "c4b1c360-88b8-4e05-915a-407e00aef898",
+      "1e96f73b-8193-4aa6-a52c-31355eac3c08"
+    ]
+  },
+  "sv": {
+    "published": false,
+    "hidden": false,
+    "id": "9739d765-08e4-401c-88e9-3318e75ce41a",
+    "tags": [
+      "9c2c08a9-7dc6-4058-bc78-016d0eb00614",
+      "8da0534a-5da9-430a-bdf3-242ace6460fb"
+    ],
+    "exercises": [
+      "b1e6cc8e-03a4-4f74-8884-2896c391ab07",
+      "961656ea-021c-4faa-ae03-46d6ace4be4b",
+      "c4b1c360-88b8-4e05-915a-407e00aef898",
+      "1e96f73b-8193-4aa6-a52c-31355eac3c08"
+    ]
+  },
+  "ja": {
+    "published": false,
+    "hidden": false,
+    "id": "9739d765-08e4-401c-88e9-3318e75ce41a",
+    "tags": [
+      "9c2c08a9-7dc6-4058-bc78-016d0eb00614",
+      "8da0534a-5da9-430a-bdf3-242ace6460fb"
+    ],
+    "exercises": [
+      "b1e6cc8e-03a4-4f74-8884-2896c391ab07",
+      "961656ea-021c-4faa-ae03-46d6ace4be4b",
+      "c4b1c360-88b8-4e05-915a-407e00aef898",
+      "1e96f73b-8193-4aa6-a52c-31355eac3c08"
+    ]
+  }
+}
