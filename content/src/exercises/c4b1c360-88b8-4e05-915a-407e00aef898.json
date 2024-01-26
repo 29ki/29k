@@ -99,7 +99,7 @@
       "textColor": "#2E2E2E",
       "backgroundColor": "#e0d5cd"
     },
-    "hidden": true,
+    "hidden": false,
     "name": "Angry mob",
     "live": true,
     "published": true,
