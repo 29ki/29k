@@ -145,7 +145,7 @@ android {
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 160
-        versionName "2.44.0"
+        versionName "2.45.0"
         buildConfigField "boolean", "IS_NEW_ARCHITECTURE_ENABLED", isNewArchitectureEnabled().toString()
 
         // Solving the issue with binary resource modify time with code push
@@ -279,7 +279,7 @@ android {
             manifestPlaceholders.deepLinkHost1 = 'aware.29k.org'
             manifestPlaceholders.deepLinkHost2 = 'app.cupcake.29k.org'
             manifestPlaceholders.deepLinkHost3 = 'open.awareapp.org'
-            manifestPlaceholders.deepLinkScheme = 'org.twentyninek.app.cupcake.dev'
+            manifestPlaceholders.deepLinkScheme = 'org.twentyninek.app.cupcake'
         }
         staging {
             applicationId 'org.twentyninek.app.cupcake.staging'
@@ -293,7 +293,7 @@ android {
             manifestPlaceholders.deepLinkHost1 = 'dev.aware.29k.org'
             manifestPlaceholders.deepLinkHost2 = 'dev.app.cupcake.29k.org'
             manifestPlaceholders.deepLinkHost3 = 'dev.open.awareapp.org'
-            manifestPlaceholders.deepLinkScheme = 'org.twentyninek.app.cupcake'
+            manifestPlaceholders.deepLinkScheme = 'org.twentyninek.app.cupcake.dev'
         }
     }
 }
