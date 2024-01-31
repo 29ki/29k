@@ -631,10 +631,10 @@
     teeny-request "^8.0.0"
     uuid "^8.0.0"
 
-"@google-cloud/translate@^8.0.2":
-  version "8.0.2"
-  resolved "https://registry.yarnpkg.com/@google-cloud/translate/-/translate-8.0.2.tgz#4ba85c8659a3ef33f54a3111bb0d070fde548336"
-  integrity sha512-2qX6JlxznIaOp9nuB/oroMJU5zNFSuiIbzcye7YbzF/grYt/YQZxLo89dYTUaCa1pSeGSaXKOJwWXRbQuPStjw==
+"@google-cloud/translate@^8.0.3":
+  version "8.0.3"
+  resolved "https://registry.yarnpkg.com/@google-cloud/translate/-/translate-8.0.3.tgz#d19f6f75a569bcd011d5c40191038764e44ecb1d"
+  integrity sha512-ybgGiugW/hvHz0gp1wzv58EfvuUSYo2R/6x90DAhvW0amzwfopt4u8cfwXIP8k+gnkvI8VbpaeNiZualvCyy3Q==
   dependencies:
     "@google-cloud/common" "^5.0.0"
     "@google-cloud/promisify" "^4.0.0"
