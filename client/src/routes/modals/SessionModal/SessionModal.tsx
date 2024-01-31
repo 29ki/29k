@@ -19,7 +19,7 @@ import {
 import {COLORS} from '../../../../../shared/src/constants/colors';
 import {SPACINGS} from '../../../lib/constants/spacings';
 
-import {formatContentName} from '../../../lib/utils/string';
+import {formatContentName, formatInviteCode} from '../../../lib/utils/string';
 
 import useGetSessionCardTags from '../../../lib/components/Cards/SessionCard/hooks/useGetSessionCardTags';
 import useExerciseById from '../../../lib/content/hooks/useExerciseById';
@@ -354,11 +354,12 @@ const SessionModal = () => {
 
             {session.link && (
               <>
-                <IconButton
+                <Button
                   variant="secondary"
                   onPress={onShare}
-                  Icon={ShareIcon}
-                />
+                  LeftIcon={ShareIcon}>
+                  {formatInviteCode(session.inviteCode)}
+                </Button>
               </>
             )}
           </Row>
