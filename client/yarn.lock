@@ -2433,10 +2433,10 @@
   dependencies:
     "@sinonjs/commons" "^2.0.0"
 
-"@stripe/stripe-react-native@^0.35.0":
-  version "0.35.0"
-  resolved "https://registry.yarnpkg.com/@stripe/stripe-react-native/-/stripe-react-native-0.35.0.tgz#4cd159297d22ef5a18cfe7dcb75b36eb205d4681"
-  integrity sha512-bD36NIQVnkUSkjwE7mJoqkb5E4gMBSxnZegkO0gGbgekFqdyZSHghSL6qnRVXPBTr2tRthoNL+FtmVeeYPxVLQ==
+"@stripe/stripe-react-native@^0.35.1":
+  version "0.35.1"
+  resolved "https://registry.yarnpkg.com/@stripe/stripe-react-native/-/stripe-react-native-0.35.1.tgz#096e15179d50c3d7d0877112724a53107c5fc7ba"
+  integrity sha512-F6sewQYO0/wS1LDsjH9mE6qvyhfU3BAfz81oBSzntH8HdGon/TablGYsGTXrpmok+c4qzbXCQcPmVOdisZMQ0A==
 
 "@szmarczak/http-timer@^5.0.1":
   version "5.0.1"
