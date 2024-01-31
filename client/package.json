@@ -92,7 +92,7 @@
     "zustand": "^4.4.7"
   },
   "devDependencies": {
-    "@babel/core": "^7.23.7",
+    "@babel/core": "^7.23.9",
     "@babel/runtime": "^7.23.8",
     "@react-native-community/eslint-config": "^3.2.0",
     "@sentry/cli": "^2.26.0",
