@@ -11,8 +11,8 @@ const Iframe = styled.iframe({
 
 export type P5AnimationType = HTMLIFrameElement & {
   contentWindow: {
-    noLoop: () => void;
-    loop: () => void;
+    noLoop?: () => void;
+    loop?: () => void;
   };
 };
 
