@@ -1,5 +1,5 @@
 import React, {useCallback, useEffect, useState} from 'react';
-import {StyleSheet} from 'react-native';
+import {StatusBar, StyleSheet} from 'react-native';
 import {useTranslation} from 'react-i18next';
 import styled from 'styled-components/native';
 import ReactNativeHapticFeedback from 'react-native-haptic-feedback';
@@ -20,6 +20,7 @@ import HostNotes from '../HostNotes/HostNotes';
 import {ArrowLeftIcon} from '../../../components/Icons';
 import Button from '../../../components/Buttons/Button';
 import VideoTransition from '../VideoTransition/VideoTransition';
+import {COLORS} from '../../../../../../shared/src/constants/colors';
 
 const Spinner = styled.ActivityIndicator({
   ...StyleSheet.absoluteFillObject,
@@ -76,7 +77,7 @@ const IntroPortal: React.FC<IntroPortalProps> = ({
   const sessionState = useSessionState(state => state.sessionState);
 
   const introPortal = exercise?.introPortal;
-  const textColor = exercise?.theme?.textColor;
+  const textColor = introPortal?.textColor || exercise?.theme?.textColor;
 
   useEffect(() => {
     if (sessionState?.started && !introPortal?.videoLoop?.source) {
@@ -124,7 +125,16 @@ const IntroPortal: React.FC<IntroPortalProps> = ({
 
   return (
     <Screen backgroundColor={exercise?.theme?.backgroundColor}>
-      {(!isHost || hideHostNotes) && <TopSafeArea minSize={SPACINGS.SIXTEEN} />}
+      {(!isHost || hideHostNotes) && (
+        <>
+          <StatusBar
+            barStyle={
+              textColor === COLORS.WHITE ? 'light-content' : 'dark-content'
+            }
+          />
+          <TopSafeArea minSize={SPACINGS.SIXTEEN} />
+        </>
+      )}
 
       {isFocused && introPortal?.videoLoop?.audio && (
         <AudioFader
@@ -156,7 +166,7 @@ const IntroPortal: React.FC<IntroPortalProps> = ({
           <Spacer16 />
         </>
       )}
-      {isLoading && <Spinner color={exercise?.theme?.textColor} size="large" />}
+      {isLoading && <Spinner color={textColor} size="large" />}
       <Wrapper>
         {isFocused && (
           <Content>

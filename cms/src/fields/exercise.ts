@@ -10,7 +10,6 @@ import defaults from '../defaults/exercise.json';
 import {COLORS} from '../../../shared/src/constants/colors';
 import {
   ID_FIELD,
-  VIDEO_FIELD_WITH_AUDIO,
   NAME_FIELD,
   PUBLISHED_FIELD,
   VIDEO_FIELD,
@@ -50,6 +49,20 @@ const CARD_FIELD: CmsField = {
     CARD_IMAGE_FIELD,
     {...LOTTIE_FIELD, hint: '❗️ Overrides image'},
   ],
+};
+
+const TEXT_COLOR: CmsField = {
+  label: '㊗️ Text Color',
+  name: 'textColor',
+  widget: 'select',
+  multiple: false,
+  i18n: true,
+  default: COLORS.ACTION,
+  options: [
+    {label: 'Light', value: COLORS.WHITE},
+    {label: 'Dark', value: COLORS.BLACK},
+  ],
+  required: false,
 };
 
 export const SOCIAL_MEDIA: CmsField = {
@@ -113,6 +126,7 @@ export const INTRO_PORTAL: CmsField = {
       name: 'videoLoop',
     },
     {...VIDEO_FIELD, label: '🎥 Video End', name: 'videoEnd'},
+    TEXT_COLOR,
     HOST_NOTES,
   ],
 };
@@ -140,22 +154,7 @@ const THEME: CmsField = {
   collapsed: true,
   required: false,
   i18n: true,
-  fields: [
-    {
-      label: '㊗️ Text Color',
-      name: 'textColor',
-      widget: 'select',
-      multiple: false,
-      i18n: true,
-      default: COLORS.ACTION,
-      options: [
-        {label: 'Light', value: COLORS.WHITE},
-        {label: 'Dark', value: COLORS.BLACK},
-      ],
-      required: false,
-    },
-    BACKGROUND_COLOR_FIELD,
-  ],
+  fields: [TEXT_COLOR, BACKGROUND_COLOR_FIELD],
 };
 
 export const SLIDES: CmsFieldBase & CmsFieldList = {

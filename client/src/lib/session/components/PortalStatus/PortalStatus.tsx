@@ -33,7 +33,8 @@ export const Container = styled(Gutters)({
 const PortalStatus: React.FC = () => {
   const {t} = useTranslation('Screen.Portal');
   const exercise = useSessionState(state => state.exercise);
-  const textColor = exercise?.theme?.textColor;
+  const textColor =
+    exercise?.introPortal?.textColor || exercise?.theme?.textColor;
   const sessionState = useSessionState(state => state.sessionState);
   const startTime = useSessionState(state => state.liveSession?.startTime);
   const sessionTime = useSessionStartTime(dayjs(startTime));
@@ -52,7 +53,7 @@ const PortalStatus: React.FC = () => {
         <Spacer8 />
 
         <Badge
-          themeColor={textColor ?? textColor}
+          themeColor={textColor}
           text={
             started
               ? t('counterLabel.started')
