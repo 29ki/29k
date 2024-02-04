@@ -218,7 +218,7 @@ const SUBTITLES_FIELD: CmsField = {
   media_library: CLOUDINARY_IMAGE_CONFIG,
 };
 
-export const LOTTE_FIELD: CmsFieldBase & CmsFieldObject = {
+export const LOTTIE_FIELD: CmsFieldBase & CmsFieldObject = {
   label: '💃 Lottie',
   name: 'lottie',
   widget: 'object',
@@ -283,7 +283,7 @@ export const VIDEO_FIELD: CmsFieldBase & CmsFieldObject = {
   ],
 };
 
-const AUDIO_FIELD: CmsField = {
+export const AUDIO_FIELD: CmsField = {
   label: '🔈 Audio file',
   name: 'audio',
   widget: 'file',
@@ -305,9 +305,9 @@ export const VIDEO_FIELD_WITH_AUDIO: CmsFieldBase & CmsFieldObject = {
 };
 
 export const LOTTIE_FIELD_WITH_AUDIO: CmsFieldBase & CmsFieldObject = {
-  ...LOTTE_FIELD,
+  ...LOTTIE_FIELD,
   fields: [
-    ...LOTTE_FIELD.fields,
+    ...LOTTIE_FIELD.fields,
     {
       ...AUDIO_FIELD,
       hint: '❗️ Lottie will automatically loop to the length of the audio.',
