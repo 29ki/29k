@@ -977,7 +977,7 @@ PODS:
     - React-Core
   - react-native-background-timer (2.4.1):
     - React-Core
-  - react-native-daily-js (0.54.0):
+  - react-native-daily-js (0.55.2):
     - React-Core
     - ReactNativeDailyJSScreenShareExtension (= 0.0.1)
   - react-native-get-random-values (1.10.0):
@@ -1090,7 +1090,7 @@ PODS:
     - Firebase/Storage (= 10.7.0)
     - React-Core
     - RNFBApp
-  - RNGestureHandler (2.14.0):
+  - RNGestureHandler (2.14.1):
     - React-Core
   - RNImageCropPicker (0.40.2):
     - React-Core
@@ -1144,7 +1144,7 @@ PODS:
   - RNScreens (3.29.0):
     - React-Core
     - React-RCTImage
-  - RNSentry (5.15.2):
+  - RNSentry (5.17.0):
     - React-Core
     - Sentry/HybridSDK (= 8.17.1)
   - RNSVG (14.1.0):
@@ -1159,7 +1159,7 @@ PODS:
     - StripePayments (= 23.18.2)
     - StripePaymentsUI (= 23.18.2)
     - StripeUICore (= 23.18.2)
-  - stripe-react-native (0.35.0):
+  - stripe-react-native (0.35.1):
     - React-Core
     - Stripe (~> 23.18.0)
     - StripeApplePay (~> 23.18.0)
@@ -1494,7 +1494,7 @@ SPEC CHECKSUMS:
   React-logger: 96d904c5bc87c2660d48e6a36fb2edf65f9cfb11
   react-native-add-calendar-event: 34ad00f629187cbb97c2f04195e17803b2b3bc5e
   react-native-background-timer: 17ea5e06803401a379ebf1f20505b793ac44d0fe
-  react-native-daily-js: 6e769f82495d70b7981931953773a4f9c62dda3d
+  react-native-daily-js: f9628d9b70120742e27d778477d96e72d0925ce5
   react-native-get-random-values: 384787fd76976f5aec9465aff6fa9e9129af1e74
   react-native-idle-timer: f1920a59fe776340d004ff9de13c4a6eedcc8807
   react-native-netinfo: 8a7fd3f7130ef4ad2fb4276d5c9f8d3f28d2df3d
@@ -1523,7 +1523,7 @@ SPEC CHECKSUMS:
   RNFBDynamicLinks: 82e9846916034c287333ebbcbdbc31435796663c
   RNFBFirestore: c505e6f96e70fb029ae1961c73965fd13ce92db5
   RNFBStorage: d40ebadfad4755ed1ef6a74cae84c9ee9ca47ffd
-  RNGestureHandler: 4279931048471f17faf46d912b2e96e10f1da99b
+  RNGestureHandler: e98441928705d9d1184b599d7c1c6df2dd4f7724
   RNImageCropPicker: d9616a0cb9b72e8551ff94a7a5021fbd29050aa5
   RNLocalize: d4b8af4e442d4bcca54e68fc687a2129b4d71a81
   RNNotifee: 8e2d3df3f0e9ce8f5d1fe4c967431138190b6175
@@ -1532,13 +1532,13 @@ SPEC CHECKSUMS:
   RNReactNativeHapticFeedback: ec56a5f81c3941206fd85625fa669ffc7b4545f9
   RNReanimated: c6f8f70e96dd6ca21b65aef9b3e4efe4965db905
   RNScreens: fa9b582d85ae5d62c91c66003b5278458fed7aaa
-  RNSentry: 7ac3c054dcd81ebb21455af87dbd96e9f11df6b6
+  RNSentry: 35e626ffc9f67c5a3cb2fef91c9772319c6aa406
   RNSVG: ba3e7232f45e34b7b47e74472386cf4e1a676d0a
   Sentry: d9f99f9cc13777c5d938650c1e1c85047bb4f0d1
   SentryPrivate: 839b1e58addf58624087a80b2628e543193fa8ef
   SSZipArchive: 62d4947b08730e4cda640473b0066d209ff033c9
   Stripe: 85f24cabe407c5b88aabc24287b1e57f03688189
-  stripe-react-native: 2e2dad1734c1c2b71564b66bae4395bfd8419af4
+  stripe-react-native: c0b239d94a56f892190b3e7034d00f4af66169ff
   StripeApplePay: c94e56e7193815ea0feb67976de9777e78666b87
   StripeCore: 075589c1503304559dd467c04b816f85207e7789
   StripeFinancialConnections: e9025e0f6789bac60633e8a61a2e73ea8457fbe2
