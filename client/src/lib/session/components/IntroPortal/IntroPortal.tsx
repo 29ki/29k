@@ -20,6 +20,7 @@ import HostNotes from '../HostNotes/HostNotes';
 import {ArrowLeftIcon} from '../../../components/Icons';
 import Button from '../../../components/Buttons/Button';
 import VideoTransition from '../VideoTransition/VideoTransition';
+import P5Animation from '../P5Animation/P5Animation';
 
 const Spinner = styled.ActivityIndicator({
   ...StyleSheet.absoluteFillObject,
@@ -47,7 +48,7 @@ const BackButton = styled(IconButton)({
 type IntroPortalProps = {
   exercise: Exercise | null;
   isHost: boolean;
-  isFocused: boolean;
+  isVisible: boolean;
   isLive?: boolean;
   hideHostNotes?: boolean;
   onStartSession: () => void;
@@ -59,7 +60,7 @@ type IntroPortalProps = {
 const IntroPortal: React.FC<IntroPortalProps> = ({
   exercise,
   isHost,
-  isFocused,
+  isVisible,
   isLive,
   hideHostNotes = false,
   onStartSession,
@@ -68,18 +69,24 @@ const IntroPortal: React.FC<IntroPortalProps> = ({
   statusComponent,
 }) => {
   const {t} = useTranslation('Screen.Portal');
-  const [isReadyForAuidio, setIsReadyForAudio] = useState(false);
-  const [isTransitioning, setIsTransitioning] = useState(false);
-  const [isLoading, setIsLoading] = useState(true);
-  const [hasError, setHasError] = useState(false);
-
-  const sessionState = useSessionState(state => state.sessionState);
 
   const introPortal = exercise?.introPortal;
   const textColor = exercise?.theme?.textColor;
 
+  const [isReadyForAuidio, setIsReadyForAudio] = useState(false);
+  const [isTransitioning, setIsTransitioning] = useState(false);
+  const [isLoading, setIsLoading] = useState(
+    !introPortal?.videoLoop?.p5JsScript,
+  );
+  const [hasError, setHasError] = useState(false);
+
+  const sessionState = useSessionState(state => state.sessionState);
+
   useEffect(() => {
-    if (sessionState?.started && !introPortal?.videoLoop?.source) {
+    if (
+      sessionState?.started &&
+      (introPortal?.videoLoop?.p5JsScript || !introPortal?.videoEnd?.source)
+    ) {
       // If no video is defined, navigate directly
       onNavigateToSession();
     } else if (sessionState?.started && (isLoading || hasError)) {
@@ -93,7 +100,8 @@ const IntroPortal: React.FC<IntroPortalProps> = ({
     isLoading,
     hasError,
     sessionState?.started,
-    introPortal?.videoLoop?.source,
+    introPortal?.videoLoop?.p5JsScript,
+    introPortal?.videoEnd?.source,
     isLive,
     onNavigateToSession,
   ]);
@@ -122,33 +130,37 @@ const IntroPortal: React.FC<IntroPortalProps> = ({
     setIsLoading(false);
   }, [setHasError]);
 
+  if (!isVisible) return null;
+
   return (
     <Screen backgroundColor={exercise?.theme?.backgroundColor}>
       {(!isHost || hideHostNotes) && <TopSafeArea minSize={SPACINGS.SIXTEEN} />}
 
-      {isFocused && introPortal?.videoLoop?.audio && (
+      {introPortal?.videoLoop?.audio ? (
         <AudioFader
-          source={introPortal?.videoLoop?.audio}
+          source={introPortal.videoLoop.audio}
           paused={!isReadyForAuidio}
           volume={isTransitioning ? 0 : 1}
           duration={isTransitioning ? 5000 : 10000}
           isLive={isLive}
           repeat
         />
-      )}
-      {introPortal?.videoLoop?.source && (
+      ) : null}
+
+      {introPortal?.videoLoop?.p5JsScript ? (
+        <P5Animation script={introPortal.videoLoop.p5JsScript.code} />
+      ) : introPortal?.videoLoop?.source ? (
         <VideoTransition
           repeat={!sessionState?.started}
           loopSource={introPortal?.videoLoop?.source}
           endSource={introPortal?.videoEnd?.source}
-          paused={!isFocused}
           onLoad={onVideoLoad}
           onTransition={onVideoTransition}
           onEnd={onVideoEnd}
           onError={onVideoError}
           isLive={isLive}
         />
-      )}
+      ) : null}
 
       {isHost && !hideHostNotes && (
         <>
@@ -158,34 +170,32 @@ const IntroPortal: React.FC<IntroPortalProps> = ({
       )}
       {isLoading && <Spinner color={exercise?.theme?.textColor} size="large" />}
       <Wrapper>
-        {isFocused && (
-          <Content>
-            <TopBar>
-              <BackButton
-                onPress={onLeaveSession}
-                fill={textColor}
-                Icon={ArrowLeftIcon}
-                noBackground
-              />
-              {__DEV__ && sessionState?.started && (
-                <Button size="small" onPress={onNavigateToSession}>
-                  {t('skipPortal')}
-                </Button>
-              )}
-              {isHost && (
-                <Button
-                  size="small"
-                  disabled={sessionState?.started}
-                  onPress={onStartSession}>
-                  {sessionState?.started
-                    ? t('sessionStarted')
-                    : t('startSession')}
-                </Button>
-              )}
-            </TopBar>
-            {statusComponent}
-          </Content>
-        )}
+        <Content>
+          <TopBar>
+            <BackButton
+              onPress={onLeaveSession}
+              fill={textColor}
+              Icon={ArrowLeftIcon}
+              noBackground
+            />
+            {__DEV__ && sessionState?.started && (
+              <Button size="small" onPress={onNavigateToSession}>
+                {t('skipPortal')}
+              </Button>
+            )}
+            {isHost && (
+              <Button
+                size="small"
+                disabled={sessionState?.started}
+                onPress={onStartSession}>
+                {sessionState?.started
+                  ? t('sessionStarted')
+                  : t('startSession')}
+              </Button>
+            )}
+          </TopBar>
+          {statusComponent}
+        </Content>
       </Wrapper>
       <BottomSafeArea minSize={SPACINGS.SIXTEEN} />
     </Screen>

@@ -1,17 +1,8 @@
-import {
-  RouteProp,
-  useIsFocused,
-  useNavigation,
-  useRoute,
-} from '@react-navigation/native';
+import {RouteProp, useNavigation, useRoute} from '@react-navigation/native';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
-import React, {useEffect, useCallback} from 'react';
+import React, {useEffect, useCallback, useState} from 'react';
 
-import {
-  ModalStackProps,
-  LiveSessionStackProps,
-  TabNavigatorProps,
-} from '../../../lib/navigation/constants/routes';
+import {LiveSessionStackProps} from '../../../lib/navigation/constants/routes';
 
 import useLeaveSession from '../../../lib/session/hooks/useLeaveSession';
 import useIsSessionHost from '../../../lib/session/hooks/useIsSessionHost';
@@ -28,23 +19,27 @@ const IntroPortal: React.FC = () => {
   const {
     params: {session},
   } = useRoute<RouteProp<LiveSessionStackProps, 'IntroPortal'>>();
+  const navigation =
+    useNavigation<NativeStackNavigationProp<LiveSessionStackProps>>();
 
   const exercise = useSessionState(state => state.exercise);
   const isHost = useIsSessionHost();
-  const {navigate} =
-    useNavigation<
-      NativeStackNavigationProp<
-        LiveSessionStackProps & TabNavigatorProps & ModalStackProps
-      >
-    >();
   const {startSession} = useUpdateSessionState(session.id);
   const {leaveSessionWithConfirm} = useLeaveSession(session);
-  const isFocused = useIsFocused();
+  const [isVisible, setIsVisible] = useState(true);
   const logSessionMetricEvent = useLiveSessionMetricEvents();
   const confirmLogMindfulMinutes = useConfirmLogMindfulMinutes();
   useSubscribeToSessionIfFocused(session);
 
   useHandleLeaveLiveSession(session);
+
+  useEffect(
+    () =>
+      navigation.addListener('transitionEnd', ({data}) => {
+        setIsVisible(data.closing === false);
+      }),
+    [navigation],
+  );
 
   useEffect(() => {
     logSessionMetricEvent('Enter Intro Portal');
@@ -57,14 +52,14 @@ const IntroPortal: React.FC = () => {
   }, [startSession, logSessionMetricEvent]);
 
   const navigateToSession = useCallback(
-    () => navigate('Session', {session}),
-    [navigate, session],
+    () => navigation.navigate('Session', {session}),
+    [navigation, session],
   );
 
   return (
     <IntroPortalComponent
       exercise={exercise}
-      isFocused={isFocused}
+      isVisible={isVisible}
       isHost={isHost}
       isLive
       onStartSession={onStartSession}

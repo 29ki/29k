@@ -3,7 +3,6 @@ import {StyleSheet} from 'react-native';
 import styled from 'styled-components/native';
 import {useTranslation} from 'react-i18next';
 import ReactNativeHapticFeedback from 'react-native-haptic-feedback';
-import {useIsFocused} from '@react-navigation/native';
 
 import usePreventGoingBack from '../../../navigation/hooks/usePreventGoingBack';
 import useNavigateWithFade from '../../../navigation/hooks/useNavigateWithFade';
@@ -16,6 +15,7 @@ import {SPACINGS} from '../../../constants/spacings';
 import VideoTransition from '../VideoTransition/VideoTransition';
 import AudioFader from '../AudioFader/AudioFader';
 import Button from '../../../components/Buttons/Button';
+import P5Animation from '../P5Animation/P5Animation';
 
 const Spinner = styled.ActivityIndicator({
   ...StyleSheet.absoluteFillObject,
@@ -37,14 +37,15 @@ const OutroPortal: React.FC<OutroPortalProps> = ({
 }) => {
   const {t} = useTranslation('Screen.Portal');
 
-  const [isLoading, setIsLoading] = useState(true);
-  const [isReadyToLeave, setIsReadyToLeave] = useState(false);
-  const isFocused = useIsFocused();
-  usePreventGoingBack();
-  useNavigateWithFade();
-
   const outroPortal = exercise?.outroPortal;
   const introPortal = exercise?.introPortal;
+
+  const [isLoading, setIsLoading] = useState(
+    !introPortal?.videoLoop?.p5JsScript,
+  );
+  const [isReadyToLeave, setIsReadyToLeave] = useState(false);
+  usePreventGoingBack();
+  useNavigateWithFade();
 
   const onVideoLoad = useCallback(() => {
     setIsLoading(false);
@@ -61,7 +62,6 @@ const OutroPortal: React.FC<OutroPortalProps> = ({
 
   return (
     <Screen backgroundColor={exercise?.theme?.backgroundColor}>
-      <TopSafeArea minSize={SPACINGS.SIXTEEN} />
       {outroPortal?.video?.source ? (
         <VideoTransition
           endSource={outroPortal.video.source}
@@ -69,31 +69,32 @@ const OutroPortal: React.FC<OutroPortalProps> = ({
           onLoad={onVideoLoad}
           onError={onVideoError}
         />
-      ) : (
-        introPortal?.videoEnd?.source &&
-        introPortal?.videoLoop?.source && (
-          <>
-            {isFocused && introPortal?.videoLoop?.audio && (
-              <AudioFader
-                source={introPortal?.videoLoop.audio}
-                repeat
-                paused={isLoading}
-                volume={isReadyToLeave ? 1 : 0}
-                duration={isReadyToLeave ? 20000 : 5000}
-              />
-            )}
-            <VideoTransition
-              startSource={introPortal.videoEnd.source}
-              loopSource={introPortal.videoLoop.source}
-              reverse
-              muted
-              onTransition={onVideoTransition}
-              onLoad={onVideoLoad}
-              onError={onVideoError}
+      ) : introPortal?.videoLoop?.p5JsScript ? (
+        <P5Animation script={introPortal.videoLoop.p5JsScript.code} />
+      ) : introPortal?.videoEnd?.source && introPortal?.videoLoop?.source ? (
+        <>
+          {introPortal?.videoLoop?.audio && (
+            <AudioFader
+              source={introPortal?.videoLoop.audio}
+              repeat
+              paused={isLoading}
+              volume={isReadyToLeave ? 1 : 0}
+              duration={isReadyToLeave ? 20000 : 5000}
             />
-          </>
-        )
-      )}
+          )}
+          <VideoTransition
+            startSource={introPortal.videoEnd.source}
+            loopSource={introPortal.videoLoop.source}
+            reverse
+            muted
+            onTransition={onVideoTransition}
+            onLoad={onVideoLoad}
+            onError={onVideoError}
+          />
+        </>
+      ) : null}
+
+      <TopSafeArea minSize={SPACINGS.SIXTEEN} />
 
       {isLoading && <Spinner size="large" color={exercise?.theme?.textColor} />}
 

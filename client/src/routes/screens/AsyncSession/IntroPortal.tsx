@@ -1,16 +1,7 @@
-import {
-  RouteProp,
-  useIsFocused,
-  useNavigation,
-  useRoute,
-} from '@react-navigation/native';
+import {RouteProp, useNavigation, useRoute} from '@react-navigation/native';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
-import React, {useEffect, useCallback} from 'react';
-import {
-  AsyncSessionStackProps,
-  ModalStackProps,
-  TabNavigatorProps,
-} from '../../../lib/navigation/constants/routes';
+import React, {useEffect, useCallback, useState} from 'react';
+import {AsyncSessionStackProps} from '../../../lib/navigation/constants/routes';
 import useLeaveSession from '../../../lib/session/hooks/useLeaveSession';
 import usePreventGoingBack from '../../../lib/navigation/hooks/usePreventGoingBack';
 import IntroPortalComponent from '../../../lib/session/components/IntroPortal/IntroPortal';
@@ -23,21 +14,25 @@ const IntroPortal: React.FC = () => {
   const {
     params: {session},
   } = useRoute<RouteProp<AsyncSessionStackProps, 'IntroPortal'>>();
+  const navigation =
+    useNavigation<NativeStackNavigationProp<AsyncSessionStackProps>>();
 
   const exercise = useSessionState(state => state.exercise);
-  const {navigate} =
-    useNavigation<
-      NativeStackNavigationProp<
-        AsyncSessionStackProps & TabNavigatorProps & ModalStackProps
-      >
-    >();
   const {startSession} = useUpdateAsyncSessionState(session);
   const {leaveSessionWithConfirm} = useLeaveSession(session);
-  const isFocused = useIsFocused();
+  const [isVisible, setIsVisible] = useState(true);
   const logSessionMetricEvent = useAsyncSessionMetricEvents();
   const confirmLogMindfulMinutes = useConfirmLogMindfulMinutes();
 
   usePreventGoingBack(leaveSessionWithConfirm);
+
+  useEffect(
+    () =>
+      navigation.addListener('transitionEnd', ({data}) => {
+        setIsVisible(data.closing === false);
+      }),
+    [navigation],
+  );
 
   useEffect(() => {
     logSessionMetricEvent('Enter Intro Portal');
@@ -50,14 +45,14 @@ const IntroPortal: React.FC = () => {
   }, [startSession, logSessionMetricEvent]);
 
   const navigateToSession = useCallback(
-    () => navigate('Session', {session}),
-    [navigate, session],
+    () => navigation.navigate('Session', {session}),
+    [navigation, session],
   );
 
   return (
     <IntroPortalComponent
       exercise={exercise}
-      isFocused={isFocused}
+      isVisible={isVisible}
       isHost={true}
       hideHostNotes={true}
       onStartSession={onStartSession}
