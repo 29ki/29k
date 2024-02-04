@@ -5,10 +5,7 @@
         "type": "host",
         "hostNotes": [
           {
-            "text": "Welcome. I am X and today we will work for around 30 minutes on relationship values. \n\nIdentifying those values can help us strengthen the relationships in our lives, and give us direction on what’s important. "
-          },
-          {
-            "text": "We’ll be doing an audio exercise followed by time for reflection and sharing with each other if we're up for it. \n\nNote that you will need pen and paper or something to write on during this session."
+            "text": "Welcome\n\nI am X and today we will work for around 30 minutes on turning values into action with smart goal setting.\n\nWe’ll be doing an audio exercise followed by time for reflection and sharing with each other. Heads up that you’ll need somewhere to take notes."
           },
           {
             "text": "Let’s start with a mini check-in. How are you feeling right now? Please answer in two-three words. X, would you like to start?\n\n> Let everyone in the session, including yourself, check in one by one.\n\nThank you all for checking in. Let’s get started."
@@ -16,18 +13,22 @@
         ]
       },
       {
+        "type": "instruction",
+        "content": {
+          "text": "Setting SMART goals is a structure for turning values into action. \n\nHeads up than you’ll need somewhere to take notes for this exercise."
+        }
+      },
+      {
         "type": "content",
         "hostNotes": [
           {
-            "text": "Find a comfortable position. I will start the audio exercise and we'll meet back here afterwards. \n\n> Push play to start the audio exercise"
+            "text": "Find a comfortable position. I will start the audio exercise and we'll meet back here afterwards. \n\n> Tap play to start the audio exercise"
           }
         ],
         "content": {
           "lottie": {
-            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1703001736/Audio/Relationship_values_lldr7r.mp3",
-            "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1703001694/SRT%20(captions)%20files/Relationship_values_rceyka.srt",
-            "durationTimer": true,
-            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto/v1676642915/Lottie/default_audio_white_sufmbz.json"
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1706014944/Audio/SMART_goals_eeykv8.mp3",
+            "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1706017467/SRT%20(captions)%20files/SMART_goals_xammfp.srt"
           }
         }
       },
@@ -35,20 +36,14 @@
         "type": "reflection",
         "hostNotes": [
           {
-            "text": "Now we’ll take 1 minute to reflect on our own.\n\nHow do you want to relate to others? \n\nAnything you’d like to change in your behavior after looking at your scores?"
+            "text": "Now we’ll take 30 seconds on our own to gather our thoughts.\n\nWhat will you do? And why is this important to you?"
           },
           {
-            "text": "You can take notes on a piece of paper or just mental notes in your head. And there is no right or wrong here, our answers are our own. 1 minute starting now.\n\n> Press play to start the timer.\n\nThat’s 1 minute and it’s time to move on."
+            "text": "30 seconds starting now\n\n> Press play to start the timer.\n\nThat’s 30 seconds and it’s time to move on."
           }
         ],
         "content": {
-          "heading": "How do you want to relate to others?",
-          "text": "Anything you’d like to change?",
-          "lottie": {
-            "durationTimer": true,
-            "duration": 60,
-            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto/v1676642915/Lottie/default_1min_white_wvgwma.json"
-          }
+          "heading": "What will you do? Why is this important to you?"
         }
       },
       {
@@ -66,20 +61,14 @@
         ],
         "id": "Sharing 1",
         "content": {
-          "heading": "How do you want to relate to others?",
-          "text": "Anything you’d like to change?",
-          "lottie": {
-            "durationTimer": true,
-            "duration": 120,
-            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto/v1676639253/Lottie/default_2min_white_arvrf2.json"
-          }
+          "heading": "What will you do? Why is this important to you?"
         }
       },
       {
         "type": "host",
         "hostNotes": [
           {
-            "text": "Well done finding what matters to you in your relationships and how you want to relate to those around you.\n\nIf you’re up for it, you can continue with this mission: \n\nPick a value you have written down. Take a day, perhaps tomorrow, and live as closely as possible according to this value all day long. Before you go to bed, consider how this made you feel."
+            "text": "Now we’ve learnt how to set SMART goals. Goals that are specific, measurable, attainable, relevant and time-bound. It can help us take steps towards a more meaningful life."
           },
           {
             "text": "Before we leave this space let’s do a mini check-out. \n\nHow are you feeling right now? Has anything shifted? Please answer in two-three words."
@@ -92,42 +81,27 @@
       {
         "type": "instruction",
         "content": {
-          "text": "If you’re up for it, you can continue with this mission: \n\nPick a value you have written down. Take a day, perhaps tomorrow, and live as closely as possible according to this value all day long. \n\nBefore you go to bed, consider how this made you feel.",
-          "heading": "Well done",
-          "image": {
-            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1705652123/Images/async_relationship_values_xydlco.png"
-          }
+          "text": "Now you’ve learnt how to set SMART goals. \n\n* Specific\n* Measurable\n* Attainable\n* Relevant\n* Time-bound\n\nThey can help us take steps towards a more meaningful life. Make a commitment to yourself as to when you will start, and when you will evaluate the goal you've worked on today."
         }
       }
     ],
     "theme": {
-      "textColor": "#F9F8F4",
-      "backgroundColor": "#2f406e"
+      "textColor": "#2E2E2E"
     },
-    "hidden": false,
-    "name": "Relationship values DELETE",
+    "hidden": true,
+    "name": "Set SMART goals",
     "live": true,
-    "published": false,
-    "card": {
-      "image": {
-        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1705652126/Images/card_relationship_values_isbzpe.png"
-      }
-    },
+    "published": true,
     "coCreators": [
       {
-        "name": "Jenny Rickardsson, manuscript",
-        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413228/Contributors/Jenny%20Rickardsson.jpg",
-        "url": "https://www.linkedin.com/in/jenny-rickardson-6770a959/"
+        "name": "Jenny Rickardsson, script and voice",
+        "url": "https://www.linkedin.com/in/jenny-rickardson-6770a959/",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413228/Contributors/Jenny%20Rickardsson.jpg"
       },
       {
-        "name": "Ints Ivanovskis, artworks",
+        "name": "Ints Ivanovskis, art works",
         "url": "https://www.linkedin.com/in/ints-ivanovskis-46ab0311a/",
         "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413436/Contributors/Ints%20Ivanovskis.jpg"
-      },
-      {
-        "name": "Lisa Lööf, voice",
-        "url": "https://www.linkedin.com/in/lisaloof/",
-        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413154/Contributors/Lisa%20L%C3%B6%C3%B6f.jpg"
       }
     ],
     "duration": 30,
@@ -136,22 +110,14 @@
         {
           "text": "> Start the session when you're ready to go"
         }
-      ],
-      "videoLoop": {
-        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1705660732/Video/portal_2_relationship_values_ytwtvg.mp4",
-        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1705651789/Audio/portal_audiio_relationship_values_wvxw6i.mp3"
-      },
-      "videoEnd": {
-        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1705651871/Video/portal_2_relationship_values_mvkpkt.mp4"
-      }
+      ]
     },
     "tags": [
-      "9c2c08a9-7dc6-4058-bc78-016d0eb00614",
-      "8da0534a-5da9-430a-bdf3-242ace6460fb"
+      "9c2c08a9-7dc6-4058-bc78-016d0eb00614"
     ],
-    "id": "b3cf842d-ccb3-4f37-b31f-06f8d14fc775",
+    "id": "33a188a2-6871-47d6-a754-f5c246bd6b9a",
     "async": true,
-    "description": "Defining your relationship values can help you navigate how to relate to the people in your life. Living a value-based life has been proven to increase sense of purpose and long-term happiness.\n\nFor this exercise you will need something to take notes on."
+    "description": "Turning wishes and values into action is made easier with structure. SMART goal-setting has been proven to be helpful."
   },
   "pt": {
     "slides": [
@@ -227,7 +193,6 @@
     "hidden": false,
     "live": true,
     "published": false,
-    "card": {},
     "duration": 30,
     "introPortal": {
       "hostNotes": [
@@ -237,10 +202,9 @@
       ]
     },
     "tags": [
-      "9c2c08a9-7dc6-4058-bc78-016d0eb00614",
-      "8da0534a-5da9-430a-bdf3-242ace6460fb"
+      "9c2c08a9-7dc6-4058-bc78-016d0eb00614"
     ],
-    "id": "b3cf842d-ccb3-4f37-b31f-06f8d14fc775",
+    "id": "33a188a2-6871-47d6-a754-f5c246bd6b9a",
     "async": false
   },
   "sv": {
@@ -317,7 +281,6 @@
     "hidden": false,
     "live": true,
     "published": false,
-    "card": {},
     "duration": 30,
     "introPortal": {
       "hostNotes": [
@@ -327,10 +290,9 @@
       ]
     },
     "tags": [
-      "9c2c08a9-7dc6-4058-bc78-016d0eb00614",
-      "8da0534a-5da9-430a-bdf3-242ace6460fb"
+      "9c2c08a9-7dc6-4058-bc78-016d0eb00614"
     ],
-    "id": "b3cf842d-ccb3-4f37-b31f-06f8d14fc775",
+    "id": "33a188a2-6871-47d6-a754-f5c246bd6b9a",
     "async": false
   },
   "ja": {
@@ -407,7 +369,6 @@
     "hidden": false,
     "live": true,
     "published": false,
-    "card": {},
     "duration": 30,
     "introPortal": {
       "hostNotes": [
@@ -417,10 +378,9 @@
       ]
     },
     "tags": [
-      "9c2c08a9-7dc6-4058-bc78-016d0eb00614",
-      "8da0534a-5da9-430a-bdf3-242ace6460fb"
+      "9c2c08a9-7dc6-4058-bc78-016d0eb00614"
     ],
-    "id": "b3cf842d-ccb3-4f37-b31f-06f8d14fc775",
+    "id": "33a188a2-6871-47d6-a754-f5c246bd6b9a",
     "async": false
   }
 }
