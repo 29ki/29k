@@ -21,7 +21,8 @@ import {
   DEFAULT_LANGUAGE_TAG,
   LANGUAGE_TAG,
 } from '../../../shared/src/i18n/constants';
-import Portal from './components/Portal';
+import PortalVideo from './components/PortalVideo';
+import PortalP5 from './components/PortalP5';
 import {Heading16} from '../../../client/src/lib/components/Typography/Heading/Heading';
 import {INTRO_PORTAL, OUTRO_PORTAL} from '../fields/exercise';
 import Slide from './components/Slide';
@@ -81,17 +82,29 @@ const ExercisePreview = (props: PreviewTemplateComponentProps) => {
         <MobileView>
           <Heading16>{INTRO_PORTAL.label} - Loop</Heading16>
           <Spacer4 />
-          <MobileView>
-            <Portal source={entry.introPortal?.videoLoop?.source} loop />
-          </MobileView>
-        </MobileView>
-        <Spacer16 />
-        <MobileView>
-          <Heading16>{INTRO_PORTAL.label} - Transition</Heading16>
-          <Spacer4 />
-          <MobileView>
-            <Portal source={entry.introPortal?.videoEnd?.source} />
-          </MobileView>
+          {entry.introPortal?.videoLoop?.p5JsScript.code ? (
+            <MobileView>
+              <PortalP5 script={entry.introPortal.videoLoop.p5JsScript.code} />
+            </MobileView>
+          ) : (
+            <>
+              <MobileView>
+                <PortalVideo
+                  source={entry.introPortal?.videoLoop?.source}
+                  loop
+                />
+              </MobileView>
+              <Spacer16 />
+              <MobileView>
+                <Heading16>{INTRO_PORTAL.label} - Transition</Heading16>
+                <Spacer4 />
+                <MobileView>
+                  <PortalVideo source={entry.introPortal?.videoEnd?.source} />
+                </MobileView>
+              </MobileView>
+              <Spacer16 />
+            </>
+          )}
         </MobileView>
         <Spacer16 />
         {entry.slides.map((slide, index) => (
@@ -105,31 +118,38 @@ const ExercisePreview = (props: PreviewTemplateComponentProps) => {
             <Heading16>{OUTRO_PORTAL.label}</Heading16>
             <Spacer4 />
             <MobileView>
-              <Portal source={entry.outroPortal?.video?.source} />
+              <PortalVideo source={entry.outroPortal?.video?.source} />
+            </MobileView>
+          </MobileView>
+        ) : entry.introPortal?.videoLoop?.p5JsScript ? (
+          <MobileView>
+            <Heading16>{INTRO_PORTAL.label} - Loop</Heading16>
+            <Spacer4 />
+            <MobileView>
+              <PortalP5 script={entry.introPortal.videoLoop.p5JsScript.code} />
             </MobileView>
           </MobileView>
         ) : (
-          <>
+          <MobileView>
+            <Heading16>{INTRO_PORTAL.label} - Transition Reversed</Heading16>
+            <Spacer4 />
             <MobileView>
-              <Heading16>{INTRO_PORTAL.label} - Transition Reversed</Heading16>
-              <Spacer4 />
-              <MobileView>
-                <Portal source={entry.introPortal?.videoEnd?.source} reverse />
-              </MobileView>
+              <PortalVideo
+                source={entry.introPortal?.videoEnd?.source}
+                reverse
+              />
             </MobileView>
             <Spacer16 />
+            <Heading16>{INTRO_PORTAL.label} - Loop Reversed</Heading16>
+            <Spacer4 />
             <MobileView>
-              <Heading16>{INTRO_PORTAL.label} - Loop Reversed</Heading16>
-              <Spacer4 />
-              <MobileView>
-                <Portal
-                  source={entry.introPortal?.videoLoop?.source}
-                  loop
-                  reverse
-                />
-              </MobileView>
+              <PortalVideo
+                source={entry.introPortal?.videoLoop?.source}
+                loop
+                reverse
+              />
             </MobileView>
-          </>
+          </MobileView>
         )}
         <Spacer16 />
       </Slides>

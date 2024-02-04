@@ -1,7 +1,7 @@
 import {flatten} from 'safe-flat';
 import * as csv from '@fast-csv/format';
 import {getContentByType} from './src/utils/utils';
-import {DEFAULT_LANGUAGE_TAG, LANGUAGES} from '../shared/src/i18n/constants';
+import {DEFAULT_LANGUAGE_TAG} from '../shared/src/i18n/constants';
 import {createWriteStream} from 'fs';
 
 const types = ['categories', 'collections', 'exercises', 'tags', 'ui', 'email'];

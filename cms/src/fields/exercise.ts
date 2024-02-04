@@ -1,4 +1,9 @@
-import {CmsField, CmsFieldBase, CmsFieldList} from 'decap-cms-core';
+import {
+  CmsField,
+  CmsFieldBase,
+  CmsFieldCode,
+  CmsFieldList,
+} from 'decap-cms-core';
 import {applyDefaults} from '../lib/fields';
 import defaults from '../defaults/exercise.json';
 
@@ -18,8 +23,9 @@ import {
   LINK_FIELD,
   CO_CREATORS_FIELD,
   BACKGROUND_COLOR_FIELD,
-  LOTTE_FIELD,
+  LOTTIE_FIELD,
   IMAGE_BACKGROUND_COLOR_FIELD,
+  AUDIO_FIELD,
 } from './common';
 import {TAGS_FIELD} from './relations';
 import {
@@ -42,7 +48,7 @@ const CARD_FIELD: CmsField = {
   fields: [
     IMAGE_BACKGROUND_COLOR_FIELD,
     CARD_IMAGE_FIELD,
-    {...LOTTE_FIELD, hint: 'Overrides image'},
+    {...LOTTIE_FIELD, hint: '❗️ Overrides image'},
   ],
 };
 
@@ -57,7 +63,7 @@ export const SOCIAL_MEDIA: CmsField = {
     {
       label: '🪧 Title',
       name: 'title',
-      hint: `Defaults to ${NAME_FIELD.label}`,
+      hint: `❗️ Defaults to ${NAME_FIELD.label}`,
       widget: 'string',
       i18n: true,
       required: false,
@@ -65,7 +71,7 @@ export const SOCIAL_MEDIA: CmsField = {
     {
       label: '📃 Description',
       name: 'description',
-      hint: `Defaults to ${DESCRIPTION_FIELD.label}`,
+      hint: `❗️ Defaults to ${DESCRIPTION_FIELD.label}`,
       widget: 'string',
       i18n: true,
       required: false,
@@ -73,7 +79,7 @@ export const SOCIAL_MEDIA: CmsField = {
     {
       label: '🌅 Image',
       name: 'image',
-      hint: `Defaults to ${CARD_FIELD.label} → ${CARD_IMAGE_FIELD.label}`,
+      hint: `❗️ Defaults to ${CARD_FIELD.label} → ${CARD_IMAGE_FIELD.label}`,
       widget: 'image',
       required: false,
       i18n: true,
@@ -81,6 +87,15 @@ export const SOCIAL_MEDIA: CmsField = {
       media_library: CLOUDINARY_IMAGE_CONFIG,
     },
   ],
+};
+
+const P5JS_SCRIPT: CmsFieldBase & CmsFieldCode = {
+  label: '🎆 P5.js script',
+  name: 'p5JsScript',
+  widget: 'code',
+  default_language: 'javascript',
+  allow_language_selection: false,
+  hint: '❗️ Overrides video',
 };
 
 export const INTRO_PORTAL: CmsField = {
@@ -91,7 +106,12 @@ export const INTRO_PORTAL: CmsField = {
   required: false,
   i18n: true,
   fields: [
-    {...VIDEO_FIELD_WITH_AUDIO, label: '🎥 Video Loop', name: 'videoLoop'},
+    {
+      ...VIDEO_FIELD,
+      fields: [...VIDEO_FIELD.fields, P5JS_SCRIPT, AUDIO_FIELD],
+      label: '🎥 Video Loop',
+      name: 'videoLoop',
+    },
     {...VIDEO_FIELD, label: '🎥 Video End', name: 'videoEnd'},
     HOST_NOTES,
   ],
@@ -104,7 +124,13 @@ export const OUTRO_PORTAL: CmsField = {
   collapsed: true,
   required: false,
   i18n: true,
-  fields: [VIDEO_FIELD_WITH_AUDIO],
+  fields: [
+    {
+      ...VIDEO_FIELD,
+      fields: [...VIDEO_FIELD.fields, AUDIO_FIELD],
+      hint: `❗️ ${INTRO_PORTAL.label} will be used if no video is provided`,
+    },
+  ],
 };
 
 const THEME: CmsField = {

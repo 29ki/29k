@@ -1,14 +1,14 @@
 import {
   ExerciseSlideContentSlide,
-  ExerciseSlideHostSlide,
-  ExerciseSlideReflectionSlide,
+  ExerciseSlideHostSlideLiveOnly,
+  ExerciseSlideReflectionSlideLiveOnly,
   ExerciseSlideSharingSlide,
-  ExerciseSlideInstructionSlideAsync,
+  ExerciseSlideInstructionSlide,
 } from './generated/Exercise';
 
 export type ExerciseSlide =
   | ExerciseSlideContentSlide
-  | ExerciseSlideHostSlide
-  | ExerciseSlideReflectionSlide
+  | ExerciseSlideHostSlideLiveOnly
+  | ExerciseSlideReflectionSlideLiveOnly
   | ExerciseSlideSharingSlide
-  | ExerciseSlideInstructionSlideAsync;
+  | ExerciseSlideInstructionSlide;

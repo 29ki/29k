@@ -22,11 +22,11 @@ type Props = {
   loop?: boolean;
   reverse?: boolean;
 };
-const Portal: React.FC<Props> = ({source, loop, reverse}) =>
+const PortalVideo: React.FC<Props> = ({source, loop, reverse}) =>
   source && (
     <Video controls loop={loop}>
       <source src={reverse ? reverseVideo(source) : source} />
     </Video>
   );
 
-export default React.memo(Portal);
+export default React.memo(PortalVideo);

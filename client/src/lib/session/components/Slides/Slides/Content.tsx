@@ -3,7 +3,7 @@ import styled from 'styled-components/native';
 
 import {
   ExerciseSlideContentSlide,
-  ExerciseSlideReflectionSlide,
+  ExerciseSlideReflectionSlideLiveOnly,
   ExerciseSlideSharingSlide,
 } from '../../../../../../../shared/src/types/generated/Exercise';
 import Heading from './Blocks/Heading';
@@ -33,7 +33,7 @@ type ContentProps = {
   slide:
     | ExerciseSlideContentSlide
     | ExerciseSlideSharingSlide
-    | ExerciseSlideReflectionSlide;
+    | ExerciseSlideReflectionSlideLiveOnly;
   active: boolean;
   async?: boolean;
 };
