@@ -40,10 +40,12 @@ const OutroPortal: React.FC<OutroPortalProps> = ({
   const outroPortal = exercise?.outroPortal;
   const introPortal = exercise?.introPortal;
 
-  const [isLoading, setIsLoading] = useState(
-    !introPortal?.videoLoop?.p5JsScript,
-  );
-  const [isReadyToLeave, setIsReadyToLeave] = useState(false);
+  const isVideo =
+    !introPortal?.videoLoop?.p5JsScript &&
+    Boolean(introPortal?.videoLoop?.source);
+
+  const [isLoading, setIsLoading] = useState(isVideo);
+  const [isReadyToLeave, setIsReadyToLeave] = useState(!isVideo);
   usePreventGoingBack();
   useNavigateWithFade();
 
@@ -69,9 +71,7 @@ const OutroPortal: React.FC<OutroPortalProps> = ({
           onLoad={onVideoLoad}
           onError={onVideoError}
         />
-      ) : introPortal?.videoLoop?.p5JsScript ? (
-        <P5Animation script={introPortal.videoLoop.p5JsScript.code} />
-      ) : introPortal?.videoEnd?.source && introPortal?.videoLoop?.source ? (
+      ) : (
         <>
           {introPortal?.videoLoop?.audio && (
             <AudioFader
@@ -82,17 +82,21 @@ const OutroPortal: React.FC<OutroPortalProps> = ({
               duration={isReadyToLeave ? 20000 : 5000}
             />
           )}
-          <VideoTransition
-            startSource={introPortal.videoEnd.source}
-            loopSource={introPortal.videoLoop.source}
-            reverse
-            muted
-            onTransition={onVideoTransition}
-            onLoad={onVideoLoad}
-            onError={onVideoError}
-          />
+          {introPortal?.videoLoop?.p5JsScript ? (
+            <P5Animation script={introPortal.videoLoop.p5JsScript.code} />
+          ) : (
+            <VideoTransition
+              startSource={introPortal?.videoEnd?.source}
+              loopSource={introPortal?.videoLoop?.source}
+              reverse
+              muted
+              onTransition={onVideoTransition}
+              onLoad={onVideoLoad}
+              onError={onVideoError}
+            />
+          )}
         </>
-      ) : null}
+      )}
 
       <TopSafeArea minSize={SPACINGS.SIXTEEN} />
 

@@ -73,20 +73,19 @@ const IntroPortal: React.FC<IntroPortalProps> = ({
   const introPortal = exercise?.introPortal;
   const textColor = exercise?.theme?.textColor;
 
-  const [isReadyForAuidio, setIsReadyForAudio] = useState(false);
+  const isVideo =
+    !introPortal?.videoLoop?.p5JsScript &&
+    Boolean(introPortal?.videoLoop?.source);
+
+  const [isReadyForAudio, setIsReadyForAudio] = useState(!isVideo);
   const [isTransitioning, setIsTransitioning] = useState(false);
-  const [isLoading, setIsLoading] = useState(
-    !introPortal?.videoLoop?.p5JsScript,
-  );
+  const [isLoading, setIsLoading] = useState(isVideo);
   const [hasError, setHasError] = useState(false);
 
   const sessionState = useSessionState(state => state.sessionState);
 
   useEffect(() => {
-    if (
-      sessionState?.started &&
-      (introPortal?.videoLoop?.p5JsScript || !introPortal?.videoEnd?.source)
-    ) {
+    if (sessionState?.started && !isVideo) {
       // If no video is defined, navigate directly
       onNavigateToSession();
     } else if (sessionState?.started && (isLoading || hasError)) {
@@ -100,8 +99,7 @@ const IntroPortal: React.FC<IntroPortalProps> = ({
     isLoading,
     hasError,
     sessionState?.started,
-    introPortal?.videoLoop?.p5JsScript,
-    introPortal?.videoEnd?.source,
+    isVideo,
     isLive,
     onNavigateToSession,
   ]);
@@ -139,7 +137,7 @@ const IntroPortal: React.FC<IntroPortalProps> = ({
       {introPortal?.videoLoop?.audio ? (
         <AudioFader
           source={introPortal.videoLoop.audio}
-          paused={!isReadyForAuidio}
+          paused={!isReadyForAudio}
           volume={isTransitioning ? 0 : 1}
           duration={isTransitioning ? 5000 : 10000}
           isLive={isLive}
