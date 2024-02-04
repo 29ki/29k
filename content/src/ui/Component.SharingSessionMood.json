@@ -9,6 +9,14 @@
     "answer_3": "Thanks for sharing. In this place, all of you is welcome. We're here to support. And it's okay to just listen in with the camera off - we appreciate your presence in any form."
   },
   "pt": {},
-  "sv": {},
+  "sv": {
+    "question": "Hur känner du dig inför sessionen?",
+    "step_1": "Uppspelt",
+    "answer_1": "Härligt att höra. Tack för att du är här. ",
+    "step_2": "Neutral",
+    "answer_2": "Fint att du är här. Om du känner dig lite osäker så är du på rätt plats. Vi guidar dig genom sessionen",
+    "step_3": "Nervös",
+    "answer_3": "Tack för att du delar med dig. Här är allt välkommet. Vi finns här för att guida dig igenom sessionen på det sätt som passar dig, oavsett om du vill lyssna eller delta aktivt. "
+  },
   "ja": {}
 }
