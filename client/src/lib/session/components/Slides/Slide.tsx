@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components/native';
 
 import {ExerciseSlide} from '../../../../../../shared/src/types/Content';
-import {ExerciseSlideInstructionSlideAsync} from '../../../../../../shared/src/types/generated/Exercise';
+import {ExerciseSlideInstructionSlide} from '../../../../../../shared/src/types/generated/Exercise';
 import {COLORS} from '../../../../../../shared/src/constants/colors';
 import useSessionState from '../../state/state';
 
@@ -43,7 +43,7 @@ const Slide = ({slide, active, async}: SlideProps) => {
           <Content async={async} slide={slide} active={active} />
         ))}
       {slide.type === 'instruction' && (
-        <Instruction slide={slide as ExerciseSlideInstructionSlideAsync} />
+        <Instruction slide={slide as ExerciseSlideInstructionSlide} />
       )}
     </Wrapper>
   );
