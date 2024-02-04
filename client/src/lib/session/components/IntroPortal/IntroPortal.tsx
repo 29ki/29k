@@ -74,7 +74,7 @@ const IntroPortal: React.FC<IntroPortalProps> = ({
   const textColor = exercise?.theme?.textColor;
 
   const isVideo =
-    !introPortal?.videoLoop?.p5JsScript &&
+    !introPortal?.videoLoop?.p5JsScript?.code &&
     Boolean(introPortal?.videoLoop?.source);
 
   const [isReadyForAudio, setIsReadyForAudio] = useState(!isVideo);
@@ -145,7 +145,7 @@ const IntroPortal: React.FC<IntroPortalProps> = ({
         />
       ) : null}
 
-      {introPortal?.videoLoop?.p5JsScript ? (
+      {introPortal?.videoLoop?.p5JsScript?.code ? (
         <P5Animation script={introPortal.videoLoop.p5JsScript.code} />
       ) : introPortal?.videoLoop?.source ? (
         <VideoTransition

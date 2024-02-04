@@ -41,7 +41,7 @@ const OutroPortal: React.FC<OutroPortalProps> = ({
   const introPortal = exercise?.introPortal;
 
   const isVideo =
-    !introPortal?.videoLoop?.p5JsScript &&
+    !introPortal?.videoLoop?.p5JsScript?.code &&
     Boolean(introPortal?.videoLoop?.source);
 
   const [isLoading, setIsLoading] = useState(isVideo);
@@ -82,7 +82,7 @@ const OutroPortal: React.FC<OutroPortalProps> = ({
               duration={isReadyToLeave ? 20000 : 5000}
             />
           )}
-          {introPortal?.videoLoop?.p5JsScript ? (
+          {introPortal?.videoLoop?.p5JsScript?.code ? (
             <P5Animation script={introPortal.videoLoop.p5JsScript.code} />
           ) : (
             <VideoTransition
