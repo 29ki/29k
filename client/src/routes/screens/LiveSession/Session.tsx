@@ -6,7 +6,7 @@ import React, {
   useRef,
   useState,
 } from 'react';
-import {LayoutChangeEvent, ScrollView} from 'react-native';
+import {LayoutChangeEvent, ScrollView, StatusBar} from 'react-native';
 import styled from 'styled-components/native';
 import {RouteProp, useNavigation, useRoute} from '@react-navigation/native';
 import {useTranslation} from 'react-i18next';
@@ -336,7 +336,7 @@ const Session: React.FC = () => {
   return (
     <ProgressTimerContext.Provider value={contextProps}>
       <Screen backgroundColor={theme?.backgroundColor}>
-        {isHost && (
+        {isHost ? (
           <Top>
             <HostNotes exercise={exercise}>
               {showTimerProgress && (
@@ -356,6 +356,14 @@ const Session: React.FC = () => {
               </>
             )}
           </Top>
+        ) : (
+          <StatusBar
+            barStyle={
+              theme?.textColor === COLORS.WHITE
+                ? 'light-content'
+                : 'dark-content'
+            }
+          />
         )}
         <TopSafeArea minSize={SPACINGS.SIXTEEN} />
         {isHost && <Spacer32 />}

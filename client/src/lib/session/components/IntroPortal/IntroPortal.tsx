@@ -1,5 +1,5 @@
 import React, {useCallback, useEffect, useState} from 'react';
-import {StyleSheet} from 'react-native';
+import {StatusBar, StyleSheet} from 'react-native';
 import {useTranslation} from 'react-i18next';
 import styled from 'styled-components/native';
 import ReactNativeHapticFeedback from 'react-native-haptic-feedback';
@@ -21,6 +21,7 @@ import {ArrowLeftIcon} from '../../../components/Icons';
 import Button from '../../../components/Buttons/Button';
 import VideoTransition from '../VideoTransition/VideoTransition';
 import P5Animation from '../P5Animation/P5Animation';
+import {COLORS} from '../../../../../../shared/src/constants/colors';
 
 const Spinner = styled.ActivityIndicator({
   ...StyleSheet.absoluteFillObject,
@@ -71,7 +72,7 @@ const IntroPortal: React.FC<IntroPortalProps> = ({
   const {t} = useTranslation('Screen.Portal');
 
   const introPortal = exercise?.introPortal;
-  const textColor = exercise?.theme?.textColor;
+  const textColor = introPortal?.textColor || exercise?.theme?.textColor;
 
   const isVideo =
     !introPortal?.videoLoop?.p5JsScript?.code &&
@@ -132,7 +133,16 @@ const IntroPortal: React.FC<IntroPortalProps> = ({
 
   return (
     <Screen backgroundColor={exercise?.theme?.backgroundColor}>
-      {(!isHost || hideHostNotes) && <TopSafeArea minSize={SPACINGS.SIXTEEN} />}
+      {(!isHost || hideHostNotes) && (
+        <>
+          <StatusBar
+            barStyle={
+              textColor === COLORS.WHITE ? 'light-content' : 'dark-content'
+            }
+          />
+          <TopSafeArea minSize={SPACINGS.SIXTEEN} />
+        </>
+      )}
 
       {introPortal?.videoLoop?.audio ? (
         <AudioFader
@@ -166,7 +176,7 @@ const IntroPortal: React.FC<IntroPortalProps> = ({
           <Spacer16 />
         </>
       )}
-      {isLoading && <Spinner color={exercise?.theme?.textColor} size="large" />}
+      {isLoading && <Spinner color={textColor} size="large" />}
       <Wrapper>
         <Content>
           <TopBar>

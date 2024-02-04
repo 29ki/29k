@@ -1,5 +1,5 @@
 import React, {useCallback, useState} from 'react';
-import {StyleSheet} from 'react-native';
+import {StatusBar, StyleSheet} from 'react-native';
 import styled from 'styled-components/native';
 import {useTranslation} from 'react-i18next';
 import ReactNativeHapticFeedback from 'react-native-haptic-feedback';
@@ -64,6 +64,9 @@ const OutroPortal: React.FC<OutroPortalProps> = ({
 
   return (
     <Screen backgroundColor={exercise?.theme?.backgroundColor}>
+      <TopSafeArea minSize={SPACINGS.SIXTEEN} />
+      <StatusBar hidden />
+
       {outroPortal?.video?.source ? (
         <VideoTransition
           endSource={outroPortal.video.source}
