@@ -82,7 +82,7 @@ const ExercisePreview = (props: PreviewTemplateComponentProps) => {
         <MobileView>
           <Heading16>{INTRO_PORTAL.label} - Loop</Heading16>
           <Spacer4 />
-          {entry.introPortal?.videoLoop?.p5JsScript.code ? (
+          {entry.introPortal?.videoLoop?.p5JsScript?.code ? (
             <MobileView>
               <PortalP5 script={entry.introPortal.videoLoop.p5JsScript.code} />
             </MobileView>
@@ -121,7 +121,7 @@ const ExercisePreview = (props: PreviewTemplateComponentProps) => {
               <PortalVideo source={entry.outroPortal?.video?.source} />
             </MobileView>
           </MobileView>
-        ) : entry.introPortal?.videoLoop?.p5JsScript ? (
+        ) : entry.introPortal?.videoLoop?.p5JsScript?.code ? (
           <MobileView>
             <Heading16>{INTRO_PORTAL.label} - Loop</Heading16>
             <Spacer4 />

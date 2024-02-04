@@ -26,6 +26,8 @@ import useLeaveSession from '../../../lib/session/hooks/useLeaveSession';
 import useNetworkListener from '../../../lib/network/hooks/useNetworkListener';
 import useLogMindfulMinutes from '../../../lib/mindfulMinutes/hooks/useLogMindfulMinutes';
 import dayjs from 'dayjs';
+import {StatusBar} from 'react-native';
+import {COLORS} from '../../../../../shared/src/constants/colors';
 
 const Spotlight = styled.View({
   flex: 1,
@@ -127,6 +129,11 @@ const Session: React.FC = () => {
   return (
     <Screen backgroundColor={theme?.backgroundColor}>
       <Top>
+        <StatusBar
+          barStyle={
+            theme?.textColor === COLORS.WHITE ? 'light-content' : 'dark-content'
+          }
+        />
         <TopSafeArea />
         <Gutters>
           <Spacer8 />

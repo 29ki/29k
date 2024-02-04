@@ -58,6 +58,8 @@ export interface ExerciseIntroPortalVideoEnd {
   subtitles?: string;
 }
 
+export type ExerciseIntroPortalTextColorOptions = '#F9F8F4' | '#2E2E2E';
+
 export interface ExerciseIntroPortalHostNote {
   text?: string;
 }
@@ -65,6 +67,7 @@ export interface ExerciseIntroPortalHostNote {
 export interface ExerciseIntroPortal {
   videoLoop?: ExerciseIntroPortalVideoLoop;
   videoEnd?: ExerciseIntroPortalVideoEnd;
+  textColor?: ExerciseIntroPortalTextColorOptions;
   hostNotes?: ExerciseIntroPortalHostNote[];
 }
 
