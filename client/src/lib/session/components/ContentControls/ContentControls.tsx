@@ -9,7 +9,7 @@ import {
   ChevronRight,
   ChevronLeftIcon,
   PlayIcon,
-  Pause,
+  PauseIcon,
   RewindIcon,
 } from '../../../components/Icons';
 
@@ -138,7 +138,7 @@ const ContentControls: React.FC<ContentControlsProps> = ({
               variant="tertiary"
               Icon={
                 sessionState.playing && !currentContentReachedEnd
-                  ? Pause
+                  ? PauseIcon
                   : PlayIcon
               }
               onPress={onTogglePlayingPress}
