@@ -994,6 +994,8 @@ PODS:
   - react-native-webrtc (111.0.0-daily.2):
     - JitsiWebRTC (~> 111.0.0)
     - React-Core
+  - react-native-webview (13.7.0):
+    - React-Core
   - React-perflogger (0.69.9)
   - React-RCTActionSheet (0.69.9):
     - React-Core/RCTActionSheetHeaders (= 0.69.9)
@@ -1228,6 +1230,7 @@ DEPENDENCIES:
   - react-native-safe-area-context (from `../node_modules/react-native-safe-area-context`)
   - react-native-volume-manager (from `../node_modules/react-native-volume-manager`)
   - "react-native-webrtc (from `../node_modules/@daily-co/react-native-webrtc`)"
+  - react-native-webview (from `../node_modules/react-native-webview`)
   - React-perflogger (from `../node_modules/react-native/ReactCommon/reactperflogger`)
   - React-RCTActionSheet (from `../node_modules/react-native/Libraries/ActionSheetIOS`)
   - React-RCTAnimation (from `../node_modules/react-native/Libraries/NativeAnimation`)
@@ -1372,6 +1375,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native-volume-manager"
   react-native-webrtc:
     :path: "../node_modules/@daily-co/react-native-webrtc"
+  react-native-webview:
+    :path: "../node_modules/react-native-webview"
   React-perflogger:
     :path: "../node_modules/react-native/ReactCommon/reactperflogger"
   React-RCTActionSheet:
@@ -1501,6 +1506,7 @@ SPEC CHECKSUMS:
   react-native-safe-area-context: 0ee144a6170530ccc37a0fd9388e28d06f516a89
   react-native-volume-manager: 3c7d8047841b6831730dea7bf25250522388b4f4
   react-native-webrtc: b8f92ed95bff2f8d7189cb544dc647141e6e6dba
+  react-native-webview: 9e7fe292e6b88297bbd2e293d15a92cfc4322aa2
   React-perflogger: f6f4b3c63629ead2e8a5a22eaedd06368c31617a
   React-RCTActionSheet: 5e95058e99c53313d778d96b7f37697ce3a9418e
   React-RCTAnimation: c4f86d756d8398c674f61d00075993a368d83480
