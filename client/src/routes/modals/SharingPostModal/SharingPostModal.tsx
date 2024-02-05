@@ -32,6 +32,12 @@ import ExerciseCard from '../../../lib/components/Cards/SessionCard/ExerciseCard
 import useExerciseById from '../../../lib/content/hooks/useExerciseById';
 import RelatedSessions from './components/RelatedSessions';
 
+const ExerciseSharingPostCard = styled.View(() => ({
+  flex: 1,
+  backgroundColor: COLORS.WHITE,
+  borderRadius: 16,
+}));
+
 const Wrapper = styled(Gutters)({
   flex: 1,
 });
@@ -135,13 +141,19 @@ const SharingPostModal = () => {
       <SheetModal backgroundColor={COLORS.PURE_WHITE}>
         <BottomSheetScrollView focusHook={useIsFocused}>
           <Gutters>
-            {showRelated && exercise && (
-              <>
-                <ExerciseCard exercise={exercise} small />
-                <Spacer16 />
-              </>
-            )}
-            <SharingPostCard sharingPost={sharingPost} />
+            <ExerciseSharingPostCard>
+              {showRelated && exercise && (
+                <ExerciseCard
+                  exercise={exercise}
+                  small
+                  backgroundColor={COLORS.WHITE}
+                />
+              )}
+              <SharingPostCard
+                sharingPost={sharingPost}
+                backgroundColor={COLORS.WHITE}
+              />
+            </ExerciseSharingPostCard>
             <Spacer24 />
           </Gutters>
           {showRelated && exercise && <RelatedSessions exercise={exercise} />}
