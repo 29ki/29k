@@ -41,12 +41,10 @@ const MoodSlider = styled(Slider).attrs({
   },
 })({});
 
-const Thumb = styled.View<{active: boolean}>(({active}) => ({
+const Thumb = styled.View({
   width: 36,
   height: 36,
-  borderRadius: 18,
-  backgroundColor: active ? undefined : COLORS.PRIMARY,
-}));
+});
 
 const Emoji = styled(Animated.Image)({
   ...StyleSheet.absoluteFillObject,
@@ -87,14 +85,10 @@ const AnimatedThumb = ({progress, active}: Props) => {
   }));
 
   return (
-    <Thumb active={active}>
-      {active && (
-        <>
-          <EmojiSmiling style={smilingStyle} />
-          <EmojiGrinning style={grinningStyle} />
-          <EmojiAnxious style={anxiousStyle} />
-        </>
-      )}
+    <Thumb>
+      <EmojiSmiling style={smilingStyle} />
+      <EmojiGrinning style={grinningStyle} />
+      <EmojiAnxious style={anxiousStyle} />
     </Thumb>
   );
 };
