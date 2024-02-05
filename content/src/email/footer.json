@@ -29,5 +29,14 @@
       "text": "Cancelem a minha inscrição"
     }
   },
-  "ja": {}
+  "ja": {
+    "unsubscribe": {
+      "text": "購読を解約する"
+    },
+    "home__image": "https://res.cloudinary.com/twentyninek/image/upload/v1652432252/Email%20assets/29k-logo-with-background_gvphf3.png",
+    "homeURL": "https://29k.org",
+    "instagramURL": "https://www.instagram.com/29k_org/",
+    "facebookURL": "https://www.facebook.com/29.org",
+    "donate__image": "https://res.cloudinary.com/twentyninek/image/upload/v1652085490/Email%20assets/29k_donate_button_khumx9.png"
+  }
 }

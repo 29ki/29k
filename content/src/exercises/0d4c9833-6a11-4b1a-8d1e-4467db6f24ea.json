@@ -388,87 +388,96 @@
     "description": "Våra känslor innehåller mycket visdom och kan guida dig i vad som är viktigt för just dig. Många förknippar klimatet med ångest, men i den här övningen provar vi att känna igen och uppskatta ett vidare spektrum av eko-känslor."
   },
   "ja": {
+    "description": "私たちの感情には多くの知恵が含まれている。風土はたいてい不安と結びつけられることが多いのですが、このエクササイズでは、エコ感情のより広いスペクトルを認識し、評価することを試みます。",
+    "introPortal": {
+      "hostNotes": [
+        {
+          "text": "> 準備ができたらセッションを始めてください。"
+        }
+      ],
+      "videoLoop": {
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1701788655/Video/portal1_climateP_ab1nv1.mp4",
+        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1701788616/Audio/portal_audio_climatP_jthdg8.mp3"
+      },
+      "videoEnd": {
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1701788649/Video/portal2_climateP_u8wilo.mp4"
+      }
+    },
+    "name": "エコ感情を探求する",
     "slides": [
       {
-        "type": "host",
         "hostNotes": [
           {
-            "text": "Welcome. I am X and today we will work for around 30 minutes on xx\n\nWe’ll be doing xx ex. meditation followed by time for reflection and sharing with each other."
+            "text": "ようこそ。私はXです。今日は30分ほど、エコの感情を大切にするワークをします。\n\n音声による練習を行い、その後、互いに振り返り、分かち合う時間を設けます。"
           },
           {
-            "text": "Let’s start with a mini check-in. How are you feeling right now? Please answer in two-three words. X, would you like to start?\n\n> Let everyone in the session, including yourself, check in one by one.\n\nThank you all for checking in. Let’s get started."
+            "text": "ミニ・チェックインから始めましょう。今、どんな気分ですか？二言三言で答えてください。Xさん、始めますか？\n\n> 自分を含め、セッションに参加している全員に、一人ずつチェックインをさせる。\n\nチェックインしてくれてありがとう。さあ、始めよう。"
           }
         ]
       },
       {
-        "type": "content"
-      },
-      {
-        "type": "reflection",
         "hostNotes": [
           {
-            "text": "Now we’ll take 1 minute to reflect on our own.\n\nxxMain question\n\nxxFurther explanations of main question if needed"
-          },
-          {
-            "text": "You can take notes on a piece of paper or just mental notes in your head. And there is no right or wrong here, our answers are our own. 1 minute starting now.\n\n> Press play to start the timer.\n\nThat’s 1 minute and it’s time to move on."
+            "text": "楽な姿勢をとってください。オーディオの練習を始めますので、終わったらここに戻りましょう。\n\n> 再生ボタンを押して音声エクササイズを開始"
           }
         ]
       },
       {
-        "type": "sharing",
-        "hostNotes": [
-          {
-            "text": "Now we are getting into the sharing part. We have three rules for sharing:\n\n1. **What is said in here, stays in here.**\n2. **All you need to do is listen.** There is no fixing, helping or advice-giving needed. We are just showing up and exploring what ourselves and others are going through."
-          },
-          {
-            "text": "3. **Everything on the inside is okay.** Anger, love, hatred, sadness. Whatever shows up. No wrongs, no rights. It is what it is.\n\nThere will be a timer set for 2 minutes as an indicator. If you don’t want to share you can always say ‘pass’."
-          },
-          {
-            "text": "Who would like to start?\n\n> Let everyone (or as many as you got time for) share one by one. Press play to start the timer. Re-start for each new sharing.\n\nThank you so much everyone."
-          }
-        ]
-      },
-      {
-        "type": "host",
-        "hostNotes": [
-          {
-            "text": "Well done. If you’re up for it, you can continue what we started here today with a mission to bring this into your everyday life.\n\nxx mission description"
-          },
-          {
-            "text": "Before we leave this space let’s do a mini check-out. \n\nHow are you feeling right now? Has anything shifted? Please answer in two-three words."
-          },
-          {
-            "text": "Who would like to start?\n\n> Let everyone in the session check out one by one.\n\nThank you all for checking out and for joining this session today.\n\n> Finish session to send everyone off to the exit experience."
-          }
-        ]
-      },
-      {
-        "type": "instruction",
         "content": {
-          "text": "Well done.\n\nSummary.\n\nIf you’re up for it, you can continue with this mission.\n\nmission description"
+          "heading": "エコの感情を迎えるのはどんな感じでしたか？"
+        },
+        "hostNotes": [
+          {
+            "text": "では、1分間、自分自身を振り返ってみましょう。\n\n自分のエコ感情を識別し、探求し、歓迎することは、あなたにとってどのようなものでしたか？"
+          },
+          {
+            "text": "紙にメモしてもいいし、頭の中にメモしてもいい。正解も不正解もありません。今から1分間。\n\n> 再生ボタンを押してタイマーをスタートさせる。\n\n1分で次に進む時間だ。"
+          }
+        ]
+      },
+      {
+        "content": {
+          "heading": "エコの感情を迎えるのはどんな感じでしたか？"
         }
       }
     ],
     "theme": {
-      "textColor": "#2AE2D7"
+      "textColor": "#F9F8F4",
+      "backgroundColor": "#007961"
     },
     "hidden": false,
     "live": true,
-    "published": false,
-    "duration": 30,
-    "introPortal": {
-      "hostNotes": [
-        {
-          "text": "> Start the session when you're ready to go"
-        }
-      ]
+    "published": true,
+    "card": {
+      "imageBackgroundColor": "#ebf4f3",
+      "image": {
+        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1701788567/Images/Eco_emotions_card_image_climatP_e0z7sd.png"
+      }
     },
+    "coCreators": [
+      {
+        "name": "Kali Andersson, voice",
+        "url": "https://www.terrapi.se/",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1702029676/Images/Kali_Andersson_1_Klimatpsy_FotografJoakimAndre%CC%81n_zvvczk.jpg"
+      },
+      {
+        "name": "Terra-pi, script",
+        "url": "https://www.terrapi.se/",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1702029819/Images/terra-pi_zhwybj.png"
+      },
+      {
+        "name": "Ints Ivanovskis, artwork",
+        "url": "https://www.linkedin.com/in/ints-ivanovskis-46ab0311a/",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413436/Contributors/Ints%20Ivanovskis.jpg"
+      }
+    ],
+    "duration": 30,
     "tags": [
       "34100e43-2eb8-4d35-8eb0-9fa9f78e4935",
       "566aeb1b-1649-4f5a-96a2-0c80be27efc0"
     ],
     "link": "https://aware.29k.org/explore-eco-emotions",
     "id": "0d4c9833-6a11-4b1a-8d1e-4467db6f24ea",
-    "async": false
+    "async": true
   }
 }
