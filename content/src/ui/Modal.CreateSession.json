@@ -1,6 +1,5 @@
 {
   "en": {
-    "shareHeading": "Share session",
     "or": "or",
     "joinByInviteCta": "Join by invite code",
     "typeHeading": "Do session with…",
@@ -69,7 +68,6 @@
     }
   },
   "sv": {
-    "shareHeading": "Dela session",
     "or": "eller",
     "joinByInviteCta": "Använd kod för att gå med",
     "typeHeading": "Gör sessionen med...",
