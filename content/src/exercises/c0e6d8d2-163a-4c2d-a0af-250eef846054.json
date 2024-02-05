@@ -138,7 +138,10 @@
       ],
       "videoLoop": {
         "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1701788655/Video/portal1_climateP_ab1nv1.mp4",
-        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1701788616/Audio/portal_audio_climatP_jthdg8.mp3"
+        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1701788616/Audio/portal_audio_climatP_jthdg8.mp3",
+        "p5JsScript": {
+          "lang": "javascript"
+        }
       },
       "videoEnd": {
         "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1701788649/Video/portal2_climateP_u8wilo.mp4"
@@ -219,6 +222,7 @@
       "textColor": "#2AE2D7"
     },
     "hidden": false,
+    "name": "f",
     "live": true,
     "published": false,
     "coCreators": [
@@ -244,7 +248,12 @@
         {
           "text": "> Start the session when you're ready to go"
         }
-      ]
+      ],
+      "videoLoop": {
+        "p5JsScript": {
+          "lang": "javascript"
+        }
+      }
     },
     "tags": [
       "566aeb1b-1649-4f5a-96a2-0c80be27efc0",
