@@ -47,7 +47,10 @@ const main = async () => {
     files.forEach(fileKey => {
       const content = typeContent[fileKey];
       const fileTranslations = typeTranslations
-        .filter(({File}) => File === fileKey)
+        .filter(
+          ({File, ...translations}) =>
+            File === fileKey && translations[TO_LANGUAGE_TAG],
+        )
         .reduce(
           (acc, {Key, ...translations}) => ({
             ...acc,
@@ -56,16 +59,18 @@ const main = async () => {
           {},
         );
 
-      const filePath = path.resolve('src', type, `${fileKey}.json`);
-      const fileContent = {
-        ...content,
-        [TO_LANGUAGE_TAG]: mergeDeepLeft(
-          unflatten(fileTranslations),
-          content[FROM_LANGUAGE_TAG],
-        ),
-      };
+      if (Object.keys(fileTranslations).length) {
+        const filePath = path.resolve('src', type, `${fileKey}.json`);
+        const fileContent = {
+          ...content,
+          [TO_LANGUAGE_TAG]: mergeDeepLeft(
+            unflatten(fileTranslations),
+            content[FROM_LANGUAGE_TAG],
+          ),
+        };
 
-      fs.writeFileSync(filePath, JSON.stringify(fileContent, null, 2));
+        fs.writeFileSync(filePath, JSON.stringify(fileContent, null, 2));
+      }
     });
   });
 };
