@@ -61,6 +61,7 @@
     }
   },
   "ja": {
+    "name": "自分を理解する",
     "id": "b7257c0a-f180-405f-8aff-05f9f75bddbd",
     "collections": [
       "1d35e981-4b8e-47f0-887a-0c90d21fb991",
@@ -75,6 +76,10 @@
       "c5b1197a-4eec-4699-9dad-0e3d6323967b",
       "61adeaf2-70ab-4c6c-854c-2c16f762a3c5",
       "f4f8a536-5683-40a3-a139-5e3031687cec"
-    ]
+    ],
+    "published": true,
+    "lottie": {
+      "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1702302654/Lottie/understand_myself_qeibfi.json"
+    }
   }
 }

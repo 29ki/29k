@@ -32,5 +32,11 @@
     "takePhotoButtonTitle": "Ta en bild",
     "ok": "Okej"
   },
-  "ja": {}
+  "ja": {
+    "cancelButtonTitle": "キャンセル",
+    "chooseFromLibraryButtonTitle": "ライブラリから選ぶ",
+    "ok": "OK",
+    "removeButtonTitle": "削除",
+    "takePhotoButtonTitle": "撮影"
+  }
 }

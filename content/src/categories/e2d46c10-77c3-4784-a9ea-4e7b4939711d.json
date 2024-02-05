@@ -50,6 +50,7 @@
     }
   },
   "ja": {
+    "name": "意味を見いだす",
     "id": "e2d46c10-77c3-4784-a9ea-4e7b4939711d",
     "collections": [
       "d9897547-18a2-4404-b12b-324458021783"
@@ -60,6 +61,10 @@
       "61adeaf2-70ab-4c6c-854c-2c16f762a3c5",
       "0bcb6eb0-fdfe-466d-8603-ae6de15fcbc5",
       "5b69ff57-10c4-4288-afc7-a6f6ed212531"
-    ]
+    ],
+    "published": true,
+    "lottie": {
+      "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1702302654/Lottie/find_meaning_wta8nc.json"
+    }
   }
 }
