@@ -151,7 +151,7 @@ const SessionModal = () => {
   const exercise = useExerciseById(session.exerciseId, session.language);
   const tags = useGetSessionCardTags(exercise);
   const {rating} = useExerciseRating(session.exerciseId);
-  const {feedback} = useExerciseFeedback(session.exerciseId, session.mode);
+  const {feedback} = useExerciseFeedback(session.exerciseId);
   const {reminderEnabled, toggleReminder} = useSessionReminder(session);
   const confirmToggleReminder = useConfirmSessionReminder(session);
   const relatedExercises = useExercisesByTags(exercise?.tags, exercise?.id, 5);
