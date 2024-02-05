@@ -64,7 +64,7 @@ type Props = {
   progress: SharedValue<number>;
   active: boolean;
 };
-const AnimatedThumb = ({progress, active}: Props) => {
+const AnimatedThumb = ({progress}: Props) => {
   const smilingStyle = useAnimatedStyle(() => ({
     opacity: withTiming(
       progress.value >= 1.5 && progress.value <= 2.5 ? 1 : 0,
@@ -114,8 +114,8 @@ const SessionMood = () => {
   const progress = useSharedValue(2);
 
   const renderThumb = useCallback(
-    () => <AnimatedThumb progress={progress} active={active} />,
-    [progress, active],
+    () => <AnimatedThumb progress={progress} />,
+    [progress],
   );
 
   return (
