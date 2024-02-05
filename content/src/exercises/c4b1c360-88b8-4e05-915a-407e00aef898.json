@@ -129,7 +129,10 @@
       ],
       "videoLoop": {
         "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1705652017/Video/portal_1_angry_mob_qqjdp8.mp4",
-        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1705651782/Audio/portal_audio_angry_mob_l7ltoi.mp3"
+        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1705651782/Audio/portal_audio_angry_mob_l7ltoi.mp3",
+        "p5JsScript": {
+          "lang": "javascript"
+        }
       },
       "videoEnd": {
         "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1705652019/Video/portal_2_angry_mob_za6foz.mp4"
@@ -224,7 +227,12 @@
         {
           "text": "> Start the session when you're ready to go"
         }
-      ]
+      ],
+      "videoLoop": {
+        "p5JsScript": {
+          "lang": "javascript"
+        }
+      }
     },
     "tags": [
       "566aeb1b-1649-4f5a-96a2-0c80be27efc0",
@@ -305,6 +313,7 @@
       "textColor": "#2AE2D7"
     },
     "hidden": false,
+    "name": "f",
     "live": true,
     "published": false,
     "card": {},
@@ -314,7 +323,12 @@
         {
           "text": "> Start the session when you're ready to go"
         }
-      ]
+      ],
+      "videoLoop": {
+        "p5JsScript": {
+          "lang": "javascript"
+        }
+      }
     },
     "tags": [
       "566aeb1b-1649-4f5a-96a2-0c80be27efc0",
