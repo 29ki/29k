@@ -18,6 +18,8 @@ if (!CSV_FILE) {
   throw new Error('Missing csv file argument');
 }
 
+const skipLanguageMergeForTypes = ['email', 'ui'];
+
 type Translation = {
   Type: string;
   File: string;
@@ -65,7 +67,9 @@ const main = async () => {
           ...content,
           [TO_LANGUAGE_TAG]: mergeDeepLeft(
             unflatten(fileTranslations),
-            content[FROM_LANGUAGE_TAG],
+            skipLanguageMergeForTypes.includes(type)
+              ? {}
+              : content[FROM_LANGUAGE_TAG],
           ),
         };
 
