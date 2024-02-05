@@ -491,13 +491,136 @@
     "description": "En guidad meditation där vi plockar fram ett fint minne. Att aktivt lägga märke till saker i livet som fungerar bra kan hjälpa oss att känna lycka och mening. Det kan också balansera upp våra hjärnors inbyggda tendens att fokusera på det negativa."
   },
   "ja": {
-    "id": "095f9642-73b6-4c9a-ae9a-ea7dea7363f5",
+    "description": "貴重な瞬間を脚光を浴びる誘導瞑想。うまくいっていることに気づく練習をすることで、より幸せで充実した気分になり、ネガティブなことに集中する脳の自然な傾向を打ち消すことができます。",
+    "introPortal": {
+      "hostNotes": [
+        {
+          "text": ">準備ができたらセッションを始めてください。"
+        }
+      ],
+      "type": "video",
+      "videoLoop": {
+        "source": "https://res.cloudinary.com/twentyninek/video/upload/q_auto/v1663143395/temp/portal-intro_h7qccz.mp4",
+        "audio": "https://res.cloudinary.com/twentyninek/video/upload/v1664811123/temp/ocean_s3t5yy_mm2dgh.mp3",
+        "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1674554579/Images/thumb_portal_pure_simple_love_geibz4.png"
+      },
+      "videoEnd": {
+        "source": "https://res.cloudinary.com/twentyninek/video/upload/q_auto/v1663147750/temp/portal-intro-end_crzjih.mp4"
+      }
+    },
+    "name": "純粋でシンプルな愛",
+    "slides": [
+      {
+        "hostNotes": [
+          {
+            "text": "ようこそ。私はXです。今日は30分ほど、愛と自分自身と他者とのつながりについてワークします。\n\n一緒に短い瞑想をして、それから自分自身を振り返る時間をとり、最後に経験したことをお互いに分かち合うのです。"
+          },
+          {
+            "text": "セッションに入る前に、「今、ここ」に自分自身をグラウンディングさせましょう。吸って吐いてを3周、呼吸に集中します。\n\n> ゆっくり吸って、ゆっくり吐く×3"
+          },
+          {
+            "text": "ミニチェックインから始めよう。今の気分はどうですか？二言三言で答えてください。X、始めますか？\n\n> 自分を含め、セッションに参加している全員に、一人ずつチェックインをさせる。\n\nチェックインしてくれてありがとう。さあ、始めよう。"
+          }
+        ]
+      },
+      {
+        "content": {
+          "heading": "純粋でシンプルな愛"
+        },
+        "hostNotes": [
+          {
+            "text": "人生は終わりのない踏み絵のように続くと感じることがある。私たちの人生には美しいものがあっても、脳はうまくいかないことに集中するようにプログラムされている。問題。潜在的な脅威。私たちの人生で解決しなければならないこと。"
+          },
+          {
+            "text": "うまくいっていることを思い出すには努力が必要だ。そして今、私たちはそれを実行しようとしている。数分かけて、私たちの人生における愛の瞬間を思い出す。これは、幸福感や目的意識を促進し、私たちのシステムを少しスローダウンさせることが証明されている練習です。\n\n> 再生ボタンを押して瞑想を始めてください。"
+          }
+        ]
+      },
+      {
+        "content": {
+          "heading": "この瞑想はあなたにどう影響しましたか？",
+          "text": "今日一日、何を持っていけますか？"
+        },
+        "hostNotes": [
+          {
+            "text": "「では、1分間、自分自身を振り返ってみましょう。\n\nこの瞑想はあなたにどのような影響を与えましたか？\n\n今日一日、ここから何を得ることができますか？"
+          },
+          {
+            "text": "紙にメモしてもいいし、頭の中にメモしてもいい。正解も不正解もありません。今から1分間。\n\n> 再生ボタンを押してタイマーをスタートさせる。\n\nよし、これで1分だ。先に進もう。"
+          }
+        ]
+      },
+      {
+        "content": {
+          "heading": "この瞑想はあなたにどう影響しましたか？",
+          "text": "今日一日、何を持っていけますか？"
+        },
+        "hostNotes": [
+          {
+            "text": "さて、いよいよ分かち合いのパートに入ります。分かち合いには3つのルールがある：\n\n1.**ここで言われたことは、ここに残る。\n2.**直すことも、助けることも、アドバイスすることも必要ありません。私たちはただ姿を現し、自分自身や他の人たちが経験していることを探っているだけなのです。"
+          },
+          {
+            "text": "3.**怒り、愛、憎しみ、悲しみ。現れるものは何でも。間違いも、権利もない。あるがまま。\n\nタイマーが2分間セットされているので、それを目印にしてください。もしシェアしたくなければ、いつでも言ってください。"
+          },
+          {
+            "text": "「どなたから始めますか？\n\n> 最大6人で1人ずつシェアします。再生ボタンを押してタイマーをスタートさせます。新しい人ごとに再スタート。\n\n皆さん、本当にありがとうございました。"
+          }
+        ]
+      },
+      {
+        "hostNotes": [
+          {
+            "text": "私たちは今、私たちの人生における愛の瞬間を思い浮かべ、人生の貴重な瞬間のひとつに脚光を当てている。ネガティブなことに目を向けることで、私たちが生き延びようとする脳の自然な努力のバランスをとるために。"
+          },
+          {
+            "text": "よくやった。もし、あなたがその気になれば、私たちが今日ここで始めたことを、あなたの日常生活に取り入れるという使命をもって続けることができる。\n\n1週間の間、1日のうちランダムな時間にリマインダーをセットする。リマインダーが鳴ったら、過去24時間の愛に満ちた瞬間を振り返ってください。それが内側で、身体でどのように感じられるかに気づいてください」、、、、、、、、、"
+          },
+          {
+            "text": "この空間を去る前に、ミニ・チェックアウトをしよう。\n\n今の気分はどうですか？何か変化はありましたか？二言三言で答えてください。"
+          },
+          {
+            "text": "誰が始めたいですか？\n\n> セッションに参加している全員に一人ずつチェックアウトさせる。\n\n今日のセッションに参加してくれてありがとう。\n\n> 全員を出口体験に送り出すフィニッシュセッション"
+          }
+        ]
+      },
+      {
+        "content": {
+          "heading": "よくやった。",
+          "text": "やる気があるなら、このミッションを続けてもいい：\n\n1週間の間、1日のうちのランダムな時間にリマインダーをセットする。リマインダーが鳴ったら、過去24時間の愛に満ちた瞬間を振り返ってください。それが内側で、身体でどのように感じられるかに気づくのだ。"
+        }
+      }
+    ],
+    "live": true,
+    "published": true,
+    "card": {
+      "image": {
+        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1698256076/Images/pure-simple-love_vi9ura.png"
+      }
+    },
+    "coCreators": [
+      {
+        "name": "Ints Ivanovskis, art works",
+        "url": "https://www.linkedin.com/in/ints-ivanovskis-46ab0311a/",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413436/Contributors/Ints%20Ivanovskis.jpg"
+      },
+      {
+        "name": "Heidi Andersen, voice",
+        "url": "https://www.linkedin.com/in/heidi-andersen-mindfuel/",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1698414650/Contributors/heidi_andersen_cutguw.jpg"
+      }
+    ],
     "duration": 30,
+    "outroPortal": {
+      "video": {
+        "source": "https://res.cloudinary.com/twentyninek/video/upload/q_auto/v1664798564/temp/portal_outro_lpm80e.mp4"
+      }
+    },
     "tags": [
       "cfc00217-f65b-4a4d-8b82-8ccc8f852dd6",
       "43a6dc0d-d866-4b79-9453-13c44e906128"
     ],
     "link": "https://aware.29k.org/pure-simple-love",
-    "card": {}
+    "id": "095f9642-73b6-4c9a-ae9a-ea7dea7363f5",
+    "async": true
   }
 }

@@ -245,40 +245,14 @@
     "description": "En introduktion till att träna mindfulness, tacksamhet och använda Aware-appen för att ta hand om dig själv, andra och planeten."
   },
   "ja": {
+    "description": "アプリを使い始める前に 〜 マインドフルネスと感謝の瞑想",
+    "name": "はじめに",
     "slides": [
+      null,
+      null,
       {
-        "type": "content",
         "content": {
-          "video": {
-            "audio": "",
-            "durationTimer": false
-          },
-          "lottie": {
-            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1683721090/Lottie/dive_in_audio_visual_white_vjvfjo.json",
-            "durationTimer": true,
-            "autoPlayLoop": false,
-            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1687865086/Audio/Dive_in_spf3bt.mp3",
-            "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1689591254/SRT%20(captions)%20files/Dive_in_b88bnf.srt"
-          }
-        }
-      },
-      {
-        "type": "sharing",
-        "hostNotes": [],
-        "content": {
-          "heading": "Why are you here?",
-          "text": ""
-        },
-        "id": "1"
-      },
-      {
-        "type": "instruction",
-        "content": {
-          "text": "おめでとうございます！最初のセッションが終了しました。\n\nひとりでも、友人や新しい仲間と一緒でもよし。AWAREで旅を続けましょう！",
-          "heading": "",
-          "image": {
-            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1683790808/Images/journey_icon_ja3ug7.png"
-          }
+          "text": "おめでとうございます！最初のセッションが終了しました。\n\nひとりでも、友人や新しい仲間と一緒でもよし。AWAREで旅を続けましょう！"
         }
       }
     ],
@@ -287,7 +261,6 @@
       "backgroundColor": "#378d88"
     },
     "hidden": false,
-    "name": "はじめに",
     "published": true,
     "card": {
       "lottie": {
@@ -300,19 +273,14 @@
     },
     "coCreators": [
       {
-        "name": "Jenny Rickardsson, script",
+        "name": "Jenny Rickardsson, script and voice",
         "url": "https://www.linkedin.com/in/jenny-rickardson-6770a959/",
         "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413228/Contributors/Jenny%20Rickardsson.jpg"
       },
       {
         "name": "Ints Ivanovskis, art works",
-        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413436/Contributors/Ints%20Ivanovskis.jpg",
-        "url": "https://www.linkedin.com/in/ints-ivanovskis-46ab0311a/"
-      },
-      {
-        "name": "Maki Kobayashi, translations and voice",
-        "url": "https://www.linkedin.com/in/makikobayashi/",
-        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1702460385/Images/Maki_sdvmbz.jpg"
+        "url": "https://www.linkedin.com/in/ints-ivanovskis-46ab0311a/",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413436/Contributors/Ints%20Ivanovskis.jpg"
       }
     ],
     "duration": 5,
@@ -337,7 +305,6 @@
     ],
     "link": "https://aware.29k.org/dive-in",
     "id": "1a53e633-6916-4fea-a072-977c4b215288",
-    "async": true,
-    "description": "アプリを使い始める前に 〜 マインドフルネスと感謝の瞑想"
+    "async": true
   }
 }
