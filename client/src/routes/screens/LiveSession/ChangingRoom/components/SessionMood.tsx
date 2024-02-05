@@ -41,12 +41,10 @@ const MoodSlider = styled(Slider).attrs({
   },
 })({});
 
-const Thumb = styled.View<{active: boolean}>(({active}) => ({
+const Thumb = styled.View({
   width: 36,
   height: 36,
-  borderRadius: 18,
-  backgroundColor: active ? undefined : COLORS.PRIMARY,
-}));
+});
 
 const Emoji = styled(Animated.Image)({
   ...StyleSheet.absoluteFillObject,
@@ -64,9 +62,8 @@ const EmojiAnxious = styled(Emoji).attrs({
 
 type Props = {
   progress: SharedValue<number>;
-  active: boolean;
 };
-const AnimatedThumb = ({progress, active}: Props) => {
+const AnimatedThumb = ({progress}: Props) => {
   const smilingStyle = useAnimatedStyle(() => ({
     opacity: withTiming(
       progress.value >= 1.5 && progress.value <= 2.5 ? 1 : 0,
@@ -87,14 +84,10 @@ const AnimatedThumb = ({progress, active}: Props) => {
   }));
 
   return (
-    <Thumb active={active}>
-      {active && (
-        <>
-          <EmojiSmiling style={smilingStyle} />
-          <EmojiGrinning style={grinningStyle} />
-          <EmojiAnxious style={anxiousStyle} />
-        </>
-      )}
+    <Thumb>
+      <EmojiSmiling style={smilingStyle} />
+      <EmojiGrinning style={grinningStyle} />
+      <EmojiAnxious style={anxiousStyle} />
     </Thumb>
   );
 };
@@ -113,15 +106,14 @@ const SessionMood = () => {
   const value = useSessionState(state => state.mood);
   const setValue = useSessionState(state => state.setMood);
   const stepValue = Math.round(value ?? 0);
-  const active = Boolean(value);
 
   const min = useSharedValue(1);
   const max = useSharedValue(3);
   const progress = useSharedValue(2);
 
   const renderThumb = useCallback(
-    () => <AnimatedThumb progress={progress} active={active} />,
-    [progress, active],
+    () => <AnimatedThumb progress={progress} />,
+    [progress],
   );
 
   return (

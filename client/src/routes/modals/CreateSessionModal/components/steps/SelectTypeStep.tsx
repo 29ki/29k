@@ -282,15 +282,11 @@ const SelectTypeStep: React.FC<StepProps> = ({
               </>
             )}
             {exercise.link && (
-              <>
-                <IconButton
-                  variant="secondary"
-                  onPress={onShare}
-                  Icon={ShareIcon}
-                />
-                <Spacer8 />
-                <Body16>{t('shareHeading')}</Body16>
-              </>
+              <IconButton
+                variant="secondary"
+                onPress={onShare}
+                Icon={ShareIcon}
+              />
             )}
           </VCenteredRow>
           <Spacer24 />
