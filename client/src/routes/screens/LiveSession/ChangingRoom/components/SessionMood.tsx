@@ -62,7 +62,6 @@ const EmojiAnxious = styled(Emoji).attrs({
 
 type Props = {
   progress: SharedValue<number>;
-  active: boolean;
 };
 const AnimatedThumb = ({progress}: Props) => {
   const smilingStyle = useAnimatedStyle(() => ({
@@ -107,7 +106,6 @@ const SessionMood = () => {
   const value = useSessionState(state => state.mood);
   const setValue = useSessionState(state => state.setMood);
   const stepValue = Math.round(value ?? 0);
-  const active = Boolean(value);
 
   const min = useSharedValue(1);
   const max = useSharedValue(3);
