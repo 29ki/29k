@@ -2444,10 +2444,10 @@
     "@sentry/utils" "7.81.1"
     localforage "^1.8.1"
 
-"@sentry/react-native@^5.17.0":
-  version "5.17.0"
-  resolved "https://registry.yarnpkg.com/@sentry/react-native/-/react-native-5.17.0.tgz#e85d28417558f12abca82f1abde1d7006598f5d2"
-  integrity sha512-d0TLASMcpUtvw0A8zNznRyCskfH0kwfb3GzqMXXpfPJAG8vsBnY15EFOIc+czOLt6FbV9o3567bHYWhSW51Ssg==
+"@sentry/react-native@^5.18.0":
+  version "5.18.0"
+  resolved "https://registry.yarnpkg.com/@sentry/react-native/-/react-native-5.18.0.tgz#19fc18d178430cb7e452be29a8d3d6441b72e886"
+  integrity sha512-qFyF6oq9wMFh4/XGkiKBHygK6XyTTAjWJQ9mTltJPGMwUixYAADCGuxGD4CmD0Gzy16BCPyY1t3whuhqmQD5AQ==
   dependencies:
     "@sentry/browser" "7.81.1"
     "@sentry/cli" "2.25.2"
@@ -4937,15 +4937,15 @@ escape-html@~1.0.3:
   resolved "https://registry.yarnpkg.com/escape-html/-/escape-html-1.0.3.tgz#0258eae4d3d0c0974de1c169188ef0051d1d1988"
   integrity sha512-NiSupZ4OeuGwr68lGIeym/ksIZMJodUGOSCZ/FSnTxcrekbvqrgdUxlJOMpijaKZVjAJrWrGs/6Jy8OMuyj9ow==
 
+escape-string-regexp@2.0.0, escape-string-regexp@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/escape-string-regexp/-/escape-string-regexp-2.0.0.tgz#a30304e99daa32e23b2fd20f51babd07cffca344"
+  integrity sha512-UpzcLCXolUWcNu5HtVMHYdXJjArjsF9C0aNnquZYY4uW/Vu0miy5YoWvbV345HauVvcAUnpRuhMMcqTcGOY2+w==
+
 escape-string-regexp@^1.0.5:
   version "1.0.5"
   resolved "https://registry.yarnpkg.com/escape-string-regexp/-/escape-string-regexp-1.0.5.tgz#1b61c0562190a8dff6ae3bb2cf0200ca130b86d4"
   integrity sha512-vbRorB5FUQWvla16U8R/qgaFIya2qGzwDrNmCZuYKrbdSUMG6I1ZCGQRefkRVhuOkIGVne7BQ35DSfo1qvJqFg==
-
-escape-string-regexp@^2.0.0:
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/escape-string-regexp/-/escape-string-regexp-2.0.0.tgz#a30304e99daa32e23b2fd20f51babd07cffca344"
-  integrity sha512-UpzcLCXolUWcNu5HtVMHYdXJjArjsF9C0aNnquZYY4uW/Vu0miy5YoWvbV345HauVvcAUnpRuhMMcqTcGOY2+w==
 
 escape-string-regexp@^4.0.0:
   version "4.0.0"
@@ -6384,7 +6384,7 @@ intl-pluralrules@^1.3.1:
   resolved "https://registry.yarnpkg.com/intl-pluralrules/-/intl-pluralrules-1.3.1.tgz#304ec4038a597894f6616633cbf5e66fb3dbee04"
   integrity sha512-sNYPls1Q4fyN0EGLFVJ7TIuaMWln01LupLozfIBt69rHK0DHehghMSz6ejfnSklgRddnyQSEaQPIU6d9TCKH3w==
 
-invariant@^2.2.4:
+invariant@2.2.4, invariant@^2.2.4:
   version "2.2.4"
   resolved "https://registry.yarnpkg.com/invariant/-/invariant-2.2.4.tgz#610f3c92c9359ce1db616e538008d23ff35158e6"
   integrity sha512-phJfQVBuaJM5raOpJjSfkiD6BpbCE4Ns//LaXl6wGYtUBY83nWS6Rf9tXm2e8VaK60JEjYldbPif/A2B1C2gNA==
@@ -7680,15 +7680,10 @@ loose-envify@^1.0.0, loose-envify@^1.1.0, loose-envify@^1.4.0:
   dependencies:
     js-tokens "^3.0.0 || ^4.0.0"
 
-lottie-ios@^4.3.4:
-  version "4.3.4"
-  resolved "https://registry.yarnpkg.com/lottie-ios/-/lottie-ios-4.3.4.tgz#b7b5682ac34563cf6e5a6e527c9de197f22867a1"
-  integrity sha512-OY1tT3ewy0ElgsaHU2UCA/4ArRFukOg5NGfzBDJY2ccQLdekypPedCiwAwvXB11JP1eW9KVR/gBv0nFEcfbpjQ==
-
-lottie-react-native@^6.5.1:
-  version "6.5.1"
-  resolved "https://registry.yarnpkg.com/lottie-react-native/-/lottie-react-native-6.5.1.tgz#7986078648d1ff274a704ae3bd979a4c3aa235c6"
-  integrity sha512-pjih71P6qX6Ax5ucUBA+YJO7+fnveI581Bd8LmYeARm3spq3AnoGzEkrWaieM8odnK6WI4d5dwEJsxge/QjFPw==
+lottie-react-native@^6.6.0:
+  version "6.6.0"
+  resolved "https://registry.yarnpkg.com/lottie-react-native/-/lottie-react-native-6.6.0.tgz#080c69e4cd149adec0e5e67b320646890031c73f"
+  integrity sha512-ttS8qrtjrWc/tmAbCLjvqWpC+cfbwSPLZIWpNdiW2Z1WwqA653JSSJSPxf4c/ut2rwoIuKSBBkeaY2IvmCAQAg==
 
 lottie-web@^5.10.2, lottie-web@^5.12.2:
   version "5.12.2"
@@ -9748,10 +9743,10 @@ react-native-reanimated@^2.17.0:
     setimmediate "^1.0.5"
     string-hash-64 "^1.0.3"
 
-react-native-safe-area-context@^4.8.2:
-  version "4.8.2"
-  resolved "https://registry.yarnpkg.com/react-native-safe-area-context/-/react-native-safe-area-context-4.8.2.tgz#e6b3d8acf3c6afcb4b5db03a97f9c37df7668f65"
-  integrity sha512-ffUOv8BJQ6RqO3nLml5gxJ6ab3EestPiyWekxdzO/1MQ7NF8fW1Mzh1C5QE9yq573Xefnc7FuzGXjtesZGv7cQ==
+react-native-safe-area-context@^4.9.0:
+  version "4.9.0"
+  resolved "https://registry.yarnpkg.com/react-native-safe-area-context/-/react-native-safe-area-context-4.9.0.tgz#21a570ca3594cb4259ba65f93befaa60d91bcbd0"
+  integrity sha512-/OJD9Pb8IURyvn+1tWTszWPJqsbZ4hyHBU9P0xhOmk7h5owSuqL0zkfagU0pg7Vh0G2NKQkaPpUKUMMCUMDh/w==
 
 react-native-screens@^3.29.0:
   version "3.29.0"
@@ -9799,6 +9794,14 @@ react-native-web@^0.19.10:
     nullthrows "^1.1.1"
     postcss-value-parser "^4.2.0"
     styleq "^0.1.3"
+
+react-native-webview@^13.7.0:
+  version "13.7.0"
+  resolved "https://registry.yarnpkg.com/react-native-webview/-/react-native-webview-13.7.0.tgz#1ba7a1dcc047b7a057ecad86a0ef58f25610100a"
+  integrity sha512-pvAaGDxAGrhv9sxvQgpMyLeZrHxGY314lmvp6YakrzdvRa1ZUkAYMgYL3JnogMV6QIvxuFp1AWO1bJxmWmArUw==
+  dependencies:
+    escape-string-regexp "2.0.0"
+    invariant "2.2.4"
 
 react-native@0.69.9:
   version "0.69.9"
