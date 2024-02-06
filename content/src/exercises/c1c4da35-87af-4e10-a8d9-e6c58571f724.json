@@ -24,7 +24,13 @@
           {
             "text": "Find a comfortable position. I will start the audio exercise and we'll meet back here afterwards. \n\n> Tap play to start the audio exercise"
           }
-        ]
+        ],
+        "content": {
+          "lottie": {
+            "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1707214434/SRT%20(captions)%20files/your_story_taws6r.srt",
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1706877352/Audio/your_story_iraou5.mp3"
+          }
+        }
       },
       {
         "type": "reflection",
@@ -88,7 +94,7 @@
     "published": true,
     "coCreators": [
       {
-        "name": "Jenny Rickardsson, script and voice",
+        "name": "Jenny Rickardsson, script",
         "url": "https://www.linkedin.com/in/jenny-rickardson-6770a959/",
         "image": "https://res.cloudinary.com/cupcake-29k/image/upload/v1665413228/Contributors/Jenny%20Rickardsson.jpg"
       },
@@ -104,7 +110,12 @@
         {
           "text": "> Start the session when you're ready to go"
         }
-      ]
+      ],
+      "videoLoop": {
+        "p5JsScript": {
+          "lang": "javascript"
+        }
+      }
     },
     "tags": [
       "566aeb1b-1649-4f5a-96a2-0c80be27efc0",
@@ -194,7 +205,12 @@
         {
           "text": "> Start the session when you're ready to go"
         }
-      ]
+      ],
+      "videoLoop": {
+        "p5JsScript": {
+          "lang": "javascript"
+        }
+      }
     },
     "tags": [
       "566aeb1b-1649-4f5a-96a2-0c80be27efc0",
