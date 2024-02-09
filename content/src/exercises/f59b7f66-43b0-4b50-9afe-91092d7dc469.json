@@ -5,7 +5,7 @@
         "type": "host",
         "hostNotes": [
           {
-            "text": "Welcome. I am X and today we will work for around 30 minutes on xx\n\nWe’ll be doing xx ex. meditation followed by time for reflection and sharing with each other."
+            "text": "Welcome. I am X and today we will work for around 30 minutes on making values come to life with daily actions.\n\nWe’ll be doing an audio exercise, followed by time for reflection and finally sharing with each other if we're up for it."
           },
           {
             "text": "Let’s start with a mini check-in. How are you feeling right now? Please answer in two-three words. X, would you like to start?\n\n> Let everyone in the session, including yourself, check in one by one.\n\nThank you all for checking in. Let’s get started."
@@ -16,20 +16,29 @@
         "type": "content",
         "hostNotes": [
           {
-            "text": "Find a comfortable position. I will start the audio exercise and we'll meet back here afterwards. \n\n> Push play to start the audio exercise"
+            "text": "Find a comfortable position. I will start the audio exercise and we'll meet back here afterwards. \n\n> Tap play to start the audio exercise"
           }
-        ]
+        ],
+        "content": {
+          "lottie": {
+            "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1707214413/SRT%20(captions)%20files/Daily_actions_wwyfru.srt",
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1707214366/Audio/Daily_actions_tcchxq.mp3"
+          }
+        }
       },
       {
         "type": "reflection",
         "hostNotes": [
           {
-            "text": "Now we’ll take 1 minute to reflect on our own.\n\nxxMain question\n\nxxFurther explanations of main question if needed"
+            "text": "Now we’ll take 1 minute to reflect on our own.\n\nWhat will you do? When? \n\nAnd why is it important for you?"
           },
           {
             "text": "You can take notes on a piece of paper or just mental notes in your head. And there is no right or wrong here, our answers are our own. 1 minute starting now.\n\n> Press play to start the timer.\n\nThat’s 1 minute and it’s time to move on."
           }
-        ]
+        ],
+        "content": {
+          "heading": "What will you do, when, and why?"
+        }
       },
       {
         "type": "sharing",
@@ -44,13 +53,16 @@
             "text": "Who would like to start?\n\n> Let everyone (or as many as you got time for) share one by one. Press play to start the timer. Re-start for each new sharing.\n\nThank you so much everyone."
           }
         ],
-        "id": "Sharing 1"
+        "id": "Sharing 1",
+        "content": {
+          "heading": "What will you do? When? Why?"
+        }
       },
       {
         "type": "host",
         "hostNotes": [
           {
-            "text": "Well done. If you’re up for it, you can continue what we started here today with a mission to bring this into your everyday life.\n\nxx mission description"
+            "text": "Well done for expanding your values fan of cards, making it easier to do what’s important for you every day. Make sure to honor your commitment to doing the daily actions you’ve chosen. Evaluate and adjust when needed."
           },
           {
             "text": "Before we leave this space let’s do a mini check-out. \n\nHow are you feeling right now? Has anything shifted? Please answer in two-three words."
@@ -63,17 +75,29 @@
       {
         "type": "instruction",
         "content": {
-          "text": "Well done.\n\nSummary.\n\nIf you’re up for it, you can continue with this mission.\n\nmission description"
+          "text": "Well done for expanding your values fan of cards, making it easier to do what’s important for you every day. \n\nMake sure to honor your commitment to doing the daily actions you’ve chosen. Evaluate and adjust when needed."
         }
       }
     ],
     "theme": {
-      "textColor": "#2AE2D7"
+      "textColor": "#2E2E2E"
     },
-    "hidden": false,
+    "hidden": true,
     "name": "Daily actions",
     "live": true,
-    "published": false,
+    "published": true,
+    "coCreators": [
+      {
+        "name": "Jenny Rickardsson, editor",
+        "url": "https://www.linkedin.com/in/jenny-rickardson-6770a959/",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/v1665413228/Contributors/Jenny%20Rickardsson.jpg"
+      },
+      {
+        "name": "ints ivanovskis, art works",
+        "url": "https://www.linkedin.com/in/ints-ivanovskis-46ab0311a/",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413436/Contributors/Ints%20Ivanovskis.jpg"
+      }
+    ],
     "duration": 30,
     "introPortal": {
       "textColor": "#2AE2D7",
@@ -88,8 +112,12 @@
         }
       }
     },
+    "tags": [
+      "9c2c08a9-7dc6-4058-bc78-016d0eb00614",
+      "8da0534a-5da9-430a-bdf3-242ace6460fb"
+    ],
     "id": "f59b7f66-43b0-4b50-9afe-91092d7dc469",
-    "async": false
+    "async": true
   },
   "pt": {
     "slides": [
@@ -179,6 +207,10 @@
         }
       }
     },
+    "tags": [
+      "9c2c08a9-7dc6-4058-bc78-016d0eb00614",
+      "8da0534a-5da9-430a-bdf3-242ace6460fb"
+    ],
     "id": "f59b7f66-43b0-4b50-9afe-91092d7dc469",
     "async": false
   },
@@ -265,6 +297,10 @@
         }
       ]
     },
+    "tags": [
+      "9c2c08a9-7dc6-4058-bc78-016d0eb00614",
+      "8da0534a-5da9-430a-bdf3-242ace6460fb"
+    ],
     "id": "f59b7f66-43b0-4b50-9afe-91092d7dc469",
     "async": false
   },
@@ -351,6 +387,10 @@
         }
       ]
     },
+    "tags": [
+      "9c2c08a9-7dc6-4058-bc78-016d0eb00614",
+      "8da0534a-5da9-430a-bdf3-242ace6460fb"
+    ],
     "id": "f59b7f66-43b0-4b50-9afe-91092d7dc469",
     "async": false
   }
