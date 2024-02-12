@@ -45,7 +45,7 @@
     "mjml": "^4.15.3",
     "openai": "^4.27.0",
     "ramda": "^0.29.1",
-    "semver": "^7.5.4",
+    "semver": "^7.6.0",
     "stripe": "^14.16.0",
     "uuid": "^9.0.1",
     "yup": "^1.2.0"
@@ -60,7 +60,7 @@
     "@types/mjml": "^4.7.4",
     "@types/node-fetch": "^2.6.10",
     "@types/ramda": "^0.29.10",
-    "@types/semver": "^7.5.6",
+    "@types/semver": "^7.5.7",
     "@types/supertest": "^6.0.2",
     "@types/uuid": "^9.0.8",
     "@typescript-eslint/eslint-plugin": "^5.62.0",
