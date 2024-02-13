@@ -1102,11 +1102,9 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = production.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 146;
 				DEVELOPMENT_TEAM = 68Y57ZGKLJ;
-				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = L748PTXG3P;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = ./Supporting/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1122,8 +1120,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = org.twentyninek.app.cupcake;
 				PRODUCT_NAME = production;
-				PROVISIONING_PROFILE_SPECIFIER = "match Development org.twentyninek.app.cupcake";
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "match Development org.twentyninek.app.cupcake";
+				PROVISIONING_PROFILE_SPECIFIER = "development org.twentyninek.app.cupcake";
 				SWIFT_OBJC_BRIDGING_HEADER = "VideoLooper-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
@@ -1139,11 +1136,9 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = production.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 146;
 				DEVELOPMENT_TEAM = 68Y57ZGKLJ;
-				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = L748PTXG3P;
 				INFOPLIST_FILE = ./Supporting/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1158,8 +1153,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = org.twentyninek.app.cupcake;
 				PRODUCT_NAME = production;
-				PROVISIONING_PROFILE_SPECIFIER = "match AppStore org.twentyninek.app.cupcake";
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "match AppStore org.twentyninek.app.cupcake";
+				PROVISIONING_PROFILE_SPECIFIER = "appstore org.twentyninek.app.cupcake";
 				SWIFT_OBJC_BRIDGING_HEADER = "VideoLooper-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -1173,11 +1167,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-dev";
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = dev.entitlements;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 146;
 				DEVELOPMENT_TEAM = 68Y57ZGKLJ;
-				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 68Y57ZGKLJ;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = ./Supporting/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1193,8 +1186,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = org.twentyninek.app.cupcake.dev;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "match Development org.twentyninek.app.cupcake.dev";
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "match Development org.twentyninek.app.cupcake.dev";
+				PROVISIONING_PROFILE_SPECIFIER = "development org.twentyninek.app.cupcake.dev";
 				SWIFT_OBJC_BRIDGING_HEADER = "VideoLooper-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
@@ -1209,11 +1201,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-dev";
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = dev.entitlements;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 146;
 				DEVELOPMENT_TEAM = 68Y57ZGKLJ;
-				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 68Y57ZGKLJ;
 				INFOPLIST_FILE = ./Supporting/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1229,8 +1220,7 @@
 				OTHER_LIBTOOLFLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = org.twentyninek.app.cupcake.dev;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "match Development org.twentyninek.app.cupcake.dev";
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "match AppStore org.twentyninek.app.cupcake.dev";
+				PROVISIONING_PROFILE_SPECIFIER = "appstore org.twentyninek.app.cupcake.dev";
 				SWIFT_OBJC_BRIDGING_HEADER = "VideoLooper-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -1245,11 +1235,9 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = staging.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 146;
 				DEVELOPMENT_TEAM = 68Y57ZGKLJ;
-				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 68Y57ZGKLJ;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = ./Supporting/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1265,8 +1253,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = org.twentyninek.app.cupcake.staging;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "match Development org.twentyninek.app.cupcake.staging";
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "match Development org.twentyninek.app.cupcake.staging";
+				PROVISIONING_PROFILE_SPECIFIER = "development org.twentyninek.app.cupcake.staging";
 				SWIFT_OBJC_BRIDGING_HEADER = "VideoLooper-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
@@ -1299,7 +1286,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = org.twentyninek.app.cupcake.staging;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "match AppStore org.twentyninek.app.cupcake.staging";
+				PROVISIONING_PROFILE_SPECIFIER = "appstore org.twentyninek.app.cupcake.staging";
 				SWIFT_OBJC_BRIDGING_HEADER = "VideoLooper-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -1335,7 +1322,7 @@
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
@@ -1407,7 +1394,7 @@
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
