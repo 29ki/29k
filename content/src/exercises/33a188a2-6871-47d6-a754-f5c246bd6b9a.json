@@ -28,7 +28,9 @@
         "content": {
           "lottie": {
             "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1706014944/Audio/SMART_goals_eeykv8.mp3",
-            "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1706017467/SRT%20(captions)%20files/SMART_goals_xammfp.srt"
+            "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1706017467/SRT%20(captions)%20files/SMART_goals_xammfp.srt",
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/t_card_image/v1676977421/Lottie/audio_meditation_default_black_default_omemwt.json",
+            "durationTimer": true
           }
         }
       },
@@ -43,7 +45,12 @@
           }
         ],
         "content": {
-          "heading": "What will you do? Why is this important to you?"
+          "heading": "What will you do? Why is this important to you?",
+          "lottie": {
+            "durationTimer": true,
+            "duration": 59,
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/t_card_image/v1676642915/Lottie/default_1min_black_rosi2l.json"
+          }
         }
       },
       {
@@ -61,7 +68,12 @@
         ],
         "id": "Sharing 1",
         "content": {
-          "heading": "What will you do? Why is this important to you?"
+          "heading": "What will you do? Why is this important to you?",
+          "lottie": {
+            "durationTimer": true,
+            "duration": 120,
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/t_card_image/v1676639253/Lottie/default_2min_black_o6egey.json"
+          }
         }
       },
       {
@@ -81,17 +93,26 @@
       {
         "type": "instruction",
         "content": {
-          "text": "Now you’ve learnt how to set SMART goals. \n\n* Specific\n* Measurable\n* Attainable\n* Relevant\n* Time-bound\n\nThey can help us take steps towards a more meaningful life. Make a commitment to yourself as to when you will start, and when you will evaluate the goal you've worked on today."
+          "text": "Now you’ve learnt how to set SMART goals. \n\n* Specific\n* Measurable\n* Attainable\n* Relevant\n* Time-bound\n\nThey can help us take steps towards a more meaningful life. Make a commitment to yourself as to when you will start, and when you will evaluate the goal you've worked on today.",
+          "image": {
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1707994019/Contributors/async_set_smart-goals_jfwido.png"
+          }
         }
       }
     ],
     "theme": {
-      "textColor": "#2E2E2E"
+      "textColor": "#2E2E2E",
+      "backgroundColor": "#ff979d"
     },
     "hidden": true,
     "name": "Set SMART goals",
     "live": true,
     "published": true,
+    "card": {
+      "image": {
+        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1707994021/Contributors/card_set_smart-goals_uhwtmz.png"
+      }
+    },
     "coCreators": [
       {
         "name": "Jenny Rickardsson, script and voice",
@@ -99,9 +120,9 @@
         "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413228/Contributors/Jenny%20Rickardsson.jpg"
       },
       {
-        "name": "Ints Ivanovskis, art works",
-        "url": "https://www.linkedin.com/in/ints-ivanovskis-46ab0311a/",
-        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413436/Contributors/Ints%20Ivanovskis.jpg"
+        "name": "SamuelYAN, art works",
+        "url": "https://openprocessing.org/user/293890?view=sketches&o=48",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1707993748/Contributors/SamuelYAN_vtyjjx.jpg"
       }
     ],
     "duration": 30,
@@ -199,6 +220,7 @@
     "hidden": false,
     "live": true,
     "published": false,
+    "card": {},
     "duration": 30,
     "introPortal": {
       "hostNotes": [
@@ -287,6 +309,7 @@
     "hidden": false,
     "live": true,
     "published": false,
+    "card": {},
     "duration": 30,
     "introPortal": {
       "hostNotes": [
@@ -375,6 +398,7 @@
     "hidden": false,
     "live": true,
     "published": false,
+    "card": {},
     "duration": 30,
     "introPortal": {
       "hostNotes": [
