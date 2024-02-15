@@ -23,7 +23,8 @@
           "lottie": {
             "durationTimer": true,
             "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1705489917/SRT%20(captions)%20files/Open_up_iy0vqi.srt",
-            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1705489802/Audio/Open_up_wgqort.mp3"
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1705489802/Audio/Open_up_wgqort.mp3",
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1676977421/Lottie/audio_meditation_default_black_default_omemwt.json"
           }
         }
       },
@@ -38,7 +39,12 @@
           }
         ],
         "content": {
-          "heading": "How did you feel about the two different scenarios?"
+          "heading": "How did you feel about the two different scenarios?",
+          "lottie": {
+            "durationTimer": true,
+            "duration": 60,
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1676642915/Lottie/default_1min_black_rosi2l.json"
+          }
         }
       },
       {
@@ -56,7 +62,12 @@
         ],
         "id": "Sharing 1",
         "content": {
-          "heading": "How did you feel about the two different scenarios?"
+          "heading": "How did you feel about the two different scenarios?",
+          "lottie": {
+            "durationTimer": true,
+            "duration": 120,
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1676639253/Lottie/default_2min_black_o6egey.json"
+          }
         }
       },
       {
@@ -76,23 +87,35 @@
       {
         "type": "instruction",
         "content": {
-          "text": "Well done.\n\nSummary.\n\nIf you’re up for it, you can continue with this mission.\n\nmission description"
+          "text": "Well done.\n\nSummary.\n\nIf you’re up for it, you can continue with this mission.\n\nmission description",
+          "image": {
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1707994012/Contributors/card_open_up_fy1wm5.png"
+          }
         }
       },
       {
         "type": "instruction",
         "content": {
-          "text": "Well done for imagining follow or neglecting a value of yours. Emotions are there to be felt, but they only provide guidance. It’s up to us to choose where we want to go in life."
+          "text": "Well done for imagining follow or neglecting a value of yours. Emotions are there to be felt, but they only provide guidance. It’s up to us to choose where we want to go in life.",
+          "image": {
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1707994012/Contributors/card_open_up_fy1wm5.png"
+          }
         }
       }
     ],
     "theme": {
-      "textColor": "#2E2E2E"
+      "textColor": "#2E2E2E",
+      "backgroundColor": "#e9b797"
     },
     "hidden": true,
     "name": "Open up",
     "live": true,
     "published": true,
+    "card": {
+      "image": {
+        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1707994012/Contributors/card_open_up_fy1wm5.png"
+      }
+    },
     "coCreators": [
       {
         "name": "Jenny Rickardsson, script and voice",
@@ -100,9 +123,9 @@
         "image": "https://res.cloudinary.com/cupcake-29k/image/upload/v1665413228/Contributors/Jenny%20Rickardsson.jpg"
       },
       {
-        "name": "Ints Ivanovskis",
-        "url": "https://www.linkedin.com/in/ints-ivanovskis-46ab0311a/",
-        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413436/Contributors/Ints%20Ivanovskis.jpg"
+        "name": "Takawo, art",
+        "url": "https://openprocessing.org/user/6533?view=sketches&o=48",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1707993843/Contributors/takawo_brtiex.jpg"
       }
     ],
     "duration": 30,
@@ -116,8 +139,10 @@
         "p5JsScript": {
           "lang": "javascript",
           "code": "let global_n = 0;\nlet palette;\n\nfunction setup() {\n  createCanvas(windowWidth, windowHeight);\n  palette = shuffle(random(colorScheme).colors.concat());\n}\n\nfunction draw() {\n  background(220);\n  randomSeed(0);\n  let w = sqrt(sq(width) + sq(height));\n  // Adjusted for slower animation\n  let d2 = w + 200 * map(cos(frameCount / 1000), -1, 1, 0, 1);\n  let d1 = 0 + 100 * map(sin(frameCount / 1000), -1, 1, 0, 1);\n  let depth = 4;\n  // Adjusted for slower noise variation\n  let n = noise(frameCount / 8000) * TWO_PI;\n\n  push();\n  translate(width / 2, height / 2);\n  recursiveCircle(d1, d2, n, TWO_PI + n, depth);\n  pop();\n}\n\nfunction recursiveCircle(minD, maxD, minA, maxA, depth) {\n  push();\n  // Adjusted for slower animation within recursiveCircle\n  let aA = map(\n    sin(abs(-minD + maxD) / 2000 + frameCount / 5000),\n    -1,\n    1,\n    0.1,\n    0.9\n  );\n  let dA = map(\n    cos(degrees(minA + maxA) / 100 + (aA * PI) / 2 + frameCount / 400),\n    -1,\n    1,\n    0.1,\n    0.9\n  );\n  aA = global_n % 4 >= 2 ? aA : 1 - aA;\n  dA = global_n % 2 == 0 ? dA : 1 - dA;\n\n  let aB = 1 - aA;\n  let dB = 1 - dA;\n  let d = abs(maxD - minD);\n  let a = abs(maxA - minA);\n\n  if (depth > 0) {\n    recursiveCircle(minD, minD + d * dA, minA, minA + a * aA, depth - 1);\n    recursiveCircle(minD + d * dA, maxD, minA + a * aA, maxA, depth - 1);\n    recursiveCircle(minD, minD + d * dA, minA + a * aA, maxA, depth - 1);\n    recursiveCircle(minD + d * dA, maxD, minA, minA + a * aA, depth - 1);\n  } else {\n    drawArc(minD, minD + d * dA, minA, minA + a * aA, aB);\n    drawArc(minD + d * dA, maxD, minA + a * aA, maxA, dB);\n    drawArc(minD, minD + d * dA, minA + a * aA, maxA, aA);\n    drawArc(minD + d * dA, maxD, minA, minA + a * aA, dA);\n  }\n\n  pop();\n}\n\nfunction drawArc(minD, maxD, startAngle, endAngle, n) {\n  global_n++;\n  if (\n    startAngle < 0 ||\n    endAngle - startAngle < 0 ||\n    minD < 0 ||\n    maxD - minD < 0\n  )\n    return;\n  let colors = shuffle(palette.concat());\n  let g = drawingContext.createConicGradient(startAngle, 0, 0);\n  g.addColorStop(0, colors[0]);\n  g.addColorStop((n * (endAngle - startAngle)) / TWO_PI, colors[2]);\n  g.addColorStop((endAngle - startAngle) / TWO_PI, colors[1]);\n  drawingContext.strokeStyle = g;\n  let d = minD + (maxD - minD) / 2;\n  strokeWeight((maxD - minD) / 2);\n  noFill();\n  strokeCap(SQUARE);\n  arc(0, 0, d, d, startAngle, endAngle);\n}\n\nfunction windowResized() {\n  resizeCanvas(windowWidth, windowHeight);\n}\n\n// Color schemes array remains unchanged\nlet colorScheme = [\n  {\n    name: \"Benedictus\",\n    colors: [\"#F27EA9\", \"#366CD9\", \"#5EADF2\", \"#636E73\", \"#F2E6D8\"],\n  },\n  {\n    name: \"Cross\",\n    colors: [\"#D962AF\", \"#58A6A6\", \"#8AA66F\", \"#F29F05\", \"#F26D6D\"],\n  },\n  {\n    name: \"Demuth\",\n    colors: [\"#222940\", \"#D98E04\", \"#F2A950\", \"#BF3E21\", \"#F2F2F2\"],\n  },\n  {\n    name: \"Hiroshige\",\n    colors: [\"#1B618C\", \"#55CCD9\", \"#F2BC57\", \"#F2DAAC\", \"#F24949\"],\n  },\n  {\n    name: \"Hokusai\",\n    colors: [\"#074A59\", \"#F2C166\", \"#F28241\", \"#F26B5E\", \"#F2F2F2\"],\n  },\n  {\n    name: \"Hokusai Blue\",\n    colors: [\"#023059\", \"#459DBF\", \"#87BF60\", \"#D9D16A\", \"#F2F2F2\"],\n  },\n  {\n    name: \"Java\",\n    colors: [\"#632973\", \"#02734A\", \"#F25C05\", \"#F29188\", \"#F2E0DF\"],\n  },\n  {\n    name: \"Kandinsky\",\n    colors: [\"#8D95A6\", \"#0A7360\", \"#F28705\", \"#D98825\", \"#F2F2F2\"],\n  },\n  {\n    name: \"Monet\",\n    colors: [\"#4146A6\", \"#063573\", \"#5EC8F2\", \"#8C4E03\", \"#D98A29\"],\n  },\n  {\n    name: \"Nizami\",\n    colors: [\"#034AA6\", \"#72B6F2\", \"#73BFB1\", \"#F2A30F\", \"#F26F63\"],\n  },\n  {\n    name: \"Renoir\",\n    colors: [\"#303E8C\", \"#F2AE2E\", \"#F28705\", \"#D91414\", \"#F2F2F2\"],\n  },\n  {\n    name: \"VanGogh\",\n    colors: [\"#424D8C\", \"#84A9BF\", \"#C1D9CE\", \"#F2B705\", \"#F25C05\"],\n  },\n  {\n    name: \"Mono\",\n    colors: [\"#D9D7D8\", \"#3B5159\", \"#5D848C\", \"#7CA2A6\", \"#262321\"],\n  },\n  {\n    name: \"RiverSide\",\n    colors: [\"#906FA6\", \"#025951\", \"#252625\", \"#D99191\", \"#F2F2F2\"],\n  },\n];\nfunction windowResized() {\n  resizeCanvas(windowWidth, windowHeight);\n}\n"
-        }
-      }
+        },
+        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1707994694/Audio/portal_audio-Open_up_i5gb79.mp3"
+      },
+      "textColor": "#2E2E2E"
     },
     "tags": [
       "9c2c08a9-7dc6-4058-bc78-016d0eb00614",
@@ -201,6 +226,7 @@
     "hidden": false,
     "live": true,
     "published": false,
+    "card": {},
     "duration": 30,
     "introPortal": {
       "hostNotes": [
@@ -290,6 +316,7 @@
     "hidden": false,
     "live": true,
     "published": false,
+    "card": {},
     "duration": 30,
     "introPortal": {
       "hostNotes": [
@@ -379,6 +406,7 @@
     "hidden": false,
     "live": true,
     "published": false,
+    "card": {},
     "duration": 30,
     "introPortal": {
       "hostNotes": [
