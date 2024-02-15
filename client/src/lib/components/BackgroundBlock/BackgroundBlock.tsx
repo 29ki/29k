@@ -20,19 +20,21 @@ const Fade = styled(LinearGradient).attrs({
   backgroundColor: 'none',
 });
 
-const TopFade = styled(Fade).attrs<FadeProps, LinearGradientProps>(
+const TopFade = styled(Fade).attrs<FadeProps>(
   ({color}) => ({
     colors: [hexToRgba(color, 0), hexToRgba(color, 1)],
   }),
-)({
+  // Fixes issue with types not being passed down properly from .attrs
+)<Optional<LinearGradientProps, 'colors'>>({
   top: 0,
 });
 
-const BottomFade = styled(Fade).attrs<FadeProps, LinearGradientProps>(
+const BottomFade = styled(Fade).attrs<FadeProps>(
   ({color}) => ({
     colors: [hexToRgba(color, 1), hexToRgba(color, 0)],
   }),
-)({
+  // Fixes issue with types not being passed down properly from .attrs
+)<Optional<LinearGradientProps, 'colors'>>({
   bottom: 0,
 });
 

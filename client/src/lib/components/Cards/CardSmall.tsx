@@ -52,14 +52,14 @@ const Tags = styled.View({
 type TagsGradientProps = {
   color?: string;
 };
-const TagsGradient = styled(LinearGradient).attrs<
-  TagsGradientProps,
-  LinearGradientProps
->(({color = COLORS.CREAM}) => ({
-  start: {x: 0, y: 0},
-  end: {x: 1, y: 0},
-  colors: [hexToRgba(color, 0), hexToRgba(color, 1), hexToRgba(color, 1)],
-}))<TagsGradientProps>({
+const TagsGradient = styled(LinearGradient).attrs<TagsGradientProps>(
+  ({color = COLORS.CREAM}) => ({
+    start: {x: 0, y: 0},
+    end: {x: 1, y: 0},
+    colors: [hexToRgba(color, 0), hexToRgba(color, 1), hexToRgba(color, 1)],
+    // Fixes issue with types not being passed down properly from .attrs
+  }),
+)<Optional<LinearGradientProps, 'colors'>>({
   position: 'absolute',
   right: -SPACINGS.SIXTEEN,
   bottom: 0,

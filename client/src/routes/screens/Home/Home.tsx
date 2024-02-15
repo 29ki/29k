@@ -3,7 +3,7 @@ import {useTranslation} from 'react-i18next';
 import styled from 'styled-components/native';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import {useNavigation, useScrollToTop} from '@react-navigation/native';
-import AnimatedLottieView from 'lottie-react-native';
+import AnimatedLottieView, {LottieViewProps} from 'lottie-react-native';
 
 import todayMap from '../../../assets/animations/today-map.json';
 
@@ -47,7 +47,8 @@ const Map = styled(AnimatedLottieView).attrs({
   source: todayMap,
   autoPlay: true,
   loop: true,
-})({
+  // Fixes issue with types not being passed down properly from .attrs
+})<Optional<LottieViewProps, 'source'>>({
   aspectRatio: `${1000 / 512}`,
 });
 

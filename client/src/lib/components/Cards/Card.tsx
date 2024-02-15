@@ -85,14 +85,14 @@ const InterestedTag = styled(Tag)({
 type TagsGradientProps = {
   color?: string;
 };
-const TagsGradient = styled(LinearGradient).attrs<
-  TagsGradientProps,
-  LinearGradientProps
->(({color = COLORS.CREAM}) => ({
-  start: {x: 0, y: 0},
-  end: {x: 1, y: 0},
-  colors: [hexToRgba(color, 0), hexToRgba(color, 1), hexToRgba(color, 1)],
-}))<TagsGradientProps>({
+const TagsGradient = styled(LinearGradient).attrs<TagsGradientProps>(
+  ({color = COLORS.CREAM}) => ({
+    start: {x: 0, y: 0},
+    end: {x: 1, y: 0},
+    colors: [hexToRgba(color, 0), hexToRgba(color, 1), hexToRgba(color, 1)],
+    // Fixes issue with types not being passed down properly from .attrs
+  }),
+)<Optional<LinearGradientProps, 'colors'>>({
   position: 'absolute',
   right: -SPACINGS.SIXTEEN,
   bottom: 0,
@@ -117,12 +117,12 @@ const Description = styled.View({
 type DescriptionGradientProps = {
   color?: string;
 };
-const DescriptionGradient = styled(LinearGradient).attrs<
-  DescriptionGradientProps,
-  LinearGradientProps
->(({color = COLORS.CREAM}) => ({
+const DescriptionGradient = styled(
+  LinearGradient,
+).attrs<DescriptionGradientProps>(({color = COLORS.CREAM}) => ({
   colors: [hexToRgba(color, 0), hexToRgba(color, 1)],
-}))<DescriptionGradientProps>({
+  // Fixes issue with types not being passed down properly from .attrs
+}))<Optional<LinearGradientProps, 'colors'>>({
   position: 'absolute',
   left: 0,
   right: 0,

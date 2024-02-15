@@ -53,9 +53,10 @@ const Frame = styled.View({
   elevation: 24,
 });
 
-const NameWrapper = styled(LinearGradient).attrs<LinearGradientProps>({
+const NameWrapper = styled(LinearGradient).attrs({
   colors: ['rgba(0, 0, 0, 0)', 'rgba(0, 0, 0, 1)'],
-})({
+  // Fixes issue with types not being passed down properly from .attrs
+})<Optional<LinearGradientProps, 'colors'>>({
   position: 'absolute',
   bottom: -1, // In rare cases you get a hairline at the bottom of the gradient because of rounding issues
   width: '100%',

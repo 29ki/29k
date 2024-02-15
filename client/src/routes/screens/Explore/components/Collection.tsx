@@ -9,7 +9,9 @@ import {Collection as CollectionType} from '../../../../../../shared/src/types/g
 import {Display16} from '../../../../lib/components/Typography/Display/Display';
 import useExercisesByCollectionId from '../../../../lib/content/hooks/useExercisesByCollectionId';
 import {StyleSheet} from 'react-native';
-import LinearGradient from 'react-native-linear-gradient';
+import LinearGradient, {
+  LinearGradientProps,
+} from 'react-native-linear-gradient';
 import {COLORS} from '../../../../../../shared/src/constants/colors';
 import {Spacer4} from '../../../../lib/components/Spacers/Spacer';
 import {useTranslation} from 'react-i18next';
@@ -51,7 +53,8 @@ const Footer = styled(LinearGradient).attrs({
     'rgba(34, 34, 34, 0.34)',
     'rgba(41, 41, 41, 0.7)',
   ],
-})({
+  // Fixes issue with types not being passed down properly from .attrs
+})<Optional<LinearGradientProps, 'colors'>>({
   ...StyleSheet.absoluteFillObject,
   top: '50%',
   paddingHorizontal: 10,

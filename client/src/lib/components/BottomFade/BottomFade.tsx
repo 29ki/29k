@@ -8,12 +8,13 @@ import {COLORS} from '../../../../../shared/src/constants/colors';
 type Props = {
   color?: string;
 };
-const BottomFade = styled(LinearGradient).attrs<Props, LinearGradientProps>(
+const BottomFade = styled(LinearGradient).attrs<Props>(
   ({color = COLORS.WHITE}) => ({
     colors: [hexToRgba(color, 0), hexToRgba(color, 1)],
     pointerEvents: 'none',
   }),
-)<Props>({
+  // Fixes issue with types not being passed down properly from .attrs
+)<Optional<LinearGradientProps, 'colors'>>({
   position: 'absolute',
   left: 0,
   right: 0,
