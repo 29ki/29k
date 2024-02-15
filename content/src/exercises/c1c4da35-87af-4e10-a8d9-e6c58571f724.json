@@ -15,7 +15,10 @@
       {
         "type": "instruction",
         "content": {
-          "text": "In this audio exercise we'll practise telling our stories from different perspectives. Heads up that you'll need somewhere to take notes."
+          "text": "In this audio exercise we'll practise telling our stories from different perspectives. Heads up that you'll need somewhere to take notes.",
+          "image": {
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1707994028/Contributors/async_your_story_sr9huy.png"
+          }
         }
       },
       {
@@ -147,7 +150,7 @@
     ],
     "id": "c1c4da35-87af-4e10-a8d9-e6c58571f724",
     "async": true,
-    "description": "Our past can sometimes dictate the future. Practise telling our past from different perspectives can help us discover possibilities, make wiser decisions and live in line with our values."
+    "description": "Our past can sometimes dictate the future. Practise telling our stories from different perspectives can help us discover possibilities, make wiser decisions and live in line with our values."
   },
   "pt": {
     "slides": [
