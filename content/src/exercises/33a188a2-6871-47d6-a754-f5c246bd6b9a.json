@@ -52,7 +52,8 @@
           "lottie": {
             "durationTimer": true,
             "duration": 59,
-            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/t_card_image/v1676642915/Lottie/default_1min_black_rosi2l.json"
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/t_card_image/v1676642915/Lottie/default_1min_black_rosi2l.json",
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1707994709/Audio/portal_audio-Set_SMART_goals_guj1ma.mp3"
           }
         }
       },
@@ -107,7 +108,7 @@
       "textColor": "#2E2E2E",
       "backgroundColor": "#ff979d"
     },
-    "hidden": true,
+    "hidden": false,
     "name": "Set SMART goals",
     "live": true,
     "published": true,
