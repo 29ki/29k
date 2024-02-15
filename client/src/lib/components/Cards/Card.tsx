@@ -106,7 +106,6 @@ const TitleContainer = styled.View<{minHeight: boolean}>(({minHeight}) => ({
 }));
 
 const Title = styled(Display20)<{color?: string}>(({color}) => ({
-  textOverflow: 'ellipsis',
   color,
 }));
 

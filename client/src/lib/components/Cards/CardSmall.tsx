@@ -68,7 +68,6 @@ const TagsGradient = styled(LinearGradient).attrs<
 });
 
 const Title = styled(Display16)<{color?: string}>(({color}) => ({
-  textOverflow: 'ellipsis',
   color,
 }));
 
