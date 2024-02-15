@@ -15,7 +15,10 @@
       {
         "type": "instruction",
         "content": {
-          "text": "Setting SMART goals is a structure for turning values into action. \n\nHeads up than you’ll need somewhere to take notes for this exercise."
+          "text": "Setting SMART goals is a structure for turning values into action. \n\nHeads up than you’ll need somewhere to take notes for this exercise.",
+          "image": {
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/v1707994019/Contributors/async_set_smart-goals_jfwido.png"
+          }
         }
       },
       {
