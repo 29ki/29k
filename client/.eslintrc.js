@@ -1,7 +1,7 @@
 module.exports = {
   root: true,
   extends: [
-    '@react-native-community',
+    '@react-native',
     'plugin:i18next/recommended',
     'plugin:prettier/recommended',
   ],
