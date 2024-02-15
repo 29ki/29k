@@ -87,16 +87,7 @@
       {
         "type": "instruction",
         "content": {
-          "text": "Well done.\n\nSummary.\n\nIf you’re up for it, you can continue with this mission.\n\nmission description",
-          "image": {
-            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1707994012/Contributors/card_open_up_fy1wm5.png"
-          }
-        }
-      },
-      {
-        "type": "instruction",
-        "content": {
-          "text": "Well done for imagining follow or neglecting a value of yours. Emotions are there to be felt, but they only provide guidance. It’s up to us to choose where we want to go in life.",
+          "text": "Well done for imagining following or neglecting a value of yours. \n\nEmotions are there to be felt, but they only provide guidance. \n\nIt’s up to us to choose where we want to go in life.",
           "image": {
             "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1707994012/Contributors/card_open_up_fy1wm5.png"
           }
@@ -123,7 +114,7 @@
         "image": "https://res.cloudinary.com/cupcake-29k/image/upload/v1665413228/Contributors/Jenny%20Rickardsson.jpg"
       },
       {
-        "name": "Takawo, art works",
+        "name": "Takawo, art",
         "url": "https://openprocessing.org/user/6533?view=sketches&o=48",
         "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1707993843/Contributors/takawo_brtiex.jpg"
       }
