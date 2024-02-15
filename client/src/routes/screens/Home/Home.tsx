@@ -48,7 +48,7 @@ const Map = styled(AnimatedLottieView).attrs({
   autoPlay: true,
   loop: true,
 })({
-  aspectRatio: 1000 / 512,
+  aspectRatio: `${1000 / 512}`,
 });
 
 const AddButton = styled(Button)({
