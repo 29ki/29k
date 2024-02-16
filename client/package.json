@@ -108,7 +108,6 @@
     "@types/react": "^18.2.6",
     "@types/react-native": "^0.67.3",
     "@types/react-test-renderer": "^18.0.0",
-    "@types/styled-components-react-native": "^5.2.5",
     "@types/uuid": "^9.0.8",
     "@typescript-eslint/eslint-plugin": "^5.62.0",
     "@typescript-eslint/parser": "^5.62.0",
