@@ -1922,7 +1922,7 @@ PODS:
     - React-Core
     - React-RCTImage
     - TOCropViewController
-  - RNLocalize (2.2.6):
+  - RNLocalize (3.0.6):
     - React-Core
   - RNNotifee (7.8.2):
     - React-Core
@@ -2404,7 +2404,7 @@ SPEC CHECKSUMS:
   RNFBStorage: 4d29b7d52745f914fd52d450187265a579579973
   RNGestureHandler: 7feb85c5a30ebbcd4d5c7a851ba9e7eafb9860cb
   RNImageCropPicker: e7ab6fb43d2fc3e84651e786ef4a080d63b0ed3d
-  RNLocalize: d4b8af4e442d4bcca54e68fc687a2129b4d71a81
+  RNLocalize: 4222a3756cdbe2dc9a5bdf445765a4d2572107cb
   RNNotifee: 8e2d3df3f0e9ce8f5d1fe4c967431138190b6175
   RNPermissions: 42370ce230eeba6c45f61d5daa9bf5d0b9909b34
   RNRate: ef3bcff84f39bb1d1e41c5593d3eea4aab2bd73a
