@@ -1880,7 +1880,7 @@ PODS:
     - React-perflogger (= 0.73.4)
   - ReactNativeDailyJSScreenShareExtension (0.0.1)
   - RecaptchaInterop (100.0.0)
-  - RNCAsyncStorage (1.21.0):
+  - RNCAsyncStorage (1.22.0):
     - React-Core
   - RNCPicker (2.6.1):
     - React-Core
@@ -2393,7 +2393,7 @@ SPEC CHECKSUMS:
   ReactCommon: dcc65c813041388dead6c8b477444757425ce961
   ReactNativeDailyJSScreenShareExtension: 70af702672121fcd283d7d567def4e501ce207b1
   RecaptchaInterop: 7d1a4a01a6b2cb1610a47ef3f85f0c411434cb21
-  RNCAsyncStorage: 618d03a5f52fbccb3d7010076bc54712844c18ef
+  RNCAsyncStorage: c43e6d71e13bb4748503797784839e0fbbf89d56
   RNCPicker: b18aaf30df596e9b1738e7c1f9ee55402a229dca
   RNDateTimePicker: fc2e4f2795877d45e84d85659bebe627eba5c931
   RNDeviceInfo: db5c64a060e66e5db3102d041ebe3ef307a85120
