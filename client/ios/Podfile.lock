@@ -1697,7 +1697,7 @@ PODS:
     - React-Core
   - react-native-idle-timer (2.2.1):
     - React-Core
-  - react-native-netinfo (11.2.1):
+  - react-native-netinfo (11.3.0):
     - React-Core
   - react-native-safe-area-context (4.9.0):
     - React-Core
@@ -2366,7 +2366,7 @@ SPEC CHECKSUMS:
   react-native-daily-js: 580f4937bf02997a9b3306eb3e4439af2a48fab2
   react-native-get-random-values: 384787fd76976f5aec9465aff6fa9e9129af1e74
   react-native-idle-timer: f1920a59fe776340d004ff9de13c4a6eedcc8807
-  react-native-netinfo: 8a7fd3f7130ef4ad2fb4276d5c9f8d3f28d2df3d
+  react-native-netinfo: 299dad906cdbf3b67bcc6f693c807f98bdd127cc
   react-native-safe-area-context: b97eb6f9e3b7f437806c2ce5983f479f8eb5de4b
   react-native-volume-manager: 3c7d8047841b6831730dea7bf25250522388b4f4
   react-native-webrtc: b8f92ed95bff2f8d7189cb544dc647141e6e6dba
