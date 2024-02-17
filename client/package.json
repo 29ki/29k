@@ -74,7 +74,7 @@
     "react-native-linear-gradient": "^2.8.3",
     "react-native-localize": "^3.0.6",
     "react-native-markdown-display": "^7.0.0-alpha.2",
-    "react-native-permissions": "^3.10.1",
+    "react-native-permissions": "^4.1.1",
     "react-native-rate": "^1.2.12",
     "react-native-reanimated": "^3.7.0",
     "react-native-safe-area-context": "^4.9.0",

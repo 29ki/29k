@@ -1929,7 +1929,7 @@ PODS:
     - RNNotifee/NotifeeCore (= 7.8.2)
   - RNNotifee/NotifeeCore (7.8.2):
     - React-Core
-  - RNPermissions (3.10.1):
+  - RNPermissions (4.1.1):
     - React-Core
   - RNRate (1.2.12):
     - React-Core
@@ -2406,7 +2406,7 @@ SPEC CHECKSUMS:
   RNImageCropPicker: e7ab6fb43d2fc3e84651e786ef4a080d63b0ed3d
   RNLocalize: 4222a3756cdbe2dc9a5bdf445765a4d2572107cb
   RNNotifee: 8e2d3df3f0e9ce8f5d1fe4c967431138190b6175
-  RNPermissions: 42370ce230eeba6c45f61d5daa9bf5d0b9909b34
+  RNPermissions: b387950676d818adf6bb3c08a84eee9a8fdc2f30
   RNRate: ef3bcff84f39bb1d1e41c5593d3eea4aab2bd73a
   RNReactNativeHapticFeedback: ec56a5f81c3941206fd85625fa669ffc7b4545f9
   RNReanimated: ea7e98bf4f1167ca3cd3c348604d34dc4294e848
@@ -2429,6 +2429,6 @@ SPEC CHECKSUMS:
   TOCropViewController: edfd4f25713d56905ad1e0b9f5be3fbe0f59c863
   Yoga: 1b901a6d6eeba4e8a2e8f308f708691cdb5db312
 
-PODFILE CHECKSUM: 11d7b49b8f2b8658eb175bb4f7079f2f20aa1e74
+PODFILE CHECKSUM: 4be266ea78678a5deaceabfa61756cc4ce83cfa3
 
 COCOAPODS: 1.14.3

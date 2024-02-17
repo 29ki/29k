@@ -53,7 +53,7 @@
 		<key>NSAllowsLocalNetworking</key>
 		<true/>
 	</dict>
-	<key>NSCalendarsUsageDescription</key>
+	<key>NSCalendarsFullAccessUsageDescription</key>
 	<string>This allows us to add sessions to your calendar.</string>
 	<key>NSCameraUsageDescription</key>
 	<string>This allows us to take a profile picture of you. It also allows us to stream your video during video sharing.</string>
