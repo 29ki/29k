@@ -1707,7 +1707,7 @@ PODS:
   - react-native-webrtc (111.0.0-daily.2):
     - JitsiWebRTC (~> 111.0.0)
     - React-Core
-  - react-native-webview (13.7.0):
+  - react-native-webview (13.8.1):
     - glog
     - RCT-Folly (= 2022.05.16.00)
     - React-Core
@@ -2370,7 +2370,7 @@ SPEC CHECKSUMS:
   react-native-safe-area-context: b97eb6f9e3b7f437806c2ce5983f479f8eb5de4b
   react-native-volume-manager: 3c7d8047841b6831730dea7bf25250522388b4f4
   react-native-webrtc: b8f92ed95bff2f8d7189cb544dc647141e6e6dba
-  react-native-webview: a18d42ce724d69b8eb19aa87715f58a4becdf0f7
+  react-native-webview: dc191e100e5db2dbd3bc28793c789b95934904ca
   React-nativeconfig: ca8b90c736cf3be019cb332ca42d93dd95b32e05
   React-NativeModulesApple: 1fdffcce7772e274baeab33a1900f45feba86cbd
   React-perflogger: 8a1e1af5733004bdd91258dcefbde21e0d1faccd
