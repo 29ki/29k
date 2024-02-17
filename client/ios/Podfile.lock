@@ -1944,7 +1944,7 @@ PODS:
     - glog
     - RCT-Folly (= 2022.05.16.00)
     - React-Core
-  - RNSentry (5.18.0):
+  - RNSentry (5.19.0):
     - hermes-engine
     - React-Core
     - React-hermes
@@ -2411,7 +2411,7 @@ SPEC CHECKSUMS:
   RNReactNativeHapticFeedback: ec56a5f81c3941206fd85625fa669ffc7b4545f9
   RNReanimated: ea7e98bf4f1167ca3cd3c348604d34dc4294e848
   RNScreens: 2b73f5eb2ac5d94fbd61fa4be0bfebd345716825
-  RNSentry: eefa12fa65b37dd71f54371720f9fcddcd17be2f
+  RNSentry: 98df59e833edc1975d8628fb8c5345773c79974a
   RNSVG: ba3e7232f45e34b7b47e74472386cf4e1a676d0a
   Sentry: d9f99f9cc13777c5d938650c1e1c85047bb4f0d1
   SentryPrivate: 839b1e58addf58624087a80b2628e543193fa8ef
