@@ -17,6 +17,7 @@ const mockToggleReminder = jest.fn();
 jest.mock('../../sessions/hooks/useSessionReminder', () => () => ({
   toggleReminder: mockToggleReminder,
 }));
+jest.mock('../../metrics');
 
 afterEach(jest.clearAllMocks);
 

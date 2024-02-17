@@ -15,6 +15,8 @@ const mockSetPracticeRemindersConfig = jest.fn();
 const mockUsePracticeReminderSetting = jest.mocked(usePracticeRemindersSetting);
 jest.mock('./usePracticeRemindersSetting');
 
+jest.mock('../../metrics');
+
 afterEach(jest.clearAllMocks);
 
 describe('useConfirmPracticeReminders', () => {

@@ -11,6 +11,8 @@ const mockLogMindfulMinutes = jest.fn();
 const mockUseLogMindfulMinutes = jest.mocked(useLogMindfulMinutes);
 jest.mock('./useLogMindfulMinutes');
 
+jest.mock('../../metrics');
+
 afterEach(jest.clearAllMocks);
 
 describe('useConfirmLogMindfulMinutes', () => {

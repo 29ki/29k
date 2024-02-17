@@ -20,9 +20,9 @@ describe('useAuthenticateUser', () => {
     jest.mocked(getMe).mockResolvedValueOnce({});
 
     let userChangedCallback = (user: FirebaseAuthTypes.User | null) => user;
-    (auth().onUserChanged as jest.Mock).mockImplementationOnce(
-      callback => (userChangedCallback = callback),
-    );
+    (auth().onUserChanged as jest.Mock).mockImplementationOnce(callback => {
+      userChangedCallback = callback;
+    });
 
     const useTestHook = () => {
       useAuthenticateUser();
@@ -51,7 +51,7 @@ describe('useAuthenticateUser', () => {
     expect(result.current.userState['some-user-id']).toEqual({});
   });
 
-  it('should reset user state if user gets logged out', () => {
+  it('should reset user state if user gets logged out', async () => {
     useUserState.setState({
       user: {
         uid: 'some-user-id',
@@ -60,9 +60,9 @@ describe('useAuthenticateUser', () => {
     jest.mocked(getMe).mockResolvedValueOnce({});
 
     let userChangedCallback = (user: FirebaseAuthTypes.User | null) => user;
-    (auth().onUserChanged as jest.Mock).mockImplementationOnce(
-      callback => (userChangedCallback = callback),
-    );
+    (auth().onUserChanged as jest.Mock).mockImplementationOnce(callback => {
+      userChangedCallback = callback;
+    });
 
     const useTestHook = () => {
       useAuthenticateUser();
@@ -77,8 +77,8 @@ describe('useAuthenticateUser', () => {
       uid: 'some-user-id',
     });
 
-    act(() => {
-      userChangedCallback(null);
+    await act(async () => {
+      await userChangedCallback(null);
     });
 
     expect(result.current).toEqual(null);

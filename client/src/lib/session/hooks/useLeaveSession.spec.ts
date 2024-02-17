@@ -27,8 +27,12 @@ jest.mock('react', () => ({
   useContext: jest.fn(() => ({leaveMeeting: mockLeaveMeeting})),
 }));
 
+const mockFetchSessions = jest.fn();
 const mockLogLiveSessionMetricEvent = jest.fn();
 const mockLogAsyncSessionMetricEvent = jest.fn();
+jest.mock('../../sessions/hooks/useSessions', () => () => ({
+  fetchSessions: mockFetchSessions,
+}));
 jest.mock(
   './useLiveSessionMetricEvents',
   () => () => mockLogLiveSessionMetricEvent,
@@ -68,6 +72,7 @@ describe('useLeaveSession', () => {
 
       expect(mockLeaveMeeting).toHaveBeenCalledTimes(1);
       expect(useSessionState.getState().liveSession).toBe(null);
+      expect(mockFetchSessions).toHaveBeenCalledTimes(1);
       expect(mockNavigate).toHaveBeenCalledTimes(1);
     });
 
@@ -90,6 +95,7 @@ describe('useLeaveSession', () => {
 
       expect(mockLeaveMeeting).toHaveBeenCalledTimes(0);
       expect(useSessionState.getState().liveSession).toBe(null);
+      expect(mockFetchSessions).toHaveBeenCalledTimes(1);
       expect(mockNavigate).toHaveBeenCalledTimes(1);
     });
 
@@ -112,6 +118,7 @@ describe('useLeaveSession', () => {
 
       await act(() => result.current.leaveSession());
 
+      expect(mockFetchSessions).toHaveBeenCalledTimes(1);
       expect(mockNavigate).toHaveBeenCalledWith('SessionFeedbackModal', {
         exerciseId: 'some-exercise-id',
         completed: true,
@@ -183,6 +190,7 @@ describe('useLeaveSession', () => {
       expect(mockLeaveMeeting).toHaveBeenCalledTimes(1);
       expect(useSessionState.getState().liveSession).toBe(null);
       expect(useSessionState.getState().sessionState).toBe(null);
+      expect(mockFetchSessions).toHaveBeenCalledTimes(1);
       expect(mockLogLiveSessionMetricEvent).toHaveBeenCalledTimes(1);
       expect(mockNavigate).toHaveBeenCalledTimes(2);
       expect(mockNavigate).toHaveBeenCalledWith('App', {screen: 'Tabs'});
@@ -238,6 +246,7 @@ describe('useLeaveSession', () => {
       expect(mockLeaveMeeting).toHaveBeenCalledTimes(0);
       expect(useSessionState.getState().liveSession).toBe(null);
       expect(useSessionState.getState().sessionState).toBe(null);
+      expect(mockFetchSessions).toHaveBeenCalledTimes(1);
       expect(mockNavigate).toHaveBeenCalledTimes(2);
       expect(mockNavigate).toHaveBeenCalledWith('App', {screen: 'Tabs'});
       expect(mockNavigate).toHaveBeenCalledWith('SessionFeedbackModal', {
@@ -283,6 +292,7 @@ describe('useLeaveSession', () => {
         id: 'some-session-id',
         started: true,
       });
+      expect(mockFetchSessions).toHaveBeenCalledTimes(0);
       expect(mockNavigate).toHaveBeenCalledTimes(0);
     });
   });
