@@ -5,17 +5,7 @@ module.exports = {
     'plugin:i18next/recommended',
     'plugin:prettier/recommended',
   ],
-  parser: '@typescript-eslint/parser',
-  plugins: ['@typescript-eslint'],
   overrides: [
-    {
-      files: ['*.ts', '*.tsx'],
-      rules: {
-        '@typescript-eslint/no-shadow': ['error'],
-        'no-shadow': 'off',
-        'no-undef': 'off',
-      },
-    },
     {
       files: ['*.library.tsx'],
       rules: {
