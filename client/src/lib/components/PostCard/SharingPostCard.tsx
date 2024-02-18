@@ -25,7 +25,7 @@ const VideoWrapper = styled.View<{square: boolean}>(({square}) => ({
   backgroundColor: 'red',
   justifyContent: 'center',
   alignItems: 'center',
-  aspectRatio: square ? 1 : undefined,
+  aspectRatio: square ? '1' : undefined,
   borderRadius: 16,
   overflow: 'hidden',
 }));
