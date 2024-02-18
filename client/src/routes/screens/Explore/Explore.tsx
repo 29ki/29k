@@ -34,6 +34,7 @@ import useFeaturedExercises from '../../../lib/content/hooks/useFeaturedExercise
 import Sessions from './components/Sessions';
 import {CollectionIcon} from '../../../lib/components/Icons';
 import IconWrapper from './components/IconWrapper';
+import {SPACINGS} from '../../../lib/constants/spacings';
 
 const Explore = () => {
   const {navigate} =
@@ -64,7 +65,7 @@ const Explore = () => {
 
   return (
     <Screen backgroundColor={COLORS.PURE_WHITE}>
-      <TopSafeArea />
+      <TopSafeArea minSize={SPACINGS.SIXTEEN} />
       <TopBar
         backgroundColor={COLORS.PURE_WHITE}
         onPressEllipsis={onPressEllipsis}>
