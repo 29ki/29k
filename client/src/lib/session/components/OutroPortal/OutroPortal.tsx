@@ -101,8 +101,6 @@ const OutroPortal: React.FC<OutroPortalProps> = ({
         </>
       )}
 
-      <TopSafeArea minSize={SPACINGS.SIXTEEN} />
-
       {isLoading && <Spinner size="large" color={exercise?.theme?.textColor} />}
 
       <TopBar>
