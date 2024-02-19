@@ -9030,10 +9030,10 @@ postcss-value-parser@^4.0.2, postcss-value-parser@^4.2.0:
   resolved "https://registry.yarnpkg.com/postcss-value-parser/-/postcss-value-parser-4.2.0.tgz#723c09920836ba6d3e5af019f92bc0971c02e514"
   integrity sha512-1NNCs6uurfkVbeXG4S8JFT9t19m45ICnif8zWLd5oPSZ50QnwMfK+H3jv408d4jw/7Bttv5axS5IiHoLaVNHeQ==
 
-posthog-react-native@^2.11.3:
-  version "2.11.3"
-  resolved "https://registry.yarnpkg.com/posthog-react-native/-/posthog-react-native-2.11.3.tgz#5f233ef147aaf81a70e7902f8742638e9ba0116e"
-  integrity sha512-vYlTh1RFHMDxlIRaYidVPylbf3t+k34sDQ9r1u3l084e6K3NkrMUmEEG64ZhbmwK24Oo5HxoQHHmbqkEifd61w==
+posthog-react-native@^2.11.4:
+  version "2.11.4"
+  resolved "https://registry.yarnpkg.com/posthog-react-native/-/posthog-react-native-2.11.4.tgz#d9b5ac7035141ea69bbee0eb51f0786ee740b20b"
+  integrity sha512-ULIrrQNsgBzyCQJS8XVdRA0N+o95Sy6R4LewKoEM3FKL8t2NPNkwlsSFaOlIY1bgyGFVOmUw8uR3Vehwy9S0Ww==
 
 prelude-ls@^1.2.1:
   version "1.2.1"
