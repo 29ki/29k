@@ -44,7 +44,10 @@ import Markdown from '../../../../../lib/components/Typography/Markdown/Markdown
 import useTags from '../../../../../lib/content/hooks/useTags';
 import Tag from '../../../../../lib/components/Tag/Tag';
 import IconButton from '../../../../../lib/components/Buttons/IconButton/IconButton';
-import {ThumbsUpWithoutPadding} from '../../../../../lib/components/Thumbs/Thumbs';
+import {
+  ThumbsDownWithoutPadding,
+  ThumbsUpWithoutPadding,
+} from '../../../../../lib/components/Thumbs/Thumbs';
 import useExerciseRating from '../../../../../lib/session/hooks/useExerciseRating';
 import useExerciseFeedback from '../../../../../lib/session/hooks/useExerciseFeedback';
 import FeedbackCarousel from '../../../../../lib/components/FeedbackCarousel/FeedbackCarousel';
@@ -120,7 +123,11 @@ const RatingContainer = styled.View({
   left: GUTTERS.SMALL,
 });
 
-const FeedbackThumb = styled(ThumbsUpWithoutPadding)({
+const FeedbackThumbsUp = styled(ThumbsUpWithoutPadding)({
+  width: 24,
+  height: 24,
+});
+const FeedbackThumbsDown = styled(ThumbsDownWithoutPadding)({
   width: 24,
   height: 24,
 });
@@ -242,9 +249,13 @@ const SelectTypeStep: React.FC<StepProps> = ({
         <Gutters>
           {rating && rating.positive > 0 ? (
             <RatingContainer>
-              <FeedbackThumb />
+              <FeedbackThumbsUp />
               <Spacer4 />
               <Body16>{rating.positive}</Body16>
+              <Spacer4 />
+              <FeedbackThumbsDown />
+              <Spacer4 />
+              <Body16>{rating.negative}</Body16>
             </RatingContainer>
           ) : null}
           <Spacer12 />
