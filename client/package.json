@@ -23,7 +23,7 @@
   "dependencies": {
     "@daily-co/react-native-daily-js": "0.55.2",
     "@daily-co/react-native-webrtc": "111.0.0-daily.2",
-    "@dotlottie/react-player": "^1.6.15",
+    "@dotlottie/react-player": "^1.6.17",
     "@gorhom/bottom-sheet": "^4.6.0",
     "@kingstinct/react-native-healthkit": "^7.3.2",
     "@lottiefiles/react-lottie-player": "^3.5.3",
