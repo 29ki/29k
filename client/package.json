@@ -21,7 +21,7 @@
     "test": "yarn build:content && yarn test:ts && yarn test:lint && yarn test:jest"
   },
   "dependencies": {
-    "@daily-co/react-native-daily-js": "0.55.2",
+    "@daily-co/react-native-daily-js": "0.56.0",
     "@daily-co/react-native-webrtc": "111.0.0-daily.2",
     "@dotlottie/react-player": "^1.6.17",
     "@gorhom/bottom-sheet": "^4.6.0",
