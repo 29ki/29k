@@ -64,7 +64,10 @@ import {
 import ActionList from '../../../lib/components/ActionList/ActionList';
 import ActionButton from '../../../lib/components/ActionList/ActionItems/ActionButton';
 import MagicIcon from '../../../lib/components/Icons/Magic/Magic';
-import {ThumbsUpWithoutPadding} from '../../../lib/components/Thumbs/Thumbs';
+import {
+  ThumbsDownWithoutPadding,
+  ThumbsUpWithoutPadding,
+} from '../../../lib/components/Thumbs/Thumbs';
 import useExerciseFeedback from '../../../lib/session/hooks/useExerciseFeedback';
 import FeedbackCarousel from '../../../lib/components/FeedbackCarousel/FeedbackCarousel';
 import useExercisesByTags from '../../../lib/content/hooks/useExercisesByTags';
@@ -96,7 +99,11 @@ const RatingContainer = styled(Gutters)({
   alignItems: 'center',
 });
 
-const FeedbackThumb = styled(ThumbsUpWithoutPadding)({
+const FeedbackThumbsUp = styled(ThumbsUpWithoutPadding)({
+  width: 24,
+  height: 24,
+});
+const FeedbackThumbsDown = styled(ThumbsDownWithoutPadding)({
   width: 24,
   height: 24,
 });
@@ -236,9 +243,13 @@ const SessionModal = () => {
         <Content>
           {rating && rating.positive > 0 ? (
             <RatingContainer>
-              <FeedbackThumb />
+              <FeedbackThumbsUp />
               <Spacer4 />
               <Body16>{rating.positive}</Body16>
+              <Spacer4 />
+              <FeedbackThumbsDown />
+              <Spacer4 />
+              <Body16>{rating.negative}</Body16>
             </RatingContainer>
           ) : null}
           <Spacer16 />
