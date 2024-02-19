@@ -1075,7 +1075,7 @@
 					"$(inherited)",
 					"-ObjC",
 					"-lc++",
-          "-Wl",
+					"-Wl",
 					"-ld_classic",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = org.twentyninek.app.cupcake;
@@ -1145,7 +1145,7 @@
 					"$(inherited)",
 					"-ObjC",
 					"-lc++",
-          "-Wl",
+					"-Wl",
 					"-ld_classic",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = org.twentyninek.app.cupcake.dev;
