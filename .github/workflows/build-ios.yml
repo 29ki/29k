@@ -151,7 +151,6 @@ jobs:
         run: yarn build
 
       - name: Build & Upload App
-        if: false
         working-directory: ./client/fastlane
         run: bundle exec fastlane ios app
 
