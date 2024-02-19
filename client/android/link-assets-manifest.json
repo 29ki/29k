@@ -142,6 +142,14 @@
       "sha1": "4c6d5694b37203a6a8746f80ca837c5aaa164068"
     },
     {
+      "path": "src/assets/images/thumbs_down.png",
+      "sha1": "09abe9cc14620117fd2307a639ba4ebaf41e034c"
+    },
+    {
+      "path": "src/assets/images/thumbs_down_silouette.png",
+      "sha1": "3bd561bbaa5180ac7d524dfc0a2cdaf60cd987a9"
+    },
+    {
       "path": "src/assets/images/thumbs_up.png",
       "sha1": "0068d430ac23fa13c907410324e899e944d1d876"
     },
