@@ -15,7 +15,7 @@ const StyledScrollView = styled(Animated.ScrollView)({
 
 const HeaderContainer = styled(Animated.View)<{aspectRatio: number}>(
   ({aspectRatio}) => ({
-    aspectRatio,
+    aspectRatio: `${aspectRatio}`,
   }),
 );
 

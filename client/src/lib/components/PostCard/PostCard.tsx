@@ -23,13 +23,13 @@ type BottomGradientProps = {
   color: string;
 };
 
-const BottomGradient = styled(LinearGradient).attrs<
-  BottomGradientProps,
-  LinearGradientProps
->(({color}) => ({
-  colors: [hexToRgba(color, 0), hexToRgba(color, 1)],
-  locations: [0, 0.66],
-}))<BottomGradientProps>({
+const BottomGradient = styled(LinearGradient).attrs<BottomGradientProps>(
+  ({color}) => ({
+    colors: [hexToRgba(color, 0), hexToRgba(color, 1)],
+    locations: [0, 0.66],
+  }),
+  // Fixes issue with types not being passed down properly from .attrs
+)<Optional<LinearGradientProps, 'colors'>>({
   position: 'absolute',
   left: 0,
   right: 0,

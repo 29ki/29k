@@ -6,7 +6,7 @@ import {
   useRoute,
 } from '@react-navigation/native';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
-import {Platform} from 'react-native';
+import {KeyboardAvoidingViewProps, Platform} from 'react-native';
 import styled from 'styled-components/native';
 import {useTranslation} from 'react-i18next';
 import {DailyMediaView} from '@daily-co/react-native-daily-js';
@@ -53,7 +53,10 @@ import AutoScrollView from '../../../../../lib/components/AutoScrollView/AutoScr
 import useLogSessionMood from '../hooks/useLogSessionMood';
 
 const KeyboardWrapper = styled.KeyboardAvoidingView.attrs({
-  behavior: Platform.select({ios: 'position', android: undefined}),
+  behavior: Platform.select<KeyboardAvoidingViewProps['behavior']>({
+    ios: 'position',
+    android: undefined,
+  }),
 })({});
 
 const Controls = styled.View({

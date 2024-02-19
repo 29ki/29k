@@ -37,7 +37,9 @@ import {ThumbsUp, ThumbsDown} from '../../../lib/components/Thumbs/Thumbs';
 
 import useCompletedSessionById from '../../../lib/user/hooks/useCompletedSessionById';
 import useSessionFeedback from '../../../lib/session/hooks/useSessionFeedback';
-import VideoLooper from '../../../lib/components/VideoLooper/VideoLooper';
+import VideoLooper, {
+  VideoLooperProperties,
+} from '../../../lib/components/VideoLooper/VideoLooper';
 import {
   Body12,
   BodyBold,
@@ -54,7 +56,8 @@ const BackgroundVideo = styled(VideoLooper).attrs({
       repeat: true,
     },
   ],
-})(({paused}) => ({
+  // Fixes issue with types not being passed down properly from .attrs
+})<Optional<VideoLooperProperties, 'sources'>>(({paused}) => ({
   ...StyleSheet.absoluteFillObject,
   opacity: paused ? 0 : 1, // Hide it when not playing to pre-load it a bit
 }));

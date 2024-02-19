@@ -21,6 +21,8 @@ jest.mock('./useUpdatePracticeReminders', () =>
   })),
 );
 
+jest.mock('../../metrics');
+
 afterEach(() => {
   jest.clearAllMocks();
 });

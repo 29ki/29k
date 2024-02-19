@@ -121,9 +121,7 @@ const Journey = () => {
     () =>
       sections.reduce(
         (index, section, currIndex) =>
-          currIndex < filtersSectionIndex
-            ? index + section.data.length + 2 // +2 for the section header and footer of each section (SectionList weirdness)
-            : index,
+          currIndex < filtersSectionIndex ? index + section.data.length : index,
         0,
       ),
     [filtersSectionIndex, sections],
@@ -238,6 +236,8 @@ const Journey = () => {
     );
   }
 
+  console.log('sections', sections, initialScrollIndex);
+
   return (
     <Screen backgroundColor={COLORS.PURE_WHITE}>
       <TopSafeArea minSize={SPACINGS.SIXTEEN} />
@@ -256,7 +256,7 @@ const Journey = () => {
         stickySectionHeadersEnabled
         renderSectionHeader={renderSectionHeader}
         renderItem={renderSession}
-        initialScrollIndex={initialScrollIndex}
+        initialScrollIndex={0}
         refreshControl={
           <RefreshControl refreshing={isLoading} onRefresh={refreshPull} />
         }

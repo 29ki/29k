@@ -16,6 +16,7 @@ jest.mock('../../../lib/notifications/hooks/useTriggerNotifications', () =>
 );
 
 jest.mock('../../../lib/content/hooks/useExerciseById', () => jest.fn());
+jest.mock('../../metrics');
 
 afterEach(() => {
   jest.clearAllMocks();

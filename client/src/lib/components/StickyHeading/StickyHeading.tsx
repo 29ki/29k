@@ -12,7 +12,7 @@ type Props = {
   backgroundColor?: string;
 };
 
-const StickyHeading = styled(LinearGradient).attrs<Props, LinearGradientProps>(
+const StickyHeading = styled(LinearGradient).attrs<Props>(
   ({backgroundColor = COLORS.PURE_WHITE}) => ({
     colors: [
       hexToRgba(backgroundColor, 1),
@@ -20,7 +20,8 @@ const StickyHeading = styled(LinearGradient).attrs<Props, LinearGradientProps>(
       hexToRgba(backgroundColor, 0),
     ],
   }),
-)<Props>({
+)<Optional<LinearGradientProps, 'colors'>>({
+  // Fixes issue with types not being passed down properly from .attrs
   minHeight: HEIGHT,
   paddingHorizontal: GUTTERS.SMALL,
   flexDirection: 'row',

@@ -5,7 +5,9 @@ import Heading from './Heading';
 import VideoLooper from '../../../../lib/components/VideoLooper/VideoLooper';
 import styled from 'styled-components/native';
 import {COLORS} from '../../../../../../shared/src/constants/colors';
-import LinearGradient from 'react-native-linear-gradient';
+import LinearGradient, {
+  LinearGradientProps,
+} from 'react-native-linear-gradient';
 import {Body14} from '../../../../lib/components/Typography/Body/Body';
 import {Spacer32} from '../../../../lib/components/Spacers/Spacer';
 
@@ -53,7 +55,8 @@ const Frame = styled.View({
 
 const NameWrapper = styled(LinearGradient).attrs({
   colors: ['rgba(0, 0, 0, 0)', 'rgba(0, 0, 0, 1)'],
-})({
+  // Fixes issue with types not being passed down properly from .attrs
+})<Optional<LinearGradientProps, 'colors'>>({
   position: 'absolute',
   bottom: -1, // In rare cases you get a hairline at the bottom of the gradient because of rounding issues
   width: '100%',

@@ -14,6 +14,8 @@ const mockGetAuthorizationStatus = jest.mocked(
 const mockLog = jest.mocked(mindfulMinutes.log);
 jest.mock('../lib/logMindfulMinutes');
 
+jest.mock('../../metrics');
+
 afterEach(jest.clearAllMocks);
 
 describe('useLogMindfulMinutes', () => {
