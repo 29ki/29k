@@ -166,7 +166,7 @@ jobs:
           node_modules/react-native/sdks/hermesc/osx-bin/hermesc
           -O -emit-binary
           -output-source-map
-          -out=$SOURCEMAPS_DIRindex.android.bundle.hbc
+          -out=$SOURCEMAPS_DIR/index.android.bundle.hbc
           $SOURCEMAPS_DIR/index.android.bundle
 
           rm -f $SOURCEMAPS_DIR/index.android.bundle
