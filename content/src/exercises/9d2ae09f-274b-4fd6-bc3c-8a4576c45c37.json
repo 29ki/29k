@@ -146,27 +146,22 @@
         "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1698917804/Video/portal2_bounce_back_otpgvf.mp4"
       }
     },
-    "tags": [
-      "8da0534a-5da9-430a-bdf3-242ace6460fb"
-    ],
+    "tags": ["8da0534a-5da9-430a-bdf3-242ace6460fb"],
     "link": "https://aware.29k.org/bounce-back",
-    "id": "c7911238-ca9f-4499-9cae-63dfcd0c79c5",
+    "id": "9d2ae09f-274b-4fd6-bc3c-8a4576c45c37",
     "async": true,
     "description": "Enabling change both in others and ourselves entails skills as courage, creativity, perseverence and resilience. Bouncing back from hardships can sometimes make us grow. In this session we investigate our resources and inspire optimism."
   },
   "pt": {
-    "tags": [
-      "8da0534a-5da9-430a-bdf3-242ace6460fb"
-    ]
+    "id": "9d2ae09f-274b-4fd6-bc3c-8a4576c45c37",
+    "tags": ["8da0534a-5da9-430a-bdf3-242ace6460fb"]
   },
   "sv": {
-    "tags": [
-      "8da0534a-5da9-430a-bdf3-242ace6460fb"
-    ]
+    "id": "9d2ae09f-274b-4fd6-bc3c-8a4576c45c37",
+    "tags": ["8da0534a-5da9-430a-bdf3-242ace6460fb"]
   },
   "ja": {
-    "tags": [
-      "8da0534a-5da9-430a-bdf3-242ace6460fb"
-    ]
+    "id": "9d2ae09f-274b-4fd6-bc3c-8a4576c45c37",
+    "tags": ["8da0534a-5da9-430a-bdf3-242ace6460fb"]
   }
 }
