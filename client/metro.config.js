@@ -8,6 +8,10 @@ const {getDefaultConfig, mergeConfig} = require('@react-native/metro-config');
 
 var path = require('path');
 
+const {
+  createSentryMetroSerializer,
+} = require('@sentry/react-native/dist/js/tools/sentryMetroSerializer');
+
 /*
    Shared folder outside project root
    https://medium.com/@dushyant_db/how-to-import-files-from-outside-of-root-directory-with-react-native-metro-bundler-18207a348427
@@ -38,6 +42,7 @@ const config = {
       },
     }),
   },
+
   resolver: {
     extraNodeModules: new Proxy(extraNodeModules, {
       get: (target, name) =>
@@ -47,7 +52,12 @@ const config = {
           : path.join(process.cwd(), `node_modules/${name}`),
     }),
   },
+
   watchFolders,
+
+  serializer: {
+    customSerializer: createSentryMetroSerializer(),
+  },
 };
 
 module.exports = mergeConfig(getDefaultConfig(__dirname), config);
