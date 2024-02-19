@@ -163,7 +163,7 @@ jobs:
       - name: Compile Hermes Bytecode
         working-directory: ./client
         run: >
-          ios/Pods/hermes-engine/destroot/bin/hermesc
+          node_modules/react-native/sdks/hermesc/osx-bin/hermesc
           -O -emit-binary
           -output-source-map
           -out=$SOURCEMAPS_DIRindex.android.bundle.hbc
