@@ -1075,6 +1075,8 @@
 					"$(inherited)",
 					"-ObjC",
 					"-lc++",
+          "-Wl",
+					"-ld_classic",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = org.twentyninek.app.cupcake;
 				PRODUCT_NAME = production;
@@ -1108,6 +1110,8 @@
 					"$(inherited)",
 					"-ObjC",
 					"-lc++",
+					"-Wl",
+					"-ld_classic",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = org.twentyninek.app.cupcake;
 				PRODUCT_NAME = production;
@@ -1141,6 +1145,8 @@
 					"$(inherited)",
 					"-ObjC",
 					"-lc++",
+          "-Wl",
+					"-ld_classic",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = org.twentyninek.app.cupcake.dev;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1174,6 +1180,8 @@
 					"$(inherited)",
 					"-ObjC",
 					"-lc++",
+					"-Wl",
+					"-ld_classic",
 				);
 				OTHER_LIBTOOLFLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = org.twentyninek.app.cupcake.dev;
@@ -1208,6 +1216,8 @@
 					"$(inherited)",
 					"-ObjC",
 					"-lc++",
+					"-Wl",
+					"-ld_classic",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = org.twentyninek.app.cupcake.staging;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1241,6 +1251,8 @@
 					"$(inherited)",
 					"-ObjC",
 					"-lc++",
+					"-Wl",
+					"-ld_classic",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = org.twentyninek.app.cupcake.staging;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1334,6 +1346,8 @@
 					"$(inherited)",
 					"-ObjC",
 					"-lc++",
+					"-Wl",
+					"-ld_classic",
 				);
 				REACT_NATIVE_PATH = "${PODS_ROOT}/../../node_modules/react-native";
 				SDKROOT = iphoneos;
@@ -1416,6 +1430,8 @@
 					"$(inherited)",
 					"-ObjC",
 					"-lc++",
+					"-Wl",
+					"-ld_classic",
 				);
 				REACT_NATIVE_PATH = "${PODS_ROOT}/../../node_modules/react-native";
 				SDKROOT = iphoneos;
