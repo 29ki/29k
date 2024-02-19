@@ -467,9 +467,9 @@
 				36B9FA1228625FFA00563812 /* Frameworks */,
 				36B9FA1428625FFA00563812 /* Resources */,
 				36B9FA1928625FFA00563812 /* Bundle React Native code and images */,
-				CE978B095FD0568D919F7566 /* [CP] Copy Pods Resources */,
 				360B1B8728D305990072A0CC /* Upload Debug Symbols to Sentry */,
 				6F9B7AD5B8F1F6309EB1F48F /* [CP] Embed Pods Frameworks */,
+				CE978B095FD0568D919F7566 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
