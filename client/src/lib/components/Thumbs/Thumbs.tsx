@@ -34,9 +34,22 @@ export const ThumbsUp: React.FC<ThumbProps> = ({active = false, style}) => (
   </Container>
 );
 
-export const ThumbsDown = styled(ThumbsUp)({
-  transform: 'scaleY(-1)',
-});
+export const ThumbsDown: React.FC<ThumbProps> = ({active = false, style}) => (
+  <Container style={style}>
+    {active && (
+      <Image
+        source={{
+          uri: 'thumbs_down_silouette',
+        }}
+      />
+    )}
+    <Image
+      source={{
+        uri: 'thumbs_down',
+      }}
+    />
+  </Container>
+);
 
 export const ThumbsUpWithoutPadding = styled(ThumbsUp)({
   transform: 'scale(2)',
