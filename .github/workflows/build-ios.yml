@@ -171,15 +171,45 @@ jobs:
           --bundle-output $SOURCEMAPS_DIR/main.jsbundle
           --sourcemap-output $SOURCEMAPS_DIR/main.jsbundle.map
 
+      - name: Compile Hermes Bytecode
+        working-directory: ./client
+        run: >
+          ios/Pods/hermes-engine/destroot/bin/hermesc
+          -O -emit-binary
+          -output-source-map
+          -out=$SOURCEMAPS_DIR/main.jsbundle.hbc
+          $SOURCEMAPS_DIR/main.jsbundle
+
+          rm -f $SOURCEMAPS_DIR/main.jsbundle
+
+          mv $SOURCEMAPS_DIR/main.jsbundle.hbc $SOURCEMAPS_DIR/main.jsbundle
+
+      - name: Compose Hermes Bytecode and Source Map
+        working-directory: ./client
+        run: >
+          mv $SOURCEMAPS_DIR/main.jsbundle.map $SOURCEMAPS_DIR/main.jsbundle.packager.map
+
+          node node_modules/react-native/scripts/compose-source-maps.js
+          $SOURCEMAPS_DIR/main.jsbundle.packager.map
+          $SOURCEMAPS_DIR/main.jsbundle.hbc.map
+          -o $SOURCEMAPS_DIR/main.jsbundle.map
+
+          node node_modules/@sentry/react-native/scripts/copy-debugid.js
+          $SOURCEMAPS_DIR/main.jsbundle.packager.map
+          $SOURCEMAPS_DIR/main.jsbundle.map
+
+          rm -f $SOURCEMAPS_DIR/main.jsbundle.packager.map
+
       - name: Upload Source Map to Sentry
         working-directory: ./client
         run: >
-          yarn sentry-cli releases
-          files $GIT_COMMIT_SHORT
-          upload-sourcemaps
-          --dist ${{ vars.ENVIRONMENT }}
+          yarn sentry-cli sourcemaps upload
+          --debug-id-reference
           --strip-prefix $PWD
-          $SOURCEMAPS_DIR
+          --dist ${{ vars.ENVIRONMENT }}
+          --release $GIT_COMMIT_SHORT
+          $SOURCEMAPS_DIR/main.jsbundle
+          $SOURCEMAPS_DIR/main.jsbundle.map
 
       - name: Associate Commits to Sentry Release
         working-directory: ./client
