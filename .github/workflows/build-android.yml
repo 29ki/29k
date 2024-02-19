@@ -163,9 +163,7 @@ jobs:
       - name: Compile Hermes Bytecode
         working-directory: ./client
         run: >
-          chmod +x node_modules/react-native/sdks/hermesc/osx-bin/hermesc
-
-          node_modules/react-native/sdks/hermesc/osx-bin/hermesc
+          node_modules/react-native/sdks/hermesc/linux64-bin/hermesc
           -O -emit-binary
           -output-source-map
           -out=$SOURCEMAPS_DIR/index.android.bundle.hbc
