@@ -42,7 +42,7 @@
     "@react-navigation/native": "^6.1.9",
     "@react-navigation/native-stack": "^6.9.18",
     "@react-navigation/stack": "^6.3.21",
-    "@sentry/react-native": "^5.18.0",
+    "@sentry/react-native": "^5.19.0",
     "@stripe/stripe-react-native": "^0.36.0",
     "@th3rdwave/react-navigation-bottom-sheet": "^0.2.2",
     "@types/lodash.throttle": "^4.1.9",
