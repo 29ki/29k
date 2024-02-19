@@ -55,6 +55,6 @@ export const ThumbsUpWithoutPadding = styled(ThumbsUp)({
   transform: 'scale(2)',
 });
 
-export const ThumbsDownWithoutPadding = styled(ThumbsUpWithoutPadding)({
-  transform: 'scale(2, -2)',
+export const ThumbsDownWithoutPadding = styled(ThumbsDown)({
+  transform: 'scale(2)',
 });
