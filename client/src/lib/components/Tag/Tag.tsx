@@ -40,7 +40,9 @@ const Tag: React.FC<TagProps> = ({children, style, LeftIcon, iconFill}) => (
         <LeftIcon fill={iconFill} />
       </IconWrapper>
     )}
-    <StyledBody style={style}>{children}</StyledBody>
+    <StyledBody style={style} numberOfLines={1}>
+      {children}
+    </StyledBody>
   </Container>
 );
 
