@@ -13,7 +13,10 @@
         ]
       },
       {
-        "type": "instruction"
+        "type": "instruction",
+        "content": {
+          "text": "Social skills can help us collaborate when we face challenges. In this exercise we'll focus on seeing others' kind acts, fostering trust, and mobilizing ourselves and others."
+        }
       },
       {
         "type": "content",
