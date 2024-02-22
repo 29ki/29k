@@ -20,7 +20,10 @@
         }
       },
       {
-        "type": "instruction"
+        "type": "instruction",
+        "content": {
+          "text": "How we relate to others and the world can affect how we care and make decisions, as well as how we feel and act. In this outdoor meditation we’ll be using all our five senses: hearing, smell, vision, taste and touch, to practice fully relating to what’s around us at this moment.\n\nPlace yourself where you can comfortably stand for 20 minutes before moving on."
+        }
       },
       {
         "type": "content",
