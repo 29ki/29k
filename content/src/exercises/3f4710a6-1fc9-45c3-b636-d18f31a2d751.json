@@ -5,7 +5,7 @@
         "type": "host",
         "hostNotes": [
           {
-            "text": "I am X and today we will work for around 40 minutes on connecting to the outdoors and ourselves, using all of our senses.\n\nYou can participate anywhere where you have access to the outdoors. A street, a balcony, a park or in the wilderness."
+            "text": "I am X and today we will work for around 40 minutes on relating to the outdoors and ourselves. Skills as appreciation and connectedness come in to play, as we use all of our senses to take in our surroundings.\n\nYou can participate anywhere where you have access to the outdoors. A street, a balcony, a park or in the wilderness."
           },
           {
             "text": "We’ll be listening to a 20-minute meditation together, followed by time for reflection and sharing with each other. \n\nLet’s start with a mini check-in."
@@ -20,13 +20,16 @@
         }
       },
       {
+        "type": "instruction",
+        "content": {
+          "text": "How we relate to others and the world can affect how we care and make decisions, as well as how we feel and act. In this outdoor meditation we’ll be using all our five senses: hearing, smell, vision, taste and touch, to practice fully relating to what’s around us at this moment.\n\nPlace yourself where you can comfortably stand for 20 minutes before moving on."
+        }
+      },
+      {
         "type": "content",
         "hostNotes": [
           {
-            "text": "Present moment awareness is one of life’s super skills for boosting happiness, connection and life satisfaction."
-          },
-          {
-            "text": "In this outdoor meditation we’ll be using all our five senses, hearing, smell, vision, taste and touch to practice fully taking in what’s around us and within us at this moment."
+            "text": "How we relate to others and the world can affect how we care and make decisions, as well as how we feel and act. In this outdoor meditation we’ll be using all our five senses: hearing, smell, vision, taste and touch, to practice fully relating to what’s around us at this moment."
           },
           {
             "text": "Before we start, place yourself where you can comfortably stand for 20 minutes. Take a couple of deeper breaths, and just notice breathing for a few seconds.\n\n> Press play to start the meditation"
@@ -93,7 +96,7 @@
             "text": "Well done. If you’re up for it, you can continue with a mission to bring this into your everyday life.\n\nFor the coming two days, pick a sweet spot outdoors where you take a few minutes to go through sensing all your senses, one by one."
           },
           {
-            "text": " See if you can mindfully observe what’s going on at that spot, and within yourself. \n\nBefore we leave this space let’s do a mini check-out. How do you feel now, has anything shifted? Please answer in two-three words."
+            "text": " See if you can mindfully observe what’s going on at that spot, practising relating. \n\nBefore we leave this space let’s do a mini check-out. How do you feel now, has anything shifted? Please answer in two-three words."
           },
           {
             "text": "Who would like to start?\n\n> Let everyone in the session check out one by one.\n\nThank you all for checking out and for joining this session today.\n\n> Finish session to send everyone off to the exit experience."
@@ -108,7 +111,7 @@
         "type": "instruction",
         "content": {
           "heading": "Well done",
-          "text": "If you’re up for it, you can continue with this mission:\n\nFor the coming two days, pick a sweet spot outdoors where you take a few minutes to go through sensing all your senses, one by one.\n\nSee if you can mindfully observe what’s going on at that spot, and within yourself.",
+          "text": "If you’re up for it, you can continue with this mission:\n\nFor the coming two days, pick a sweet spot outdoors where you take a few minutes to go through sensing all your senses, one by one.\n\nSee if you can mindfully observe what’s going on at that spot, and practise how you relate.",
           "image": {
             "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1684313656/Images/outdoor_sensing_thumb_q68hl4.png"
           }
@@ -176,7 +179,7 @@
     "link": "https://aware.29k.org/outdoor-sensing",
     "id": "3f4710a6-1fc9-45c3-b636-d18f31a2d751",
     "async": true,
-    "description": "In this meditation , we use all our senses to connect with ourselves and the surrounding nature **–** no matter if nature is a street, a balcony, or deep in the forest. Practising nature awareness can help us feel happier and more connected to ourselves and others."
+    "description": "Practice appreciation and connectedness – two of the skills in the Relating category. In this outdoors meditative session we use all our senses to connect with ourselves and the surrounding nature. Fostering a sense of connection and appreciation of nature helps us lay the groundwork for just and sustainable systems."
   },
   "pt": {
     "id": "3f4710a6-1fc9-45c3-b636-d18f31a2d751",
