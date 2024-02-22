@@ -30,16 +30,19 @@ const Card = styled.View<{backgroundColor?: string}>(({backgroundColor}) => ({
   backgroundColor,
 }));
 
-const New = styled(Body12)({
+const New = styled.View({
   position: 'absolute',
   top: 10,
   left: 10,
   paddingHorizontal: 4,
   paddingVertical: 2,
   borderRadius: 4,
-  color: COLORS.PURE_WHITE,
   backgroundColor: COLORS.BLACK,
   overflow: 'hidden',
+});
+
+const WhiteBody12 = styled(Body12)({
+  color: COLORS.PURE_WHITE,
 });
 
 const BackgroundImage = styled.Image({
@@ -93,7 +96,11 @@ const Collection: React.FC<Props> = ({collection}) => {
     <TouchableOpacity onPress={onPress}>
       <Card backgroundColor={collection.card?.imageBackgroundColor}>
         <BackgroundImage source={source} />
-        {featuredIds.includes(collection.id) && <New>{t('new')}</New>}
+        {featuredIds.includes(collection.id) && (
+          <New>
+            <WhiteBody12>{t('new')}</WhiteBody12>
+          </New>
+        )}
         <Footer>
           <Lessons>
             <BodyBold>

@@ -1686,7 +1686,7 @@ PODS:
   - React-Mapbuffer (0.73.4):
     - glog
     - React-debug
-  - react-native-add-calendar-event (4.2.2):
+  - react-native-add-calendar-event (5.0.0):
     - React-Core
   - react-native-background-timer (2.4.1):
     - React-Core
@@ -2361,7 +2361,7 @@ SPEC CHECKSUMS:
   React-jsinspector: 9ac353eccf6ab54d1e0a33862ba91221d1e88460
   React-logger: 0a57b68dd2aec7ff738195f081f0520724b35dab
   React-Mapbuffer: 114be72666d7e3e317c1a36fb566cd3ad712fcc8
-  react-native-add-calendar-event: 34ad00f629187cbb97c2f04195e17803b2b3bc5e
+  react-native-add-calendar-event: b9802a8be8ad4beb0dcb3efb28969c077558fb29
   react-native-background-timer: 17ea5e06803401a379ebf1f20505b793ac44d0fe
   react-native-daily-js: 580f4937bf02997a9b3306eb3e4439af2a48fab2
   react-native-get-random-values: 384787fd76976f5aec9465aff6fa9e9129af1e74
@@ -2406,7 +2406,7 @@ SPEC CHECKSUMS:
   RNImageCropPicker: e7ab6fb43d2fc3e84651e786ef4a080d63b0ed3d
   RNLocalize: 4222a3756cdbe2dc9a5bdf445765a4d2572107cb
   RNNotifee: 8e2d3df3f0e9ce8f5d1fe4c967431138190b6175
-  RNPermissions: b387950676d818adf6bb3c08a84eee9a8fdc2f30
+  RNPermissions: adbfc7e3470ebfdb9860267af670fdffa7630b73
   RNRate: ef3bcff84f39bb1d1e41c5593d3eea4aab2bd73a
   RNReactNativeHapticFeedback: ec56a5f81c3941206fd85625fa669ffc7b4545f9
   RNReanimated: ea7e98bf4f1167ca3cd3c348604d34dc4294e848
@@ -2427,8 +2427,8 @@ SPEC CHECKSUMS:
   StripePaymentsUI: 3e67ffc17d10ef2b0e1538867934a644a1dd6fc6
   StripeUICore: 2e512d3fd27045ca4a899acdef1ed66dcf935d83
   TOCropViewController: edfd4f25713d56905ad1e0b9f5be3fbe0f59c863
-  Yoga: 64cd2a583ead952b0315d5135bf39e053ae9be70
+  Yoga: 1b901a6d6eeba4e8a2e8f308f708691cdb5db312
 
-PODFILE CHECKSUM: 4be266ea78678a5deaceabfa61756cc4ce83cfa3
+PODFILE CHECKSUM: eca7106cb4acdaa2f539d18295f1019a34a370f4
 
-COCOAPODS: 1.14.3
+COCOAPODS: 1.15.2

@@ -14,13 +14,14 @@ platform :ios, min_ios_version_supported
 prepare_react_native_project!
 
 setup_permissions([
-  'Calendars',
+  'CalendarsWriteOnly',
   'PhotoLibrary',
   'Camera',
   'Microphone',
   'Notifications'
   # 'AppTrackingTransparency',
-  # 'BluetoothPeripheral',
+  # 'Bluetooth',
+  # 'Calendars',
   # 'Contacts',
   # 'FaceID',
   # 'LocationAccuracy',
@@ -28,11 +29,11 @@ setup_permissions([
   # 'LocationWhenInUse',
   # 'MediaLibrary',
   # 'Motion',
-  # 'PhotoLibrary',
   # 'PhotoLibraryAddOnly',
   # 'Reminders',
+  # 'Siri',
   # 'SpeechRecognition',
-  # 'StoreKit'
+  # 'StoreKit',
 ])
 
 # https://rnfirebase.io/#altering-cocoapods-to-use-frameworks

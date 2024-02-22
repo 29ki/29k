@@ -6,6 +6,7 @@ import {COLORS} from '../../../../../shared/src/constants/colors';
 import {BellFillIcon} from '../Icons';
 import {Spacer4} from '../Spacers/Spacer';
 import {BodyBold} from '../Typography/Body/Body';
+import Tag from '../Tag/Tag';
 
 const Container = styled.View({
   flexDirection: 'row',
@@ -18,15 +19,9 @@ const IconWrapper = styled.View({
   marginLeft: -4,
 });
 
-const Count = styled(BodyBold)({
-  color: COLORS.PURE_WHITE,
-  fontSize: 14,
-  lineHeight: 18,
+const Count = styled(Tag)({
   backgroundColor: COLORS.PRIMARY,
-  paddingVertical: 2,
-  paddingHorizontal: 6,
-  borderRadius: 6,
-  overflow: 'hidden',
+  color: COLORS.WHITE,
 });
 
 const Body = styled(BodyBold)({
@@ -62,6 +57,7 @@ const Interested: React.FC<InterestedProps> = ({
               <Spacer4 />
             </>
           )}
+
           <Count>{count}</Count>
         </>
       )}
