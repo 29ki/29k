@@ -6,6 +6,15 @@ import * as AddCalendarEvent from 'react-native-add-calendar-event';
 import * as Permissions from 'react-native-permissions';
 import useRestartApp from '../../codePush/hooks/useRestartApp';
 
+const permissions = Platform.select({
+  ios: [Permissions.PERMISSIONS.IOS.CALENDARS_WRITE_ONLY],
+  android: [
+    Permissions.PERMISSIONS.ANDROID.READ_CALENDAR,
+    Permissions.PERMISSIONS.ANDROID.WRITE_CALENDAR,
+  ],
+  default: [],
+});
+
 const useAddSessionToCalendar = () => {
   const {t} = useTranslation('Component.AddToCalendar');
   const {t: permissionT} = useTranslation(
@@ -28,14 +37,15 @@ const useAddSessionToCalendar = () => {
       startDate: Dayjs,
       endDate: Dayjs,
     ) => {
-      const permission = await Permissions.request(
-        Platform.select({
-          ios: Permissions.PERMISSIONS.IOS.CALENDARS_WRITE_ONLY,
-          default: Permissions.PERMISSIONS.ANDROID.WRITE_CALENDAR,
-        }),
+      const permissionResults = await Promise.all(
+        permissions.map(permission => Permissions.request(permission)),
       );
 
-      if (permission === Permissions.RESULTS.GRANTED) {
+      if (
+        permissionResults.every(
+          result => result === Permissions.RESULTS.GRANTED,
+        )
+      ) {
         AddCalendarEvent.presentEventCreatingDialog({
           title: t('title', {name: exerciseName}),
           notes: t('notes', {
