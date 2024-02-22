@@ -5,7 +5,7 @@
         "type": "host",
         "hostNotes": [
           {
-            "text": "Welcome\n\nI am X and today we will work for around 30 minutes on resilience.\n\nWe’ll be doing an audio exercise, followed by time for reflection and sharing with each other."
+            "text": "Welcome\n\nI am X and today we will work for around 30 minutes on resilience and perseverance – important skills in the Acting category.\n\nWe’ll be doing an audio exercise, followed by time for reflection and sharing with each other. Heads up you'll need somewhere to take notes for this exercise."
           },
           {
             "text": "Let’s start with a mini check-in. How are you feeling right now? Please answer in two-three words. X, would you like to start?\n\n> Let everyone in the session, including yourself, check in one by one.\n\nThank you all for checking in. Let’s get started."
@@ -35,19 +35,20 @@
         "type": "reflection",
         "hostNotes": [
           {
-            "text": "Now we’ll take 1 minute to reflect on our own.\n\nWhat did you learn doing the 4S model?"
+            "text": "Now we’ll take 1 minute to reflect on our own.\n\nWhat did you find out about yourself, and what will you do in the current situation you thought about?"
           },
           {
             "text": "You can take notes on a piece of paper or just mental notes in your head. And there is no right or wrong here, our answers are our own. 1 minute starting now.\n\n> Press play to start the timer.\n\nThat’s 1 minute and it’s time to move on."
           }
         ],
         "content": {
-          "heading": "What did you learn doing the 4S model?",
+          "heading": "What did you learn about yourself`?",
           "lottie": {
             "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto/v1676642915/Lottie/default_1min_black_rosi2l.json",
             "duration": 60,
             "durationTimer": true
-          }
+          },
+          "text": "What will you do?"
         }
       },
       {
@@ -64,12 +65,13 @@
           }
         ],
         "content": {
-          "heading": "What did you learn doing the 4S model?",
+          "heading": "What did you learn about yourself? What will you do? ",
           "lottie": {
             "durationTimer": true,
             "duration": 120,
             "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto/v1676639253/Lottie/default_2min_black_o6egey.json"
-          }
+          },
+          "text": ""
         },
         "id": "1"
       },
@@ -77,7 +79,7 @@
         "type": "host",
         "hostNotes": [
           {
-            "text": "Well done. If you’re up for it, you can continue with a mission.\n\nAfter this session, apply one of the resources you identified to your current situation, and see where that takes you."
+            "text": "Well done. If you’re up for it, you can continue with a mission.\n\nAfter this session, choose one of the resources you identified for your current situation, and apply it. In a few days evaluate where that takes you."
           },
           {
             "text": "Before we leave this space let’s do a mini check-out. \n\nHow are you feeling right now? Has anything shifted? Please answer in two-three words."
@@ -90,7 +92,7 @@
       {
         "type": "instruction",
         "content": {
-          "text": "Well done. If you’re up for it, you can continue with a mission.\n\nAfter this session, apply one of the resources you identified to your current situation, and see where that takes you.\n\n1. Support\n2. Strategies\n3. Smartness\n4. Solution-seeking",
+          "text": "Well done. \n\nNow you've learnt the 4S:\n\n1. Support\n2. Strategies\n3. Smartness\n4. Solution-seeking\n\nChoose one of the resources you identified for your current situation, and apply it. In a few days evaluate where that takes you.",
           "image": {
             "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1698917836/Images/card_image_bounce_back_m6yyaj.png"
           }
@@ -146,22 +148,30 @@
         "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1698917804/Video/portal2_bounce_back_otpgvf.mp4"
       }
     },
-    "tags": ["8da0534a-5da9-430a-bdf3-242ace6460fb"],
+    "tags": [
+      "8da0534a-5da9-430a-bdf3-242ace6460fb"
+    ],
     "link": "https://aware.29k.org/bounce-back",
     "id": "9d2ae09f-274b-4fd6-bc3c-8a4576c45c37",
     "async": true,
-    "description": "Enabling change both in others and ourselves entails skills as courage, creativity, perseverence and resilience. Bouncing back from hardships can sometimes make us grow. In this session we investigate our resources and inspire optimism."
+    "description": "Enabling change both in others and ourselves entails skills as courage, creativity, perseverence and resilience. In this session we investigate our resources and inspire optimism, to act in a tough situation. You'll need somewhere to take notes for this session."
   },
   "pt": {
     "id": "9d2ae09f-274b-4fd6-bc3c-8a4576c45c37",
-    "tags": ["8da0534a-5da9-430a-bdf3-242ace6460fb"]
+    "tags": [
+      "8da0534a-5da9-430a-bdf3-242ace6460fb"
+    ]
   },
   "sv": {
     "id": "9d2ae09f-274b-4fd6-bc3c-8a4576c45c37",
-    "tags": ["8da0534a-5da9-430a-bdf3-242ace6460fb"]
+    "tags": [
+      "8da0534a-5da9-430a-bdf3-242ace6460fb"
+    ]
   },
   "ja": {
     "id": "9d2ae09f-274b-4fd6-bc3c-8a4576c45c37",
-    "tags": ["8da0534a-5da9-430a-bdf3-242ace6460fb"]
+    "tags": [
+      "8da0534a-5da9-430a-bdf3-242ace6460fb"
+    ]
   }
 }

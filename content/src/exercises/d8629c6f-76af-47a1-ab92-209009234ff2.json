@@ -5,7 +5,7 @@
         "type": "host",
         "hostNotes": [
           {
-            "text": "Welcome. I am X and today we will work for around 30 minutes on values and how we want to act in life.\n\nWe’ll be doing an audio exercise, followed by time for reflection and sharing with each other."
+            "text": "Welcome. I am X and today we will work for around 30 minutes on inner compass, integrity and authenticity – some of the aspects of the Being category.\n\nWe’ll be doing an audio exercise, followed by time for reflection and sharing with each other."
           },
           {
             "text": "Let’s start with a mini check-in. How are you feeling right now? Please answer in two-three words. X, would you like to start?\n\n> Let everyone in the session, including yourself, check in one by one.\n\nThank you all for checking in. Let’s get started."
@@ -13,10 +13,17 @@
         ]
       },
       {
+        "type": "instruction",
+        "content": {
+          "text": "An inner compass, integrity and authenticity are some of the skills in the Being category that we'll practice in this exercise.  There will be an audio exercise, followed by time for reflecting and sharing if you want to.",
+          "heading": "Being"
+        }
+      },
+      {
         "type": "content",
         "hostNotes": [
           {
-            "text": "> Press play to start the audio file."
+            "text": "An inner compass, integrity and authenticity are some of the skills in the Being category that we'll practice in this exercise.  \\\nLet's listen to this audio, and then we'll meet back here afterwards.\n\n> Tap play to start the audio."
           }
         ],
         "content": {
@@ -141,7 +148,7 @@
     "link": "https://aware.29k.org/the-future-you",
     "id": "d8629c6f-76af-47a1-ab92-209009234ff2",
     "async": true,
-    "description": "Finding direction and values in life can be tricky. In this exercise, we'll visualize ourselves in the future to find guidance. Having a sense of long-term direction can improve well-being, goal fulfillment, and life satisfaction."
+    "description": "The relationship to ourselves is in focus in the Being category. In this session we practice setting our inner compass, acting with integrity and authenticity, as we meet our future selves."
   },
   "pt": {
     "id": "d8629c6f-76af-47a1-ab92-209009234ff2",
