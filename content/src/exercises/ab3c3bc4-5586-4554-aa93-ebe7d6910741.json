@@ -5,7 +5,7 @@
         "type": "host",
         "hostNotes": [
           {
-            "text": "Welcome\n\nI am X and today we will work for around 30 minutes on kindness and gratitude.\n\nWe’ll be doing an audio exercise, followed by time for reflection and sharing with each other."
+            "text": "Welcome\n\nI am X and today we will work for around 30 minutes on trust and mobilization, two of the skills in the collaborating category.\n\nWe’ll be doing an audio exercise, followed by time for reflection and sharing with each other."
           },
           {
             "text": "Let’s start with a mini check-in. How are you feeling right now? Please answer in two-three words. X, would you like to start?\n\n> Let everyone in the session, including yourself, check in one by one.\n\nThank you all for checking in. Let’s get started."
@@ -13,10 +13,16 @@
         ]
       },
       {
+        "type": "instruction",
+        "content": {
+          "text": "Social skills can help us collaborate when we face challenges. In this exercise we'll focus on seeing others' kind acts, fostering trust, and mobilizing ourselves and others."
+        }
+      },
+      {
         "type": "content",
         "hostNotes": [
           {
-            "text": "> Press play to start the exercise"
+            "text": "Social skills can help us collaborate when we face challenges. In this exercise we'll focus on seeing others' kind acts, fostering trust, and mobilizing ourselves and others. \n\n> Press play to start the exercise"
           }
         ],
         "content": {
@@ -75,7 +81,7 @@
         "type": "host",
         "hostNotes": [
           {
-            "text": "Well done. Experiencing kind actions can make us feel connected and foster a sense of belonging. If you’re up for it, you can continue with a mission to bring this into your everyday life.\n\nPlan a simple act of kindness you can do during the day, and notice how it affects others as well as yourself."
+            "text": "Well done. Experiencing kind actions and actin with kindness can improve our collaborating skills and foster a sense of belonging. If you’re up for it, you can continue with a mission to bring this into your everyday life.\n\nPlan a simple act of kindness you can do during the day, and notice how it affects others as well as yourself."
           },
           {
             "text": "Before we leave this space let’s do a mini check-out. \n\nHow are you feeling right now? Has anything shifted? Please answer in two-three words."
@@ -88,7 +94,7 @@
       {
         "type": "instruction",
         "content": {
-          "text": "Well done. Experiencing kind actions can make us feel connected and foster a sense of belonging. If you’re up for it, you can continue with a mission to bring this into your everyday life.\n\nPlan a simple act of kindness you can do during the day, and notice how it affects others as well as yourself.",
+          "text": "Well done. Experiencing kind actions and actin with kindness can improve our collaborating skills and foster a sense of belonging. If you’re up for it, you can continue with a mission to bring this into your everyday life.\n\nPlan a simple act of kindness you can do during the day, and notice how it affects others as well as yourself.",
           "image": {
             "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1699611439/Images/asynk_image_seeing_kindness_vfmrmu.png"
           }
@@ -144,22 +150,30 @@
         "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1699611475/Video/portal2_seeing_kindness_bu6lfb.mp4"
       }
     },
-    "tags": ["43a6dc0d-d866-4b79-9453-13c44e906128"],
+    "tags": [
+      "43a6dc0d-d866-4b79-9453-13c44e906128"
+    ],
     "link": "https://aware.29k.org/seeing-kindness",
     "id": "ab3c3bc4-5586-4554-aa93-ebe7d6910741",
     "async": true,
-    "description": "Practice trust and mobilization – two of the skills in the collaborate category – in this exercise about seeing kindness around us. Acts of kindness can foster hope and connectedness, as well as spread to others."
+    "description": "Practice trust and mobilization – two of the skills in the Collaborating category – in this exercise about seeing kindness around us. Acts of kindness can foster hope and connectedness, as well as spread to others."
   },
   "pt": {
     "id": "ab3c3bc4-5586-4554-aa93-ebe7d6910741",
-    "tags": ["43a6dc0d-d866-4b79-9453-13c44e906128"]
+    "tags": [
+      "43a6dc0d-d866-4b79-9453-13c44e906128"
+    ]
   },
   "sv": {
     "id": "ab3c3bc4-5586-4554-aa93-ebe7d6910741",
-    "tags": ["43a6dc0d-d866-4b79-9453-13c44e906128"]
+    "tags": [
+      "43a6dc0d-d866-4b79-9453-13c44e906128"
+    ]
   },
   "ja": {
     "id": "ab3c3bc4-5586-4554-aa93-ebe7d6910741",
-    "tags": ["43a6dc0d-d866-4b79-9453-13c44e906128"]
+    "tags": [
+      "43a6dc0d-d866-4b79-9453-13c44e906128"
+    ]
   }
 }
