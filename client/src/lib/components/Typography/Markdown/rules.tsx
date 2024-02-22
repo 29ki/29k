@@ -1,4 +1,4 @@
-import React, {Fragment} from 'react';
+import React from 'react';
 import {View} from 'react-native';
 import {RenderRules} from 'react-native-markdown-display';
 
