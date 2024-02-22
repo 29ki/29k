@@ -1686,7 +1686,7 @@ PODS:
   - React-Mapbuffer (0.73.4):
     - glog
     - React-debug
-  - react-native-add-calendar-event (4.2.2):
+  - react-native-add-calendar-event (5.0.0):
     - React-Core
   - react-native-background-timer (2.4.1):
     - React-Core
@@ -2361,7 +2361,7 @@ SPEC CHECKSUMS:
   React-jsinspector: 9ac353eccf6ab54d1e0a33862ba91221d1e88460
   React-logger: 0a57b68dd2aec7ff738195f081f0520724b35dab
   React-Mapbuffer: 114be72666d7e3e317c1a36fb566cd3ad712fcc8
-  react-native-add-calendar-event: 34ad00f629187cbb97c2f04195e17803b2b3bc5e
+  react-native-add-calendar-event: b9802a8be8ad4beb0dcb3efb28969c077558fb29
   react-native-background-timer: 17ea5e06803401a379ebf1f20505b793ac44d0fe
   react-native-daily-js: 580f4937bf02997a9b3306eb3e4439af2a48fab2
   react-native-get-random-values: 384787fd76976f5aec9465aff6fa9e9129af1e74
@@ -2427,8 +2427,8 @@ SPEC CHECKSUMS:
   StripePaymentsUI: 3e67ffc17d10ef2b0e1538867934a644a1dd6fc6
   StripeUICore: 2e512d3fd27045ca4a899acdef1ed66dcf935d83
   TOCropViewController: edfd4f25713d56905ad1e0b9f5be3fbe0f59c863
-  Yoga: 64cd2a583ead952b0315d5135bf39e053ae9be70
+  Yoga: 1b901a6d6eeba4e8a2e8f308f708691cdb5db312
 
 PODFILE CHECKSUM: 4be266ea78678a5deaceabfa61756cc4ce83cfa3
 
-COCOAPODS: 1.14.3
+COCOAPODS: 1.15.2
