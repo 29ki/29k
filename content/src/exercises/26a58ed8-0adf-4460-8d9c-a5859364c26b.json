@@ -13,6 +13,12 @@
         ]
       },
       {
+        "type": "instruction",
+        "content": {
+          "text": "Taking different perspectives and practice complexity awareness are two of the skills in the Thinking category that we'll practice in this exercise."
+        }
+      },
+      {
         "type": "content",
         "content": {
           "lottie": {
