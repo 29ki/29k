@@ -115,6 +115,7 @@ jobs:
           --output-dir $BUILD_DIR
           --sourcemap-output-dir $SOURCEMAPS_DIR
           --disable-duplicate-release-error
+          --use-hermes
 
       - name: Codepush iOS
         working-directory: ./client
@@ -128,6 +129,7 @@ jobs:
           --output-dir $BUILD_DIR
           --sourcemap-output-dir $SOURCEMAPS_DIR
           --disable-duplicate-release-error
+          --use-hermes
 
       - name: Upload Android Source Maps to Sentry
         working-directory: ./client
