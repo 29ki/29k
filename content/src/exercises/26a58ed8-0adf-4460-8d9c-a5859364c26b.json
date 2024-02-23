@@ -80,7 +80,7 @@
         "type": "host",
         "hostNotes": [
           {
-            "text": "Well done. If you’re up for it, you can continue with a mission to bring this into your everyday life.\n\nThe next time you face a problem, imagine a few different stake holders and actively take their perspective before deciding where to go. This can help us deal with complex issues and consider both logical and emotional aspects of the things we face in life."
+            "text": "Well done. If you’re up for it, you can continue with a mission to bring this into your everyday life.\n\nThe next time you face a problem, imagine a few different stake holders and actively take their perspective before deciding where to go. This can help us deal with complex issues and consider long-term consequences of the things we do."
           },
           {
             "text": "Before we leave this space let’s do a mini check-out. \n\nHow are you feeling right now? Has anything shifted? Please answer in two-three words."
@@ -93,7 +93,7 @@
       {
         "type": "instruction",
         "content": {
-          "text": "If you’re up for it, you can continue with a mission to bring this into your everyday life.\n\nThe next time you face a problem, imagine a few different stake holders and actively take their perspective before deciding where to go. \n\nThis can help us deal with complex issues and consider both logical and emotional aspects of the things we face in life.",
+          "text": "The next time you face a problem, imagine a few different stake holders and actively take their perspective before deciding where to go. \n\nThis can help us deal with complex issues and consider long-term consequences of the things we do.",
           "image": {
             "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1699017217/Images/card_image_switch_perspective_dyn7uv.png"
           },
