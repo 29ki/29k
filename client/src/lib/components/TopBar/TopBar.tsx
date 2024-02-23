@@ -39,12 +39,11 @@ const Content = styled.View({
 type FadeProps = {
   backgroundColor: string;
 };
-const Fade = styled(LinearGradient).attrs<FadeProps, LinearGradientProps>(
-  ({backgroundColor}) => ({
-    colors: [hexToRgba(backgroundColor, 1), hexToRgba(backgroundColor, 0)],
-    pointerEvents: 'none',
-  }),
-)<FadeProps>({
+const Fade = styled(LinearGradient).attrs<FadeProps>(({backgroundColor}) => ({
+  colors: [hexToRgba(backgroundColor, 1), hexToRgba(backgroundColor, 0)],
+  pointerEvents: 'none',
+  // Fixes issue with types not being passed down properly from .attrs
+}))<Optional<LinearGradientProps, 'colors'>>({
   position: 'absolute',
   height: 36,
   left: 0,

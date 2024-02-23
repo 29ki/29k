@@ -2,7 +2,7 @@ import {renderHook} from '@testing-library/react-hooks';
 import useAppState from '../../appState/state/state';
 import useLanguageFromRoute from './useLanguageFromRoute';
 import {useNavigation} from '@react-navigation/native';
-import {findBestAvailableLanguage} from 'react-native-localize';
+import {findBestLanguageTag} from 'react-native-localize';
 
 const mockI18n = {
   changeLanguage: jest.fn(),
@@ -19,9 +19,9 @@ mockAddListener.mockImplementation((event: string, callback: () => {}) => {
   callback();
 });
 
-const mockFindBestAvailableLanguage = findBestAvailableLanguage as jest.Mock;
+const mockFindBestLanguageTag = findBestLanguageTag as jest.Mock;
 
-mockFindBestAvailableLanguage.mockImplementation(
+mockFindBestLanguageTag.mockImplementation(
   (languageTags: readonly string[]) => ({
     languageTag: languageTags[0],
   }),
@@ -44,8 +44,8 @@ describe('useLanguageFromRoute', () => {
 
     expect(mockGetCurrentRoute).toHaveBeenCalledTimes(1);
 
-    expect(mockFindBestAvailableLanguage).toHaveBeenCalledTimes(1);
-    expect(mockFindBestAvailableLanguage).toHaveBeenCalledWith(['sv']);
+    expect(mockFindBestLanguageTag).toHaveBeenCalledTimes(1);
+    expect(mockFindBestLanguageTag).toHaveBeenCalledWith(['sv']);
 
     expect(useAppState.getState().settings.preferredLanguage).toEqual('sv');
   });
@@ -57,8 +57,8 @@ describe('useLanguageFromRoute', () => {
 
     renderHook(() => useLanguageFromRoute());
 
-    expect(mockFindBestAvailableLanguage).toHaveBeenCalledTimes(1);
-    expect(mockFindBestAvailableLanguage).toHaveBeenCalledWith(['pt', 'sv']);
+    expect(mockFindBestLanguageTag).toHaveBeenCalledTimes(1);
+    expect(mockFindBestLanguageTag).toHaveBeenCalledWith(['pt', 'sv']);
 
     expect(useAppState.getState().settings.preferredLanguage).toEqual('pt');
   });
@@ -68,6 +68,6 @@ describe('useLanguageFromRoute', () => {
 
     renderHook(() => useLanguageFromRoute());
 
-    expect(mockFindBestAvailableLanguage).toHaveBeenCalledTimes(0);
+    expect(mockFindBestLanguageTag).toHaveBeenCalledTimes(0);
   });
 });

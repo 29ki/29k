@@ -124,10 +124,7 @@ const HostNotes: React.FC<HostNotesProps> = ({
   );
 
   const getItemLayout = useCallback(
-    (
-      data: ExerciseSlideContentSlideHostNote[] | null | undefined,
-      index: number,
-    ) => ({
+    (data: ArrayLike<any> | null | undefined, index: number) => ({
       length: listItemWidth,
       offset: listItemWidth * index,
       index,

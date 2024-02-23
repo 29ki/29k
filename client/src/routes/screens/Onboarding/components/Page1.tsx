@@ -26,13 +26,13 @@ const Card = styled(Animated.View).attrs({pointerEvents: 'none'})({
   position: 'absolute',
   width: '100%',
   bottom: 0,
-});
-
-const StyledSessionCard = styled(SessionCard)({
   shadowColor: '#000',
   shadowOffset: '0 12px',
   shadowOpacity: 0.58,
   shadowRadius: 16.0,
+});
+
+const StyledSessionCard = styled(SessionCard)({
   elevation: 24,
 });
 

@@ -1,6 +1,5 @@
 import {renderHook, act} from '@testing-library/react-hooks';
 import fetchMock, {enableFetchMocks} from 'jest-fetch-mock';
-import {pick} from 'ramda';
 import useKillSwitchState from '../state/state';
 
 import useKillSwitch from './useKillSwitch';
@@ -18,16 +17,7 @@ afterEach(() => {
 describe('useKillSwitch', () => {
   const useTestHook = () => {
     const checkKillSwitch = useKillSwitch();
-    const killSwitchState = useKillSwitchState(
-      pick([
-        'isBlocking',
-        'isLoading',
-        'requiresBundleUpdate',
-        'isRetriable',
-        'hasFailed',
-        'message',
-      ]),
-    );
+    const killSwitchState = useKillSwitchState(state => state);
 
     return {checkKillSwitch, killSwitchState};
   };
@@ -58,13 +48,15 @@ describe('useKillSwitch', () => {
 
       const {result} = renderHook(useTestHook);
 
-      expect(result.current.killSwitchState).toEqual({
-        hasFailed: false,
-        isBlocking: false,
-        isLoading: false,
-        isRetriable: false,
-        requiresBundleUpdate: false,
-      });
+      expect(result.current.killSwitchState).toEqual(
+        expect.objectContaining({
+          hasFailed: false,
+          isBlocking: false,
+          isLoading: false,
+          isRetriable: false,
+          requiresBundleUpdate: false,
+        }),
+      );
 
       await act(async () => {
         await expect(result.current.checkKillSwitch()).rejects.toThrow(
@@ -74,14 +66,16 @@ describe('useKillSwitch', () => {
 
       expect(fetchMock).toHaveBeenCalledTimes(1);
 
-      expect(result.current.killSwitchState).toEqual({
-        hasFailed: false,
-        isBlocking: true,
-        isLoading: false,
-        isRetriable: true,
-        requiresBundleUpdate: false,
-        message: {},
-      });
+      expect(result.current.killSwitchState).toEqual(
+        expect.objectContaining({
+          hasFailed: false,
+          isBlocking: true,
+          isLoading: false,
+          isRetriable: true,
+          requiresBundleUpdate: false,
+          message: {},
+        }),
+      );
       /*
       expect(metrics.logEvent).toHaveBeenCalledTimes(1);
       expect(metrics.logEvent).toHaveBeenCalledWith('Show Kill Switch', {
@@ -104,13 +98,15 @@ describe('useKillSwitch', () => {
 
       const {result} = renderHook(useTestHook);
 
-      expect(result.current.killSwitchState).toEqual({
-        hasFailed: false,
-        isBlocking: false,
-        isLoading: false,
-        isRetriable: false,
-        requiresBundleUpdate: false,
-      });
+      expect(result.current.killSwitchState).toEqual(
+        expect.objectContaining({
+          hasFailed: false,
+          isBlocking: false,
+          isLoading: false,
+          isRetriable: false,
+          requiresBundleUpdate: false,
+        }),
+      );
 
       await act(async () => {
         await expect(result.current.checkKillSwitch()).rejects.toThrow(
@@ -120,14 +116,16 @@ describe('useKillSwitch', () => {
 
       expect(fetchMock).toHaveBeenCalledTimes(1);
 
-      expect(result.current.killSwitchState).toEqual({
-        hasFailed: false,
-        isBlocking: true,
-        isLoading: false,
-        isRetriable: false,
-        requiresBundleUpdate: false,
-        message: {},
-      });
+      expect(result.current.killSwitchState).toEqual(
+        expect.objectContaining({
+          hasFailed: false,
+          isBlocking: true,
+          isLoading: false,
+          isRetriable: false,
+          requiresBundleUpdate: false,
+          message: {},
+        }),
+      );
     });
 
     it('sets image, message and button if provided by server', async () => {
@@ -175,13 +173,15 @@ describe('useKillSwitch', () => {
 
       const {result} = renderHook(useTestHook);
 
-      expect(result.current.killSwitchState).toEqual({
-        hasFailed: false,
-        isBlocking: false,
-        isLoading: false,
-        isRetriable: false,
-        requiresBundleUpdate: false,
-      });
+      expect(result.current.killSwitchState).toEqual(
+        expect.objectContaining({
+          hasFailed: false,
+          isBlocking: false,
+          isLoading: false,
+          isRetriable: false,
+          requiresBundleUpdate: false,
+        }),
+      );
 
       await act(async () => {
         await expect(result.current.checkKillSwitch()).resolves.toBe(undefined);
@@ -189,13 +189,15 @@ describe('useKillSwitch', () => {
 
       expect(fetchMock).toHaveBeenCalledTimes(1);
 
-      expect(result.current.killSwitchState).toEqual({
-        hasFailed: false,
-        isBlocking: false,
-        isLoading: false,
-        isRetriable: false,
-        requiresBundleUpdate: true,
-      });
+      expect(result.current.killSwitchState).toEqual(
+        expect.objectContaining({
+          hasFailed: false,
+          isBlocking: false,
+          isLoading: false,
+          isRetriable: false,
+          requiresBundleUpdate: true,
+        }),
+      );
     });
   });
 
@@ -205,13 +207,15 @@ describe('useKillSwitch', () => {
 
       const {result} = renderHook(useTestHook);
 
-      expect(result.current.killSwitchState).toEqual({
-        hasFailed: false,
-        isBlocking: false,
-        isLoading: false,
-        isRetriable: false,
-        requiresBundleUpdate: false,
-      });
+      expect(result.current.killSwitchState).toEqual(
+        expect.objectContaining({
+          hasFailed: false,
+          isBlocking: false,
+          isLoading: false,
+          isRetriable: false,
+          requiresBundleUpdate: false,
+        }),
+      );
 
       await act(async () => {
         await expect(result.current.checkKillSwitch()).rejects.toThrow(
@@ -223,13 +227,15 @@ describe('useKillSwitch', () => {
 
       expect(fetchMock).toHaveBeenCalledTimes(1);
 
-      expect(result.current.killSwitchState).toEqual({
-        hasFailed: true,
-        isBlocking: true,
-        isLoading: false,
-        isRetriable: true,
-        requiresBundleUpdate: false,
-      });
+      expect(result.current.killSwitchState).toEqual(
+        expect.objectContaining({
+          hasFailed: true,
+          isBlocking: true,
+          isLoading: false,
+          isRetriable: true,
+          requiresBundleUpdate: false,
+        }),
+      );
     });
 
     it("doesn't block failed network requests", async () => {
@@ -237,13 +243,15 @@ describe('useKillSwitch', () => {
 
       const {result} = renderHook(useTestHook);
 
-      expect(result.current.killSwitchState).toEqual({
-        hasFailed: false,
-        isBlocking: false,
-        isLoading: false,
-        isRetriable: false,
-        requiresBundleUpdate: false,
-      });
+      expect(result.current.killSwitchState).toEqual(
+        expect.objectContaining({
+          hasFailed: false,
+          isBlocking: false,
+          isLoading: false,
+          isRetriable: false,
+          requiresBundleUpdate: false,
+        }),
+      );
 
       await act(async () => {
         await expect(result.current.checkKillSwitch()).rejects.toThrow(
@@ -255,13 +263,15 @@ describe('useKillSwitch', () => {
 
       expect(fetchMock).toHaveBeenCalledTimes(1);
 
-      expect(result.current.killSwitchState).toEqual({
-        hasFailed: true,
-        isBlocking: false,
-        isLoading: false,
-        isRetriable: true,
-        requiresBundleUpdate: false,
-      });
+      expect(result.current.killSwitchState).toEqual(
+        expect.objectContaining({
+          hasFailed: true,
+          isBlocking: false,
+          isLoading: false,
+          isRetriable: true,
+          requiresBundleUpdate: false,
+        }),
+      );
     });
 
     it('sets as failed on malformed server response', async () => {
@@ -269,13 +279,15 @@ describe('useKillSwitch', () => {
 
       const {result} = renderHook(useTestHook);
 
-      expect(result.current.killSwitchState).toEqual({
-        hasFailed: false,
-        isBlocking: false,
-        isLoading: false,
-        isRetriable: false,
-        requiresBundleUpdate: false,
-      });
+      expect(result.current.killSwitchState).toEqual(
+        expect.objectContaining({
+          hasFailed: false,
+          isBlocking: false,
+          isLoading: false,
+          isRetriable: false,
+          requiresBundleUpdate: false,
+        }),
+      );
 
       await act(async () => {
         await expect(result.current.checkKillSwitch()).rejects.toThrow(
@@ -287,13 +299,15 @@ describe('useKillSwitch', () => {
 
       expect(fetchMock).toHaveBeenCalledTimes(1);
 
-      expect(result.current.killSwitchState).toEqual({
-        hasFailed: true,
-        isBlocking: true,
-        isLoading: false,
-        isRetriable: true,
-        requiresBundleUpdate: false,
-      });
+      expect(result.current.killSwitchState).toEqual(
+        expect.objectContaining({
+          hasFailed: true,
+          isBlocking: true,
+          isLoading: false,
+          isRetriable: true,
+          requiresBundleUpdate: false,
+        }),
+      );
     });
   });
 });

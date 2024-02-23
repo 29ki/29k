@@ -45,14 +45,16 @@ describe('useSessions', () => {
     const startTime = dayjs.utc('1994-03-08');
 
     it('should resolve to a new session and trigger a refetch', async () => {
-      fetchMock.mockResponseOnce(
-        JSON.stringify({
-          id: 'session-id',
-          url: '/session-url',
-          name: 'A New Session',
-        }),
-        {status: 200},
-      );
+      fetchMock
+        .mockResponseOnce(
+          JSON.stringify({
+            id: 'session-id',
+            url: '/session-url',
+            name: 'A New Session',
+          }),
+          {status: 200},
+        )
+        .mockResponseOnce('{}', {status: 200});
       const {result} = renderHook(() => useSessions());
 
       await act(async () => {
@@ -97,7 +99,9 @@ describe('useSessions', () => {
 
   describe('deleteSession', () => {
     it('should delete a session and refetch', async () => {
-      fetchMock.mockResponseOnce('Success', {status: 200});
+      fetchMock
+        .mockResponseOnce('Success', {status: 200})
+        .mockResponseOnce('{}', {status: 200});
       const {result} = renderHook(() => useSessions());
 
       await act(async () => {

@@ -1,10 +1,7 @@
 import 'intl-pluralrules';
 import i18next from 'i18next';
 import {initReactI18next} from 'react-i18next';
-import {
-  findBestAvailableLanguage,
-  uses24HourClock,
-} from 'react-native-localize';
+import {findBestLanguageTag, uses24HourClock} from 'react-native-localize';
 import dayjs from 'dayjs';
 import 'dayjs/locale/en-gb';
 import 'dayjs/locale/pt';
@@ -40,7 +37,7 @@ export const init = () =>
     .use(Backend)
     .use(initReactI18next)
     .init({
-      lng: findBestAvailableLanguage(CLIENT_LANGUAGE_TAGS)?.languageTag,
+      lng: findBestLanguageTag(CLIENT_LANGUAGE_TAGS)?.languageTag,
       supportedLngs: LANGUAGE_TAGS,
       fallbackLng: DEFAULT_LANGUAGE_TAG,
       // To trigger the backend middleware to load publishable content they have to be removed first.

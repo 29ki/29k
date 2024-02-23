@@ -3,7 +3,9 @@ import {StyleSheet} from 'react-native';
 import styled from 'styled-components/native';
 import * as yup from 'yup';
 
-import VideoLooper from '../../../../lib/components/VideoLooper/VideoLooper';
+import VideoLooper, {
+  VideoLooperProperties,
+} from '../../../../lib/components/VideoLooper/VideoLooper';
 import {BottomGradient} from '../../Contributors/components/BottomGradient';
 import Gutters from '../../../../lib/components/Gutters/Gutters';
 import {Display36} from '../../../../lib/components/Typography/Display/Display';
@@ -60,7 +62,10 @@ const BackgroundVideo = styled(VideoLooper).attrs({
       repeat: true,
     },
   ],
-})({...StyleSheet.absoluteFillObject});
+  // Fixes issue with types not being passed down properly from .attrs
+})<Optional<VideoLooperProperties, 'sources'>>({
+  ...StyleSheet.absoluteFillObject,
+});
 
 type DonationSuccessProps = {
   payment: Payment;

@@ -59,7 +59,7 @@ const Category: React.FC<Props> = ({category}) => {
 
   return (
     <Container onPress={onPress}>
-      <LottieAnimation source={source} autoPlay loop />
+      {source && <LottieAnimation source={source} autoPlay loop />}
       <Name>
         <Text>{category.name}</Text>
       </Name>

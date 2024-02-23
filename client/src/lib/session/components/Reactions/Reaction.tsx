@@ -12,7 +12,7 @@ import styled from 'styled-components/native';
 import {COLORS} from '../../../../../../shared/src/constants/colors';
 import {Reaction as ReactionProps} from '../../state/state';
 import {HeartFillIcon} from '../../../components/Icons';
-import {Body12} from '../../../components/Typography/Body/Body';
+import Tag from '../../../components/Tag/Tag';
 
 const {height: windowHeight} = Dimensions.get('window');
 
@@ -23,12 +23,10 @@ const Content = styled(Animated.View)({
   alignItems: 'center',
 });
 
-const Name = styled(Body12)({
+const Name = styled(Tag)({
   maxWidth: '200%',
-  paddingHorizontal: 4,
   borderRadius: 6,
-  backgroundColor: COLORS.WHITE,
-  flexGrow: 1,
+  textAlign: 'center',
   overflow: 'hidden',
 });
 
@@ -75,7 +73,7 @@ const Reaction: React.FC<ReactionProps> = ({type, name}) => {
   return (
     <Content style={style}>
       {type === 'heart' && <HeartFillIcon fill={COLORS.HEART} />}
-      <Name numberOfLines={1}>{name}</Name>
+      <Name>{name}</Name>
     </Content>
   );
 };

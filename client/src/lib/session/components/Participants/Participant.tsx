@@ -5,7 +5,9 @@ import {
 import React, {useCallback, useContext} from 'react';
 import {Alert, ViewStyle} from 'react-native';
 import {useTranslation} from 'react-i18next';
-import LinearGradient from 'react-native-linear-gradient';
+import LinearGradient, {
+  LinearGradientProps,
+} from 'react-native-linear-gradient';
 import styled from 'styled-components/native';
 import hexToRgba from 'hex-to-rgba';
 
@@ -67,7 +69,8 @@ const ParticipantVideoDenied = styled(VideoDeniedIndicator)({
 
 const NameGradient = styled(LinearGradient).attrs({
   colors: ['rgba(0, 0, 0, 0)', 'rgba(0, 0, 0, 1)'],
-})({
+  // Fixes issue with types not being passed down properly from .attrs
+})<Optional<LinearGradientProps, 'colors'>>({
   position: 'absolute',
   bottom: 0,
   width: '100%',
