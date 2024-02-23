@@ -1690,7 +1690,7 @@ PODS:
     - React-Core
   - react-native-background-timer (2.4.1):
     - React-Core
-  - react-native-daily-js (0.56.0):
+  - react-native-daily-js (0.57.0):
     - React-Core
     - ReactNativeDailyJSScreenShareExtension (= 0.0.1)
   - react-native-get-random-values (1.10.0):
@@ -2363,7 +2363,7 @@ SPEC CHECKSUMS:
   React-Mapbuffer: 114be72666d7e3e317c1a36fb566cd3ad712fcc8
   react-native-add-calendar-event: b9802a8be8ad4beb0dcb3efb28969c077558fb29
   react-native-background-timer: 17ea5e06803401a379ebf1f20505b793ac44d0fe
-  react-native-daily-js: 580f4937bf02997a9b3306eb3e4439af2a48fab2
+  react-native-daily-js: 25084c73ef792cd031079b0149266495bc60698b
   react-native-get-random-values: 384787fd76976f5aec9465aff6fa9e9129af1e74
   react-native-idle-timer: f1920a59fe776340d004ff9de13c4a6eedcc8807
   react-native-netinfo: 299dad906cdbf3b67bcc6f693c807f98bdd127cc
