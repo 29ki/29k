@@ -5,12 +5,18 @@
         "type": "host",
         "hostNotes": [
           {
-            "text": "Welcome\n\nI am X and today we will work for around 30 minutes on imagining different perspectives.\n\nWe’ll be doing an audio exercise, followed by time for reflection and then finally sharing what we experienced with each other if we’re up for it."
+            "text": "Welcome\n\nI am X and today we will work for around 30 minutes on taking different perspectives and practice complexity awareness.\n\nWe’ll be doing an audio exercise, followed by time for reflection and then finally sharing."
           },
           {
             "text": "Let’s start with a mini check-in. How are you feeling right now? Please answer in two-three words. X, would you like to start?\n\n> Let everyone in the session, including yourself, check in one by one.\n\nThank you all for checking in. Let’s get started."
           }
         ]
+      },
+      {
+        "type": "instruction",
+        "content": {
+          "text": "Taking different perspectives and practice complexity awareness are two of the skills in the Thinking category that we'll practice in this exercise."
+        }
       },
       {
         "type": "content",
@@ -24,7 +30,7 @@
         },
         "hostNotes": [
           {
-            "text": "> Press play to start the audio exercise"
+            "text": "Taking different perspectives and practice complexity awareness are two of the skills in the Thinking category that we'll practice in this exercise. Let's listen together, and then we'll meet here again afterwards.\n\n> Tap play to start the audio."
           }
         ]
       },
@@ -74,7 +80,7 @@
         "type": "host",
         "hostNotes": [
           {
-            "text": "Well done. If you’re up for it, you can continue with a mission to bring this into your everyday life.\n\nThe next time you face a problem, imagine a few different stake holders and actively take their perspective before deciding where to go. This can help us deal with complex issues and consider both logical and emotional aspects of the things we face in life."
+            "text": "Well done. If you’re up for it, you can continue with a mission to bring this into your everyday life.\n\nThe next time you face a problem, imagine a few different stake holders and actively take their perspective before deciding where to go. This can help us deal with complex issues and consider long-term consequences of the things we do."
           },
           {
             "text": "Before we leave this space let’s do a mini check-out. \n\nHow are you feeling right now? Has anything shifted? Please answer in two-three words."
@@ -87,7 +93,7 @@
       {
         "type": "instruction",
         "content": {
-          "text": "If you’re up for it, you can continue with a mission to bring this into your everyday life.\n\nThe next time you face a problem, imagine a few different stake holders and actively take their perspective before deciding where to go. \n\nThis can help us deal with complex issues and consider both logical and emotional aspects of the things we face in life.",
+          "text": "The next time you face a problem, imagine a few different stake holders and actively take their perspective before deciding where to go. \n\nThis can help us deal with complex issues and consider long-term consequences of the things we do.",
           "image": {
             "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1699017217/Images/card_image_switch_perspective_dyn7uv.png"
           },
@@ -150,7 +156,7 @@
     "link": "https://aware.29k.org/switch-perspectives",
     "id": "26a58ed8-0adf-4460-8d9c-a5859364c26b",
     "async": true,
-    "description": "Thinking skils include complexity awareness, taking perspective and long-term orientation. In this session you will imagine you are different beings facing a problem or an opportunity. Deliberately thinking from diverse perspectives can also help us regulate emotions, inspire new ideas and make us act with others in mind."
+    "description": "Thinking skils include complexity awareness, taking perspective and long-term orientation. In this session you will imagine you are different beings facing a problem – or an opportunity. Deliberately thinking from diverse perspectives can also help us make sense and act for positive long-term consequences."
   },
   "pt": {
     "id": "26a58ed8-0adf-4460-8d9c-a5859364c26b",
