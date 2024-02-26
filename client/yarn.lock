@@ -2790,10 +2790,10 @@
     color "^4.2.3"
     warn-once "^0.1.0"
 
-"@react-navigation/core@^6.4.10":
-  version "6.4.10"
-  resolved "https://registry.yarnpkg.com/@react-navigation/core/-/core-6.4.10.tgz#0c52621968b35e3a75e189e823d3b9e3bad77aff"
-  integrity sha512-oYhqxETRHNHKsipm/BtGL0LI43Hs2VSFoWMbBdHK9OqgQPjTVUitslgLcPpo4zApCcmBWoOLX2qPxhsBda644A==
+"@react-navigation/core@^6.4.11":
+  version "6.4.11"
+  resolved "https://registry.yarnpkg.com/@react-navigation/core/-/core-6.4.11.tgz#481274aff0684757545bf6eb874260af7e8b27d1"
+  integrity sha512-kOCyOc1L0lAl53DbyNl3OkUJwSFKSaVCsV8leJawUXMXJ1FTT3nbS3xMOqbZuchxIbl8T62sZ7YnlWG/21rcMw==
   dependencies:
     "@react-navigation/routers" "^6.1.9"
     escape-string-regexp "^4.0.0"
@@ -2824,12 +2824,12 @@
     "@react-navigation/elements" "^1.3.22"
     warn-once "^0.1.0"
 
-"@react-navigation/native@^6.1.10":
-  version "6.1.10"
-  resolved "https://registry.yarnpkg.com/@react-navigation/native/-/native-6.1.10.tgz#d108423ae3acbe13f11d9b7351c1f5522d8391a5"
-  integrity sha512-jDG89TbZItY7W7rIcS1RqT63vWOPD4XuQLNKqZO0DY7mKnKh/CGBd0eg3nDMXUl143Qp//IxJKe2TfBQRDEU4A==
+"@react-navigation/native@^6.1.12":
+  version "6.1.12"
+  resolved "https://registry.yarnpkg.com/@react-navigation/native/-/native-6.1.12.tgz#5b5b84861ca50678e2a402249695f250e8cea761"
+  integrity sha512-t6y7sDCr0HlMf+5TuVjLjyi0ySs0eNGfreDKcWOMEi5wooNFM4LhcUCdEVylpwCPfjQMW/lNVomNromqZFM6HQ==
   dependencies:
-    "@react-navigation/core" "^6.4.10"
+    "@react-navigation/core" "^6.4.11"
     escape-string-regexp "^4.0.0"
     fast-deep-equal "^3.1.3"
     nanoid "^3.1.23"
@@ -2841,12 +2841,12 @@
   dependencies:
     nanoid "^3.1.23"
 
-"@react-navigation/stack@^6.3.21":
-  version "6.3.21"
-  resolved "https://registry.yarnpkg.com/@react-navigation/stack/-/stack-6.3.21.tgz#beec1a384969d10c8ddab9978f382fa441182760"
-  integrity sha512-oh059bD9w6Q7YbcK3POXRHK+bfoafPU9gvunD0MHJGmPVe9bazn5OMNzRYextvB6BfwQy+v3dy76Opf0vIGcNg==
+"@react-navigation/stack@^6.3.23":
+  version "6.3.23"
+  resolved "https://registry.yarnpkg.com/@react-navigation/stack/-/stack-6.3.23.tgz#c97c14df4a9dd64a7778b52097c539b25033afd5"
+  integrity sha512-bfi3ydidwMgDUYBM1EfC69gedVw2GeWPxqb5n/cQl+dsqPHEiDNGTANaVLJnotRyUzoR6w1hpeoLrj5jXdxm8g==
   dependencies:
-    "@react-navigation/elements" "^1.3.22"
+    "@react-navigation/elements" "^1.3.24"
     color "^4.2.3"
     warn-once "^0.1.0"
 
@@ -8573,17 +8573,7 @@ mute-stream@0.0.8:
   resolved "https://registry.yarnpkg.com/mute-stream/-/mute-stream-0.0.8.tgz#1630c42b2251ff81e2a283de96a5497ea92e5e0d"
   integrity sha512-nnbWWOkoWyUsTjKrhgD0dcz22mdkSnpYqbEjIm2nhwhuxlSkpywJmBo8h0ZqJdkp73mb90SssHkN4rsRaBAfAA==
 
-nanoid@^3.1.23:
-  version "3.3.4"
-  resolved "https://registry.yarnpkg.com/nanoid/-/nanoid-3.3.4.tgz#730b67e3cd09e2deacf03c027c81c9d9dbc5e8ab"
-  integrity sha512-MqBkQh/OHTS2egovRtLk45wEyNXwF+cokD+1YPf9u5VfJiRdAiRwB2froX5Co9Rh20xs4siNPm8naNotSD6RBw==
-
-nanoid@^3.3.1:
-  version "3.3.6"
-  resolved "https://registry.yarnpkg.com/nanoid/-/nanoid-3.3.6.tgz#443380c856d6e9f9824267d960b4236ad583ea4c"
-  integrity sha512-BGcqMMJuToF7i1rt+2PWSNVnWIkGCU78jBG3RxO/bZlnZPK2Cmi2QaffxGO/2RvWi9sL+FAiRiXMgsyxQ1DIDA==
-
-nanoid@^3.3.6:
+nanoid@^3.1.23, nanoid@^3.3.1, nanoid@^3.3.6:
   version "3.3.7"
   resolved "https://registry.yarnpkg.com/nanoid/-/nanoid-3.3.7.tgz#d0c301a691bc8d54efa0a2226ccf3fe2fd656bd8"
   integrity sha512-eSRppjcPIatRIMC1U6UngP8XFcz8MQWGQdt1MTBQ7NaAmvXDfvNxbvWV3x2y6CdEUciCSsDHDQZbhYaB8QEo2g==
@@ -9530,10 +9520,10 @@ react-native-code-push@^8.2.1:
     semver "^7.3.5"
     xcode "3.0.1"
 
-react-native-device-info@^10.12.0:
-  version "10.12.0"
-  resolved "https://registry.yarnpkg.com/react-native-device-info/-/react-native-device-info-10.12.0.tgz#be4e71cbcc9a05e8643b1a419a4450d4cef9bbcc"
-  integrity sha512-gnBkjyZNEqRd+5BNrdzuvmlraHTCH/to2x0Gp9rtDt0O9xWWW1MTYohUVWX9A0Ad2HVYcGanDCIvjWp4ngMZFg==
+react-native-device-info@^10.13.0:
+  version "10.13.0"
+  resolved "https://registry.yarnpkg.com/react-native-device-info/-/react-native-device-info-10.13.0.tgz#e6639dfe4804de0d61095f85ed794a62d158c6f8"
+  integrity sha512-AuZZXxZzQbv3JKE1bV0YPMXJVVTKQ3TJGpiBcYjJMOFZa0CE18kRgqHj3nKTM6KAD8CdCpjoEfuc128Rcs2TxA==
 
 react-native-dotenv@^3.4.10:
   version "3.4.10"
