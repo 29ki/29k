@@ -27,7 +27,7 @@
     "@sentry/integrations": "^7.102.1",
     "@sentry/node": "^7.102.1",
     "@slack/bolt": "^3.17.1",
-    "@slack/web-api": "^7.0.1",
+    "@slack/web-api": "^7.0.2",
     "@types/i18next": "^13.0.0",
     "bs58": "^5.0.0",
     "dayjs": "^1.11.10",
