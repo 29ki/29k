@@ -41,7 +41,7 @@
     "@react-navigation/drawer": "^6.6.7",
     "@react-navigation/native": "^6.1.12",
     "@react-navigation/native-stack": "^6.9.18",
-    "@react-navigation/stack": "^6.3.21",
+    "@react-navigation/stack": "^6.3.23",
     "@sentry/react-native": "^5.19.0",
     "@stripe/stripe-react-native": "^0.37.0",
     "@th3rdwave/react-navigation-bottom-sheet": "^0.2.2",
