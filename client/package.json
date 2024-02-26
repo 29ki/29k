@@ -99,7 +99,7 @@
     "@react-native/babel-preset": "0.73.21",
     "@react-native/eslint-config": "0.73.2",
     "@react-native/metro-config": "0.73.5",
-    "@react-native/typescript-config": "0.73.1",
+    "@react-native/typescript-config": "0.74.0",
     "@sentry/cli": "^2.28.6",
     "@testing-library/react-hooks": "^8.0.1",
     "@types/debug": "^4.1.12",
