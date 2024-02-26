@@ -2498,26 +2498,26 @@ debug@^4.0.0, debug@^4.1.0, debug@^4.1.1, debug@^4.3.1, debug@^4.3.2, debug@^4.3
   dependencies:
     ms "2.1.2"
 
-decap-cms-app@3.1.1:
-  version "3.1.1"
-  resolved "https://registry.yarnpkg.com/decap-cms-app/-/decap-cms-app-3.1.1.tgz#ea2c353e926c57231ef413f375a60922ed2b2c6c"
-  integrity sha512-j0vaxiwwVHDSqzqXPLA7DaiTDzxD39RH9tvWtMXphxTIRGRA+LulLJ57ndjtrGsqwIy+/7GsngLgXoauRI28jQ==
+decap-cms-app@3.1.2:
+  version "3.1.2"
+  resolved "https://registry.yarnpkg.com/decap-cms-app/-/decap-cms-app-3.1.2.tgz#96fac97d5acb8a7709c3c77c5b96f2d1c1e4065e"
+  integrity sha512-djYqdVr2oGnOko8slBT2hxhPsS8A2dbKAmQ1JopBKeEn3f0Vaf6p1SJJjErASiafQ35kfGLHpx2IIWSuXfYzJw==
   dependencies:
     "@emotion/react" "^11.11.1"
     "@emotion/styled" "^11.11.0"
     codemirror "^5.46.0"
     dayjs "^1.11.10"
-    decap-cms-backend-aws-cognito-github-proxy "^3.1.0"
+    decap-cms-backend-aws-cognito-github-proxy "^3.1.1"
     decap-cms-backend-azure "^3.1.0"
     decap-cms-backend-bitbucket "^3.1.0"
     decap-cms-backend-git-gateway "^3.1.0"
     decap-cms-backend-github "^3.1.0"
-    decap-cms-backend-gitlab "^3.1.0"
+    decap-cms-backend-gitlab "^3.1.1"
     decap-cms-backend-proxy "^3.1.0"
     decap-cms-backend-test "^3.1.0"
-    decap-cms-core "^3.3.1"
+    decap-cms-core "^3.3.2"
     decap-cms-editor-component-image "^3.1.0"
-    decap-cms-lib-auth "^3.0.3"
+    decap-cms-lib-auth "^3.0.4"
     decap-cms-lib-util "^3.0.2"
     decap-cms-lib-widgets "^3.0.1"
     decap-cms-locales "^3.1.3"
@@ -2543,10 +2543,10 @@ decap-cms-app@3.1.1:
     react-immutable-proptypes "^2.1.0"
     uuid "^8.3.2"
 
-decap-cms-backend-aws-cognito-github-proxy@^3.1.0:
-  version "3.1.0"
-  resolved "https://registry.yarnpkg.com/decap-cms-backend-aws-cognito-github-proxy/-/decap-cms-backend-aws-cognito-github-proxy-3.1.0.tgz#faea3186800250d959d72c1c42ea221bb70575b6"
-  integrity sha512-k2wqxRl1GglcSFlmEENvUoAelYhSHklksnAEXQEB+Hd2tAQ3vWGrhqY+uUJbIwRtMQf3ft1ZNENBPOBK6a6aNw==
+decap-cms-backend-aws-cognito-github-proxy@^3.1.1:
+  version "3.1.1"
+  resolved "https://registry.yarnpkg.com/decap-cms-backend-aws-cognito-github-proxy/-/decap-cms-backend-aws-cognito-github-proxy-3.1.1.tgz#e25c5c52ca8053fdc52af7bb057f8b9e2a83f9f8"
+  integrity sha512-0kW5YHm/zkCnIZjlQUWSAKr0eMMGuayXH0k+fe0oRs+8TdUELFt194sPFrghZ33Xh502iGP0irMJfubt7quA3Q==
   dependencies:
     apollo-cache-inmemory "^1.6.2"
     apollo-client "^2.6.3"
@@ -2601,10 +2601,10 @@ decap-cms-backend-github@^3.1.0:
     js-base64 "^3.0.0"
     semaphore "^1.1.0"
 
-decap-cms-backend-gitlab@^3.1.0:
-  version "3.1.0"
-  resolved "https://registry.yarnpkg.com/decap-cms-backend-gitlab/-/decap-cms-backend-gitlab-3.1.0.tgz#4895dabd7ad4ebc023774c7201413fe2784fc5d0"
-  integrity sha512-MxI54Jo7/YO8u2Vdabi776t8OLKRxZgb1iqYZ6ogImXvMukAsZGPizNR4/w7Fb3iS77hzll0O/nRecbZqJC8Bw==
+decap-cms-backend-gitlab@^3.1.1:
+  version "3.1.1"
+  resolved "https://registry.yarnpkg.com/decap-cms-backend-gitlab/-/decap-cms-backend-gitlab-3.1.1.tgz#de1b482eb66a72bd9f7a676367049f138a04779f"
+  integrity sha512-sPdRExxPZBWrMmMDhZdFePRCSK0lGAYOpARJYIKV7gpE7PgfROZKUyGXT8BLdq+nmpD0M1C7CvISVUSWinwKJg==
   dependencies:
     apollo-cache-inmemory "^1.6.2"
     apollo-client "^2.6.3"
@@ -2623,10 +2623,10 @@ decap-cms-backend-test@^3.1.0:
   resolved "https://registry.yarnpkg.com/decap-cms-backend-test/-/decap-cms-backend-test-3.1.0.tgz#be433d3c6d059432e778d49406917fe727b041c9"
   integrity sha512-Ik2AjtNv0Ty3VVVvfqvJAqwNBieZL1dkR0JAxER5IKX/sPfSKN0pLagmzGksUU1krQnXm6+TGREalzrB0n5GEA==
 
-decap-cms-core@^3.3.1:
-  version "3.3.1"
-  resolved "https://registry.yarnpkg.com/decap-cms-core/-/decap-cms-core-3.3.1.tgz#c7e0f98b4d5fdac1ca04d1335616a816ebbc13b9"
-  integrity sha512-T2Az2xmVLd9Bu86EsU2l2Cz/xU0QG1xi0CR2jYC+z+RzW4kIy7vWCSKXdZklxHHzohu+oAiTAE1E3wg5nfN+jQ==
+decap-cms-core@^3.3.2:
+  version "3.3.2"
+  resolved "https://registry.yarnpkg.com/decap-cms-core/-/decap-cms-core-3.3.2.tgz#3eccca3692d8fc89f7cc403c8205182b589a9386"
+  integrity sha512-Pfa3Q/GsNls7OWzcWAhYE7GaDz68/k3dz/COv5TZnaSoML8IYj1DS1goQPsYoTun+uqjlzL/ZACjrtwJEmqKSw==
   dependencies:
     "@iarna/toml" "2.2.5"
     "@reduxjs/toolkit" "^1.9.1"
@@ -2684,10 +2684,10 @@ decap-cms-editor-component-image@^3.1.0:
   resolved "https://registry.yarnpkg.com/decap-cms-editor-component-image/-/decap-cms-editor-component-image-3.1.0.tgz#7321394e3083a616adbb31fd4ba50279235ae539"
   integrity sha512-M1xhx7bxHg+mpSwSkZuo1W7oxpY+cn41WDJE9nDTvyzlg3YCICv2mEv+LXKN791wWKhhKp4SUZYa6yJUKX/eWA==
 
-decap-cms-lib-auth@^3.0.3:
-  version "3.0.3"
-  resolved "https://registry.yarnpkg.com/decap-cms-lib-auth/-/decap-cms-lib-auth-3.0.3.tgz#27def61353e21d61b5ae1753ef26fbfd89924895"
-  integrity sha512-U824GvFiujQlfBMOFKJbmATh+N9nLZuCzEP6Cnadt94mMfQf3gCuPJxqmfbAdfYyDLNRsrrAOIdUzluuHjNFFQ==
+decap-cms-lib-auth@^3.0.4:
+  version "3.0.4"
+  resolved "https://registry.yarnpkg.com/decap-cms-lib-auth/-/decap-cms-lib-auth-3.0.4.tgz#e5e9c3e92a0c4075405a4e94ecc8065ff2ee949c"
+  integrity sha512-Ft2X+iw6PIzK1s9n32klsCN/ql9xQxnC89C4KxPCQLUIobNhLfQp3lOzsPbsaVmN3gEQfpbAPOPXPYBUjMZMYA==
 
 decap-cms-lib-util@^3.0.2:
   version "3.0.2"
