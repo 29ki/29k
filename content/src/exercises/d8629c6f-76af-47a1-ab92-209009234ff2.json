@@ -103,6 +103,7 @@
       "backgroundColor": "#a49c80"
     },
     "hidden": true,
+    "locked": true,
     "name": "Being",
     "live": true,
     "published": true,
@@ -155,20 +156,23 @@
     "tags": [
       "9c2c08a9-7dc6-4058-bc78-016d0eb00614",
       "43a6dc0d-d866-4b79-9453-13c44e906128"
-    ]
+    ],
+    "locked": true
   },
   "sv": {
     "id": "d8629c6f-76af-47a1-ab92-209009234ff2",
     "tags": [
       "9c2c08a9-7dc6-4058-bc78-016d0eb00614",
       "43a6dc0d-d866-4b79-9453-13c44e906128"
-    ]
+    ],
+    "locked": true
   },
   "ja": {
     "id": "d8629c6f-76af-47a1-ab92-209009234ff2",
     "tags": [
       "9c2c08a9-7dc6-4058-bc78-016d0eb00614",
       "43a6dc0d-d866-4b79-9453-13c44e906128"
-    ]
+    ],
+    "locked": true
   }
 }

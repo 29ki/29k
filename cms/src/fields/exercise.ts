@@ -25,6 +25,7 @@ import {
   LOTTIE_FIELD,
   IMAGE_BACKGROUND_COLOR_FIELD,
   AUDIO_FIELD,
+  LOCKED_FIELD,
 } from './common';
 import {TAGS_FIELD} from './relations';
 import {
@@ -184,6 +185,7 @@ const EXERCISE_FIELDS: Array<CmsField> = applyDefaults(
     LINK_FIELD,
     PUBLISHED_FIELD,
     HIDDEN_FIELD,
+    LOCKED_FIELD,
     LIVE_FIELD,
     ASYNC_FIELD,
     SOCIAL_MEDIA,

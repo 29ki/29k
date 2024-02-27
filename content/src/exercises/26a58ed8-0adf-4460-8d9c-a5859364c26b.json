@@ -105,7 +105,8 @@
       "textColor": "#2E2E2E",
       "backgroundColor": "#f1e6dc"
     },
-    "hidden": true,
+    "hidden": false,
+    "locked": true,
     "name": "Thinking",
     "live": true,
     "published": true,
@@ -163,20 +164,37 @@
     "tags": [
       "566aeb1b-1649-4f5a-96a2-0c80be27efc0",
       "9c2c08a9-7dc6-4058-bc78-016d0eb00614"
-    ]
+    ],
+    "locked": true,
+    "introPortal": {
+      "videoLoop": {
+        "p5JsScript": {
+          "lang": "javascript"
+        }
+      }
+    }
   },
   "sv": {
     "id": "26a58ed8-0adf-4460-8d9c-a5859364c26b",
     "tags": [
       "566aeb1b-1649-4f5a-96a2-0c80be27efc0",
       "9c2c08a9-7dc6-4058-bc78-016d0eb00614"
-    ]
+    ],
+    "locked": true,
+    "introPortal": {
+      "videoLoop": {
+        "p5JsScript": {
+          "lang": "javascript"
+        }
+      }
+    }
   },
   "ja": {
     "id": "26a58ed8-0adf-4460-8d9c-a5859364c26b",
     "tags": [
       "566aeb1b-1649-4f5a-96a2-0c80be27efc0",
       "9c2c08a9-7dc6-4058-bc78-016d0eb00614"
-    ]
+    ],
+    "locked": true
   }
 }

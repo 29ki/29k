@@ -274,6 +274,7 @@ export interface Exercise {
   link?: string;
   published: boolean;
   hidden?: boolean;
+  locked?: boolean;
   live?: boolean;
   async?: boolean;
   socialMeta?: ExerciseSocialMediaMetaTags;

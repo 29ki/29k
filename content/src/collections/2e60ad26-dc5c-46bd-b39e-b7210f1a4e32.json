@@ -1,7 +1,7 @@
 {
   "en": {
     "published": true,
-    "hidden": true,
+    "hidden": false,
     "id": "2e60ad26-dc5c-46bd-b39e-b7210f1a4e32",
     "name": "The IDG collection",
     "exercises": [
@@ -19,7 +19,8 @@
       "image": {
         "source": "https://res.cloudinary.com/cupcake-29k/image/upload/v1702029819/Images/terra-pi_zhwybj.png"
       }
-    }
+    },
+    "locked": true
   },
   "pt": {
     "published": false,
@@ -36,7 +37,8 @@
       "566aeb1b-1649-4f5a-96a2-0c80be27efc0",
       "9c2c08a9-7dc6-4058-bc78-016d0eb00614"
     ],
-    "card": {}
+    "card": {},
+    "locked": true
   },
   "sv": {
     "published": false,
@@ -53,7 +55,8 @@
       "566aeb1b-1649-4f5a-96a2-0c80be27efc0",
       "9c2c08a9-7dc6-4058-bc78-016d0eb00614"
     ],
-    "card": {}
+    "card": {},
+    "locked": true
   },
   "ja": {
     "published": false,
@@ -70,6 +73,7 @@
       "566aeb1b-1649-4f5a-96a2-0c80be27efc0",
       "9c2c08a9-7dc6-4058-bc78-016d0eb00614"
     ],
-    "card": {}
+    "card": {},
+    "locked": true
   }
 }
