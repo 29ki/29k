@@ -9,12 +9,12 @@ beforeEach(async () => {
 });
 
 describe('useToggleHiddenContent', () => {
-  it('should reload resources on toggle on', () => {
+  it('should reload resources on toggle on', async () => {
     const {i18n} = useTranslation();
     const {result} = renderHook(() => useToggleHiddenContent());
 
-    act(() => {
-      result.current(true);
+    await act(async () => {
+      await result.current(true);
     });
 
     expect(useAppState.getState().settings.showHiddenContent).toBe(true);
@@ -42,14 +42,16 @@ describe('useToggleHiddenContent', () => {
       'tags',
       'exercises',
     ]);
+    expect(i18n.emit).toHaveBeenCalledTimes(1);
+    expect(i18n.emit).toHaveBeenCalledWith('languageChanged');
   });
 
-  it('should reload resources on toggle off', () => {
+  it('should reload resources on toggle off', async () => {
     const {i18n} = useTranslation();
     const {result} = renderHook(() => useToggleHiddenContent());
 
-    act(() => {
-      result.current(false);
+    await act(async () => {
+      await result.current(false);
     });
 
     expect(useAppState.getState().settings.showHiddenContent).toBe(false);
@@ -77,5 +79,7 @@ describe('useToggleHiddenContent', () => {
       'tags',
       'exercises',
     ]);
+    expect(i18n.emit).toHaveBeenCalledTimes(1);
+    expect(i18n.emit).toHaveBeenCalledWith('languageChanged');
   });
 });
