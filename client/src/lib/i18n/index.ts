@@ -20,7 +20,7 @@ import {
   LANGUAGE_TAGS,
 } from '../../../../shared/src/i18n/constants';
 import Backend from './backend/backend';
-import {omitUnpublishedContent} from './utils/utils';
+import {omitPublishableContent} from './utils/utils';
 
 export * from '../../../../shared/src/i18n/constants';
 
@@ -42,7 +42,7 @@ export const init = () =>
       fallbackLng: DEFAULT_LANGUAGE_TAG,
       // To trigger the backend middleware to load publishable content they have to be removed first.
       // Removing them in buildContent creates somewhat of a mess in backend adding them back.
-      resources: omitUnpublishedContent(content.i18n),
+      resources: omitPublishableContent(content.i18n),
       partialBundledLanguages: true,
       returnNull: false,
       interpolation: {
