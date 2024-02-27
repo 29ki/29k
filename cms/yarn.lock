@@ -696,10 +696,10 @@
     minimatch "^3.1.2"
     strip-json-comments "^3.1.1"
 
-"@eslint/js@8.56.0":
-  version "8.56.0"
-  resolved "https://registry.yarnpkg.com/@eslint/js/-/js-8.56.0.tgz#ef20350fec605a7f7035a01764731b2de0f3782b"
-  integrity sha512-gMsVel9D7f2HLkBma9VbtzZRehRogVRfbr++f06nL2vnCGCNlzOD+/MUov/F4p8myyAHspEhVobgjpX64q5m6A==
+"@eslint/js@8.57.0":
+  version "8.57.0"
+  resolved "https://registry.yarnpkg.com/@eslint/js/-/js-8.57.0.tgz#a5417ae8427873f1dd08b70b3574b453e67b5f7f"
+  integrity sha512-Ys+3g2TaW7gADOJzPt83SJtCDhMjndcDMFVQ/Tj9iA1BfJzFKD9mAUXT3OenpuPHbI6P/myECxRJrofUsDx/5g==
 
 "@hapi/address@^4.0.1":
   version "4.1.0"
@@ -741,13 +741,13 @@
   dependencies:
     "@hapi/hoek" "^9.0.0"
 
-"@humanwhocodes/config-array@^0.11.13":
-  version "0.11.13"
-  resolved "https://registry.npmjs.org/@humanwhocodes/config-array/-/config-array-0.11.13.tgz"
-  integrity sha512-JSBDMiDKSzQVngfRjOdFXgFfklaXI4K9nLF49Auh21lmBWRLIK3+xTErTWD4KU54pb6coM6ESE7Awz/FNU3zgQ==
+"@humanwhocodes/config-array@^0.11.14":
+  version "0.11.14"
+  resolved "https://registry.yarnpkg.com/@humanwhocodes/config-array/-/config-array-0.11.14.tgz#d78e481a039f7566ecc9660b4ea7fe6b1fec442b"
+  integrity sha512-3T8LkOmg45BV5FICb15QQMsyUSWrQ8AygVfC7ZG32zOalnqrilm018ZVCw0eapXux8FtA33q8PSRSstjee3jSg==
   dependencies:
-    "@humanwhocodes/object-schema" "^2.0.1"
-    debug "^4.1.1"
+    "@humanwhocodes/object-schema" "^2.0.2"
+    debug "^4.3.1"
     minimatch "^3.0.5"
 
 "@humanwhocodes/module-importer@^1.0.1":
@@ -755,10 +755,10 @@
   resolved "https://registry.npmjs.org/@humanwhocodes/module-importer/-/module-importer-1.0.1.tgz"
   integrity sha512-bxveV4V8v5Yb4ncFTT3rPSgZBOpCkjfK0y4oVVVJwIuDVBRMDXrPyXRL988i5ap9m9bnyEEjWfm5WkBmtffLfA==
 
-"@humanwhocodes/object-schema@^2.0.1":
-  version "2.0.1"
-  resolved "https://registry.npmjs.org/@humanwhocodes/object-schema/-/object-schema-2.0.1.tgz"
-  integrity sha512-dvuCeX5fC9dXgJn9t+X5atfmgQAzUOWqS1254Gh0m6i8wKd10ebXkfNKiRK+1GWi/yTvvLDHpoxLr0xxxeslWw==
+"@humanwhocodes/object-schema@^2.0.2":
+  version "2.0.2"
+  resolved "https://registry.yarnpkg.com/@humanwhocodes/object-schema/-/object-schema-2.0.2.tgz#d9fae00a2d5cb40f92cfe64b47ad749fbc38f917"
+  integrity sha512-6EwiSjwWYP7pTckG6I5eyFANjPhmPjUX9JRLUSfNPC7FX7zK9gyZAfUEaECL6ALTpGX5AjnBq3C9XmVWPitNpw==
 
 "@iarna/toml@2.2.5":
   version "2.2.5"
@@ -1368,10 +1368,10 @@
   dependencies:
     "@types/unist" "^2"
 
-"@types/node@*", "@types/node@>=6", "@types/node@^20.11.19":
-  version "20.11.19"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-20.11.19.tgz#b466de054e9cb5b3831bee38938de64ac7f81195"
-  integrity sha512-7xMnVEcZFu0DikYjWOlRq7NTPETrm7teqUT2WkQjrTIkEgUyyGdWsj/Zg8bEJt5TNklzbPD1X3fqfsHw3SpapQ==
+"@types/node@*", "@types/node@>=6", "@types/node@^20.11.20":
+  version "20.11.20"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-20.11.20.tgz#f0a2aee575215149a62784210ad88b3a34843659"
+  integrity sha512-7/rR21OS+fq8IyHTgtLkDK949uzsa6n8BkziAKtPVpugIkO6D+/ooXMvzXxDnZrmtXVfjb1bKQafYpb8s89LOg==
   dependencies:
     undici-types "~5.26.4"
 
@@ -1410,10 +1410,10 @@
     hoist-non-react-statics "^3.3.0"
     redux "^4.0.0"
 
-"@types/react@*", "@types/react@^18.2.56":
-  version "18.2.56"
-  resolved "https://registry.yarnpkg.com/@types/react/-/react-18.2.56.tgz#2d3e9021a0b6eb5bfc227761cc61b1c6dc6e0cd8"
-  integrity sha512-NpwHDMkS/EFZF2dONFQHgkPRwhvgq/OAvIaGQzxGSBmaeR++kTg6njr15Vatz0/2VcCEwJQFi6Jf4Q0qBu0rLA==
+"@types/react@*", "@types/react@^18.2.58":
+  version "18.2.58"
+  resolved "https://registry.yarnpkg.com/@types/react/-/react-18.2.58.tgz#22082d12898d11806f4a1aefb5583116a047493d"
+  integrity sha512-TaGvMNhxvG2Q0K0aYxiKfNDS5m5ZsoIBBbtfUorxdH4NGSXIlYvZxLJI+9Dd3KjeB3780bciLyAb7ylO8pLhPw==
   dependencies:
     "@types/prop-types" "*"
     "@types/scheduler" "*"
@@ -2498,26 +2498,26 @@ debug@^4.0.0, debug@^4.1.0, debug@^4.1.1, debug@^4.3.1, debug@^4.3.2, debug@^4.3
   dependencies:
     ms "2.1.2"
 
-decap-cms-app@3.1.1:
-  version "3.1.1"
-  resolved "https://registry.yarnpkg.com/decap-cms-app/-/decap-cms-app-3.1.1.tgz#ea2c353e926c57231ef413f375a60922ed2b2c6c"
-  integrity sha512-j0vaxiwwVHDSqzqXPLA7DaiTDzxD39RH9tvWtMXphxTIRGRA+LulLJ57ndjtrGsqwIy+/7GsngLgXoauRI28jQ==
+decap-cms-app@3.1.2:
+  version "3.1.2"
+  resolved "https://registry.yarnpkg.com/decap-cms-app/-/decap-cms-app-3.1.2.tgz#96fac97d5acb8a7709c3c77c5b96f2d1c1e4065e"
+  integrity sha512-djYqdVr2oGnOko8slBT2hxhPsS8A2dbKAmQ1JopBKeEn3f0Vaf6p1SJJjErASiafQ35kfGLHpx2IIWSuXfYzJw==
   dependencies:
     "@emotion/react" "^11.11.1"
     "@emotion/styled" "^11.11.0"
     codemirror "^5.46.0"
     dayjs "^1.11.10"
-    decap-cms-backend-aws-cognito-github-proxy "^3.1.0"
+    decap-cms-backend-aws-cognito-github-proxy "^3.1.1"
     decap-cms-backend-azure "^3.1.0"
     decap-cms-backend-bitbucket "^3.1.0"
     decap-cms-backend-git-gateway "^3.1.0"
     decap-cms-backend-github "^3.1.0"
-    decap-cms-backend-gitlab "^3.1.0"
+    decap-cms-backend-gitlab "^3.1.1"
     decap-cms-backend-proxy "^3.1.0"
     decap-cms-backend-test "^3.1.0"
-    decap-cms-core "^3.3.1"
+    decap-cms-core "^3.3.2"
     decap-cms-editor-component-image "^3.1.0"
-    decap-cms-lib-auth "^3.0.3"
+    decap-cms-lib-auth "^3.0.4"
     decap-cms-lib-util "^3.0.2"
     decap-cms-lib-widgets "^3.0.1"
     decap-cms-locales "^3.1.3"
@@ -2543,10 +2543,10 @@ decap-cms-app@3.1.1:
     react-immutable-proptypes "^2.1.0"
     uuid "^8.3.2"
 
-decap-cms-backend-aws-cognito-github-proxy@^3.1.0:
-  version "3.1.0"
-  resolved "https://registry.yarnpkg.com/decap-cms-backend-aws-cognito-github-proxy/-/decap-cms-backend-aws-cognito-github-proxy-3.1.0.tgz#faea3186800250d959d72c1c42ea221bb70575b6"
-  integrity sha512-k2wqxRl1GglcSFlmEENvUoAelYhSHklksnAEXQEB+Hd2tAQ3vWGrhqY+uUJbIwRtMQf3ft1ZNENBPOBK6a6aNw==
+decap-cms-backend-aws-cognito-github-proxy@^3.1.1:
+  version "3.1.1"
+  resolved "https://registry.yarnpkg.com/decap-cms-backend-aws-cognito-github-proxy/-/decap-cms-backend-aws-cognito-github-proxy-3.1.1.tgz#e25c5c52ca8053fdc52af7bb057f8b9e2a83f9f8"
+  integrity sha512-0kW5YHm/zkCnIZjlQUWSAKr0eMMGuayXH0k+fe0oRs+8TdUELFt194sPFrghZ33Xh502iGP0irMJfubt7quA3Q==
   dependencies:
     apollo-cache-inmemory "^1.6.2"
     apollo-client "^2.6.3"
@@ -2601,10 +2601,10 @@ decap-cms-backend-github@^3.1.0:
     js-base64 "^3.0.0"
     semaphore "^1.1.0"
 
-decap-cms-backend-gitlab@^3.1.0:
-  version "3.1.0"
-  resolved "https://registry.yarnpkg.com/decap-cms-backend-gitlab/-/decap-cms-backend-gitlab-3.1.0.tgz#4895dabd7ad4ebc023774c7201413fe2784fc5d0"
-  integrity sha512-MxI54Jo7/YO8u2Vdabi776t8OLKRxZgb1iqYZ6ogImXvMukAsZGPizNR4/w7Fb3iS77hzll0O/nRecbZqJC8Bw==
+decap-cms-backend-gitlab@^3.1.1:
+  version "3.1.1"
+  resolved "https://registry.yarnpkg.com/decap-cms-backend-gitlab/-/decap-cms-backend-gitlab-3.1.1.tgz#de1b482eb66a72bd9f7a676367049f138a04779f"
+  integrity sha512-sPdRExxPZBWrMmMDhZdFePRCSK0lGAYOpARJYIKV7gpE7PgfROZKUyGXT8BLdq+nmpD0M1C7CvISVUSWinwKJg==
   dependencies:
     apollo-cache-inmemory "^1.6.2"
     apollo-client "^2.6.3"
@@ -2623,10 +2623,10 @@ decap-cms-backend-test@^3.1.0:
   resolved "https://registry.yarnpkg.com/decap-cms-backend-test/-/decap-cms-backend-test-3.1.0.tgz#be433d3c6d059432e778d49406917fe727b041c9"
   integrity sha512-Ik2AjtNv0Ty3VVVvfqvJAqwNBieZL1dkR0JAxER5IKX/sPfSKN0pLagmzGksUU1krQnXm6+TGREalzrB0n5GEA==
 
-decap-cms-core@^3.3.1:
-  version "3.3.1"
-  resolved "https://registry.yarnpkg.com/decap-cms-core/-/decap-cms-core-3.3.1.tgz#c7e0f98b4d5fdac1ca04d1335616a816ebbc13b9"
-  integrity sha512-T2Az2xmVLd9Bu86EsU2l2Cz/xU0QG1xi0CR2jYC+z+RzW4kIy7vWCSKXdZklxHHzohu+oAiTAE1E3wg5nfN+jQ==
+decap-cms-core@^3.3.2:
+  version "3.3.2"
+  resolved "https://registry.yarnpkg.com/decap-cms-core/-/decap-cms-core-3.3.2.tgz#3eccca3692d8fc89f7cc403c8205182b589a9386"
+  integrity sha512-Pfa3Q/GsNls7OWzcWAhYE7GaDz68/k3dz/COv5TZnaSoML8IYj1DS1goQPsYoTun+uqjlzL/ZACjrtwJEmqKSw==
   dependencies:
     "@iarna/toml" "2.2.5"
     "@reduxjs/toolkit" "^1.9.1"
@@ -2684,10 +2684,10 @@ decap-cms-editor-component-image@^3.1.0:
   resolved "https://registry.yarnpkg.com/decap-cms-editor-component-image/-/decap-cms-editor-component-image-3.1.0.tgz#7321394e3083a616adbb31fd4ba50279235ae539"
   integrity sha512-M1xhx7bxHg+mpSwSkZuo1W7oxpY+cn41WDJE9nDTvyzlg3YCICv2mEv+LXKN791wWKhhKp4SUZYa6yJUKX/eWA==
 
-decap-cms-lib-auth@^3.0.3:
-  version "3.0.3"
-  resolved "https://registry.yarnpkg.com/decap-cms-lib-auth/-/decap-cms-lib-auth-3.0.3.tgz#27def61353e21d61b5ae1753ef26fbfd89924895"
-  integrity sha512-U824GvFiujQlfBMOFKJbmATh+N9nLZuCzEP6Cnadt94mMfQf3gCuPJxqmfbAdfYyDLNRsrrAOIdUzluuHjNFFQ==
+decap-cms-lib-auth@^3.0.4:
+  version "3.0.4"
+  resolved "https://registry.yarnpkg.com/decap-cms-lib-auth/-/decap-cms-lib-auth-3.0.4.tgz#e5e9c3e92a0c4075405a4e94ecc8065ff2ee949c"
+  integrity sha512-Ft2X+iw6PIzK1s9n32klsCN/ql9xQxnC89C4KxPCQLUIobNhLfQp3lOzsPbsaVmN3gEQfpbAPOPXPYBUjMZMYA==
 
 decap-cms-lib-util@^3.0.2:
   version "3.0.2"
@@ -3275,16 +3275,16 @@ eslint-visitor-keys@^3.3.0, eslint-visitor-keys@^3.4.1, eslint-visitor-keys@^3.4
   resolved "https://registry.npmjs.org/eslint-visitor-keys/-/eslint-visitor-keys-3.4.3.tgz"
   integrity sha512-wpc+LXeiyiisxPlEkUzU6svyS1frIO3Mgxj1fdy7Pm8Ygzguax2N3Fa/D/ag1WqbOprdI+uY6wMUl8/a2G+iag==
 
-eslint@^8.56.0:
-  version "8.56.0"
-  resolved "https://registry.yarnpkg.com/eslint/-/eslint-8.56.0.tgz#4957ce8da409dc0809f99ab07a1b94832ab74b15"
-  integrity sha512-Go19xM6T9puCOWntie1/P997aXxFsOi37JIHRWI514Hc6ZnaHGKY9xFhrU65RT6CcBEzZoGG1e6Nq+DT04ZtZQ==
+eslint@^8.57.0:
+  version "8.57.0"
+  resolved "https://registry.yarnpkg.com/eslint/-/eslint-8.57.0.tgz#c786a6fd0e0b68941aaf624596fb987089195668"
+  integrity sha512-dZ6+mexnaTIbSBZWgou51U6OmzIhYM2VcNdtiTtI7qPNZm35Akpr0f6vtw3w1Kmn5PYo+tZVfh13WrhpS6oLqQ==
   dependencies:
     "@eslint-community/eslint-utils" "^4.2.0"
     "@eslint-community/regexpp" "^4.6.1"
     "@eslint/eslintrc" "^2.1.4"
-    "@eslint/js" "8.56.0"
-    "@humanwhocodes/config-array" "^0.11.13"
+    "@eslint/js" "8.57.0"
+    "@humanwhocodes/config-array" "^0.11.14"
     "@humanwhocodes/module-importer" "^1.0.1"
     "@nodelib/fs.walk" "^1.2.8"
     "@ungap/structured-clone" "^1.2.0"
@@ -4047,10 +4047,10 @@ hyphenate-style-name@^1.0.3:
   resolved "https://registry.npmjs.org/hyphenate-style-name/-/hyphenate-style-name-1.0.4.tgz"
   integrity sha512-ygGZLjmXfPHj+ZWh6LwbC37l43MhfztxetbFCoYTM2VjkIUpeHgSNn7QIyVFj7YQ1Wl9Cbw5sholVJPzWvC2MQ==
 
-i18next@^23.9.0:
-  version "23.9.0"
-  resolved "https://registry.yarnpkg.com/i18next/-/i18next-23.9.0.tgz#659cfcbf51a20158bb094d17a85f3c583d473901"
-  integrity sha512-f3MUciKqwzNV//mHG6EtdSlC65+nqH/3zK8sOSWqNV6FVu2tmHhF/rFOp9UF8S4m1odojtuipKaKJrP0Loh60g==
+i18next@^23.10.0:
+  version "23.10.0"
+  resolved "https://registry.yarnpkg.com/i18next/-/i18next-23.10.0.tgz#fb328794ae692e6fdde0564259e421f4203c4a2c"
+  integrity sha512-/TgHOqsa7/9abUKJjdPeydoyDc0oTi/7u9F8lMSj6ufg4cbC1Oj3f/Jja7zj7WRIhEQKB7Q4eN6y68I9RDxxGQ==
   dependencies:
     "@babel/runtime" "^7.23.2"
 
@@ -7790,10 +7790,10 @@ vfile@^4.0.0:
     unist-util-stringify-position "^2.0.0"
     vfile-message "^2.0.0"
 
-vite@^5.1.3:
-  version "5.1.3"
-  resolved "https://registry.yarnpkg.com/vite/-/vite-5.1.3.tgz#dd072653a80225702265550a4700561740dfde55"
-  integrity sha512-UfmUD36DKkqhi/F75RrxvPpry+9+tTkrXfMNZD+SboZqBCMsxKtO52XeGzzuh7ioz+Eo/SYDBbdb0Z7vgcDJew==
+vite@^5.1.4:
+  version "5.1.4"
+  resolved "https://registry.yarnpkg.com/vite/-/vite-5.1.4.tgz#14e9d3e7a6e488f36284ef13cebe149f060bcfb6"
+  integrity sha512-n+MPqzq+d9nMVTKyewqw6kSt+R3CkvF9QAKY8obiQn8g1fwTscKxyfaYnC632HtBXAQGc1Yjomphwn1dtwGAHg==
   dependencies:
     esbuild "^0.19.3"
     postcss "^8.4.35"
