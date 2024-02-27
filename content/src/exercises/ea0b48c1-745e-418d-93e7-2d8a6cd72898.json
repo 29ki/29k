@@ -469,6 +469,7 @@
       "backgroundColor": "#f1d0b0",
       "textColor": "#2E2E2E"
     },
+    "hidden": true,
     "name": "But / And",
     "live": true,
     "published": true,
@@ -497,7 +498,10 @@
     "introPortal": {
       "videoLoop": {
         "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1665480650/Temp/portal_no_sound_o7okas.mp4",
-        "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1674554597/Images/thumb_portal_bring_your_feel..._dthhdh.png"
+        "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1674554597/Images/thumb_portal_bring_your_feel..._dthhdh.png",
+        "p5JsScript": {
+          "lang": "javascript"
+        }
       },
       "videoEnd": {
         "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1665469668/Temp/Comp_13_1_xmcpyo.mp4"
