@@ -4,7 +4,7 @@ import {LANGUAGE_TAGS} from '../../../../../shared/src/i18n/constants';
 import useAppState from '../../appState/state/state';
 import {PUBLISHABLE_NAMESPACES} from '../../../../../shared/src/content/constants';
 
-export const omitUnpublishedContent = (resources: typeof content.i18n) => {
+export const omitPublishableContent = (resources: typeof content.i18n) => {
   const allResources = clone(resources) as unknown as Record<
     string,
     Record<string, string>

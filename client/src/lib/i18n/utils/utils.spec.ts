@@ -1,4 +1,4 @@
-import {omitUnpublishedContent} from './utils';
+import {omitPublishableContent} from './utils';
 import content from '../../../../../content/content.json';
 
 jest.mock('../../../../../content/content.json', () => ({
@@ -15,9 +15,9 @@ beforeEach(() => {
 });
 
 describe('i18n - utils', () => {
-  describe('omitUnpublishedContent', () => {
+  describe('omitPublishableContent', () => {
     it('should remove publishable content from content', () => {
-      expect(omitUnpublishedContent(content.i18n)).toEqual({
+      expect(omitPublishableContent(content.i18n)).toEqual({
         en: {keep: true},
         pt: {keep: true},
         sv: {keep: true},
