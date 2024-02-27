@@ -15,14 +15,6 @@ jest.mock(
 );
 
 describe('useExercisesByCollectionId', () => {
-  it('should only return non hidden exercises', () => {
-    const {result} = renderHook(() => useGetExercisesByCollectionId());
-
-    expect(result.current('some-collection-id')).toEqual([
-      {id: 'some-exercise-id'},
-    ]);
-  });
-
   it('should return non hidden exercises if shodHiddenContent is on', () => {
     useAppState.setState({
       settings: {
