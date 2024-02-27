@@ -9,7 +9,7 @@ const useToggleHiddenContent = () => {
   const setSettings = useAppState(state => state.setSettings);
 
   const toggleHiddenContent = useCallback(
-    (on: boolean) => {
+    async (on: boolean) => {
       setSettings({showHiddenContent: on});
       // Needs to be removed for all languages,
       // otherwise they are not reloaded when switching language
@@ -18,7 +18,9 @@ const useToggleHiddenContent = () => {
           i18n.removeResourceBundle(lng, namespace);
         });
       });
-      i18n.reloadResources(undefined, PUBLISHABLE_NAMESPACES);
+      await i18n.reloadResources(undefined, PUBLISHABLE_NAMESPACES);
+      // Trigger re-render of i18next-react
+      i18n.emit('languageChanged');
     },
     [i18n, setSettings],
   );
