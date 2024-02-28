@@ -35,7 +35,7 @@ const UnlockCollectionModal = () => {
   const {t} = useTranslation('Modal.UnlockCollection');
   const {
     params: {collectionId},
-  } = useRoute<RouteProp<ModalStackProps, 'UnlockCollection'>>();
+  } = useRoute<RouteProp<ModalStackProps, 'UnlockCollectionModal'>>();
   const {navigate} = useNavigation<NativeStackNavigationProp<HomeStackProps>>();
   const {close} = useBottomSheet();
 
