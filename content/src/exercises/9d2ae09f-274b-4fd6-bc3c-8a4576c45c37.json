@@ -100,18 +100,17 @@
       }
     ],
     "theme": {
-      "textColor": "#2E2E2E",
-      "backgroundColor": "#349dff"
+      "textColor": "#F9F8F4",
+      "backgroundColor": "#661a30"
     },
-    "hidden": false,
-    "locked": true,
+    "hidden": true,
     "name": "Acting",
     "live": true,
     "published": true,
     "card": {
       "backgroundColor": "",
       "image": {
-        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1698919598/Images/card_image_2_bounce_back_pkfg3y.png"
+        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1709126728/Images/Acting_card_image_ekavj6.png"
       }
     },
     "coCreators": [
@@ -139,7 +138,7 @@
         }
       ],
       "videoLoop": {
-        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1698917806/Video/portal1_bounce_back_mramav.mp4",
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1709149746/Video/Acting_portal_1_bid40x.mp4",
         "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1698917860/Audio/portal_audio_bouncing_back_myanbs.mp3",
         "p5JsScript": {
           "lang": "javascript"
@@ -162,20 +161,20 @@
     "tags": [
       "8da0534a-5da9-430a-bdf3-242ace6460fb"
     ],
-    "locked": true
+    "card": {}
   },
   "sv": {
     "id": "9d2ae09f-274b-4fd6-bc3c-8a4576c45c37",
     "tags": [
       "8da0534a-5da9-430a-bdf3-242ace6460fb"
     ],
-    "locked": true
+    "card": {}
   },
   "ja": {
     "id": "9d2ae09f-274b-4fd6-bc3c-8a4576c45c37",
     "tags": [
       "8da0534a-5da9-430a-bdf3-242ace6460fb"
     ],
-    "locked": true
+    "card": {}
   }
 }
