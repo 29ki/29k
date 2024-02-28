@@ -15,7 +15,10 @@
       {
         "type": "instruction",
         "content": {
-          "text": "Taking different perspectives and practice complexity awareness are two of the skills in the Thinking category that we'll practice in this exercise."
+          "text": "Taking different perspectives and practice complexity awareness are two of the skills in the Thinking category that we'll practice in this exercise.",
+          "image": {
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1709127702/Images/Thinking_async_image_nh74hx.png"
+          }
         }
       },
       {
@@ -95,24 +98,23 @@
         "content": {
           "text": "The next time you face a problem, imagine a few different stake holders and actively take their perspective before deciding where to go. \n\nThis can help us deal with complex issues and consider long-term consequences of the things we do.",
           "image": {
-            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1699017217/Images/card_image_switch_perspective_dyn7uv.png"
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1709127702/Images/Thinking_async_image_nh74hx.png"
           },
           "heading": "Well done"
         }
       }
     ],
     "theme": {
-      "textColor": "#2E2E2E",
-      "backgroundColor": "#f1e6dc"
+      "textColor": "#F9F8F4",
+      "backgroundColor": "#e585a1"
     },
-    "hidden": false,
-    "locked": true,
+    "hidden": true,
     "name": "Thinking",
     "live": true,
     "published": true,
     "card": {
       "image": {
-        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1699017217/Images/card_image_switch_perspective_dyn7uv.png"
+        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1709126728/Images/Thinking_card_image_pnslxz.png"
       }
     },
     "coCreators": [
@@ -165,14 +167,7 @@
       "566aeb1b-1649-4f5a-96a2-0c80be27efc0",
       "9c2c08a9-7dc6-4058-bc78-016d0eb00614"
     ],
-    "locked": true,
-    "introPortal": {
-      "videoLoop": {
-        "p5JsScript": {
-          "lang": "javascript"
-        }
-      }
-    }
+    "card": {}
   },
   "sv": {
     "id": "26a58ed8-0adf-4460-8d9c-a5859364c26b",
@@ -180,14 +175,7 @@
       "566aeb1b-1649-4f5a-96a2-0c80be27efc0",
       "9c2c08a9-7dc6-4058-bc78-016d0eb00614"
     ],
-    "locked": true,
-    "introPortal": {
-      "videoLoop": {
-        "p5JsScript": {
-          "lang": "javascript"
-        }
-      }
-    }
+    "card": {}
   },
   "ja": {
     "id": "26a58ed8-0adf-4460-8d9c-a5859364c26b",
@@ -195,6 +183,6 @@
       "566aeb1b-1649-4f5a-96a2-0c80be27efc0",
       "9c2c08a9-7dc6-4058-bc78-016d0eb00614"
     ],
-    "locked": true
+    "card": {}
   }
 }
