@@ -8,7 +8,7 @@ import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import {ModalStackProps} from '../../../lib/navigation/constants/routes';
 
 import Button from '../../../lib/components/Buttons/Button';
-import {Spacer16} from '../../../lib/components/Spacers/Spacer';
+import {Spacer16, Spacer24} from '../../../lib/components/Spacers/Spacer';
 import {BottomSheetTextInput} from '../../../lib/components/Typography/TextInput/TextInput';
 import {ModalHeading} from '../../../lib/components/Typography/Heading/Heading';
 import Gutters from '../../../lib/components/Gutters/Gutters';
@@ -47,6 +47,7 @@ const UpgradeAccountModal = () => {
   return (
     <CardModal>
       <Gutters>
+        <Spacer24 />
         <ModalHeading>{t('title')}</ModalHeading>
         <Spacer16 />
         <BottomSheetTextInput

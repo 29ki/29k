@@ -5,6 +5,7 @@
     "checkUpdate": "Check for update",
     "clearUpdate": "Clear update",
     "showHiddenContent": "Show hidden content",
+    "showLockedContent": "Show locked content",
     "addDevUserEvents": "Add development user events",
     "logUserEvents": "Log user events"
   },
@@ -21,6 +22,7 @@
     "uiLib": "UI bibliotek",
     "checkUpdate": "Sök uppdatering",
     "showHiddenContent": "Visa gömt innehåll",
+    "showLockedContent": "Visa låst innehåll",
     "addDevUserEvents": "Add development user events",
     "clearUpdate": "Clear update"
   },

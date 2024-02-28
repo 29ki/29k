@@ -1,12 +1,10 @@
 import {useCallback} from 'react';
 
 import {isNotNil} from 'ramda';
-import useAppState from '../../appState/state/state';
 import useGetExerciseById from './useGetExerciseById';
 import useGetCollectionById from './useGetCollectionById';
 
 const useGetExercisesByCollectionId = () => {
-  const {showHiddenContent} = useAppState(state => state.settings);
   const getCollectionById = useGetCollectionById();
   const getExerciseById = useGetExerciseById();
 
@@ -16,12 +14,11 @@ const useGetExercisesByCollectionId = () => {
       if (collection) {
         return collection.exercises
           .map(id => getExerciseById(id))
-          .filter(isNotNil)
-          .filter(e => showHiddenContent || !e.hidden);
+          .filter(isNotNil);
       }
       return [];
     },
-    [getCollectionById, getExerciseById, showHiddenContent],
+    [getCollectionById, getExerciseById],
   );
 };
 

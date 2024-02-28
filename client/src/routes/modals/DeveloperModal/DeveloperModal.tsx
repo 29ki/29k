@@ -20,13 +20,18 @@ import useCheckForUpdate from '../../../lib/codePush/hooks/useCheckForUpdate';
 import ActionSwitch from '../../../lib/components/ActionList/ActionItems/ActionSwitch';
 import useAddDevUserEvents from './hooks/useAddDevUserEvents';
 import useCurrentUserState from '../../../lib/user/hooks/useCurrentUserState';
+import useToggleLockedContent from '../../../lib/i18n/hooks/useToggleLockedContent';
 
 const DeveloperModal = () => {
   const {t} = useTranslation('Modal.Developer');
   const {toggle: toggleUiLib} = useUiLib();
   const toggleHiddenContent = useToggleHiddenContent();
+  const toggleLockedContent = useToggleLockedContent();
   const showHiddenContent = useAppState(
     state => state.settings.showHiddenContent,
+  );
+  const showLockedContent = useAppState(
+    state => state.settings.showLockedContent,
   );
   const clearUpdates = useClearUpdates();
   const checkForUpdate = useCheckForUpdate();
@@ -48,6 +53,11 @@ const DeveloperModal = () => {
             onValueChange={toggleHiddenContent}
             value={showHiddenContent}>
             {t('showHiddenContent')}
+          </ActionSwitch>
+          <ActionSwitch
+            onValueChange={toggleLockedContent}
+            value={showLockedContent}>
+            {t('showLockedContent')}
           </ActionSwitch>
         </ActionList>
         <Spacer8 />

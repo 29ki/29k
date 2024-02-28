@@ -10,6 +10,7 @@ import {
   PUBLISHED_FIELD,
   SORT_ORDER_FIELD,
   IMAGE_BACKGROUND_COLOR_FIELD,
+  LOCKED_FIELD,
 } from './common';
 import {TAGS_FIELD} from './relations';
 import {EXERCISES_FIELD} from './relations';
@@ -33,5 +34,6 @@ export const COLLECTION_FIELDS: Array<CmsField> = [
   SORT_ORDER_FIELD,
   PUBLISHED_FIELD,
   HIDDEN_FIELD,
+  LOCKED_FIELD,
   EXERCISES_FIELD,
 ];

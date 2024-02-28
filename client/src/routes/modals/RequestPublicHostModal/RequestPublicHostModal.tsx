@@ -8,7 +8,11 @@ import {VerificationError} from '../../../../../shared/src/errors/User';
 import {COLORS} from '../../../../../shared/src/constants/colors';
 
 import Button from '../../../lib/components/Buttons/Button';
-import {Spacer16, Spacer8} from '../../../lib/components/Spacers/Spacer';
+import {
+  Spacer16,
+  Spacer24,
+  Spacer8,
+} from '../../../lib/components/Spacers/Spacer';
 import {Body16} from '../../../lib/components/Typography/Body/Body';
 import {ModalHeading} from '../../../lib/components/Typography/Heading/Heading';
 import CardModal from '../../../lib/components/Modals/CardModal';
@@ -123,6 +127,7 @@ const RequestPublicHostModal = () => {
 
   return (
     <CardModal>
+      <Spacer24 />
       <Gutters>{renderContent()}</Gutters>
     </CardModal>
   );

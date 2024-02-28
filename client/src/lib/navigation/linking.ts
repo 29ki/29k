@@ -12,6 +12,7 @@ import useAppState from '../appState/state/state';
 const config: LinkingOptions<RootNavigationProps>['config'] = {
   initialRouteName: 'OverlayStack',
   screens: {
+    UnlockCollectionModal: 'unlockCollection/:collectionId',
     AddSessionByInviteModal: 'joinSessionInvite/:inviteCode',
     HostSessionByInviteModal: 'hostSessionInvite/:hostingCode',
     UpgradeAccountModal: 'verifyPublicHostCode/:code',

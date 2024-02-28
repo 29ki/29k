@@ -1,12 +1,8 @@
 import {renderHook} from '@testing-library/react-hooks';
 import useExerciseById from './useExerciseById';
 
-const mockT = jest.fn().mockReturnValue({name: 'some-exercise'});
-jest.mock('react-i18next', () => ({
-  useTranslation: jest.fn(() => ({
-    t: mockT,
-  })),
-}));
+const mockGetExerciseById = jest.fn().mockReturnValue({name: 'some-exercise'});
+jest.mock('./useGetExerciseById', () => () => mockGetExerciseById);
 
 afterEach(() => {
   jest.clearAllMocks();
@@ -16,10 +12,11 @@ describe('useExerciseById', () => {
   it('returns a translated exercise', () => {
     const {result} = renderHook(() => useExerciseById('some-exercise-id'));
 
-    expect(mockT).toHaveBeenCalledTimes(1);
-    expect(mockT).toHaveBeenCalledWith('some-exercise-id', {
-      returnObjects: true,
-    });
+    expect(mockGetExerciseById).toHaveBeenCalledTimes(1);
+    expect(mockGetExerciseById).toHaveBeenCalledWith(
+      'some-exercise-id',
+      undefined,
+    );
 
     expect(result.current).toEqual({name: 'some-exercise'});
   });
@@ -29,11 +26,8 @@ describe('useExerciseById', () => {
       useExerciseById('some-exercise-id', 'sv'),
     );
 
-    expect(mockT).toHaveBeenCalledTimes(1);
-    expect(mockT).toHaveBeenCalledWith('some-exercise-id', {
-      returnObjects: true,
-      lng: 'sv',
-    });
+    expect(mockGetExerciseById).toHaveBeenCalledTimes(1);
+    expect(mockGetExerciseById).toHaveBeenCalledWith('some-exercise-id', 'sv');
 
     expect(result.current).toEqual({name: 'some-exercise'});
   });
@@ -41,7 +35,7 @@ describe('useExerciseById', () => {
   it('returns null when no ID is provided', () => {
     const {result} = renderHook(() => useExerciseById(undefined));
 
-    expect(mockT).toHaveBeenCalledTimes(0);
+    expect(mockGetExerciseById).toHaveBeenCalledTimes(0);
 
     expect(result.current).toBe(null);
   });
@@ -53,7 +47,7 @@ describe('useExerciseById', () => {
 
     rerender();
 
-    expect(mockT).toHaveBeenCalledTimes(1);
+    expect(mockGetExerciseById).toHaveBeenCalledTimes(1);
     expect(result.all.length).toEqual(2);
   });
 });

@@ -6,7 +6,10 @@ import {
   filterHiddenContent,
 } from '../../../../../shared/src/i18n/utils';
 import {getShowHiddenContent} from '../utils/utils';
-import {PUBLISHABLE_NAMESPACES} from '../../../../../shared/src/content/constants';
+import {
+  HIDEABLE_NAMESPACES,
+  PUBLISHABLE_NAMESPACES,
+} from '../../../../../shared/src/content/constants';
 import {I18nNamespace} from '../../../../../shared/src/content/types';
 
 const Backend: BackendModule = {
@@ -18,20 +21,17 @@ const Backend: BackendModule = {
     namespace: I18nNamespace,
     callback: ReadCallback,
   ) {
-    if (PUBLISHABLE_NAMESPACES.includes(namespace)) {
-      const namespaceContent = filterPublishedContent(
-        content.i18n[language][namespace],
-      );
+    let namespaceContent = content.i18n[language][namespace];
 
-      if (getShowHiddenContent()) {
-        callback(null, namespaceContent);
-      } else {
-        // Default load only non hidden
-        callback(null, filterHiddenContent(namespaceContent));
-      }
-    } else {
-      callback(null, content.i18n[language][namespace]);
+    if (PUBLISHABLE_NAMESPACES.includes(namespace)) {
+      namespaceContent = filterPublishedContent(namespaceContent);
     }
+
+    if (HIDEABLE_NAMESPACES.includes(namespace) && !getShowHiddenContent()) {
+      namespaceContent = filterHiddenContent(namespaceContent);
+    }
+
+    callback(null, namespaceContent);
   },
 };
 
