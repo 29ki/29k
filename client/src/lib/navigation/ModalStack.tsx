@@ -150,8 +150,9 @@ const ModalStack = () => {
         marginHorizontal: 10,
       },
       handleIndicatorStyle: {
-        opacity: 0,
+        display: 'none',
       },
+      handleHeight: 0,
     }),
     [],
   );

@@ -7,7 +7,11 @@ import styled from 'styled-components/native';
 import {JoinSessionError} from '../../../../../shared/src/errors/Session';
 import {COLORS} from '../../../../../shared/src/constants/colors';
 import Gutters from '../../../lib/components/Gutters/Gutters';
-import {Spacer16, Spacer8} from '../../../lib/components/Spacers/Spacer';
+import {
+  Spacer16,
+  Spacer24,
+  Spacer8,
+} from '../../../lib/components/Spacers/Spacer';
 import {Body16} from '../../../lib/components/Typography/Body/Body';
 import VerificationCode from '../../../lib/components/VerificationCode/VerificationCode';
 import {ModalStackProps} from '../../../lib/navigation/constants/routes';
@@ -65,6 +69,7 @@ const AddSessionModal = () => {
 
   return (
     <CardModal>
+      <Spacer24 />
       <Gutters>
         {errorString ? (
           <ErrorText>{errorString}</ErrorText>
