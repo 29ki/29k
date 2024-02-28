@@ -23,8 +23,8 @@
           "lottie": {
             "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1696255947/Audio/Bounce_back_ejnsty.mp3",
             "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1696256068/SRT%20(captions)%20files/Bounce_back_tvpujy.srt",
-            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto/v1676977421/Lottie/audio_meditation_default_black_default_omemwt.json",
-            "durationTimer": false
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto/v1709134304/Lottie/IDG_lotties/Acting_meditation_kwxeuq.json",
+            "durationTimer": true
           },
           "video": {
             "durationTimer": true
@@ -44,7 +44,7 @@
         "content": {
           "heading": "What did you learn about yourself`?",
           "lottie": {
-            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto/v1676642915/Lottie/default_1min_black_rosi2l.json",
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto/v1709133218/Lottie/IDG_lotties/1_min_IDG_e1tws9.json",
             "duration": 60,
             "durationTimer": true
           },
@@ -69,7 +69,7 @@
           "lottie": {
             "durationTimer": true,
             "duration": 120,
-            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto/v1676639253/Lottie/default_2min_black_o6egey.json"
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto/v1709133219/Lottie/IDG_lotties/Acting_2min_ngrlch.json"
           },
           "text": ""
         },
@@ -94,7 +94,7 @@
         "content": {
           "text": "Well done. \n\nNow you've learnt the 4S:\n\n1. Support\n2. Strategies\n3. Smartness\n4. Solution-seeking\n\nChoose one of the resources you identified for your current situation, and apply it. In a few days evaluate where that takes you.",
           "image": {
-            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1698917836/Images/card_image_bounce_back_m6yyaj.png"
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1709149023/Images/Acting_async_image_wli32l.png"
           }
         }
       }
