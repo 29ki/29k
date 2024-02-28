@@ -6,6 +6,11 @@
     "confirmButton": "OK"
   },
   "pt": {},
-  "sv": {},
+  "sv": {
+    "heading1": "Grattis!",
+    "heading2": "Du har låst upp",
+    "invalidLink": "Hoppsan! Det verkar som att du har öppnat en ogiltig länk.",
+    "confirmButton": "OK"
+  },
   "ja": {}
 }
