@@ -33,6 +33,20 @@ describe('useExercises', () => {
     expect(result.current).toEqual([{name: 'aaa'}, {name: 'bbb'}]);
   });
 
+  it('should not sort when sort = false', () => {
+    mockUseExerciseIds.mockReturnValueOnce([
+      'some-exercise-id',
+      'some-other-exercise-id',
+    ]);
+    mockGetExerciseById
+      .mockReturnValueOnce({name: 'bbb'})
+      .mockReturnValueOnce({name: 'aaa'});
+
+    const {result} = renderHook(() => useExercises(undefined, false));
+
+    expect(result.current).toEqual([{name: 'bbb'}, {name: 'aaa'}]);
+  });
+
   it('filters out nil exercises', () => {
     mockUseExerciseIds.mockReturnValueOnce([
       'some-exercise-id',

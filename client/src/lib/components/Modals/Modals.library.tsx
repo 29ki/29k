@@ -3,7 +3,7 @@ import {Alert} from 'react-native';
 import styled from 'styled-components/native';
 import {COLORS} from '../../../../../shared/src/constants/colors';
 import Gutters from '../Gutters/Gutters';
-import {Spacer16} from '../Spacers/Spacer';
+import {Spacer16, Spacer24} from '../Spacers/Spacer';
 import {Body16} from '../Typography/Body/Body';
 import {ModalHeading} from '../Typography/Heading/Heading';
 import CardModal from './CardModal';
@@ -77,6 +77,7 @@ export const CardModalDefaults = () => (
   <CardWrapper>
     <CardModal>
       <Gutters>
+        <Spacer24 />
         <ModalHeading>Card Modal Defaults</ModalHeading>
         <Spacer16 />
         <Body16>
@@ -92,6 +93,7 @@ export const CardModalDefaults = () => (
 export const CardModalWithBackgroundColor = () => (
   <CardWrapper>
     <CardModal backgroundColor={COLORS.ACTIVE}>
+      <Spacer24 />
       <Gutters>
         <ModalHeading>Card Modal With Background Color</ModalHeading>
         <Spacer16 />

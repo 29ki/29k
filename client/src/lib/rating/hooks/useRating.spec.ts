@@ -36,6 +36,7 @@ describe('useRating', () => {
         appRatedRevision: APP_RATING_REVISION - 1,
         showOnboarding: true,
         showHiddenContent: false,
+        showLockedContent: false,
       },
     });
     mockGetSessionsByFeedback.mockReturnValueOnce([{}, {}]);
@@ -71,6 +72,7 @@ describe('useRating', () => {
         appRatedRevision: APP_RATING_REVISION - 1,
         showOnboarding: true,
         showHiddenContent: false,
+        showLockedContent: false,
       },
     });
     mockGetSessionsByFeedback.mockReturnValueOnce([{}]);
@@ -89,6 +91,7 @@ describe('useRating', () => {
         appRatedRevision: APP_RATING_REVISION,
         showOnboarding: true,
         showHiddenContent: false,
+        showLockedContent: false,
       },
     });
     mockGetSessionsByFeedback.mockReturnValueOnce([{}, {}]);

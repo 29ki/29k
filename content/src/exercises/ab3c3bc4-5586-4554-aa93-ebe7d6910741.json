@@ -105,7 +105,8 @@
       "textColor": "#2E2E2E",
       "backgroundColor": "#f7dfc9"
     },
-    "hidden": true,
+    "hidden": false,
+    "locked": true,
     "name": "Collaborating",
     "live": true,
     "published": true,
@@ -162,18 +163,21 @@
     "id": "ab3c3bc4-5586-4554-aa93-ebe7d6910741",
     "tags": [
       "43a6dc0d-d866-4b79-9453-13c44e906128"
-    ]
+    ],
+    "locked": true
   },
   "sv": {
     "id": "ab3c3bc4-5586-4554-aa93-ebe7d6910741",
     "tags": [
       "43a6dc0d-d866-4b79-9453-13c44e906128"
-    ]
+    ],
+    "locked": true
   },
   "ja": {
     "id": "ab3c3bc4-5586-4554-aa93-ebe7d6910741",
     "tags": [
       "43a6dc0d-d866-4b79-9453-13c44e906128"
-    ]
+    ],
+    "locked": true
   }
 }

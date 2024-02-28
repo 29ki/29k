@@ -103,7 +103,8 @@
       "textColor": "#2E2E2E",
       "backgroundColor": "#349dff"
     },
-    "hidden": true,
+    "hidden": false,
+    "locked": true,
     "name": "Acting",
     "live": true,
     "published": true,
@@ -160,18 +161,21 @@
     "id": "9d2ae09f-274b-4fd6-bc3c-8a4576c45c37",
     "tags": [
       "8da0534a-5da9-430a-bdf3-242ace6460fb"
-    ]
+    ],
+    "locked": true
   },
   "sv": {
     "id": "9d2ae09f-274b-4fd6-bc3c-8a4576c45c37",
     "tags": [
       "8da0534a-5da9-430a-bdf3-242ace6460fb"
-    ]
+    ],
+    "locked": true
   },
   "ja": {
     "id": "9d2ae09f-274b-4fd6-bc3c-8a4576c45c37",
     "tags": [
       "8da0534a-5da9-430a-bdf3-242ace6460fb"
-    ]
+    ],
+    "locked": true
   }
 }

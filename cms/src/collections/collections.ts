@@ -11,26 +11,6 @@ import EDITOR_TEXT_TEMPLATES_FIELDS from '../fields/templates';
 import {CATEGORY_FIELD} from '../fields/category';
 import {FEATURED_FIELDS} from '../fields/featured';
 
-export const news: CmsCollection = {
-  name: 'featured',
-  label: '✨ Featured',
-  label_singular: 'Feature',
-  folder: '/content/src/exercises',
-  identifier_field: 'id',
-  extension: 'json',
-  format: 'json',
-  create: true,
-  delete: true,
-  publish: true,
-  summary: '{{fields.name}}',
-  slug: '{{id}}',
-  editor: {
-    preview: false,
-  },
-  fields: EXERCISE_FIELDS,
-  i18n: true,
-};
-
 export const exercises: CmsCollection = {
   name: 'exercises',
   label: '📝 Exercises',

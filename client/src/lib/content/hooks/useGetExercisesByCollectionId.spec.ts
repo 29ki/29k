@@ -1,6 +1,5 @@
 import {renderHook} from '@testing-library/react-hooks';
 import useGetExercisesByCollectionId from './useGetExercisesByCollectionId';
-import useAppState from '../../appState/state/state';
 
 jest.mock('./useGetCollectionById', () => () => () => ({
   exercises: ['some-exercise-id', 'some-hidden-exercise-id'],
@@ -11,30 +10,16 @@ jest.mock(
     jest
       .fn()
       .mockReturnValueOnce({id: 'some-exercise-id'})
-      .mockReturnValueOnce({id: 'some-hidden-exercise-id', hidden: true}),
+      .mockReturnValueOnce({id: 'some-hidden-exercise-id'}),
 );
 
 describe('useExercisesByCollectionId', () => {
-  it('should only return non hidden exercises', () => {
+  it('should return exercises', () => {
     const {result} = renderHook(() => useGetExercisesByCollectionId());
 
     expect(result.current('some-collection-id')).toEqual([
       {id: 'some-exercise-id'},
-    ]);
-  });
-
-  it('should return non hidden exercises if shodHiddenContent is on', () => {
-    useAppState.setState({
-      settings: {
-        showHiddenContent: true,
-        showOnboarding: false,
-      },
-    });
-    const {result} = renderHook(() => useGetExercisesByCollectionId());
-
-    expect(result.current('some-collection-id')).toEqual([
-      {id: 'some-exercise-id'},
-      {id: 'some-hidden-exercise-id', hidden: true},
+      {id: 'some-hidden-exercise-id'},
     ]);
   });
 });

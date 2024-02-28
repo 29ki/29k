@@ -28,5 +28,6 @@ export interface Collection {
   sortOrder?: number;
   published: boolean;
   hidden?: boolean;
+  locked?: boolean;
   exercises: any[];
 }

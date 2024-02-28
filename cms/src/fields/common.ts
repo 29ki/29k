@@ -67,6 +67,16 @@ export const HIDDEN_FIELD: CmsField = {
   hint: "This will make it hidden by default. For work in progress, use in combination with published and the 'Show work in progress' switch in the app to access it only in staging.",
 };
 
+export const LOCKED_FIELD: CmsField = {
+  label: '🔐 Locked',
+  name: 'locked',
+  widget: 'boolean',
+  required: false,
+  default: false,
+  i18n: 'duplicate',
+  hint: 'This requires users to unlock the content with a deep link.',
+};
+
 export const NAME_FIELD: CmsField = {
   label: '📇 Name',
   name: 'name',

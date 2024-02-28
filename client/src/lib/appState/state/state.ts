@@ -9,6 +9,7 @@ export const APP_RATING_REVISION = 1;
 export type Settings = {
   preferredLanguage?: LANGUAGE_TAG;
   showHiddenContent: boolean;
+  showLockedContent: boolean;
   showOnboarding: boolean;
   appRatedRevision?: number;
 };
@@ -30,6 +31,7 @@ const initialState: State = {
   isColdStarted: true,
   settings: {
     showHiddenContent: false,
+    showLockedContent: false,
     showOnboarding: true,
   },
 };
