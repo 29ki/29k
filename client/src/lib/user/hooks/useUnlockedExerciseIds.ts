@@ -4,7 +4,7 @@ import useUnlockedCollectionIds from './useUnlockedCollectionIds';
 
 const useUnlockedExerciseIds = () => {
   const unlockedCollectionIds = useUnlockedCollectionIds();
-  const collections = useCollections(unlockedCollectionIds ?? []);
+  const collections = useCollections(unlockedCollectionIds);
 
   return useMemo(
     () =>
