@@ -5,7 +5,7 @@ import {useFeaturedExerciseIds} from './useFeaturedContent';
 const useFeaturedExercises = (exericeIds?: string[]) => {
   const featuredIds = useFeaturedExerciseIds();
   const ids = exericeIds ? intersection(featuredIds, exericeIds) : featuredIds;
-  return useExercises(ids);
+  return useExercises(ids, false);
 };
 
 export default useFeaturedExercises;

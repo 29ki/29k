@@ -7,7 +7,7 @@ const useFeaturedCollections = (collectionIds?: string[]) => {
   const ids = collectionIds
     ? intersection(featuredIds, collectionIds)
     : featuredIds;
-  return useCollections(ids);
+  return useCollections(ids, false);
 };
 
 export default useFeaturedCollections;
