@@ -13,7 +13,7 @@ const useGetCollectionById = () => {
   const unlockedCollectionIds = useUnlockedCollectionIds();
 
   return useCallback(
-    (id: string, language?: LANGUAGE_TAG) => {
+    (id: string, language?: LANGUAGE_TAG, ignoreLocked?: boolean) => {
       const collection = t(id, {
         returnObjects: true,
         lng: language,
@@ -23,6 +23,7 @@ const useGetCollectionById = () => {
         // i18next fallbacks to the key if no translation is found
         typeof collection !== 'object' ||
         (collection.locked &&
+          !ignoreLocked &&
           !showLockedContent &&
           !unlockedCollectionIds?.includes(id))
       ) {

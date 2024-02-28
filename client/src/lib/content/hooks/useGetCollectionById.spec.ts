@@ -70,7 +70,7 @@ describe('useGetCollectionById', () => {
     });
   });
 
-  it('returns locked exercise if appState.showLockedContent == true', () => {
+  it('returns locked collection if appState.showLockedContent == true', () => {
     useAppState.setState({
       settings: {
         showLockedContent: true,
@@ -100,6 +100,23 @@ describe('useGetCollectionById', () => {
 
     act(() => {
       expect(result.current('some-collection-id')).toEqual({
+        id: 'some-collection-id',
+        name: 'some-collection',
+        locked: true,
+      });
+    });
+  });
+
+  it('returns locked collection if ignoreLocked = true', () => {
+    mockT.mockReturnValueOnce({
+      id: 'some-collection-id',
+      name: 'some-collection',
+      locked: true,
+    });
+    const {result} = renderHook(() => useGetCollectionById());
+
+    act(() => {
+      expect(result.current('some-collection-id', undefined, true)).toEqual({
         id: 'some-collection-id',
         name: 'some-collection',
         locked: true,
