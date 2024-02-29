@@ -55,7 +55,7 @@ import useLiveSessionsByExercise from '../../../../../lib/sessions/hooks/useLive
 import ExerciseCard from '../../../../../lib/components/Cards/SessionCard/ExerciseCard';
 import useExercisesByTags from '../../../../../lib/content/hooks/useExercisesByTags';
 import CoCreators from '../../../../../lib/components/CoCreators/CoCreators';
-import ExerciseGraphic from '../../../../../lib/components/ExerciseGraphic/ExerciseGraphic';
+import CardGraphic from '../../../../../lib/components/CardGraphic/CardGraphic';
 import BackgroundBlock from '../../../../../lib/components/BackgroundBlock/BackgroundBlock';
 
 const TypeItemWrapper = styled.View<{isLast?: boolean}>(({isLast}) => ({
@@ -111,7 +111,7 @@ const LogoWrapper = styled.View({
   height: 90,
 });
 
-const Graphic = styled(ExerciseGraphic)({
+const Graphic = styled(CardGraphic)({
   width: 90,
   height: 90,
 });

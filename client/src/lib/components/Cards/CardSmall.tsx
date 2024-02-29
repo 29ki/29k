@@ -15,7 +15,7 @@ import {Spacer4, Spacer8} from '../Spacers/Spacer';
 import Tag from '../Tag/Tag';
 import {UserType} from '../../../../../shared/src/schemas/User';
 import {ExerciseCard} from '../../../../../shared/src/types/generated/Exercise';
-import ExerciseGraphic from '../ExerciseGraphic/ExerciseGraphic';
+import CardGraphic from '../CardGraphic/CardGraphic';
 import {Collection} from '../../../../../shared/src/types/generated/Collection';
 import CollectionTag from '../Tag/CollectionTag';
 
@@ -33,7 +33,7 @@ const Wrapper = styled(TouchableOpacity)<{backgroundColor: string}>(
   }),
 );
 
-const Graphic = styled(ExerciseGraphic)({
+const Graphic = styled(CardGraphic)({
   width: 64,
   height: 64,
 });

@@ -17,7 +17,7 @@ import {BellFillIcon, CheckIcon} from '../Icons';
 import {useTranslation} from 'react-i18next';
 import {UserType} from '../../../../../shared/src/schemas/User';
 import {ExerciseCard} from '../../../../../shared/src/types/generated/Exercise';
-import ExerciseGraphic from '../ExerciseGraphic/ExerciseGraphic';
+import CardGraphic from '../CardGraphic/CardGraphic';
 import Markdown from '../Typography/Markdown/Markdown';
 import textStyles from '../Typography/styles';
 import {Collection} from '../../../../../shared/src/types/generated/Collection';
@@ -50,7 +50,7 @@ const Wrapper = styled(TouchableOpacity)<{backgroundColor?: string}>(
   }),
 );
 
-const Graphic = styled(ExerciseGraphic)({
+const Graphic = styled(CardGraphic)({
   width: 112,
   height: 112,
   alignSelf: 'flex-end',

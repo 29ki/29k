@@ -53,7 +53,7 @@ import HostingInviteFailModal from '../HostingInviteFailModal/HostingInviteFailM
 import useUser from '../../../lib/user/hooks/useUser';
 import UpdateProfileStep from '../CreateSessionModal/components/steps/ProfileStep';
 import useSessions from '../../../lib/sessions/hooks/useSessions';
-import ExerciseGraphic from '../../../lib/components/ExerciseGraphic/ExerciseGraphic';
+import CardGraphic from '../../../lib/components/CardGraphic/CardGraphic';
 
 const Content = styled(Gutters)({
   justifyContent: 'space-between',
@@ -74,7 +74,7 @@ const TitleContainer = styled.View({
   flex: 2,
 });
 
-const Graphic = styled(ExerciseGraphic)({
+const Graphic = styled(CardGraphic)({
   width: 90,
   height: 90,
 });

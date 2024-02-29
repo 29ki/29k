@@ -73,7 +73,7 @@ import FeedbackCarousel from '../../../lib/components/FeedbackCarousel/FeedbackC
 import useExercisesByTags from '../../../lib/content/hooks/useExercisesByTags';
 import ExerciseCard from '../../../lib/components/Cards/SessionCard/ExerciseCard';
 import CoCreators from '../../../lib/components/CoCreators/CoCreators';
-import ExerciseGraphic from '../../../lib/components/ExerciseGraphic/ExerciseGraphic';
+import CardGraphic from '../../../lib/components/CardGraphic/CardGraphic';
 import BackgroundBlock from '../../../lib/components/BackgroundBlock/BackgroundBlock';
 import SheetModal from '../../../lib/components/Modals/SheetModal';
 import {BottomSheetScrollView} from '@gorhom/bottom-sheet';
@@ -113,7 +113,7 @@ const TitleContainer = styled.View({
   justifyContent: 'center',
 });
 
-const Graphic = styled(ExerciseGraphic)({
+const Graphic = styled(CardGraphic)({
   flex: 1,
 });
 

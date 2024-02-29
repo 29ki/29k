@@ -27,7 +27,7 @@ import {SPACINGS} from '../../../../../lib/constants/spacings';
 import EditSessionType from '../../../../../lib/components/EditSessionType/EditSessionType';
 import {formatContentName} from '../../../../../lib/utils/string';
 import useLogSessionMetricEvents from '../../../../../lib/sessions/hooks/useLogSessionMetricEvents';
-import ExerciseGraphic from '../../../../../lib/components/ExerciseGraphic/ExerciseGraphic';
+import CardGraphic from '../../../../../lib/components/CardGraphic/CardGraphic';
 
 const TextWrapper = styled.View({
   flex: 2,
@@ -41,7 +41,7 @@ const Row = styled.View({
 
 const Cta = styled(Button)({alignSelf: 'center'});
 
-const Graphic = styled(ExerciseGraphic)({
+const Graphic = styled(CardGraphic)({
   width: 90,
   height: 90,
 });
