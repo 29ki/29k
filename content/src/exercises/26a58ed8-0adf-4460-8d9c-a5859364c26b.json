@@ -52,7 +52,8 @@
           "lottie": {
             "durationTimer": true,
             "duration": 60,
-            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1709133218/Lottie/IDG_lotties/1_min_IDG_e1tws9.json"
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1709133218/Lottie/IDG_lotties/1_min_IDG_e1tws9.json",
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1707994709/Audio/portal_audio-Set_SMART_goals_guj1ma.mp3"
           }
         }
       },
@@ -108,7 +109,8 @@
       "textColor": "#F9F8F4",
       "backgroundColor": "#e585a1"
     },
-    "hidden": true,
+    "hidden": false,
+    "locked": true,
     "name": "Thinking",
     "live": true,
     "published": true,
@@ -143,13 +145,13 @@
       ],
       "videoLoop": {
         "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1709196094/Video/Thinking_portal_1_l6yd9l.mp4",
-        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1699017325/Audio/portal_audio_switch_perspective_usivda.mp3",
+        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1707994709/Audio/portal_audio-Set_SMART_goals_guj1ma.mp3",
         "p5JsScript": {
           "lang": "javascript"
         }
       },
       "videoEnd": {
-        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1699017279/Video/portal2_switch_perspective_eclkl6.mp4"
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1709216740/Video/Thinking_portal_2_hl5uyb.mp4"
       }
     },
     "tags": [
@@ -167,7 +169,8 @@
       "566aeb1b-1649-4f5a-96a2-0c80be27efc0",
       "9c2c08a9-7dc6-4058-bc78-016d0eb00614"
     ],
-    "card": {}
+    "card": {},
+    "locked": true
   },
   "sv": {
     "id": "26a58ed8-0adf-4460-8d9c-a5859364c26b",
@@ -175,7 +178,8 @@
       "566aeb1b-1649-4f5a-96a2-0c80be27efc0",
       "9c2c08a9-7dc6-4058-bc78-016d0eb00614"
     ],
-    "card": {}
+    "card": {},
+    "locked": true
   },
   "ja": {
     "id": "26a58ed8-0adf-4460-8d9c-a5859364c26b",
@@ -183,6 +187,7 @@
       "566aeb1b-1649-4f5a-96a2-0c80be27efc0",
       "9c2c08a9-7dc6-4058-bc78-016d0eb00614"
     ],
-    "card": {}
+    "card": {},
+    "locked": true
   }
 }
