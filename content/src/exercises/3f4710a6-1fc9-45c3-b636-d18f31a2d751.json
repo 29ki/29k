@@ -64,7 +64,8 @@
           "lottie": {
             "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1676642915/Lottie/default_1min_black_rosi2l.json",
             "durationTimer": true,
-            "duration": 60
+            "duration": 60,
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1707994709/Audio/portal_audio-Set_SMART_goals_guj1ma.mp3"
           }
         }
       },
@@ -166,7 +167,7 @@
       ],
       "videoLoop": {
         "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1709196108/Video/Relaiting_portal_1_df2pua.mp4",
-        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1684314370/Audio/outdoor_sensing_portal_audio_sm1ski.mp3",
+        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1707994709/Audio/portal_audio-Set_SMART_goals_guj1ma.mp3",
         "preview": "",
         "p5JsScript": {
           "lang": "javascript"
