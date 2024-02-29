@@ -53,7 +53,8 @@
           "lottie": {
             "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1709133218/Lottie/IDG_lotties/1_min_IDG_e1tws9.json",
             "durationTimer": true,
-            "duration": 60
+            "duration": 60,
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1705651789/Audio/portal_audiio_relationship_values_wvxw6i.mp3"
           }
         }
       },
@@ -108,7 +109,7 @@
       "textColor": "#F9F8F4",
       "backgroundColor": "#d4b88c"
     },
-    "hidden": true,
+    "hidden": false,
     "locked": true,
     "name": "Being",
     "live": true,
@@ -139,13 +140,13 @@
       ],
       "videoLoop": {
         "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1709149755/Video/Being_portal_1_dvuapz.mp4",
-        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1698157732/Audio/portal_audio_the_future_you_ghxefe.mp3",
+        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1705651789/Audio/portal_audiio_relationship_values_wvxw6i.mp3",
         "p5JsScript": {
           "lang": "javascript"
         }
       },
       "videoEnd": {
-        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1698157742/Video/portal2_the_future_you_obfsqf.mp4"
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1709201854/Video/Being_portal_2_ta4xyi.mp4"
       }
     },
     "tags": [
