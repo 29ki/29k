@@ -109,7 +109,7 @@
       "textColor": "#F9F8F4",
       "backgroundColor": "#d4b88c"
     },
-    "hidden": true,
+    "hidden": false,
     "locked": true,
     "name": "Being",
     "live": true,
