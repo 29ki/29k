@@ -53,7 +53,8 @@
           "lottie": {
             "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1709133218/Lottie/IDG_lotties/1_min_IDG_e1tws9.json",
             "durationTimer": true,
-            "duration": 60
+            "duration": 60,
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1705651789/Audio/portal_audiio_relationship_values_wvxw6i.mp3"
           }
         }
       },
@@ -139,7 +140,7 @@
       ],
       "videoLoop": {
         "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1709149755/Video/Being_portal_1_dvuapz.mp4",
-        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1698157732/Audio/portal_audio_the_future_you_ghxefe.mp3",
+        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1705651789/Audio/portal_audiio_relationship_values_wvxw6i.mp3",
         "p5JsScript": {
           "lang": "javascript"
         }
