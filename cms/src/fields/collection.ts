@@ -11,6 +11,7 @@ import {
   SORT_ORDER_FIELD,
   IMAGE_BACKGROUND_COLOR_FIELD,
   LOCKED_FIELD,
+  LOTTIE_FIELD,
 } from './common';
 import {TAGS_FIELD} from './relations';
 import {EXERCISES_FIELD} from './relations';
@@ -28,7 +29,11 @@ export const COLLECTION_FIELDS: Array<CmsField> = [
     widget: 'object',
     collapsed: true,
     required: false,
-    fields: [CARD_IMAGE_FIELD, IMAGE_BACKGROUND_COLOR_FIELD],
+    fields: [
+      CARD_IMAGE_FIELD,
+      IMAGE_BACKGROUND_COLOR_FIELD,
+      {...LOTTIE_FIELD, hint: '❗️ Overrides image'},
+    ],
   },
   TAGS_FIELD,
   SORT_ORDER_FIELD,
