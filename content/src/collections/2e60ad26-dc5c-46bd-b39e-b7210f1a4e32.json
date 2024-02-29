@@ -17,8 +17,9 @@
     ],
     "card": {
       "image": {
-        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1709190103/Images/IDG_collection_card_image_mjutwc.gif"
-      }
+        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1709195918/Images/IDG_collection_card_2_hpmv7g.png"
+      },
+      "imageBackgroundColor": "#ffffff"
     },
     "locked": true
   },
@@ -37,7 +38,9 @@
       "566aeb1b-1649-4f5a-96a2-0c80be27efc0",
       "9c2c08a9-7dc6-4058-bc78-016d0eb00614"
     ],
-    "card": {},
+    "card": {
+      "imageBackgroundColor": "#ffffff"
+    },
     "locked": true
   },
   "sv": {
@@ -55,7 +58,9 @@
       "566aeb1b-1649-4f5a-96a2-0c80be27efc0",
       "9c2c08a9-7dc6-4058-bc78-016d0eb00614"
     ],
-    "card": {},
+    "card": {
+      "imageBackgroundColor": "#ffffff"
+    },
     "locked": true
   },
   "ja": {
@@ -73,7 +78,9 @@
       "566aeb1b-1649-4f5a-96a2-0c80be27efc0",
       "9c2c08a9-7dc6-4058-bc78-016d0eb00614"
     ],
-    "card": {},
+    "card": {
+      "imageBackgroundColor": "#ffffff"
+    },
     "locked": true
   }
 }
