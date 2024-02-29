@@ -108,7 +108,7 @@
       "textColor": "#F9F8F4",
       "backgroundColor": "#ff6821"
     },
-    "hidden": true,
+    "hidden": false,
     "locked": true,
     "name": "Collaborating",
     "live": true,
