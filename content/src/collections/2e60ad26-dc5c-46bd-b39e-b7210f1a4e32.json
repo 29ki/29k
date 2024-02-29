@@ -19,7 +19,10 @@
       "image": {
         "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1709195918/Images/IDG_collection_card_2_hpmv7g.png"
       },
-      "imageBackgroundColor": "#ffffff"
+      "imageBackgroundColor": "",
+      "lottie": {
+        "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1709203317/Lottie/IDG_logo_rotation_nfqyrm.json"
+      }
     },
     "locked": true
   },
@@ -39,7 +42,7 @@
       "9c2c08a9-7dc6-4058-bc78-016d0eb00614"
     ],
     "card": {
-      "imageBackgroundColor": "#ffffff"
+      "imageBackgroundColor": ""
     },
     "locked": true
   },
@@ -59,7 +62,7 @@
       "9c2c08a9-7dc6-4058-bc78-016d0eb00614"
     ],
     "card": {
-      "imageBackgroundColor": "#ffffff"
+      "imageBackgroundColor": ""
     },
     "locked": true
   },
@@ -79,7 +82,7 @@
       "9c2c08a9-7dc6-4058-bc78-016d0eb00614"
     ],
     "card": {
-      "imageBackgroundColor": "#ffffff"
+      "imageBackgroundColor": ""
     },
     "locked": true
   }
