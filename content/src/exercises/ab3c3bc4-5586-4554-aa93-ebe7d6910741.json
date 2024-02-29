@@ -53,7 +53,7 @@
             "durationTimer": true,
             "duration": 60,
             "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1709133218/Lottie/IDG_lotties/1_min_IDG_e1tws9.json",
-            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1701419682/Audio/60_sec_seeing_kindness_rodych.mp3"
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1669043586/Audio/portal_audio_Be_kind_to_yourself_nnkrwz.mp3"
           }
         }
       },
@@ -108,7 +108,7 @@
       "textColor": "#F9F8F4",
       "backgroundColor": "#ff6821"
     },
-    "hidden": true,
+    "hidden": false,
     "locked": true,
     "name": "Collaborating",
     "live": true,
@@ -145,13 +145,13 @@
       ],
       "videoLoop": {
         "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1709149762/Video/Collaborating_portal_1_vdecpl.mp4",
-        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1699611545/Audio/portal_audio_seeing_kindness_s2j9wc.mp3",
+        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1669043586/Audio/portal_audio_Be_kind_to_yourself_nnkrwz.mp3",
         "p5JsScript": {
           "lang": "javascript"
         }
       },
       "videoEnd": {
-        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1699611475/Video/portal2_seeing_kindness_bu6lfb.mp4"
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1709210918/Collaborating_portal_2_ngkwja.mp4"
       }
     },
     "tags": [
