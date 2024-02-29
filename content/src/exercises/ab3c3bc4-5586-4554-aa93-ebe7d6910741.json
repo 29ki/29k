@@ -53,7 +53,7 @@
             "durationTimer": true,
             "duration": 60,
             "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1709133218/Lottie/IDG_lotties/1_min_IDG_e1tws9.json",
-            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1701419682/Audio/60_sec_seeing_kindness_rodych.mp3"
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1669043586/Audio/portal_audio_Be_kind_to_yourself_nnkrwz.mp3"
           }
         }
       },
@@ -145,7 +145,7 @@
       ],
       "videoLoop": {
         "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1709149762/Video/Collaborating_portal_1_vdecpl.mp4",
-        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1699611545/Audio/portal_audio_seeing_kindness_s2j9wc.mp3",
+        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1669043586/Audio/portal_audio_Be_kind_to_yourself_nnkrwz.mp3",
         "p5JsScript": {
           "lang": "javascript"
         }
