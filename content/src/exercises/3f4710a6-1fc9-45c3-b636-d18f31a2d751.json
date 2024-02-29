@@ -48,7 +48,9 @@
           },
           "lottie": {
             "durationTimer": true,
-            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1709134306/Lottie/IDG_lotties/Relaiting_meditation_nrjd6z.json"
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1709134306/Lottie/IDG_lotties/Relaiting_meditation_nrjd6z.json",
+            "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1689591586/SRT%20%28captions%29%20files/Outdoor_sensing_Jenny_hmqwou.srt",
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1683795468/Audio/Outdoor_sensing_Jenny_x9ztl5.mp3"
           }
         }
       },
