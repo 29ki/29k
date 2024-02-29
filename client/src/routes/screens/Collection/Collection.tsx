@@ -42,6 +42,7 @@ import {
 } from '../../../lib/components/Icons';
 import IconButton from '../../../lib/components/Buttons/IconButton/IconButton';
 import CoCreators from '../../../lib/components/CoCreators/CoCreators';
+import CardGraphic from '../../../lib/components/CardGraphic/CardGraphic';
 
 type Section = {
   title: string;
@@ -68,7 +69,7 @@ const LeftColumn = styled.View({
   justifyContent: 'space-between',
 });
 
-const Graphic = styled.Image({
+const Graphic = styled(CardGraphic)({
   width: 134,
   height: 134,
   aspectRatio: '1',
@@ -101,13 +102,6 @@ const Collection = () => {
   const colors = useMemo(
     () => [hexToRgba(COLORS.WHITE, 0), hexToRgba(COLORS.WHITE, 1)],
     [],
-  );
-
-  const image = useMemo(
-    () => ({
-      uri: collection?.card?.image?.source,
-    }),
-    [collection],
   );
 
   const exerciseSections = useMemo(() => {
@@ -187,7 +181,7 @@ const Collection = () => {
                   <Markdown>{collection?.description}</Markdown>
                 </LeftColumn>
                 <Spacer16 />
-                <Graphic source={image} />
+                <Graphic graphic={collection?.card} />
               </RowJustified>
 
               <Spacer16 />

@@ -1,5 +1,4 @@
 import React from 'react';
-import {ImageSourcePropType} from 'react-native';
 import styled from 'styled-components/native';
 
 import {COLORS} from '../../../../../../shared/src/constants/colors';
@@ -12,13 +11,14 @@ import SessionProgress from '../../SessionProgress/SessionProgress';
 import {CollectionIcon} from '../../Icons';
 import {Body12} from '../../Typography/Body/Body';
 import {PlayfairDisplayMedium} from '../../../constants/fonts';
+import {Collection} from '../../../../../../shared/src/types/generated/Collection';
+import {formatContentName} from '../../../utils/string';
+import CardGraphic from '../../CardGraphic/CardGraphic';
 
 export const HEIGHT = 138;
 
 type CollectionFullCardProps = {
-  title: string;
-  description?: string;
-  image: ImageSourcePropType;
+  collection: Collection;
   progressItems: Array<boolean>;
   backgroundColor?: string;
   textColor?: string;
@@ -76,7 +76,7 @@ const TitleWrapper = styled.View({
   flex: 1,
 });
 
-const Graphic = styled.Image({
+const Graphic = styled(CardGraphic)({
   width: 64,
   height: 64,
   aspectRatio: '1',
@@ -85,9 +85,7 @@ const Graphic = styled.Image({
 });
 
 const CollectionFullCard: React.FC<CollectionFullCardProps> = ({
-  title,
-  image,
-  description,
+  collection,
   progressItems,
   backgroundColor,
   textColor,
@@ -103,16 +101,16 @@ const CollectionFullCard: React.FC<CollectionFullCardProps> = ({
             </IconWrapper>
             <Spacer8 />
             <Heading numberOfLines={2} color={textColor}>
-              {title}
+              {formatContentName(collection)}
             </Heading>
           </TitleWrapper>
           <Spacer8 />
           <Description numberOfLines={2} color={textColor}>
-            {description}
+            {collection.description}
           </Description>
         </LeftColumn>
         <Spacer16 />
-        <Graphic source={image} />
+        <Graphic graphic={collection.card} />
       </Row>
       <SessionProgress items={progressItems} />
       <Spacer4 />

@@ -1,6 +1,6 @@
 import React from 'react';
 import ScreenWrapper from '../../uiLib/decorators/ScreenWrapper';
-import ExerciseGraphic from './ExerciseGraphic';
+import CardGraphic from './CardGraphic';
 import {ExerciseCard} from '../../../../../shared/src/types/generated/Exercise';
 import {Heading16} from '../Typography/Heading/Heading';
 import {Spacer28} from '../Spacers/Spacer';
@@ -38,15 +38,15 @@ const DUMMY_LOTTIE_GRAPHIC: ExerciseCard = {
 export const AllTypes = () => (
   <ScreenWrapper>
     <Heading16>Transparent image</Heading16>
-    <ExerciseGraphic graphic={DUMMY_TRANSPARENT_IMAGE_GRAPHIC} />
+    <CardGraphic graphic={DUMMY_TRANSPARENT_IMAGE_GRAPHIC} />
     <Spacer28 />
     <Heading16>Transparent lottie</Heading16>
-    <ExerciseGraphic graphic={DUMMY_TRANSPARENT_LOTTIE_GRAPHIC} />
+    <CardGraphic graphic={DUMMY_TRANSPARENT_LOTTIE_GRAPHIC} />
     <Spacer28 />
     <Heading16>Background image</Heading16>
-    <ExerciseGraphic graphic={DUMMY_IMAGE_GRAPHIC} />
+    <CardGraphic graphic={DUMMY_IMAGE_GRAPHIC} />
     <Spacer28 />
     <Heading16>Background lottie</Heading16>
-    <ExerciseGraphic graphic={DUMMY_LOTTIE_GRAPHIC} />
+    <CardGraphic graphic={DUMMY_LOTTIE_GRAPHIC} />
   </ScreenWrapper>
 );

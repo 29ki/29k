@@ -1,4 +1,4 @@
-import React, {useCallback, useMemo} from 'react';
+import React, {useCallback} from 'react';
 import styled from 'styled-components/native';
 import TouchableOpacity from '../../../../lib/components/TouchableOpacity/TouchableOpacity';
 import {
@@ -22,6 +22,7 @@ import {
   ExploreStackProps,
 } from '../../../../lib/navigation/constants/routes';
 import {useFeaturedCollectionIds} from '../../../../lib/content/hooks/useFeaturedContent';
+import CardGraphic from '../../../../lib/components/CardGraphic/CardGraphic';
 
 const Card = styled.View<{backgroundColor?: string}>(({backgroundColor}) => ({
   aspectRatio: '1.3625',
@@ -45,8 +46,9 @@ const WhiteBody12 = styled(Body12)({
   color: COLORS.PURE_WHITE,
 });
 
-const BackgroundImage = styled.Image({
+const Background = styled(CardGraphic)({
   ...StyleSheet.absoluteFillObject,
+  aspectRatio: '1',
 });
 
 const Footer = styled(LinearGradient).attrs({
@@ -83,19 +85,14 @@ const Collection: React.FC<Props> = ({collection}) => {
   const exercises = useExercisesByCollectionId(collection.id);
   const featuredIds = useFeaturedCollectionIds();
 
-  const source = useMemo(
-    () => ({uri: collection.card?.image?.source}),
-    [collection.card?.image],
-  );
-
   const onPress = useCallback(() => {
     navigate('Collection', {collectionId: collection.id});
   }, [navigate, collection.id]);
 
   return (
     <TouchableOpacity onPress={onPress}>
-      <Card backgroundColor={collection.card?.imageBackgroundColor}>
-        <BackgroundImage source={source} />
+      <Card>
+        <Background graphic={collection.card} />
         {featuredIds.includes(collection.id) && (
           <New>
             <WhiteBody12>{t('new')}</WhiteBody12>
