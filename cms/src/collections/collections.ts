@@ -89,7 +89,7 @@ export const collections: CmsCollection = {
   publish: true,
   i18n: true,
   editor: {
-    preview: false,
+    preview: true,
   },
 };
 
