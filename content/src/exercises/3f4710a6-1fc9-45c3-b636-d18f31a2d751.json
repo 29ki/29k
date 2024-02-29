@@ -45,6 +45,10 @@
             "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1684313677/Video/outdoor_sensing_meditation_visual_cbiepb.mp4",
             "autoPlayLoop": false,
             "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1689591586/SRT%20(captions)%20files/Outdoor_sensing_Jenny_hmqwou.srt"
+          },
+          "lottie": {
+            "durationTimer": true,
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1709134306/Lottie/IDG_lotties/Relaiting_meditation_nrjd6z.json"
           }
         }
       },
@@ -62,7 +66,7 @@
           "heading": "What thoughts, feelings and experiences showed up?",
           "text": "",
           "lottie": {
-            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1676642915/Lottie/default_1min_black_rosi2l.json",
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1709133218/Lottie/IDG_lotties/1_min_IDG_e1tws9.json",
             "durationTimer": true,
             "duration": 60,
             "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1707994718/Audio/portal_audio-Your_story_b4bdqq.mp3"
@@ -86,7 +90,7 @@
           "heading": "What thoughts, feelings and experiences showed up?",
           "text": "",
           "lottie": {
-            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1676639253/Lottie/default_2min_black_o6egey.json",
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1709133221/Lottie/IDG_lotties/Relaiting_2min_naphbp.json",
             "durationTimer": true,
             "duration": 120
           }
