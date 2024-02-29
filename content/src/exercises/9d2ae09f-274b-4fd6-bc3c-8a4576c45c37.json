@@ -104,7 +104,7 @@
       "textColor": "#F9F8F4",
       "backgroundColor": "#661a30"
     },
-    "hidden": true,
+    "hidden": false,
     "locked": true,
     "name": "Acting",
     "live": true,
