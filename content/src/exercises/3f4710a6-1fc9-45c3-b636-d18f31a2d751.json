@@ -49,7 +49,8 @@
           "lottie": {
             "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1689591586/SRT%20(captions)%20files/Outdoor_sensing_Jenny_hmqwou.srt",
             "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1683795468/Audio/Outdoor_sensing_Jenny_x9ztl5.mp3",
-            "durationTimer": true
+            "durationTimer": true,
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1709134306/Lottie/IDG_lotties/Relaiting_meditation_nrjd6z.json"
           }
         }
       },
