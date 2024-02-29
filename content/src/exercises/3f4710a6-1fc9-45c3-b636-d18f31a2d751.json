@@ -125,7 +125,8 @@
       "textColor": "#F9F8F4",
       "backgroundColor": "#e84139"
     },
-    "hidden": true,
+    "hidden": false,
+    "locked": true,
     "name": "Relating",
     "live": true,
     "published": true,
@@ -172,7 +173,7 @@
         }
       },
       "videoEnd": {
-        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1684316170/Video/outdoor_sensing_portal_outro_f7amvf.mp4"
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1709210912/Relaiting_portal_2_lhejqy.mp4"
       }
     },
     "tags": [
@@ -190,7 +191,8 @@
       "43a6dc0d-d866-4b79-9453-13c44e906128",
       "cfc00217-f65b-4a4d-8b82-8ccc8f852dd6"
     ],
-    "card": {}
+    "card": {},
+    "locked": true
   },
   "sv": {
     "id": "3f4710a6-1fc9-45c3-b636-d18f31a2d751",
@@ -198,7 +200,8 @@
       "43a6dc0d-d866-4b79-9453-13c44e906128",
       "cfc00217-f65b-4a4d-8b82-8ccc8f852dd6"
     ],
-    "card": {}
+    "card": {},
+    "locked": true
   },
   "ja": {
     "id": "3f4710a6-1fc9-45c3-b636-d18f31a2d751",
@@ -206,6 +209,7 @@
       "43a6dc0d-d866-4b79-9453-13c44e906128",
       "cfc00217-f65b-4a4d-8b82-8ccc8f852dd6"
     ],
-    "card": {}
+    "card": {},
+    "locked": true
   }
 }
