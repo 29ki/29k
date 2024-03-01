@@ -12,9 +12,16 @@ export interface CollectionCardImage {
   source?: string;
 }
 
+export interface CollectionCardLottie {
+  description?: string;
+  source?: string;
+  subtitles?: string;
+}
+
 export interface CollectionCard {
   image?: CollectionCardImage;
   imageBackgroundColor?: string;
+  lottie?: CollectionCardLottie;
 }
 
 export interface Collection {

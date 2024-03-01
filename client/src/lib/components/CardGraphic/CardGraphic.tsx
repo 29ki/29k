@@ -4,6 +4,7 @@ import {ExerciseCard} from '../../../../../shared/src/types/generated/Exercise';
 import React, {useMemo} from 'react';
 import styled from 'styled-components/native';
 import Image from '../Image/Image';
+import {CollectionCard} from '../../../../../shared/src/types/generated/Collection';
 
 const Graphic = styled.View<{backgroundColor?: string}>(
   ({backgroundColor}) => ({
@@ -15,15 +16,16 @@ const Graphic = styled.View<{backgroundColor?: string}>(
 );
 
 const Lottie = styled(AnimatedLottieView)({
-  aspectRatio: '1',
+  width: '100%',
+  height: '100%',
 });
 
 type Props = {
-  graphic?: ExerciseCard;
+  graphic?: ExerciseCard | CollectionCard;
   style?: ViewStyle;
 };
 
-const ExerciseGraphic: React.FC<Props> = ({graphic, style}) => {
+const CardGraphic: React.FC<Props> = ({graphic, style}) => {
   const image = useMemo(
     () =>
       graphic?.image?.source
@@ -47,12 +49,12 @@ const ExerciseGraphic: React.FC<Props> = ({graphic, style}) => {
   return (
     <Graphic style={style} backgroundColor={graphic?.imageBackgroundColor}>
       {lottie ? (
-        <Lottie source={lottie} autoPlay loop />
+        <Lottie source={lottie} autoPlay loop resizeMode="cover" />
       ) : image ? (
-        <Image resizeMode="contain" source={image} />
+        <Image source={image} resizeMode="cover" />
       ) : null}
     </Graphic>
   );
 };
 
-export default ExerciseGraphic;
+export default CardGraphic;

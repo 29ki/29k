@@ -15,7 +15,10 @@
       {
         "type": "instruction",
         "content": {
-          "text": "Taking different perspectives and practice complexity awareness are two of the skills in the Thinking category that we'll practice in this exercise."
+          "text": "Taking different perspectives and practice complexity awareness are two of the skills in the Thinking category that we'll practice in this exercise.",
+          "image": {
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1709149024/Images/Thinking_async_image_oflgs7.png"
+          }
         }
       },
       {
@@ -25,7 +28,7 @@
             "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1696255946/Audio/Switch_perspectives_i5herw.mp3",
             "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1696256068/SRT%20(captions)%20files/Switch_perspectives_dlku4z.srt",
             "durationTimer": true,
-            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1676977421/Lottie/audio_meditation_default_black_default_omemwt.json"
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1709134308/Lottie/IDG_lotties/Thinking_meditation_fhpnek.json"
           }
         },
         "hostNotes": [
@@ -49,7 +52,8 @@
           "lottie": {
             "durationTimer": true,
             "duration": 60,
-            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1676642915/Lottie/default_1min_black_rosi2l.json"
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1709133218/Lottie/IDG_lotties/1_min_IDG_e1tws9.json",
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1707994709/Audio/portal_audio-Set_SMART_goals_guj1ma.mp3"
           }
         }
       },
@@ -72,7 +76,7 @@
           "lottie": {
             "durationTimer": true,
             "duration": 120,
-            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1676639253/Lottie/default_2min_black_o6egey.json"
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1709133222/Lottie/IDG_lotties/Thinking_2min_pepc18.json"
           }
         }
       },
@@ -95,15 +99,15 @@
         "content": {
           "text": "The next time you face a problem, imagine a few different stake holders and actively take their perspective before deciding where to go. \n\nThis can help us deal with complex issues and consider long-term consequences of the things we do.",
           "image": {
-            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1699017217/Images/card_image_switch_perspective_dyn7uv.png"
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1709149024/Images/Thinking_async_image_oflgs7.png"
           },
           "heading": "Well done"
         }
       }
     ],
     "theme": {
-      "textColor": "#2E2E2E",
-      "backgroundColor": "#f1e6dc"
+      "textColor": "#F9F8F4",
+      "backgroundColor": "#e585a1"
     },
     "hidden": false,
     "locked": true,
@@ -112,7 +116,7 @@
     "published": true,
     "card": {
       "image": {
-        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1699017217/Images/card_image_switch_perspective_dyn7uv.png"
+        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1709126728/Images/Thinking_card_image_pnslxz.png"
       }
     },
     "coCreators": [
@@ -140,14 +144,14 @@
         }
       ],
       "videoLoop": {
-        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1699017283/Video/portal1_switch_perspective_zgrfie.mp4",
-        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1699017325/Audio/portal_audio_switch_perspective_usivda.mp3",
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1709196094/Video/Thinking_portal_1_l6yd9l.mp4",
+        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1707994709/Audio/portal_audio-Set_SMART_goals_guj1ma.mp3",
         "p5JsScript": {
           "lang": "javascript"
         }
       },
       "videoEnd": {
-        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1699017279/Video/portal2_switch_perspective_eclkl6.mp4"
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1709216740/Video/Thinking_portal_2_hl5uyb.mp4"
       }
     },
     "tags": [
@@ -165,14 +169,8 @@
       "566aeb1b-1649-4f5a-96a2-0c80be27efc0",
       "9c2c08a9-7dc6-4058-bc78-016d0eb00614"
     ],
-    "locked": true,
-    "introPortal": {
-      "videoLoop": {
-        "p5JsScript": {
-          "lang": "javascript"
-        }
-      }
-    }
+    "card": {},
+    "locked": true
   },
   "sv": {
     "id": "26a58ed8-0adf-4460-8d9c-a5859364c26b",
@@ -180,14 +178,8 @@
       "566aeb1b-1649-4f5a-96a2-0c80be27efc0",
       "9c2c08a9-7dc6-4058-bc78-016d0eb00614"
     ],
-    "locked": true,
-    "introPortal": {
-      "videoLoop": {
-        "p5JsScript": {
-          "lang": "javascript"
-        }
-      }
-    }
+    "card": {},
+    "locked": true
   },
   "ja": {
     "id": "26a58ed8-0adf-4460-8d9c-a5859364c26b",
@@ -195,6 +187,7 @@
       "566aeb1b-1649-4f5a-96a2-0c80be27efc0",
       "9c2c08a9-7dc6-4058-bc78-016d0eb00614"
     ],
+    "card": {},
     "locked": true
   }
 }

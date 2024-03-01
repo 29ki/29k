@@ -22,7 +22,10 @@
       {
         "type": "instruction",
         "content": {
-          "text": "How we relate to others and the world can affect how we care and make decisions, as well as how we feel and act. In this outdoor meditation we’ll be using all our five senses: hearing, smell, vision, taste and touch, to practice fully relating to what’s around us at this moment.\n\nPlace yourself where you can comfortably stand for 20 minutes before moving on."
+          "text": "How we relate to others and the world can affect how we care and make decisions, as well as how we feel and act. In this outdoor meditation we’ll be using all our five senses: hearing, smell, vision, taste and touch, to practice fully relating to what’s around us at this moment.\n\nPlace yourself where you can comfortably stand for 20 minutes before moving on.",
+          "image": {
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/v1709149024/Images/Relaiting_async_image_gwu4c7.png"
+          }
         }
       },
       {
@@ -38,10 +41,16 @@
         "content": {
           "video": {
             "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1683795468/Audio/Outdoor_sensing_Jenny_x9ztl5.mp3",
-            "durationTimer": true,
-            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1684313677/Video/outdoor_sensing_meditation_visual_cbiepb.mp4",
+            "durationTimer": false,
+            "source": "",
             "autoPlayLoop": false,
-            "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1689591586/SRT%20(captions)%20files/Outdoor_sensing_Jenny_hmqwou.srt"
+            "subtitles": ""
+          },
+          "lottie": {
+            "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1689591586/SRT%20(captions)%20files/Outdoor_sensing_Jenny_hmqwou.srt",
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1683795468/Audio/Outdoor_sensing_Jenny_x9ztl5.mp3",
+            "durationTimer": true,
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1709134306/Lottie/IDG_lotties/Relaiting_meditation_nrjd6z.json"
           }
         }
       },
@@ -59,9 +68,10 @@
           "heading": "What thoughts, feelings and experiences showed up?",
           "text": "",
           "lottie": {
-            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1676642915/Lottie/default_1min_black_rosi2l.json",
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1709133218/Lottie/IDG_lotties/1_min_IDG_e1tws9.json",
             "durationTimer": true,
-            "duration": 60
+            "duration": 60,
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1707994709/Audio/portal_audio-Set_SMART_goals_guj1ma.mp3"
           }
         }
       },
@@ -82,7 +92,7 @@
           "heading": "What thoughts, feelings and experiences showed up?",
           "text": "",
           "lottie": {
-            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1676639253/Lottie/default_2min_black_o6egey.json",
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1709133221/Lottie/IDG_lotties/Relaiting_2min_naphbp.json",
             "durationTimer": true,
             "duration": 120
           }
@@ -113,14 +123,14 @@
           "heading": "Well done",
           "text": "If you’re up for it, you can continue with this mission:\n\nFor the coming two days, pick a sweet spot outdoors where you take a few minutes to go through sensing all your senses, one by one.\n\nSee if you can mindfully observe what’s going on at that spot, and practise how you relate.",
           "image": {
-            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1684313656/Images/outdoor_sensing_thumb_q68hl4.png"
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1709149024/Images/Relaiting_async_image_gwu4c7.png"
           }
         }
       }
     ],
     "theme": {
-      "textColor": "#2E2E2E",
-      "backgroundColor": "#cdf9e6"
+      "textColor": "#F9F8F4",
+      "backgroundColor": "#e84139"
     },
     "hidden": false,
     "locked": true,
@@ -129,7 +139,7 @@
     "published": true,
     "card": {
       "image": {
-        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1684313656/Images/outdoor_sensing_thumb_q68hl4.png"
+        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1709126730/Images/Relaiting_card_image_ultfss.png"
       }
     },
     "coCreators": [
@@ -162,15 +172,15 @@
         }
       ],
       "videoLoop": {
-        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1684314346/Video/outdoor_sensing_portal_e9cd0v.mp4",
-        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1684314370/Audio/outdoor_sensing_portal_audio_sm1ski.mp3",
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1709196108/Video/Relaiting_portal_1_df2pua.mp4",
+        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1707994709/Audio/portal_audio-Set_SMART_goals_guj1ma.mp3",
         "preview": "",
         "p5JsScript": {
           "lang": "javascript"
         }
       },
       "videoEnd": {
-        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1684316170/Video/outdoor_sensing_portal_outro_f7amvf.mp4"
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1709210912/Relaiting_portal_2_lhejqy.mp4"
       }
     },
     "tags": [
@@ -188,6 +198,7 @@
       "43a6dc0d-d866-4b79-9453-13c44e906128",
       "cfc00217-f65b-4a4d-8b82-8ccc8f852dd6"
     ],
+    "card": {},
     "locked": true
   },
   "sv": {
@@ -196,6 +207,7 @@
       "43a6dc0d-d866-4b79-9453-13c44e906128",
       "cfc00217-f65b-4a4d-8b82-8ccc8f852dd6"
     ],
+    "card": {},
     "locked": true
   },
   "ja": {
@@ -204,6 +216,7 @@
       "43a6dc0d-d866-4b79-9453-13c44e906128",
       "cfc00217-f65b-4a4d-8b82-8ccc8f852dd6"
     ],
+    "card": {},
     "locked": true
   }
 }

@@ -20,6 +20,7 @@ import textTemplates from './editorComponents.ts/textTemplates';
 import withRNStyles from './lib/withRNStyles';
 import ExercisePreview from './previews/Exercise';
 import previewCss from './preview.css?inline';
+import CollectionPreview from './previews/Collection';
 
 CMS.init({
   config: {
@@ -68,3 +69,4 @@ CMS.registerEditorComponent(textTemplates);
 
 CMS.registerPreviewStyle(previewCss, {raw: true});
 CMS.registerPreviewTemplate(exercises.name, withRNStyles(ExercisePreview));
+CMS.registerPreviewTemplate(collections.name, withRNStyles(CollectionPreview));
