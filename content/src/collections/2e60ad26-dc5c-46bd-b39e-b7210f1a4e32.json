@@ -1,20 +1,9 @@
 {
   "en": {
-    "published": true,
     "hidden": false,
-    "id": "2e60ad26-dc5c-46bd-b39e-b7210f1a4e32",
+    "locked": true,
     "name": "The IDG collection",
-    "exercises": [
-      "d8629c6f-76af-47a1-ab92-209009234ff2",
-      "26a58ed8-0adf-4460-8d9c-a5859364c26b",
-      "3f4710a6-1fc9-45c3-b636-d18f31a2d751",
-      "ab3c3bc4-5586-4554-aa93-ebe7d6910741",
-      "9d2ae09f-274b-4fd6-bc3c-8a4576c45c37"
-    ],
-    "tags": [
-      "566aeb1b-1649-4f5a-96a2-0c80be27efc0",
-      "9c2c08a9-7dc6-4058-bc78-016d0eb00614"
-    ],
+    "published": true,
     "card": {
       "image": {
         "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/t_card_image/v1709203317/Lottie/IDG_logo_rotation_nfqyrm.json"
@@ -24,7 +13,19 @@
         "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1709225166/Lottie/IDG_logo_rotation_dark_v2_byegol.json"
       }
     },
-    "locked": true
+    "tags": [
+      "566aeb1b-1649-4f5a-96a2-0c80be27efc0",
+      "9c2c08a9-7dc6-4058-bc78-016d0eb00614"
+    ],
+    "id": "2e60ad26-dc5c-46bd-b39e-b7210f1a4e32",
+    "exercises": [
+      "d8629c6f-76af-47a1-ab92-209009234ff2",
+      "26a58ed8-0adf-4460-8d9c-a5859364c26b",
+      "3f4710a6-1fc9-45c3-b636-d18f31a2d751",
+      "ab3c3bc4-5586-4554-aa93-ebe7d6910741",
+      "9d2ae09f-274b-4fd6-bc3c-8a4576c45c37"
+    ],
+    "description": "Practice science-based skills and qualities for a purposeful and sustainable life. IDG, The Inner Development Goals, is a framework for reaching the Sustainable Development Goals set forth by the UN."
   },
   "pt": {
     "published": false,
