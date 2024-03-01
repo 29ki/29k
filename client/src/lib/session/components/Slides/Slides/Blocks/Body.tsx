@@ -18,7 +18,13 @@ const Text = styled(Markdown).attrs<TextProps>(({textColor}) => ({
     ordered_list_content: {
       flex: 0,
     },
-    paragraph: {
+    bullet_list_icon: {
+      backgroundColor: textColor ?? COLORS.BLACK,
+    },
+    ordered_list_icon: {
+      color: textColor ?? COLORS.BLACK,
+    },
+    text: {
       textAlign: 'center',
       color: textColor ?? COLORS.BLACK,
     },
