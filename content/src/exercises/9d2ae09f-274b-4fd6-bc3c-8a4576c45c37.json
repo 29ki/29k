@@ -13,7 +13,13 @@
         ]
       },
       {
-        "type": "instruction"
+        "type": "instruction",
+        "content": {
+          "image": {
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1709149023/Images/Acting_async_image_wli32l.png"
+          },
+          "text": "Acting for change involves a lot of different skills, in this session we'll focus on resilience and perseverance. Taking a step back and investigate what resources we have to drive things forward. Heads up that you'll need somewhere to take notes for this exercise."
+        }
       },
       {
         "type": "content",
