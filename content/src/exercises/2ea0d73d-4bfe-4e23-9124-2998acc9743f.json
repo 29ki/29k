@@ -81,6 +81,18 @@
     "name": "Lead from a place of love",
     "live": true,
     "published": true,
+    "coCreators": [
+      {
+        "name": "Rachel Braathen, yoga girl, voice",
+        "url": "https://www.yogagirl.com/rachels-corner/bio",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1709567296/Contributors/Yoga_Girl_016895_color_oju3wq_-_Square_Post_mbemkp.png"
+      },
+      {
+        "name": "Erik Fernholm, editor",
+        "url": "https://www.linkedin.com/in/lyckoaktivist/?originalSubdomain=se",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665412608/Contributors/Erik%20Fernholm.png"
+      }
+    ],
     "duration": 30,
     "introPortal": {
       "textColor": "#2AE2D7",
