@@ -39,7 +39,7 @@
     "@react-native-picker/picker": "^2.6.1",
     "@react-navigation/bottom-tabs": "^6.5.12",
     "@react-navigation/drawer": "^6.6.9",
-    "@react-navigation/native": "^6.1.12",
+    "@react-navigation/native": "^6.1.14",
     "@react-navigation/native-stack": "^6.9.18",
     "@react-navigation/stack": "^6.3.23",
     "@sentry/react-native": "^5.19.1",
