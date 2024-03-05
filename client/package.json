@@ -48,7 +48,7 @@
     "@types/lodash.throttle": "^4.1.9",
     "dayjs": "^1.11.10",
     "debug": "^4.3.4",
-    "eslint": "^8.56.0",
+    "eslint": "^8.57.0",
     "hex-to-rgba": "^2.0.1",
     "i18next": "^23.10.0",
     "intl-pluralrules": "^2.0.1",
