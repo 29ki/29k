@@ -1238,14 +1238,14 @@
     "@sentry/types" "7.105.0"
     "@sentry/utils" "7.105.0"
 
-"@sentry/integrations@^7.102.1":
-  version "7.102.1"
-  resolved "https://registry.yarnpkg.com/@sentry/integrations/-/integrations-7.102.1.tgz#2c236adcb586935b8bdc9ccb4d9c3a2a07b4e39a"
-  integrity sha512-Its3Ru6xCAqpaLE3cTxW/b91js2SIFoXa8LWtQDJ7tmTdwPAbT8Pij1F4bOhhaqLYbjLtCXGl/NR2cffsiRLww==
+"@sentry/integrations@^7.105.0":
+  version "7.105.0"
+  resolved "https://registry.yarnpkg.com/@sentry/integrations/-/integrations-7.105.0.tgz#8953bd310d8681f9a29f918269b98640ab302abe"
+  integrity sha512-AgzecTkF0o+C4svbroMGA+cW5LRnfFSoJnzF5ltUB67hnX906amlwbOvdkKD3MugYO02nRSjF/eEi26E1HACMA==
   dependencies:
-    "@sentry/core" "7.102.1"
-    "@sentry/types" "7.102.1"
-    "@sentry/utils" "7.102.1"
+    "@sentry/core" "7.105.0"
+    "@sentry/types" "7.105.0"
+    "@sentry/utils" "7.105.0"
     localforage "^1.8.1"
 
 "@sentry/node@^7.105.0":
