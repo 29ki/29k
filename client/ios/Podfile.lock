@@ -1697,7 +1697,7 @@ PODS:
     - React-Core
   - react-native-idle-timer (2.2.1):
     - React-Core
-  - react-native-netinfo (11.3.0):
+  - react-native-netinfo (11.3.1):
     - React-Core
   - react-native-safe-area-context (4.9.0):
     - React-Core
@@ -1886,7 +1886,7 @@ PODS:
     - React-Core
   - RNDateTimePicker (7.6.2):
     - React-Core
-  - RNDeviceInfo (10.13.0):
+  - RNDeviceInfo (10.13.1):
     - React-Core
   - RNFBApp (18.8.0):
     - Firebase/CoreOnly (= 10.20.0)
@@ -1944,12 +1944,12 @@ PODS:
     - glog
     - RCT-Folly (= 2022.05.16.00)
     - React-Core
-  - RNSentry (5.19.0):
+  - RNSentry (5.19.1):
     - hermes-engine
     - React-Core
     - React-hermes
     - Sentry/HybridSDK (= 8.17.1)
-  - RNSVG (14.1.0):
+  - RNSVG (15.0.0):
     - React-Core
   - Sentry/HybridSDK (8.17.1):
     - SentryPrivate (= 8.17.1)
@@ -2366,7 +2366,7 @@ SPEC CHECKSUMS:
   react-native-daily-js: 25084c73ef792cd031079b0149266495bc60698b
   react-native-get-random-values: 384787fd76976f5aec9465aff6fa9e9129af1e74
   react-native-idle-timer: f1920a59fe776340d004ff9de13c4a6eedcc8807
-  react-native-netinfo: 299dad906cdbf3b67bcc6f693c807f98bdd127cc
+  react-native-netinfo: bdb108d340cdb41875c9ced535977cac6d2ff321
   react-native-safe-area-context: b97eb6f9e3b7f437806c2ce5983f479f8eb5de4b
   react-native-volume-manager: 3c7d8047841b6831730dea7bf25250522388b4f4
   react-native-webrtc: b8f92ed95bff2f8d7189cb544dc647141e6e6dba
@@ -2396,7 +2396,7 @@ SPEC CHECKSUMS:
   RNCAsyncStorage: 014a78b2cc8cc107c9e92ee428dc0c1ac3223416
   RNCPicker: b18aaf30df596e9b1738e7c1f9ee55402a229dca
   RNDateTimePicker: fc2e4f2795877d45e84d85659bebe627eba5c931
-  RNDeviceInfo: 5e4695f906aeb624855cee8d568a46037e4a50f7
+  RNDeviceInfo: 4f9c7cfd6b9db1b05eb919620a001cf35b536423
   RNFBApp: a4f5b074984cf612e4c97d68b42be690c59e2638
   RNFBAuth: bd014d486a51b5414b642dd155763c5873a2b3e4
   RNFBDynamicLinks: 77cccfac365229b763b6749949f2fac32d2ee87c
@@ -2411,8 +2411,8 @@ SPEC CHECKSUMS:
   RNReactNativeHapticFeedback: ec56a5f81c3941206fd85625fa669ffc7b4545f9
   RNReanimated: ea7e98bf4f1167ca3cd3c348604d34dc4294e848
   RNScreens: 2b73f5eb2ac5d94fbd61fa4be0bfebd345716825
-  RNSentry: 98df59e833edc1975d8628fb8c5345773c79974a
-  RNSVG: ba3e7232f45e34b7b47e74472386cf4e1a676d0a
+  RNSentry: 6872121e0af7aa9f3f50643f557d69adc8f7ecdc
+  RNSVG: 3f65a03e0c61a8495dee92bf82545ed9041cbf3b
   Sentry: d9f99f9cc13777c5d938650c1e1c85047bb4f0d1
   SentryPrivate: 839b1e58addf58624087a80b2628e543193fa8ef
   SocketRocket: f32cd54efbe0f095c4d7594881e52619cfe80b17
@@ -2427,8 +2427,8 @@ SPEC CHECKSUMS:
   StripePaymentsUI: 3e67ffc17d10ef2b0e1538867934a644a1dd6fc6
   StripeUICore: 2e512d3fd27045ca4a899acdef1ed66dcf935d83
   TOCropViewController: edfd4f25713d56905ad1e0b9f5be3fbe0f59c863
-  Yoga: 64cd2a583ead952b0315d5135bf39e053ae9be70
+  Yoga: 1b901a6d6eeba4e8a2e8f308f708691cdb5db312
 
 PODFILE CHECKSUM: eca7106cb4acdaa2f539d18295f1019a34a370f4
 
-COCOAPODS: 1.14.3
+COCOAPODS: 1.15.2
