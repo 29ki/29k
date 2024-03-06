@@ -3,6 +3,7 @@
     "hidden": false,
     "name": "Values I: set your compass",
     "published": true,
+    "sortOrder": 3,
     "card": {
       "image": {
         "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1697618661/Images/values_collection_gmhmrl.png"
@@ -40,7 +41,8 @@
     "link": "https://aware.29k.org/set-your-values-compass",
     "card": {
       "imageBackgroundColor": "#ffdeac"
-    }
+    },
+    "sortOrder": 3
   },
   "sv": {
     "published": false,
@@ -59,7 +61,8 @@
     "link": "https://aware.29k.org/set-your-values-compass",
     "card": {
       "imageBackgroundColor": "#ffdeac"
-    }
+    },
+    "sortOrder": 3
   },
   "ja": {
     "published": false,
@@ -78,6 +81,7 @@
     "link": "https://aware.29k.org/set-your-values-compass",
     "card": {
       "imageBackgroundColor": "#ffdeac"
-    }
+    },
+    "sortOrder": 3
   }
 }
