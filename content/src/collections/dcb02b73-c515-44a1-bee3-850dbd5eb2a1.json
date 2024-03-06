@@ -3,7 +3,7 @@
     "hidden": false,
     "name": "Sustain yourself",
     "published": true,
-    "sortOrder": 2,
+    "sortOrder": 6,
     "card": {
       "image": {
         "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1697618661/Images/youth_IDG_collection_roejxe.png"
@@ -40,7 +40,7 @@
       "9c2c08a9-7dc6-4058-bc78-016d0eb00614",
       "cfc00217-f65b-4a4d-8b82-8ccc8f852dd6"
     ],
-    "sortOrder": 2,
+    "sortOrder": 6,
     "exercises": [
       "5b69ff57-10c4-4288-afc7-a6f6ed212531",
       "12f448d2-39bc-4232-b8cf-b6cb570c7e00",
@@ -57,7 +57,7 @@
     "hidden": false,
     "name": "Hållbarhet för dig och vår planet",
     "published": true,
-    "sortOrder": 2,
+    "sortOrder": 6,
     "card": {
       "image": {
         "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1697618661/Images/youth_IDG_collection_roejxe.png"
@@ -94,7 +94,7 @@
       "9c2c08a9-7dc6-4058-bc78-016d0eb00614",
       "cfc00217-f65b-4a4d-8b82-8ccc8f852dd6"
     ],
-    "sortOrder": 2,
+    "sortOrder": 6,
     "exercises": [
       "5b69ff57-10c4-4288-afc7-a6f6ed212531",
       "12f448d2-39bc-4232-b8cf-b6cb570c7e00",
