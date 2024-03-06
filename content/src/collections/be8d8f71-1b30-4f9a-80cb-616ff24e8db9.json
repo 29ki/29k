@@ -3,6 +3,7 @@
     "hidden": false,
     "name": "Act for sustainability",
     "published": true,
+    "sortOrder": 5,
     "card": {
       "imageBackgroundColor": "#273c4e",
       "image": {
@@ -42,8 +43,18 @@
     "description": "Deal with emotions, find support and ways to collaborate for a better tomorrow."
   },
   "pt": {
-    "published": false,
     "hidden": false,
+    "published": false,
+    "sortOrder": 5,
+    "card": {
+      "imageBackgroundColor": "#273c4e"
+    },
+    "coCreators": [],
+    "tags": [
+      "566aeb1b-1649-4f5a-96a2-0c80be27efc0",
+      "9c2c08a9-7dc6-4058-bc78-016d0eb00614"
+    ],
+    "link": "https://aware.29k.org/act-for-sustainability",
     "id": "be8d8f71-1b30-4f9a-80cb-616ff24e8db9",
     "exercises": [
       "db239a42-135a-4941-bdf2-92d58107094a",
@@ -51,21 +62,13 @@
       "c0e6d8d2-163a-4c2d-a0af-250eef846054",
       "654551b4-1226-485e-9424-4d86d93240ff",
       "9a4834e6-8d3f-420b-88e3-dd3df9a98001"
-    ],
-    "link": "https://aware.29k.org/act-for-sustainability",
-    "coCreators": [],
-    "tags": [
-      "566aeb1b-1649-4f5a-96a2-0c80be27efc0",
-      "9c2c08a9-7dc6-4058-bc78-016d0eb00614"
-    ],
-    "card": {
-      "imageBackgroundColor": "#273c4e"
-    }
+    ]
   },
   "sv": {
     "hidden": false,
     "name": "Agera för hållbarhet",
     "published": true,
+    "sortOrder": 5,
     "card": {
       "image": {
         "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1701868914/Images/collection_card_climatP_2_je7nir.png"
@@ -122,6 +125,7 @@
     ],
     "card": {
       "imageBackgroundColor": "#273c4e"
-    }
+    },
+    "sortOrder": 5
   }
 }
