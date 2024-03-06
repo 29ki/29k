@@ -4,6 +4,7 @@
     "locked": true,
     "name": "The IDG collection",
     "published": true,
+    "sortOrder": 1,
     "card": {
       "image": {
         "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/t_card_image/v1709203317/Lottie/IDG_logo_rotation_nfqyrm.json"
@@ -13,6 +14,7 @@
         "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1709225166/Lottie/IDG_logo_rotation_dark_v2_byegol.json"
       }
     },
+    "coCreators": [],
     "tags": [
       "566aeb1b-1649-4f5a-96a2-0c80be27efc0",
       "9c2c08a9-7dc6-4058-bc78-016d0eb00614"
@@ -45,7 +47,8 @@
     "card": {
       "imageBackgroundColor": ""
     },
-    "locked": true
+    "locked": true,
+    "sortOrder": 1
   },
   "sv": {
     "published": false,
@@ -65,7 +68,8 @@
     "card": {
       "imageBackgroundColor": ""
     },
-    "locked": true
+    "locked": true,
+    "sortOrder": 1
   },
   "ja": {
     "published": false,
@@ -85,6 +89,7 @@
     "card": {
       "imageBackgroundColor": ""
     },
-    "locked": true
+    "locked": true,
+    "sortOrder": 1
   }
 }
