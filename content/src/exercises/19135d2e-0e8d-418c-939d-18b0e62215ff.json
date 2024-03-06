@@ -5,7 +5,7 @@
         "type": "host",
         "hostNotes": [
           {
-            "text": "Welcome. I am X and today we will work for around 30 minutes on xx\n\nWe’ll be doing xx ex. meditation followed by time for reflection and sharing with each other."
+            "text": "Welcome. I am X and today we will work for around 30 minutes on how emotions are felt in our bodies, and how we can meet them with self-compassion.\n\nWe’ll be doing a meditation followed by time for reflection and sharing with each other."
           },
           {
             "text": "Let’s start with a mini check-in. How are you feeling right now? Please answer in two-three words. X, would you like to start?\n\n> Let everyone in the session, including yourself, check in one by one.\n\nThank you all for checking in. Let’s get started."
@@ -16,7 +16,7 @@
         "type": "content",
         "hostNotes": [
           {
-            "text": "Find a comfortable position. I will start the audio exercise and we'll meet back here afterwards. \n\n> Push play to start the audio exercise"
+            "text": "Find a comfortable position. I will start the audio exercise and we'll meet back here afterwards. \n\n> Tap play to start the audio exercise"
           }
         ],
         "content": {
@@ -30,12 +30,15 @@
         "type": "reflection",
         "hostNotes": [
           {
-            "text": "Now we’ll take 1 minute to reflect on our own.\n\nxxMain question\n\nxxFurther explanations of main question if needed"
+            "text": "Now we’ll take 1 minute to reflect on our own.\n\nHow did you experience getting physical with emotions, and meeting them with compassion?"
           },
           {
             "text": "You can take notes on a piece of paper or just mental notes in your head. And there is no right or wrong here, our answers are our own. 1 minute starting now.\n\n> Press play to start the timer.\n\nThat’s 1 minute and it’s time to move on."
           }
-        ]
+        ],
+        "content": {
+          "heading": "How did you experience doing this exercise?"
+        }
       },
       {
         "type": "sharing",
@@ -50,13 +53,16 @@
             "text": "Who would like to start?\n\n> Let everyone (or as many as you got time for) share one by one. Press play to start the timer. Re-start for each new sharing.\n\nThank you so much everyone."
           }
         ],
-        "id": "Sharing 1"
+        "id": "Sharing 1",
+        "content": {
+          "heading": "How did you experience doing this exercise?"
+        }
       },
       {
         "type": "host",
         "hostNotes": [
           {
-            "text": "Well done. If you’re up for it, you can continue what we started here today with a mission to bring this into your everyday life.\n\nxx mission description"
+            "text": "Well done. Emotions are here to be felt, and being present with them can allow us to be compassionate and authentic. You can continue your practice with a mission:\n\nFor the rest of today, whenever you feel an emotion stirring up something inside – take a moment to localize it in the body, and make space for it with compassion."
           },
           {
             "text": "Before we leave this space let’s do a mini check-out. \n\nHow are you feeling right now? Has anything shifted? Please answer in two-three words."
@@ -69,12 +75,12 @@
       {
         "type": "instruction",
         "content": {
-          "text": "Well done.\n\nSummary.\n\nIf you’re up for it, you can continue with this mission.\n\nmission description"
+          "text": "Well done. \n\nEmotions are here to be felt, and being present with them can allow us to be compassionate and authentic. \n\nYou can continue your practice with a mission: For the rest of today, whenever you feel an emotion stirring up something inside – take a moment to localize it in the body, and make space for it with compassion."
         }
       }
     ],
     "theme": {
-      "textColor": "#2AE2D7"
+      "textColor": "#2E2E2E"
     },
     "hidden": true,
     "locked": false,
@@ -117,7 +123,8 @@
       "34100e43-2eb8-4d35-8eb0-9fa9f78e4935"
     ],
     "id": "19135d2e-0e8d-418c-939d-18b0e62215ff",
-    "async": true
+    "async": true,
+    "description": "Investigate where emotions are felt in your body, to practice self-compassion when we face difficult emotions and self-critical thoughts."
   },
   "pt": {
     "slides": [
