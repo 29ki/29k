@@ -126,7 +126,7 @@
         "name": "Rachel Brathen, voice",
         "link": "https://www.yogagirl.com/rachel-brathen",
         "avatar_url": "https://res.cloudinary.com/cupcake-29k/image/upload/v1697722469/Images/Rachel%20Brathen.png",
-        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1697722469/Images/Rachel%20Brathen.png",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/v1709567296/Contributors/Yoga_Girl_016895_color_oju3wq_-_Square_Post_mbemkp.png",
         "url": "https://www.yogagirl.com/"
       },
       {
@@ -152,7 +152,10 @@
       ],
       "videoLoop": {
         "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1687856251/Video/way_out_is_through_portal1_rpqnfr.mp4",
-        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1687418774/Audio/way_out_is_through_portal_audio_doduhc.mp3"
+        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1687418774/Audio/way_out_is_through_portal_audio_doduhc.mp3",
+        "p5JsScript": {
+          "lang": "javascript"
+        }
       },
       "videoEnd": {
         "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1687856193/Video/way_out_is_through_portal_end_erxgxh.mp4"
