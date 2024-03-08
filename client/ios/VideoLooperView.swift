@@ -151,6 +151,7 @@ class VideoLooperView: RCTView {
       do {
         let session = AVAudioSession.sharedInstance()
         if (_mixWithOhters) {
+          try session.setMode(AVAudioSession.Mode.spokenAudio)
           try session.setCategory(.playAndRecord, options: [.mixWithOthers, .allowBluetooth, .defaultToSpeaker])
           try session.setActive(true)
         } else {

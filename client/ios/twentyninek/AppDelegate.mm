@@ -14,8 +14,7 @@
 
   // allowing sounds from several sources
   [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryPlayAndRecord
-                                   withOptions:AVAudioSessionCategoryOptionMixWithOthers |
-                                               AVAudioSessionCategoryOptionAllowBluetooth
+                                   withOptions:AVAudioSessionCategoryOptionMixWithOthers | AVAudioSessionCategoryOptionAllowBluetooth | AVAudioSessionCategoryOptionDefaultToSpeaker | AVAudioSessionCategoryOptionInterruptSpokenAudioAndMixWithOthers
                                          error:nil];
 
   self.moduleName = @"twentyninek";
