@@ -12,8 +12,8 @@
             "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1683721090/Lottie/dive_in_audio_visual_white_vjvfjo.json",
             "durationTimer": true,
             "autoPlayLoop": false,
-            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1687865086/Audio/Dive_in_spf3bt.mp3",
-            "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1689591254/SRT%20(captions)%20files/Dive_in_b88bnf.srt"
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1709901903/Audio/Get_started_qtsj2f.mp3",
+            "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1709901860/SRT%20(captions)%20files/Get_started_framtg.srt"
           }
         }
       },
@@ -78,7 +78,10 @@
       "videoLoop": {
         "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1683646038/Video/get_started_portal_q8xuck.mp4",
         "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1683646074/Audio/get_started_portal_audio_d9u6dy.mp3",
-        "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1683646986/Images/dive_in_thumb_v5iugn.png"
+        "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1683646986/Images/dive_in_thumb_v5iugn.png",
+        "p5JsScript": {
+          "lang": "javascript"
+        }
       }
     },
     "tags": [
@@ -178,8 +181,8 @@
             "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1683721090/Lottie/dive_in_audio_visual_white_vjvfjo.json",
             "durationTimer": true,
             "autoPlayLoop": false,
-            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1693474378/Audio/Dive_in_sv_yn6ics.mp3",
-            "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1693474426/SRT%20(captions)%20files/Dive_in_sv_vbga0a.srt"
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1709905303/Audio/Get_started_sv_w0qyuu.mp3",
+            "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1709905350/SRT%20(captions)%20files/Get_started_swe_gg8nbf.srt"
           }
         }
       },
@@ -232,7 +235,10 @@
       "videoLoop": {
         "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1683646038/Video/get_started_portal_q8xuck.mp4",
         "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1683646074/Audio/get_started_portal_audio_d9u6dy.mp3",
-        "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1683646986/Images/dive_in_thumb_v5iugn.png"
+        "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1683646986/Images/dive_in_thumb_v5iugn.png",
+        "p5JsScript": {
+          "lang": "javascript"
+        }
       }
     },
     "tags": [
@@ -245,8 +251,6 @@
     "description": "En introduktion till att träna mindfulness, tacksamhet och använda Aware-appen för att ta hand om dig själv, andra och planeten."
   },
   "ja": {
-    "description": "アプリを使い始める前に 〜 マインドフルネスと感謝の瞑想",
-    "name": "はじめに",
     "slides": [
       null,
       null,
@@ -261,6 +265,7 @@
       "backgroundColor": "#378d88"
     },
     "hidden": false,
+    "name": "はじめに",
     "published": true,
     "card": {
       "lottie": {
@@ -305,6 +310,7 @@
     ],
     "link": "https://aware.29k.org/dive-in",
     "id": "1a53e633-6916-4fea-a072-977c4b215288",
-    "async": true
+    "async": true,
+    "description": "アプリを使い始める前に 〜 マインドフルネスと感謝の瞑想"
   }
 }
