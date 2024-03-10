@@ -113,20 +113,6 @@ const Journey = () => {
     [sections],
   );
 
-  /*
-    Since the items/indexes are flattened in initialScrollIndex, we need to iterate over the sections to find the index of the filters section
-    We provide initialScrollIndex solely to reduce the initial scroll jump when the user opens the tab
-  */
-  const initialScrollIndex = useMemo(
-    () =>
-      sections.reduce(
-        (index, section, currIndex) =>
-          currIndex < filtersSectionIndex ? index + section.data.length : index,
-        0,
-      ),
-    [filtersSectionIndex, sections],
-  );
-
   const scrollToFiltersSection = useCallback((animated = false) => {
     listRef.current?.scrollToLocation({
       ...filtersScrollIndex.current,
@@ -235,8 +221,6 @@ const Journey = () => {
       </Screen>
     );
   }
-
-  console.log('sections', sections, initialScrollIndex);
 
   return (
     <Screen backgroundColor={COLORS.PURE_WHITE}>
