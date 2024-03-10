@@ -219,7 +219,7 @@ const DailyProvider: React.FC<{children: React.ReactNode}> = ({children}) => {
 
   const sendMessage = useCallback(
     (message: object) => {
-      if (!daily) {
+      if (!daily || daily.meetingState() !== 'joined-meeting') {
         return;
       }
       daily.sendAppMessage(message);
