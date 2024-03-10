@@ -236,8 +236,6 @@ const Journey = () => {
     );
   }
 
-  console.log('sections', sections, initialScrollIndex);
-
   return (
     <Screen backgroundColor={COLORS.PURE_WHITE}>
       <TopSafeArea minSize={SPACINGS.SIXTEEN} />
