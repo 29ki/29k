@@ -1,4 +1,4 @@
-import {useCallback, useEffect, useMemo} from 'react';
+import {useCallback, useMemo} from 'react';
 import dayjs from 'dayjs';
 
 import * as sessionsApi from '../api/sessions';
