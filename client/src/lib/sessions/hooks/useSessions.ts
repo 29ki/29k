@@ -1,4 +1,4 @@
-import {useCallback, useMemo} from 'react';
+import {useCallback, useEffect, useMemo} from 'react';
 import dayjs from 'dayjs';
 
 import * as sessionsApi from '../api/sessions';
@@ -25,7 +25,9 @@ const useSessions = () => {
 
   const fetchSessions = useCallback(async () => {
     setSessions(filterSessions(await sessionsApi.fetchSessions()));
-  }, [setSessions, filterSessions]);
+    // Re-fetch sessions on user change
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [setSessions, filterSessions, user?.uid]);
 
   const addSession = useCallback(
     async ({
