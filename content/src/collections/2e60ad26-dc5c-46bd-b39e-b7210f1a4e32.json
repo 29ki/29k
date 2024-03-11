@@ -14,7 +14,48 @@
         "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1709225166/Lottie/IDG_logo_rotation_dark_v2_byegol.json"
       }
     },
-    "coCreators": [],
+    "coCreators": [
+      {
+        "name": "Jenny Rickardsson, editor",
+        "url": "https://www.linkedin.com/in/jenny-rickardson-6770a959/",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413228/Contributors/Jenny%20Rickardsson.jpg"
+      },
+      {
+        "name": "Ints Ivanovskis, art works",
+        "url": "https://www.linkedin.com/in/ints-ivanovskis-46ab0311a/",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413436/Contributors/Ints%20Ivanovskis.jpg"
+      },
+      {
+        "name": "Steven Hayes, original research",
+        "url": "https://stevenchayes.com/about/",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1710157008/Contributors/Steven_Hayes_axpenl.jpg"
+      },
+      {
+        "name": "Göran Gennvi, original research",
+        "url": "https://www.linkedin.com/in/g%C3%B6ran-gennvi-81951b/",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1698408621/Contributors/Goran-Gennvi_ucyj82.jpg"
+      },
+      {
+        "name": "Anke De Vrieze, original research",
+        "url": "https://www.wur.nl/en/persons/anke-de-vrieze.htm",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1700730663/Contributors/transitionmakerstoolbox.logo.png"
+      },
+      {
+        "name": "Jonathan Haidt & Sara Algoe, original research",
+        "url": "https://ggia.berkeley.edu/#filters=kindness",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1700736672/Contributors/Greatergoodsciencelogo.png"
+      },
+      {
+        "name": "Lucinda Poole & Hugo Alberts, original research",
+        "url": "https://positivepsychology.com/team/",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1700730311/Contributors/positivepsychology.com.logo.png_umldu5.png"
+      },
+      {
+        "name": "Inner Development Goals",
+        "url": "https://www.innerdevelopmentgoals.org/about",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1671191681/Contributors/IDG_lktccb.png"
+      }
+    ],
     "tags": [
       "566aeb1b-1649-4f5a-96a2-0c80be27efc0",
       "9c2c08a9-7dc6-4058-bc78-016d0eb00614"
