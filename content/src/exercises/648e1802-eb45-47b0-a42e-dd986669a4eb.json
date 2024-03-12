@@ -21,7 +21,7 @@
         ],
         "content": {
           "lottie": {
-            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1699020155/Audio/Seeing_kindness_nbh8fz.mp3",
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1710249978/Audio/Seeing_kindness_hvfgwv.mp3",
             "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1699020183/SRT%20(captions)%20files/Seeing_kindness_jvjxtv.srt",
             "durationTimer": true,
             "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1699620866/Lottie/meditation_visual_seeing_kindness_jyu33s.json"
@@ -135,7 +135,10 @@
       ],
       "videoLoop": {
         "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1699611480/Video/portal1_seeing_kindness_bnyu6v.mp4",
-        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1699611545/Audio/portal_audio_seeing_kindness_s2j9wc.mp3"
+        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1699611545/Audio/portal_audio_seeing_kindness_s2j9wc.mp3",
+        "p5JsScript": {
+          "lang": "javascript"
+        }
       },
       "videoEnd": {
         "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1699611475/Video/portal2_seeing_kindness_bu6lfb.mp4"
