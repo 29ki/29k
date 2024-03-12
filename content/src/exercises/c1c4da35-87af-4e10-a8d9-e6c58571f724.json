@@ -30,8 +30,8 @@
         ],
         "content": {
           "lottie": {
-            "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1707214434/SRT%20(captions)%20files/your_story_taws6r.srt",
-            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1706877352/Audio/your_story_iraou5.mp3",
+            "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1710239260/SRT%20(captions)%20files/your_story_new_voice_g3a836.srt",
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1710239223/Audio/your_story_new_voice_odergh.mp3",
             "durationTimer": true,
             "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1676977421/Lottie/audio_meditation_default_white_default_mqfcuo.json"
           }
@@ -127,6 +127,11 @@
         "name": "Sayama, art works",
         "url": "https://openprocessing.org/user/159668?view=sketches&o=48",
         "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1707993928/Contributors/Sayama_ce4ioa.jpg"
+      },
+      {
+        "name": "Tabitha, AI-generated voice",
+        "url": "https://www.descript.com/ai-voices",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1710239861/Contributors/descript_ps0olu.webp"
       }
     ],
     "duration": 30,
