@@ -110,9 +110,9 @@ const IntroPortal: React.FC<IntroPortalProps> = ({
     // TODO remove this timeout when daily is not joined
     // until after the portal is done
     // https://www.notion.so/29k/Early-Access-2794500652b34c64b0aff0dbbc53e0ab?pvs=4#2f566fc8ac87402aa92eb6798b469918
-    setTimeout(() => {
-      setIsReadyForAudio(true);
-    }, 2000);
+    /*setTimeout(() => {
+    }, 2000);*/
+    setIsReadyForAudio(true);
   }, [setIsReadyForAudio, setIsLoading]);
 
   const onVideoTransition = useCallback(() => {
