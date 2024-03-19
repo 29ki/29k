@@ -38,7 +38,8 @@
       }
     },
     "NSCalendarsUsageDescription" : {
-      "extractionState" : "manual",
+      "comment" : "Privacy - Calendars Usage Description",
+      "extractionState" : "extracted_with_value",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -55,7 +56,8 @@
       }
     },
     "NSCalendarsWriteOnlyAccessUsageDescription" : {
-      "extractionState" : "manual",
+      "comment" : "Privacy - Calendars Write Only Usage Description",
+      "extractionState" : "extracted_with_value",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -72,7 +74,8 @@
       }
     },
     "NSCameraUsageDescription" : {
-      "extractionState" : "manual",
+      "comment" : "Privacy - Camera Usage Description",
+      "extractionState" : "extracted_with_value",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -89,7 +92,8 @@
       }
     },
     "NSContactsUsageDescription" : {
-      "extractionState" : "manual",
+      "comment" : "Privacy - Contacts Usage Description",
+      "extractionState" : "extracted_with_value",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -106,7 +110,8 @@
       }
     },
     "NSHealthShareUsageDescription" : {
-      "extractionState" : "manual",
+      "comment" : "Privacy - Health Share Usage Description",
+      "extractionState" : "extracted_with_value",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -123,7 +128,8 @@
       }
     },
     "NSHealthUpdateUsageDescription" : {
-      "extractionState" : "manual",
+      "comment" : "Privacy - Health Update Usage Description",
+      "extractionState" : "extracted_with_value",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -140,7 +146,8 @@
       }
     },
     "NSMicrophoneUsageDescription" : {
-      "extractionState" : "manual",
+      "comment" : "Privacy - Microphone Usage Description",
+      "extractionState" : "extracted_with_value",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -157,7 +164,8 @@
       }
     },
     "NSPhotoLibraryUsageDescription" : {
-      "extractionState" : "manual",
+      "comment" : "Privacy - Photo Library Usage Description",
+      "extractionState" : "extracted_with_value",
       "localizations" : {
         "en" : {
           "stringUnit" : {

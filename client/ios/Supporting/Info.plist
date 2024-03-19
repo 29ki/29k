@@ -53,21 +53,21 @@
 		<true/>
 	</dict>
 	<key>NSCalendarsUsageDescription</key>
-	<string></string>
+	<string>This allows us to add sessions to your calendar.</string>
 	<key>NSCalendarsWriteOnlyAccessUsageDescription</key>
-	<string></string>
+	<string>This allows us to add sessions to your calendar.</string>
 	<key>NSCameraUsageDescription</key>
-	<string></string>
+	<string>This allows us to take a profile picture of you. It also allows us to stream your video during video sharing.</string>
 	<key>NSPhotoLibraryUsageDescription</key>
-	<string></string>
+	<string>This allows you to upload a profile picture of you from your library</string>
 	<key>NSContactsUsageDescription</key>
-	<string></string>
+	<string>This allows us to add sessions to your calendar.</string>
 	<key>NSMicrophoneUsageDescription</key>
-	<string></string>
+	<string>This allows us to stream your audio during video sharing.</string>
 	<key>NSHealthShareUsageDescription</key>
-	<string></string>
+	<string>You should not see this message as Aware does not read your health data</string>
 	<key>NSHealthUpdateUsageDescription</key>
-	<string></string>
+	<string>Allows us to log Health mindful minutes when you complete Aware sessions</string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>HKGrotesk-Black.otf</string>
