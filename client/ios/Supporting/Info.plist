@@ -15,7 +15,7 @@
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
-	<string>$(PRODUCT_NAME)</string>
+	<string>Aware</string>
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
@@ -42,7 +42,7 @@
 	<key>ITSAppUsesNonExemptEncryption</key>
 	<false/>
 	<key>LSApplicationCategoryType</key>
-	<string/>
+	<string></string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSAppTransportSecurity</key>
@@ -53,23 +53,21 @@
 		<true/>
 	</dict>
 	<key>NSCalendarsUsageDescription</key>
-	<string>This allows us to add sessions to your calendar.</string>
+	<string></string>
 	<key>NSCalendarsWriteOnlyAccessUsageDescription</key>
-	<string>This allows us to add sessions to your calendar.</string>
+	<string></string>
 	<key>NSCameraUsageDescription</key>
-	<string>This allows us to take a profile picture of you. It also allows us to stream your video during video sharing.</string>
+	<string></string>
 	<key>NSPhotoLibraryUsageDescription</key>
-	<string>This allows you to upload a profile picture of you from your library</string>
+	<string></string>
 	<key>NSContactsUsageDescription</key>
-	<string>This allows us to add sessions to your calendar.</string>
-	<key>NSLocationWhenInUseUsageDescription</key>
-	<string/>
+	<string></string>
 	<key>NSMicrophoneUsageDescription</key>
-	<string>This allows us to stream your audio during video sharing.</string>
+	<string></string>
 	<key>NSHealthShareUsageDescription</key>
-	<string>You should not see this message as Aware does not read your health data</string>
+	<string></string>
 	<key>NSHealthUpdateUsageDescription</key>
-	<string>Allows us to log Health mindful minutes when you complete Aware sessions</string>
+	<string></string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>HKGrotesk-Black.otf</string>
