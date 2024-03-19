@@ -14,6 +14,7 @@
     "currentPassword": "Current password",
     "title": "Profile Settings",
     "email": "E-mail",
+    "description": "Add a description that will be shown when you host a session",
     "actions": {
       "signIn": "Sign in",
       "signOut": "Sign out",
@@ -64,6 +65,7 @@
     "currentPassword": "Nuvarande lösenord",
     "title": "Profil-inställningar",
     "email": "Email",
+    "description": "Lägg till en beskrivning som kommer att visas när du håller i en session",
     "actions": {
       "signIn": "Logga in",
       "signOut": "Logga ut",
