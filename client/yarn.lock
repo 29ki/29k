@@ -9391,10 +9391,10 @@ react-native-asset@^2.1.1:
     sha1-file "^1.0.4"
     xcode "^2.0.0"
 
-react-native-awesome-slider@^2.5.0:
-  version "2.5.0"
-  resolved "https://registry.yarnpkg.com/react-native-awesome-slider/-/react-native-awesome-slider-2.5.0.tgz#05e3ce57656800c5fbdf6d528eada17fdadb9080"
-  integrity sha512-YXuqptBND45UNge6S4kbAYJNTzU7NVlU9LWlgzhOK3IbjclalmPuDrcjtP1gUrxJBgIRUBTLE325+AkxfbDp1A==
+react-native-awesome-slider@^2.5.1:
+  version "2.5.1"
+  resolved "https://registry.yarnpkg.com/react-native-awesome-slider/-/react-native-awesome-slider-2.5.1.tgz#9bec09b454b7b73057d135b8801402b4b3ced1fc"
+  integrity sha512-bDhmM36RfXG9OBCKZFQ1Yu+0jBHBHY11hcpuRFlMuwnwuROxBLunFKsu5PKqBcIYZgJcpXfukLsgEYApbO4zPg==
 
 react-native-background-timer@^2.3.1:
   version "2.4.1"
