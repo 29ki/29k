@@ -27,7 +27,7 @@
       android:allowBackup="true"
       android:theme="@style/AppTheme"
       android:hardwareAccelerated="true">
-      <service android:name="com.daily.reactlibrary.DailyOngoingMeetingForegroundService"/>
+      <service android:name="com.daily.reactlibrary.DailyOngoingMeetingForegroundService" android:foregroundServiceType="mediaProjection"/>
       <meta-data
         android:name="com.google.android.gms.wallet.api.enabled"
         android:value="true" />

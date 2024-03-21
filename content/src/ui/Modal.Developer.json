@@ -24,7 +24,8 @@
     "showHiddenContent": "Visa gömt innehåll",
     "showLockedContent": "Visa låst innehåll",
     "addDevUserEvents": "Add development user events",
-    "clearUpdate": "Clear update"
+    "clearUpdate": "Clear update",
+    "logUserEvents": "Log user events"
   },
   "ja": {}
 }

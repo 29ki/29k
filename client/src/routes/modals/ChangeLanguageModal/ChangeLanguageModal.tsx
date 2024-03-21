@@ -5,9 +5,13 @@ import ActionList from '../../../lib/components/ActionList/ActionList';
 
 import Gutters from '../../../lib/components/Gutters/Gutters';
 import SheetModal from '../../../lib/components/Modals/SheetModal';
-import {Spacer24} from '../../../lib/components/Spacers/Spacer';
+import {Spacer24, Spacer8} from '../../../lib/components/Spacers/Spacer';
 import {ModalHeading} from '../../../lib/components/Typography/Heading/Heading';
-import {LANGUAGE_TAGS, LANGUAGES} from '../../../lib/i18n';
+import {
+  CLIENT_LANGUAGE_TAGS,
+  LANGUAGE_TAGS,
+  LANGUAGES,
+} from '../../../lib/i18n';
 import useSetPreferredLanguage from '../../../lib/i18n/hooks/useSetPreferedLanguage';
 
 const ChangeLanguageModal = () => {
@@ -20,7 +24,20 @@ const ChangeLanguageModal = () => {
         <ModalHeading>{t('title')}</ModalHeading>
         <Spacer24 />
         <ActionList>
-          {LANGUAGE_TAGS.map(languageTag => (
+          {CLIENT_LANGUAGE_TAGS.map(languageTag => (
+            <ActionRadioButton
+              key={languageTag}
+              onPress={() => setPreferredLanguage(languageTag)}
+              checked={languageTag === i18n.resolvedLanguage}>
+              {LANGUAGES[languageTag]}
+            </ActionRadioButton>
+          ))}
+        </ActionList>
+        <Spacer8 />
+        <ActionList>
+          {LANGUAGE_TAGS.filter(
+            languageTag => !CLIENT_LANGUAGE_TAGS.includes(languageTag),
+          ).map(languageTag => (
             <ActionRadioButton
               key={languageTag}
               onPress={() => setPreferredLanguage(languageTag)}

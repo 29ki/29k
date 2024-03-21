@@ -208,9 +208,7 @@ const ProfileSettingsModal = () => {
             <DescriptionInput
               autoCapitalize="none"
               keyboardType="default"
-              placeholder={
-                'Add a desctiption that will be shown when you host a session'
-              }
+              placeholder={t('description')}
               onChangeText={setDescription}
               defaultValue={description}
             />
