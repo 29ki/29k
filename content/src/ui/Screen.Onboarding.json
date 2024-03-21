@@ -66,24 +66,24 @@
       "heading2": "perspektiv"
     },
     "page1": {
-      "heading__text": "Vetenskapsbaserade\npsykologiska verktyg"
+      "heading__text": "Forskningsbaserade\npsykologiska verktyg"
     },
     "page2": {
-      "heading__text": "Meningsfulla\nkontakter",
+      "heading__text": "Meningsfullt\nsammanhang",
       "name1": "Ints",
       "name2": "Jenny",
       "name3": "Lisa"
     },
     "page3": {
-      "heading__text": "För allas\nbästa",
+      "heading__text": "För en \nbättre värld",
       "card": {
-        "heading": "Icke-vinstdrivande",
-        "text__markdown": "Vi är gratis för personligt bruk.\\\nVi säljer inte data. Vi har inte annonser.\\\nSå att du kan fokusera på ditt välbefinnande, utvecklas och bidra till en bättre framtid för alla."
+        "heading": "Icke vinst-drivande",
+        "text__markdown": "Gratis för privat bruk.\\\nVi säljer aldrig data. Vi har inga annonser.\\\nSå att du kan fokusera på ditt välbefinnande, utvecklas och bidra till en bättre framtid för alla."
       }
     },
     "page4": {
-      "sessions__text": "Guidade upplevelser för\nnya perspektiv på livet.\n\nPå egen hand, med\nvänner eller nya kontakter.",
-      "journey__text": "Din egen personliga väg\nmot ett mer blomstrande liv."
+      "sessions__text": "Guidade övningar för\nnya perspektiv.\n\nPå egen hand, med\nvänner eller nya kontakter.",
+      "journey__text": "Din personliga plan\nför ett meningsfullt liv."
     },
     "privacyNoticeUrl": "https://wiki.29k.org/aware-privacy-notice",
     "skipButton": "Hoppa över",
