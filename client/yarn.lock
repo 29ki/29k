@@ -2615,19 +2615,19 @@
     react-is "^16.13.0"
     use-latest-callback "^0.1.7"
 
-"@react-navigation/drawer@^6.6.14":
-  version "6.6.14"
-  resolved "https://registry.yarnpkg.com/@react-navigation/drawer/-/drawer-6.6.14.tgz#974ae6fd2f1986024005a63aa023c5a47d59d496"
-  integrity sha512-HOnZxPWLl3x3a2Xp4WYZYa6NjP5/+c2UNXrvaIK/PTvhgrxNZxB5qMwBIjwg4Qaff6I9NGUe72/AYDWOMJ+GwA==
+"@react-navigation/drawer@^6.6.15":
+  version "6.6.15"
+  resolved "https://registry.yarnpkg.com/@react-navigation/drawer/-/drawer-6.6.15.tgz#fcedba68f735103dbc035911f5959ce926081d62"
+  integrity sha512-GLkFQNxjtmxB/qXSHmu1DfoB89jCzW64tmX68iPndth+9U+0IP27GcCCaMZxQfwj+nI8Kn2zlTlXAZDIIHE+DQ==
   dependencies:
-    "@react-navigation/elements" "^1.3.29"
+    "@react-navigation/elements" "^1.3.30"
     color "^4.2.3"
     warn-once "^0.1.0"
 
-"@react-navigation/elements@^1.3.22", "@react-navigation/elements@^1.3.24", "@react-navigation/elements@^1.3.29":
-  version "1.3.29"
-  resolved "https://registry.yarnpkg.com/@react-navigation/elements/-/elements-1.3.29.tgz#1dcbd95c319a8990d66e2aef8e108198d7a93cb2"
-  integrity sha512-sMkqqQHlxdBxrBVw6E2a3LJjb9Hrb1ola8+zRgJn4Ox8iKtjqtWEdg349DPWU77VpIekcMLsqQvEtZox3XkXgA==
+"@react-navigation/elements@^1.3.22", "@react-navigation/elements@^1.3.24", "@react-navigation/elements@^1.3.30":
+  version "1.3.30"
+  resolved "https://registry.yarnpkg.com/@react-navigation/elements/-/elements-1.3.30.tgz#a81371f599af1070b12014f05d6c09b1a611fd9a"
+  integrity sha512-plhc8UvCZs0UkV+sI+3bisIyn78wz9O/BiWZXpounu72k/R/Sj5PuZYFJ1fi6psvriUveMCGh4LeZckAZu2qiQ==
 
 "@react-navigation/native-stack@^6.9.18":
   version "6.9.18"
