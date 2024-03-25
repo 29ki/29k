@@ -153,7 +153,10 @@
       "videoLoop": {
         "source": "https://res.cloudinary.com/twentyninek/video/upload/q_auto/v1663143395/temp/portal-intro_h7qccz.mp4",
         "audio": "https://res.cloudinary.com/twentyninek/video/upload/v1664811123/temp/ocean_s3t5yy_mm2dgh.mp3",
-        "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1674554579/Images/thumb_portal_pure_simple_love_geibz4.png"
+        "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1674554579/Images/thumb_portal_pure_simple_love_geibz4.png",
+        "p5JsScript": {
+          "lang": "javascript"
+        }
       },
       "videoEnd": {
         "source": "https://res.cloudinary.com/twentyninek/video/upload/q_auto/v1663147750/temp/portal-intro-end_crzjih.mp4"
@@ -298,7 +301,10 @@
       "videoLoop": {
         "source": "https://res.cloudinary.com/twentyninek/video/upload/q_auto/v1663143395/temp/portal-intro_h7qccz.mp4",
         "audio": "https://res.cloudinary.com/twentyninek/video/upload/v1664811123/temp/ocean_s3t5yy_mm2dgh.mp3",
-        "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1674554579/Images/thumb_portal_pure_simple_love_geibz4.png"
+        "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1674554579/Images/thumb_portal_pure_simple_love_geibz4.png",
+        "p5JsScript": {
+          "lang": "javascript"
+        }
       },
       "videoEnd": {
         "source": "https://res.cloudinary.com/twentyninek/video/upload/q_auto/v1663147750/temp/portal-intro-end_crzjih.mp4"
@@ -349,7 +355,7 @@
           "lottie": {
             "durationTimer": true,
             "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1676977421/Lottie/audio_meditation_default_black_default_omemwt.json",
-            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1697622758/Audio/pure_simple_love_swe_zddij7.mp3",
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1711370901/Audio/Pure_simple_love_swe_improvedaudio.mp3",
             "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1697622804/SRT%20(captions)%20files/Pure_simple_love_swe_t1zhsg.srt"
           }
         },
@@ -470,7 +476,10 @@
       "videoLoop": {
         "source": "https://res.cloudinary.com/twentyninek/video/upload/q_auto/v1663143395/temp/portal-intro_h7qccz.mp4",
         "audio": "https://res.cloudinary.com/twentyninek/video/upload/v1664811123/temp/ocean_s3t5yy_mm2dgh.mp3",
-        "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1674554579/Images/thumb_portal_pure_simple_love_geibz4.png"
+        "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1674554579/Images/thumb_portal_pure_simple_love_geibz4.png",
+        "p5JsScript": {
+          "lang": "javascript"
+        }
       },
       "videoEnd": {
         "source": "https://res.cloudinary.com/twentyninek/video/upload/q_auto/v1663147750/temp/portal-intro-end_crzjih.mp4"
@@ -491,24 +500,6 @@
     "description": "En guidad meditation där vi plockar fram ett fint minne. Att aktivt lägga märke till saker i livet som fungerar bra kan hjälpa oss att känna lycka och mening. Det kan också balansera upp våra hjärnors inbyggda tendens att fokusera på det negativa."
   },
   "ja": {
-    "description": "貴重な瞬間を脚光を浴びる誘導瞑想。うまくいっていることに気づく練習をすることで、より幸せで充実した気分になり、ネガティブなことに集中する脳の自然な傾向を打ち消すことができます。",
-    "introPortal": {
-      "hostNotes": [
-        {
-          "text": ">準備ができたらセッションを始めてください。"
-        }
-      ],
-      "type": "video",
-      "videoLoop": {
-        "source": "https://res.cloudinary.com/twentyninek/video/upload/q_auto/v1663143395/temp/portal-intro_h7qccz.mp4",
-        "audio": "https://res.cloudinary.com/twentyninek/video/upload/v1664811123/temp/ocean_s3t5yy_mm2dgh.mp3",
-        "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1674554579/Images/thumb_portal_pure_simple_love_geibz4.png"
-      },
-      "videoEnd": {
-        "source": "https://res.cloudinary.com/twentyninek/video/upload/q_auto/v1663147750/temp/portal-intro-end_crzjih.mp4"
-      }
-    },
-    "name": "純粋でシンプルな愛",
     "slides": [
       {
         "hostNotes": [
@@ -590,6 +581,7 @@
         }
       }
     ],
+    "name": "純粋でシンプルな愛",
     "live": true,
     "published": true,
     "card": {
@@ -615,12 +607,29 @@
         "source": "https://res.cloudinary.com/twentyninek/video/upload/q_auto/v1664798564/temp/portal_outro_lpm80e.mp4"
       }
     },
+    "introPortal": {
+      "hostNotes": [
+        {
+          "text": ">準備ができたらセッションを始めてください。"
+        }
+      ],
+      "type": "video",
+      "videoLoop": {
+        "source": "https://res.cloudinary.com/twentyninek/video/upload/q_auto/v1663143395/temp/portal-intro_h7qccz.mp4",
+        "audio": "https://res.cloudinary.com/twentyninek/video/upload/v1664811123/temp/ocean_s3t5yy_mm2dgh.mp3",
+        "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1674554579/Images/thumb_portal_pure_simple_love_geibz4.png"
+      },
+      "videoEnd": {
+        "source": "https://res.cloudinary.com/twentyninek/video/upload/q_auto/v1663147750/temp/portal-intro-end_crzjih.mp4"
+      }
+    },
     "tags": [
       "cfc00217-f65b-4a4d-8b82-8ccc8f852dd6",
       "43a6dc0d-d866-4b79-9453-13c44e906128"
     ],
     "link": "https://aware.29k.org/pure-simple-love",
     "id": "095f9642-73b6-4c9a-ae9a-ea7dea7363f5",
-    "async": true
+    "async": true,
+    "description": "貴重な瞬間を脚光を浴びる誘導瞑想。うまくいっていることに気づく練習をすることで、より幸せで充実した気分になり、ネガティブなことに集中する脳の自然な傾向を打ち消すことができます。"
   }
 }
