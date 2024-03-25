@@ -1539,10 +1539,10 @@
   resolved "https://registry.yarnpkg.com/@discoveryjs/json-ext/-/json-ext-0.5.7.tgz#1d572bfbbe14b7704e0ba0f39b74815b84870d70"
   integrity sha512-dBVuXR082gk3jsFp7Rd/JI4kytwGHecnCoTtXFb7DB6CNHp4rg5k1bhg0nWdLGLnOV71lmDzGQaLMy8iPLY0pw==
 
-"@dotlottie/common@0.7.10":
-  version "0.7.10"
-  resolved "https://registry.yarnpkg.com/@dotlottie/common/-/common-0.7.10.tgz#231c0a77057d87bbb54a89cfef6d54b23e268e5b"
-  integrity sha512-fIer1XuAWWhcBAg6gTxsPH9bsqVbKkjSFP5JU8zMzRRd+dQPAwpEd0z2JU3fZxK32DBsXrZVSZN1Z0Mq+uDNQA==
+"@dotlottie/common@0.7.11":
+  version "0.7.11"
+  resolved "https://registry.yarnpkg.com/@dotlottie/common/-/common-0.7.11.tgz#0ef5cfa3cdc39d0005b2dbc13ea64df3868c848f"
+  integrity sha512-0ThV1uZVfKJ2pwYQy52EKH8edKnvEsSDGdxRf/n1Wz15xbqI+8qKs0BHSIQ7yLyaU5gFSaEooEgK1kTiKJaE4g==
   dependencies:
     "@dotlottie/dotlottie-js" "^0.7.0"
     "@preact/signals-core" "^1.2.3"
@@ -1561,12 +1561,12 @@
     sharp-phash "^2.1.0"
     valibot "^0.13.1"
 
-"@dotlottie/react-player@^1.6.17":
-  version "1.6.17"
-  resolved "https://registry.yarnpkg.com/@dotlottie/react-player/-/react-player-1.6.17.tgz#0306f4a101502f1eab909228702dad4825d9c876"
-  integrity sha512-VwrR9mvY1SZYrbH4xZp7RiPbrG0RmgXDVFQI6OMwu7uUB1aBjdTWtxzB7i7r52oZkjoVpN6ND8ETd67NxSDE9Q==
+"@dotlottie/react-player@^1.6.19":
+  version "1.6.19"
+  resolved "https://registry.yarnpkg.com/@dotlottie/react-player/-/react-player-1.6.19.tgz#bc783c0c45a408eac83b5f5f954ae5d984a36b75"
+  integrity sha512-kXQ/BD3OnK70wIGOIy5DWg1jgfgb3AWaDLXwVnLtzSmTBcH2dFcU/XGXF+z4w8vm2/s2tdbNd7c4yq8twoIVLw==
   dependencies:
-    "@dotlottie/common" "0.7.10"
+    "@dotlottie/common" "0.7.11"
 
 "@egjs/hammerjs@^2.0.17":
   version "2.0.17"
