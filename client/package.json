@@ -23,7 +23,7 @@
   "dependencies": {
     "@daily-co/react-native-daily-js": "0.57.0",
     "@daily-co/react-native-webrtc": "111.0.0-daily.2",
-    "@dotlottie/react-player": "^1.6.17",
+    "@dotlottie/react-player": "^1.6.19",
     "@gorhom/bottom-sheet": "^4.6.1",
     "@kingstinct/react-native-healthkit": "^7.3.2",
     "@lottiefiles/react-lottie-player": "^3.5.3",
@@ -100,7 +100,7 @@
     "@react-native/eslint-config": "0.73.2",
     "@react-native/metro-config": "0.73.5",
     "@react-native/typescript-config": "0.74.0",
-    "@sentry/cli": "^2.29.1",
+    "@sentry/cli": "^2.30.2",
     "@testing-library/react-hooks": "^8.0.1",
     "@types/debug": "^4.1.12",
     "@types/i18next": "^13.0.0",
