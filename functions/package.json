@@ -80,6 +80,6 @@
     "prettier": "^3.2.5",
     "supertest": "^6.3.4",
     "ts-jest": "^28.0.8",
-    "typescript": "^5.4.2"
+    "typescript": "^5.4.3"
   }
 }
