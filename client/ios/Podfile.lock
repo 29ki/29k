@@ -793,17 +793,17 @@ PODS:
   - hermes-engine (0.73.4):
     - hermes-engine/Pre-built (= 0.73.4)
   - hermes-engine/Pre-built (0.73.4)
-  - JitsiWebRTC (111.0.2)
+  - JitsiWebRTC (118.0.0)
   - JWT (3.0.0-beta.14):
     - Base64 (~> 1.1.2)
   - kingstinct-react-native-healthkit (7.3.2):
     - React
   - leveldb-library (1.22.3)
   - libevent (2.1.12)
-  - lottie-ios (4.4.0)
-  - lottie-react-native (6.6.0):
+  - lottie-ios (4.4.1)
+  - lottie-react-native (6.7.0):
     - glog
-    - lottie-ios (~> 4.4.0)
+    - lottie-ios (~> 4.4.1)
     - RCT-Folly (= 2022.05.16.00)
     - React-Core
   - Mute (0.6.1)
@@ -1690,7 +1690,7 @@ PODS:
     - React-Core
   - react-native-background-timer (2.4.1):
     - React-Core
-  - react-native-daily-js (0.57.0):
+  - react-native-daily-js (0.59.0):
     - React-Core
     - ReactNativeDailyJSScreenShareExtension (= 0.0.1)
   - react-native-get-random-values (1.10.0):
@@ -1704,8 +1704,8 @@ PODS:
   - react-native-volume-manager (1.10.0):
     - Mute
     - React-Core
-  - react-native-webrtc (111.0.0-daily.2):
-    - JitsiWebRTC (~> 111.0.0)
+  - react-native-webrtc (118.0.3-daily.1):
+    - JitsiWebRTC (~> 118.0.0)
     - React-Core
   - react-native-webview (13.8.1):
     - glog
@@ -1935,7 +1935,7 @@ PODS:
     - React-Core
   - RNReactNativeHapticFeedback (2.2.0):
     - React-Core
-  - RNReanimated (3.7.0):
+  - RNReanimated (3.8.1):
     - glog
     - RCT-Folly (= 2022.05.16.00)
     - React-Core
@@ -1949,7 +1949,7 @@ PODS:
     - React-Core
     - React-hermes
     - Sentry/HybridSDK (= 8.17.1)
-  - RNSVG (15.0.0):
+  - RNSVG (15.1.0):
     - React-Core
   - Sentry/HybridSDK (8.17.1):
     - SentryPrivate (= 8.17.1)
@@ -2329,13 +2329,13 @@ SPEC CHECKSUMS:
   gRPC-Core: a21a60aefc08c68c247b439a9ef97174b0c54f96
   GTMSessionFetcher: 8a1b34ad97ebe6f909fb8b9b77fba99943007556
   hermes-engine: b2669ce35fc4ac14f523b307aff8896799829fe2
-  JitsiWebRTC: 80f62908fcf2a1160e0d14b584323fb6e6be630b
+  JitsiWebRTC: 3a41671ef65a51d7204323814b055a2690b921c7
   JWT: ef71dfb03e1f842081e64dc42eef0e164f35d251
   kingstinct-react-native-healthkit: 5b083e1121bd9799fea91a08f9793337262c95e7
   leveldb-library: e74c27d8fbd22854db7cb467968a0b8aa1db7126
   libevent: 4049cae6c81cdb3654a443be001fb9bdceff7913
-  lottie-ios: ef1be1f90d54255f08e09d767950e43714661178
-  lottie-react-native: 97022377064747889739ec05ac603a0cd483409e
+  lottie-ios: e047b1d2e6239b787cc5e9755b988869cf190494
+  lottie-react-native: e7ac6d85b07b0eb347bfc331e62465da8574a6ec
   Mute: 20135a96076f140cc82bfc8b810e2d6150d8ec7e
   nanopb: d4d75c12cd1316f4a64e3c6963f879ecd4b5e0d5
   PromisesObjC: c50d2056b5253dadbd6c2bea79b0674bd5a52fa4
@@ -2363,13 +2363,13 @@ SPEC CHECKSUMS:
   React-Mapbuffer: 114be72666d7e3e317c1a36fb566cd3ad712fcc8
   react-native-add-calendar-event: b9802a8be8ad4beb0dcb3efb28969c077558fb29
   react-native-background-timer: 17ea5e06803401a379ebf1f20505b793ac44d0fe
-  react-native-daily-js: 25084c73ef792cd031079b0149266495bc60698b
+  react-native-daily-js: 16f023ff6e601f0951c400c47642acabf2f27524
   react-native-get-random-values: 384787fd76976f5aec9465aff6fa9e9129af1e74
   react-native-idle-timer: f1920a59fe776340d004ff9de13c4a6eedcc8807
   react-native-netinfo: bdb108d340cdb41875c9ced535977cac6d2ff321
   react-native-safe-area-context: b97eb6f9e3b7f437806c2ce5983f479f8eb5de4b
   react-native-volume-manager: 3c7d8047841b6831730dea7bf25250522388b4f4
-  react-native-webrtc: b8f92ed95bff2f8d7189cb544dc647141e6e6dba
+  react-native-webrtc: f0863a670c08895cebfd74d7790e499397d5be1a
   react-native-webview: dc191e100e5db2dbd3bc28793c789b95934904ca
   React-nativeconfig: ca8b90c736cf3be019cb332ca42d93dd95b32e05
   React-NativeModulesApple: 1fdffcce7772e274baeab33a1900f45feba86cbd
@@ -2409,10 +2409,10 @@ SPEC CHECKSUMS:
   RNPermissions: adbfc7e3470ebfdb9860267af670fdffa7630b73
   RNRate: ef3bcff84f39bb1d1e41c5593d3eea4aab2bd73a
   RNReactNativeHapticFeedback: ec56a5f81c3941206fd85625fa669ffc7b4545f9
-  RNReanimated: ea7e98bf4f1167ca3cd3c348604d34dc4294e848
+  RNReanimated: 8c009e95ed82289b412801b9fc220dca24455f8d
   RNScreens: 2b73f5eb2ac5d94fbd61fa4be0bfebd345716825
   RNSentry: 6872121e0af7aa9f3f50643f557d69adc8f7ecdc
-  RNSVG: 3f65a03e0c61a8495dee92bf82545ed9041cbf3b
+  RNSVG: 50cf2c7018e57cf5d3522d98d0a3a4dd6bf9d093
   Sentry: d9f99f9cc13777c5d938650c1e1c85047bb4f0d1
   SentryPrivate: 839b1e58addf58624087a80b2628e543193fa8ef
   SocketRocket: f32cd54efbe0f095c4d7594881e52619cfe80b17
@@ -2427,7 +2427,7 @@ SPEC CHECKSUMS:
   StripePaymentsUI: 3e67ffc17d10ef2b0e1538867934a644a1dd6fc6
   StripeUICore: 2e512d3fd27045ca4a899acdef1ed66dcf935d83
   TOCropViewController: edfd4f25713d56905ad1e0b9f5be3fbe0f59c863
-  Yoga: 64cd2a583ead952b0315d5135bf39e053ae9be70
+  Yoga: 1b901a6d6eeba4e8a2e8f308f708691cdb5db312
 
 PODFILE CHECKSUM: eca7106cb4acdaa2f539d18295f1019a34a370f4
 
