@@ -154,7 +154,7 @@ jobs:
         if: always()
         with:
           name: android-aab
-          path: ./client/android/app/build/outputs/aab
+          path: ./client/android/app/build/outputs/bundle
 
       - name: Upload Logs
         uses: actions/upload-artifact@v3
