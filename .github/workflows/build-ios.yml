@@ -159,7 +159,7 @@ jobs:
         if: always()
         with:
           name: ios-ipa
-          path: ./client/fastlane/*.ipa
+          path: ./client/ios/*.ipa
 
       - name: Upload Logs
         uses: actions/upload-artifact@v3
