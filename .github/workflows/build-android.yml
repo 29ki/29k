@@ -151,7 +151,7 @@ jobs:
 
       - name: Upload AAB
         uses: actions/upload-artifact@v3
-        if: true
+        if: always()
         with:
           name: android-aab
           path: ./client/android/app/build/outputs/aab

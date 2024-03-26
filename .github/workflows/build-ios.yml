@@ -156,7 +156,7 @@ jobs:
 
       - name: Upload IPA
         uses: actions/upload-artifact@v3
-        if: true
+        if: always()
         with:
           name: ios-ipa
           path: ./client/fastlane/*.ipa
