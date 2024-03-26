@@ -149,6 +149,20 @@ jobs:
         working-directory: ./client/fastlane
         run: bundle exec fastlane android app
 
+      - name: Upload AAB
+        uses: actions/upload-artifact@v3
+        if: true
+        with:
+          name: android-aab
+          path: ./client/android/app/build/outputs/aab
+
+      - name: Upload Logs
+        uses: actions/upload-artifact@v3
+        if: failure()
+        with:
+          name: android-build-logs
+          path: ./client/android/app/build/outputs/logs
+
       - name: Generate Source Map
         working-directory: ./client
         run: >
