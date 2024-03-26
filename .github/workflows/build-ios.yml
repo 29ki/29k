@@ -223,7 +223,7 @@ jobs:
         run: yarn sentry-cli releases set-commits --auto $GIT_COMMIT_SHORT
 
       - name: Create Pull Request
-        uses: peter-evans/create-pull-request@v4
+        uses: peter-evans/create-pull-request@v6
         with:
           title: iOS native version bump on ${{ inputs.branch }} (auto generated)
           commit-message: Native Version Bump
