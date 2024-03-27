@@ -1,7 +1,7 @@
 {
   "en": {
     "published": true,
-    "hidden": true,
+    "hidden": false,
     "id": "b77e52b5-c927-4178-ba76-8c3fe3dbf13c",
     "name": "Values III: Act for what matters",
     "description": "Move from fluffy values to daily actions. Learn to set goals, widen your behavioral fan of cards and navigate life with integrity.",
@@ -14,7 +14,12 @@
     "tags": [
       "9c2c08a9-7dc6-4058-bc78-016d0eb00614",
       "8da0534a-5da9-430a-bdf3-242ace6460fb"
-    ]
+    ],
+    "card": {
+      "image": {
+        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1711521385/Images/card_Values_III_-_act_for_what_matters_rv6bld.png"
+      }
+    }
   },
   "pt": {
     "published": false,
@@ -29,7 +34,8 @@
     "tags": [
       "9c2c08a9-7dc6-4058-bc78-016d0eb00614",
       "8da0534a-5da9-430a-bdf3-242ace6460fb"
-    ]
+    ],
+    "card": {}
   },
   "sv": {
     "published": false,
@@ -44,7 +50,8 @@
     "tags": [
       "9c2c08a9-7dc6-4058-bc78-016d0eb00614",
       "8da0534a-5da9-430a-bdf3-242ace6460fb"
-    ]
+    ],
+    "card": {}
   },
   "ja": {
     "published": false,
@@ -59,6 +66,7 @@
     "tags": [
       "9c2c08a9-7dc6-4058-bc78-016d0eb00614",
       "8da0534a-5da9-430a-bdf3-242ace6460fb"
-    ]
+    ],
+    "card": {}
   }
 }
