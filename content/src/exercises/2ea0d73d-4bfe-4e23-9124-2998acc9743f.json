@@ -22,7 +22,9 @@
         "content": {
           "lottie": {
             "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1709573050/SRT%20(captions)%20files/Lead_from_a_place_of_love_nvraaj.srt",
-            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1709573004/Audio/Lead_from_a_place_of_love_ubqzwk.mp3"
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1709573004/Audio/Lead_from_a_place_of_love_ubqzwk.mp3",
+            "durationTimer": true,
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/t_card_image/v1676642915/Lottie/default_audio_black_zjrmu2.json"
           }
         }
       },
@@ -38,7 +40,12 @@
         ],
         "content": {
           "text": "",
-          "heading": "What would it be like to lead with authenticity and love?"
+          "heading": "What would it be like to lead with authenticity and love?",
+          "lottie": {
+            "durationTimer": true,
+            "duration": 60,
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/t_card_image/v1676642915/Lottie/default_1min_black_rosi2l.json"
+          }
         }
       },
       {
@@ -56,7 +63,12 @@
         ],
         "id": "Sharing 1",
         "content": {
-          "heading": "What would it be like to lead with authenticity and love?"
+          "heading": "What would it be like to lead with authenticity and love?",
+          "lottie": {
+            "durationTimer": true,
+            "duration": 120,
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/t_card_image/v1676639253/Lottie/default_2min_black_o6egey.json"
+          }
         }
       },
       {
@@ -76,18 +88,27 @@
       {
         "type": "instruction",
         "content": {
-          "text": "Well done. Letting authentic values lead us in life can make us happier and more fulfilled. \n\nIf you’re up for it, there's a mission for you: The coming two days, whenever you face a decision, listen in to your values and let them guide you. See how that makes you feel."
+          "text": "Well done. Letting authentic values lead us in life can make us happier and more fulfilled. \n\nIf you’re up for it, there's a mission for you: The coming two days, whenever you face a decision, listen in to your values and let them guide you. See how that makes you feel.",
+          "image": {
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1711547532/Images/card_Lead_from_a_place_of_love_fesnei.png"
+          }
         }
       }
     ],
     "theme": {
-      "textColor": "#2E2E2E"
+      "textColor": "#2E2E2E",
+      "backgroundColor": "#faf7e3"
     },
     "hidden": true,
     "locked": false,
     "name": "Lead from a place of love",
     "live": true,
     "published": true,
+    "card": {
+      "image": {
+        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1711547532/Images/card_Lead_from_a_place_of_love_fesnei.png"
+      }
+    },
     "coCreators": [
       {
         "name": "Rachel Brathen, yoga girl, voice",
@@ -198,6 +219,7 @@
     "locked": false,
     "live": true,
     "published": false,
+    "card": {},
     "duration": 30,
     "introPortal": {
       "textColor": "#2AE2D7",
@@ -289,6 +311,7 @@
     "locked": false,
     "live": true,
     "published": false,
+    "card": {},
     "duration": 30,
     "introPortal": {
       "textColor": "#2AE2D7",
@@ -380,6 +403,7 @@
     "locked": false,
     "live": true,
     "published": false,
+    "card": {},
     "duration": 30,
     "introPortal": {
       "textColor": "#2AE2D7",
