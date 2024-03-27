@@ -108,7 +108,8 @@
       ],
       "videoLoop": {
         "p5JsScript": {
-          "lang": "javascript"
+          "lang": "javascript",
+          "code": "let f = 0;\nlet w = 100;\nlet d = 50;\nlet W = 400;\n\nfunction setup() {\n    createCanvas(windowWidth, W = windowHeight, WEBGL);\n    w = windowHeight / 4;\n    d = w / 2;\n}\n\nfunction draw() {\n    background('#efd873'); // Set the background color\n    noStroke();\n    [2, 2, -2].map(i => spotLight(W, W, W, 0, -W * i, w, 0, i, 0));\n\n    let fov = PI / 7; // Adjusted FOV for zooming in\n    let cameraZ = (height/2.0) / tan(fov/2.0);\n    perspective(fov, width/height, cameraZ/10.0, cameraZ*10.0);\n  \n    rotateY(f += .002);\n    for (let z = -w; z <= w; z += d) {\n        for (let y = -w; y <= w; y += d) {\n            for (let x = -w; x <= w; x += d) {\n                push();\n                translate(x, y, z);\n                fill('#60a6bf'); // Set the color of the spheres\n                // Sphere size adjusted for FOV change\n                sphere((sin(x / w + y / w + z + f * 2) / 16) * (windowHeight / 1));\n                pop();\n            }\n        }\n    }\n}"
         }
       }
     },
