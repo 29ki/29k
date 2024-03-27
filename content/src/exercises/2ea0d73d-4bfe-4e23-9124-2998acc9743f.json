@@ -110,7 +110,8 @@
       ],
       "videoLoop": {
         "p5JsScript": {
-          "lang": "javascript"
+          "lang": "javascript",
+          "code": "\nlet particles=[]\n\n\n\nfunction setup() {\n\tlet w=min(windowWidth, windowHeight)\n\tcreateCanvas(windowWidth, windowHeight, WEBGL);\n\tcolorMode(HSB, 100)\n\tparticles.push(new particle())\n}\n\nfunction draw() {\n\tbackground(15, 10, 98);\n\tparticles.push(new particle())\n\tfor(let particle of particles){\n\t\tparticle.update()\n\t\tparticle.display()\n\t}\n}\n\nclass particle{\nconstructor(){\n\tthis.a=random(TAU)\n\tthis.size=1\n\tthis.hue=70\n\tthis.brightness=100\n\tthis.alpha=100\n\tthis.y=0\n}\n\t\nupdate(){\n\tthis.size+=0.15\n\tthis.hue-=0.05\n\tthis.brightness-=0.02\n\tthis.y+=0.2\n\tthis.alpha-=0.07\n\t\n\tif(this.alpha<0.1){\n\t\tlet index = particles.indexOf(this);\n\tparticles.splice(index, 1);\n\t}\n}\n\t\ndisplay() {\n    push();\n    noStroke();\n    // Removed unnecessary translate to the center\n    rotate(this.a); // Apply rotation\n    fill(this.hue % 100, 80, this.brightness, this.alpha); // Apply color with fading\n    ellipse(0, this.y, this.size); // Draw particle\n    pop();\n  }\n\t\n\t\n}"
         }
       }
     },
