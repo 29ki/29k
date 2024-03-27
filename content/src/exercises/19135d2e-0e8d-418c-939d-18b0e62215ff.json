@@ -22,7 +22,9 @@
         "content": {
           "lottie": {
             "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1709650541/SRT%20(captions)%20files/Open_up_to_compassion_dao5mx.srt",
-            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1709650589/Audio/Open_up_to_compassion_bgnuxu.mp3"
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1709650589/Audio/Open_up_to_compassion_bgnuxu.mp3",
+            "durationTimer": true,
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/t_card_image/v1676977421/Lottie/audio_meditation_default_black_default_omemwt.json"
           }
         }
       },
@@ -37,7 +39,12 @@
           }
         ],
         "content": {
-          "heading": "How did you experience doing this exercise?"
+          "heading": "How did you experience doing this exercise?",
+          "lottie": {
+            "durationTimer": true,
+            "duration": 59,
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/t_card_image/v1676642915/Lottie/default_1min_black_rosi2l.json"
+          }
         }
       },
       {
@@ -55,7 +62,12 @@
         ],
         "id": "Sharing 1",
         "content": {
-          "heading": "How did you experience doing this exercise?"
+          "heading": "How did you experience doing this exercise?",
+          "lottie": {
+            "durationTimer": true,
+            "duration": 120,
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/t_card_image/v1676639253/Lottie/default_2min_black_o6egey.json"
+          }
         }
       },
       {
@@ -75,18 +87,28 @@
       {
         "type": "instruction",
         "content": {
-          "text": "Well done. \n\nEmotions are here to be felt, and being present with them can allow us to be compassionate and authentic. \n\nYou can continue your practice with a mission: For the rest of today, whenever you feel an emotion stirring up something inside – take a moment to localize it in the body, and make space for it with compassion."
+          "text": "Well done. \n\nEmotions are here to be felt, and being present with them can allow us to be compassionate and authentic. \n\nYou can continue your practice with a mission: For the rest of today, whenever you feel an emotion stirring up something inside – take a moment to localize it in the body, and make space for it with compassion.",
+          "image": {
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1711547476/Images/card_Open_up_to_compassion_xqbsa2.png"
+          }
         }
       }
     ],
     "theme": {
-      "textColor": "#2E2E2E"
+      "textColor": "#2E2E2E",
+      "backgroundColor": "#cacaca"
     },
     "hidden": true,
     "locked": false,
     "name": "Open up to compassion",
     "live": true,
     "published": true,
+    "card": {
+      "imageBackgroundColor": "",
+      "image": {
+        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1711547476/Images/card_Open_up_to_compassion_xqbsa2.png"
+      }
+    },
     "coCreators": [
       {
         "name": "Rachel Brathen, yoga girl, voice.",
@@ -202,6 +224,9 @@
     "locked": false,
     "live": true,
     "published": false,
+    "card": {
+      "imageBackgroundColor": ""
+    },
     "duration": 30,
     "introPortal": {
       "textColor": "#2AE2D7",
@@ -293,6 +318,9 @@
     "locked": false,
     "live": true,
     "published": false,
+    "card": {
+      "imageBackgroundColor": ""
+    },
     "duration": 30,
     "introPortal": {
       "textColor": "#2AE2D7",
@@ -384,6 +412,9 @@
     "locked": false,
     "live": true,
     "published": false,
+    "card": {
+      "imageBackgroundColor": ""
+    },
     "duration": 30,
     "introPortal": {
       "textColor": "#2AE2D7",
