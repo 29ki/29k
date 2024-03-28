@@ -74,7 +74,7 @@
         "type": "host",
         "hostNotes": [
           {
-            "text": "Well done. Self-compassion is a gentle art, about being kind and gentle with ourselves. If you’re up for it, you can continue with this mission:\n\nSet a reminder at a random time of the day for five days. When it goes off – stop and consider your needs for a moment, and do something gnetle and kind to yourself before moving on."
+            "text": "Well done. Self-compassion is a gentle art, about being kind and gentle with ourselves. If you’re up for it, you can continue with this mission:\n\nSet a reminder at a random time of the day for five days. When it goes off – stop and consider your needs for a moment, and do something kind to yourself before moving on."
           },
           {
             "text": "Before we leave this space let’s do a mini check-out. \n\nHow are you feeling right now? Has anything shifted? Please answer in two-three words."
@@ -87,7 +87,7 @@
       {
         "type": "instruction",
         "content": {
-          "text": "Well done. Self-compassion is a gentle art, about being kind and gentle with ourselves. If you’re up for it, you can continue with this mission:\n\nSet a reminder at a random time of the day for five days. When it goes off – stop and consider your needs for a moment, and do something gentle and kind to yourself before moving on.",
+          "text": "Well done. Self-compassion is a gentle art, about being kind and gentle with ourselves. If you’re up for it, you can continue with a mission.\n\nSet a reminder at a random time of the day for five days. When it goes off – stop and consider your needs for a moment, and do something kind to yourself before moving on.",
           "image": {
             "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1711547457/Images/card_Compassionate_intention_ub0tzl.png"
           }
