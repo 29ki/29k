@@ -5,7 +5,7 @@
         "type": "host",
         "hostNotes": [
           {
-            "text": "Welcome. I am X and today we will work for around 30 minutes on xx\n\nWe’ll be doing xx ex. meditation followed by time for reflection and sharing with each other."
+            "text": "Welcome. I am X and today we will work for around 30 minutes on self-compassion.\n\nWe’ll be doing an audio exercise, followed by time for reflection and sharing with each other."
           },
           {
             "text": "Let’s start with a mini check-in. How are you feeling right now? Please answer in two-three words. X, would you like to start?\n\n> Let everyone in the session, including yourself, check in one by one.\n\nThank you all for checking in. Let’s get started."
@@ -16,7 +16,7 @@
         "type": "content",
         "hostNotes": [
           {
-            "text": "Find a comfortable position. I will start the audio exercise and we'll meet back here afterwards. \n\n> Push play to start the audio exercise"
+            "text": "Find a comfortable position. I will start the audio exercise and we'll meet back here afterwards. \n\n> Tap play to start the audio exercise"
           }
         ],
         "content": {
@@ -32,7 +32,7 @@
         "type": "reflection",
         "hostNotes": [
           {
-            "text": "Now we’ll take 1 minute to reflect on our own.\n\nxxMain question\n\nxxFurther explanations of main question if needed"
+            "text": "Now we’ll take 1 minute to reflect on our own.\n\nWhere do you want to go with self-compassion?"
           },
           {
             "text": "You can take notes on a piece of paper or just mental notes in your head. And there is no right or wrong here, our answers are our own. 1 minute starting now.\n\n> Press play to start the timer.\n\nThat’s 1 minute and it’s time to move on."
@@ -43,7 +43,8 @@
             "durationTimer": true,
             "duration": 60,
             "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/t_card_image/v1676642915/Lottie/default_1min_black_rosi2l.json"
-          }
+          },
+          "heading": "Where do you want to go with self-compassion?"
         }
       },
       {
@@ -65,14 +66,15 @@
             "durationTimer": true,
             "duration": 120,
             "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/t_card_image/v1676639253/Lottie/default_2min_black_o6egey.json"
-          }
+          },
+          "heading": "Where do you want to go with self-compassion?"
         }
       },
       {
         "type": "host",
         "hostNotes": [
           {
-            "text": "Well done. If you’re up for it, you can continue what we started here today with a mission to bring this into your everyday life.\n\nxx mission description"
+            "text": "Well done. Self-compassion is a gentle art, about being kind and gentle with ourselves. If you’re up for it, you can continue with this mission:\n\nSet a reminder at a random time of the day for five days. When it goes off – stop and consider your needs for a moment, and do something gnetle and kind to yourself before moving on."
           },
           {
             "text": "Before we leave this space let’s do a mini check-out. \n\nHow are you feeling right now? Has anything shifted? Please answer in two-three words."
@@ -85,7 +87,7 @@
       {
         "type": "instruction",
         "content": {
-          "text": "Well done.\n\nSummary.\n\nIf you’re up for it, you can continue with this mission.\n\nmission description",
+          "text": "Well done. Self-compassion is a gentle art, about being kind and gentle with ourselves. If you’re up for it, you can continue with this mission:\n\nSet a reminder at a random time of the day for five days. When it goes off – stop and consider your needs for a moment, and do something gentle and kind to yourself before moving on.",
           "image": {
             "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1711547457/Images/card_Compassionate_intention_ub0tzl.png"
           }
@@ -142,7 +144,8 @@
       "db34d82a-4c48-4ddd-9de5-f562d8aa1bc9"
     ],
     "id": "13dfd5b5-f0af-4783-9fe1-3ba7773bcb89",
-    "async": true
+    "async": true,
+    "description": "Learn about self-compassion, and how it can be useful in your life."
   },
   "pt": {
     "slides": [
