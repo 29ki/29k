@@ -1,5 +1,6 @@
 package org.twentyninek.app.cupcake
 
+import android.os.Bundle;
 import com.facebook.react.ReactActivity
 import com.facebook.react.ReactActivityDelegate
 import com.facebook.react.defaults.DefaultNewArchitectureEntryPoint.fabricEnabled
@@ -19,4 +20,12 @@ class MainActivity : ReactActivity() {
    */
   override fun createReactActivityDelegate(): ReactActivityDelegate =
       DefaultReactActivityDelegate(this, mainComponentName, fabricEnabled)
+
+  /**
+   * react-native-screens override
+   * https://github.com/software-mansion/react-native-screens?tab=readme-ov-file#android
+   */
+  override fun onCreate(savedInstanceState: Bundle?) {
+    super.onCreate(null);
+  }
 }
