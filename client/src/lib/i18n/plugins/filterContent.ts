@@ -12,7 +12,7 @@ import {
 } from '../../../../../shared/src/content/constants';
 import {I18nNamespace} from '../../../../../shared/src/content/types';
 
-const Backend: BackendModule = {
+const filterContent: BackendModule = {
   type: 'backend',
   init: function () {},
   // Loads all non included content
@@ -35,4 +35,4 @@ const Backend: BackendModule = {
   },
 };
 
-export default Backend;
+export default filterContent;

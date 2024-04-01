@@ -1,12 +1,10 @@
 import {renderHook} from '@testing-library/react-hooks';
 import useCollectionById from './useCollectionById';
 
-const mockT = jest.fn();
-jest.mock('react-i18next', () => ({
-  useTranslation: jest.fn(() => ({
-    t: mockT,
-  })),
-}));
+const mockGetCollectionById = jest
+  .fn()
+  .mockReturnValue({name: 'some-collection'});
+jest.mock('./useGetCollectionById', () => () => mockGetCollectionById);
 
 afterEach(() => {
   jest.clearAllMocks();
@@ -14,35 +12,49 @@ afterEach(() => {
 
 describe('useCollectionById', () => {
   it('returns a translated collection', () => {
-    mockT.mockReturnValue({});
     const {result} = renderHook(() => useCollectionById('some-collection-id'));
 
-    expect(mockT).toHaveBeenCalledTimes(1);
-    expect(mockT).toHaveBeenCalledWith('some-collection-id', {
-      returnObjects: true,
-    });
+    expect(mockGetCollectionById).toHaveBeenCalledTimes(1);
+    expect(mockGetCollectionById).toHaveBeenCalledWith(
+      'some-collection-id',
+      undefined,
+      undefined,
+    );
 
-    expect(result.current).toEqual({});
+    expect(result.current).toEqual({name: 'some-collection'});
+  });
+
+  it('returns a translated collection for a specific language', () => {
+    const {result} = renderHook(() =>
+      useCollectionById('some-collection-id', 'sv'),
+    );
+
+    expect(mockGetCollectionById).toHaveBeenCalledTimes(1);
+    expect(mockGetCollectionById).toHaveBeenCalledWith(
+      'some-collection-id',
+      'sv',
+      undefined,
+    );
+
+    expect(result.current).toEqual({name: 'some-collection'});
   });
 
   it('returns null when no ID is provided', () => {
-    mockT.mockReturnValue({});
     const {result} = renderHook(() => useCollectionById(undefined));
 
-    expect(mockT).toHaveBeenCalledTimes(0);
+    expect(mockGetCollectionById).toHaveBeenCalledTimes(0);
 
     expect(result.current).toBe(null);
   });
 
   it('memoizes the result - as i18next.t is not pure', () => {
-    mockT.mockReturnValue({});
     const {result, rerender} = renderHook(() =>
       useCollectionById('some-collection-id'),
     );
 
     rerender();
 
-    expect(mockT).toHaveBeenCalledTimes(1);
+    expect(mockGetCollectionById).toHaveBeenCalledTimes(1);
     expect(result.all.length).toEqual(2);
   });
 });

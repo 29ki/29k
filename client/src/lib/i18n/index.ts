@@ -19,7 +19,7 @@ import {
   DEFAULT_LANGUAGE_TAG,
   LANGUAGE_TAGS,
 } from '../../../../shared/src/i18n/constants';
-import Backend from './backend/backend';
+import filterContent from './plugins/filterContent';
 import {omitPublishableContent} from './utils/utils';
 
 export * from '../../../../shared/src/i18n/constants';
@@ -34,7 +34,7 @@ const DEFAULT_24HOUR_LANGUAGE_TAG = 'en-gb';
 
 export const init = () =>
   i18next
-    .use(Backend)
+    .use(filterContent)
     .use(initReactI18next)
     .init({
       lng: findBestLanguageTag(CLIENT_LANGUAGE_TAGS)?.languageTag,
