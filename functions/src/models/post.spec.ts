@@ -81,12 +81,31 @@ describe('post model', () => {
     it('should filter approved and public and limit', async () => {
       await getPosts(10);
       expect(mockWhere).toHaveBeenCalledWith('approved', '==', true);
+      expect(mockWhere).toHaveBeenCalledWith('language', 'in', ['en']);
       expect(mockOrderBy).toHaveBeenCalledWith('createdAt', 'desc');
       expect(mockLimit).toHaveBeenCalledWith(10 * 2);
     });
 
+    it('should optionally filter by languages', async () => {
+      await getPosts(10, ['sv']);
+      expect(mockWhere).toHaveBeenCalledWith('approved', '==', true);
+      expect(mockWhere).toHaveBeenCalledWith('language', 'in', ['sv']);
+    });
+
     it('should optionally filter by exerciseId', async () => {
-      await getPosts(10, 'some-exercise-id', 'sharing-id');
+      await getPosts(10, undefined, 'some-exercise-id');
+      expect(mockWhere).toHaveBeenCalledWith(
+        'exerciseId',
+        '==',
+        'some-exercise-id',
+      );
+      expect(mockWhere).toHaveBeenCalledWith('approved', '==', true);
+      expect(mockWhere).toHaveBeenCalledWith('language', 'in', ['en']);
+    });
+
+    it('should optionally filter by exerciseId and sharingId', async () => {
+      await getPosts(10, undefined, 'some-exercise-id', 'sharing-id');
+      await getPosts(10, undefined, 'some-exercise-id');
       expect(mockWhere).toHaveBeenCalledWith(
         'exerciseId',
         '==',
@@ -94,6 +113,7 @@ describe('post model', () => {
       );
       expect(mockWhere).toHaveBeenCalledWith('sharingId', '==', 'sharing-id');
       expect(mockWhere).toHaveBeenCalledWith('approved', '==', true);
+      expect(mockWhere).toHaveBeenCalledWith('language', 'in', ['en']);
     });
   });
 

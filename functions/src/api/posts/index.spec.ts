@@ -21,7 +21,6 @@ const mockServer = createMockServer(
     ctx.user = {
       id: 'some-user-id',
     };
-    ctx.language = 'en';
     await next();
   },
   router.routes(),
@@ -59,7 +58,52 @@ describe('/api/posts', () => {
       ]);
       const response = await request(mockServer).get('/posts?limit=10');
 
-      expect(mockGetPosts).toHaveBeenCalledWith(10);
+      expect(mockGetPosts).toHaveBeenCalledWith(10, ['en']);
+      expect(response.status).toBe(200);
+      expect(response.body).toEqual([
+        {
+          id: 'some-id',
+          exerciseId: 'some',
+          sharingId: 'some-sharing-id',
+          text: 'some text',
+          userId: 'some-user-id',
+          userProfile: {
+            uid: 'some-user-id',
+            displayName: 'some name',
+            photoURL: 'some-url',
+          },
+          approved: true,
+          language: 'en',
+          createdAt: expect.any(String),
+          updatedAt: expect.any(String),
+        },
+      ]);
+    });
+
+    it('supports querying a specific language', async () => {
+      mockGetPosts.mockResolvedValueOnce([
+        {
+          id: 'some-id',
+          exerciseId: 'some',
+          sharingId: 'some-sharing-id',
+          text: 'some text',
+          userId: 'some-user-id',
+          userProfile: {
+            uid: 'some-user-id',
+            displayName: 'some name',
+            photoURL: 'some-url',
+          },
+          approved: true,
+          language: 'en',
+          createdAt: Timestamp.fromDate(new Date('2022-01-01T00:00:00Z')),
+          updatedAt: Timestamp.fromDate(new Date('2022-01-01T00:00:00Z')),
+        },
+      ]);
+      const response = await request(mockServer).get(
+        '/posts?limit=10&language=sv',
+      );
+
+      expect(mockGetPosts).toHaveBeenCalledWith(10, ['sv', 'en']);
       expect(response.status).toBe(200);
       expect(response.body).toEqual([
         {
@@ -141,6 +185,57 @@ describe('/api/posts', () => {
 
         expect(mockGetPosts).toHaveBeenCalledWith(
           10,
+          ['en'],
+          'some-exercise-id',
+          'sharing-id',
+        );
+        expect(response.status).toBe(200);
+        expect(response.body).toEqual([
+          {
+            id: 'some-id',
+            exerciseId: 'some',
+            sharingId: 'some-sharing-id',
+            text: 'some text',
+            userId: 'some-user-id',
+            userProfile: {
+              uid: 'some-user-id',
+              displayName: 'some name',
+              photoURL: 'some-url',
+            },
+            approved: true,
+            language: 'en',
+            createdAt: expect.any(String),
+            updatedAt: expect.any(String),
+          },
+        ]);
+      });
+
+      it('supports querying a specific language', async () => {
+        mockGetPosts.mockResolvedValueOnce([
+          {
+            id: 'some-id',
+            exerciseId: 'some',
+            sharingId: 'some-sharing-id',
+            text: 'some text',
+            userId: 'some-user-id',
+            userProfile: {
+              uid: 'some-user-id',
+              displayName: 'some name',
+              photoURL: 'some-url',
+            },
+            approved: true,
+            language: 'en',
+            createdAt: Timestamp.fromDate(new Date('2022-01-01T00:00:00Z')),
+            updatedAt: Timestamp.fromDate(new Date('2022-01-01T00:00:00Z')),
+          },
+        ]);
+        const response = await request(mockServer).get(
+          '/posts/some-exercise-id/sharing-id?limit=10&language=sv',
+        );
+
+        expect(mockGetPosts).toHaveBeenCalledWith(
+          10,
+          ['sv', 'en'],
           'some-exercise-id',
           'sharing-id',
         );

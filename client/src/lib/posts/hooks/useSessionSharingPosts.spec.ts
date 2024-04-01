@@ -44,6 +44,7 @@ describe('useSessionSharingPosts', () => {
         expect(posts).toEqual([{type: 'text', item: {id: 'some-post-id'}}]);
         expect(mockFetchPosts).toHaveBeenCalledTimes(1);
         expect(mockFetchPosts).toHaveBeenCalledWith(
+          'en',
           'some-exercise-id',
           'some-sharing-id',
         );
@@ -80,6 +81,7 @@ describe('useSessionSharingPosts', () => {
         ]);
         expect(mockFetchPosts).toHaveBeenCalledTimes(1);
         expect(mockFetchPosts).toHaveBeenCalledWith(
+          'en',
           'some-exercise-id',
           'some-sharing-id',
         );
@@ -118,6 +120,7 @@ describe('useSessionSharingPosts', () => {
         ]);
         expect(mockFetchPosts).toHaveBeenCalledTimes(1);
         expect(mockFetchPosts).toHaveBeenCalledWith(
+          'en',
           'some-exercise-id',
           'some-sharing-id',
         );
