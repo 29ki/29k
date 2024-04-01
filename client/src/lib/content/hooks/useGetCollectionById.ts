@@ -14,18 +14,28 @@ const useGetCollectionById = () => {
 
   return useCallback(
     (id: string, language?: LANGUAGE_TAG, ignoreLocked?: boolean) => {
-      const collection = t(id, {
-        returnObjects: true,
+      const translation = t(id, {
         lng: language,
-      }) as Collection;
+        returnObjects: true,
+        returnDetails: true,
+        keySeparator: false, // prevents object from being copied
+      });
+
+      // i18next fallbacks to the key if no translation is found
+      if (typeof translation.res !== 'object') {
+        return null;
+      }
+
+      const collection = {
+        ...(translation.res as Collection),
+        language: translation.usedLng,
+      };
 
       if (
-        // i18next fallbacks to the key if no translation is found
-        typeof collection !== 'object' ||
-        (collection.locked &&
-          !ignoreLocked &&
-          !showLockedContent &&
-          !unlockedCollectionIds?.includes(id))
+        collection.locked &&
+        !ignoreLocked &&
+        !showLockedContent &&
+        !unlockedCollectionIds?.includes(id)
       ) {
         return null;
       }
