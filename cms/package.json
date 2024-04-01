@@ -19,7 +19,7 @@
   },
   "dependencies": {
     "dayjs": "^1.11.10",
-    "decap-cms-app": "3.1.4",
+    "decap-cms-app": "3.1.6",
     "decap-cms-media-library-cloudinary": "^3.0.3",
     "i18next": "^23.10.1",
     "react-native-safe-area-context": "^4.9.0",
