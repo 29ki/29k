@@ -4333,16 +4333,15 @@ firebase-functions-test@^3.1.1:
     lodash "^4.17.5"
     ts-deepmerge "^2.0.1"
 
-firebase-functions@^4.8.0:
-  version "4.8.0"
-  resolved "https://registry.yarnpkg.com/firebase-functions/-/firebase-functions-4.8.0.tgz#5b7ce050d9f8be63e12855c6e0948b667414101b"
-  integrity sha512-8+Tgofl/w7reVVzJ1CSVPYwSRwmOMV8fACDdUkytoEP//wKb9olloMptKg2GahUbs6jHAIbT+B/jeMch4ouHQQ==
+firebase-functions@^4.8.2:
+  version "4.8.2"
+  resolved "https://registry.yarnpkg.com/firebase-functions/-/firebase-functions-4.8.2.tgz#dde3a154d45a1dcb372f0b5c45d06693662ab701"
+  integrity sha512-1M86Wu6IoE5f+r8QithaBFnkzygejh6OhaCz3p3dGjl+3lvL/9Xbm8GovZWZRmZzJ1nzb4dZpXWCalunLwZtOg==
   dependencies:
     "@types/cors" "^2.8.5"
     "@types/express" "4.17.3"
     cors "^2.8.5"
     express "^4.17.1"
-    node-fetch "^2.6.7"
     protobufjs "^7.2.2"
 
 firebase-tools@^13.5.2:
