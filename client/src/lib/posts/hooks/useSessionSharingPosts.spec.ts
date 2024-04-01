@@ -165,6 +165,7 @@ describe('useSessionSharingPosts', () => {
 
       expect(mockAddPost).toHaveBeenCalledTimes(1);
       expect(mockAddPost).toHaveBeenCalledWith(
+        'en',
         'some-exercise-id',
         'some-sharing-id',
         'some text',

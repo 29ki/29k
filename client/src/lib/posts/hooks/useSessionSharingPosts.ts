@@ -66,7 +66,7 @@ const useSessionSharingPosts = (
     ) => {
       if (exerciseId && session?.id) {
         if (isPublic) {
-          await addPost(exerciseId, sharingId, text, isAnonymous);
+          await addPost(language, exerciseId, sharingId, text, isAnonymous);
         }
         addUserEvent('post', {
           exerciseId,
@@ -79,7 +79,7 @@ const useSessionSharingPosts = (
         logAsyncPostMetricEvent('Create Async Post', isPublic, isAnonymous);
       }
     },
-    [exerciseId, session?.id, addUserEvent, logAsyncPostMetricEvent],
+    [exerciseId, language, session?.id, addUserEvent, logAsyncPostMetricEvent],
   );
 
   const getSharingPostForSession = useCallback(
