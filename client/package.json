@@ -109,7 +109,7 @@
     "@types/react": "^18.2.58",
     "@types/react-test-renderer": "^18.0.0",
     "@types/uuid": "^9.0.8",
-    "appcenter-cli": "^2.14.0",
+    "appcenter-cli": "^3.0.0",
     "babel-jest": "^29.6.3",
     "eslint-plugin-i18next": "^6.0.3",
     "eslint-plugin-prettier": "^5.1.3",
