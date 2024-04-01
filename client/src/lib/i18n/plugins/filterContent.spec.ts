@@ -1,5 +1,5 @@
 import useAppState from '../../appState/state/state';
-import Backend from './backend';
+import filterContent from './filterContent';
 
 jest.mock('../../../../../content/content.json', () => ({
   i18n: {
@@ -25,7 +25,7 @@ beforeEach(() => {
   jest.resetAllMocks();
 });
 
-describe('i18n - backend', () => {
+describe('i18n - filterContent backend', () => {
   describe('exercises', () => {
     it('should only set published and non hidden exercises as default', () => {
       (useAppState.getState as jest.Mock).mockReturnValueOnce({
@@ -34,7 +34,7 @@ describe('i18n - backend', () => {
         },
       });
       const callbackMock = jest.fn();
-      Backend.read('en', 'exercises', callbackMock);
+      filterContent.read('en', 'exercises', callbackMock);
 
       expect(callbackMock).toHaveBeenCalledTimes(1);
       expect(callbackMock).toHaveBeenCalledWith(null, {
@@ -49,7 +49,7 @@ describe('i18n - backend', () => {
         },
       });
       const callbackMock = jest.fn();
-      Backend.read('en', 'exercises', callbackMock);
+      filterContent.read('en', 'exercises', callbackMock);
 
       expect(callbackMock).toHaveBeenCalledTimes(1);
       expect(callbackMock).toHaveBeenCalledWith(null, {
@@ -65,7 +65,7 @@ describe('i18n - backend', () => {
         },
       });
       const callbackMock = jest.fn();
-      Backend.read('en', 'translations', callbackMock);
+      filterContent.read('en', 'translations', callbackMock);
 
       expect(callbackMock).toHaveBeenCalledTimes(1);
       expect(callbackMock).toHaveBeenCalledWith(null, undefined);
@@ -80,7 +80,7 @@ describe('i18n - backend', () => {
         },
       });
       const callbackMock = jest.fn();
-      Backend.read('en', 'collections', callbackMock);
+      filterContent.read('en', 'collections', callbackMock);
 
       expect(callbackMock).toHaveBeenCalledTimes(1);
       expect(callbackMock).toHaveBeenCalledWith(null, {
@@ -95,7 +95,7 @@ describe('i18n - backend', () => {
         },
       });
       const callbackMock = jest.fn();
-      Backend.read('en', 'collections', callbackMock);
+      filterContent.read('en', 'collections', callbackMock);
 
       expect(callbackMock).toHaveBeenCalledTimes(1);
       expect(callbackMock).toHaveBeenCalledWith(null, {
@@ -111,7 +111,7 @@ describe('i18n - backend', () => {
         },
       });
       const callbackMock = jest.fn();
-      Backend.read('en', 'translations', callbackMock);
+      filterContent.read('en', 'translations', callbackMock);
 
       expect(callbackMock).toHaveBeenCalledTimes(1);
       expect(callbackMock).toHaveBeenCalledWith(null, undefined);
