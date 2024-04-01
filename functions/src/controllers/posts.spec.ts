@@ -339,7 +339,84 @@ describe('posts - controller', () => {
 
       const posts = await postsController.getPosts(10);
 
-      expect(mockGetPosts).toHaveBeenCalledWith(10, undefined, undefined);
+      expect(mockGetPosts).toHaveBeenCalledWith(
+        10,
+        undefined,
+        undefined,
+        undefined,
+      );
+      expect(posts).toEqual([
+        {
+          id: 'some-post-id',
+          userId: 'some-user-id',
+          userProfile: {
+            uid: 'some-user-id',
+            displayName: 'some name',
+            photoURL: 'some-url',
+          },
+        },
+      ]);
+    });
+
+    it('should optionally filter by languages', async () => {
+      mockGetPosts.mockResolvedValueOnce([
+        {
+          id: 'some-post-id',
+          userId: 'some-user-id',
+        } as PostRecord,
+      ]);
+      mockGetPublicUserInfo.mockResolvedValueOnce({
+        uid: 'some-user-id',
+        displayName: 'some name',
+        photoURL: 'some-url',
+      });
+
+      const posts = await postsController.getPosts(10, ['sv']);
+
+      expect(mockGetPosts).toHaveBeenCalledWith(
+        10,
+        ['sv'],
+        undefined,
+        undefined,
+      );
+      expect(posts).toEqual([
+        {
+          id: 'some-post-id',
+          userId: 'some-user-id',
+          userProfile: {
+            uid: 'some-user-id',
+            displayName: 'some name',
+            photoURL: 'some-url',
+          },
+        },
+      ]);
+    });
+
+    it('should optionally filter by exerciseId', async () => {
+      mockGetPosts.mockResolvedValueOnce([
+        {
+          id: 'some-post-id',
+          userId: 'some-user-id',
+        } as PostRecord,
+      ]);
+      mockGetPublicUserInfo.mockResolvedValueOnce({
+        uid: 'some-user-id',
+        displayName: 'some name',
+        photoURL: 'some-url',
+      });
+
+      const posts = await postsController.getPosts(
+        10,
+        undefined,
+        'some-exercise-id',
+      );
+
+      expect(mockGetPosts).toHaveBeenCalledWith(
+        10,
+        undefined,
+        'some-exercise-id',
+        undefined,
+      );
       expect(posts).toEqual([
         {
           id: 'some-post-id',
@@ -368,12 +445,14 @@ describe('posts - controller', () => {
 
       const posts = await postsController.getPosts(
         10,
+        undefined,
         'some-exercise-id',
         'sharing-id',
       );
 
       expect(mockGetPosts).toHaveBeenCalledWith(
         10,
+        undefined,
         'some-exercise-id',
         'sharing-id',
       );

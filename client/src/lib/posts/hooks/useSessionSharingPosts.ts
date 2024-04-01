@@ -7,8 +7,12 @@ import useUserEvents from '../../user/hooks/useUserEvents';
 import {addPost, fetchExercisePosts} from '../api/posts';
 import {ExerciseSlideSharingSlideSharingVideo} from '../../../../../shared/src/types/generated/Exercise';
 import {PostItem, VideoPostItem} from '../types/PostItem';
+import {DEFAULT_LANGUAGE_TAG, LANGUAGE_TAG} from '../../i18n';
 
-const useSessionSharingPosts = (exerciseId?: string) => {
+const useSessionSharingPosts = (
+  exerciseId?: string,
+  language: LANGUAGE_TAG = DEFAULT_LANGUAGE_TAG,
+) => {
   const addUserEvent = useAddUserEvent();
   const {postEvents} = useUserEvents();
   const session = useSessionState(state => state.asyncSession);
@@ -20,7 +24,7 @@ const useSessionSharingPosts = (exerciseId?: string) => {
       sharingVideos: Array<ExerciseSlideSharingSlideSharingVideo> = [],
     ): Promise<Array<PostItem>> => {
       if (exerciseId) {
-        const posts = await fetchExercisePosts(exerciseId, sharingId);
+        const posts = await fetchExercisePosts(language, exerciseId, sharingId);
         const postItems = sharingVideos.reduce((acc, post, index) => {
           if (post.video?.source) {
             let result: Array<PostItem> = [
@@ -50,7 +54,7 @@ const useSessionSharingPosts = (exerciseId?: string) => {
       }
       return [];
     },
-    [exerciseId],
+    [exerciseId, language],
   );
 
   const addSharingPost = useCallback(

@@ -4,6 +4,7 @@ import {Timestamp} from 'firebase-admin/firestore';
 import {getData} from '../../../shared/src/modelUtils/firestore';
 import {SHARING_POST_MIN_LENGTH} from '../lib/constants/post';
 import {PostInput, PostRecord} from './types/types';
+import {DEFAULT_LANGUAGE_TAG, LANGUAGE_TAG} from '../lib/i18n';
 
 const POSTS_COLLECTION = 'posts';
 
@@ -25,12 +26,14 @@ export const getPostById = async (
 
 export const getPosts = async (
   limit: number,
+  languages: LANGUAGE_TAG[] = [DEFAULT_LANGUAGE_TAG],
   exerciseId?: string,
   sharingId?: string,
 ): Promise<PostRecord[]> => {
   let query = firestore()
     .collection(POSTS_COLLECTION)
-    .where('approved', '==', true);
+    .where('approved', '==', true)
+    .where('language', 'in', languages);
 
   if (exerciseId) {
     query = query.where('exerciseId', '==', exerciseId);

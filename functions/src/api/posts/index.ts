@@ -1,3 +1,4 @@
+import {uniq} from 'ramda';
 import * as yup from 'yup';
 import {createApiAuthRouter} from '../../lib/routers';
 import {PostError} from '../../../../shared/src/errors/Post';
@@ -8,12 +9,15 @@ import {
   CreatePostSchema,
   PostSchema,
 } from '../../../../shared/src/schemas/Post';
+import {DEFAULT_LANGUAGE_TAG} from '../../lib/i18n';
+import {LanguageSchema} from '../../../../shared/src/schemas/Language';
 
 const postsRouter = createApiAuthRouter();
 
 const POSTS_LIMIT = 20;
 
 const GetPostsQuerySchema = yup.object({
+  language: LanguageSchema.default(DEFAULT_LANGUAGE_TAG),
   limit: yup.number().max(100).default(POSTS_LIMIT),
 });
 
@@ -24,13 +28,14 @@ postsRouter.get(
     response: yup.array().of(PostSchema),
   }),
   async ctx => {
-    const {response} = ctx;
+    const {response, language} = ctx;
     const {limit} = ctx.request.query;
+    const languages = uniq([language, DEFAULT_LANGUAGE_TAG]);
 
-    const posts = await getPosts(limit);
+    const posts = await getPosts(limit, languages);
 
     response.status = 200;
-    ctx.set('Cache-Control', 'max-age=300');
+    //ctx.set('Cache-Control', 'max-age=300');
     ctx.body = posts;
   },
 );
@@ -50,10 +55,12 @@ postsRouter.get(
   async ctx => {
     const {response} = ctx;
     const {exerciseId, sharingId} = ctx.params;
-    const {limit} = ctx.request.query;
+    const {limit, language} = ctx.request.query;
 
-    const posts = await getPosts(limit, exerciseId, sharingId);
-
+    const languages = uniq([language, DEFAULT_LANGUAGE_TAG]);
+    console.log('hepp', limit, languages, exerciseId, sharingId);
+    const posts = await getPosts(limit, languages, exerciseId, sharingId);
+    console.log('hopp', posts);
     response.status = 200;
     ctx.body = posts;
   },

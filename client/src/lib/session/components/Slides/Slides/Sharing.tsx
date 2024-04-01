@@ -70,6 +70,7 @@ const Sharing: React.FC<SharingProps> = ({slide}) => {
   const theme = useSessionState(state => state.exercise?.theme);
   const {getSharingPosts, getSharingPostForSession} = useSessionSharingPosts(
     session?.exerciseId,
+    session?.language,
   );
 
   const [posts, setPosts] = useState<PostItem[]>([]);

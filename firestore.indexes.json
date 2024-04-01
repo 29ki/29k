@@ -309,6 +309,10 @@
       "queryScope": "COLLECTION",
       "fields": [
         {
+          "fieldPath": "language",
+          "order": "ASCENDING"
+        },
+        {
           "fieldPath": "approved",
           "order": "ASCENDING"
         },
@@ -331,6 +335,10 @@
           "order": "ASCENDING"
         },
         {
+          "fieldPath": "language",
+          "order": "ASCENDING"
+        },
+        {
           "fieldPath": "approved",
           "order": "ASCENDING"
         },
@@ -349,6 +357,10 @@
           "order": "ASCENDING"
         },
         {
+          "fieldPath": "language",
+          "order": "ASCENDING"
+        },
+        {
           "fieldPath": "approved",
           "order": "ASCENDING"
         },
@@ -364,6 +376,10 @@
       "fields": [
         {
           "fieldPath": "sharingId",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "language",
           "order": "ASCENDING"
         },
         {
