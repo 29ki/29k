@@ -333,7 +333,7 @@
       "textColor": "#2E2E2E",
       "backgroundColor": "#b4a880"
     },
-    "hidden": true,
+    "hidden": false,
     "name": "Personliga värderingar",
     "live": true,
     "published": true,
