@@ -364,7 +364,7 @@
       "textColor": "#F9F8F4",
       "backgroundColor": "#495a53"
     },
-    "hidden": true,
+    "hidden": false,
     "name": "Din berättelse",
     "live": true,
     "published": true,
