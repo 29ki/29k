@@ -2855,10 +2855,10 @@ decap-cms-widget-text@^3.1.1:
   dependencies:
     react-textarea-autosize "^8.0.0"
 
-decap-server@^3.0.3:
-  version "3.0.3"
-  resolved "https://registry.yarnpkg.com/decap-server/-/decap-server-3.0.3.tgz#af7806e2b9cc38f23cd89676f9de9abada8fcf6d"
-  integrity sha512-3w9tFx6nj5yirey7arfeFoiGfTEXYsY936kOznvH7if8deesKuusDiIMUchIRv/Y8v3+I/SUaqkwbXQhFvFX0A==
+decap-server@^3.0.4:
+  version "3.0.4"
+  resolved "https://registry.yarnpkg.com/decap-server/-/decap-server-3.0.4.tgz#a256281e0a328ac94b9a110fee7e9a77d9919f5a"
+  integrity sha512-ziLH7cM8BzAxUkkKmDmtyHBYL5s8raOQ1eVxvUIVJRJpcEiy0b8er0eVMYwAPonCiXTC3B95C2CDNCh9oBRkFA==
   dependencies:
     "@hapi/joi" "^17.0.2"
     async-mutex "^0.3.0"
