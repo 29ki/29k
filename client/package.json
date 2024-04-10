@@ -100,7 +100,7 @@
     "@react-native/eslint-config": "0.75.0-main",
     "@react-native/metro-config": "0.73.5",
     "@react-native/typescript-config": "0.74.78",
-    "@sentry/cli": "^2.30.2",
+    "@sentry/cli": "^2.31.0",
     "@testing-library/react-hooks": "^8.0.1",
     "@types/debug": "^4.1.12",
     "@types/i18next": "^13.0.0",
