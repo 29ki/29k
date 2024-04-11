@@ -3,7 +3,10 @@ import {act} from 'react-test-renderer';
 import useGetExerciseById from './useGetExerciseById';
 import useAppState from '../../appState/state/state';
 
-const mockT = jest.fn().mockReturnValue({name: 'some-exercise'});
+const mockT = jest.fn().mockReturnValue({
+  res: {name: 'some-exercise'},
+  usedLng: 'en',
+});
 jest.mock('react-i18next', () => ({
   useTranslation: jest.fn(() => ({
     t: mockT,
@@ -26,6 +29,7 @@ describe('useGetExerciseById', () => {
 
     act(() => {
       expect(result.current('some-exercise-id')).toEqual({
+        language: 'en',
         name: 'some-exercise',
       });
     });
@@ -33,11 +37,13 @@ describe('useGetExerciseById', () => {
     expect(mockT).toHaveBeenCalledTimes(1);
     expect(mockT).toHaveBeenCalledWith('some-exercise-id', {
       returnObjects: true,
+      returnDetails: true,
+      keySeparator: false,
     });
   });
 
   it('returns null if exercise is not found', () => {
-    mockT.mockReturnValueOnce('some-exercise-id');
+    mockT.mockReturnValueOnce({res: 'some-exercise-id'});
     const {result} = renderHook(() => useGetExerciseById());
 
     act(() => {
@@ -46,10 +52,15 @@ describe('useGetExerciseById', () => {
   });
 
   it('returns a translated exercise for a specific language', () => {
+    mockT.mockReturnValueOnce({
+      res: {name: 'some-exercise'},
+      usedLng: 'sv',
+    });
     const {result} = renderHook(() => useGetExerciseById());
 
     act(() => {
       expect(result.current('some-exercise-id', 'sv')).toEqual({
+        language: 'sv',
         name: 'some-exercise',
       });
     });
@@ -57,6 +68,8 @@ describe('useGetExerciseById', () => {
     expect(mockT).toHaveBeenCalledTimes(1);
     expect(mockT).toHaveBeenCalledWith('some-exercise-id', {
       returnObjects: true,
+      returnDetails: true,
+      keySeparator: false,
       lng: 'sv',
     });
   });
@@ -78,11 +91,15 @@ describe('useGetExerciseById', () => {
         showOnboarding: false,
       },
     });
-    mockT.mockReturnValueOnce({name: 'some-exercise', locked: true});
+    mockT.mockReturnValueOnce({
+      res: {name: 'some-exercise', locked: true},
+      usedLng: 'en',
+    });
     const {result} = renderHook(() => useGetExerciseById());
 
     act(() => {
       expect(result.current('some-exercise-id')).toEqual({
+        language: 'en',
         name: 'some-exercise',
         locked: true,
       });
@@ -92,14 +109,18 @@ describe('useGetExerciseById', () => {
   it('returns locked exercise if id is in useUnlockedExerciseIds', () => {
     mockUseUnlockedExerciseIds.mockReturnValueOnce(['some-exercise-id']);
     mockT.mockReturnValueOnce({
-      id: 'some-exercise-id',
-      name: 'some-exercise',
-      locked: true,
+      res: {
+        id: 'some-exercise-id',
+        name: 'some-exercise',
+        locked: true,
+      },
+      usedLng: 'en',
     });
     const {result} = renderHook(() => useGetExerciseById());
 
     act(() => {
       expect(result.current('some-exercise-id')).toEqual({
+        language: 'en',
         id: 'some-exercise-id',
         name: 'some-exercise',
         locked: true,

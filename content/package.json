@@ -19,11 +19,11 @@
     "ramda": "^0.29.1"
   },
   "devDependencies": {
-    "@babel/plugin-transform-modules-commonjs": "^7.23.3",
+    "@babel/plugin-transform-modules-commonjs": "^7.24.1",
     "@fast-csv/format": "^5.0.0",
     "@types/jest": "^29.5.12",
-    "@types/node": "^20.11.28",
-    "@types/ramda": "^0.29.11",
+    "@types/node": "^20.12.7",
+    "@types/ramda": "^0.29.12",
     "@typescript-eslint/eslint-plugin": "^5.62.0",
     "@typescript-eslint/parser": "^5.62.0",
     "eslint": "^8.57.0",
@@ -35,6 +35,6 @@
     "safe-flat": "^2.1.0",
     "ts-jest": "^29.1.2",
     "ts-node": "^10.9.2",
-    "typescript": "^5.4.2"
+    "typescript": "^5.4.4"
   }
 }

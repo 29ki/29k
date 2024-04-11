@@ -14,17 +14,26 @@ const useGetExerciseById = () => {
 
   return useCallback(
     (id: string, language?: LANGUAGE_TAG) => {
-      const exercise = t(id, {
-        returnObjects: true,
+      const translation = t(id, {
         lng: language,
-      }) as Exercise;
+        returnObjects: true,
+        returnDetails: true,
+        keySeparator: false, // prevents object from being copied
+      });
+
+      // i18next fallbacks to the key if no translation is found
+      if (typeof translation.res !== 'object') {
+        return null;
+      }
+      const exercise = {
+        ...(translation.res as Exercise),
+        language: translation.usedLng,
+      };
 
       if (
-        // i18next fallbacks to the key if no translation is found
-        typeof exercise !== 'object' ||
-        (exercise.locked &&
-          !showLockedContent &&
-          !unlockedExerciseIds.includes(exercise.id))
+        exercise.locked &&
+        !showLockedContent &&
+        !unlockedExerciseIds.includes(exercise.id)
       ) {
         return null;
       }

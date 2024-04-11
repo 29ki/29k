@@ -1,20 +1,26 @@
 {
   "en": {
-    "published": true,
-    "hidden": true,
-    "id": "b77e52b5-c927-4178-ba76-8c3fe3dbf13c",
+    "hidden": false,
     "name": "Values III: Act for what matters",
-    "description": "Move from fluffy values to daily actions. Learn to set goals, widen your behavioral fan of cards and navigate life with integrity.",
+    "published": true,
+    "sortOrder": 2,
+    "card": {
+      "image": {
+        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1711521385/Images/card_Values_III_-_act_for_what_matters_rv6bld.png"
+      }
+    },
+    "tags": [
+      "9c2c08a9-7dc6-4058-bc78-016d0eb00614",
+      "8da0534a-5da9-430a-bdf3-242ace6460fb"
+    ],
+    "id": "b77e52b5-c927-4178-ba76-8c3fe3dbf13c",
     "exercises": [
       "33a188a2-6871-47d6-a754-f5c246bd6b9a",
       "f59b7f66-43b0-4b50-9afe-91092d7dc469",
       "5b0dea9f-c665-41ce-a779-601d0cfa433d",
       "c1c4da35-87af-4e10-a8d9-e6c58571f724"
     ],
-    "tags": [
-      "9c2c08a9-7dc6-4058-bc78-016d0eb00614",
-      "8da0534a-5da9-430a-bdf3-242ace6460fb"
-    ]
+    "description": "Move from fluffy values to daily actions. Learn to set goals, widen your behavioral fan of cards and navigate life with integrity."
   },
   "pt": {
     "published": false,
@@ -29,7 +35,9 @@
     "tags": [
       "9c2c08a9-7dc6-4058-bc78-016d0eb00614",
       "8da0534a-5da9-430a-bdf3-242ace6460fb"
-    ]
+    ],
+    "card": {},
+    "sortOrder": 2
   },
   "sv": {
     "published": false,
@@ -44,7 +52,9 @@
     "tags": [
       "9c2c08a9-7dc6-4058-bc78-016d0eb00614",
       "8da0534a-5da9-430a-bdf3-242ace6460fb"
-    ]
+    ],
+    "card": {},
+    "sortOrder": 2
   },
   "ja": {
     "published": false,
@@ -59,6 +69,8 @@
     "tags": [
       "9c2c08a9-7dc6-4058-bc78-016d0eb00614",
       "8da0534a-5da9-430a-bdf3-242ace6460fb"
-    ]
+    ],
+    "card": {},
+    "sortOrder": 2
   }
 }

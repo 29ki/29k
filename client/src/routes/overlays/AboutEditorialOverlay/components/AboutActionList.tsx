@@ -5,7 +5,6 @@ import {useTranslation} from 'react-i18next';
 import ActionButton from '../../../../lib/components/ActionList/ActionItems/ActionButton';
 import ActionList from '../../../../lib/components/ActionList/ActionList';
 import {
-  MegaphoneIcon,
   EnvelopeIcon,
   SafetyIcon,
   PrivateEyeIcon,
@@ -14,8 +13,6 @@ import {
   ModalStackProps,
   OverlayStackProps,
 } from '../../../../lib/navigation/constants/routes';
-import useIsPublicHost from '../../../../lib/user/hooks/useIsPublicHost';
-import useUserState from '../../../../lib/user/state/state';
 import * as linking from '../../../../lib/linking/nativeLinks';
 
 const AboutActionList = () => {
@@ -24,18 +21,6 @@ const AboutActionList = () => {
       NativeStackNavigationProp<OverlayStackProps & ModalStackProps>
     >();
   const {t} = useTranslation('Overlay.AboutEditorial');
-
-  const isPublicHost = useIsPublicHost();
-
-  const isAnonymous = useUserState(state => state.user?.isAnonymous);
-
-  const publicHostAccessPress = useCallback(
-    () =>
-      isAnonymous
-        ? navigate('UpgradeAccountModal')
-        : navigate('RequestPublicHostModal'),
-    [navigate, isAnonymous],
-  );
 
   const contactPress = useCallback(() => navigate('ContactModal'), [navigate]);
 
@@ -50,11 +35,6 @@ const AboutActionList = () => {
 
   return (
     <ActionList>
-      {!isPublicHost && (
-        <ActionButton Icon={MegaphoneIcon} onPress={publicHostAccessPress}>
-          {t('actions.publicHostAccess')}
-        </ActionButton>
-      )}
       <ActionButton Icon={EnvelopeIcon} onPress={contactPress}>
         {t('actions.contact')}
       </ActionButton>

@@ -84,7 +84,7 @@
         "type": "host",
         "hostNotes": [
           {
-            "text": "The stories we tell ourselves affect our lives in profound ways. For the coming two days, see if you can try to tell another story alongside the one that come to mind automatically, each day."
+            "text": "The stories we tell ourselves affect our lives in profound ways. For the coming two days, see if you can try to tell another story alongside the one that come to mind automatically, each day.\n\nNote how that affects your experience."
           },
           {
             "text": "Before we leave this space let’s do a mini check-out. \n\nHow are you feeling right now? Has anything shifted? Please answer in two-three words."
@@ -97,10 +97,11 @@
       {
         "type": "instruction",
         "content": {
-          "text": "The stories we tell ourselves affect our lives in profound ways. \n\nFor the coming two days, see if you can try to tell another story alongside the one that comes to mind automatically, each day.",
+          "text": "The stories we tell ourselves affect our lives in profound ways. \n\nFor the coming two days, see if you can try to tell another story alongside the one that comes to mind automatically, each day.\n\nNote how it affects your experience. ",
           "image": {
             "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1707994028/Contributors/async_your_story_sr9huy.png"
-          }
+          },
+          "heading": "Well done. "
         }
       }
     ],
@@ -259,89 +260,159 @@
         "type": "host",
         "hostNotes": [
           {
-            "text": "Welcome. I am X and today we will work for around 30 minutes on xx\n\nWe’ll be doing xx ex. meditation followed by time for reflection and sharing with each other."
+            "text": "Välkommen. Jag heter X och vi kommer att jobba tillsammans i ungefär 30 minuter med hur vi berättar historien om oss själva.\n\nVi kommer att lyssna på en ljudövning tillsammans, reflektera en stund för oss själva och sedan finns det möjlighet att dela sina erfarenheter."
           },
           {
-            "text": "Let’s start with a mini check-in. How are you feeling right now? Please answer in two-three words. X, would you like to start?\n\n> Let everyone in the session, including yourself, check in one by one.\n\nThank you all for checking in. Let’s get started."
-          }
-        ]
-      },
-      {
-        "type": "content",
-        "hostNotes": [
-          {
-            "text": "Find a comfortable position. I will start the audio exercise and we'll meet back here afterwards. \n\n> Push play to start the audio exercise"
-          }
-        ]
-      },
-      {
-        "type": "reflection",
-        "hostNotes": [
-          {
-            "text": "Now we’ll take 1 minute to reflect on our own.\n\nxxMain question\n\nxxFurther explanations of main question if needed"
-          },
-          {
-            "text": "You can take notes on a piece of paper or just mental notes in your head. And there is no right or wrong here, our answers are our own. 1 minute starting now.\n\n> Press play to start the timer.\n\nThat’s 1 minute and it’s time to move on."
-          }
-        ]
-      },
-      {
-        "type": "sharing",
-        "hostNotes": [
-          {
-            "text": "Now we are getting into the sharing part. We have three rules for sharing:\n\n1. **What is said in here, stays in here.**\n2. **All you need to do is listen.** There is no fixing, helping or advice-giving needed. We are just showing up and exploring what ourselves and others are going through."
-          },
-          {
-            "text": "3. **Everything on the inside is okay.** Anger, love, hatred, sadness. Whatever shows up. No wrongs, no rights. It is what it is.\n\nThere will be a timer set for 2 minutes as an indicator. If you don’t want to share you can always say ‘pass’."
-          },
-          {
-            "text": "Who would like to start?\n\n> Let everyone (or as many as you got time for) share one by one. Press play to start the timer. Re-start for each new sharing.\n\nThank you so much everyone."
-          }
-        ],
-        "id": "Sharing 1"
-      },
-      {
-        "type": "host",
-        "hostNotes": [
-          {
-            "text": "Well done. If you’re up for it, you can continue what we started here today with a mission to bring this into your everyday life.\n\nxx mission description"
-          },
-          {
-            "text": "Before we leave this space let’s do a mini check-out. \n\nHow are you feeling right now? Has anything shifted? Please answer in two-three words."
-          },
-          {
-            "text": "Who would like to start?\n\n> Let everyone in the session check out one by one.\n\nThank you all for checking out and for joining this session today.\n\n> Finish session to send everyone off to the exit experience."
+            "text": "Vi börjar med en mini-check-in. Hur känner du dig just nu? Svara gärna med två-tre ord. X, skulle du vilja börja?\n\n> Låt alla deltagare, inklusive dig själv, checka in en och en. \n\nTack för att ni checkade in. Då kör vi igång."
           }
         ]
       },
       {
         "type": "instruction",
         "content": {
-          "text": "Well done.\n\nSummary.\n\nIf you’re up for it, you can continue with this mission.\n\nmission description"
+          "text": "I den här övningen kommer vi träna på att berätta vår historia ur olika perspektiv och du kommer behöva någonstans att ta anteckningar. ",
+          "image": {
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1707994028/Contributors/async_your_story_sr9huy.png"
+          }
+        }
+      },
+      {
+        "type": "content",
+        "hostNotes": [
+          {
+            "text": "Hitta en bekväm position. Jag startar ljudövningen så möts vi här igen efteråt.\n\n> Tryck på play för att starta ljudövningen"
+          }
+        ],
+        "content": {
+          "lottie": {
+            "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1712225683/SRT%20(captions)%20files/Your_story_swe_gtfrcc.srt",
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1712225652/Audio/Your_story_swe_ztqqhv.mp3",
+            "durationTimer": true,
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1676977421/Lottie/audio_meditation_default_white_default_mqfcuo.json"
+          }
+        }
+      },
+      {
+        "type": "reflection",
+        "hostNotes": [
+          {
+            "text": "Nästa steg är att tyst reflektera i en minut.\n\nHur påverkades du av de olika sätten att berätta om ditt liv?"
+          },
+          {
+            "text": "Om du vill kan du skriva ner dina funderingar på ett papper, eller bara tänka fritt. Det finns inga svar som är rätt eller fel här – vad som än dyker upp är okej.\n\n> Tryck på play för att starta timern.\n\nDå har det gått en minut och det är dags att gå vidare."
+          }
+        ],
+        "content": {
+          "heading": "Hur påverkades du av övningen?",
+          "lottie": {
+            "durationTimer": true,
+            "duration": 60,
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1676642915/Lottie/default_1min_white_wvgwma.json",
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1707994718/Audio/portal_audio-Your_story_b4bdqq.mp3"
+          }
+        }
+      },
+      {
+        "type": "sharing",
+        "hostNotes": [
+          {
+            "text": "Det här steget handlar om att dela med sig av sin upplevelse och lyssna på andras. Vi har tre regler:\n\n1. **Det som sägs här, stannar här.**\n2. **Allt som behövs är att vi lyssnar på varandra.** Inget fixande, ingen rådgivning eller annan hjälp behövs. Vi är bara här för att utforska våra egna och andras upplevelser."
+          },
+          {
+            "text": "3. **Allt som händer på insidan är okej.** Ilska, kärlek, smärta, glädje. Vad som än dyker upp, det finns inget rätt eller fel. Det bara är som det är.\n\nDet finns en timer på två minuter att hålla sig efter på ett ungefär. Om du inte vill dela med dig är det bara att säga 'pass'."
+          },
+          {
+            "text": "Vem vill börja?\n\n> Låt alla, eller så många som det finns tid för, dela en efter en. Tryck på play för att starta timern. Starta om för varje person.\n\nTack så mycket för att ni lyssnar och delar med er."
+          }
+        ],
+        "id": "Sharing 1",
+        "content": {
+          "heading": "Hur påverkades du av övningen?",
+          "lottie": {
+            "durationTimer": true,
+            "duration": 120,
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1676639253/Lottie/default_2min_white_arvrf2.json"
+          }
+        }
+      },
+      {
+        "type": "host",
+        "hostNotes": [
+          {
+            "text": "Våra berättelser om oss själva påverkar våra liv på djupgående sätt. Under de kommande två dagarna, försök att medvetet hitta alternativa berättelser till de som automatiskt dyker upp för dig i vardagen.\n\nNotera hur det påverkar din upplevelse av vad som sker."
+          },
+          {
+            "text": "Innan vi avslutar så gör vi en mini-utcheckning.\nHur känner du dig nu? Har något ändrats? Svara med två-tre ord.\n\nVem vill börja?"
+          },
+          {
+            "text": "> Låt alla checka ut en efter en.\n\nTack så mycket för era utcheckningar, och för att ni deltog i den här sessionen.\n\n> Avsluta sessionen för att skicka deltagarna till exit-upplevelsen."
+          }
+        ]
+      },
+      {
+        "type": "instruction",
+        "content": {
+          "text": "Våra berättelser om oss själva påverkar våra liv på djupgående sätt. \n\nUnder de kommande två dagarna, försök att medvetet hitta alternativa berättelser till de som automatiskt dyker upp för dig i vardagen.\n\nNotera hur det påverkar din upplevelse av vad som sker.",
+          "image": {
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1707994028/Contributors/async_your_story_sr9huy.png"
+          },
+          "heading": "Bra jobbat. "
         }
       }
     ],
     "theme": {
-      "textColor": "#2AE2D7"
+      "textColor": "#F9F8F4",
+      "backgroundColor": "#495a53"
     },
     "hidden": false,
+    "name": "Din berättelse",
     "live": true,
-    "published": false,
-    "card": {},
+    "published": true,
+    "card": {
+      "image": {
+        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1707994027/Contributors/card_your_story_mrv7jq.png"
+      }
+    },
+    "coCreators": [
+      {
+        "name": "Jenny Rickardsson, redaktör",
+        "url": "https://www.linkedin.com/in/jenny-rickardson-6770a959/",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/v1665413228/Contributors/Jenny%20Rickardsson.jpg"
+      },
+      {
+        "name": "Sayama, illustrationer",
+        "url": "https://openprocessing.org/user/159668?view=sketches&o=48",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1707993928/Contributors/Sayama_ce4ioa.jpg"
+      },
+      {
+        "name": "Lisa Lööf, röst",
+        "url": "https://www.linkedin.com/in/lisaloof/",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413154/Contributors/Lisa%20L%C3%B6%C3%B6f.jpg"
+      }
+    ],
     "duration": 30,
     "introPortal": {
       "hostNotes": [
         {
           "text": "> Start the session when you're ready to go"
         }
-      ]
+      ],
+      "videoLoop": {
+        "p5JsScript": {
+          "lang": "javascript",
+          "code": "// Number of balls\nconst ballNum = 12;\n\n// Shader variables\nlet sh;\n\n// Custom time variable\nlet slowTime = 0;\n\nfunction setup() {\n  createCanvas(windowWidth, windowHeight, WEBGL);\n  \n  // Initialize shader\n  sh = createShader(vert, frag);\n  shader(sh);\n  \n  pixelDensity(1);\n  sh.setUniform(\"u_resolution\", [width * pixelDensity(), height * pixelDensity()]);\n  noStroke();\n}\n\nfunction draw() {\n  randomSeed(0);\n  let ratio = 1 / (min(width, height) / 2);\n  let data = [];\n  let unit = height / 10;\n  \n  // Adjust the increment rate to slow down the animation. Smaller values = slower animation.\n  slowTime += 0.2; // Try adjusting this value\n\n  for (let i = 0; i < ballNum; i++) {\n    let radius = unit * random(0.9, 1.2);\n    let x = random(-width * 0.4, width * 0.4) + sin(slowTime / random(70, 100)) * radius;\n    let y = (random(height * 2) + slowTime * random(unit / 25, unit / 8)) % (height * 2) - height;\n    let z = sin(slowTime / random(15, 30)) * unit;\n    \n    // Flatten the data into a single array for the shader\n    data.push(x * ratio, y * ratio, z * ratio, radius * ratio);\n  }\n  \n  sh.setUniform(\"u_mataBall\", data);\n  // Use slowTime instead of millis()/1000 for a smoother, slower animation effect\n  sh.setUniform(\"u_time\", slowTime);\n  \n  rect(-width / 2, -height / 2, width, height);\n}\n\n\n\n\n// Fragment shader code (ensure you replace this placeholder with the actual frag shader code provided)\nvar vert = `\n\t\tprecision highp float;\n\n    // attributes, in\n    attribute vec3 aPosition;\n    attribute vec3 aNormal;\n    attribute vec2 aTexCoord;\n\n    // attributes, out\n    varying vec3 var_vertPos;\n    varying vec3 var_vertNormal;\n    varying vec2 var_vertTexCoord;\n\t\tvarying vec4 var_centerGlPosition;//原点\n    \n    // matrices\n    uniform mat4 uModelViewMatrix;\n    uniform mat4 uProjectionMatrix;\n    uniform mat3 uNormalMatrix;\n\t\tuniform float u_time;\n\n\n    void main() {\n      vec3 pos = aPosition;\n\t\t\tvec4 posOut = uProjectionMatrix * uModelViewMatrix * vec4(pos, 1.0);\n      gl_Position = posOut;\n\n      // set out value\n      var_vertPos      = pos;\n      var_vertNormal   =  aNormal;\n      var_vertTexCoord = aTexCoord;\n\t\t\tvar_centerGlPosition = uProjectionMatrix * uModelViewMatrix * vec4(0., 0., 0.,1.0);\n    }\n`;\n\n\nvar frag = `\n\nprecision highp float;\n\n#define PI 3.14159265359\n\nuniform vec2 u_resolution;\nuniform vec2 u_mouse;\nuniform float u_time;\nuniform vec4 u_mataBall[${ballNum}];\n\n\nvec3 rotate(vec3 p, float angle, vec3 axis){\n    vec3 a = normalize(axis);\n    float s = sin(angle);\n    float c = cos(angle);\n    float r = 1.0 - c;\n    mat3 m = mat3(\n        a.x * a.x * r + c,\n        a.y * a.x * r + a.z * s,\n        a.z * a.x * r - a.y * s,\n        a.x * a.y * r - a.z * s,\n        a.y * a.y * r + c,\n        a.z * a.y * r + a.x * s,\n        a.x * a.z * r + a.y * s,\n        a.y * a.z * r - a.x * s,\n        a.z * a.z * r + c\n    );\n    return m * p;\n}\n\n\n//distFunc\nfloat opSmoothUnion( float d1, float d2, float k ) {\n    float h = clamp( 0.5 + 0.5*(d2-d1)/k, 0.0, 1.0 );\n    return mix( d2, d1, h ) - k*h*(1.0-h); \n}\n\n\nfloat sdSphere( vec3 p, float s )\n{\n  return length(p)-s;\n}\n\n\nfloat sdBox( vec3 p, vec3 b )\n{\n  vec3 q = abs(p) - b;\n  return length(max(q,0.0)) + min(max(q.x,max(q.y,q.z)),0.0);\n}\n\n\n//texture\nfloat random (in vec2 st) {\n   \thighp float a = 12.9898;\n    highp float b = 78.233;\n    highp float c = 43758.5453;\n    highp float dt= dot(st.xy ,vec2(a,b));\n    highp float sn= mod(dt,3.14);\n    return fract(sin(sn) * c);\n}\n\nfloat noise(vec2 st) {\n    vec2 i = vec2(0.);\n\t\ti = floor(st);\n    vec2 f = vec2(0.);\n\t\tf = fract(st);\n    vec2 u =  vec2(0.);\n\t\tu = f*f*(3.0-2.0*f);\n    return mix( mix( random( i + vec2(0.0,0.0) ),\n                     random( i + vec2(1.0,0.0) ), u.x),\n                mix( random( i + vec2(0.0,1.0) ),\n                     random( i + vec2(1.0,1.0) ), u.x), u.y);\n}\n\n\n//combined Function\nfloat dist_func(vec3 p)\n{\n    float d = sdSphere(u_mataBall[0].xyz+p, u_mataBall[0].w);\n    for(int i = 1;  i < ${ballNum}; i++){\n        float sph = sdSphere(u_mataBall[i].xyz+p, u_mataBall[i].w);\n        d = opSmoothUnion(d, sph, 0.6);\n    }\n    return d;\n}\n\nvec3 getNormal(vec3 pos)\n{\n    float ep = 0.001;\n    return normalize(vec3(\n        dist_func(pos) - dist_func(vec3(pos.x - ep, pos.y, pos.z)),\n        dist_func(pos) - dist_func(vec3(pos.x, pos.y - ep, pos.z)),\n        dist_func(pos) - dist_func(vec3(pos.x, pos.y, pos.z - ep))\n    ));\n}\n\n\n//variables\nvec3 lightDir = normalize(vec3(0.1, -0.5, -1.0));\nvec3 bgCol = vec3(0.272,0.355,0.327);\nvec3 objCol = vec3(0.923,0.985,0.805);\nvec3 shadowCol = vec3(0.157,0.630,0.655);\n\n\nvoid main() {\n   vec2 pos = (gl_FragCoord.xy*2.0 - u_resolution.xy)/max(u_resolution.x,u_resolution.y);\n    \n    //camera\n    //なんかベクトルまちがってけど放置\n    float angleY = 0.0;\n    float angleX = 0.0;\n    vec3 camera_dir = rotate(rotate(vec3(0.0, 0.0, 1.0), angleY, vec3(0.0,1.0,0.0)), angleX, vec3(1.0,0.0,0.0)); \n    vec3 cameraPos = vec3(0.0, 0.0, -2.0);\n    vec3 camera_up = rotate(rotate(vec3(0.0, 1.0, 0.0), angleY, vec3(0.0,1.0,0.0)), angleX, vec3(1.0,0.0,0.0)); \n    vec3 camera_side = cross(camera_up, camera_dir); \n    \n    //ray\n\t vec3 n = vec3(0,0,0);\n    float d = 0.0;\n    vec3 rayDir = normalize(-pos.x * camera_side - pos.y * camera_up + camera_dir);\n   \n    vec3 currentPos = cameraPos;\n   for(int i = 0; i < 60; i++){\n       d = dist_func(currentPos);\n       if (d < 0.001)\n       {\n           n = getNormal(currentPos);\n           break;\n       }\n       currentPos += rayDir * d;\n   }\n\t    \n   //diffuse\n    float diff = d < 0.001 ? dot(n, lightDir) : -1.0 ;\n    diff = (diff / 2.0) + 0.5;\n    vec3 diifCol = diff * objCol + (1.0- diff)* mix(objCol, objCol*(bgCol-0.5), 0.6);\n    vec3 col = d < 0.001 ? vec3(diifCol) : bgCol;\n    float noise = random(pos);\n    float noisedDiff =  step(noise,diff);\n\t\tcol = d < 0.001 ? col * noisedDiff + vec3(1.0 - noisedDiff) * shadowCol : bgCol;\n  \n\t\t//col += shadowCol * 0.07 * (pos.y + 1.0);\n    \n    gl_FragColor = vec4(vec3(col), 1.0);\n}\n\n`;\n\n\n"
+        },
+        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1707994718/Audio/portal_audio-Your_story_b4bdqq.mp3"
+      },
+      "textColor": "#F9F8F4"
     },
     "tags": [
       "566aeb1b-1649-4f5a-96a2-0c80be27efc0",
       "9c2c08a9-7dc6-4058-bc78-016d0eb00614"
     ],
     "id": "c1c4da35-87af-4e10-a8d9-e6c58571f724",
-    "async": false
+    "async": true,
+    "description": "Ibland känns det som vårt förflutna även styr över vår framtid. Att titta på vår historia ur olika perspektiv kan hjälpa oss se möjligheter och fatta klokare beslut i linje med våra värderingar. "
   },
   "ja": {
     "slides": [
