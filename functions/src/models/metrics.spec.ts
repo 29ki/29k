@@ -188,7 +188,11 @@ describe('metrics model', () => {
     });
 
     it('queries feedback by exercise id and mode', async () => {
-      await getFeedbackByExercise('exercise-id-123', SessionMode.live);
+      await getFeedbackByExercise(
+        'exercise-id-123',
+        undefined,
+        SessionMode.live,
+      );
 
       expect(mockCollection).toHaveBeenCalledWith('metricsFeedback');
       expect(mockWhere).toHaveBeenCalledWith(
