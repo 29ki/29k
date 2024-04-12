@@ -18,9 +18,7 @@ const firestore = admin.firestore();
 
   await Promise.all(
     snapshot.docs.map(async doc => {
-      const {id} = doc.data();
-
-      await firestore.collection('metricsFeedback').doc(id).update({
+      await firestore.collection('metricsFeedback').doc(doc.id).update({
         language: 'en',
       });
     }),
