@@ -137,13 +137,18 @@
       ],
       "videoLoop": {
         "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1698917806/Video/portal1_bounce_back_mramav.mp4",
-        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1698917860/Audio/portal_audio_bouncing_back_myanbs.mp3"
+        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1698917860/Audio/portal_audio_bouncing_back_myanbs.mp3",
+        "p5JsScript": {
+          "lang": "javascript"
+        }
       },
       "videoEnd": {
         "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1698917804/Video/portal2_bounce_back_otpgvf.mp4"
       }
     },
-    "tags": ["8da0534a-5da9-430a-bdf3-242ace6460fb"],
+    "tags": [
+      "8da0534a-5da9-430a-bdf3-242ace6460fb"
+    ],
     "link": "https://aware.29k.org/bounce-back",
     "id": "c7911238-ca9f-4499-9cae-63dfcd0c79c5",
     "async": true,
@@ -223,9 +228,16 @@
         {
           "text": "> Start the session when you're ready to go"
         }
-      ]
+      ],
+      "videoLoop": {
+        "p5JsScript": {
+          "lang": "javascript"
+        }
+      }
     },
-    "tags": ["8da0534a-5da9-430a-bdf3-242ace6460fb"],
+    "tags": [
+      "8da0534a-5da9-430a-bdf3-242ace6460fb"
+    ],
     "link": "https://aware.29k.org/bounce-back",
     "id": "c7911238-ca9f-4499-9cae-63dfcd0c79c5",
     "async": false
@@ -369,17 +381,22 @@
       ],
       "videoLoop": {
         "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1698917806/Video/portal1_bounce_back_mramav.mp4",
-        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1698917860/Audio/portal_audio_bouncing_back_myanbs.mp3"
+        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1698917860/Audio/portal_audio_bouncing_back_myanbs.mp3",
+        "p5JsScript": {
+          "lang": "javascript"
+        }
       },
       "videoEnd": {
         "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1698917804/Video/portal2_bounce_back_otpgvf.mp4"
       }
     },
-    "tags": ["8da0534a-5da9-430a-bdf3-242ace6460fb"],
+    "tags": [
+      "8da0534a-5da9-430a-bdf3-242ace6460fb"
+    ],
     "link": "https://aware.29k.org/bounce-back",
     "id": "c7911238-ca9f-4499-9cae-63dfcd0c79c5",
     "async": true,
-    "description": "Motgångar och svårigheter är en del av livet. Återhämtningsförmåga, eller att resa sig igen, är en färdighet som blir bättre med träning och den kan hjälpa oss att övervinna och till och med utvecklas när vi möter hinder.\n\nDen här övningen funkar bäst om du har någonstans att skriva ned dina tankar."
+    "description": "Motgångar och svårigheter är en del av livet. Återhämtningsförmåga, eller att resa sig igen, är en färdighet som blir bättre med träning och den kan hjälpa oss att övervinna och till och med utvecklas när vi möter hinder.\n\nI den här övningen guidas du av fyra S: **S**töd, **S**trategier, **S**marthet och **S**öka lösningar-beteenden."
   },
   "ja": {
     "slides": [
@@ -457,7 +474,9 @@
         }
       ]
     },
-    "tags": ["8da0534a-5da9-430a-bdf3-242ace6460fb"],
+    "tags": [
+      "8da0534a-5da9-430a-bdf3-242ace6460fb"
+    ],
     "link": "https://aware.29k.org/bounce-back",
     "id": "c7911238-ca9f-4499-9cae-63dfcd0c79c5",
     "async": false
