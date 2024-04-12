@@ -17,7 +17,7 @@
     "header": "Din reflektion",
     "description": "Vem kan se din reflektion?",
     "publicLabel": "Alla, som {{displayName}}",
-    "anonymousLabel": "All, anonymt",
+    "anonymousLabel": "Alla, anonymt",
     "privateLabel": "Bara jag",
     "submitCta": "Skicka"
   },
