@@ -27,7 +27,7 @@ const useGetExerciseById = () => {
       }
       const exercise = {
         ...(translation.res as Exercise),
-        language: translation.usedLng,
+        language: translation.usedLng as LANGUAGE_TAG,
       };
 
       if (
