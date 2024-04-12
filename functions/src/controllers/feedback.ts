@@ -3,6 +3,7 @@ import {AddFeedbackBody} from '../../../shared/src/types/Feedback';
 import * as slack from '../models/slack';
 import {getExerciseById} from '../lib/exercise';
 import {SessionMode} from '../../../shared/src/schemas/Session';
+import {DEFAULT_LANGUAGE_TAG} from '../lib/i18n';
 
 export const addFeedback = async (feedback: AddFeedbackBody) => {
   const savedData = await metricsModel.addFeedback(feedback);
@@ -21,6 +22,7 @@ export const addFeedback = async (feedback: AddFeedbackBody) => {
       feedback.sessionMode,
       Boolean(savedData.approved),
       feedback.params,
+      feedback.language || DEFAULT_LANGUAGE_TAG,
     );
   }
 };

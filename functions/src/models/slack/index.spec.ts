@@ -190,6 +190,7 @@ describe('slack model', () => {
           os: 'test-os',
           model: 'test-model',
         },
+        'en',
       );
 
       expect(mockPostMessage).toHaveBeenCalledTimes(1);
@@ -203,7 +204,7 @@ describe('slack model', () => {
               type: 'image',
             },
             text: {
-              text: '*Answer:* 👍\n\n*Exercise:*\nSome Exercise Name (live - public)\n\n*Comment:*\nSome comment!\n\n*Model:* test-model\n\n*OS:* test-os\n\n*Native Version:* 321\n\n*Bundle Version:* 1234',
+              text: '*Answer:* 👍\n\n*Exercise:*\nSome Exercise Name (live - public)\n\n*Comment:*\nSome comment!\n\n*Langauge:* en\n\n*Model:* test-model\n\n*OS:* test-os\n\n*Native Version:* 321\n\n*Bundle Version:* 1234',
               type: 'mrkdwn',
             },
             type: 'section',
@@ -250,6 +251,7 @@ describe('slack model', () => {
           os: 'test-os',
           model: 'test-model',
         },
+        'en',
       );
 
       expect(mockPostMessage).toHaveBeenCalledTimes(1);
@@ -258,7 +260,7 @@ describe('slack model', () => {
           {text: {text: 'Some question?', type: 'plain_text'}, type: 'header'},
           {
             text: {
-              text: '*Answer:* 👍\n\n*Exercise:*\nunknown ( - )\n\n*Comment:*\nSome comment!\n\n*Model:* test-model\n\n*OS:* test-os\n\n*Native Version:* 321\n\n*Bundle Version:* 1234',
+              text: '*Answer:* 👍\n\n*Exercise:*\nunknown ( - )\n\n*Comment:*\nSome comment!\n\n*Langauge:* en\n\n*Model:* test-model\n\n*OS:* test-os\n\n*Native Version:* 321\n\n*Bundle Version:* 1234',
               type: 'mrkdwn',
             },
             type: 'section',

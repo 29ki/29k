@@ -5,6 +5,7 @@ import {getExerciseById} from '../lib/exercise';
 import {Exercise} from '../../../shared/src/types/generated/Exercise';
 import {SessionMode, SessionType} from '../../../shared/src/schemas/Session';
 import {Feedback} from '../../../shared/src/types/Feedback';
+import {LANGUAGE_TAG} from '../lib/i18n';
 
 jest.mock('../models/metrics');
 jest.mock('../models/slack');
@@ -42,12 +43,14 @@ describe('feedback - controller', () => {
         sessionType: SessionType.public,
         sessionMode: SessionMode.live,
         params: {},
+        language: 'sv' as LANGUAGE_TAG,
       };
       await feedbackController.addFeedback(feedback);
 
       expect(metricsModel.addFeedback).toHaveBeenCalledTimes(1);
       expect(metricsModel.addFeedback).toHaveBeenCalledWith({
         exerciseId: 'some-exercise-id',
+        language: 'sv',
         completed: true,
         answer: true,
         comment: 'Some comment!',
@@ -69,6 +72,7 @@ describe('feedback - controller', () => {
         SessionMode.live,
         false,
         {},
+        'sv',
       );
     });
 
