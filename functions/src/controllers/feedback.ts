@@ -29,7 +29,11 @@ export const getFeedbackCountByExercise = async (
   exerciseId: string,
   mode?: SessionMode,
 ) => {
-  const docs = await metricsModel.getFeedbackByExercise(exerciseId, mode);
+  const docs = await metricsModel.getFeedbackByExercise(
+    exerciseId,
+    undefined,
+    mode,
+  );
 
   return docs.reduce(
     (agg, feedback) => ({
@@ -41,8 +45,3 @@ export const getFeedbackCountByExercise = async (
     {positive: 0, negative: 0},
   );
 };
-
-export const getApprovedFeedbackByExercise = async (
-  exerciseId: string,
-  mode?: SessionMode,
-) => metricsModel.getFeedbackByExercise(exerciseId, mode, true);

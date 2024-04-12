@@ -5,6 +5,7 @@ import {Timestamp} from 'firebase-admin/firestore';
 import {getData} from '../../../shared/src/modelUtils/firestore';
 import {SessionMode} from '../../../shared/src/schemas/Session';
 import {AddFeedbackBody, Feedback} from '../../../shared/src/types/Feedback';
+import {LANGUAGE_TAG} from '../lib/i18n';
 
 const EVENTS_COLLECTION = 'metricsEvents';
 const USER_PROPERTIES_COLLECTION = 'metricsUserProperties';
@@ -77,6 +78,7 @@ export const addFeedback = async (feedback: AddFeedbackBody) => {
 
 export const getFeedbackByExercise = async (
   exerciseId: string,
+  languages?: LANGUAGE_TAG[],
   mode?: SessionMode,
   approved?: boolean,
   limit?: number,
@@ -84,6 +86,10 @@ export const getFeedbackByExercise = async (
   let query = firestore()
     .collection(FEEDBACK_COLLECTION)
     .where('exerciseId', '==', exerciseId);
+
+  if (languages) {
+    query = query.where('language', 'in', languages);
+  }
 
   if (mode) {
     query = query.where('sessionMode', '==', mode);

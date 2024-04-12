@@ -126,6 +126,7 @@ describe('feedback - controller', () => {
       );
       expect(metricsModel.getFeedbackByExercise).toHaveBeenCalledWith(
         'exercise-id',
+        undefined,
         'live',
       );
       expect(res).toEqual({negative: 2, positive: 3});
