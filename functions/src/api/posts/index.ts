@@ -58,9 +58,7 @@ postsRouter.get(
     const {limit, language} = ctx.request.query;
 
     const languages = uniq([language, DEFAULT_LANGUAGE_TAG]);
-    console.log('hepp', limit, languages, exerciseId, sharingId);
     const posts = await getPosts(limit, languages, exerciseId, sharingId);
-    console.log('hopp', posts);
     response.status = 200;
     ctx.body = posts;
   },
