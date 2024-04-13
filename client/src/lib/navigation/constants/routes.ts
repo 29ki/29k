@@ -1,6 +1,5 @@
 import {NavigatorScreenParams} from '@react-navigation/native';
 
-import {Exercise} from '../../../../../shared/src/types/generated/Exercise';
 import {UserType} from '../../../../../shared/src/schemas/User';
 import {
   AsyncSessionType,
@@ -15,6 +14,7 @@ import {
 } from '../../../../../shared/src/types/Event';
 import {PostItem} from '../../posts/types/PostItem';
 import {Feedback} from '../../../../../shared/src/types/Feedback';
+import {ExerciseWithLanguage} from '../../content/types';
 
 export type TabNavigatorProps = {
   HomeStack: undefined;
@@ -90,7 +90,7 @@ export type ModalStackProps = {
   };
   SessionErrorModal: {hasEjected?: boolean} | undefined;
   AddSessionByInviteModal?: {inviteCode?: number};
-  CreateSessionModal: {exerciseId?: Exercise['id']};
+  CreateSessionModal: {exerciseId?: ExerciseWithLanguage['id']};
   UpgradeAccountModal?: undefined;
   RequestPublicHostModal?: {code?: string; haveRequested?: boolean};
   ChangeLanguageModal: undefined;
@@ -107,7 +107,7 @@ export type ModalStackProps = {
   DeveloperModal: undefined;
   ContactModal: undefined;
   SessionFeedbackModal: {
-    exerciseId: Exercise['id'];
+    exerciseId: ExerciseWithLanguage['id'];
     sessionId: LiveSessionType['id'];
     completed: boolean;
     isHost: boolean;

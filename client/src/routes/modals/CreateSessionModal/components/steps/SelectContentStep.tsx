@@ -8,7 +8,6 @@ import {Spacer16, Spacer24} from '../../../../../lib/components/Spacers/Spacer';
 import {ModalHeading} from '../../../../../lib/components/Typography/Heading/Heading';
 import {StepProps} from '../../CreateSessionModal';
 import Gutters from '../../../../../lib/components/Gutters/Gutters';
-import {Exercise} from '../../../../../../../shared/src/types/generated/Exercise';
 import {formatContentName} from '../../../../../lib/utils/string';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import {
@@ -19,6 +18,7 @@ import {SessionMode} from '../../../../../../../shared/src/schemas/Session';
 import useStartAsyncSession from '../../../../../lib/session/hooks/useStartAsyncSession';
 import useGetExercisesByMode from '../../../../../lib/content/hooks/useGetExercisesByMode';
 import CardSmall from '../../../../../lib/components/Cards/CardSmall';
+import {ExerciseWithLanguage} from '../../../../../lib/content/types';
 
 const SelectContentStep: React.FC<StepProps> = ({
   nextStep,
@@ -32,7 +32,7 @@ const SelectContentStep: React.FC<StepProps> = ({
   const {t} = useTranslation('Modal.CreateSession');
 
   const renderItem = useCallback(
-    ({item}: {item: Exercise}) => (
+    ({item}: {item: ExerciseWithLanguage}) => (
       <Gutters>
         <CardSmall
           title={formatContentName(item)}

@@ -32,11 +32,9 @@ import {
 import ToggleButton from './ToggleButton';
 import TopSheet from './TopSheet';
 import {COLORS} from '../../../../../../shared/src/constants/colors';
-import {
-  Exercise,
-  ExerciseSlideContentSlideHostNote,
-} from '../../../../../../shared/src/types/generated/Exercise';
+import {ExerciseSlideContentSlideHostNote} from '../../../../../../shared/src/types/generated/Exercise';
 import useResolveHostNotes from '../../hooks/useResolveHostNotes';
+import {ExerciseWithLanguage} from '../../../content/types';
 
 const NotesNavBtn = styled(NavButton)(({disabled}) => ({
   opacity: disabled ? 0 : 1,
@@ -70,7 +68,7 @@ const keyExtractor: FlatListProps<any>['keyExtractor'] = (_, i) => `notes-${i}`;
 type HostNotesProps = {
   introPortal?: boolean;
   style?: ViewStyle;
-  exercise: Exercise | null;
+  exercise: ExerciseWithLanguage | null;
   children?: React.ReactNode;
 };
 

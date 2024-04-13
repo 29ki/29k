@@ -6,12 +6,12 @@ import {
   Spacer24,
 } from '../../../client/src/lib/components/Spacers/Spacer';
 import CollectionFullCard from '../../../client/src/lib/components/Cards/CollectionCards/CollectionFullCard';
-import {Collection} from '../../../shared/src/types/generated/Collection';
+import {CollectionWithLanguage} from '../../../client/src/lib/content/types';
 
 const onPress = () => undefined;
 
 const CollectionPreview = (props: PreviewTemplateComponentProps) => {
-  const collection = props.entry.get('data').toJS() as Collection;
+  const collection = props.entry.get('data').toJS() as CollectionWithLanguage;
 
   const progressItems = useMemo(
     () => collection.exercises.map(() => false),

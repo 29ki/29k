@@ -7,7 +7,6 @@ import {SectionList, SectionListRenderItem, Share} from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import styled from 'styled-components/native';
 import {COLORS} from '../../../../../shared/src/constants/colors';
-import {Exercise} from '../../../../../shared/src/types/generated/Exercise';
 import CompletedSessionCard from '../../../lib/components/Cards/SessionCard/CompletedSessionCard';
 import ExerciseCard from '../../../lib/components/Cards/SessionCard/ExerciseCard';
 import Gutters from '../../../lib/components/Gutters/Gutters';
@@ -43,10 +42,11 @@ import {
 import IconButton from '../../../lib/components/Buttons/IconButton/IconButton';
 import CoCreators from '../../../lib/components/CoCreators/CoCreators';
 import CardGraphic from '../../../lib/components/CardGraphic/CardGraphic';
+import {ExerciseWithLanguage} from '../../../lib/content/types';
 
 type Section = {
   title: string;
-  data: Exercise[];
+  data: ExerciseWithLanguage[];
 };
 
 const Row = styled.View({
@@ -125,7 +125,7 @@ const Collection = () => {
   );
 
   const renderExerciseItem = useCallback<
-    SectionListRenderItem<Exercise, Section>
+    SectionListRenderItem<ExerciseWithLanguage, Section>
   >(
     ({item}) => {
       const completedExerciseEvent = savedCollection

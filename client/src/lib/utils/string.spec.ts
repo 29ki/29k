@@ -1,4 +1,4 @@
-import {Exercise} from '../../../../shared/src/types/generated/Exercise';
+import {ExerciseWithLanguage} from '../content/types';
 import {formatContentName, formatInviteCode, trimSlashes} from './string';
 
 describe('formatInviteCode', () => {
@@ -10,12 +10,12 @@ describe('formatInviteCode', () => {
 describe('formatExerciseName', () => {
   it('should add WIP to hidden exercises', () => {
     expect(
-      formatContentName({name: 'Test', hidden: true} as unknown as Exercise),
+      formatContentName({name: 'Test', hidden: true} as ExerciseWithLanguage),
     ).toEqual('Test (hidden)');
   });
 
   it('should not add WIP to non hidden exercises', () => {
-    expect(formatContentName({name: 'Test'} as unknown as Exercise)).toEqual(
+    expect(formatContentName({name: 'Test'} as ExerciseWithLanguage)).toEqual(
       'Test',
     );
   });

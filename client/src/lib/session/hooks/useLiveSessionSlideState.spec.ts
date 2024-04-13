@@ -1,11 +1,11 @@
 import {renderHook} from '@testing-library/react-hooks';
-import {Exercise} from '../../../../../shared/src/types/generated/Exercise';
 import {
   LiveSessionType,
   SessionStateType,
 } from '../../../../../shared/src/schemas/Session';
 import useSessionState from '../state/state';
 import useLiveSessionSlideState from './useLiveSessionSlideState';
+import {ExerciseWithLanguage} from '../../content/types';
 
 describe('useLiveSessionSlideState', () => {
   it('should return null if no exercise exists', () => {
@@ -37,7 +37,7 @@ describe('useLiveSessionSlideState', () => {
       } as SessionStateType,
       exercise: {
         slides: [{type: 'content'}, {type: 'host'}, {type: 'reflection'}],
-      } as Exercise,
+      } as ExerciseWithLanguage,
     });
 
     const {result} = renderHook(() => useLiveSessionSlideState());
@@ -57,7 +57,7 @@ describe('useLiveSessionSlideState', () => {
       } as SessionStateType,
       exercise: {
         slides: [{type: 'content'}, {type: 'host'}, {type: 'reflection'}],
-      } as Exercise,
+      } as ExerciseWithLanguage,
     });
 
     const {result, rerender} = renderHook(() => useLiveSessionSlideState());
@@ -74,7 +74,7 @@ describe('useLiveSessionSlideState', () => {
       sessionState: {index: 0} as SessionStateType,
       exercise: {
         slides: [{type: 'content'}],
-      } as Exercise,
+      } as ExerciseWithLanguage,
     });
 
     const {result} = renderHook(() => useLiveSessionSlideState());

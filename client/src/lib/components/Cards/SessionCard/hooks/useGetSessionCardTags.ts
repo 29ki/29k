@@ -1,10 +1,11 @@
 import {useMemo} from 'react';
 import {useTranslation} from 'react-i18next';
-import {Exercise} from '../../../../../../../shared/src/types/generated/Exercise';
 import useTags from '../../../../content/hooks/useTags';
+import {LANGUAGES} from '../../../../i18n';
+import {ExerciseWithLanguage} from '../../../../content/types';
 
-const useGetSessionCardTags = (exercise?: Exercise | null) => {
-  const {t} = useTranslation('Component.SessionCard');
+const useGetSessionCardTags = (exercise?: ExerciseWithLanguage | null) => {
+  const {t, i18n} = useTranslation('Component.SessionCard');
   const tagObjs = useTags(exercise?.tags);
 
   return useMemo(() => {
@@ -14,8 +15,12 @@ const useGetSessionCardTags = (exercise?: Exercise | null) => {
       tags = [`${exercise.duration} ${t('minutesAbbreviation')}`, ...tags];
     }
 
+    if (exercise && exercise.language !== i18n.resolvedLanguage) {
+      tags = [LANGUAGES[exercise.language], ...tags];
+    }
+
     return tags;
-  }, [t, tagObjs, exercise]);
+  }, [t, i18n.resolvedLanguage, tagObjs, exercise]);
 };
 
 export default useGetSessionCardTags;

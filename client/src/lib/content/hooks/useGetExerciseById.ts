@@ -4,6 +4,7 @@ import {Exercise} from '../../../../../shared/src/types/generated/Exercise';
 import {LANGUAGE_TAG} from '../../i18n';
 import useUnlockedExerciseIds from '../../user/hooks/useUnlockedExerciseIds';
 import useAppState from '../../appState/state/state';
+import {ExerciseWithLanguage} from '../types';
 
 const useGetExerciseById = () => {
   const {t} = useTranslation('exercises');
@@ -13,7 +14,7 @@ const useGetExerciseById = () => {
   );
 
   return useCallback(
-    (id: string, language?: LANGUAGE_TAG) => {
+    (id: string, language?: LANGUAGE_TAG): ExerciseWithLanguage | null => {
       const translation = t(id, {
         lng: language,
         returnObjects: true,

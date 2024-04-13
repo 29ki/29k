@@ -1,7 +1,7 @@
 import {renderHook} from '@testing-library/react-hooks';
-import {Exercise} from '../../../../../shared/src/types/generated/Exercise';
 import useResolveHostNotes from './useResolveHostNotes';
 import {SessionSlideState} from './useLiveSessionSlideState';
+import {ExerciseWithLanguage} from '../../content/types';
 
 describe('useResolveHostNotes', () => {
   it('should return regular introPortal notes for live session', () => {
@@ -9,7 +9,7 @@ describe('useResolveHostNotes', () => {
       introPortal: {
         hostNotes: [{text: 'some note'}, {text: 'some other note'}],
       },
-    } as unknown as Exercise;
+    } as ExerciseWithLanguage;
     const slideState = {
       current: {
         hostNotes: [],
@@ -27,7 +27,7 @@ describe('useResolveHostNotes', () => {
   });
 
   it('should return regular notes for live session', () => {
-    const exercise = {} as unknown as Exercise;
+    const exercise = {} as ExerciseWithLanguage;
     const slideState = {
       current: {
         hostNotes: [{text: 'some note'}, {text: 'some other note'}],
