@@ -13,8 +13,8 @@ import Button from '../Buttons/Button';
 import CardSmall from './CardSmall';
 import Interested from '../Interested/Interested';
 import Node from '../Node/Node';
-import {Collection} from '../../../../../shared/src/types/generated/Collection';
 import {COLORS} from '../../../../../shared/src/constants/colors';
+import {CollectionWithLanguage} from '../../content/types';
 
 const VerticalAlign = styled.View({
   flexDirection: 'row',
@@ -71,8 +71,9 @@ const DUMMY_LOTTIE_CARD_STYLE: ExerciseCard = {
   },
 };
 
-const DUMMY_COLLECTION: Collection = {
+const DUMMY_COLLECTION: CollectionWithLanguage = {
   id: 'some-id',
+  language: 'en',
   name: 'Collection name',
   published: true,
   exercises: [],

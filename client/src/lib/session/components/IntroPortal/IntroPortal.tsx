@@ -6,7 +6,6 @@ import ReactNativeHapticFeedback from 'react-native-haptic-feedback';
 
 import {SPACINGS} from '../../../constants/spacings';
 import useSessionState from '../../state/state';
-import {Exercise} from '../../../../../../shared/src/types/generated/Exercise';
 import Screen from '../../../components/Screen/Screen';
 import {
   BottomSafeArea,
@@ -22,6 +21,7 @@ import Button from '../../../components/Buttons/Button';
 import VideoTransition from '../VideoTransition/VideoTransition';
 import P5Animation from '../P5Animation/P5Animation';
 import {COLORS} from '../../../../../../shared/src/constants/colors';
+import {ExerciseWithLanguage} from '../../../content/types';
 
 const Spinner = styled.ActivityIndicator({
   ...StyleSheet.absoluteFillObject,
@@ -47,7 +47,7 @@ const BackButton = styled(IconButton)({
 });
 
 type IntroPortalProps = {
-  exercise: Exercise | null;
+  exercise: ExerciseWithLanguage | null;
   isHost: boolean;
   isVisible: boolean;
   isLive?: boolean;

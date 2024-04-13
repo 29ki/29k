@@ -5,7 +5,6 @@ import {
   Body12,
   BodyBold,
 } from '../../../../lib/components/Typography/Body/Body';
-import {Collection as CollectionType} from '../../../../../../shared/src/types/generated/Collection';
 import {Display16} from '../../../../lib/components/Typography/Display/Display';
 import useExercisesByCollectionId from '../../../../lib/content/hooks/useExercisesByCollectionId';
 import {StyleSheet} from 'react-native';
@@ -23,6 +22,7 @@ import {
 } from '../../../../lib/navigation/constants/routes';
 import {useFeaturedCollectionIds} from '../../../../lib/content/hooks/useFeaturedContent';
 import CardGraphic from '../../../../lib/components/CardGraphic/CardGraphic';
+import {CollectionWithLanguage} from '../../../../lib/content/types';
 
 const Card = styled.View<{backgroundColor?: string}>(({backgroundColor}) => ({
   aspectRatio: '1.3625',
@@ -72,7 +72,7 @@ const Lessons = styled(Body12)({
 });
 
 type Props = {
-  collection: CollectionType;
+  collection: CollectionWithLanguage;
 };
 const Collection: React.FC<Props> = ({collection}) => {
   const {navigate} =

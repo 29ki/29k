@@ -1,12 +1,12 @@
 import {useMemo} from 'react';
-import {Exercise} from '../../../../../shared/src/types/generated/Exercise';
 import useGetExerciseById from './useGetExerciseById';
+import {ExerciseWithLanguage} from '../types';
 import {LANGUAGE_TAG} from '../../i18n';
 
 const useExerciseById = (
   id: string | undefined,
   language?: LANGUAGE_TAG,
-): Exercise | null => {
+): ExerciseWithLanguage | null => {
   const getExerciseById = useGetExerciseById();
 
   return useMemo(

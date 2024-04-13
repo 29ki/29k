@@ -248,7 +248,7 @@ export const getFeedbackByExercise = async (
 ): Promise<Feedback[]> => {
   const queryParams = new URLSearchParams(reject(isNil, {mode}));
   const response = await apiClient(
-    `${SESSIONS_ENDPOINT}/exercises/${exerciseId}/feedback?${queryParams}`,
+    `${SESSIONS_ENDPOINT}/exercises/${exerciseId}/feedback?${queryParams}&goo=asdfasdf`,
     {
       method: 'GET',
     },

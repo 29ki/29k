@@ -16,8 +16,8 @@ import {
   CompletedSessionPayload,
 } from '../../../../../shared/src/types/Event';
 import {UserDataType} from '../../../../../shared/src/schemas/User';
-import {Collection} from '../../../../../shared/src/types/generated/Collection';
 import {REMINDER_INTERVALS} from '../../reminders/constants';
+import {CollectionWithLanguage} from '../../content/types';
 
 const USER_STATE_VERSION = 6;
 const EPHEMERAL_USER_ID = 'ephemeral';
@@ -81,7 +81,7 @@ export type Actions = {
   ) => void;
   addCompletedSessionEvent: (
     payload: CompletedSessionPayload,
-    collections: Array<Collection>,
+    collections: Array<CollectionWithLanguage>,
   ) => void;
   setCurrentUserState: SetCurrentUserState;
   reset: (isDelete?: boolean) => void;

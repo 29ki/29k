@@ -5,7 +5,7 @@ import {Spacer16} from '../../../../lib/components/Spacers/Spacer';
 import {SPACINGS} from '../../../../lib/constants/spacings';
 import Collection from './Collection';
 import {Column, Columns} from './Columns';
-import {Collection as CollectionType} from '../../../../../../shared/src/types/generated/Collection';
+import {CollectionWithLanguage} from '../../../../lib/content/types';
 
 const SCREEN_DIMENSIONS = Dimensions.get('screen');
 const CARD_WIDTH =
@@ -15,14 +15,14 @@ const CollectionWrapper = styled.View({
   width: CARD_WIDTH,
 });
 
-const renderCollection: ListRenderItem<CollectionType> = ({item}) => (
+const renderCollection: ListRenderItem<CollectionWithLanguage> = ({item}) => (
   <CollectionWrapper>
     <Collection collection={item} />
   </CollectionWrapper>
 );
 
 type Props = {
-  collections: CollectionType[];
+  collections: CollectionWithLanguage[];
 };
 const Collections: React.FC<Props> = ({collections}) =>
   collections.length <= 2 ? (

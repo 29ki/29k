@@ -7,7 +7,6 @@ import ReactNativeHapticFeedback from 'react-native-haptic-feedback';
 import usePreventGoingBack from '../../../navigation/hooks/usePreventGoingBack';
 import useNavigateWithFade from '../../../navigation/hooks/useNavigateWithFade';
 
-import {Exercise} from '../../../../../../shared/src/types/generated/Exercise';
 import Gutters from '../../../components/Gutters/Gutters';
 import Screen from '../../../components/Screen/Screen';
 import {BottomSafeArea, TopSafeArea} from '../../../components/Spacers/Spacer';
@@ -16,6 +15,7 @@ import VideoTransition from '../VideoTransition/VideoTransition';
 import AudioFader from '../AudioFader/AudioFader';
 import Button from '../../../components/Buttons/Button';
 import P5Animation from '../P5Animation/P5Animation';
+import {ExerciseWithLanguage} from '../../../content/types';
 
 const Spinner = styled.ActivityIndicator({
   ...StyleSheet.absoluteFillObject,
@@ -27,7 +27,7 @@ const TopBar = styled(Gutters)({
 });
 
 type OutroPortalProps = {
-  exercise: Exercise | null;
+  exercise: ExerciseWithLanguage | null;
   onLeaveSession: () => void;
 };
 
