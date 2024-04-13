@@ -4,6 +4,7 @@ import {Collection} from '../../../../../shared/src/types/generated/Collection';
 import {LANGUAGE_TAG} from '../../i18n';
 import useAppState from '../../appState/state/state';
 import useUnlockedCollectionIds from '../../user/hooks/useUnlockedCollectionIds';
+import {CollectionWithLanguage} from '../types';
 
 const useGetCollectionById = () => {
   const {t} = useTranslation('collections');
@@ -13,7 +14,11 @@ const useGetCollectionById = () => {
   const unlockedCollectionIds = useUnlockedCollectionIds();
 
   return useCallback(
-    (id: string, language?: LANGUAGE_TAG, ignoreLocked?: boolean) => {
+    (
+      id: string,
+      language?: LANGUAGE_TAG,
+      ignoreLocked?: boolean,
+    ): CollectionWithLanguage | null => {
       const translation = t(id, {
         lng: language,
         returnObjects: true,
@@ -28,7 +33,7 @@ const useGetCollectionById = () => {
 
       const collection = {
         ...(translation.res as Collection),
-        language: translation.usedLng,
+        language: translation.usedLng as LANGUAGE_TAG,
       };
 
       if (
