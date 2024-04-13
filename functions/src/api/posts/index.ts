@@ -58,9 +58,7 @@ postsRouter.get(
     const {limit, language} = ctx.request.query;
 
     const languages = uniq([language, DEFAULT_LANGUAGE_TAG]);
-    console.log('hepp', limit, languages, exerciseId, sharingId);
     const posts = await getPosts(limit, languages, exerciseId, sharingId);
-    console.log('hopp', posts);
     response.status = 200;
     ctx.body = posts;
   },
@@ -68,10 +66,9 @@ postsRouter.get(
 
 postsRouter.post('/', validation({body: CreatePostSchema}), async ctx => {
   const {id} = ctx.user;
-  const language = ctx.language;
   const postData = ctx.request.body;
 
-  await createPost({...postData, language}, id);
+  await createPost(postData, id);
   ctx.response.status = 200;
 });
 

@@ -4,11 +4,11 @@ import {useMemo} from 'react';
 import useSessions from './useSessions';
 import usePinnedCollections from '../../user/hooks/usePinnedCollections';
 import useGetExercisesByCollectionId from '../../content/hooks/useGetExercisesByCollectionId';
-import {Exercise} from '../../../../../shared/src/types/generated/Exercise';
 import useExercises from '../../content/hooks/useExercises';
 import useCompletedSessionByTime from '../../user/hooks/useCompletedSessionByTime';
 import useGetStartedExercise from '../../content/hooks/useGetStartedExercise';
 import useCompletedSessions from '../../user/hooks/useCompletedSessions';
+import {ExerciseWithLanguage} from '../../content/types';
 
 const useRecommendedSessions = () => {
   const {pinnedSessions, hostedSessions} = useSessions();
@@ -44,7 +44,7 @@ const useRecommendedSessions = () => {
   // All incomplete sessions from pinned collections
   const collectionExercises = useMemo(
     () =>
-      pinnedCollections.reduce<Exercise[]>(
+      pinnedCollections.reduce<ExerciseWithLanguage[]>(
         (exercises, collection) => [
           ...exercises,
           ...getExercisesByCollectionId(collection.id)

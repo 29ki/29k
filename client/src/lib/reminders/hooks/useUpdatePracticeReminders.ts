@@ -8,7 +8,6 @@ import useUserEvents from '../../user/hooks/useUserEvents';
 import useTriggerNotifications from '../../notifications/hooks/useTriggerNotifications';
 import {calculateNextReminderTime} from '../utils/timeHelpers';
 import {useTranslation} from 'react-i18next';
-import {Collection} from '../../../../../shared/src/types/generated/Collection';
 import useUserState, {
   PracticeReminderConfig,
   getCurrentUserStateSelector,
@@ -18,6 +17,7 @@ import {
   REMINDER_INTERVALS,
 } from '../constants';
 import useUser from '../../user/hooks/useUser';
+import {CollectionWithLanguage} from '../../content/types';
 
 const useUpdatePracticeReminders = () => {
   const {t} = useTranslation('Notification.PracticeReminder');
@@ -29,7 +29,7 @@ const useUpdatePracticeReminders = () => {
     useTriggerNotifications();
 
   const resolveId = useCallback(
-    (collection: Collection | null, index: number) => {
+    (collection: CollectionWithLanguage | null, index: number) => {
       return collection
         ? t(`reminders.collection.${index}.id`)
         : t(`reminders.general.${index}.id`);
@@ -38,7 +38,7 @@ const useUpdatePracticeReminders = () => {
   );
 
   const resolveTitle = useCallback(
-    (collection: Collection | null, index: number) => {
+    (collection: CollectionWithLanguage | null, index: number) => {
       if (!user || !user.displayName) {
         return collection
           ? t(`reminders.collection.${index}.generic.title`, {
@@ -59,7 +59,7 @@ const useUpdatePracticeReminders = () => {
   );
 
   const resolveBody = useCallback(
-    (collection: Collection | null, index: number) => {
+    (collection: CollectionWithLanguage | null, index: number) => {
       if (!user || !user.displayName) {
         return collection
           ? t(`reminders.collection.${index}.generic.body`, {
@@ -81,7 +81,7 @@ const useUpdatePracticeReminders = () => {
 
   const reCreateNotifications = useCallback(
     async (
-      collection: Collection | null,
+      collection: CollectionWithLanguage | null,
       config?: PracticeReminderConfig | null,
     ) => {
       await removeTriggerNotifications(

@@ -4,7 +4,6 @@ import styled from 'styled-components/native';
 import {Card} from '../../../client/src/lib/components/Cards/Card';
 import {CardSmall} from '../../../client/src/lib/components/Cards/CardSmall';
 import {PreviewTemplateComponentProps} from 'decap-cms-core';
-import {Exercise} from '../../../shared/src/types/generated/Exercise';
 import {MobileWidth, MobileView} from './components/MobileView';
 import {
   Spacer16,
@@ -26,6 +25,7 @@ import PortalP5 from './components/PortalP5';
 import {Heading16} from '../../../client/src/lib/components/Typography/Heading/Heading';
 import {INTRO_PORTAL, OUTRO_PORTAL} from '../fields/exercise';
 import Slide from './components/Slide';
+import {ExerciseWithLanguage} from '../../../client/src/lib/content/types';
 
 const Slides = styled.View({
   minWidth: '100%',
@@ -36,7 +36,7 @@ const ExercisePreview = (props: PreviewTemplateComponentProps) => {
   const setAsyncSession = useSessionState(state => state.setAsyncSession);
   const setExercise = useSessionState(state => state.setExercise);
 
-  const entry = props.entry.get('data').toJS() as Exercise;
+  const entry = props.entry.get('data').toJS() as ExerciseWithLanguage;
   const tagsFields = props.fieldsMetaData.getIn(['tags', 'tags'])?.toJS();
   const tags =
     entry.tags?.map((tagId: string) => tagsFields && tagsFields[tagId]?.name) ??

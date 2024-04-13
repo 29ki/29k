@@ -2,9 +2,9 @@ import {isNotNil} from 'ramda';
 import {useMemo} from 'react';
 import useGetCollectionById from './useGetCollectionById';
 import useCollectionIds from './useCollectionIds';
-import {Collection} from '../../../../../shared/src/types/generated/Collection';
+import {CollectionWithLanguage} from '../types';
 
-const sortByOrder = (a: Collection, b: Collection) =>
+const sortByOrder = (a: CollectionWithLanguage, b: CollectionWithLanguage) =>
   typeof a.sortOrder === 'number' && typeof b.sortOrder === 'number'
     ? a.sortOrder < b.sortOrder
       ? -1
@@ -13,7 +13,7 @@ const sortByOrder = (a: Collection, b: Collection) =>
       ? -1
       : 0;
 
-const sortByName = (a: Collection, b: Collection) =>
+const sortByName = (a: CollectionWithLanguage, b: CollectionWithLanguage) =>
   a.name < b.name ? -1 : a.name > b.name ? 1 : 0;
 
 const useCollections = (collectionsIds?: string[], sort: boolean = true) => {

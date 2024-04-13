@@ -16,8 +16,8 @@ import Tag from '../Tag/Tag';
 import {UserType} from '../../../../../shared/src/schemas/User';
 import {ExerciseCard} from '../../../../../shared/src/types/generated/Exercise';
 import CardGraphic from '../CardGraphic/CardGraphic';
-import {Collection} from '../../../../../shared/src/types/generated/Collection';
 import CollectionTag from '../Tag/CollectionTag';
+import {CollectionWithLanguage} from '../../content/types';
 
 export const HEIGHT = 80;
 
@@ -83,7 +83,7 @@ type CardProps = {
   onPress?: () => void;
   hostProfile?: UserType | null;
   completed?: boolean;
-  collection?: Collection | null;
+  collection?: CollectionWithLanguage | null;
   style?: ViewStyle;
   children?: React.ReactNode;
   backgroundColor?: string;

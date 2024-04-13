@@ -20,8 +20,8 @@ import {ExerciseCard} from '../../../../../shared/src/types/generated/Exercise';
 import CardGraphic from '../CardGraphic/CardGraphic';
 import Markdown from '../Typography/Markdown/Markdown';
 import textStyles from '../Typography/styles';
-import {Collection} from '../../../../../shared/src/types/generated/Collection';
 import CollectionTag from '../Tag/CollectionTag';
+import {CollectionWithLanguage} from '../../content/types';
 
 export const HEIGHT = 175;
 
@@ -148,7 +148,7 @@ type CardProps = {
   isPinned?: boolean;
   reminderEnabled?: boolean;
   interestedCount?: number;
-  collection?: Collection | null;
+  collection?: CollectionWithLanguage | null;
   style?: ViewStyle;
   backgroundColor?: string;
   textColor?: string;

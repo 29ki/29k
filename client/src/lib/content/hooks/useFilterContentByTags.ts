@@ -1,9 +1,10 @@
 import {useMemo} from 'react';
-import {Collection} from '../../../../../shared/src/types/generated/Collection';
-import {Exercise} from '../../../../../shared/src/types/generated/Exercise';
 import {intersection} from 'ramda';
+import {CollectionWithLanguage, ExerciseWithLanguage} from '../types';
 
-const useFilterContentByTags = <T extends Collection | Exercise>(
+const useFilterContentByTags = <
+  T extends CollectionWithLanguage | ExerciseWithLanguage,
+>(
   content: T[] = [],
   filterTags: string[] = [],
   excludeId?: string,

@@ -1,6 +1,6 @@
 import {renderHook} from '@testing-library/react-hooks';
 import useFilterContentByTags from './useFilterContentByTags';
-import {Exercise} from '../../../../../shared/src/types/generated/Exercise';
+import {ExerciseWithLanguage} from '../types';
 
 afterEach(() => {
   jest.clearAllMocks();
@@ -17,7 +17,7 @@ describe('useFilterContentByTags', () => {
           },
           {id: 'content-id-2', tags: ['tag-2']},
           {id: 'content-id-3', tags: ['tag-3']},
-        ] as Exercise[],
+        ] as ExerciseWithLanguage[],
         ['tag-1', 'tag-2'],
       ),
     );
@@ -40,7 +40,7 @@ describe('useFilterContentByTags', () => {
         },
         {id: 'content-id-2', tags: ['tag-2']},
         {id: 'content-id-3', tags: ['tag-3']},
-      ] as Exercise[]),
+      ] as ExerciseWithLanguage[]),
     );
 
     expect(result.current).toEqual([
@@ -63,7 +63,7 @@ describe('useFilterContentByTags', () => {
           },
           {id: 'content-id-2', tags: ['tag-2']},
           {id: 'content-id-3', tags: ['tag-3']},
-        ] as Exercise[],
+        ] as ExerciseWithLanguage[],
         ['tag-1', 'tag-2', 'tag-3'],
         'content-id-2',
       ),
@@ -88,7 +88,7 @@ describe('useFilterContentByTags', () => {
           },
           {id: 'content-id-2', tags: ['tag-2']},
           {id: 'content-id-3', tags: ['tag-3']},
-        ] as Exercise[],
+        ] as ExerciseWithLanguage[],
         ['tag-1', 'tag-2', 'tag-3'],
         undefined,
         2,

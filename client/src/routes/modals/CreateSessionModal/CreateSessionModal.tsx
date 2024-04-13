@@ -7,7 +7,6 @@ import React, {
 } from 'react';
 import styled from 'styled-components/native';
 
-import {Exercise} from '../../../../../shared/src/types/generated/Exercise';
 import {
   SessionMode,
   SessionType,
@@ -27,6 +26,7 @@ import {RouteProp, useRoute} from '@react-navigation/native';
 import {ModalStackProps} from '../../../lib/navigation/constants/routes';
 import Fade from '../../../lib/components/Fade/Fade';
 import {COLORS} from '../../../../../shared/src/constants/colors';
+import {ExerciseWithLanguage} from '../../../lib/content/types';
 
 const Wrapper = styled.View({flex: 1});
 
@@ -70,7 +70,7 @@ const CreateSessionModal = () => {
   } = useRoute<RouteProp<ModalStackProps, 'CreateSessionModal'>>();
   const [currentStep, setCurrentStep] = useState(0);
   const [selectedExercise, setSelectedExercise] = useState<
-    Exercise['id'] | undefined
+    ExerciseWithLanguage['id'] | undefined
   >(exerciseId);
   const isPublicHost = useIsPublicHost();
   const user = useUser();

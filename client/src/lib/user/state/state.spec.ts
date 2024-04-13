@@ -5,8 +5,8 @@ import {
   PostPayload,
   UserEvent,
 } from '../../../../../shared/src/types/Event';
-import {Collection} from '../../../../../shared/src/types/generated/Collection';
 import useUserState, {getCurrentUserStateSelector} from './state';
+import {CollectionWithLanguage} from '../../content/types';
 
 afterEach(() => {
   jest.useRealTimers();
@@ -388,7 +388,7 @@ describe('user - state', () => {
             {
               id: 'some-collection-id',
               exercises: ['exercise-id-1', 'exercise-id-2', 'exercise-id-3'],
-            } as Collection,
+            } as CollectionWithLanguage,
           ],
         );
       });
@@ -470,11 +470,11 @@ describe('user - state', () => {
             {
               id: 'some-collection-id',
               exercises: ['exercise-id-1', 'exercise-id-2', 'exercise-id-3'],
-            } as Collection,
+            } as CollectionWithLanguage,
             {
               id: 'some-other-collection-id',
               exercises: ['exercise-id-3', 'exercise-id-4'],
-            } as Collection,
+            } as CollectionWithLanguage,
           ],
         );
       });
@@ -545,7 +545,7 @@ describe('user - state', () => {
             {
               id: 'some-collection-id',
               exercises: ['exercise-id-1', 'exercise-id-2', 'exercise-id-3'],
-            } as Collection,
+            } as CollectionWithLanguage,
           ],
         );
       });
@@ -594,7 +594,7 @@ describe('user - state', () => {
             {
               id: 'some-collection-id',
               exercises: ['exercise-id-1', 'exercise-id-2', 'exercise-id-3'],
-            } as Collection,
+            } as CollectionWithLanguage,
           ],
         );
       });

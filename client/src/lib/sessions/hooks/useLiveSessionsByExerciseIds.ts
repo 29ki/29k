@@ -1,8 +1,8 @@
 import {useMemo} from 'react';
 import useSessions from './useSessions';
-import {Exercise} from '../../../../../shared/src/types/generated/Exercise';
+import {ExerciseWithLanguage} from '../../content/types';
 
-const useLiveSessionsByExercises = (exercises: Exercise[] = []) => {
+const useLiveSessionsByExercises = (exercises: ExerciseWithLanguage[] = []) => {
   const {sessions} = useSessions();
 
   return useMemo(() => {

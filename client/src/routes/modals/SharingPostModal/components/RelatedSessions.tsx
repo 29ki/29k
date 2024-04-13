@@ -1,5 +1,4 @@
 import React, {Fragment} from 'react';
-import {Exercise} from '../../../../../../shared/src/types/generated/Exercise';
 import useExercisesByTags from '../../../../lib/content/hooks/useExercisesByTags';
 import ExerciseCard from '../../../../lib/components/Cards/SessionCard/ExerciseCard';
 import Gutters from '../../../../lib/components/Gutters/Gutters';
@@ -8,9 +7,10 @@ import {Heading16} from '../../../../lib/components/Typography/Heading/Heading';
 import {useTranslation} from 'react-i18next';
 import useLiveSessionsByExercise from '../../../../lib/sessions/hooks/useLiveSessionsByExercise';
 import SessionCard from '../../../../lib/components/Cards/SessionCard/SessionCard';
+import {ExerciseWithLanguage} from '../../../../lib/content/types';
 
 type Props = {
-  exercise: Exercise;
+  exercise: ExerciseWithLanguage;
 };
 const RelatedSessions: React.FC<Props> = ({exercise}) => {
   const {t} = useTranslation('Modal.SharingPost');

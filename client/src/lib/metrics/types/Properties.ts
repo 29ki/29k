@@ -1,4 +1,3 @@
-import {Exercise} from '../../../../../shared/src/types/generated/Exercise';
 import {Collection} from '../../../../../shared/src/types/generated/Collection';
 import {
   LiveSessionType,
@@ -7,6 +6,7 @@ import {
 } from '../../../../../shared/src/schemas/Session';
 import {LANGUAGE_TAG} from '../../i18n';
 import {REMINDER_INTERVALS} from '../../reminders/constants';
+import {ExerciseWithLanguage} from '../../content/types';
 
 // General properties
 export type Origin = {Origin?: string}; // Where is the event originating from
@@ -27,7 +27,7 @@ export type ScreenName = {'Screen Name': string} & OriginSource &
 
 // Exercise properties
 export type ExerciseID = {
-  'Exercise ID': Exercise['id'];
+  'Exercise ID': ExerciseWithLanguage['id'];
 };
 
 // Sharing Session properties - named "Sharing Session" to not be confused with a user "session" in PostHog
