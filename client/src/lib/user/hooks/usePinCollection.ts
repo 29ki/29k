@@ -12,30 +12,35 @@ const usePinCollection = (collectionId: string) => {
   );
   const confirmPracticeReminder = useConfirmPracticeReminders();
 
-  const togglePinned = useCallback(async () => {
-    if (pinnedCollections.find(ps => ps.id === collectionId)) {
-      setPinnedCollections(
-        pinnedCollections.filter(ps => ps.id !== collectionId),
-      );
-    } else {
-      setPinnedCollections([
-        ...pinnedCollections,
-        {
-          id: collectionId,
-          startedAt: dayjs().utc().toJSON(),
-        },
-      ]);
-      await confirmPracticeReminder(true);
-      metrics.logEvent('Add Collection To Journey', {
-        'Collection ID': collectionId,
-      });
-    }
-  }, [
-    collectionId,
-    setPinnedCollections,
-    confirmPracticeReminder,
-    pinnedCollections,
-  ]);
+  const togglePinned = useCallback(
+    async (enabled?: boolean) => {
+      const isPinned = pinnedCollections.find(ps => ps.id === collectionId);
+
+      if (isPinned && !enabled) {
+        setPinnedCollections(
+          pinnedCollections.filter(ps => ps.id !== collectionId),
+        );
+      } else if (!isPinned && enabled !== false) {
+        setPinnedCollections([
+          ...pinnedCollections,
+          {
+            id: collectionId,
+            startedAt: dayjs().utc().toJSON(),
+          },
+        ]);
+        await confirmPracticeReminder(true);
+        metrics.logEvent('Add Collection To Journey', {
+          'Collection ID': collectionId,
+        });
+      }
+    },
+    [
+      collectionId,
+      setPinnedCollections,
+      confirmPracticeReminder,
+      pinnedCollections,
+    ],
+  );
 
   const isPinned = useMemo(
     () => Boolean(pinnedCollections.find(ps => ps.id === collectionId)),
