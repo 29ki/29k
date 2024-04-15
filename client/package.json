@@ -121,7 +121,7 @@
     "react-dom": "18.2.0",
     "react-native-asset": "^2.1.1",
     "react-native-clean-project": "^4.0.3",
-    "react-native-dotenv": "^3.4.10",
+    "react-native-dotenv": "^3.4.11",
     "react-test-renderer": "18.2.0",
     "typescript": "^5.4.2"
   },
