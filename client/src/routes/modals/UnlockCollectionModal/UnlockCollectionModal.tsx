@@ -17,6 +17,7 @@ import Button from '../../../lib/components/Buttons/Button';
 import {useBottomSheet} from '@gorhom/bottom-sheet';
 import {useTranslation} from 'react-i18next';
 import useUnlockCollectionById from '../../../lib/user/hooks/useUnlockCollectionById';
+import usePinCollection from '../../../lib/user/hooks/usePinCollection';
 
 const Wrapper = styled(Gutters)({
   justifyContent: 'center',
@@ -40,13 +41,15 @@ const UnlockCollectionModal = () => {
   const {close} = useBottomSheet();
 
   const {collection, unlockCollection} = useUnlockCollectionById(collectionId);
+  const {togglePinned} = usePinCollection(collectionId);
 
   useEffect(() => {
     if (collection) {
       unlockCollection();
+      togglePinned(true);
       navigate('Collection', {collectionId});
     }
-  }, [collection, collectionId, navigate, unlockCollection]);
+  }, [collection, collectionId, navigate, unlockCollection, togglePinned]);
 
   if (!collection)
     return (
