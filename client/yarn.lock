@@ -2456,10 +2456,10 @@
   resolved "https://registry.yarnpkg.com/@react-native-firebase/storage/-/storage-18.8.0.tgz#cb33c76e2c85d54923ed9bdb5528485da8753a8e"
   integrity sha512-Z+26aQnU/1bNk3JPwuORke7T6yhKu955UFb+LUeh4L/0a36pFFxwuiHKLc4tjjALB4XclFcxVlb1+Ife5TCV4w==
 
-"@react-native-picker/picker@^2.7.2":
-  version "2.7.2"
-  resolved "https://registry.yarnpkg.com/@react-native-picker/picker/-/picker-2.7.2.tgz#c91c6b936d5b9872190f56836bdba227eb521571"
-  integrity sha512-a+UiyCu0XtXJK+VGIFggwA02PU3dgnvUPxlk2u99ZphTFp80Va8WH1OM9g2gyUXTVg9a5iybpDBa2+7fDfIMXA==
+"@react-native-picker/picker@^2.7.5":
+  version "2.7.5"
+  resolved "https://registry.yarnpkg.com/@react-native-picker/picker/-/picker-2.7.5.tgz#e43fcd65f260fa4f23e974ccb9fb7c1f7a9ff94a"
+  integrity sha512-vhMaOLkXSUb+YKVbukMJToU4g+89VMhBG2U9+cLYF8X8HtFRidrHjohGqT8/OyesDuKIXeLIP+UFYI9Q9CRA9Q==
 
 "@react-native/assets-registry@0.73.1":
   version "0.73.1"
