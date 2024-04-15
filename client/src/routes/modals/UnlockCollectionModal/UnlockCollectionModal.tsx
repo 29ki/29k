@@ -46,7 +46,7 @@ const UnlockCollectionModal = () => {
   useEffect(() => {
     if (collection) {
       unlockCollection();
-      togglePinned(true);
+      togglePinned(true, false);
       navigate('Collection', {collectionId});
     }
   }, [collection, collectionId, navigate, unlockCollection, togglePinned]);

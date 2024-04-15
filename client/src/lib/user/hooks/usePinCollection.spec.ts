@@ -106,6 +106,31 @@ describe('usePinCollection', () => {
     expect(mockLogEvent).toHaveBeenCalledTimes(0);
   });
 
+  it('should not prompt about practice reminder if promptPracticeReminder = false ', async () => {
+    useUserState.setState({
+      user: {uid: 'user-id'} as FirebaseAuthTypes.User,
+      userState: {},
+    });
+
+    const {result} = renderHook(() => usePinCollection('some-collection-id'));
+
+    await act(async () => {
+      await result.current.togglePinned(true, false);
+    });
+
+    expect(result.current.isPinned).toBe(true);
+    expect(useUserState.getState().userState).toEqual(
+      expect.objectContaining({
+        'user-id': {
+          pinnedCollections: [
+            {id: 'some-collection-id', startedAt: expect.any(String)},
+          ],
+        },
+      }),
+    );
+    expect(mockConfirmPracticeReminders).toHaveBeenCalledTimes(0);
+  });
+
   it('should remove collection as pinned', () => {
     useUserState.setState({
       user: {uid: 'user-id'} as FirebaseAuthTypes.User,

@@ -13,7 +13,7 @@ const usePinCollection = (collectionId: string) => {
   const confirmPracticeReminder = useConfirmPracticeReminders();
 
   const togglePinned = useCallback(
-    async (enabled?: boolean) => {
+    async (enabled?: boolean, promptPracticeReminder: boolean = true) => {
       const isPinned = pinnedCollections.find(ps => ps.id === collectionId);
 
       if (isPinned && !enabled) {
@@ -28,7 +28,9 @@ const usePinCollection = (collectionId: string) => {
             startedAt: dayjs().utc().toJSON(),
           },
         ]);
-        await confirmPracticeReminder(true);
+        if (promptPracticeReminder) {
+          await confirmPracticeReminder(true);
+        }
         metrics.logEvent('Add Collection To Journey', {
           'Collection ID': collectionId,
         });
