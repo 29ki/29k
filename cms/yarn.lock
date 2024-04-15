@@ -1400,10 +1400,10 @@
   resolved "https://registry.npmjs.org/@types/prop-types/-/prop-types-15.7.5.tgz"
   integrity sha512-JCB8C6SnDoQf0cNycqd/35A7MjcnK+ZTqE7judS6o7utxUCg6imJg3QK2qzHKszlTjcj2cn+NwMB2i96ubpj7w==
 
-"@types/react-dom@^18.2.24":
-  version "18.2.24"
-  resolved "https://registry.yarnpkg.com/@types/react-dom/-/react-dom-18.2.24.tgz#8dda8f449ae436a7a6e91efed8035d4ab03ff759"
-  integrity sha512-cN6upcKd8zkGy4HU9F1+/s98Hrp6D4MOcippK4PoE8OZRngohHZpbJn1GsaDLz87MqvHNoT13nHvNqM9ocRHZg==
+"@types/react-dom@^18.2.25":
+  version "18.2.25"
+  resolved "https://registry.yarnpkg.com/@types/react-dom/-/react-dom-18.2.25.tgz#2946a30081f53e7c8d585eb138277245caedc521"
+  integrity sha512-o/V48vf4MQh7juIKZU2QGDfli6p1+OOi5oXx36Hffpc9adsHeXjVp8rHuPkjd8VT8sOJ2Zp05HR7CdpGTIUFUA==
   dependencies:
     "@types/react" "*"
 
@@ -1425,10 +1425,10 @@
     hoist-non-react-statics "^3.3.0"
     redux "^4.0.0"
 
-"@types/react@*", "@types/react@^18.2.75":
-  version "18.2.75"
-  resolved "https://registry.yarnpkg.com/@types/react/-/react-18.2.75.tgz#45d18f384939306d35312def1bf532eb38a68562"
-  integrity sha512-+DNnF7yc5y0bHkBTiLKqXFe+L4B3nvOphiMY3tuA5X10esmjqk7smyBZzbGTy2vsiy/Bnzj8yFIBL8xhRacoOg==
+"@types/react@*", "@types/react@^18.2.78":
+  version "18.2.78"
+  resolved "https://registry.yarnpkg.com/@types/react/-/react-18.2.78.tgz#94aec453d0ccca909998a2b4b2fd78af15a7d2fe"
+  integrity sha512-qOwdPnnitQY4xKlKayt42q5W5UQrSHjgoXNVEtxeqdITJ99k4VXJOP3vt8Rkm9HmgJpH50UNU+rlqfkfWOqp0A==
   dependencies:
     "@types/prop-types" "*"
     csstype "^3.0.2"
@@ -2496,10 +2496,10 @@ debug@^4.0.0, debug@^4.1.0, debug@^4.1.1, debug@^4.3.1, debug@^4.3.2, debug@^4.3
   dependencies:
     ms "2.1.2"
 
-decap-cms-app@3.1.8:
-  version "3.1.8"
-  resolved "https://registry.yarnpkg.com/decap-cms-app/-/decap-cms-app-3.1.8.tgz#b17e7016a7f4bbba501c256784554b146c6563d2"
-  integrity sha512-fPBnv+yWWhAb5OusnDaCQUEbtTISbH/4AIRSXIHQt8seH0XdkwEp2F7AFzoVWbSGfeUS67Dp8emWHRP2WWXFdw==
+decap-cms-app@3.1.9:
+  version "3.1.9"
+  resolved "https://registry.yarnpkg.com/decap-cms-app/-/decap-cms-app-3.1.9.tgz#4b0c6eb0bc9da6cc88bf40580ba3b76e58c9ebc5"
+  integrity sha512-jLXbaLg6funGhngdKgrQmPXwfNE5xktUdjFLtIb/DSbZnDvXuHdp/97JW1qpiEUyc8SwLhO2Y8YOElXFu+8zrQ==
   dependencies:
     "@emotion/react" "^11.11.1"
     "@emotion/styled" "^11.11.0"
@@ -2523,7 +2523,7 @@ decap-cms-app@3.1.8:
     decap-cms-widget-boolean "^3.1.1"
     decap-cms-widget-code "^3.1.2"
     decap-cms-widget-colorstring "^3.1.1"
-    decap-cms-widget-datetime "^3.1.3"
+    decap-cms-widget-datetime "^3.1.4"
     decap-cms-widget-file "^3.1.1"
     decap-cms-widget-image "^3.1.1"
     decap-cms-widget-list "^3.1.1"
@@ -2742,10 +2742,10 @@ decap-cms-widget-colorstring@^3.1.1:
     react-color "^2.18.1"
     tinycolor2 "^1.4.1"
 
-decap-cms-widget-datetime@^3.1.3:
-  version "3.1.3"
-  resolved "https://registry.yarnpkg.com/decap-cms-widget-datetime/-/decap-cms-widget-datetime-3.1.3.tgz#fd4dd868a973b062c19b91e6e90a0bba04ef5938"
-  integrity sha512-9KkK4uZ6B+4GC1jvGJ/fMUUXwQoTInaWJVW3WoS02cA8QWp6rGSTDsO4jjJiK4xjSQwR9d9Hlq0TdBjg6YX2uA==
+decap-cms-widget-datetime@^3.1.4:
+  version "3.1.4"
+  resolved "https://registry.yarnpkg.com/decap-cms-widget-datetime/-/decap-cms-widget-datetime-3.1.4.tgz#2a5d6c8bad9206c2fe932866082142eedc5fb1bb"
+  integrity sha512-f9TJz/KnolMyE6u98EOgh3exkipr0+e6PEO7lDm916W4HGEuRW/WqDTV01dywxGJ4AwDVH/X6601bFG3igcc0w==
   dependencies:
     dayjs "^1.11.10"
 
@@ -4046,10 +4046,10 @@ hyphenate-style-name@^1.0.3:
   resolved "https://registry.npmjs.org/hyphenate-style-name/-/hyphenate-style-name-1.0.4.tgz"
   integrity sha512-ygGZLjmXfPHj+ZWh6LwbC37l43MhfztxetbFCoYTM2VjkIUpeHgSNn7QIyVFj7YQ1Wl9Cbw5sholVJPzWvC2MQ==
 
-i18next@^23.10.1:
-  version "23.10.1"
-  resolved "https://registry.yarnpkg.com/i18next/-/i18next-23.10.1.tgz#217ce93b75edbe559ac42be00a20566b53937df6"
-  integrity sha512-NDiIzFbcs3O9PXpfhkjyf7WdqFn5Vq6mhzhtkXzj51aOcNuPNcTwuYNuXCpHsanZGHlHKL35G7huoFeVic1hng==
+i18next@^23.11.2:
+  version "23.11.2"
+  resolved "https://registry.yarnpkg.com/i18next/-/i18next-23.11.2.tgz#4c0e8192a9ba230fe7dc68b76459816ab601826e"
+  integrity sha512-qMBm7+qT8jdpmmDw/kQD16VpmkL9BdL+XNAK5MNbNFaf1iQQq35ZbPrSlqmnNPOSUY4m342+c0t0evinF5l7sA==
   dependencies:
     "@babel/runtime" "^7.23.2"
 
@@ -7476,10 +7476,10 @@ typed-array-length@^1.0.4:
     for-each "^0.3.3"
     is-typed-array "^1.1.9"
 
-typescript@^5.4.4:
-  version "5.4.4"
-  resolved "https://registry.yarnpkg.com/typescript/-/typescript-5.4.4.tgz#eb2471e7b0a5f1377523700a21669dce30c2d952"
-  integrity sha512-dGE2Vv8cpVvw28v8HCPqyb08EzbBURxDpuhJvTrusShUfGnhHBafDsLdS1EhhxyL6BJQE+2cT3dDPAv+MQ6oLw==
+typescript@^5.4.5:
+  version "5.4.5"
+  resolved "https://registry.yarnpkg.com/typescript/-/typescript-5.4.5.tgz#42ccef2c571fdbd0f6718b1d1f5e6e5ef006f611"
+  integrity sha512-vcI4UpRgg81oIRUFwR0WSIHKt11nJ7SAVlYNIu+QpqeyXP+gpQJy/Z4+F0aGxSE4MqwjyXvW/TzgkLAx2AGHwQ==
 
 ua-parser-js@^1.0.35:
   version "1.0.37"
