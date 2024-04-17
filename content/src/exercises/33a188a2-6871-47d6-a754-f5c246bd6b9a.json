@@ -233,7 +233,12 @@
         {
           "text": "> Start the session when you're ready to go"
         }
-      ]
+      ],
+      "videoLoop": {
+        "p5JsScript": {
+          "lang": "javascript"
+        }
+      }
     },
     "tags": [
       "9c2c08a9-7dc6-4058-bc78-016d0eb00614"
@@ -247,17 +252,17 @@
         "type": "host",
         "hostNotes": [
           {
-            "text": "Welcome\n\nI am X and today we will work for around 30 minutes on turning values into action with smart goal setting.\n\nWe’ll be doing an audio exercise followed by time for reflection and sharing with each other. Heads up that you’ll need somewhere to take notes."
+            "text": "Välkommen. Jag heter X och vi kommer att jobba tillsammans i ungefär 30 minuter med att omvandla värderingar till beteenden och mål.\n\nVi kommer att lyssna på en ljudövning tillsammans, reflektera en stund för oss själva och sedan finns det möjlighet att dela sina erfarenheter."
           },
           {
-            "text": "Let’s start with a mini check-in. How are you feeling right now? Please answer in two-three words. X, would you like to start?\n\n> Let everyone in the session, including yourself, check in one by one.\n\nThank you all for checking in. Let’s get started."
+            "text": "Vi börjar med en mini-check-in. Hur känner du dig just nu? Svara gärna med två-tre ord. X, skulle du vilja börja?\n\n> Låt alla deltagare, inklusive dig själv, checka in en och en. \n\nTack för att ni checkade in. Då kör vi igång."
           }
         ]
       },
       {
         "type": "instruction",
         "content": {
-          "text": "Setting SMART goals is a structure for turning values into action. \n\nHeads up than you’ll need somewhere to take notes for this exercise.",
+          "text": "SMART:a mål är ett sätt förvandla värderingar från ord till handling. \n\nDu behöver någonstans att skriva för den här övningen.",
           "image": {
             "source": "https://res.cloudinary.com/cupcake-29k/image/upload/v1707994019/Contributors/async_set_smart-goals_jfwido.png"
           }
@@ -267,7 +272,7 @@
         "type": "content",
         "hostNotes": [
           {
-            "text": "Find a comfortable position. I will start the audio exercise and we'll meet back here afterwards. \n\n> Tap play to start the audio exercise"
+            "text": "Sätt dig bekvämt. Jag kommer att starta ljudövningen, så ses vi här igen efteråt. \n\n> Tryck play för att starta ljudfilen."
           }
         ],
         "content": {
@@ -283,14 +288,14 @@
         "type": "reflection",
         "hostNotes": [
           {
-            "text": "Now we’ll take 30 seconds on our own to gather our thoughts.\n\nWhat will you do? And why is this important to you?"
+            "text": "Nästa steg är att tyst reflektera i en minut.\n\nFrågan är Vad ska du göra? Och varför är det viktigt för dig?"
           },
           {
-            "text": "30 seconds starting now\n\n> Press play to start the timer.\n\nThat’s 30 seconds and it’s time to move on."
+            "text": "Om du vill kan du skriva ner dina funderingar på ett papper, eller bara tänka fritt. Det finns inga svar som är rätt eller fel här – vad som än dyker upp är okej.\n\n> Tryck på play för att starta timern.\n\nDå har det gått en minut och det är dags att gå vidare."
           }
         ],
         "content": {
-          "heading": "What will you do? Why is this important to you?",
+          "heading": "Vad ska du göra? Varför är det viktigt?",
           "lottie": {
             "durationTimer": true,
             "duration": 59,
@@ -303,18 +308,18 @@
         "type": "sharing",
         "hostNotes": [
           {
-            "text": "Now we are getting into the sharing part. We have three rules for sharing:\n\n1. **What is said in here, stays in here.**\n2. **All you need to do is listen.** There is no fixing, helping or advice-giving needed. We are just showing up and exploring what ourselves and others are going through."
+            "text": "Det här steget handlar om att dela med sig av sin upplevelse och lyssna på andras. Vi har tre regler:\n\n1. **Det som sägs här, stannar här.**\n2. **Allt som behövs är att vi lyssnar på varandra.** Inget fixande, ingen rådgivning eller annan hjälp behövs. Vi är bara här för att utforska våra egna och andras upplevelser."
           },
           {
-            "text": "3. **Everything on the inside is okay.** Anger, love, hatred, sadness. Whatever shows up. No wrongs, no rights. It is what it is.\n\nThere will be a timer set for 2 minutes as an indicator. If you don’t want to share you can always say ‘pass’."
+            "text": "3. **Allt som händer på insidan är okej.** Ilska, kärlek, smärta, glädje. Vad som än dyker upp, det finns inget rätt eller fel. Det bara är som det är.\n\nDet finns en timer på två minuter att hålla sig efter på ett ungefär. Om du inte vill dela med dig är det bara att säga 'pass'."
           },
           {
-            "text": "Who would like to start?\n\n> Let everyone (or as many as you got time for) share one by one. Press play to start the timer. Re-start for each new sharing.\n\nThank you so much everyone."
+            "text": "Vem vill börja?\n\n> Låt alla, eller så många som det finns tid för, dela en efter en. Tryck på play för att starta timern. Starta om för varje person.\n\nTack så mycket för att ni lyssnar och delar med er."
           }
         ],
         "id": "Sharing 1",
         "content": {
-          "heading": "What will you do? Why is this important to you?",
+          "heading": "Vad ska du göra? Varför är det viktigt?",
           "lottie": {
             "durationTimer": true,
             "duration": 120,
@@ -326,20 +331,20 @@
         "type": "host",
         "hostNotes": [
           {
-            "text": "Now we’ve learnt how to set SMART goals. Goals that are specific, measurable, attainable, relevant and time-bound. It can help us take steps towards a more meaningful life."
+            "text": "Nu vet vi hur en sätter SMART:a mål. Mål som är specifika, mätbara, accepterade, realistiska och tidsbestämda. Det kan hjälpa oss att göra mer av sådant som känns meningsfullt."
           },
           {
-            "text": "Before we leave this space let’s do a mini check-out. \n\nHow are you feeling right now? Has anything shifted? Please answer in two-three words."
+            "text": "Innan vi avslutar så gör vi en mini-utcheckning.\nHur känner du dig nu? Har något ändrats? Svara med två-tre ord.\n\nVem vill börja?"
           },
           {
-            "text": "Who would like to start?\n\n> Let everyone in the session check out one by one.\n\nThank you all for checking out and for joining this session today.\n\n> Finish session to send everyone off to the exit experience."
+            "text": "> Låt alla checka ut en efter en.\n\nTack så mycket för era utcheckningar, och för att ni deltog i den här sessionen.\n\n> Avsluta sessionen för att skicka deltagarna till exit-upplevelsen."
           }
         ]
       },
       {
         "type": "instruction",
         "content": {
-          "text": "Now you’ve learnt how to set SMART goals. \n\n* Specific\n* Measurable\n* Attainable\n* Relevant\n* Time-bound\n\nThey can help us take steps towards a more meaningful life. Make a commitment to yourself as to when you will start, and when you will evaluate the goal you've worked on today.",
+          "text": "Nu har du lärt dig att sätta SMART:a mål:\n\n* Specifikt\n* Mätbart\n* Accepterat\n* Realistiskt\n* Tidsbundet\n\nSMART:a mål kan hjälpa oss att ta steg mot ett mer meningsfullt liv. Gör ett åtagande till dig själv för när du ska börja, och när du ska utvärdera målet du har satt i dag.",
           "image": {
             "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1707994019/Contributors/async_set_smart-goals_jfwido.png"
           }
@@ -375,7 +380,7 @@
     "introPortal": {
       "hostNotes": [
         {
-          "text": "> Start the session when you're ready to go"
+          "text": "> Starta sessionen är du är redo.\n>\n>\n>\n>"
         }
       ],
       "videoLoop": {
@@ -392,7 +397,7 @@
     ],
     "id": "33a188a2-6871-47d6-a754-f5c246bd6b9a",
     "async": true,
-    "description": "Turning wishes and values into action is made easier with structure. SMART goal-setting has been proven to be helpful."
+    "description": "Att förvandla värderingar och önskningar till mål görs enklast med en bra struktur: lär dig SMART:a mål."
   },
   "ja": {
     "slides": [
