@@ -272,14 +272,14 @@
         "type": "reflection",
         "hostNotes": [
           {
-            "text": "Nästa steg är att tyst reflektera i en minut.\n\nHur kände du kring de två olika alternativen?"
+            "text": "Nästa steg är att tyst reflektera i en minut.\n\nHur upplevde du de två olika alternativen?"
           },
           {
             "text": "Om du vill kan du skriva ner dina funderingar på ett papper, eller bara tänka fritt. Det finns inga svar som är rätt eller fel här – vad som än dyker upp är okej.\n\n> Tryck på play för att starta timern.\n\nDå har det gått en minut och det är dags att gå vidare."
           }
         ],
         "content": {
-          "heading": "Hur kände du kring de två olika alternativen?",
+          "heading": "Hur upplevde du de två olika alternativen?",
           "lottie": {
             "durationTimer": true,
             "duration": 60,
@@ -303,7 +303,7 @@
         ],
         "id": "Sharing 1",
         "content": {
-          "heading": "Hur kände du kring de två olika alternativen?",
+          "heading": "Hur upplevde du de två olika alternativen?",
           "lottie": {
             "durationTimer": true,
             "duration": 120,
@@ -340,8 +340,8 @@
       "textColor": "#2E2E2E",
       "backgroundColor": "#e9b797"
     },
-    "hidden": true,
-    "name": "Open up",
+    "hidden": false,
+    "name": "Öppna upp",
     "live": true,
     "published": true,
     "card": {
