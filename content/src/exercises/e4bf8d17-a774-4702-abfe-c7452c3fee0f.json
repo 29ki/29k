@@ -5,7 +5,7 @@
         "type": "host",
         "hostNotes": [
           {
-            "text": "Welcome. I am X and today we will work for around 30 minutes on xx\n\nWe’ll be doing xx ex. meditation followed by time for reflection and sharing with each other."
+            "text": "Welcome. I am X and today we will work for around 30 minutes on shame and self-compassion.\n\nWe’ll be doing an audio exercise followed by time for reflection and sharing with each other."
           },
           {
             "text": "Let’s start with a mini check-in. How are you feeling right now? Please answer in two-three words. X, would you like to start?\n\n> Let everyone in the session, including yourself, check in one by one.\n\nThank you all for checking in. Let’s get started."
@@ -16,20 +16,29 @@
         "type": "content",
         "hostNotes": [
           {
-            "text": "Find a comfortable position. I will start the audio exercise and we'll meet back here afterwards. \n\n> Push play to start the audio exercise"
+            "text": "Emotions delivers a message, and shame is one of the most powerful ones. But that does not mean we have to do what it says. Find a comfortable position. I will start the audio exercise and we'll meet back here afterwards. \n\n> Tap play to start the audio exercise"
           }
-        ]
+        ],
+        "content": {
+          "lottie": {
+            "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1713532802/SRT%20(captions)%20files/Exploring_shame_Jenny_s_voice_smgdvr.srt",
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1713532860/Audio/Exploring_shame_Jenny_s_voice_n8dux8.mp3"
+          }
+        }
       },
       {
         "type": "reflection",
         "hostNotes": [
           {
-            "text": "Now we’ll take 1 minute to reflect on our own.\n\nxxMain question\n\nxxFurther explanations of main question if needed"
+            "text": "Now we’ll take 1 minute to reflect on our own.\n\nHow was this experience, embodying the three different perspectives?\n\nWhat does the shamer want?"
           },
           {
             "text": "You can take notes on a piece of paper or just mental notes in your head. And there is no right or wrong here, our answers are our own. 1 minute starting now.\n\n> Press play to start the timer.\n\nThat’s 1 minute and it’s time to move on."
           }
-        ]
+        ],
+        "content": {
+          "heading": "How was this experience? What does the shamer want?"
+        }
       },
       {
         "type": "sharing",
@@ -44,13 +53,16 @@
             "text": "Who would like to start?\n\n> Let everyone (or as many as you got time for) share one by one. Press play to start the timer. Re-start for each new sharing.\n\nThank you so much everyone."
           }
         ],
-        "id": "Sharing 1"
+        "id": "Sharing 1",
+        "content": {
+          "heading": "How was this experience? What does the shamer want?"
+        }
       },
       {
         "type": "host",
         "hostNotes": [
           {
-            "text": "Well done. If you’re up for it, you can continue what we started here today with a mission to bring this into your everyday life.\n\nxx mission description"
+            "text": "Well done for bravely embodying different perspectives. Emotions are powerful messages, but we don't have to do as they suggest. If you're up for it, here's a mission: Today, when you notice the shamer showing up, acknowledge how you feel, find your own compassionate voice, and then, choose what to do."
           },
           {
             "text": "Before we leave this space let’s do a mini check-out. \n\nHow are you feeling right now? Has anything shifted? Please answer in two-three words."
@@ -63,7 +75,7 @@
       {
         "type": "instruction",
         "content": {
-          "text": "Well done.\n\nSummary.\n\nIf you’re up for it, you can continue with this mission.\n\nmission description"
+          "text": "Well done for bravely embodying different perspectives. Emotions are powerful messages, but we don't have to do as they suggest. If you're up for it, here's a mission: Today, when you notice the shamer showing up, acknowledge how you feel, find your own compassionate voice, and then, choose what to do."
         }
       }
     ],
@@ -75,6 +87,18 @@
     "name": "Exploring shame",
     "live": true,
     "published": true,
+    "coCreators": [
+      {
+        "name": "Jenny Rickardsson, editor and voice",
+        "url": "https://www.linkedin.com/in/jenny-rickardson-6770a959/",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413228/Contributors/Jenny%20Rickardsson.jpg"
+      },
+      {
+        "name": "Agnes Branny, writing",
+        "url": "https://www.agnesbranny.com/",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665414181/Contributors/Agnes%20Branny.png"
+      }
+    ],
     "duration": 30,
     "introPortal": {
       "textColor": "#2AE2D7",
@@ -94,7 +118,8 @@
       "566aeb1b-1649-4f5a-96a2-0c80be27efc0"
     ],
     "id": "e4bf8d17-a774-4702-abfe-c7452c3fee0f",
-    "async": true
+    "async": true,
+    "description": "Shame is a powerful emotion. In this session we'll explore different perspectives on shame, investigating our own relationship to it. It can help us gain perspective and be kinder to ourselves."
   },
   "pt": {
     "slides": [
