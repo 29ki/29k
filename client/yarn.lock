@@ -1556,10 +1556,10 @@
     base-64 "^1.0.0"
     react-native-url-polyfill "^1.1.2"
 
-"@daily-co/react-native-webrtc@118.0.3-daily.1":
-  version "118.0.3-daily.1"
-  resolved "https://registry.yarnpkg.com/@daily-co/react-native-webrtc/-/react-native-webrtc-118.0.3-daily.1.tgz#52c6a3d065cb3c7b964159d16a2d394205d3fbc1"
-  integrity sha512-NDBOV0JLZ+6UU8Ha8vwWYOdhb+P665PlogSi6zqYLVAihRKFpoFX15tpK9xvqIb9vr/kyNPAvG+EWFXFdwoMuQ==
+"@daily-co/react-native-webrtc@118.0.3-daily.2":
+  version "118.0.3-daily.2"
+  resolved "https://registry.yarnpkg.com/@daily-co/react-native-webrtc/-/react-native-webrtc-118.0.3-daily.2.tgz#d21960894e5fef72f9d360eee17d4f34d214da9f"
+  integrity sha512-Ofwvnx0WL+Q21tQBJOWNKvV1gk/5kwPerwUCD7hCREuBDVRfSNtpRhQcuISNjmn7Z2eV405hgK0c9kOUu8vDQg==
   dependencies:
     "@types/react" "17.0.40"
     "@types/react-native" "0.67.3"
