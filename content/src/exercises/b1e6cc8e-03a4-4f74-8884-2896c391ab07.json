@@ -44,7 +44,7 @@
             "durationTimer": true,
             "duration": 60,
             "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1676642915/Lottie/default_1min_black_rosi2l.json",
-            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1707994694/Audio/portal_audio-Open_up_i5gb79.mp3"
+            "audio": ""
           }
         }
       },
@@ -284,7 +284,7 @@
             "durationTimer": true,
             "duration": 60,
             "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1676642915/Lottie/default_1min_black_rosi2l.json",
-            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1707994694/Audio/portal_audio-Open_up_i5gb79.mp3"
+            "audio": ""
           }
         }
       },
