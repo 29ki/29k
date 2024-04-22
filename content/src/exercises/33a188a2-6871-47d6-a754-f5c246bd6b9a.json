@@ -355,7 +355,7 @@
       "textColor": "#2E2E2E",
       "backgroundColor": "#ff979d"
     },
-    "hidden": true,
+    "hidden": false,
     "name": "Sätt SMART:a mål",
     "live": true,
     "published": true,
