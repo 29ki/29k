@@ -97,7 +97,7 @@
     "@babel/preset-env": "^7.24.3",
     "@babel/runtime": "^7.24.4",
     "@react-native/babel-preset": "0.74.80",
-    "@react-native/eslint-config": "0.75.0-main",
+    "@react-native/eslint-config": "0.75.0-nightly-20240421-03a51da72",
     "@react-native/metro-config": "0.73.5",
     "@react-native/typescript-config": "0.74.78",
     "@sentry/cli": "^2.31.0",
