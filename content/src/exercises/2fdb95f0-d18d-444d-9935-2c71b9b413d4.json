@@ -311,20 +311,20 @@
         "type": "host",
         "hostNotes": [
           {
-            "text": "Well done. If you’re up for it, you can continue what we started here today with a mission to bring this into your everyday life.\n\nxx mission description"
+            "text": "Bra jobbat. Att vara närvarande med allt på insidan, utan att försöka undvika det vi upplever, kan hjälpa oss öka medkänsla med oss själva och andra. \n\nOm du vill finns det ett uppdrag: Pausa en minut, två gånger till i dag, och bara lyssna inåt och se vad du upptäcker."
           },
           {
-            "text": "Before we leave this space let’s do a mini check-out. \n\nHow are you feeling right now? Has anything shifted? Please answer in two-three words."
+            "text": "Innan vi avslutar så gör vi en mini-utcheckning.\nHur känner du dig nu? Har något ändrats? Svara med två-tre ord.\n\nVem vill börja?"
           },
           {
-            "text": "Who would like to start?\n\n> Let everyone in the session check out one by one.\n\nThank you all for checking out and for joining this session today.\n\n> Finish session to send everyone off to the exit experience."
+            "text": "> Låt alla checka ut en efter en.\n\nTack så mycket för era utcheckningar, och för att ni deltog i den här sessionen.\n\n> Avsluta sessionen för att skicka deltagarna till exit-upplevelsen."
           }
         ]
       },
       {
         "type": "instruction",
         "content": {
-          "text": "Well done. \n\nBeing present with our insides, without shying away from the things we see or hear, can help us be more compassionate with ourselves and others. \n\nIf you’re up for it, you can continue with a mission: Take a minute two more times today, and just listen inwards. Notice what you notice.",
+          "text": "Bra jobbat. Att vara närvarande med allt på insidan, utan att försöka undvika det vi upplever, kan hjälpa oss öka medkänsla med oss själva och andra. \n\nOm du vill finns det ett uppdrag: \n\nPausa en minut, två gånger till i dag, och bara lyssna inåt och se vad du upptäcker.",
           "image": {
             "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1711547461/Images/card_Hear_your_inner_voice_qpvkza.png"
           }
