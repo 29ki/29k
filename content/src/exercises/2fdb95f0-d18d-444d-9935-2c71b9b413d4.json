@@ -335,7 +335,7 @@
       "textColor": "#F9F8F4",
       "backgroundColor": "#09005e"
     },
-    "hidden": true,
+    "hidden": false,
     "locked": false,
     "name": "Lyssna inåt",
     "live": true,
