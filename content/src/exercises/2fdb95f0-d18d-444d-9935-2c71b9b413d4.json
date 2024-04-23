@@ -276,7 +276,7 @@
           }
         ],
         "content": {
-          "heading": "Hur upplevde du det att lyssna inåt",
+          "heading": "Hur upplevde du att lyssna inåt?",
           "lottie": {
             "durationTimer": true,
             "duration": 60,
@@ -335,7 +335,7 @@
       "textColor": "#F9F8F4",
       "backgroundColor": "#09005e"
     },
-    "hidden": true,
+    "hidden": false,
     "locked": false,
     "name": "Lyssna inåt",
     "live": true,
@@ -352,7 +352,7 @@
         "url": "https://livskompass.se/om-fredrik-livheim/"
       },
       {
-        "name": "Erik Fernholm, editor",
+        "name": "Erik Fernholm, redaktör",
         "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665412608/Contributors/Erik%20Fernholm.png",
         "url": "https://www.linkedin.com/in/lyckoaktivist/?originalSubdomain=se"
       }
