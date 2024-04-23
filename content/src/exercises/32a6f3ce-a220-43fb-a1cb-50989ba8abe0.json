@@ -116,6 +116,18 @@
         "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1705652134/Images/card_Work-life_values_yqn9n8.png"
       }
     },
+    "coCreators": [
+      {
+        "name": "Jenny Rickardsson, manuscript and voice",
+        "url": "https://www.linkedin.com/in/jenny-rickardson-6770a959/",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413228/Contributors/Jenny%20Rickardsson.jpg"
+      },
+      {
+        "name": "Ints Ivanovskis, artwork",
+        "url": "https://www.linkedin.com/in/ints-ivanovskis-46ab0311a/",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413436/Contributors/Ints%20Ivanovskis.jpg"
+      }
+    ],
     "duration": 30,
     "introPortal": {
       "hostNotes": [
@@ -355,6 +367,23 @@
         "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1705652134/Images/card_Work-life_values_yqn9n8.png"
       }
     },
+    "coCreators": [
+      {
+        "name": "Jenny Rickardsson, manus",
+        "url": "https://www.linkedin.com/in/jenny-rickardson-6770a959/",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413228/Contributors/Jenny%20Rickardsson.jpg"
+      },
+      {
+        "name": "Ints Ivanovskis, artwork",
+        "url": "https://www.linkedin.com/in/ints-ivanovskis-46ab0311a/",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413436/Contributors/Ints%20Ivanovskis.jpg"
+      },
+      {
+        "name": "Lisa Lööf, röst",
+        "url": "https://www.linkedin.com/in/lisaloof/",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413154/Contributors/Lisa%20L%C3%B6%C3%B6f.jpg"
+      }
+    ],
     "duration": 30,
     "introPortal": {
       "hostNotes": [
