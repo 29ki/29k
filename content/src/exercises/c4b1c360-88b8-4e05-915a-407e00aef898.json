@@ -316,21 +316,21 @@
         "type": "host",
         "hostNotes": [
           {
-            "text": "Good job. We've explored how inner obstacles can get in the way of our actions. By accepting their presence we get to focus our energy on our actions and take steps towards the life we want. \n\nIf we're up for it, we can continue with a mission: Practice willingness by taking a small step towards an important goal each day for the coming three days."
+            "text": "Bra jobbat. Vi har utforskat hur inre hinder kan stå i vägen för oss. Genom att acceptera att de finns där, kan vi lägga fokus och energi på det som går att ändra i stället. Om du vill finns det ett uppdrag: Träna på acceptans med ett litet steg mot ett viktigt mål varje dag i tre dagar."
           },
           {
-            "text": " Plan the step you will take and take the hindering thoughts with you.\n\nBefore we leave this space let’s do a mini check-out: How are you feeling right now? Has anything shifted? Please answer in two-three words."
+            "text": "Planera vad du ska göra och ta dina inre hinder med dig.\n\nInnan vi avslutar så gör vi en mini-utcheckning.\nHur känner du dig nu? Har något ändrats? Svara med två-tre ord.\n\nVem vill börja?"
           },
           {
-            "text": "Who would like to start?\n\n> Let everyone in the session check out one by one.\n\nThank you all for checking out and for joining this session today.\n\n> Finish session to send everyone off to the exit experience."
+            "text": "> Låt alla checka ut en efter en.\n\nTack så mycket för era utcheckningar, och för att ni deltog i den här sessionen.\n\n> Avsluta sessionen för att skicka deltagarna till exit-upplevelsen."
           }
         ]
       },
       {
         "type": "instruction",
         "content": {
-          "text": "We've explored how inner obstacles can get in the way of our actions. By accepting their presence we get to focus our energy on our actions and take steps towards the life we want.\n\nHere's a mission for you: Practice willingness by taking a small step towards an important goal each day for the coming three days. Plan the step you will take, and take the hindering thoughts with you.",
-          "heading": "Good job",
+          "text": "Vi har utforskat hur inre hinder kan stå i vägen för oss. Genom att acceptera att de finns där, kan vi lägga fokus och energi på det som går att ändra i stället. \n\nOm du vill finns det ett uppdrag: Träna på acceptans med ett litet steg mot ett viktigt mål varje dag i tre dagar. \n\nPlanera vad du ska göra och ta dina inre hinder med dig.",
+          "heading": "Bra jobbat",
           "image": {
             "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1705652113/Images/async_angry_mob_lhaccf.png"
           }
