@@ -1,7 +1,7 @@
 {
   "en": {
     "hidden": false,
-    "name": "Values III: Act for what matters",
+    "name": "Values III: act for what matters",
     "published": true,
     "sortOrder": 2,
     "card": {
@@ -13,6 +13,7 @@
       "9c2c08a9-7dc6-4058-bc78-016d0eb00614",
       "8da0534a-5da9-430a-bdf3-242ace6460fb"
     ],
+    "link": "https://aware.29k.org/values-act-for-what-matters",
     "id": "b77e52b5-c927-4178-ba76-8c3fe3dbf13c",
     "exercises": [
       "33a188a2-6871-47d6-a754-f5c246bd6b9a",
@@ -37,7 +38,8 @@
       "8da0534a-5da9-430a-bdf3-242ace6460fb"
     ],
     "card": {},
-    "sortOrder": 2
+    "sortOrder": 2,
+    "link": "https://aware.29k.org/values-act-for-what-matters"
   },
   "sv": {
     "published": false,
@@ -54,7 +56,8 @@
       "8da0534a-5da9-430a-bdf3-242ace6460fb"
     ],
     "card": {},
-    "sortOrder": 2
+    "sortOrder": 2,
+    "link": "https://aware.29k.org/values-act-for-what-matters"
   },
   "ja": {
     "published": false,
@@ -71,6 +74,7 @@
       "8da0534a-5da9-430a-bdf3-242ace6460fb"
     ],
     "card": {},
-    "sortOrder": 2
+    "sortOrder": 2,
+    "link": "https://aware.29k.org/values-act-for-what-matters"
   }
 }
