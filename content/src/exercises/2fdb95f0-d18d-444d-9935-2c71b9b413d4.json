@@ -74,7 +74,7 @@
         "type": "host",
         "hostNotes": [
           {
-            "text": "Well done. Being present with our insides, without shying away from the things we see or hear, can help us be more compassionate with ourselves and others. If you’re up for it, you can continue with a mission:\n\nTake a minute two more times today, and just listen inwards."
+            "text": "Well done. Being present with our insides, without shying away from the things we see or hear, can help us be more compassionate with ourselves and others. If you’re up for it, you can continue with a mission:\n\nTwo more times today, take a minute in silence and just listen inwards."
           },
           {
             "text": "Before we leave this space let’s do a mini check-out. \n\nHow are you feeling right now? Has anything shifted? Please answer in two-three words."
@@ -87,7 +87,7 @@
       {
         "type": "instruction",
         "content": {
-          "text": "Well done. \n\nBeing present with our insides, without shying away from the things we see or hear, can help us be more compassionate with ourselves and others. \n\nIf you’re up for it, you can continue with a mission: Take a minute two more times today, and just listen inwards. Notice what you notice.",
+          "text": "Well done. \n\nBeing present with our insides, without shying away from the things we see or hear, can help us be more compassionate with ourselves and others. \n\nIf you’re up for it, you can continue with a mission: Two more times during the day, take a silent minute and just listen inwards. Notice what you notice.",
           "image": {
             "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1711547461/Images/card_Hear_your_inner_voice_qpvkza.png"
           }
