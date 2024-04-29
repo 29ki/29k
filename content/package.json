@@ -16,7 +16,7 @@
   "dependencies": {
     "@fast-csv/parse": "^5.0.0",
     "nodemon": "^3.1.0",
-    "ramda": "^0.29.1"
+    "ramda": "^0.30.0"
   },
   "devDependencies": {
     "@babel/plugin-transform-modules-commonjs": "^7.24.1",
