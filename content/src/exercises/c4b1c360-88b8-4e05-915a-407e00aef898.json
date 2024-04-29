@@ -341,8 +341,8 @@
       "textColor": "#2E2E2E",
       "backgroundColor": "#e0d5cd"
     },
-    "hidden": true,
-    "name": "De arga gubbarna",
+    "hidden": false,
+    "name": "Dina arga gubbar",
     "live": true,
     "published": true,
     "card": {
@@ -371,7 +371,7 @@
     "introPortal": {
       "hostNotes": [
         {
-          "text": "> Start the session when you're ready to go"
+          "text": "> Start sessionen när du är redo att börja"
         }
       ],
       "videoLoop": {
