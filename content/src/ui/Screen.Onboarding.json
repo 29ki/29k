@@ -2,8 +2,8 @@
   "en": {
     "privacyNotice": "Privacy Notice",
     "start": {
-      "heading1": "Discover yourself,",
-      "heading2": "connect with others."
+      "heading1": "",
+      "heading2": "Discover yourself, connect with others."
     },
     "page1": {
       "heading__text": "Science-based\npsychological tools"
@@ -62,8 +62,8 @@
   "sv": {
     "privacyNotice": "Integritetspolicy",
     "start": {
-      "heading1": "Utforska dig själv,",
-      "heading2": "tillsammans med andra."
+      "heading1": "",
+      "heading2": "Utforska dig själv, tillsammans med andra."
     },
     "page1": {
       "heading__text": "Forskningsbaserade\npsykologiska verktyg"
