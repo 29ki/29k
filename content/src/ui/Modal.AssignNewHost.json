@@ -5,9 +5,9 @@
     "button": "Assign new host"
   },
   "pt": {
-    "heading": "Alterar o facilitador",
-    "description": "Partilha a ligação com o novo facilitador. Quando for aceite já não poderás alterar esta sessão. ",
-    "button": "Atribuir novo facilitador"
+    "heading": "Alterar o moderador",
+    "description": "Partilha a ligação com o novo moderador. Quando for aceite já não poderás alterar esta sessão. ",
+    "button": "Atribuir novo moderador"
   },
   "sv": {
     "heading": "Byt värd",
