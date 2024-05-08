@@ -17,12 +17,16 @@
         "hostNotes": [],
         "content": {
           "lottie": {
-            "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1713881004/SEE/HelpNow_uw7wly.srt",
-            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1713881007/SEE/HelpNow_ma2psp.mp3",
+            "subtitles": "",
+            "audio": "",
             "source": ""
           },
           "image": {
             "source": ""
+          },
+          "video": {
+            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1697630712/Video/portal1_sky_gazing_nzvbyk.mp4",
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1713881007/SEE/HelpNow_ma2psp.mp3"
           }
         }
       },
@@ -67,7 +71,7 @@
     "published": false,
     "card": {
       "image": {
-        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1715147782/SEE/HelpNow_CardImage_fnutlc.png"
+        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1715187099/SEE/HelpNow_CardImage_she1tr.png"
       }
     },
     "coCreators": [
@@ -88,7 +92,8 @@
       "videoLoop": {
         "p5JsScript": {
           "lang": "javascript"
-        }
+        },
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1715186200/SEE/Sequence_01_sbvwlm.mp4"
       }
     },
     "tags": [
