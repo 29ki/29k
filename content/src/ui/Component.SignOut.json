@@ -7,7 +7,14 @@
       "confirm": "Yes, sign out"
     }
   },
-  "pt": {},
+  "pt": {
+    "title": "Sair",
+    "message": "Tens a certeza que queres sair?",
+    "actions": {
+      "cancel": "Não",
+      "confirm": "Sim, sair"
+    }
+  },
   "sv": {
     "title": "Logga ut",
     "message": "Är du säker på att du vill logga ut?",
