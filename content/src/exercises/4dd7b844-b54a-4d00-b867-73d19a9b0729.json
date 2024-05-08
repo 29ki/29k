@@ -33,7 +33,10 @@
           }
         ],
         "content": {
-          "heading": "Understanding Resources"
+          "heading": "Understanding Resources",
+          "image": {
+            "source": ""
+          }
         }
       },
       {
