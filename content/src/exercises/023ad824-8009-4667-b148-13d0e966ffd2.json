@@ -18,7 +18,8 @@
         "content": {
           "lottie": {
             "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1715195078/SEE/Mind_Jar_regffk.srt",
-            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1715195090/SEE/Mind_Jar_kpthpe.mp3"
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1715195090/SEE/Mind_Jar_kpthpe.mp3",
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto/v1715197366/SEE/Awareness1_ailznq.json"
           }
         }
       },
