@@ -75,9 +75,9 @@
     "live": true,
     "published": false,
     "card": {
-      "imageBackgroundColor": "",
+      "imageBackgroundColor": "#ffffff",
       "image": {
-        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1715137912/SEE/ResilientZone_CardImage_emks0s.png"
+        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1715187102/SEE/ResilientZone_CardImage_gem1py.png"
       }
     },
     "coCreators": [
@@ -98,7 +98,8 @@
       "videoLoop": {
         "p5JsScript": {
           "lang": "javascript"
-        }
+        },
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1715186200/SEE/Sequence_01_sbvwlm.mp4"
       }
     },
     "tags": [
@@ -184,7 +185,7 @@
     "live": true,
     "published": false,
     "card": {
-      "imageBackgroundColor": ""
+      "imageBackgroundColor": "#ffffff"
     },
     "duration": 20,
     "introPortal": {
@@ -277,7 +278,7 @@
     "live": true,
     "published": false,
     "card": {
-      "imageBackgroundColor": ""
+      "imageBackgroundColor": "#ffffff"
     },
     "duration": 20,
     "introPortal": {
@@ -370,7 +371,7 @@
     "live": true,
     "published": false,
     "card": {
-      "imageBackgroundColor": ""
+      "imageBackgroundColor": "#ffffff"
     },
     "duration": 20,
     "introPortal": {
