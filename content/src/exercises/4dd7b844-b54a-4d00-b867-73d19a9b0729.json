@@ -70,7 +70,8 @@
     "card": {
       "image": {
         "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1715187105/SEE/Resourcing_CardImage_m6fy1w.png"
-      }
+      },
+      "imageBackgroundColor": ""
     },
     "coCreators": [
       {
@@ -176,7 +177,9 @@
     "locked": true,
     "live": true,
     "published": false,
-    "card": {},
+    "card": {
+      "imageBackgroundColor": ""
+    },
     "duration": 20,
     "introPortal": {
       "textColor": "#2AE2D7",
@@ -267,7 +270,9 @@
     "locked": true,
     "live": true,
     "published": false,
-    "card": {},
+    "card": {
+      "imageBackgroundColor": ""
+    },
     "duration": 20,
     "introPortal": {
       "textColor": "#2AE2D7",
@@ -358,7 +363,9 @@
     "locked": true,
     "live": true,
     "published": false,
-    "card": {},
+    "card": {
+      "imageBackgroundColor": ""
+    },
     "duration": 20,
     "introPortal": {
       "textColor": "#2AE2D7",
