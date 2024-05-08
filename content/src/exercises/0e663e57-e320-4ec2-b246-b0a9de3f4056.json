@@ -67,7 +67,7 @@
     "published": false,
     "card": {
       "image": {
-        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1715147011/SEE/Grounding_CardImage_wdcx7e.png"
+        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1715187095/SEE/Grounding_CardImage_wiflw1.png"
       }
     },
     "coCreators": [
@@ -88,7 +88,8 @@
       "videoLoop": {
         "p5JsScript": {
           "lang": "javascript"
-        }
+        },
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1715186200/SEE/Sequence_01_sbvwlm.mp4"
       }
     },
     "tags": [
