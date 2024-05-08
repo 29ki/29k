@@ -4,8 +4,8 @@
     "description": "Click the link to view more details and decide if you want to accept hosting it or not"
   },
   "pt": {
-    "title": "{{hostName}} gostaria que liderasses a sessão {{sessionName}}.",
-    "description": "Clica na ligação para ver mais detalhes e decidir se aceitas liderar ou não a sessão"
+    "title": "{{hostName}} gostaria que moderasses a sessão {{sessionName}}.",
+    "description": "Clica na ligação para ver mais detalhes e decidir se aceitas moderar ou não a sessão"
   },
   "sv": {
     "title": "{{hostName}} vill att du ska vara värd {{sessionName}}.",
