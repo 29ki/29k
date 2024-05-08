@@ -40,9 +40,12 @@
     "joinByInviteCta": "Junta-te por código de convite",
     "typeHeading": "Criar sessão com...",
     "profile": {
-      "text": "Para poderes ser um moderador autorizado tens de colocar o teu nome e a tua fotografia."
+      "text": "Para poderes ser um moderador autorizado tens de colocar o teu nome e a tua fotografia de perfil."
     },
     "orJoinUpcoming": "Ou junta-te a uma sessão futura",
+    "moreLikeThis": "Semelhantes",
+    "startCta": "Iniciar",
+    "coCreatorsHeading": "Co-criado com",
     "selectType": {
       "live-public": {
         "title": "Outras pessoas"
