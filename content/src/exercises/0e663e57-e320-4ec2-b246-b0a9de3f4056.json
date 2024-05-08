@@ -18,7 +18,8 @@
         "content": {
           "lottie": {
             "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1713881004/SEE/Grounding_gqwa9t.srt",
-            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1713881008/SEE/Grounding_sennca.mp3"
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1713881008/SEE/Grounding_sennca.mp3",
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1715191472/SEE/FC5Sj91cWw_fnswff.json"
           },
           "image": {
             "source": ""
