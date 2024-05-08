@@ -17,15 +17,15 @@
         "hostNotes": [],
         "content": {
           "lottie": {
-            "subtitles": "",
-            "audio": "",
-            "source": ""
+            "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1713881004/SEE/HelpNow_uw7wly.srt",
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1713881007/SEE/HelpNow_ma2psp.mp3",
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto/v1715190788/SEE/BAF46TT5m8_uketl4.json"
           },
           "image": {
             "source": ""
           },
           "video": {
-            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1709216740/Video/Thinking_portal_2_hl5uyb.mp4",
+            "source": "",
             "audio": ""
           }
         }
