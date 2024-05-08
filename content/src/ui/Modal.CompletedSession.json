@@ -9,7 +9,11 @@
   },
   "pt": {
     "completed": "Concluídas",
-    "doAgainButton": "Fazer exercício novamente"
+    "doAgainButton": "Fazer exercício novamente",
+    "coCreatorsHeading": "Co-criado com",
+    "yourSharingPost": "O que disseste",
+    "moreLikeThis": "Semelhantes",
+    "yourReview": "O teu comentário à sessão"
   },
   "sv": {
     "completed": "Klar",
