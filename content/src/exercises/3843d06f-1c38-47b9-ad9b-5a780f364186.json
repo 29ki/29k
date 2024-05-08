@@ -18,7 +18,11 @@
         "content": {
           "lottie": {
             "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1713881004/SEE/HelpNow_uw7wly.srt",
-            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1713881007/SEE/HelpNow_ma2psp.mp3"
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1713881007/SEE/HelpNow_ma2psp.mp3",
+            "source": ""
+          },
+          "image": {
+            "source": ""
           }
         }
       },
@@ -47,7 +51,7 @@
           "text": "You have now started to build a set of strategies that you can use at any time to regulate your mind and body. \n\nIf you’re up for it, you can continue with this mission.\n\nTry out all of our Help Strategies and track the change in your body and mind to see which is most useful to you. You could walk and focus on the sensations in your feet and hands, drink a cool beverage, touch an object focusing on the feeling, notice the temperature in different areas of your body or listen for sounds close and far away.",
           "heading": "Well Done.",
           "image": {
-            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1715141204/SEE/ResilientZone_Image1_vuvppz.png"
+            "source": ""
           }
         }
       }
