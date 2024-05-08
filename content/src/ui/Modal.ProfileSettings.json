@@ -28,27 +28,34 @@
     "save": "Save changes"
   },
   "pt": {
-    "changePassword": "Alterar password",
+    "changePassword": "Alterar palavra passe",
     "errors": {
       "auth/invalid-display-name": "O valor escolhido para o teu nome é inválido.",
       "auth/email-already-in-use": "Este email já está registado.",
-      "auth/invalid-email": "O valor escolhido para o teu email é inválido.",
-      "auth/password-missing": "Tens de definir uma password",
-      "auth/weak-password": "Password inválida. Tem de ter pelo menos 6 carateres."
+      "auth/invalid-email": "O valor escolhido para o teu email é inválido. Tem de ser um formato válido de email.",
+      "auth/password-missing": "Para configurar em endereço de email também tens de definir uma palavra passe.",
+      "auth/weak-password": "Palavra passe inválida. Tem de ter pelo menos 6 carateres.",
+      "auth/current-password-missing": "Para alterares o teu perfil por favor indica a tua palavra passe atual.",
+      "auth/wrong-password": "Palavra passe inválida, por favor tenta outra vez."
     },
     "displayName": "Como te devemos chamar?",
+    "currentPassword": "Palavra passe atual",
     "title": "Configurações do perfil",
     "email": "Email",
-    "setPassword": "Definir password",
-    "save": "Gravar alterações",
+    "description": "Adiciona uma descrição que será mostrada quando moderares uma sessão.",
     "actions": {
+      "reminders": "Lembretes",
+      "mindfulMinutes_ios": "Registar minutos de utilização",
       "signIn": "Entrar",
-      "signOut": "Sair",
+      "mindfulMinutes_android": "Registar minutos de meditação",
+      "notifications": "Notificações",
       "profileSettings": "Configurações do perfil",
+      "signOut": "Sair",
       "deleteData": "Remover os meus dados",
-      "language": "Idioma",
-      "notifications": "Notificações"
-    }
+      "language": "Idioma"
+    },
+    "setPassword": "Definir palavra passe",
+    "save": "Gravar alterações"
   },
   "sv": {
     "changePassword": "Byt lösenord",
