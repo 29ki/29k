@@ -4,8 +4,8 @@
     "body": "The session is about to start"
   },
   "pt": {
-    "title": "{{exercise}}",
-    "body": "A sessão começa agora"
+    "title": "{{exercise}} com {{host}}",
+    "body": "A sessão está prestes a começar"
   },
   "sv": {
     "title": "{{exercise}} med {{host}}",
