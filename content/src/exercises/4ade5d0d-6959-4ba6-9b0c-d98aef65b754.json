@@ -5,20 +5,27 @@
         "type": "host",
         "hostNotes": [
           {
-            "text": "Welcome. I am X and today we will work for around 30 minutes on xx\n\nWe’ll be doing xx ex. meditation followed by time for reflection and sharing with each other."
-          },
-          {
-            "text": "Let’s start with a mini check-in. How are you feeling right now? Please answer in two-three words. X, would you like to start?\n\n> Let everyone in the session, including yourself, check in one by one.\n\nThank you all for checking in. Let’s get started."
+            "text": "Welcome. I am Jimi and today we will work for around 20 minutes on resilience.\n\nWe’ll be exploring the concept of our resilient zone followed by time for reflection and sharing with each other.\n\n\n\nLet’s start with a mini check-in. How are you feeling right now? Please answer in two-three words. Now, would you like to start?\n\nLet everyone in the session, including yourself, check in one by one.\n\nThank you all for checking in. Let’s get started."
           }
         ]
       },
       {
         "type": "content",
-        "hostNotes": [
-          {
-            "text": "Find a comfortable position. I will start the audio exercise and we'll meet back here afterwards. \n\n> Push play to start the audio exercise"
+        "hostNotes": [],
+        "content": {
+          "lottie": {
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1713881009/SEE/Resllient_Zone_mpz5wo.mp3",
+            "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1713881134/SEE/Resllient_Zone_cwmfac.srt"
+          },
+          "text": "",
+          "video": {
+            "audio": "",
+            "subtitles": ""
+          },
+          "image": {
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1715140416/SEE/ResilientZone_Image1_qkr6a6.png"
           }
-        ]
+        }
       },
       {
         "type": "reflection",
