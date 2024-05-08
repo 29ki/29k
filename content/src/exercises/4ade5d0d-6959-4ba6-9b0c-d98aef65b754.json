@@ -39,7 +39,10 @@
           }
         ],
         "content": {
-          "text": ""
+          "text": "",
+          "image": {
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1715141204/SEE/ResilientZone_Image1_vuvppz.png"
+          }
         }
       },
       {
