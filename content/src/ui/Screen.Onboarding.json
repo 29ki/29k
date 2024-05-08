@@ -31,9 +31,10 @@
     "getStartedButton": "Get started"
   },
   "pt": {
+    "privacyNotice": "Privacidade",
     "start": {
-      "heading1": "Um planeta próspero começa com",
-      "heading2": "um eu próspero"
+      "heading1": "",
+      "heading2": "Descobre-te, liga-te aos outros."
     },
     "page1": {
       "heading__text": "Ferramentas psicológicas\nbaseadas em ciência"
@@ -55,6 +56,7 @@
       "sessions__text": "Experiências guiadas para\nnovas perspetivas de vida.\n\nIndividualmente, com\nos amigos ou novas ligações.",
       "journey__text": "O teu caminho pessoal\npara uma vida mais próspera."
     },
+    "privacyNoticeUrl": "https://wiki.29k.org/aware-privacy-notice",
     "skipButton": "Ignorar",
     "continueButton": "Continuar",
     "getStartedButton": "Começar"
