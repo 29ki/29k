@@ -44,7 +44,11 @@
       {
         "type": "instruction",
         "content": {
-          "text": "Well done.\n\nYou have now started to build resources that you can use any time you need to regulate your mind and body. \n\nIf you’re up for it, you can continue with this mission.\n\nSpend some time finding and using new resources such as a wonderful memory, a favourite place, a loved one, a joyful activity or a comforting thought."
+          "text": "You have now started to build resources that you can use any time you need to regulate your mind and body. \n\nIf you’re up for it, you can continue with this mission.\n\nSpend some time finding and using new resources such as a wonderful memory, a favourite place, a loved one, a joyful activity or a comforting thought.",
+          "image": {
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1715146810/SEE/Resourcing_InstructionImage_ppmh7i.png"
+          },
+          "heading": "Well Done."
         }
       }
     ],
