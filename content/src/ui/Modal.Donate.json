@@ -17,7 +17,24 @@
       "recurring": "Monthly"
     }
   },
-  "pt": {},
+  "pt": {
+    "monthlyAmount": "{{amount}} / mês",
+    "merchantDisplayName": "Stiftelsen 29k Foundation",
+    "customAmount": "Valor",
+    "receiptSentTo": "Enviar recibo para {{email}}",
+    "errors": {
+      "generic": "Ocorreu um problema. Por favor tenta novamente mais tarde.",
+      "invalidEmail": "Endreço de email inválido"
+    },
+    "donate": "Doar",
+    "sendReceipt": "Enviar recibo",
+    "thankYou": "Obrigada pela doação!",
+    "emailAddress": "O teu endereço de email",
+    "types": {
+      "one-time": "Uma vez",
+      "recurring": "Mensalmente"
+    }
+  },
   "sv": {
     "monthlyAmount": "{{amount}} / månad",
     "merchantDisplayName": "Stiftelsen 29k",
