@@ -21,7 +21,8 @@
     "controls": {
       "start": "Iniciar",
       "next": "Próximo",
-      "prev": "Voltar"
+      "prev": "Voltar",
+      "end": "Terminar"
     },
     "notifications": {
       "joined": "{{name}} juntou-se",
