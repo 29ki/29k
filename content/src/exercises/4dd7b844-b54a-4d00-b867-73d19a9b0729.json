@@ -31,7 +31,10 @@
           {
             "text": "Do you think we could come up with more personal resources in the future? \n\nIf you ever feel unpleasant, do you think you could use one of your personal resources to help your body feel better?”"
           }
-        ]
+        ],
+        "content": {
+          "heading": "Understanding Resources"
+        }
       },
       {
         "type": "host",
