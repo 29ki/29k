@@ -283,7 +283,7 @@
     "theme": {
       "textColor": "#2E2E2E"
     },
-    "hidden": false,
+    "hidden": true,
     "name": "Ultrapassar os desafios",
     "live": true,
     "published": true,
