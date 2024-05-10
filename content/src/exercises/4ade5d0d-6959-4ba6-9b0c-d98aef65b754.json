@@ -5,7 +5,10 @@
         "type": "host",
         "hostNotes": [
           {
-            "text": "Welcome. I am Jimi and today we will work for around 20 minutes on resilience.\n\nWe’ll be exploring the concept of our resilient zone followed by time for reflection and sharing with each other.\n\n\n\nLet’s start with a mini check-in. How are you feeling right now? Please answer in two-three words. Now, would you like to start?\n\nLet everyone in the session, including yourself, check in one by one.\n\nThank you all for checking in. Let’s get started."
+            "text": "Welcome. I am X and today we will work for around 20 minutes on resilience.\n\nWe’ll be exploring the concept of our resilient zone followed by time for reflection and sharing with each other."
+          },
+          {
+            "text": "Let’s start with a mini check-in. How are you feeling right now? Please answer in two-three words. Now, would you like to start?\n\nLet everyone in the session, including yourself, check in one by one.\n\nThank you all for checking in. Let’s get started."
           }
         ]
       },
@@ -61,7 +64,7 @@
           "image": {
             "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1715194051/SEE/SEELearning_Logo_Apple_2022_iyrrnd.png"
           },
-          "heading": "Well Done."
+          "heading": "Well Done"
         }
       }
     ],
@@ -69,11 +72,11 @@
       "textColor": "#2E2E2E",
       "backgroundColor": "#f5f5f5"
     },
-    "hidden": true,
+    "hidden": false,
     "locked": true,
     "name": "The Resilient Zone",
     "live": true,
-    "published": false,
+    "published": true,
     "card": {
       "imageBackgroundColor": "#ffffff",
       "image": {
