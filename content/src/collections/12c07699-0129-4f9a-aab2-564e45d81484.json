@@ -1,7 +1,7 @@
 {
   "en": {
-    "hidden": true,
-    "locked": false,
+    "hidden": false,
+    "locked": true,
     "name": "Resilience SEE",
     "published": true,
     "sortOrder": 1,
@@ -25,7 +25,7 @@
   },
   "pt": {
     "hidden": false,
-    "locked": false,
+    "locked": true,
     "published": false,
     "sortOrder": 1,
     "card": {},
@@ -43,7 +43,7 @@
   },
   "sv": {
     "hidden": false,
-    "locked": false,
+    "locked": true,
     "published": false,
     "sortOrder": 1,
     "card": {},
@@ -61,7 +61,7 @@
   },
   "ja": {
     "hidden": false,
-    "locked": false,
+    "locked": true,
     "published": false,
     "sortOrder": 1,
     "card": {},
