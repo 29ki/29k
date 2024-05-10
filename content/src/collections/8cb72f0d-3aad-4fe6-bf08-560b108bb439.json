@@ -4,14 +4,14 @@
     "name": "Manage stress",
     "published": true,
     "sortOrder": 3,
-    "tags": [],
-    "link": "https://aware.29k.org/manage-stress-in-school",
-    "id": "8cb72f0d-3aad-4fe6-bf08-560b108bb439",
     "card": {
       "image": {
         "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1702310278/Images/manage_stress_oqdimy.png"
       }
     },
+    "tags": [],
+    "link": "https://aware.29k.org/manage-stress-in-school",
+    "id": "8cb72f0d-3aad-4fe6-bf08-560b108bb439",
     "exercises": [
       "1a53e633-6916-4fea-a072-977c4b215288",
       "f4f8a536-5683-40a3-a139-5e3031687cec",
@@ -19,7 +19,8 @@
       "2d096e25-3f0b-48da-8557-3db607b98ef8",
       "961656ea-021c-4faa-ae03-46d6ace4be4b",
       "0bcb6eb0-fdfe-466d-8603-ae6de15fcbc5",
-      "b18c1cff-bb43-44b1-81a1-2877cc018ab4"
+      "b18c1cff-bb43-44b1-81a1-2877cc018ab4",
+      "33a188a2-6871-47d6-a754-f5c246bd6b9a"
     ],
     "description": "Learn to tackle stressful situations, and take care of yourself in a sustainable way."
   },
@@ -35,7 +36,8 @@
       "2d096e25-3f0b-48da-8557-3db607b98ef8",
       "961656ea-021c-4faa-ae03-46d6ace4be4b",
       "0bcb6eb0-fdfe-466d-8603-ae6de15fcbc5",
-      "b18c1cff-bb43-44b1-81a1-2877cc018ab4"
+      "b18c1cff-bb43-44b1-81a1-2877cc018ab4",
+      "33a188a2-6871-47d6-a754-f5c246bd6b9a"
     ],
     "link": "https://aware.29k.org/manage-stress-in-school",
     "sortOrder": 3
@@ -45,14 +47,14 @@
     "name": "Hantera stressiga perioder",
     "published": true,
     "sortOrder": 3,
-    "tags": [],
-    "link": "https://aware.29k.org/manage-stress-in-school",
-    "id": "8cb72f0d-3aad-4fe6-bf08-560b108bb439",
     "card": {
       "image": {
         "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1683807355/Images/flowers_slijjk.png"
       }
     },
+    "tags": [],
+    "link": "https://aware.29k.org/manage-stress-in-school",
+    "id": "8cb72f0d-3aad-4fe6-bf08-560b108bb439",
     "exercises": [
       "1a53e633-6916-4fea-a072-977c4b215288",
       "f4f8a536-5683-40a3-a139-5e3031687cec",
@@ -60,7 +62,8 @@
       "2d096e25-3f0b-48da-8557-3db607b98ef8",
       "961656ea-021c-4faa-ae03-46d6ace4be4b",
       "0bcb6eb0-fdfe-466d-8603-ae6de15fcbc5",
-      "b18c1cff-bb43-44b1-81a1-2877cc018ab4"
+      "b18c1cff-bb43-44b1-81a1-2877cc018ab4",
+      "33a188a2-6871-47d6-a754-f5c246bd6b9a"
     ],
     "description": "Lär dig hantera stressiga situationer och samtidigt ta hand om dig själv."
   },
@@ -76,7 +79,8 @@
       "2d096e25-3f0b-48da-8557-3db607b98ef8",
       "961656ea-021c-4faa-ae03-46d6ace4be4b",
       "0bcb6eb0-fdfe-466d-8603-ae6de15fcbc5",
-      "b18c1cff-bb43-44b1-81a1-2877cc018ab4"
+      "b18c1cff-bb43-44b1-81a1-2877cc018ab4",
+      "33a188a2-6871-47d6-a754-f5c246bd6b9a"
     ],
     "link": "https://aware.29k.org/manage-stress-in-school",
     "sortOrder": 3
