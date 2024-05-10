@@ -1,59 +1,80 @@
 {
   "en": {
+    "hidden": true,
+    "locked": false,
+    "name": "Resilience SEE",
     "published": true,
-    "hidden": false,
-    "locked": true,
+    "sortOrder": 1,
+    "card": {
+      "image": {
+        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1715194051/SEE/SEELearning_Logo_Apple_2022_iyrrnd.png"
+      }
+    },
+    "tags": [
+      "8da0534a-5da9-430a-bdf3-242ace6460fb"
+    ],
+    "link": "https://aware.29k.org/see-resilience",
     "id": "12c07699-0129-4f9a-aab2-564e45d81484",
-    "name": "Resilience",
     "exercises": [
+      "0e663e57-e320-4ec2-b246-b0a9de3f4056",
       "3843d06f-1c38-47b9-ad9b-5a780f364186",
       "4ade5d0d-6959-4ba6-9b0c-d98aef65b754",
-      "4dd7b844-b54a-4d00-b867-73d19a9b0729",
-      "0e663e57-e320-4ec2-b246-b0a9de3f4056"
+      "4dd7b844-b54a-4d00-b867-73d19a9b0729"
     ],
-    "sortOrder": 1,
-    "link": "https://aware.29k.org/see-resilience"
+    "description": "Grounding, Help now, Resources, The resilient zone."
   },
   "pt": {
-    "published": false,
     "hidden": false,
-    "locked": true,
+    "locked": false,
+    "published": false,
+    "sortOrder": 1,
+    "card": {},
+    "tags": [
+      "8da0534a-5da9-430a-bdf3-242ace6460fb"
+    ],
+    "link": "https://aware.29k.org/see-resilience",
     "id": "12c07699-0129-4f9a-aab2-564e45d81484",
     "exercises": [
+      "0e663e57-e320-4ec2-b246-b0a9de3f4056",
       "3843d06f-1c38-47b9-ad9b-5a780f364186",
       "4ade5d0d-6959-4ba6-9b0c-d98aef65b754",
-      "4dd7b844-b54a-4d00-b867-73d19a9b0729",
-      "0e663e57-e320-4ec2-b246-b0a9de3f4056"
-    ],
-    "sortOrder": 1,
-    "link": "https://aware.29k.org/see-resilience"
+      "4dd7b844-b54a-4d00-b867-73d19a9b0729"
+    ]
   },
   "sv": {
-    "published": false,
     "hidden": false,
-    "locked": true,
+    "locked": false,
+    "published": false,
+    "sortOrder": 1,
+    "card": {},
+    "tags": [
+      "8da0534a-5da9-430a-bdf3-242ace6460fb"
+    ],
+    "link": "https://aware.29k.org/see-resilience",
     "id": "12c07699-0129-4f9a-aab2-564e45d81484",
     "exercises": [
+      "0e663e57-e320-4ec2-b246-b0a9de3f4056",
       "3843d06f-1c38-47b9-ad9b-5a780f364186",
       "4ade5d0d-6959-4ba6-9b0c-d98aef65b754",
-      "4dd7b844-b54a-4d00-b867-73d19a9b0729",
-      "0e663e57-e320-4ec2-b246-b0a9de3f4056"
-    ],
-    "sortOrder": 1,
-    "link": "https://aware.29k.org/see-resilience"
+      "4dd7b844-b54a-4d00-b867-73d19a9b0729"
+    ]
   },
   "ja": {
-    "published": false,
     "hidden": false,
-    "locked": true,
+    "locked": false,
+    "published": false,
+    "sortOrder": 1,
+    "card": {},
+    "tags": [
+      "8da0534a-5da9-430a-bdf3-242ace6460fb"
+    ],
+    "link": "https://aware.29k.org/see-resilience",
     "id": "12c07699-0129-4f9a-aab2-564e45d81484",
     "exercises": [
+      "0e663e57-e320-4ec2-b246-b0a9de3f4056",
       "3843d06f-1c38-47b9-ad9b-5a780f364186",
       "4ade5d0d-6959-4ba6-9b0c-d98aef65b754",
-      "4dd7b844-b54a-4d00-b867-73d19a9b0729",
-      "0e663e57-e320-4ec2-b246-b0a9de3f4056"
-    ],
-    "sortOrder": 1,
-    "link": "https://aware.29k.org/see-resilience"
+      "4dd7b844-b54a-4d00-b867-73d19a9b0729"
+    ]
   }
 }
