@@ -1,0 +1,55 @@
+{
+  "en": {
+    "published": true,
+    "hidden": false,
+    "locked": true,
+    "id": "12c07699-0129-4f9a-aab2-564e45d81484",
+    "name": "Resilience",
+    "exercises": [
+      "3843d06f-1c38-47b9-ad9b-5a780f364186",
+      "4ade5d0d-6959-4ba6-9b0c-d98aef65b754",
+      "4dd7b844-b54a-4d00-b867-73d19a9b0729",
+      "0e663e57-e320-4ec2-b246-b0a9de3f4056"
+    ],
+    "sortOrder": 1
+  },
+  "pt": {
+    "published": false,
+    "hidden": false,
+    "locked": true,
+    "id": "12c07699-0129-4f9a-aab2-564e45d81484",
+    "exercises": [
+      "3843d06f-1c38-47b9-ad9b-5a780f364186",
+      "4ade5d0d-6959-4ba6-9b0c-d98aef65b754",
+      "4dd7b844-b54a-4d00-b867-73d19a9b0729",
+      "0e663e57-e320-4ec2-b246-b0a9de3f4056"
+    ],
+    "sortOrder": 1
+  },
+  "sv": {
+    "published": false,
+    "hidden": false,
+    "locked": true,
+    "id": "12c07699-0129-4f9a-aab2-564e45d81484",
+    "exercises": [
+      "3843d06f-1c38-47b9-ad9b-5a780f364186",
+      "4ade5d0d-6959-4ba6-9b0c-d98aef65b754",
+      "4dd7b844-b54a-4d00-b867-73d19a9b0729",
+      "0e663e57-e320-4ec2-b246-b0a9de3f4056"
+    ],
+    "sortOrder": 1
+  },
+  "ja": {
+    "published": false,
+    "hidden": false,
+    "locked": true,
+    "id": "12c07699-0129-4f9a-aab2-564e45d81484",
+    "exercises": [
+      "3843d06f-1c38-47b9-ad9b-5a780f364186",
+      "4ade5d0d-6959-4ba6-9b0c-d98aef65b754",
+      "4dd7b844-b54a-4d00-b867-73d19a9b0729",
+      "0e663e57-e320-4ec2-b246-b0a9de3f4056"
+    ],
+    "sortOrder": 1
+  }
+}
