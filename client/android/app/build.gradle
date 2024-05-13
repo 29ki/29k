@@ -82,7 +82,7 @@ android {
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 194
-        versionName "2.53.1"
+        versionName "2.53.2"
     }
     signingConfigs {
         debug {
