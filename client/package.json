@@ -50,7 +50,7 @@
     "debug": "^4.3.4",
     "eslint": "^8.57.0",
     "hex-to-rgba": "^2.0.1",
-    "i18next": "^23.10.0",
+    "i18next": "^23.11.4",
     "intl-pluralrules": "^2.0.1",
     "lodash.throttle": "^4.1.1",
     "lottie-react-native": "^6.7.2",
