@@ -74,6 +74,9 @@
 		3690D88E2865064200A0F937 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3690D88D2865064200A0F937 /* Images.xcassets */; };
 		3690D88F2865069800A0F937 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3690D88D2865064200A0F937 /* Images.xcassets */; };
 		3690D8902865069900A0F937 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3690D88D2865064200A0F937 /* Images.xcassets */; };
+		369FE7EA2BCE2DD400DDF580 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 369FE7E92BCE2DD400DDF580 /* PrivacyInfo.xcprivacy */; };
+		369FE7EB2BCE2DD400DDF580 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 369FE7E92BCE2DD400DDF580 /* PrivacyInfo.xcprivacy */; };
+		369FE7EC2BCE2DD400DDF580 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 369FE7E92BCE2DD400DDF580 /* PrivacyInfo.xcprivacy */; };
 		36A3687729E69FFD00B8E859 /* thumbs_up_silouette.png in Resources */ = {isa = PBXBuildFile; fileRef = 607182B0D44E4F54BA0D394B /* thumbs_up_silouette.png */; };
 		36A3687929E69FFE00B8E859 /* thumbs_up_silouette.png in Resources */ = {isa = PBXBuildFile; fileRef = 607182B0D44E4F54BA0D394B /* thumbs_up_silouette.png */; };
 		36B9FA1028625FFA00563812 /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.mm */; };
@@ -191,6 +194,7 @@
 		35E0C7EB316048939A75C305 /* PlayfairDisplay-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "PlayfairDisplay-Regular.ttf"; path = "../src/assets/fonts/PlayfairDisplay-Regular.ttf"; sourceTree = "<group>"; };
 		367D65242BA9B4D5009270C3 /* InfoPlist.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = InfoPlist.xcstrings; sourceTree = "<group>"; };
 		3690D88D2865064200A0F937 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = twentyninek/Images.xcassets; sourceTree = "<group>"; };
+		369FE7E92BCE2DD400DDF580 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		36ADA2EE28FF3F04003294E1 /* production.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = production.entitlements; sourceTree = "<group>"; };
 		36ADA2EF28FF3F07003294E1 /* staging.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = staging.entitlements; sourceTree = "<group>"; };
 		36ADA2F028FF3F0A003294E1 /* dev.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = dev.entitlements; sourceTree = "<group>"; };
@@ -371,6 +375,7 @@
 		7880A524286203500063B482 /* Supporting */ = {
 			isa = PBXGroup;
 			children = (
+				369FE7E92BCE2DD400DDF580 /* PrivacyInfo.xcprivacy */,
 				7880A52A286204B90063B482 /* Info.plist */,
 				36B9FA212862604700563812 /* dev */,
 				7880A526286203660063B482 /* staging */,
@@ -568,6 +573,7 @@
 				4858360232814D29A1F6513D /* HKGrotesk-Black.ttf in Resources */,
 				389B54A26CD447569B799C13 /* HKGrotesk-BlackItalic.ttf in Resources */,
 				6CCB426AB87A49E596107039 /* HKGrotesk-Bold.ttf in Resources */,
+				369FE7EA2BCE2DD400DDF580 /* PrivacyInfo.xcprivacy in Resources */,
 				1CADA6E67B504D9EA69F73FA /* HKGrotesk-BoldItalic.ttf in Resources */,
 				A004DA0332A84139837B70E3 /* HKGrotesk-ExtraBold.ttf in Resources */,
 				A0396F9773F344FE8F381035 /* HKGrotesk-ExtraBoldItalic.ttf in Resources */,
@@ -638,6 +644,7 @@
 				36D3CDC32B8369EE00F38B66 /* thumbs_down.png in Resources */,
 				36C49FF328D8AA11001878A6 /* HKGrotesk-ExtraBoldItalic.ttf in Resources */,
 				3690D8902865069900A0F937 /* Images.xcassets in Resources */,
+				369FE7EC2BCE2DD400DDF580 /* PrivacyInfo.xcprivacy in Resources */,
 				36051E3E2B4C5E24005EEF89 /* emoji_smiling.png in Resources */,
 				36A3687929E69FFE00B8E859 /* thumbs_up_silouette.png in Resources */,
 				36303A1C28D9B0910025F147 /* PlayfairDisplay-SemiBoldItalic.ttf in Resources */,
@@ -693,6 +700,7 @@
 				36D3CDC22B8369ED00F38B66 /* thumbs_down.png in Resources */,
 				36C49FE128D8AA11001878A6 /* HKGrotesk-ExtraBoldItalic.ttf in Resources */,
 				7880A5192862029F0063B482 /* LaunchScreen.storyboard in Resources */,
+				369FE7EB2BCE2DD400DDF580 /* PrivacyInfo.xcprivacy in Resources */,
 				36051E3B2B4C5E23005EEF89 /* emoji_smiling.png in Resources */,
 				36A3687729E69FFD00B8E859 /* thumbs_up_silouette.png in Resources */,
 				36303A1028D9B0910025F147 /* PlayfairDisplay-SemiBoldItalic.ttf in Resources */,
@@ -1358,8 +1366,6 @@
 					"$(inherited)",
 					"-ObjC",
 					"-lc++",
-					"-Wl",
-					"-ld_classic",
 				);
 				REACT_NATIVE_PATH = "${PODS_ROOT}/../../node_modules/react-native";
 				SDKROOT = iphoneos;
@@ -1442,8 +1448,6 @@
 					"$(inherited)",
 					"-ObjC",
 					"-lc++",
-					"-Wl",
-					"-ld_classic",
 				);
 				REACT_NATIVE_PATH = "${PODS_ROOT}/../../node_modules/react-native";
 				SDKROOT = iphoneos;
