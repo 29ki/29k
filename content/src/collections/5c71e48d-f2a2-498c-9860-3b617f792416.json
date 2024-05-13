@@ -1,0 +1,78 @@
+{
+  "en": {
+    "published": true,
+    "hidden": true,
+    "locked": false,
+    "id": "5c71e48d-f2a2-498c-9860-3b617f792416",
+    "name": "Part I - Discover yourself",
+    "description": "Practice looking inside and being with what shows up. This block is about looking in the rear view mirror to help us see what brought us here, daring to face the things we try to hide, and also testing out treating ourselves with kindness and building a foundation for who we want to be.",
+    "tags": [
+      "8da0534a-5da9-430a-bdf3-242ace6460fb",
+      "9c2c08a9-7dc6-4058-bc78-016d0eb00614",
+      "566aeb1b-1649-4f5a-96a2-0c80be27efc0",
+      "cfc00217-f65b-4a4d-8b82-8ccc8f852dd6"
+    ],
+    "exercises": [
+      "095f9642-73b6-4c9a-ae9a-ea7dea7363f5",
+      "a0600ebe-748d-481c-81af-dab25fa32b76",
+      "5b0dea9f-c665-41ce-a779-601d0cfa433d",
+      "c1c4da35-87af-4e10-a8d9-e6c58571f724"
+    ]
+  },
+  "pt": {
+    "published": false,
+    "hidden": false,
+    "locked": false,
+    "id": "5c71e48d-f2a2-498c-9860-3b617f792416",
+    "tags": [
+      "8da0534a-5da9-430a-bdf3-242ace6460fb",
+      "9c2c08a9-7dc6-4058-bc78-016d0eb00614",
+      "566aeb1b-1649-4f5a-96a2-0c80be27efc0",
+      "cfc00217-f65b-4a4d-8b82-8ccc8f852dd6"
+    ],
+    "exercises": [
+      "095f9642-73b6-4c9a-ae9a-ea7dea7363f5",
+      "a0600ebe-748d-481c-81af-dab25fa32b76",
+      "5b0dea9f-c665-41ce-a779-601d0cfa433d",
+      "c1c4da35-87af-4e10-a8d9-e6c58571f724"
+    ]
+  },
+  "sv": {
+    "published": true,
+    "hidden": true,
+    "locked": false,
+    "id": "5c71e48d-f2a2-498c-9860-3b617f792416",
+    "tags": [
+      "8da0534a-5da9-430a-bdf3-242ace6460fb",
+      "9c2c08a9-7dc6-4058-bc78-016d0eb00614",
+      "566aeb1b-1649-4f5a-96a2-0c80be27efc0",
+      "cfc00217-f65b-4a4d-8b82-8ccc8f852dd6"
+    ],
+    "exercises": [
+      "095f9642-73b6-4c9a-ae9a-ea7dea7363f5",
+      "a0600ebe-748d-481c-81af-dab25fa32b76",
+      "5b0dea9f-c665-41ce-a779-601d0cfa433d",
+      "c1c4da35-87af-4e10-a8d9-e6c58571f724"
+    ],
+    "name": "Del 1 - Utforska dig själv",
+    "description": "Öva på att titta inåt och vara närvarande med det som kommer upp. Det här handlar om att titta i backspegeln för att se vad som har fört oss hit, att våga möta de saker vi försöker dölja, samt att testa att behandla oss själva med vänlighet och bygga en grund för den person vi vill vara."
+  },
+  "ja": {
+    "published": false,
+    "hidden": false,
+    "locked": false,
+    "id": "5c71e48d-f2a2-498c-9860-3b617f792416",
+    "tags": [
+      "8da0534a-5da9-430a-bdf3-242ace6460fb",
+      "9c2c08a9-7dc6-4058-bc78-016d0eb00614",
+      "566aeb1b-1649-4f5a-96a2-0c80be27efc0",
+      "cfc00217-f65b-4a4d-8b82-8ccc8f852dd6"
+    ],
+    "exercises": [
+      "095f9642-73b6-4c9a-ae9a-ea7dea7363f5",
+      "a0600ebe-748d-481c-81af-dab25fa32b76",
+      "5b0dea9f-c665-41ce-a779-601d0cfa433d",
+      "c1c4da35-87af-4e10-a8d9-e6c58571f724"
+    ]
+  }
+}
