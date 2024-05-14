@@ -1,7 +1,7 @@
 {
   "en": {
     "hidden": true,
-    "locked": false,
+    "locked": true,
     "name": "Part I - Discover yourself",
     "published": true,
     "card": {
@@ -15,6 +15,7 @@
       "566aeb1b-1649-4f5a-96a2-0c80be27efc0",
       "cfc00217-f65b-4a4d-8b82-8ccc8f852dd6"
     ],
+    "link": "https://aware.29k.org/Part1-DiscoverYourself",
     "id": "5c71e48d-f2a2-498c-9860-3b617f792416",
     "exercises": [
       "095f9642-73b6-4c9a-ae9a-ea7dea7363f5",
@@ -27,7 +28,7 @@
   "pt": {
     "published": false,
     "hidden": false,
-    "locked": false,
+    "locked": true,
     "id": "5c71e48d-f2a2-498c-9860-3b617f792416",
     "tags": [
       "8da0534a-5da9-430a-bdf3-242ace6460fb",
@@ -41,11 +42,12 @@
       "5b0dea9f-c665-41ce-a779-601d0cfa433d",
       "c1c4da35-87af-4e10-a8d9-e6c58571f724"
     ],
-    "card": {}
+    "card": {},
+    "link": "https://aware.29k.org/Part1-DiscoverYourself"
   },
   "sv": {
     "hidden": true,
-    "locked": false,
+    "locked": true,
     "name": "Del 1 - Utforska dig själv",
     "published": true,
     "card": {
@@ -59,6 +61,7 @@
       "566aeb1b-1649-4f5a-96a2-0c80be27efc0",
       "cfc00217-f65b-4a4d-8b82-8ccc8f852dd6"
     ],
+    "link": "https://aware.29k.org/Part1-DiscoverYourself",
     "id": "5c71e48d-f2a2-498c-9860-3b617f792416",
     "exercises": [
       "095f9642-73b6-4c9a-ae9a-ea7dea7363f5",
@@ -71,7 +74,7 @@
   "ja": {
     "published": false,
     "hidden": false,
-    "locked": false,
+    "locked": true,
     "id": "5c71e48d-f2a2-498c-9860-3b617f792416",
     "tags": [
       "8da0534a-5da9-430a-bdf3-242ace6460fb",
@@ -85,6 +88,7 @@
       "5b0dea9f-c665-41ce-a779-601d0cfa433d",
       "c1c4da35-87af-4e10-a8d9-e6c58571f724"
     ],
-    "card": {}
+    "card": {},
+    "link": "https://aware.29k.org/Part1-DiscoverYourself"
   }
 }
