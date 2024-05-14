@@ -242,7 +242,7 @@
           }
         ],
         "content": {
-          "heading": "What would be different if you moved through difficulties?",
+          "heading": "O que seria diferente se enfrentasses as dificuldades?",
           "lottie": {
             "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1676639253/Lottie/default_2min_black_o6egey.json",
             "durationTimer": true,
@@ -255,13 +255,13 @@
         "type": "host",
         "hostNotes": [
           {
-            "text": "Well done.\n\nWe’ve just practised moving through difficulties instead of trying to avoid them. This technique can help us live more in line with our values and lead more meaningful lives."
+            "text": "Muito bem.\n\nAcabamos de praticar enfrentar as dificuldades em vez de as evitar. Esta técnica pode ajudar-nos a viver mais de acordo com os nossos valores e a ter vidas com mais significado."
           },
           {
-            "text": "Before we leave this space let’s do a mini check-out.\n\nWhat can you bring from this for the rest of your day? Please answer in two-three words."
+            "text": "Antes de deixarmos este espaço, façamos um mini check-out.\n\nO que podes levar daqui para o resto do teu dia? Por favor, responde em duas ou três palavras."
           },
           {
-            "text": "Who would like to start?\n\n> Let everyone in the session check out one by one.\n\nThank you all for checking out and for joining this session today.\n\n> Finish session to send everyone off to the exit experience."
+            "text": "Quem gostaria de começar?\n\n> Deixa que cada um faça o seu check-out individualmente. \n\nObrigada/o a todos por participarem e por se juntarem a esta sessão hoje.\n\n> Termina a sessão para que todos possam seguir para a experiência de saída."
           }
         ],
         "video": {
@@ -272,8 +272,8 @@
       {
         "type": "instruction",
         "content": {
-          "heading": "Well done",
-          "text": "We’ve just practised moving through difficulties instead of trying to avoid them. This technique can help us live more in line with our values and lead more meaningful lives.",
+          "heading": "Parabéns",
+          "text": "Acabamos de praticar enfrentar as dificuldades em vez de as evitar. Esta técnica pode ajudar-nos a viver mais de acordo com os nossos valores e a ter vidas com mais significado.",
           "image": {
             "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1687406076/Images/card_image_way_out_is_through_qjpv4m.png"
           }
