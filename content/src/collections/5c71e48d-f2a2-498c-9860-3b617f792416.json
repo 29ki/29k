@@ -1,7 +1,7 @@
 {
   "en": {
     "hidden": true,
-    "locked": false,
+    "locked": true,
     "name": "Part I - Discover yourself",
     "published": true,
     "card": {
@@ -27,7 +27,7 @@
   "pt": {
     "published": false,
     "hidden": false,
-    "locked": false,
+    "locked": true,
     "id": "5c71e48d-f2a2-498c-9860-3b617f792416",
     "tags": [
       "8da0534a-5da9-430a-bdf3-242ace6460fb",
@@ -45,7 +45,7 @@
   },
   "sv": {
     "hidden": true,
-    "locked": false,
+    "locked": true,
     "name": "Del 1 - Utforska dig själv",
     "published": true,
     "card": {
@@ -71,7 +71,7 @@
   "ja": {
     "published": false,
     "hidden": false,
-    "locked": false,
+    "locked": true,
     "id": "5c71e48d-f2a2-498c-9860-3b617f792416",
     "tags": [
       "8da0534a-5da9-430a-bdf3-242ace6460fb",
