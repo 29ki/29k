@@ -17,21 +17,49 @@
         "hostNotes": [],
         "content": {
           "lottie": {
-            "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1715195078/SEE/Mind_Jar_regffk.srt",
-            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1715195090/SEE/Mind_Jar_kpthpe.mp3",
-            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto/v1715197366/SEE/Awareness1_ailznq.json"
+            "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1715752248/SEE/SRT/Awareness/Mind_Jar_1_kqgt7u.srt",
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1715195090/SEE/Audio/Awareness/Mind_Jar_kpthpe.mp3",
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1715663489/SEE/Lottie/Awareness/Awareness4_xwwr2o.json"
           }
         }
       },
       {
-        "type": "reflection",
-        "hostNotes": [
-          {
-            "text": "“What did you notice – in your mind or in your body - as you watched the jar settle? \n\nWho had a strategy or a way that helped you stay focused on the Mind Jar? Could you share it with the group? \n\nDo you think it helps us if our minds are calmer and more settled? What does it help us do?”"
-          }
-        ],
+        "type": "sharing",
+        "id": "sharing 1",
         "content": {
-          "heading": "Focusing on the Mind Jar"
+          "video": {
+            "durationTimer": true
+          },
+          "lottie": {
+            "durationTimer": true
+          },
+          "text": "“What did you notice – in your mind or in your body - as you watched the jar settle? "
+        }
+      },
+      {
+        "type": "sharing",
+        "id": "sharing 2",
+        "content": {
+          "video": {
+            "durationTimer": true
+          },
+          "lottie": {
+            "durationTimer": true
+          },
+          "text": "Who had a strategy or a way that helped you stay focused on the Mind Jar? Could you share it with the group? "
+        }
+      },
+      {
+        "type": "sharing",
+        "id": "sharing 3",
+        "content": {
+          "video": {
+            "durationTimer": true
+          },
+          "lottie": {
+            "durationTimer": true
+          },
+          "text": "Do you think it helps us if our minds are calmer and more settled? What does it help us do?”"
         }
       },
       {
