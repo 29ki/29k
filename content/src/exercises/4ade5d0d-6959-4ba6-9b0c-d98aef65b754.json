@@ -112,7 +112,7 @@
     "live": true,
     "published": true,
     "card": {
-      "imageBackgroundColor": "#ffffff",
+      "imageBackgroundColor": "",
       "image": {
         "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1715187102/SEE/Icons/Resilience/ResilientZone_CardImage_gem1py.png"
       }
@@ -227,7 +227,7 @@
     "live": true,
     "published": false,
     "card": {
-      "imageBackgroundColor": "#ffffff"
+      "imageBackgroundColor": ""
     },
     "duration": 20,
     "introPortal": {
@@ -320,7 +320,7 @@
     "live": true,
     "published": false,
     "card": {
-      "imageBackgroundColor": "#ffffff"
+      "imageBackgroundColor": ""
     },
     "duration": 20,
     "introPortal": {
@@ -413,7 +413,7 @@
     "live": true,
     "published": false,
     "card": {
-      "imageBackgroundColor": "#ffffff"
+      "imageBackgroundColor": ""
     },
     "duration": 20,
     "introPortal": {
