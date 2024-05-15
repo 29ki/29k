@@ -17,9 +17,9 @@
         "hostNotes": [],
         "content": {
           "lottie": {
-            "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1713881004/SEE/HelpNow_uw7wly.srt",
-            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1713881007/SEE/HelpNow_ma2psp.mp3",
-            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto/v1715197286/SEE/15DRejE8Qk_hgvvug.json"
+            "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1715752046/SEE/SRT/Resilence/HelpNow_l5zftv.srt",
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1713881007/SEE/Audio/Resilience/HelpNow_ma2psp.mp3",
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto/v1715663472/SEE/Lottie/Resiliance/15DRejE8Qk_hihnda.json"
           },
           "image": {
             "source": ""
@@ -31,14 +31,55 @@
         }
       },
       {
-        "type": "reflection",
-        "hostNotes": [
-          {
-            "text": "What are some things you learned today about sensations? \n\nWhat are some words that describe sensations? \n\nHow can knowing a little more about the idea of sensations help us be happier and kinder?\n\nWhen do you think it might be useful to use one of these Help Now! activities?"
-          }
-        ],
+        "type": "sharing",
+        "id": "sharing 1",
         "content": {
-          "heading": "Talking About Sensations"
+          "video": {
+            "durationTimer": true
+          },
+          "lottie": {
+            "durationTimer": true
+          },
+          "text": "What are some things you learned today about sensations? "
+        }
+      },
+      {
+        "type": "sharing",
+        "id": "sharing 2",
+        "content": {
+          "video": {
+            "durationTimer": true
+          },
+          "lottie": {
+            "durationTimer": true
+          },
+          "text": "What are some words that describe sensations? "
+        }
+      },
+      {
+        "type": "sharing",
+        "id": "sharing 3",
+        "content": {
+          "video": {
+            "durationTimer": true
+          },
+          "lottie": {
+            "durationTimer": true
+          },
+          "text": "How can knowing a little more about the idea of sensations help us be happier and kinder?"
+        }
+      },
+      {
+        "type": "sharing",
+        "id": "sharing 4",
+        "content": {
+          "video": {
+            "durationTimer": true
+          },
+          "lottie": {
+            "durationTimer": true
+          },
+          "text": "When do you think it might be useful to use one of these Help Now! activities?"
         }
       },
       {
@@ -71,7 +112,7 @@
     "published": true,
     "card": {
       "image": {
-        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1715187099/SEE/HelpNow_CardImage_she1tr.png"
+        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1715187099/SEE/Icons/Resilience/HelpNow_CardImage_she1tr.png"
       }
     },
     "coCreators": [
@@ -84,7 +125,7 @@
     "duration": 20,
     "outroPortal": {
       "video": {
-        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1715196344/SEE/SEELearning_Aware_Resilience_IntroVideo_yq7iag.mp4"
+        "source": ""
       }
     },
     "introPortal": {
@@ -98,7 +139,7 @@
         "p5JsScript": {
           "lang": "javascript"
         },
-        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1715196344/SEE/SEELearning_Aware_Resilience_IntroVideo_yq7iag.mp4"
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1715662633/SEE/Video/SEELearning_AwareApp_IntroVideo_2024_cljrvr.mp4"
       }
     },
     "tags": [
