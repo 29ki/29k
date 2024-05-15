@@ -24,14 +24,42 @@
         }
       },
       {
-        "type": "reflection",
-        "hostNotes": [
-          {
-            "text": "What have you learned about the mind that you find most interesting or most helpful? \n\nHow might it help us if we learned to watch our minds? \n\nDo you think you could spend a moment watching your own mind sometime in the next few days and share what you notice?"
-          }
-        ],
+        "type": "sharing",
+        "id": "sharing 1",
         "content": {
-          "heading": "Observing the mind"
+          "video": {
+            "durationTimer": true
+          },
+          "lottie": {
+            "durationTimer": true
+          },
+          "text": "What have you learned about the mind that you find most interesting or most helpful? "
+        }
+      },
+      {
+        "type": "sharing",
+        "id": "sharing 2",
+        "content": {
+          "video": {
+            "durationTimer": true
+          },
+          "lottie": {
+            "durationTimer": true
+          },
+          "text": "How might it help us if we learned to watch our minds? "
+        }
+      },
+      {
+        "type": "sharing",
+        "id": "sharing 3",
+        "content": {
+          "video": {
+            "durationTimer": true
+          },
+          "lottie": {
+            "durationTimer": true
+          },
+          "text": "Do you think you could spend a moment watching your own mind sometime in the next few days and share what you notice?"
         }
       },
       {
@@ -70,7 +98,7 @@
     "published": false,
     "card": {
       "image": {
-        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1715194852/SEE/ObservingTheMind_CardImage_sm7nn9.png"
+        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1715194852/SEE/Icons/Awareness/ObservingTheMind_CardImage_sm7nn9.png"
       }
     },
     "coCreators": [
