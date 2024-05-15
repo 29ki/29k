@@ -21,20 +21,68 @@
         }
       },
       {
-        "type": "reflection",
-        "hostNotes": [
-          {
-            "text": "What did we discover about personal resources and sensations? \n\nWhat kinds of sensations came when we looked at our personal resources? \n\nWhere in our bodies did we feel those sensations?"
-          },
-          {
-            "text": "Do you think we could come up with more personal resources in the future? \n\nIf you ever feel unpleasant, do you think you could use one of your personal resources to help your body feel better?”"
-          }
-        ],
+        "type": "sharing",
+        "id": "sharing 1",
         "content": {
-          "heading": "Resources",
-          "image": {
-            "source": ""
-          }
+          "video": {
+            "durationTimer": true
+          },
+          "lottie": {
+            "durationTimer": true
+          },
+          "text": "What did we discover about personal resources and sensations? "
+        }
+      },
+      {
+        "type": "sharing",
+        "id": "sharing 2",
+        "content": {
+          "video": {
+            "durationTimer": true
+          },
+          "lottie": {
+            "durationTimer": true
+          },
+          "text": "What kinds of sensations came when we looked at our personal resources? "
+        }
+      },
+      {
+        "type": "sharing",
+        "id": "sharing 3",
+        "content": {
+          "video": {
+            "durationTimer": true
+          },
+          "lottie": {
+            "durationTimer": true
+          },
+          "text": "Where in our bodies did we feel those sensations?"
+        }
+      },
+      {
+        "type": "sharing",
+        "id": "sharing 4",
+        "content": {
+          "video": {
+            "durationTimer": true
+          },
+          "lottie": {
+            "durationTimer": true
+          },
+          "text": "Do you think we could come up with more personal resources in the future? "
+        }
+      },
+      {
+        "type": "sharing",
+        "id": "sharing 5",
+        "content": {
+          "video": {
+            "durationTimer": true
+          },
+          "lottie": {
+            "durationTimer": true
+          },
+          "text": "If you ever feel unpleasant, do you think you could use one of your personal resources to help your body feel better?”"
         }
       },
       {
@@ -67,7 +115,7 @@
     "published": true,
     "card": {
       "image": {
-        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1715187105/SEE/Resourcing_CardImage_m6fy1w.png"
+        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1715187105/SEE/Icons/Resilience/Resourcing_CardImage_m6fy1w.png"
       },
       "imageBackgroundColor": ""
     },
@@ -81,7 +129,7 @@
     "duration": 20,
     "outroPortal": {
       "video": {
-        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1715196344/SEE/SEELearning_Aware_Resilience_IntroVideo_yq7iag.mp4"
+        "source": ""
       }
     },
     "introPortal": {
@@ -95,7 +143,7 @@
         "p5JsScript": {
           "lang": "javascript"
         },
-        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1715196344/SEE/SEELearning_Aware_Resilience_IntroVideo_yq7iag.mp4"
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1715662633/SEE/Video/SEELearning_AwareApp_IntroVideo_2024_cljrvr.mp4"
       }
     },
     "tags": [
