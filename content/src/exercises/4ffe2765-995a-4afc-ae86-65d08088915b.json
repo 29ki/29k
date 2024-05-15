@@ -5,7 +5,7 @@
         "type": "host",
         "hostNotes": [
           {
-            "text": "Welcome. I am Jimi and today we will work for around 20 minutes on attention and awareness.\n\nWe’ll be exploring the how to cultivate greater attention and awareness by paying attention to our breath."
+            "text": "Welcome. I am xx and today we will work for around 20 minutes on attention and awareness.\n\nWe’ll be exploring the how to cultivate greater attention and awareness by paying attention to our breath."
           },
           {
             "text": "Let’s start with a mini check-in. How are you feeling right now? Please answer in two-three words. Now, would you like to start?\n\nLet everyone in the session, including yourself, check in one by one.\n\nThank you all for checking in. Let’s get started."
@@ -21,21 +21,62 @@
         ],
         "content": {
           "lottie": {
-            "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1715198368/SEE/Breathing_zszaid.srt",
-            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1715198361/SEE/Breathing_x7iroz.mp3",
-            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1715197371/SEE/Awareness2_mv6sqr.json"
+            "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1715752244/SEE/SRT/Awareness/Breathing_1_z20wcp.srt",
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1715198361/SEE/Audio/Awareness/Breathing_x7iroz.mp3",
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto/v1715663487/SEE/Lottie/Awareness/Awareness3_ecxtbr.json"
           }
         }
       },
       {
-        "type": "reflection",
-        "hostNotes": [
-          {
-            "text": "How was that experience for you?\n\nHow easy or difficult was it for you to keep your attention on the breath with mindfulness?\n\nWere you able to use awareness to bring your mind back when you got distracted or sleepy? \n\nWhat sensations do you notice in your body now?"
-          }
-        ],
+        "type": "sharing",
+        "id": "sharing 1",
         "content": {
-          "heading": "Attention to Breath"
+          "video": {
+            "durationTimer": true
+          },
+          "lottie": {
+            "durationTimer": true
+          },
+          "text": "How was that experience for you?"
+        }
+      },
+      {
+        "type": "sharing",
+        "id": "sharing 2",
+        "content": {
+          "video": {
+            "durationTimer": true
+          },
+          "lottie": {
+            "durationTimer": true
+          },
+          "text": "How easy or difficult was it for you to keep your attention on the breath with mindfulness?"
+        }
+      },
+      {
+        "type": "sharing",
+        "id": "sharing 3",
+        "content": {
+          "video": {
+            "durationTimer": true
+          },
+          "lottie": {
+            "durationTimer": true
+          },
+          "text": "Were you able to use awareness to bring your mind back when you got distracted or sleepy? "
+        }
+      },
+      {
+        "type": "sharing",
+        "id": "sharing 4",
+        "content": {
+          "video": {
+            "durationTimer": true
+          },
+          "lottie": {
+            "durationTimer": true
+          },
+          "text": "What sensations do you notice in your body now?"
         }
       },
       {
@@ -74,7 +115,7 @@
     "published": false,
     "card": {
       "image": {
-        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1715194844/SEE/AttentiontoBreathing_CardImage_otoh1t.png"
+        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1715194844/SEE/Icons/Awareness/AttentiontoBreathing_CardImage_otoh1t.png"
       }
     },
     "coCreators": [
@@ -87,7 +128,7 @@
     "duration": 10,
     "outroPortal": {
       "video": {
-        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1715196246/SEE/SEELearning_Aware_Awareness_IntroVideo_li7fjm.mp4"
+        "source": ""
       }
     },
     "introPortal": {
@@ -101,7 +142,7 @@
         "p5JsScript": {
           "lang": "javascript"
         },
-        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1715196246/SEE/SEELearning_Aware_Awareness_IntroVideo_li7fjm.mp4"
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1715662633/SEE/Video/SEELearning_AwareApp_IntroVideo_2024_cljrvr.mp4"
       }
     },
     "tags": [
