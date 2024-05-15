@@ -19,7 +19,7 @@
           "lottie": {
             "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1713881009/SEE/Resllient_Zone_mpz5wo.mp3",
             "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1713881134/SEE/Resllient_Zone_cwmfac.srt",
-            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1715191495/SEE/W1quN6g2zk_upqpv6.json"
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto/v1715663477/SEE/Lottie/Resiliance/W1quN6g2zk_trdnmj.json"
           },
           "text": "",
           "video": {
@@ -32,30 +32,64 @@
         }
       },
       {
-        "type": "reflection",
-        "hostNotes": [
-          {
-            "text": "How do you think we’d know if someone else was in their high zone? \n\nWhat about their low zone?"
-          },
-          {
-            "text": "What do you think are other words we could use to explain to someone what resilient means? \n\nDo you think most people have been stuck in the high zone some time? What about the low zone?"
-          }
-        ],
-        "content": {
-          "text": "",
-          "image": {
-            "source": ""
-          },
-          "heading": "The Resilient Zone"
-        }
-      },
-      {
         "type": "host",
         "hostNotes": [
           {
             "text": "Try to be aware of when you are feeling yourself at different points in your resilient zone and when you night enter your high and low zone. Try to increase your awareness of your internal regulation and how it presents itself in your mind and body."
           }
         ]
+      },
+      {
+        "type": "sharing",
+        "id": "sharing 1",
+        "content": {
+          "video": {
+            "durationTimer": true
+          },
+          "lottie": {
+            "durationTimer": true
+          },
+          "text": "How do you think we’d know if someone else was in their high zone? "
+        }
+      },
+      {
+        "type": "sharing",
+        "id": "sharing 2",
+        "content": {
+          "video": {
+            "durationTimer": true
+          },
+          "lottie": {
+            "durationTimer": true
+          },
+          "text": "What about their low zone?"
+        }
+      },
+      {
+        "type": "sharing",
+        "id": "sharing 3",
+        "content": {
+          "video": {
+            "durationTimer": true
+          },
+          "lottie": {
+            "durationTimer": true
+          },
+          "text": "What do you think are other words we could use to explain to someone what resilient means? "
+        }
+      },
+      {
+        "type": "sharing",
+        "id": "sharing 4",
+        "content": {
+          "video": {
+            "durationTimer": true
+          },
+          "lottie": {
+            "durationTimer": true
+          },
+          "text": "Do you think most people have been stuck in the high zone some time? What about the low zone?"
+        }
       },
       {
         "type": "instruction",
@@ -80,7 +114,7 @@
     "card": {
       "imageBackgroundColor": "#ffffff",
       "image": {
-        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1715187102/SEE/ResilientZone_CardImage_gem1py.png"
+        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1715187102/SEE/Icons/Resilience/ResilientZone_CardImage_gem1py.png"
       }
     },
     "coCreators": [
@@ -93,7 +127,7 @@
     "duration": 20,
     "outroPortal": {
       "video": {
-        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1715196344/SEE/SEELearning_Aware_Resilience_IntroVideo_yq7iag.mp4"
+        "source": ""
       }
     },
     "introPortal": {
@@ -107,7 +141,7 @@
         "p5JsScript": {
           "lang": "javascript"
         },
-        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1715196344/SEE/SEELearning_Aware_Resilience_IntroVideo_yq7iag.mp4"
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1715662633/SEE/Video/SEELearning_AwareApp_IntroVideo_2024_cljrvr.mp4"
       }
     },
     "tags": [
