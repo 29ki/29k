@@ -21,10 +21,62 @@
         ],
         "content": {
           "lottie": {
-            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto/v1715197375/SEE/Awareness3_hpmfag.json",
-            "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1715198892/SEE/Tracking_24_zcyrf5.srt",
-            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1715198899/SEE/Tracking_24_x0uaaa.mp3"
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto/v1715663485/SEE/Lottie/Awareness/Awareness2_gtrgxy.json",
+            "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1715752249/SEE/SRT/Awareness/Tracking_baikiy.srt",
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1715198899/SEE/Audio/Awareness/Tracking_24_x0uaaa.mp3"
           }
+        }
+      },
+      {
+        "type": "sharing",
+        "id": "sharing 1",
+        "content": {
+          "video": {
+            "durationTimer": true
+          },
+          "lottie": {
+            "durationTimer": true
+          },
+          "text": "What did we discover about tracking the sensations in our bodies?"
+        }
+      },
+      {
+        "type": "sharing",
+        "id": "sharing 2",
+        "content": {
+          "video": {
+            "durationTimer": true
+          },
+          "lottie": {
+            "durationTimer": true
+          },
+          "text": " What kinds of sensations came when we  looked at our personal resources?"
+        }
+      },
+      {
+        "type": "sharing",
+        "id": "sharing 3",
+        "content": {
+          "video": {
+            "durationTimer": true
+          },
+          "lottie": {
+            "durationTimer": true
+          },
+          "text": "Where in our bodies did we feel those  sensations? "
+        }
+      },
+      {
+        "type": "sharing",
+        "id": "sharing 4",
+        "content": {
+          "video": {
+            "durationTimer": true
+          },
+          "lottie": {
+            "durationTimer": true
+          },
+          "text": "If you ever feel unpleasant, do you think you  could use one of your personal resources to  help your body feel better?”"
         }
       },
       {
@@ -63,7 +115,7 @@
     "published": false,
     "card": {
       "image": {
-        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1715194856/SEE/Tracking_CardImage_xce0qv.png"
+        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1715194856/SEE/Icons/Awareness/Tracking_CardImage_xce0qv.png"
       }
     },
     "coCreators": [
@@ -76,7 +128,7 @@
     "duration": 10,
     "outroPortal": {
       "video": {
-        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1715196246/SEE/SEELearning_Aware_Awareness_IntroVideo_li7fjm.mp4"
+        "source": ""
       }
     },
     "introPortal": {
@@ -90,7 +142,7 @@
         "p5JsScript": {
           "lang": "javascript"
         },
-        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1715196246/SEE/SEELearning_Aware_Awareness_IntroVideo_li7fjm.mp4"
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1715662633/SEE/Video/SEELearning_AwareApp_IntroVideo_2024_cljrvr.mp4"
       },
       "videoEnd": {
         "source": ""
