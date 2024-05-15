@@ -17,9 +17,9 @@
         "hostNotes": [],
         "content": {
           "lottie": {
-            "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1713881004/SEE/Grounding_gqwa9t.srt",
-            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1713881008/SEE/Grounding_sennca.mp3",
-            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1715191472/SEE/FC5Sj91cWw_fnswff.json"
+            "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1715751769/SEE/SRT/Resilence/Grounding_mctzro.srt",
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1713881008/SEE/Audio/Resilience/Grounding_sennca.mp3",
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto/v1715663474/SEE/Lottie/Resiliance/FC5Sj91cWw_bxwt4v.json"
           },
           "image": {
             "source": ""
@@ -27,15 +27,42 @@
         }
       },
       {
-        "type": "reflection",
-        "hostNotes": [
-          {
-            "text": "We have spent some time together trying out different ways of grounding ourselves and noticing sensations within our bodies. \n\nWhich has been the best one for you (i.e. which has given you pleasant or neutral sensations)? Which one did not work for you? \n\nWhen do you think you could use grounding?"
-          }
-        ],
+        "type": "sharing",
+        "id": "sharing 1",
         "content": {
-          "text": "",
-          "heading": "Learning to Ground"
+          "video": {
+            "durationTimer": true
+          },
+          "lottie": {
+            "durationTimer": true
+          },
+          "text": "We have spent some time together trying out different ways of grounding ourselves and noticing sensations within our bodies."
+        }
+      },
+      {
+        "type": "sharing",
+        "id": "sharing 2",
+        "content": {
+          "video": {
+            "durationTimer": true
+          },
+          "lottie": {
+            "durationTimer": true
+          },
+          "text": "Which has been the best one for you (i.e. which has given you pleasant or neutral sensations)? Which one did not work for you? "
+        }
+      },
+      {
+        "type": "sharing",
+        "id": "sharing 3",
+        "content": {
+          "video": {
+            "durationTimer": true
+          },
+          "lottie": {
+            "durationTimer": true
+          },
+          "text": "When do you think you could use grounding?"
         }
       },
       {
@@ -68,7 +95,7 @@
     "published": true,
     "card": {
       "image": {
-        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1715187095/SEE/Grounding_CardImage_wiflw1.png"
+        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1715666197/SEE/Icons/Resilience/Grounding_CardImage_wdhvzr.png"
       }
     },
     "coCreators": [
@@ -81,7 +108,7 @@
     "duration": 20,
     "outroPortal": {
       "video": {
-        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1715196344/SEE/SEELearning_Aware_Resilience_IntroVideo_yq7iag.mp4"
+        "source": ""
       }
     },
     "introPortal": {
@@ -95,7 +122,7 @@
         "p5JsScript": {
           "lang": "javascript"
         },
-        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1715196344/SEE/SEELearning_Aware_Resilience_IntroVideo_yq7iag.mp4"
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1715662633/SEE/Video/SEELearning_AwareApp_IntroVideo_2024_cljrvr.mp4"
       }
     },
     "tags": [
