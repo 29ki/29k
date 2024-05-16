@@ -25,11 +25,17 @@
         ],
         "content": {
           "video": {
-            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1673871362/Video/meditation_letting_go_of_control_mplxsm.mp4",
+            "source": "",
             "autoPlayLoop": false,
+            "audio": "",
+            "durationTimer": false,
+            "subtitles": ""
+          },
+          "lottie": {
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1676642915/Lottie/default_audio_white_sufmbz.json",
+            "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1689679219/SRT%20(captions)%20files/letting_go_of_control_nhnnwa.srt",
             "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1668093018/Audio/meditation_letting_go_of_control_becb1s.mp3",
-            "durationTimer": true,
-            "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1689679219/SRT%20(captions)%20files/letting_go_of_control_nhnnwa.srt"
+            "durationTimer": true
           }
         }
       },
@@ -46,8 +52,13 @@
         "content": {
           "heading": "What's in your beach ball?",
           "video": {
-            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1673875921/Video/timer1_letting_go_of_control_z1x47a.mp4",
-            "durationTimer": true
+            "source": "",
+            "durationTimer": false
+          },
+          "lottie": {
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1676642915/Lottie/default_1min_white_wvgwma.json",
+            "durationTimer": true,
+            "duration": 60
           }
         }
       },
@@ -56,7 +67,12 @@
         "content": {
           "heading": "What's in your beach ball?",
           "video": {
-            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1673879667/Video/timer2_letting_go_of_control_nxhgat.mp4",
+            "source": "",
+            "durationTimer": false
+          },
+          "lottie": {
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1676639253/Lottie/default_2min_white_arvrf2.json",
+            "duration": 120,
             "durationTimer": true
           }
         },
@@ -92,8 +108,13 @@
         "content": {
           "heading": "What if you let go of your beach ball?",
           "video": {
-            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1673875921/Video/timer1_letting_go_of_control_z1x47a.mp4",
+            "source": "",
             "durationTimer": true
+          },
+          "lottie": {
+            "durationTimer": true,
+            "duration": 60,
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1676642915/Lottie/default_1min_white_wvgwma.json"
           }
         }
       },
@@ -111,8 +132,13 @@
         "content": {
           "heading": "What if you let go of your beach ball?",
           "video": {
-            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1673879667/Video/timer2_letting_go_of_control_nxhgat.mp4",
-            "durationTimer": true
+            "source": "",
+            "durationTimer": false
+          },
+          "lottie": {
+            "durationTimer": true,
+            "duration": 60,
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1676639253/Lottie/default_2min_white_arvrf2.json"
           }
         },
         "hostNotes": [
@@ -433,11 +459,17 @@
         ],
         "content": {
           "video": {
-            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1673871362/Video/meditation_letting_go_of_control_mplxsm.mp4",
+            "source": "",
             "autoPlayLoop": false,
+            "audio": "",
+            "durationTimer": false,
+            "subtitles": ""
+          },
+          "lottie": {
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1676642915/Lottie/default_audio_white_sufmbz.json",
+            "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1715606230/SRT%20(captions)%20files/The_beach_ball_Swe_Jackie_ceu9lk.srt",
             "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1715606290/Audio/The_beach_ball_Swe_Jackie_oin9je.mp3",
-            "durationTimer": true,
-            "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1715606230/SRT%20(captions)%20files/The_beach_ball_Swe_Jackie_ceu9lk.srt"
+            "durationTimer": true
           }
         }
       },
@@ -454,8 +486,13 @@
         "content": {
           "heading": "Vad finns i din badboll?",
           "video": {
-            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1673875921/Video/timer1_letting_go_of_control_z1x47a.mp4",
-            "durationTimer": true
+            "source": "",
+            "durationTimer": false
+          },
+          "lottie": {
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1676642915/Lottie/default_1min_white_wvgwma.json",
+            "durationTimer": true,
+            "duration": 60
           }
         }
       },
@@ -464,7 +501,12 @@
         "content": {
           "heading": "Vad finns i din badboll?",
           "video": {
-            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1673879667/Video/timer2_letting_go_of_control_nxhgat.mp4",
+            "source": "",
+            "durationTimer": false
+          },
+          "lottie": {
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1676639253/Lottie/default_2min_white_arvrf2.json",
+            "duration": 120,
             "durationTimer": true
           }
         },
@@ -500,8 +542,13 @@
         "content": {
           "heading": "Vad skulle hända om du släppte taget om din badboll?",
           "video": {
-            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1673875921/Video/timer1_letting_go_of_control_z1x47a.mp4",
+            "source": "",
             "durationTimer": true
+          },
+          "lottie": {
+            "durationTimer": true,
+            "duration": 60,
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1676642915/Lottie/default_1min_white_wvgwma.json"
           }
         }
       },
@@ -519,8 +566,13 @@
         "content": {
           "heading": "Vad skulle hända om du släppte taget om din badboll?",
           "video": {
-            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1673879667/Video/timer2_letting_go_of_control_nxhgat.mp4",
-            "durationTimer": true
+            "source": "",
+            "durationTimer": false
+          },
+          "lottie": {
+            "durationTimer": true,
+            "duration": 60,
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1676639253/Lottie/default_2min_white_arvrf2.json"
           }
         },
         "hostNotes": [
