@@ -153,7 +153,11 @@ const ModalStack = () => {
   const cardModalScreenOptions: BottomSheetNavigationOptions = useMemo(
     () => ({
       ...modalScreenOptions,
-      snapPoints: [200],
+      /*
+        A smaller snapPoint number would cause an issue where keyboard animation closes the modal
+        https://github.com/gorhom/react-native-bottom-sheet/issues/1602
+      */
+      snapPoints: [300],
       detached: true,
       bottomInset: 10,
       style: {
