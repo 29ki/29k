@@ -36,10 +36,14 @@ type CellComponentProps = {
   onCellPress: () => void;
   onChangeText: (text: string) => void;
   hasError?: boolean;
+  autoFocus?: boolean;
 };
 
 const CellComponent = React.forwardRef<TextInput, CellComponentProps>(
-  ({value, onCellPress, onKeyPress, onChangeText, hasError}, ref) => (
+  (
+    {value, onCellPress, onKeyPress, onChangeText, hasError, autoFocus},
+    ref,
+  ) => (
     <TouchableOpacity onPress={onCellPress}>
       <Cell
         autoCorrect={false}
@@ -50,6 +54,7 @@ const CellComponent = React.forwardRef<TextInput, CellComponentProps>(
         onKeyPress={onKeyPress}
         selectTextOnFocus
         hasError={hasError}
+        autoFocus={autoFocus}
       />
     </TouchableOpacity>
   ),
@@ -113,6 +118,7 @@ const VerificationCode: React.FC<VerificationCodeProps> = ({
       id = setTimeout(() => {
         setCode([]);
         setShowError(false);
+        setFocusCells(true);
         cells[0].current?.focus();
       }, 300);
     }
@@ -167,6 +173,7 @@ const VerificationCode: React.FC<VerificationCodeProps> = ({
             onChangeText={updateCode(index)}
             onKeyPress={onKeyPress(index)}
             hasError={showError}
+            autoFocus={currentCell === index && prefillCode.length !== 6}
           />
         ))}
       </Row>
