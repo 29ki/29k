@@ -11,7 +11,11 @@
       },
       {
         "type": "content",
-        "hostNotes": [],
+        "hostNotes": [
+          {
+            "text": "Find a comfortable position. I will start the audio exercise and we'll meet back here afterwards. > Tap play to start the audio exercise"
+          }
+        ],
         "content": {
           "lottie": {
             "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1713881135/SEE/Audio/Resilience/Resource_l4csdr.mp3",
@@ -19,6 +23,25 @@
             "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto/v1715663476/SEE/Lottie/Resiliance/VZ2zY0xSD4_zdbd4i.json"
           }
         }
+      },
+      {
+        "type": "reflection",
+        "content": {
+          "video": {
+            "durationTimer": true
+          },
+          "lottie": {
+            "durationTimer": true
+          }
+        },
+        "hostNotes": [
+          {
+            "text": "Now we’ll take 1 minute to reflect on our own. How did you experience practising resourcing? How did you feel before and after resourcing? Did you notice any change?"
+          },
+          {
+            "text": "You can take notes on a piece of paper or just mental notes in your head. And there is no right or wrong here, our answers are our own. 1 minute starting now. > Press play to start the timer. That’s 1 minute and it’s time to move on."
+          }
+        ]
       },
       {
         "type": "sharing",
@@ -31,7 +54,18 @@
             "durationTimer": true
           },
           "text": "What did we discover about personal resources and sensations? "
-        }
+        },
+        "hostNotes": [
+          {
+            "text": "Now we are getting into the sharing part. We have three rules for sharing"
+          },
+          {
+            "text": "1. \\*\\*What is said in here, stays in here.\\*\\* \n\n2. \\*\\*All you need to do is listen.\\*\\* There is no fixing, helping or advice-giving needed. We are just showing up and exploring what ourselves and others are going through.\n\n3. \\*\\*Everything on the inside is okay.\\*\\* Anger, love, hatred, sadness. Whatever shows up. No wrongs, no rights. It is what it is. There will be a timer set for 2 minutes as an indicator. If you don’t want to share you can always say ‘pass’."
+          },
+          {
+            "text": "Who would like to start? > Let everyone (or as many as you got time for) share one by one. Press play to start the timer. Re-start for each new sharing. Thank you so much, everyone."
+          }
+        ]
       },
       {
         "type": "sharing",
@@ -89,7 +123,16 @@
         "type": "host",
         "hostNotes": [
           {
-            "text": "Try out new resources and pay attention to the sensations in your body and how it feel in your mind to see if you have preferred resources."
+            "text": "Good job. Today, we’ve practised resourcing. Resourcing enables us to develop one or more tools to use when we need to self-regulate our minds and bodies."
+          },
+          {
+            "text": "If we're up for it, we can continue with a mission: Practice using one of your resources on three different days this week."
+          },
+          {
+            "text": "Plan the step you will take by considering moments when resourcing might help to bring you calm and clarity.. Before we leave this space, let’s do a mini check-out: How are you feeling right now? Has anything shifted? Please answer in two to three words."
+          },
+          {
+            "text": "Who would like to start? > Let everyone in the session check out one by one. Thank you all for checking out and for joining this session today. > Finish session to send everyone off to the exit experience."
           }
         ]
       },
@@ -136,7 +179,7 @@
       "textColor": "#2AE2D7",
       "hostNotes": [
         {
-          "text": "> Start the session when you're ready to go"
+          "text": "> Press play to start the audio exercise"
         }
       ],
       "videoLoop": {
