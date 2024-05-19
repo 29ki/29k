@@ -39,6 +39,7 @@ export const init = () =>
     .init({
       lng: findBestLanguageTag(CLIENT_LANGUAGE_TAGS)?.languageTag,
       supportedLngs: LANGUAGE_TAGS,
+      preload: LANGUAGE_TAGS,
       fallbackLng: DEFAULT_LANGUAGE_TAG,
       // To trigger the backend middleware to load publishable content they have to be removed first.
       // Removing them in buildContent creates somewhat of a mess in backend adding them back.
