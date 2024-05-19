@@ -52,7 +52,11 @@
         ],
         "id": "Sharing 1",
         "content": {
-          "text": "What did you realize about yourself and others through this activity? "
+          "text": "What did you realize about yourself and others through this activity? ",
+          "lottie": {
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1715668433/SEE/Lottie/Systems%20Thinking/SystemThinking1_sniz3i.json",
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1715663927/SEE/Audio/Systems%20Thinking/Web_of_Connections_l2ms8t.mp3"
+          }
         }
       },
       {
