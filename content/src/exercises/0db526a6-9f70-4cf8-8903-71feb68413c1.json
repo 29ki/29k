@@ -93,13 +93,16 @@
         "type": "host",
         "hostNotes": [
           {
-            "text": "Well done. If you’re up for it, you can continue what we started here today with a mission."
+            "text": "Well done. Today, we’ve explored equanimity and expectations. Equanimity offers us the opportunity to accept whatever comes in life with calmness and stability. Managing our expectation can form a crucial part of this process by providing us with realistic perceptions and goal aiding our ability remain grounded in what is present for us."
           },
           {
-            "text": "In the next week consider any expectations you create. Are they helpful or unhelpful? How could you reframe the expectation from unhelpful to helpful?"
+            "text": "If we're up for it, we can continue with a mission: Practice our awareness of our expectations by noticing if expectations arise over the coming two days and analysing if they are helpful or unhelpful."
           },
           {
-            "text": "As you’ve reflected on what you can bring from this to the rest of your day, take this opportunity to practice making space for things on the inside during the rest of today, and see where that takes you."
+            "text": "Plan the steps you will take by considering if you have any situations related to expectations arising in the coming days. Before we leave this space, let’s do a mini check-out: How are you feeling right now? Has anything shifted? Please answer in two to three words."
+          },
+          {
+            "text": "Who would like to start? > Let everyone in the session check out one by one. Thank you all for checking out and for joining this session today. > Finish session to send everyone off to the exit experience."
           }
         ]
       },
@@ -134,7 +137,7 @@
         "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1713881366/SEE/see-logo_1_kewtlt.png"
       }
     ],
-    "duration": 14,
+    "duration": 20,
     "introPortal": {
       "textColor": "#2AE2D7",
       "hostNotes": [
@@ -232,7 +235,7 @@
     "live": true,
     "published": false,
     "card": {},
-    "duration": 14,
+    "duration": 20,
     "introPortal": {
       "textColor": "#2AE2D7",
       "hostNotes": [
@@ -323,7 +326,7 @@
     "live": true,
     "published": false,
     "card": {},
-    "duration": 14,
+    "duration": 20,
     "introPortal": {
       "textColor": "#2AE2D7",
       "hostNotes": [
@@ -414,7 +417,7 @@
     "live": true,
     "published": false,
     "card": {},
-    "duration": 14,
+    "duration": 20,
     "introPortal": {
       "textColor": "#2AE2D7",
       "hostNotes": [
