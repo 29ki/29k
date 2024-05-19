@@ -47,7 +47,10 @@
         },
         "hostNotes": [
           {
-            "text": "Now we’ll take 1 minute to reflect on our own. How did you find the idea of the resilient zone? How do you experience the high and low zones? How would you describe being in the OK zone? \n\nYou can take notes on a piece of paper or just mental notes in your head. And there is no right or wrong here, our answers are our own. 1 minute starting now. > Press play to start the timer. That’s 1 minute and it’s time to move on."
+            "text": "Now we’ll take 1 minute to reflect on our own. How did you find the idea of the resilient zone? How do you experience the high and low zones? How would you describe being in the OK zone?"
+          },
+          {
+            "text": "You can take notes on a piece of paper or just mental notes in your head. And there is no right or wrong here, our answers are our own. 1 minute starting now. > Press play to start the timer. That’s 1 minute and it’s time to move on."
           }
         ]
       },
@@ -118,24 +121,6 @@
         "type": "host",
         "hostNotes": [
           {
-            "text": "Try to be aware of when you are feeling yourself at different points in your resilient zone and when you night enter your high and low zone. Try to increase your awareness of your internal regulation and how it presents itself in your mind and body"
-          }
-        ]
-      },
-      {
-        "type": "instruction",
-        "content": {
-          "text": "Today we explored our resilient zone. It is our zone of well-being, where we feel calm and alert, and where we feel more in control and better able to make good decisions.\n\nIf you’re up for it, you can continue with this mission.",
-          "image": {
-            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1715194051/SEE/SEELearning_Logo_Apple_2022_iyrrnd.png"
-          },
-          "heading": "Well done"
-        }
-      },
-      {
-        "type": "host",
-        "hostNotes": [
-          {
             "text": "Good job. We've explored the idea of the resilient zone. It’s important to remember that each of us will experience a challenging situation differently. We’re all human. We’re all in this together. We can build the skills needed to return ourselves to our Resilient Zone, even in very challenging situations."
           },
           {
@@ -148,6 +133,16 @@
             "text": "Who would like to start? > Let everyone in the session check out one by one. Thank you all for checking out and for joining this session today. > Finish session to send everyone off to the exit experience."
           }
         ]
+      },
+      {
+        "type": "instruction",
+        "content": {
+          "text": "Today we explored our resilient zone. It is our zone of well-being, where we feel calm and alert, and where we feel more in control and better able to make good decisions.\n\nIf you’re up for it, you can continue with this mission.",
+          "image": {
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1715194051/SEE/SEELearning_Logo_Apple_2022_iyrrnd.png"
+          },
+          "heading": "Well done"
+        }
       }
     ],
     "theme": {
