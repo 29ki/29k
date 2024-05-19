@@ -6,6 +6,7 @@ import {COLORS} from '../../../../../shared/src/constants/colors';
 import {SPACINGS} from '../../constants/spacings';
 import {Body12} from '../Typography/Body/Body';
 import {IconType} from '../Icons';
+import {HKGroteskMedium} from '../../constants/fonts';
 
 const Container = styled.View({
   flexDirection: 'row',
@@ -19,6 +20,7 @@ const Container = styled.View({
 
 const StyledBody = styled(Body12)({
   fontWeight: '500',
+  fontFamily: HKGroteskMedium,
 });
 
 const IconWrapper = styled.View({

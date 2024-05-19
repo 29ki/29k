@@ -52,6 +52,11 @@ const VideoLooper = forwardRef<VideoPlayerHandle, VideoLooperProperties>(
       togglePaused(paused);
     }, [paused, togglePaused]);
 
+    useEffect(() => {
+      videoRef.current?.load();
+      togglePaused(paused);
+    }, [sources, togglePaused, paused]);
+
     return (
       <Video
         style={style}
