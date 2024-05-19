@@ -30,10 +30,10 @@
         "type": "reflection",
         "hostNotes": [
           {
-            "text": "Now we’ll take 1 minute to reflect on our own.\n\nxxMain question\n\nxxFurther explanations of main question if needed"
+            "text": "Now we’ll take 1 minutes to reflect on our own. How was that experience for you? How are these people in your independence web connected to you? How do they impact your well-being? Interdependence is part of our daily life, but often we do not see it. How can we highlight our interdependence more?"
           },
           {
-            "text": "You can take notes on a piece of paper or just mental notes in your head. And there is no right or wrong here, our answers are our own. 1 minute starting now.\n\n> Press play to start the timer.\n\nThat’s 1 minute and it’s time to move on."
+            "text": "You can take notes on a piece of paper or just mental notes in your head. And there is no right or wrong here, our answers are our own. 1 minute starting now. > Press play to start the timer. That’s 1 minute and it’s time to move on."
           }
         ]
       },
@@ -50,19 +50,64 @@
             "text": "Who would like to start?\n\n> Let everyone (or as many as you got time for) share one by one. Press play to start the timer. Re-start for each new sharing.\n\nThank you so much everyone."
           }
         ],
-        "id": "Sharing 1"
+        "id": "Sharing 1",
+        "content": {
+          "text": "What did you realize about yourself and others through this activity? "
+        }
+      },
+      {
+        "type": "sharing",
+        "id": "sharing 2",
+        "content": {
+          "video": {
+            "durationTimer": true
+          },
+          "lottie": {
+            "durationTimer": true
+          },
+          "text": "How can you carry those insights with you throughout your day/life?"
+        }
+      },
+      {
+        "type": "sharing",
+        "id": "sharing 3",
+        "content": {
+          "video": {
+            "durationTimer": true
+          },
+          "lottie": {
+            "durationTimer": true
+          },
+          "text": "How might an understanding of interdependence inform your personal decisions on a day to day basis? "
+        }
+      },
+      {
+        "type": "sharing",
+        "id": "sharing 4",
+        "content": {
+          "video": {
+            "durationTimer": true
+          },
+          "lottie": {
+            "durationTimer": true
+          },
+          "text": "How might your decisions impact the larger systems?"
+        }
       },
       {
         "type": "host",
         "hostNotes": [
           {
-            "text": "Well done. If you’re up for it, you can continue what we started here today with a mission to bring this into your everyday life.\n\nxx mission description"
+            "text": "Well done. Today, we’ve explored systems thinking by creating our own web of connections."
           },
           {
-            "text": "Before we leave this space let’s do a mini check-out. \n\nHow are you feeling right now? Has anything shifted? Please answer in two-three words."
+            "text": "Interdependence can help us recognise how we depend on others and how others rely on us."
           },
           {
-            "text": "Who would like to start?\n\n> Let everyone in the session check out one by one.\n\nThank you all for checking out and for joining this session today.\n\n> Finish session to send everyone off to the exit experience."
+            "text": "This can help us feel gratitude, compassion, and connectedness to other people we may never meet."
+          },
+          {
+            "text": "Who would like to start? > Let everyone in the session check out one by one. Thank you all for checking out and for joining this session today. > Finish session to send everyone off to the exit experience."
           }
         ]
       },
