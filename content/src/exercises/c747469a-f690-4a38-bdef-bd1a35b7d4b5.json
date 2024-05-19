@@ -114,7 +114,11 @@
       {
         "type": "instruction",
         "content": {
-          "text": "Well done.\n\nSummary.\n\nIf you’re up for it, you can continue with this mission.\n\nmission description"
+          "text": "\n\nIf you’re up for it, you can continue with this mission.\n\nYou can create a second web of connections from a new starting point to discover how our interconnectedness can unlock greater awareness, appreciation and compassion for others.",
+          "heading": "Well done",
+          "image": {
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/v1715194051/SEE/SEELearning_Logo_Apple_2022_iyrrnd.png"
+          }
         }
       }
     ],
