@@ -107,6 +107,7 @@ const SessionCard: React.FC<SessionCardProps> = ({
     return (
       <CardSmall
         title={formatContentName(exercise)}
+        language={exercise.language}
         cardStyle={exercise?.card}
         hostProfile={hostProfile}
         onPress={onContextPress}
@@ -114,12 +115,16 @@ const SessionCard: React.FC<SessionCardProps> = ({
         backgroundColor={backgroundColor}
         textColor={textColor}>
         <SessionTimeBadge session={session} />
-        <Spacer8 />
-        <Interested
-          compact
-          reminder={reminderEnabled}
-          count={interestedCount}
-        />
+        {Boolean(reminderEnabled || interestedCount) && (
+          <>
+            <Spacer8 />
+            <Interested
+              compact
+              reminder={reminderEnabled}
+              count={interestedCount}
+            />
+          </>
+        )}
       </CardSmall>
     );
   }

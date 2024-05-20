@@ -51,6 +51,7 @@ const ExerciseCard: React.FC<ExerciseCardContainerProps> = ({
     return (
       <CardSmall
         title={formatContentName(exercise)}
+        language={exercise.language}
         cardStyle={exercise?.card}
         collection={collection}
         onPress={onPressHandle}
