@@ -66,7 +66,8 @@
           "lottie": {
             "durationTimer": true
           },
-          "text": "How do you think we’d know if someone else was in their high zone? "
+          "text": "",
+          "heading": "How do you think we’d know if someone else was in their high zone?"
         },
         "hostNotes": [
           {
@@ -90,7 +91,8 @@
           "lottie": {
             "durationTimer": true
           },
-          "text": "What about their low zone?"
+          "text": "",
+          "heading": "What about their low zone?"
         }
       },
       {
@@ -103,7 +105,8 @@
           "lottie": {
             "durationTimer": true
           },
-          "text": "What do you think are other words we could use to explain to someone what resilient means? "
+          "text": "",
+          "heading": "What do you think are other words we could use to explain to someone what resilient means? "
         }
       },
       {
@@ -116,7 +119,8 @@
           "lottie": {
             "durationTimer": true
           },
-          "text": "Do you think most people have been stuck in the high zone some time? What about the low zone?"
+          "text": "",
+          "heading": "Do you think most people have been stuck in the high zone some time? What about the low zone?"
         }
       },
       {
