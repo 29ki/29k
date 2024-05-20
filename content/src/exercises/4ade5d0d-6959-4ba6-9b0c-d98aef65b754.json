@@ -39,12 +39,12 @@
         "type": "reflection",
         "content": {
           "video": {
-            "durationTimer": true,
-            "source": ""
+            "durationTimer": false,
+            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1716235083/SEE/Video/SEELearning_Aware_1MinTimer_2024_mv72mj.mp4"
           },
           "lottie": {
-            "durationTimer": true,
-            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1716235083/SEE/Video/SEELearning_Aware_1MinTimer_2024_mv72mj.mp4"
+            "durationTimer": false,
+            "source": ""
           }
         },
         "hostNotes": [
