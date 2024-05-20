@@ -42,7 +42,8 @@
             "durationTimer": true
           },
           "lottie": {
-            "durationTimer": true
+            "durationTimer": true,
+            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/v1716229173/SEE/Video/AdobeStock_762202985_pmuab4.mp4"
           }
         },
         "hostNotes": [
