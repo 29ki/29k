@@ -94,6 +94,7 @@ const CardsList = () => (
     <Spacer16 />
     <Card
       title="Accepting thoughts and feelings"
+      language="pt"
       tags={DUMMY_TAGS}
       hostProfile={DUMMY_HOST}
       cardStyle={DUMMY_TRANSPARENT_LOTTIE_CARD_STYLE}
@@ -133,6 +134,7 @@ const CardsList = () => (
     <Spacer16 />
     <Card
       title="Accepting thoughts and feeeeeeeeeeeeeelings"
+      language="pt"
       tags={DUMMY_TAGS}
       hostProfile={DUMMY_HOST}
       cardStyle={DUMMY_IMAGE_CARD_STYLE}

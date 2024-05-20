@@ -66,6 +66,7 @@ const ExerciseCard: React.FC<ExerciseCardContainerProps> = ({
     <Card
       title={formatContentName(exercise)}
       description={exercise.description}
+      language={exercise.language}
       tags={tags}
       cardStyle={exercise.card}
       collection={collection}

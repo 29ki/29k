@@ -85,7 +85,7 @@ const HeadingBackground = styled(BackgroundGradient).attrs({color: '#3F4E3A'})({
 
 const HeadingWrapper = styled(Gutters)({
   position: 'absolute',
-  bottom: '31%',
+  bottom: '26%',
   width: '100%',
   alignItems: 'center',
   justifyContent: 'center',
@@ -100,6 +100,7 @@ const Heading2 = styled(Display36)({
   fontFamily: PlayfairDisplayMedium,
   fontSize: 44,
   lineHeight: 59,
+  textAlign: 'center',
   color: COLORS.PURE_WHITE,
 });
 
