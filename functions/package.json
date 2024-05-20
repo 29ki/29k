@@ -30,7 +30,7 @@
     "@slack/web-api": "^7.0.2",
     "@types/i18next": "^13.0.0",
     "bs58": "^5.0.0",
-    "dayjs": "^1.11.10",
+    "dayjs": "^1.11.11",
     "dotenv": "^16.4.5",
     "envalid": "^8.0.0",
     "fast-memoize": "^2.5.2",
