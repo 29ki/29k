@@ -133,6 +133,7 @@ const SessionCard: React.FC<SessionCardProps> = ({
     <Card
       title={formatContentName(exercise)}
       tags={tags}
+      language={exercise.language}
       cardStyle={exercise?.card}
       hostProfile={hostProfile}
       onPress={onContextPress}
