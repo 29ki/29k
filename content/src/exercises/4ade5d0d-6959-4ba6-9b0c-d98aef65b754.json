@@ -39,21 +39,8 @@
       {
         "type": "instruction",
         "content": {
-          "text": "You can take notes on a piece of paper or just mental notes in your head. And there is no right or wrong here, our answers are our own.\n\nHow did you find the idea of the resilient zone? How do you experience the high and low zones? How would you describe being in the OK zone?",
+          "text": "You can take notes on a piece of paper or just mental notes in your head. And there is no right or wrong here, our answers are our own.\n\n*How did you find the idea of the resilient zone? How do you experience the high and low zones? How would you describe being in the OK zone?*",
           "heading": "Now take 1 minute to reflect"
-        }
-      },
-      {
-        "type": "content",
-        "content": {
-          "video": {
-            "durationTimer": true,
-            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1716235083/SEE/Video/SEELearning_Aware_1MinTimer_2024_mv72mj.mp4"
-          },
-          "lottie": {
-            "durationTimer": true,
-            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1716235083/SEE/Video/SEELearning_Aware_1MinTimer_2024_mv72mj.mp4"
-          }
         }
       },
       {
@@ -70,7 +57,7 @@
         },
         "hostNotes": [
           {
-            "text": "Now we’ll take 1 minute to reflect on our own.\n\nWhat eco emotion motivates you? \n\nHow is it motivating? What does it inspire you to do?"
+            "text": "Now we’ll take 1 minute to reflect on our own.\n\nHow did you find the idea of the resilient zone? How do you experience the high and low zones? How would you describe being in the OK zone?"
           },
           {
             "text": "You can take notes on a piece of paper or just mental notes in your head. And there is no right or wrong here, our answers are our own. 1 minute starting now.\n\n> Press play to start the timer.\n\nThat’s 1 minute and it’s time to move on."
