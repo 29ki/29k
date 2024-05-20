@@ -32,7 +32,15 @@
           },
           "image": {
             "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1715140416/SEE/ResilientZone_Image1_qkr6a6.png"
-          }
+          },
+          "heading": "Heading"
+        }
+      },
+      {
+        "type": "instruction",
+        "content": {
+          "text": "You can take notes on a piece of paper or just mental notes in your head. And there is no right or wrong here, our answers are our own.\n\nHow did you find the idea of the resilient zone? How do you experience the high and low zones? How would you describe being in the OK zone?",
+          "heading": "Now take 1 minute to reflect"
         }
       },
       {
