@@ -20,6 +20,7 @@ import CollectionTag from '../Tag/CollectionTag';
 import {CollectionWithLanguage} from '../../content/types';
 import LanguageTag from '../Tag/LanguageTag';
 import {useTranslation} from 'react-i18next';
+import {LANGUAGE_TAG} from '../../i18n';
 
 export const HEIGHT = 80;
 
