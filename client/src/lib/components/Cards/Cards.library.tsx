@@ -232,6 +232,20 @@ const CardSmallsList = () => (
     <Spacer16 />
     <CardSmall
       title="Pure Simple Love"
+      cardStyle={DUMMY_TRANSPARENT_IMAGE_CARD_STYLE}
+      language="ja"
+      onPress={() => {}}
+    />
+    <Spacer16 />
+    <CardSmall
+      title="Accepting thoughts and feeeeeeeeeeeeeelings"
+      cardStyle={DUMMY_TRANSPARENT_LOTTIE_CARD_STYLE}
+      language="ja"
+      onPress={() => {}}
+    />
+    <Spacer16 />
+    <CardSmall
+      title="Pure Simple Love"
       hostProfile={DUMMY_HOST}
       cardStyle={DUMMY_IMAGE_CARD_STYLE}
       onPress={() => {}}
@@ -305,6 +319,7 @@ const CardSmallsList = () => (
       title="Pure Simple Love"
       hostProfile={DUMMY_HOST}
       cardStyle={DUMMY_IMAGE_CARD_STYLE}
+      language="ja"
       onPress={() => {}}>
       <Badge text="Mon, 7 Sep 17.30" IconAfter={<CommunityIcon />} />
       <Spacer4 />
@@ -315,6 +330,7 @@ const CardSmallsList = () => (
       title="Accepting thoughts and feeeeeeeeeeeeeelings"
       hostProfile={DUMMY_HOST}
       cardStyle={DUMMY_IMAGE_CARD_STYLE}
+      language="ja"
       onPress={() => {}}>
       <Badge text="Mon, 7 Sep 17.30" IconAfter={<CommunityIcon />} />
       <Spacer4 />
@@ -365,6 +381,7 @@ const CardSmallsList = () => (
         title="Accepting thoughts and feeeeeeeeeeeeeelings"
         hostProfile={DUMMY_HOST}
         cardStyle={DUMMY_IMAGE_CARD_STYLE}
+        language="ja"
         onPress={() => {}}>
         <Badge text="Mon, 7 Sep 17.30" IconAfter={<CommunityIcon />} />
         <Spacer4 />
