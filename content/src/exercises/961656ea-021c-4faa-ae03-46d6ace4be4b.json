@@ -222,21 +222,21 @@
         "type": "host",
         "hostNotes": [
           {
-            "text": "Well done. If you’re up for it, you can continue what we started here today with a mission to bring this into your everyday life.\n\nWhen you feel distracted, practice the 3-2-1-focus with three different senses, and see where that takes you."
+            "text": "Muito bem. Se quiseres, podes continuar o que começámos hoje tendo como missão trazer esta prática para o teu dia-a-dia. \n\nQuando te sentires distraída/o, pratica o foco 3-2-1 com três sentidos diferentes e vê como te sentes."
           },
           {
-            "text": "Before we leave this space let’s do a mini check-out. \n\nHow are you feeling right now? Has anything shifted? Please answer in two-three words."
+            "text": "Antes de deixarmos este espaço, vamos fazer um pequeno check-out. \n\nComo te sentes neste momento? Mudou alguma coisa? Responde em duas ou três palavras."
           },
           {
-            "text": "Who would like to start?\n\n> Let everyone in the session check out one by one.\n\nThank you all for checking out and for joining this session today.\n\n> Finish session to send everyone off to the exit experience."
+            "text": "Quem gostaria de começar?\n\n> Deixa todos na sessão fazer o check-out individualmente. \n\nObrigada/o a todos por fazerem o check-out e por terem participado nesta sessão.\n\n> Termina a sessão para que todos tenham a experiência de saída."
           }
         ]
       },
       {
         "type": "instruction",
         "content": {
-          "heading": "Well done",
-          "text": "If you’re up for it, you can continue with a mission to bring this into your everyday life.\n\nWhen you feel distracted, practice the 3-2-1-focus with three different senses, and see where that takes you.",
+          "heading": "Parabéns",
+          "text": "Se quiseres, podes continuar com a missão de trazer esta prática para o teu dia-a-dia. \n\nQuando te sentires distraída/o, pratica o foco 3-2-1 com três sentidos diferentes e vê como te sentes.",
           "image": {
             "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1692965918/Images/asynk_image_become_present_sdnk4j.png"
           }
