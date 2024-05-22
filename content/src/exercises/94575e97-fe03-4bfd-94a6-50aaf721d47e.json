@@ -176,7 +176,10 @@
       "videoLoop": {
         "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1667376603/Video/portal1_Accepting_thoughts_and_feelings_upvkxb.mp4",
         "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1667317049/Audio/portal_Accepting_thoughts_and_feelings_ynb5i9.mp3",
-        "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1674554616/Images/thumb_portal_accepting_thoughts_and..._ozmmt2.png"
+        "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1674554616/Images/thumb_portal_accepting_thoughts_and..._ozmmt2.png",
+        "p5JsScript": {
+          "lang": "javascript"
+        }
       },
       "videoEnd": {
         "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1667317594/Video/portal2_Accepting_thoughts_and_feelings_iyqnuk.mp4"
@@ -316,7 +319,11 @@
       ],
       "videoLoop": {
         "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1667376603/Video/portal1_Accepting_thoughts_and_feelings_upvkxb.mp4",
-        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1667317049/Audio/portal_Accepting_thoughts_and_feelings_ynb5i9.mp3"
+        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1667317049/Audio/portal_Accepting_thoughts_and_feelings_ynb5i9.mp3",
+        "p5JsScript": {
+          "lang": "javascript"
+        },
+        "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1674554616/Images/thumb_portal_accepting_thoughts_and..._ozmmt2.png"
       },
       "videoEnd": {
         "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1667317594/Video/portal2_Accepting_thoughts_and_feelings_iyqnuk.mp4"
