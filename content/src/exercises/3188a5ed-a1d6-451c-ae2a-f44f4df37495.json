@@ -268,7 +268,14 @@
         }
       },
       {
-        "type": "instruction"
+        "type": "instruction",
+        "content": {
+          "heading": "Parabéns",
+          "image": {
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1674395876/Images/card2_Drop_all_requirements_vd3gwl.png"
+          },
+          "text": "Se tiveres disposição, gostaríamos que continuasses esta missão:\n\nEm períodos de stress a recuperação é essencial. Cuida de ti e ganha perspetiva fazendo uma pausa para respirar pelo menos uma vez por dia ao longo da semana."
+        }
       }
     ],
     "theme": {
