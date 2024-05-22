@@ -98,7 +98,7 @@
       "textColor": "#2E2E2E",
       "backgroundColor": "#e7dcc8"
     },
-    "hidden": true,
+    "hidden": false,
     "locked": false,
     "name": "Inner friend",
     "live": true,
@@ -132,7 +132,8 @@
         "p5JsScript": {
           "lang": "javascript"
         },
-        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1716379674/Video/inner_friend_portal1_mjpx0a.mp4"
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1716379674/Video/inner_friend_portal1_mjpx0a.mp4",
+        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1716380093/Audio/inner_friend_portal_audio_dwntou.mp3"
       },
       "videoEnd": {
         "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1716379650/Video/inner_friend_portal2_xogxqo.mp4"
