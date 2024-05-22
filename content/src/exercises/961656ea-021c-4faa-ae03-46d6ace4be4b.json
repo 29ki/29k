@@ -164,14 +164,14 @@
         "content": {
           "lottie": {
             "durationTimer": true,
-            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1692879791/Audio/Become_present_g8959b.mp3",
-            "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1692879916/SRT%20(captions)%20files/Three_things_kr66j8.srt",
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1716367453/FJN/Meditations/TRES_COISAS_-_05_23_lgw42y_kobpwg.mp3",
+            "subtitles": "",
             "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1676977421/Lottie/audio_meditation_default_white_default_mqfcuo.json"
           }
         },
         "hostNotes": [
           {
-            "text": "Nice, now we are ready to listen to this together.\n\n> Press play to start the audio file."
+            "text": "Ótimo, agora estamos prontos para ouvir isto juntos. \n\n> Pressiona play para iniciar a meditação."
           }
         ]
       },
