@@ -162,10 +162,10 @@
         "type": "host",
         "hostNotes": [
           {
-            "text": "Welcome. I am X and today we will work for around 30 minutes on how emotions are felt in our bodies, and how we can meet them with self-compassion.\n\nWe’ll be doing a meditation followed by time for reflection and sharing with each other."
+            "text": "Bem-vindos. Sou X e hoje vamos aprender durante cerca de 30 minutos como sentimos as emoções nos nossos corpos e como podemos acolhê-las com autocompaixão.\n\nVamos fazer uma meditação seguida de um tempo para reflexão e partilha entre todos."
           },
           {
-            "text": "Let’s start with a mini check-in. How are you feeling right now? Please answer in two-three words. X, would you like to start?\n\n> Let everyone in the session, including yourself, check in one by one.\n\nThank you all for checking in. Let’s get started."
+            "text": "Vamos começar com um mini check-in. Como te estás a sentir agora? Por favor, responde com duas ou três palavras. X, queres começar?\n\n> Deixa que todos na sessão, incluindo-te a ti, façam o check-in individualmente.\n\nObrigada/o a todos por fazerem o check-in. Vamos começar."
           }
         ]
       },
@@ -173,13 +173,13 @@
         "type": "content",
         "hostNotes": [
           {
-            "text": "Find a comfortable position. I will start the audio exercise and we'll meet back here afterwards. \n\n> Tap play to start the audio exercise"
+            "text": "Encontra uma posição confortável. Vou iniciar a meditação.\n\n> Carrega play para iniciar a meditação"
           }
         ],
         "content": {
           "lottie": {
-            "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1709650541/SRT%20(captions)%20files/Open_up_to_compassion_dao5mx.srt",
-            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1709650589/Audio/Open_up_to_compassion_bgnuxu.mp3",
+            "subtitles": "",
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1716388572/FJN/Meditations/Opening_Space_to_Compassion_amzllt_ppzy9u.mp3",
             "durationTimer": true,
             "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/t_card_image/v1676977421/Lottie/audio_meditation_default_black_default_omemwt.json"
           }
@@ -189,14 +189,14 @@
         "type": "reflection",
         "hostNotes": [
           {
-            "text": "Now we’ll take 1 minute to reflect on our own.\n\nHow did you experience getting physical with emotions, and meeting them with compassion?"
+            "text": "Agora, vamos tirar 1 minuto para refletir individualmente.\n\nComo foi a tua experiência de te ligares fisicamente com as emoções e acolhê-las com compaixão?"
           },
           {
-            "text": "You can take notes on a piece of paper or just mental notes in your head. And there is no right or wrong here, our answers are our own. 1 minute starting now.\n\n> Press play to start the timer.\n\nThat’s 1 minute and it’s time to move on."
+            "text": "Podes tomar notas num papel ou mentalmente. Não há certo ou errado, as respostas são só tuas. 1 minuto a começar agora.\n\n> Carrega play para iniciar o cronómetro.\n\nPassou 1 minuto e é hora de seguir em frente."
           }
         ],
         "content": {
-          "heading": "How did you experience doing this exercise?",
+          "heading": "O que sentiste ao fazer este exercício?",
           "lottie": {
             "durationTimer": true,
             "duration": 59,
@@ -208,18 +208,18 @@
         "type": "sharing",
         "hostNotes": [
           {
-            "text": "Now we are getting into the sharing part. We have three rules for sharing:\n\n1. **What is said in here, stays in here.**\n2. **All you need to do is listen.** There is no fixing, helping or advice-giving needed. We are just showing up and exploring what ourselves and others are going through."
+            "text": "Agora vamos para a parte da partilha. Temos três regras para a partilha:\n\n1. **O que é dito aqui, fica aqui.**\n2. **Só tens de ouvir.** Não há necessidade de corrigir, ajudar ou dar conselhos. Estamos apenas a explorar o que estamos a sentir."
           },
           {
-            "text": "3. **Everything on the inside is okay.** Anger, love, hatred, sadness. Whatever shows up. No wrongs, no rights. It is what it is.\n\nThere will be a timer set for 2 minutes as an indicator. If you don’t want to share you can always say ‘pass’."
+            "text": "3. **Tudo o que sentires é aceitável.** Raiva, amor, ódio, tristeza. O que quer que apareça. Sem erros, sem acertos. É o que é.\n\nHaverá um cronómetro de 2 minutos como indicador. Se não quiseres partilhar, podes sempre dizer 'passo'."
           },
           {
-            "text": "Who would like to start?\n\n> Let everyone (or as many as you got time for) share one by one. Press play to start the timer. Re-start for each new sharing.\n\nThank you so much everyone."
+            "text": "Quem gostaria de começar?\n\n> Deixa que todos (ou o máximo de pessoas para as quais houver tempo) partilhem individualmente. Carrega play para iniciar o cronómetro. Reinicia para cada nova partilha.\n\nMuito obrigada/o a todos."
           }
         ],
         "id": "Sharing 1",
         "content": {
-          "heading": "How did you experience doing this exercise?",
+          "heading": "O que sentiste ao fazer este exercício?",
           "lottie": {
             "durationTimer": true,
             "duration": 120,
@@ -231,24 +231,24 @@
         "type": "host",
         "hostNotes": [
           {
-            "text": "Well done. Emotions are here to be felt, and being present with them can allow us to be compassionate and authentic. You can continue your practice with a mission:\n\nFor the rest of today, whenever you feel an emotion stirring up something inside – take a moment to localize it in the body, and make space for it with compassion."
+            "text": "Muito bem. As emoções estão aqui para serem sentidas, e estar presente com elas permite-nos ser compassivos e autênticos. Podes continuar a sua prática com uma missão:\n\nDurante o resto do dia, sempre que sentires uma emoção surgir dentro de ti tira um momento para a localizares no corpo e dá-lhe espaço com compaixão."
           },
           {
-            "text": "Before we leave this space let’s do a mini check-out. \n\nHow are you feeling right now? Has anything shifted? Please answer in two-three words."
+            "text": "Antes de deixarmos este espaço, vamos fazer um mini check-out.\n\nComo te estás a sentir agora? Alguma coisa mudou? Por favor, responde com duas ou três palavras."
           },
           {
-            "text": "Who would like to start?\n\n> Let everyone in the session check out one by one.\n\nThank you all for checking out and for joining this session today.\n\n> Finish session to send everyone off to the exit experience."
+            "text": "Quem gostaria de começar?\n\n> Deixa que todos na sessão façam o check-out individualmente.\n\nObrigada/o a todos por fazerem o check-out e por participarem nesta sessão de hoje.\n\n> Termina a sessão para encaminhares todos para a saída."
           }
         ]
       },
       {
         "type": "instruction",
         "content": {
-          "text": "Emotions are here to be felt, and being present with them can allow us to be compassionate and authentic. \n\nYou can continue your practice with a mission: \n\nFor the rest of today, whenever you feel an emotion stirring up something inside – take a moment to localize it in the body, and make space for it with compassion.",
+          "text": "As emoções estão aqui para serem sentidas, e estares presente com elas permite-te ser compassivo e autêntico.\n\nGostaríamos que continuasses esta missão: \n\nDurante o resto do dia, sempre que sentires uma emoção surgir dentro de ti tira um momento para a localizares no corpo e dá-lhe espaço com compaixão.",
           "image": {
             "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1711547476/Images/card_Open_up_to_compassion_xqbsa2.png"
           },
-          "heading": "Well done. "
+          "heading": "Parabéns"
         }
       }
     ],
@@ -268,11 +268,6 @@
       }
     },
     "coCreators": [
-      {
-        "name": "Rachel Brathen, yoga girl, voice.",
-        "url": "https://www.yogagirl.com/rachels-corner/bio",
-        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1709567296/Contributors/Yoga_Girl_016895_color_oju3wq_-_Square_Post_mbemkp.png"
-      },
       {
         "name": "Kristin Neff & Chris Germer, CMSC, original research",
         "url": "https://centerformsc.org/",
@@ -294,7 +289,7 @@
       "textColor": "#2E2E2E",
       "hostNotes": [
         {
-          "text": "> Start the session when you're ready to go"
+          "text": "> Começa quando estiveres pronta/o"
         }
       ],
       "videoLoop": {
@@ -311,7 +306,7 @@
     ],
     "id": "19135d2e-0e8d-418c-939d-18b0e62215ff",
     "async": true,
-    "description": "Investigate where emotions are felt in your body, to practice self-compassion when we face difficult emotions and self-critical thoughts."
+    "description": "Investiga onde sentes as emoções no teu corpo, para praticares a autocompaixão quando enfrentares emoções difíceis e pensamentos autocríticos."
   },
   "sv": {
     "slides": [
