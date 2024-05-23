@@ -157,10 +157,10 @@
         "type": "host",
         "hostNotes": [
           {
-            "text": "Welcome. I am X and today we will work for around 30 minutes on values and authenticity – with self-compassion.\n\nWe’ll be doing a meditation followed by time for reflection and sharing with each other."
+            "text": "Bem-vindos. Eu sou X e hoje vamos aprender durante cerca de 30 minutos acerca de valores e autenticidade - com autocompaixão.\n\nVamos fazer uma meditação seguida de um momento para reflexão e partilha entre nós."
           },
           {
-            "text": "Let’s start with a mini check-in. How are you feeling right now? Please answer in two-three words. X, would you like to start?\n\n> Let everyone in the session, including yourself, check in one by one.\n\nThank you all for checking in. Let’s get started."
+            "text": "Vamos começar com um pequeno check-in. Como te sentes neste momento? Por favor, responde com duas ou três palavras. X, gostarias de começar?\n\n> Deixa todos na sessão, incluindo-te a ti, fazerem o check-in individualmente.\n\nObrigada/o a todos por fazerem o check-in. Vamos começar."
           }
         ]
       },
@@ -168,13 +168,13 @@
         "type": "content",
         "hostNotes": [
           {
-            "text": "Find a comfortable position. I will start the audio exercise and we'll meet back here afterwards. \n\n> Tap play to start the audio exercise"
+            "text": "Encontra uma posição confortável. Vamos iniciar a meditação e depois voltaremos de novo aqui.\n\n> Carrega play para iniciar a meditação."
           }
         ],
         "content": {
           "lottie": {
-            "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1709573050/SRT%20(captions)%20files/Lead_from_a_place_of_love_nvraaj.srt",
-            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1709573004/Audio/Lead_from_a_place_of_love_ubqzwk.mp3",
+            "subtitles": "",
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1716393476/FJN/Meditations/Leading_From_a_Place_of_Love_eynxao_stbary.mp3",
             "durationTimer": true,
             "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/t_card_image/v1676642915/Lottie/default_audio_black_zjrmu2.json"
           }
@@ -184,15 +184,15 @@
         "type": "reflection",
         "hostNotes": [
           {
-            "text": "Now we’ll take 1 minute to reflect on our own.\n\nIf you would lead your life with love and authenticity, in accordance with your values, what would that be like?"
+            "text": "Agora vamos reservar 1 minuto para refletir.\n\nSe vivesses a tua vida com amor e autenticidade, de acordo com os seus valores, como seria?"
           },
           {
-            "text": "You can take notes on a piece of paper or just mental notes in your head. And there is no right or wrong here, our answers are our own. 1 minute starting now.\n\n> Press play to start the timer.\n\nThat’s 1 minute and it’s time to move on."
+            "text": "Podes tomar notas num papel ou apenas mentalmente. Não há respostas certas ou erradas, as respostas são tuas. 1 minuto a começar agora.\n\n> Carrega no play para iniciar o cronómetro.\n\nPassou 1 minuto, vamos seguir em frente."
           }
         ],
         "content": {
           "text": "",
-          "heading": "What would it be like to lead with authenticity and love?",
+          "heading": "Como seria viver com autenticidade e amor?",
           "lottie": {
             "durationTimer": true,
             "duration": 60,
@@ -204,18 +204,18 @@
         "type": "sharing",
         "hostNotes": [
           {
-            "text": "Now we are getting into the sharing part. We have three rules for sharing:\n\n1. **What is said in here, stays in here.**\n2. **All you need to do is listen.** There is no fixing, helping or advice-giving needed. We are just showing up and exploring what ourselves and others are going through."
+            "text": "Agora vamos para a parte da partilha. Temos três regras:\n\n1. **O que é dito aqui, fica aqui.**\n2. **Só precisas de ouvir.** Não é necessário corrigir, ajudar ou dar conselhos. Estamos apenas presentes a explorar o que nós e os outros estão a passar."
           },
           {
-            "text": "3. **Everything on the inside is okay.** Anger, love, hatred, sadness. Whatever shows up. No wrongs, no rights. It is what it is.\n\nThere will be a timer set for 2 minutes as an indicator. If you don’t want to share you can always say ‘pass’."
+            "text": "3. **Tudo o que estás a sentir é aceitável.** Raiva, amor, ódio, tristeza. O que quer que apareça. Sem certo ou errado. É o que é.\n\nO cronómetro será ajustado para 2 minutos como indicador. Se não quiseres partilhar, podes sempre dizer \"passo\"."
           },
           {
-            "text": "Who would like to start?\n\n> Let everyone (or as many as you got time for) share one by one. Press play to start the timer. Re-start for each new sharing.\n\nThank you so much everyone."
+            "text": "Quem gostaria de começar?\n\n> Deixa que todos (ou tantos quantos tiveres tempo) partilhem individualmente. Carrega play para iniciar o cronómetro. Reinicia a cada nova partilha.\n\nMuito obrigada/o a todos."
           }
         ],
         "id": "Sharing 1",
         "content": {
-          "heading": "What would it be like to lead with authenticity and love?",
+          "heading": "Como seria viver com autenticidade e amor?",
           "lottie": {
             "durationTimer": true,
             "duration": 120,
@@ -227,24 +227,24 @@
         "type": "host",
         "hostNotes": [
           {
-            "text": "Well done. Letting authentic values lead us in life can make us happier and more fulfilled. If you’re up for it, there's a mission for you.\n\nThe coming two days, whenever you face a decision, listen in to your values and let them guide you. See how that makes you feel."
+            "text": "Muito bem. Deixar que valores autênticos nos guiem na vida pode tornar-nos mais felizes e realizados. Se estiveres disposto, tenho uma missão para ti.\n\nNos próximos dois dias, sempre que enfrentares uma decisão, escuta os teus valores e deixa que eles te guiem. Vê como te sentes."
           },
           {
-            "text": "Before we leave this space let’s do a mini check-out. \n\nHow are you feeling right now? Has anything shifted? Please answer in two-three words."
+            "text": "Antes de sairmos deste espaço, vamos fazer um pequeno check-out.\n\nComo te sentes agora? Mudou alguma coisa? Por favor, responde com duas ou três palavras."
           },
           {
-            "text": "Who would like to start?\n\n> Let everyone in the session check out one by one.\n\nThank you all for checking out and for joining this session today.\n\n> Finish session to send everyone off to the exit experience."
+            "text": "Quem gostaria de começar?\n\n> Deixa todos na sessão fazerem o check-out individualmente.\n\nObrigada/o a todos por fazerem o check-out e por participarem nesta sessão hoje.\n\n> Termina a sessão para encaminhar todos para a experiência de saída."
           }
         ]
       },
       {
         "type": "instruction",
         "content": {
-          "text": "Letting authentic values lead us in life can make us happier and more fulfilled. \n\nIf you’re up for it, there's a mission for you: \n\nFor the coming two days, whenever you face a decision, listen in to your values and let them guide you. See how that makes you feel.",
+          "text": "Deixar que valores autênticos nos guiem na vida pode tornar-nos mais felizes e realizados.\n\nGostaríamos que continuasses esta missão: \n\nNos próximos dois dias, sempre que enfrentares uma decisão, escuta os teus valores e deixa que eles te guiem. Vê como te sentes.",
           "image": {
             "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1711547532/Images/card_Lead_from_a_place_of_love_fesnei.png"
           },
-          "heading": "Well done."
+          "heading": "Parabéns."
         }
       }
     ],
@@ -279,7 +279,7 @@
       "textColor": "#2E2E2E",
       "hostNotes": [
         {
-          "text": "> Start the session when you're ready to go"
+          "text": "> Começa a sessão quando estiveres pronta/o"
         }
       ],
       "videoLoop": {
