@@ -157,10 +157,10 @@
         "type": "host",
         "hostNotes": [
           {
-            "text": "Welcome. I am X and today we will work for around 30 minutes on xx\n\nWe’ll be doing xx ex. meditation followed by time for reflection and sharing with each other."
+            "text": "Bem-vindos. Eu sou X e hoje vamos aprender durante cerca de 30 minutos acerca de valores e autenticidade - com autocompaixão.\n\nVamos fazer uma meditação seguida de um momento para reflexão e partilha entre nós."
           },
           {
-            "text": "Let’s start with a mini check-in. How are you feeling right now? Please answer in two-three words. X, would you like to start?\n\n> Let everyone in the session, including yourself, check in one by one.\n\nThank you all for checking in. Let’s get started."
+            "text": "Vamos começar com um pequeno check-in. Como te sentes neste momento? Por favor, responde com duas ou três palavras. X, gostarias de começar?\n\n> Deixa todos na sessão, incluindo-te a ti, fazerem o check-in individualmente.\n\nObrigada/o a todos por fazerem o check-in. Vamos começar."
           }
         ]
       },
@@ -168,77 +168,126 @@
         "type": "content",
         "hostNotes": [
           {
-            "text": "Find a comfortable position. I will start the audio exercise and we'll meet back here afterwards. \n\n> Push play to start the audio exercise"
+            "text": "Encontra uma posição confortável. Vamos iniciar a meditação e depois voltaremos de novo aqui.\n\n> Carrega play para iniciar a meditação."
           }
-        ]
+        ],
+        "content": {
+          "lottie": {
+            "subtitles": "",
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1716393476/FJN/Meditations/Leading_From_a_Place_of_Love_eynxao_stbary.mp3",
+            "durationTimer": true,
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/t_card_image/v1676642915/Lottie/default_audio_black_zjrmu2.json"
+          }
+        }
       },
       {
         "type": "reflection",
         "hostNotes": [
           {
-            "text": "Now we’ll take 1 minute to reflect on our own.\n\nxxMain question\n\nxxFurther explanations of main question if needed"
+            "text": "Agora vamos reservar 1 minuto para refletir.\n\nSe vivesses a tua vida com amor e autenticidade, de acordo com os seus valores, como seria?"
           },
           {
-            "text": "You can take notes on a piece of paper or just mental notes in your head. And there is no right or wrong here, our answers are our own. 1 minute starting now.\n\n> Press play to start the timer.\n\nThat’s 1 minute and it’s time to move on."
+            "text": "Podes tomar notas num papel ou apenas mentalmente. Não há respostas certas ou erradas, as respostas são tuas. 1 minuto a começar agora.\n\n> Carrega no play para iniciar o cronómetro.\n\nPassou 1 minuto, vamos seguir em frente."
           }
-        ]
+        ],
+        "content": {
+          "text": "",
+          "heading": "Como seria viver com autenticidade e amor?",
+          "lottie": {
+            "durationTimer": true,
+            "duration": 60,
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/t_card_image/v1676642915/Lottie/default_1min_black_rosi2l.json"
+          }
+        }
       },
       {
         "type": "sharing",
         "hostNotes": [
           {
-            "text": "Now we are getting into the sharing part. We have three rules for sharing:\n\n1. **What is said in here, stays in here.**\n2. **All you need to do is listen.** There is no fixing, helping or advice-giving needed. We are just showing up and exploring what ourselves and others are going through."
+            "text": "Agora vamos para a parte da partilha. Temos três regras:\n\n1. **O que é dito aqui, fica aqui.**\n2. **Só precisas de ouvir.** Não é necessário corrigir, ajudar ou dar conselhos. Estamos apenas presentes a explorar o que nós e os outros estão a passar."
           },
           {
-            "text": "3. **Everything on the inside is okay.** Anger, love, hatred, sadness. Whatever shows up. No wrongs, no rights. It is what it is.\n\nThere will be a timer set for 2 minutes as an indicator. If you don’t want to share you can always say ‘pass’."
+            "text": "3. **Tudo o que estás a sentir é aceitável.** Raiva, amor, ódio, tristeza. O que quer que apareça. Sem certo ou errado. É o que é.\n\nO cronómetro será ajustado para 2 minutos como indicador. Se não quiseres partilhar, podes sempre dizer \"passo\"."
           },
           {
-            "text": "Who would like to start?\n\n> Let everyone (or as many as you got time for) share one by one. Press play to start the timer. Re-start for each new sharing.\n\nThank you so much everyone."
+            "text": "Quem gostaria de começar?\n\n> Deixa que todos (ou tantos quantos tiveres tempo) partilhem individualmente. Carrega play para iniciar o cronómetro. Reinicia a cada nova partilha.\n\nMuito obrigada/o a todos."
           }
         ],
-        "id": "Sharing 1"
+        "id": "Sharing 1",
+        "content": {
+          "heading": "Como seria viver com autenticidade e amor?",
+          "lottie": {
+            "durationTimer": true,
+            "duration": 120,
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/t_card_image/v1676639253/Lottie/default_2min_black_o6egey.json"
+          }
+        }
       },
       {
         "type": "host",
         "hostNotes": [
           {
-            "text": "Well done. If you’re up for it, you can continue what we started here today with a mission to bring this into your everyday life.\n\nxx mission description"
+            "text": "Muito bem. Deixar que valores autênticos nos guiem na vida pode tornar-nos mais felizes e realizados. Se estiveres disposto, tenho uma missão para ti.\n\nNos próximos dois dias, sempre que enfrentares uma decisão, escuta os teus valores e deixa que eles te guiem. Vê como te sentes."
           },
           {
-            "text": "Before we leave this space let’s do a mini check-out. \n\nHow are you feeling right now? Has anything shifted? Please answer in two-three words."
+            "text": "Antes de sairmos deste espaço, vamos fazer um pequeno check-out.\n\nComo te sentes agora? Mudou alguma coisa? Por favor, responde com duas ou três palavras."
           },
           {
-            "text": "Who would like to start?\n\n> Let everyone in the session check out one by one.\n\nThank you all for checking out and for joining this session today.\n\n> Finish session to send everyone off to the exit experience."
+            "text": "Quem gostaria de começar?\n\n> Deixa todos na sessão fazerem o check-out individualmente.\n\nObrigada/o a todos por fazerem o check-out e por participarem nesta sessão hoje.\n\n> Termina a sessão para encaminhar todos para a experiência de saída."
           }
         ]
       },
       {
         "type": "instruction",
         "content": {
-          "text": "Well done.\n\nSummary.\n\nIf you’re up for it, you can continue with this mission.\n\nmission description"
+          "text": "Deixar que valores autênticos nos guiem na vida pode tornar-nos mais felizes e realizados.\n\nGostaríamos que continuasses esta missão: \n\nNos próximos dois dias, sempre que enfrentares uma decisão, escuta os teus valores e deixa que eles te guiem. Vê como te sentes.",
+          "image": {
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1711547532/Images/card_Lead_from_a_place_of_love_fesnei.png"
+          },
+          "heading": "Parabéns."
         }
       }
     ],
     "theme": {
-      "textColor": "#2AE2D7"
+      "textColor": "#2E2E2E",
+      "backgroundColor": "#faf7e3"
     },
     "hidden": false,
     "locked": false,
+    "name": "Guia-te a partir de um lugar de amor",
     "live": true,
-    "published": false,
-    "card": {},
+    "published": true,
+    "card": {
+      "image": {
+        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1711547532/Images/card_Lead_from_a_place_of_love_fesnei.png"
+      }
+    },
+    "coCreators": [
+      {
+        "name": "Erik Fernholm, editor",
+        "url": "https://www.linkedin.com/in/lyckoaktivist/?originalSubdomain=se",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665412608/Contributors/Erik%20Fernholm.png"
+      },
+      {
+        "name": "Aaron Reuland, artwork",
+        "url": "https://openprocessing.org/user/183691?view=sketches&o=228",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1713964400/Images/user183691_i74pfh.jpg"
+      }
+    ],
     "duration": 30,
     "introPortal": {
-      "textColor": "#2AE2D7",
+      "textColor": "#2E2E2E",
       "hostNotes": [
         {
-          "text": "> Start the session when you're ready to go"
+          "text": "> Começa a sessão quando estiveres pronta/o"
         }
       ],
       "videoLoop": {
         "p5JsScript": {
-          "lang": "javascript"
-        }
+          "lang": "javascript",
+          "code": "\nlet particles=[]\n\n\n\nfunction setup() {\n\tlet w=min(windowWidth, windowHeight)\n\tcreateCanvas(windowWidth, windowHeight, WEBGL);\n\tcolorMode(HSB, 100)\n\tparticles.push(new particle())\n}\n\nfunction draw() {\n\tbackground(15, 10, 98);\n\tparticles.push(new particle())\n\tfor(let particle of particles){\n\t\tparticle.update()\n\t\tparticle.display()\n\t}\n}\n\nclass particle{\nconstructor(){\n\tthis.a=random(TAU)\n\tthis.size=1\n\tthis.hue=70\n\tthis.brightness=100\n\tthis.alpha=100\n\tthis.y=0\n}\n\t\nupdate(){\n\tthis.size+=0.15\n\tthis.hue-=0.05\n\tthis.brightness-=0.02\n\tthis.y+=0.2\n\tthis.alpha-=0.07\n\t\n\tif(this.alpha<0.1){\n\t\tlet index = particles.indexOf(this);\n\tparticles.splice(index, 1);\n\t}\n}\n\t\ndisplay() {\n    push();\n    noStroke();\n    // Removed unnecessary translate to the center\n    rotate(this.a); // Apply rotation\n    fill(this.hue % 100, 80, this.brightness, this.alpha); // Apply color with fading\n    ellipse(0, this.y, this.size); // Draw particle\n    pop();\n  }\n\t\n\t\n}"
+        },
+        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1712905249/Audio/portal_audio_lead_from_place_of_love_jl76zz.mp3"
       }
     },
     "tags": [
@@ -246,7 +295,8 @@
       "9c2c08a9-7dc6-4058-bc78-016d0eb00614"
     ],
     "id": "2ea0d73d-4bfe-4e23-9124-2998acc9743f",
-    "async": false
+    "async": true,
+    "description": "Explora os teus valores nesta meditação focada no corpo. Viver uma vida guiada por valores pode tornar-nos mais felizes e realizados."
   },
   "sv": {
     "slides": [
