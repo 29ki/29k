@@ -22,7 +22,9 @@
         "content": {
           "lottie": {
             "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1713532802/SRT%20(captions)%20files/Exploring_shame_Jenny_s_voice_smgdvr.srt",
-            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1713532860/Audio/Exploring_shame_Jenny_s_voice_n8dux8.mp3"
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1713532860/Audio/Exploring_shame_Jenny_s_voice_n8dux8.mp3",
+            "durationTimer": true,
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto/v1676977421/Lottie/audio_meditation_default_black_default_omemwt.json"
           }
         }
       },
@@ -37,7 +39,13 @@
           }
         ],
         "content": {
-          "heading": "How was this experience? What does the shamer want?"
+          "heading": "How was this experience? What does the shamer want?",
+          "lottie": {
+            "durationTimer": true,
+            "duration": "",
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto/v1676642915/Lottie/default_1min_black_rosi2l.json",
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1716468081/Audio/60_sec_exploring_shame_xvpxmu.mp3"
+          }
         }
       },
       {
@@ -55,7 +63,12 @@
         ],
         "id": "Sharing 1",
         "content": {
-          "heading": "How was this experience? What does the shamer want?"
+          "heading": "How was this experience? What does the shamer want?",
+          "lottie": {
+            "durationTimer": true,
+            "duration": 120,
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1676639253/Lottie/default_2min_black_o6egey.json"
+          }
         }
       },
       {
@@ -75,18 +88,27 @@
       {
         "type": "instruction",
         "content": {
-          "text": "Well done for bravely embodying different perspectives. Emotions are powerful messages, but we don't have to do as they suggest. If you're up for it, here's a mission: Today, when you notice the shamer showing up, acknowledge how you feel, find your own compassionate voice, and then, choose what to do."
+          "text": "Well done for bravely embodying different perspectives. Emotions are powerful messages, but we don't have to do as they suggest. If you're up for it, here's a mission: Today, when you notice the shamer showing up, acknowledge how you feel, find your own compassionate voice, and then, choose what to do.",
+          "image": {
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1716468137/Images/card2_exploring_shame_eol9n7.png"
+          }
         }
       }
     ],
     "theme": {
-      "textColor": "#2AE2D7"
+      "textColor": "#2E2E2E",
+      "backgroundColor": "#f3e2cd"
     },
-    "hidden": true,
+    "hidden": false,
     "locked": false,
     "name": "Exploring shame",
     "live": true,
     "published": true,
+    "card": {
+      "image": {
+        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1716468139/Images/card_exploring_shame_tmsztr.png"
+      }
+    },
     "coCreators": [
       {
         "name": "Jenny Rickardsson, editor and voice",
@@ -102,11 +124,16 @@
         "name": "Kristin Neff & Chris Germer, original research",
         "url": "https://centerformsc.org/",
         "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1697723039/Images/Germer%2C%20Neff.png"
+      },
+      {
+        "name": "Ints Ivanovskis",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413436/Contributors/Ints%20Ivanovskis.jpg",
+        "url": "https://www.linkedin.com/in/ints-ivanovskis-46ab0311a/"
       }
     ],
     "duration": 30,
     "introPortal": {
-      "textColor": "#2AE2D7",
+      "textColor": "#2E2E2E",
       "hostNotes": [
         {
           "text": "> Start the session when you're ready to go"
@@ -115,7 +142,12 @@
       "videoLoop": {
         "p5JsScript": {
           "lang": "javascript"
-        }
+        },
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1716468395/Video/portal1_exploring_shame_cedmj2.mp4",
+        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1716468088/Audio/portal_audio_exploring_shame_gtk9lf.mp3"
+      },
+      "videoEnd": {
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1716468199/Video/portal2_exploring_shame_wzelkz.mp4"
       }
     },
     "tags": [
@@ -201,6 +233,7 @@
     "locked": false,
     "live": true,
     "published": false,
+    "card": {},
     "duration": 30,
     "introPortal": {
       "textColor": "#2AE2D7",
@@ -292,6 +325,7 @@
     "locked": false,
     "live": true,
     "published": false,
+    "card": {},
     "duration": 30,
     "introPortal": {
       "textColor": "#2AE2D7",
@@ -383,6 +417,7 @@
     "locked": false,
     "live": true,
     "published": false,
+    "card": {},
     "duration": 30,
     "introPortal": {
       "textColor": "#2AE2D7",
