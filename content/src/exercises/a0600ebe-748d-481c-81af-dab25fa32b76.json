@@ -112,9 +112,9 @@
     },
     "coCreators": [
       {
-        "name": "Jenny Rickardsson, editor",
-        "url": "https://www.linkedin.com/in/jenny-rickardson-6770a959/",
-        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413228/Contributors/Jenny%20Rickardsson.jpg"
+        "name": "Kristin Neff, original research",
+        "url": "https://centerformsc.org/about/kristin-neff/",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1697723039/Images/Germer%2C%20Neff.png"
       },
       {
         "name": "Ints Ivanovskis, artwork",
@@ -371,6 +371,11 @@
     },
     "coCreators": [
       {
+        "name": "Kristin Neff, forskning",
+        "url": "https://centerformsc.org/about/kristin-neff/",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1697723039/Images/Germer%2C%20Neff.png"
+      },
+      {
         "name": "Ints Ivanovskis, artwork",
         "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413436/Contributors/Ints%20Ivanovskis.jpg",
         "url": "https://www.linkedin.com/in/ints-ivanovskis-46ab0311a/"
@@ -384,11 +389,6 @@
         "name": "Lisa Lööf, röst",
         "url": "https://www.linkedin.com/in/lisaloof/",
         "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413154/Contributors/Lisa%20L%C3%B6%C3%B6f.jpg"
-      },
-      {
-        "name": "Jenny Rickardsson, manus",
-        "url": "https://www.linkedin.com/in/jenny-rickardson-6770a959/",
-        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413228/Contributors/Jenny%20Rickardsson.jpg"
       }
     ],
     "duration": 30,
