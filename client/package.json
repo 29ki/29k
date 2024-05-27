@@ -43,7 +43,7 @@
     "@react-navigation/native-stack": "^6.9.26",
     "@react-navigation/stack": "^6.3.29",
     "@sentry/react-native": "^5.22.2",
-    "@stripe/stripe-react-native": "^0.37.3",
+    "@stripe/stripe-react-native": "^0.38.0",
     "@th3rdwave/react-navigation-bottom-sheet": "^0.2.2",
     "@types/lodash.throttle": "^4.1.9",
     "dayjs": "^1.11.10",
