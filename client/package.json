@@ -82,7 +82,7 @@
     "react-native-screens": "^3.30.1",
     "react-native-svg": "^15.1.0",
     "react-native-volume-manager": "^1.10.0",
-    "react-native-web": "^0.19.10",
+    "react-native-web": "^0.19.12",
     "react-native-web-linear-gradient": "^1.1.2",
     "react-native-webview": "^13.8.4",
     "srt-parser-2": "^1.2.3",
