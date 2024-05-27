@@ -150,7 +150,10 @@
       "videoLoop": {
         "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1673869507/Video/portal1_Drop_all_requirements_HD_kb5m0d.mp4",
         "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1674207952/Audio/Drop_all_requirements_mixdown_gapless_mrnwhp.m4a",
-        "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1674554589/Images/thumb_portal_drop_all_requirements_ns9mqy.png"
+        "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1674554589/Images/thumb_portal_drop_all_requirements_ns9mqy.png",
+        "p5JsScript": {
+          "lang": "javascript"
+        }
       },
       "videoEnd": {
         "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1673869494/Video/portal2_Drop_all_requirements_HD_bzobeu.mp4"
@@ -263,6 +266,16 @@
           "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1676394659/Video/async_outro_drop_all_requirements_kuxqiv.mov",
           "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1676455405/Images/async_outro_drop_all_requirements_ntxvdp.png"
         }
+      },
+      {
+        "type": "instruction",
+        "content": {
+          "heading": "Parabéns",
+          "image": {
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1674395876/Images/card2_Drop_all_requirements_vd3gwl.png"
+          },
+          "text": "Gostaríamos que continuasses esta missão:\n\nEm períodos de stress a recuperação é essencial. Cuida de ti e ganha perspetiva fazendo uma pausa para respirar pelo menos uma vez por dia ao longo da semana."
+        }
       }
     ],
     "theme": {
@@ -288,7 +301,10 @@
       "videoLoop": {
         "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1673869507/Video/portal1_Drop_all_requirements_HD_kb5m0d.mp4",
         "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1674207952/Audio/Drop_all_requirements_mixdown_gapless_mrnwhp.m4a",
-        "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1674554589/Images/thumb_portal_drop_all_requirements_ns9mqy.png"
+        "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1674554589/Images/thumb_portal_drop_all_requirements_ns9mqy.png",
+        "p5JsScript": {
+          "lang": "javascript"
+        }
       },
       "videoEnd": {
         "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1673869494/Video/portal2_Drop_all_requirements_HD_bzobeu.mp4"
