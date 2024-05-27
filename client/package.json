@@ -70,7 +70,7 @@
     "react-native-gesture-handler": "^2.16.2",
     "react-native-get-random-values": "^1.11.0",
     "react-native-haptic-feedback": "^2.2.0",
-    "react-native-idle-timer": "^2.2.2",
+    "react-native-idle-timer": "^2.2.3",
     "react-native-image-crop-picker": "^0.40.3",
     "react-native-linear-gradient": "^2.8.3",
     "react-native-localize": "^3.1.0",
