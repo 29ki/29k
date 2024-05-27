@@ -40,7 +40,7 @@
     "i18next": "^23.11.2",
     "ical-generator": "^5.0.1",
     "jsonwebtoken": "^9.0.2",
-    "koa": "^2.15.0",
+    "koa": "^2.15.3",
     "koa-yup-validator": "^4.1.0",
     "mjml": "^4.15.3",
     "openai": "^4.47.1",
