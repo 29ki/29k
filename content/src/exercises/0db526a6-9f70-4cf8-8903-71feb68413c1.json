@@ -8,7 +8,7 @@
             "text": "Welcome. I am X and today we will explore equanimity and excpectations  for around 20 minutes. We’ll be doing an audio exercise, followed by time for reflection and finally sharing with each other – if we're up for it."
           },
           {
-            "text": "Let’s start with a mini check-in. How are you feeling right now? Please answer in two-three words. X, would you like to start? > Let everyone in the session, including yourself, check in one by one. Thank you all for checking in. Let’s get started."
+            "text": "Let’s start with a mini check-in. How are you feeling right now? Please answer in two-three words. X, would you like to start?  \n\n> Let everyone in the session, including yourself, check in one by one. \n\nThank you all for checking in. Let’s get started."
           }
         ]
       },
@@ -16,7 +16,7 @@
         "type": "content",
         "hostNotes": [
           {
-            "text": "Find a comfortable position. I will start the audio exercise and we'll meet back here afterwards. > Tap play to start the audio exercise"
+            "text": "Find a comfortable position. I will start the audio exercise and we'll meet back here afterwards. \n\n> Tap play to start the audio exercise"
           }
         ],
         "content": {
@@ -28,21 +28,56 @@
         }
       },
       {
+        "type": "instruction",
+        "content": {
+          "heading": "Time for reflection",
+          "text": "You can take notes on a piece of paper or just mental notes in your head. And there is no right or wrong here, our answers are our own.\n\n*What do you notice about your list of “helpful expectations”? Do they seem doable? Do you see any themes or generalities?*",
+          "image": {
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1716243671/SEE/Icons/Reflection/Reflection_CardImage_rgqk5l.png"
+          }
+        }
+      },
+      {
+        "type": "instruction",
+        "content": {
+          "heading": "Time for reflection",
+          "text": "What do you notice about your list of “unhelpful expectations”? What do the items on this list have in common, if anything? What impact might these “unhelpful expectations” be having on you?",
+          "image": {
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1716243671/SEE/Icons/Reflection/Reflection_CardImage_rgqk5l.png"
+          }
+        }
+      },
+      {
+        "type": "instruction",
+        "content": {
+          "text": "What do you notice about feelings or sensations that arise in you as you think carefully about these expectations you’re holding for yourself today?",
+          "heading": "Time for reflection",
+          "image": {
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1716243671/SEE/Icons/Reflection/Reflection_CardImage_rgqk5l.png"
+          }
+        }
+      },
+      {
         "type": "reflection",
         "hostNotes": [
           {
-            "text": "Now we’ll take 1 minutes to reflect on our own. How was that experience for you? “What do you notice about your list of “helpful expectations”? Do they seem doable? Do you see any themes or generalities?"
+            "text": "Now we’ll take 1 minutes to reflect on our own. \n\nHow was that experience for you? \n\nWhat do you notice about your list of “helpful expectations”? \n\nDo they seem doable? \n\nDo you see any themes or generalities?"
           },
           {
-            "text": "What do you notice about your list of “unhelpful expectations”? What do the items on this list have in common, if anything? What impact might these “unhelpful expectations” be having on you?"
+            "text": "What do you notice about your list of “unhelpful expectations”? \n\nWhat do the items on this list have in common, if anything? \n\nWhat impact might these “unhelpful expectations” be having on you?"
           },
           {
-            "text": "What do you notice about feelings or sensations that arise in you as you think carefully about these expectations you’re holding for yourself today?”"
+            "text": "What do you notice about feelings or sensations that arise in you as you think carefully about these expectations you’re holding for yourself today?"
           },
           {
-            "text": "You can take notes on a piece of paper or just mental notes in your head. And there is no right or wrong here, our answers are our own. 1 minute starting now. > Press play to start the timer. That’s 1 minute and it’s time to move on."
+            "text": "You can take notes on a piece of paper or just mental notes in your head. And there is no right or wrong here, our answers are our own. 1 minute starting now. \n\n> Press play to start the timer. \n\nThat’s 1 minute and it’s time to move on."
           }
-        ]
+        ],
+        "content": {
+          "video": {
+            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1716235083/SEE/Video/SEELearning_Aware_1MinTimer_2024_mv72mj.mp4"
+          }
+        }
       },
       {
         "type": "sharing",
@@ -149,7 +184,7 @@
         "p5JsScript": {
           "lang": "javascript"
         },
-        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1715662633/SEE/Video/SEELearning_AwareApp_IntroVideo_2024_cljrvr.mp4"
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1716935845/SEE/Video/SEELearning_AwareApp_IntroVideo_2024_V3_k4jtws.mp4"
       }
     },
     "tags": [
