@@ -5,10 +5,10 @@
         "type": "host",
         "hostNotes": [
           {
-            "text": "Welcome. I am xx and today we will work for around 15 minutes on attention and awareness.\n\nWe’ll be exploring the how to cultivate greater awareness of our thoughts through observing the mind."
+            "text": "Welcome. I am X and today we will work for around 15 minutes on attention and awareness.\n\nWe’ll be exploring the how to cultivate greater awareness of our thoughts through observing the mind."
           },
           {
-            "text": "Let’s start with a mini check-in. How are you feeling right now? Please answer in two-three words. X, would you like to start?\n\nLet everyone in the session, including yourself, check in one by one.\n\nThank you all for checking in. Let’s get started."
+            "text": "Let’s start with a mini check-in. How are you feeling right now? Please answer in two-three words. X, would you like to start?\n\n> Let everyone in the session, including yourself, check in one by one.\n\nThank you all for checking in. Let’s get started."
           }
         ]
       },
@@ -16,14 +16,18 @@
         "type": "content",
         "hostNotes": [
           {
-            "text": "Find a comfortable position. I will start the audio exercise and we'll meet back here afterwards. > Tap play to start the audio exercise"
+            "text": "Find a comfortable position. I will start the audio exercise and we'll meet back here afterwards. \n\n>  Tap play to start the audio exercise"
           }
         ],
         "content": {
           "lottie": {
-            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto/v1715197380/SEE/Awareness4_dlgdxg.json",
-            "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1715199468/SEE/Observing_the_Mind_dhjjdf.srt",
-            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1715199487/SEE/Observing_the_Mind_awvg00.mp3"
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1715663489/SEE/Lottie/Awareness/Awareness4_xwwr2o.json",
+            "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1715752246/SEE/SRT/Awareness/Observing_the_Mind_1_hb8exu.srt",
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1715199487/SEE/Audio/Awareness/Observing_the_Mind_awvg00.mp3"
+          },
+          "video": {
+            "audio": "",
+            "subtitles": ""
           }
         }
       },
@@ -162,7 +166,7 @@
         "p5JsScript": {
           "lang": "javascript"
         },
-        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1715662633/SEE/Video/SEELearning_AwareApp_IntroVideo_2024_cljrvr.mp4"
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1716935845/SEE/Video/SEELearning_AwareApp_IntroVideo_2024_V3_k4jtws.mp4"
       }
     },
     "tags": [
@@ -170,7 +174,7 @@
     ],
     "id": "881edc87-02f4-4543-9f32-7c4b5ef34c94",
     "async": true,
-    "description": "Developing an ability to watch thought processes in the mind is a great way to catch thinking traps. Sometimes when we are experiencing distressing thoughts or challenging feelings, we might feel that there is no space or time to choose a more constructive way to deal with the challenge. Our ideas or feelings could be so intense, paralyzing or compelling that it seems to us we have no choice to think, feel, or aCT DIFFERENTLY/ We do often have more choice than that, however. We can pause to remember: “I do not have to act on each emotional impulse or thought. I can navigate emotional experiences in healthy ways, to the benefit of myself and others.\""
+    "description": "Developing an ability to watch thought processes in the mind is a great way to catch thinking traps. Sometimes when we are experiencing distressing thoughts or challenging feelings, we might feel that there is no space or time to choose a more constructive way to deal with the challenge. Our ideas or feelings could be so intense, paralyzing or compelling that it seems to us we have no choice to think, feel, or act differently. We do often have more choice than that, however. We can pause to remember: “I do not have to act on each emotional impulse or thought. I can navigate emotional experiences in healthy ways, to the benefit of myself and others.\""
   },
   "pt": {
     "slides": [
