@@ -5,7 +5,10 @@
         "type": "host",
         "hostNotes": [
           {
-            "text": "Welcome. I am X and today we will work for around 20 minutes on resilience.\n\nLet’s start with a mini check-in. How are you feeling right now? Please answer in two-three words. Now, would you like to start?\n\nLet everyone in the session, including yourself, check in one by one.\n\nThank you all for checking in. Let’s get started."
+            "text": "> Welcome. I am X and today we will work for around 20 minutes on resilience.\n>\n> We’ll be exploring the concept of resourcing followed by time for reflection and sharing with each other."
+          },
+          {
+            "text": "> Let’s start with a mini check-in. How are you feeling right now? Please answer in two-three words. Now, would you like to start?\n>\n> Let everyone in the session, including yourself, check in one by one.\n>\n> Thank you all for checking in. Let’s get started."
           }
         ]
       },
@@ -13,7 +16,7 @@
         "type": "content",
         "hostNotes": [
           {
-            "text": "Find a comfortable position. I will start the audio exercise and we'll meet back here afterwards. > Tap play to start the audio exercise"
+            "text": "Find a comfortable position. I will start the audio exercise and we'll meet back here afterwards. \n\n> Tap play to start the audio exercise"
           }
         ],
         "content": {
@@ -25,21 +28,33 @@
         }
       },
       {
+        "type": "instruction",
+        "content": {
+          "heading": "Time for reflection",
+          "text": "You can take notes on a piece of paper or just mental notes in your head. And there is no right or wrong here, our answers are our own.\n\n*How did you experience practising resourcing? How did you feel before and after resourcing? Did you notice any change?*",
+          "image": {
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1716243671/SEE/Icons/Reflection/Reflection_CardImage_rgqk5l.png"
+          }
+        }
+      },
+      {
         "type": "reflection",
         "content": {
           "video": {
-            "durationTimer": true
+            "durationTimer": true,
+            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1716235083/SEE/Video/SEELearning_Aware_1MinTimer_2024_mv72mj.mp4"
           },
           "lottie": {
             "durationTimer": true
-          }
+          },
+          "heading": "How did you experience practising resourcing? How did you feel before and after resourcing? Did you notice any change?"
         },
         "hostNotes": [
           {
-            "text": "Now we’ll take 1 minute to reflect on our own. How did you experience practising resourcing? How did you feel before and after resourcing? Did you notice any change?"
+            "text": "Now we’ll take 1 minute to reflect on our own. \n\nHow did you experience practising resourcing? How did you feel before and after resourcing? Did you notice any change?"
           },
           {
-            "text": "You can take notes on a piece of paper or just mental notes in your head. And there is no right or wrong here, our answers are our own. 1 minute starting now. > Press play to start the timer. That’s 1 minute and it’s time to move on."
+            "text": "You can take notes on a piece of paper or just mental notes in your head. And there is no right or wrong here, our answers are our own. 1 minute starting now.\n\n> Press play to start the timer. \n\nThat’s 1 minute and it’s time to move on."
           }
         ]
       },
@@ -48,22 +63,24 @@
         "id": "sharing 1",
         "content": {
           "video": {
-            "durationTimer": true
+            "durationTimer": true,
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto/v1716238084/SEE/Lottie/shareslide_lqdkod.json"
           },
           "lottie": {
             "durationTimer": true
           },
-          "text": "What did we discover about personal resources and sensations? "
+          "text": "",
+          "heading": "What did we discover about personal resources and sensations? "
         },
         "hostNotes": [
           {
-            "text": "Now we are getting into the sharing part. We have three rules for sharing"
+            "text": "Now we are getting into the sharing part. We have three rules for sharing:\n\n1. **What is said in here, stays in here.**\n2. **All you need to do is listen.** There is no fixing, helping or advice-giving needed. We are just showing up and exploring what ourselves and others are going through."
           },
           {
-            "text": "1. \\*\\*What is said in here, stays in here.\\*\\* \n\n2. \\*\\*All you need to do is listen.\\*\\* There is no fixing, helping or advice-giving needed. We are just showing up and exploring what ourselves and others are going through.\n\n3. \\*\\*Everything on the inside is okay.\\*\\* Anger, love, hatred, sadness. Whatever shows up. No wrongs, no rights. It is what it is. There will be a timer set for 2 minutes as an indicator. If you don’t want to share you can always say ‘pass’."
+            "text": "3. **Everything on the inside is okay.** Anger, love, hatred, sadness. Whatever shows up. No wrongs, no rights. It is what it is.\n\nThere will be a timer set for 2 minutes as an indicator. If you don’t want to share you can always say ‘pass’."
           },
           {
-            "text": "Who would like to start? > Let everyone (or as many as you got time for) share one by one. Press play to start the timer. Re-start for each new sharing. Thank you so much, everyone."
+            "text": "Who would like to start?\n\n> Let everyone (or as many as you got time for) share one by one. Press play to start the timer. Re-start for each new sharing.\n\nThank you so much everyone."
           }
         ]
       },
@@ -75,9 +92,11 @@
             "durationTimer": true
           },
           "lottie": {
-            "durationTimer": true
+            "durationTimer": true,
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto/v1716238084/SEE/Lottie/shareslide_lqdkod.json"
           },
-          "text": "What kinds of sensations came when we looked at our personal resources? "
+          "text": "",
+          "heading": "What kinds of sensations came when we looked at our personal resources? "
         }
       },
       {
@@ -88,9 +107,11 @@
             "durationTimer": true
           },
           "lottie": {
-            "durationTimer": true
+            "durationTimer": true,
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto/v1716238084/SEE/Lottie/shareslide_lqdkod.json"
           },
-          "text": "Where in our bodies did we feel those sensations?"
+          "text": "",
+          "heading": "Where in our bodies did we feel those sensations?"
         }
       },
       {
@@ -101,9 +122,11 @@
             "durationTimer": true
           },
           "lottie": {
-            "durationTimer": true
+            "durationTimer": true,
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto/v1716238084/SEE/Lottie/shareslide_lqdkod.json"
           },
-          "text": "Do you think we could come up with more personal resources in the future? "
+          "text": "",
+          "heading": "Do you think we could come up with more personal resources in the future? "
         }
       },
       {
@@ -114,9 +137,11 @@
             "durationTimer": true
           },
           "lottie": {
-            "durationTimer": true
+            "durationTimer": true,
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto/v1716238084/SEE/Lottie/shareslide_lqdkod.json"
           },
-          "text": "If you ever feel unpleasant, do you think you could use one of your personal resources to help your body feel better?”"
+          "text": "",
+          "heading": "If you ever feel unpleasant, do you think you could use one of your personal resources to help your body feel better?"
         }
       },
       {
@@ -129,17 +154,17 @@
             "text": "If we're up for it, we can continue with a mission: Practice using one of your resources on three different days this week."
           },
           {
-            "text": "Plan the step you will take by considering moments when resourcing might help to bring you calm and clarity.. Before we leave this space, let’s do a mini check-out: How are you feeling right now? Has anything shifted? Please answer in two to three words."
+            "text": "Plan the step you will take by considering moments when resourcing might help to bring you calm and clarity. Before we leave this space, let’s do a mini check-out: How are you feeling right now? Has anything shifted? Please answer in two to three words."
           },
           {
-            "text": "Who would like to start? > Let everyone in the session check out one by one. Thank you all for checking out and for joining this session today. > Finish session to send everyone off to the exit experience."
+            "text": "Who would like to start? \n\n> Let everyone in the session check out one by one. \n\nThank you all for checking out and for joining this session today. \n\n> Finish session to send everyone off to the exit experience."
           }
         ]
       },
       {
         "type": "instruction",
         "content": {
-          "text": "You have now started to build resources that you can use any time you need to regulate your mind and body. \n\nIf you’re up for it, you can continue with this mission.\n\nSpend some time finding and using new resources such as a wonderful memory, a favourite place, a loved one, a joyful activity or a comforting thought.",
+          "text": "Today, we’ve practised resourcing. Resourcing enables us to develop one or more tools to use when we need to self-regulate our minds and bodies.\n\nIf we're up for it, we can continue with a mission: Practice using one of your resources on three different days this week. \n\nPlan the step you will take by considering moments when resourcing might help to bring you calm and clarity.",
           "image": {
             "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1715194051/SEE/SEELearning_Logo_Apple_2022_iyrrnd.png"
           },
@@ -186,7 +211,10 @@
         "p5JsScript": {
           "lang": "javascript"
         },
-        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1715662633/SEE/Video/SEELearning_AwareApp_IntroVideo_2024_cljrvr.mp4"
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1716239701/SEE/Video/SEELearning_AwareApp_IntroVideo_2024_ioogpp.mp4"
+      },
+      "videoEnd": {
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1716239701/SEE/Video/SEELearning_AwareApp_IntroVideo_2024_ioogpp.mp4"
       }
     },
     "tags": [
