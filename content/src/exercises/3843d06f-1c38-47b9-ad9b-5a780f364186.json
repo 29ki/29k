@@ -164,7 +164,17 @@
       {
         "type": "instruction",
         "content": {
-          "text": "Today, we’ve explored and tried out Help Now! Strategies. These are simple and immediate techniques for helping us return to their resilient zone when we get “bumped out” of that zone.\n\nIf we're up for it, we can continue with a mission: Practice using three Help Now! Strategies on three different days this week. Plan the steps you will take by considering moments when Help Now! strategies might help you during your week.",
+          "text": "Today, we’ve explored and tried out Help Now! Strategies. These are simple and immediate techniques for helping us return to their resilient zone when we get “bumped out” of that zone.",
+          "heading": "Help Now!",
+          "image": {
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1715187099/SEE/Icons/Resilience/HelpNow_CardImage_she1tr.png"
+          }
+        }
+      },
+      {
+        "type": "instruction",
+        "content": {
+          "text": "If we're up for it, we can continue with a mission: Practice using three Help Now! Strategies on three different days this week. Plan the steps you will take by considering moments when Help Now! strategies might help you during your week.",
           "heading": "Well done",
           "image": {
             "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1715194051/SEE/SEELearning_Logo_Apple_2022_iyrrnd.png"
