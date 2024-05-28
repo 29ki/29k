@@ -5,10 +5,10 @@
         "type": "host",
         "hostNotes": [
           {
-            "text": "Welcome. I am X and today we will work for around 20 minutes on resilience.\n\nWe’ll be exploring the concept of our resilient zone followed by time for reflection and sharing with each other."
+            "text": "> Welcome. I am X and today we will work for around 20 minutes on resilience.\n>\n> We’ll be exploring the concept of our resilient zone followed by time for reflection and sharing with each other."
           },
           {
-            "text": "Let’s start with a mini check-in. How are you feeling right now? Please answer in two-three words. Now, would you like to start?\n\nLet everyone in the session, including yourself, check in one by one.\n\nThank you all for checking in. Let’s get started."
+            "text": "> Let’s start with a mini check-in. How are you feeling right now? Please answer in two-three words. Now, would you like to start?\n>\n> Let everyone in the session, including yourself, check in one by one.\n>\n> Thank you all for checking in. Let’s get started."
           }
         ]
       },
@@ -16,7 +16,7 @@
         "type": "content",
         "hostNotes": [
           {
-            "text": "Find a comfortable position. I will start the audio exercise and we'll meet back here afterwards. >Tap play to start the audio exercise"
+            "text": "Find a comfortable position. I will start the audio exercise and we'll meet back here afterwards. \n\n> Tap play to start the audio exercise"
           }
         ],
         "content": {
@@ -32,6 +32,17 @@
           },
           "image": {
             "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1715140416/SEE/ResilientZone_Image1_qkr6a6.png"
+          },
+          "heading": ""
+        }
+      },
+      {
+        "type": "instruction",
+        "content": {
+          "text": "You can take notes on a piece of paper or just mental notes in your head. And there is no right or wrong here, our answers are our own.\n\n*How did you find the idea of the resilient zone? How do you experience the high and low zones? How would you describe being in the OK zone?*",
+          "heading": "Time for reflection",
+          "image": {
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1716243671/SEE/Icons/Reflection/Reflection_CardImage_rgqk5l.png"
           }
         }
       },
@@ -39,18 +50,21 @@
         "type": "reflection",
         "content": {
           "video": {
-            "durationTimer": true
+            "durationTimer": false,
+            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1716235083/SEE/Video/SEELearning_Aware_1MinTimer_2024_mv72mj.mp4"
           },
           "lottie": {
-            "durationTimer": true
-          }
+            "durationTimer": false,
+            "source": ""
+          },
+          "heading": "How did you find the idea of the resilient zone? How do you experience the high and low zones? How would you describe being in the OK zone?"
         },
         "hostNotes": [
           {
-            "text": "Now we’ll take 1 minute to reflect on our own. How did you find the idea of the resilient zone? How do you experience the high and low zones? How would you describe being in the OK zone?"
+            "text": "Now we’ll take 1 minute to reflect on our own.\n\nHow did you find the idea of the resilient zone? How do you experience the high and low zones? How would you describe being in the OK zone?"
           },
           {
-            "text": "You can take notes on a piece of paper or just mental notes in your head. And there is no right or wrong here, our answers are our own. 1 minute starting now. > Press play to start the timer. That’s 1 minute and it’s time to move on."
+            "text": "You can take notes on a piece of paper or just mental notes in your head. And there is no right or wrong here, our answers are our own. 1 minute starting now.\n\n> Press play to start the timer.\n\nThat’s 1 minute and it’s time to move on."
           }
         ]
       },
@@ -59,22 +73,25 @@
         "id": "sharing 1",
         "content": {
           "video": {
-            "durationTimer": true
+            "durationTimer": false,
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto/v1716238084/SEE/Lottie/shareslide_lqdkod.json"
           },
           "lottie": {
-            "durationTimer": true
+            "durationTimer": true,
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1716238084/SEE/Lottie/shareslide_lqdkod.json"
           },
-          "text": "How do you think we’d know if someone else was in their high zone? "
+          "text": "",
+          "heading": "How do you think we’d know if someone else was in their high zone?"
         },
         "hostNotes": [
           {
-            "text": "Now we are getting into the sharing part. We have three rules for sharing"
+            "text": "Now we are getting into the sharing part. We have three rules for sharing:\n\n1. **What is said in here, stays in here.**\n2. **All you need to do is listen.** There is no fixing, helping or advice-giving needed. We are just showing up and exploring what ourselves and others are going through."
           },
           {
-            "text": "\n\n1. \\*\\*What is said in here, stays in here.\\*\\* \n2. \\*\\*All you need to do is listen.\\*\\* There is no fixing, helping or advice-giving needed. We are just showing up and exploring what ourselves and others are going through.\n3. \\*\\*Everything on the inside is okay.\\*\\* Anger, love, hatred, sadness. Whatever shows up. No wrongs, no rights. It is what it is. There will be a timer set for 2 minutes as an indicator. If you don’t want to share you can always say ‘pass’."
+            "text": "3. **Everything on the inside is okay.** Anger, love, hatred, sadness. Whatever shows up. No wrongs, no rights. It is what it is.\n\nThere will be a timer set for 2 minutes as an indicator. If you don’t want to share you can always say ‘pass’."
           },
           {
-            "text": "Who would like to start? > Let everyone (or as many as you got time for) share one by one. Press play to start the timer. Re-start for each new sharing. Thank you so much everyone."
+            "text": "Who would like to start?\n\n> Let everyone (or as many as you got time for) share one by one. Press play to start the timer. Re-start for each new sharing.\n\nThank you so much everyone."
           }
         ]
       },
@@ -86,9 +103,11 @@
             "durationTimer": true
           },
           "lottie": {
-            "durationTimer": true
+            "durationTimer": false,
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1716238084/SEE/Lottie/shareslide_lqdkod.json"
           },
-          "text": "What about their low zone?"
+          "text": "",
+          "heading": "What about their low zone?"
         }
       },
       {
@@ -99,9 +118,11 @@
             "durationTimer": true
           },
           "lottie": {
-            "durationTimer": true
+            "durationTimer": true,
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1716238084/SEE/Lottie/shareslide_lqdkod.json"
           },
-          "text": "What do you think are other words we could use to explain to someone what resilient means? "
+          "text": "",
+          "heading": "What do you think are other words we could use to explain to someone what resilient means? "
         }
       },
       {
@@ -112,9 +133,11 @@
             "durationTimer": true
           },
           "lottie": {
-            "durationTimer": true
+            "durationTimer": false,
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1716238084/SEE/Lottie/shareslide_lqdkod.json"
           },
-          "text": "Do you think most people have been stuck in the high zone some time? What about the low zone?"
+          "text": "",
+          "heading": "Do you think most people have been stuck in the high zone some time? What about the low zone?"
         }
       },
       {
@@ -130,14 +153,14 @@
             "text": "Plan the step you will take by considering how the resilient zone concept could be useful in your day. Before we leave this space, let’s do a mini check-out: How are you feeling right now? Has anything shifted? Please answer in two to three words."
           },
           {
-            "text": "Who would like to start? > Let everyone in the session check out one by one. Thank you all for checking out and for joining this session today. > Finish session to send everyone off to the exit experience."
+            "text": "Who would like to start? \n\nLet everyone in the session check out one by one. \n\nThank you all for checking out and for joining this session today. \n\n> Finish session to send everyone off to the exit experience."
           }
         ]
       },
       {
         "type": "instruction",
         "content": {
-          "text": "Today we explored our resilient zone. It is our zone of well-being, where we feel calm and alert, and where we feel more in control and better able to make good decisions.\n\nIf you’re up for it, you can continue with this mission.",
+          "text": "We've explored the idea of the resilient zone. It’s important to remember that each of us will experience a challenging situation differently. We’re all human. We’re all in this together. We can build the skills needed to return ourselves to our Resilient Zone, even in very challenging situations.\n\nIf we're up for it, we can continue with a mission: Practice growing our awareness by noticing where we might be in the resilient zone over the next few days.\n\nPlan the step you will take by considering how the resilient zone concept could be useful in your day.",
           "image": {
             "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1715194051/SEE/SEELearning_Logo_Apple_2022_iyrrnd.png"
           },
@@ -184,8 +207,11 @@
         "p5JsScript": {
           "lang": "javascript"
         },
-        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1715662633/SEE/Video/SEELearning_AwareApp_IntroVideo_2024_cljrvr.mp4",
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1716239701/SEE/Video/SEELearning_AwareApp_IntroVideo_2024_ioogpp.mp4",
         "description": ""
+      },
+      "videoEnd": {
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1716239704/SEE/Video/SEELearning_AwareApp_IntroVideo_Tranasition_2024_awdemq.mp4"
       }
     },
     "tags": [
