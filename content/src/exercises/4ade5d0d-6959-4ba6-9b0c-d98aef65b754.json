@@ -160,7 +160,17 @@
       {
         "type": "instruction",
         "content": {
-          "text": "We've explored the idea of the resilient zone. It’s important to remember that each of us will experience a challenging situation differently. We’re all human. We’re all in this together. We can build the skills needed to return ourselves to our Resilient Zone, even in very challenging situations.\n\nIf we're up for it, we can continue with a mission: Practice growing our awareness by noticing where we might be in the resilient zone over the next few days.\n\nPlan the step you will take by considering how the resilient zone concept could be useful in your day.",
+          "text": "We've explored the idea of the resilient zone. It’s important to remember that each of us will experience a challenging situation differently. We’re all human. We’re all in this together. We can build the skills needed to return ourselves to our Resilient Zone, even in very challenging situations.",
+          "heading": "Resilient Zone",
+          "image": {
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/v1715187102/SEE/Icons/Resilience/ResilientZone_CardImage_gem1py.png"
+          }
+        }
+      },
+      {
+        "type": "instruction",
+        "content": {
+          "text": "If we're up for it, we can continue with a mission: Practice growing our awareness by noticing where we might be in the resilient zone over the next few days.\n\nPlan the step you will take by considering how the resilient zone concept could be useful in your day.",
           "image": {
             "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1715194051/SEE/SEELearning_Logo_Apple_2022_iyrrnd.png"
           },
