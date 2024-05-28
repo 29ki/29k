@@ -24,25 +24,36 @@
             "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1715752244/SEE/SRT/Awareness/Breathing_1_z20wcp.srt",
             "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1715198361/SEE/Audio/Awareness/Breathing_x7iroz.mp3",
             "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto/v1715663487/SEE/Lottie/Awareness/Awareness3_ecxtbr.json"
-          }
+          },
+          "heading": ""
+        }
+      },
+      {
+        "type": "instruction",
+        "content": {
+          "heading": "Time for reflection",
+          "text": "You can take notes on a piece of paper or just mental notes in your head. And there is no right or wrong here, our answers are our own.\n\n*How was that experience for you? How easy or difficult was it for you to keep your attention on the breath with mindfulness? Were you able to use awareness to bring your mind back when you got distracted or sleepy? What sensations do you notice in your body now?*"
         }
       },
       {
         "type": "reflection",
         "content": {
           "video": {
-            "durationTimer": true
+            "durationTimer": true,
+            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1716235083/SEE/Video/SEELearning_Aware_1MinTimer_2024_mv72mj.mp4"
           },
           "lottie": {
             "durationTimer": true
-          }
+          },
+          "text": "",
+          "heading": "How was that experience for you? How easy or difficult was it for you to keep your attention on the breath with mindfulness? Were you able to use awareness to bring your mind back when you got distracted or sleepy? What sensations do you notice in your body now?"
         },
         "hostNotes": [
           {
-            "text": "Now we’ll take 2 minutes to reflect on our own. How was that experience for you? How easy or difficult was it for you to keep your attention on the breath with mindfulness? Were you able to use awareness to bring your mind back when you got distracted or sleepy? What sensations do you notice in your body now?"
+            "text": "Now we’ll take 1 minutes to reflect on our own. How was that experience for you? How easy or difficult was it for you to keep your attention on the breath with mindfulness? Were you able to use awareness to bring your mind back when you got distracted or sleepy? What sensations do you notice in your body now?"
           },
           {
-            "text": "You can take notes on a piece of paper or just mental notes in your head. And there is no right or wrong here, our answers are our own. 1 minute starting now. > Press play to start the timer. That’s 1 minute and it’s time to move on."
+            "text": "You can take notes on a piece of paper or just mental notes in your head. And there is no right or wrong here, our answers are our own. 1 minute starting now.\n\n> Press play to start the timer. \n\nThat’s 1 minute and it’s time to move on."
           }
         ]
       },
@@ -54,19 +65,21 @@
             "durationTimer": true
           },
           "lottie": {
-            "durationTimer": true
+            "durationTimer": true,
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto/v1716238084/SEE/Lottie/shareslide_lqdkod.json"
           },
-          "text": "How was that experience for you?"
+          "text": "",
+          "heading": "How was that experience for you?"
         },
         "hostNotes": [
           {
-            "text": "Now we are getting into the sharing part. We have three rules for sharing"
+            "text": "Now we are getting into the sharing part. We have three rules for sharing:\n\n1. **What is said in here, stays in here.**\n2. **All you need to do is listen.** There is no fixing, helping or advice-giving needed. We are just showing up and exploring what ourselves and others are going through."
           },
           {
-            "text": "1. \\*\\*What is said in here, stays in here.\\*\\* \n\n2. \\*\\*All you need to do is listen.\\*\\* There is no fixing, helping or advice-giving needed. We are just showing up and exploring what ourselves and others are going through.\n\n3. \\*\\*Everything on the inside is okay.\\*\\* Anger, love, hatred, sadness. Whatever shows up. No wrongs, no rights. It is what it is. There will be a timer set for 2 minutes as an indicator. If you don’t want to share you can always say ‘pass’."
+            "text": "3. **Everything on the inside is okay.** Anger, love, hatred, sadness. Whatever shows up. No wrongs, no rights. It is what it is.\n\nThere will be a timer set for 2 minutes as an indicator. If you don’t want to share you can always say ‘pass’."
           },
           {
-            "text": "Who would like to start? > Let everyone (or as many as you got time for) share one by one. Press play to start the timer. Re-start for each new sharing. Thank you so much, everyone."
+            "text": "Who would like to start?\n\n> Let everyone (or as many as you got time for) share one by one. Press play to start the timer. Re-start for each new sharing.\n\nThank you so much everyone."
           }
         ]
       },
@@ -78,9 +91,11 @@
             "durationTimer": true
           },
           "lottie": {
-            "durationTimer": true
+            "durationTimer": true,
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto/v1716238084/SEE/Lottie/shareslide_lqdkod.json"
           },
-          "text": "How easy or difficult was it for you to keep your attention on the breath with mindfulness?"
+          "text": "",
+          "heading": "How easy or difficult was it for you to keep your attention on the breath with mindfulness?"
         }
       },
       {
@@ -91,9 +106,11 @@
             "durationTimer": true
           },
           "lottie": {
-            "durationTimer": true
+            "durationTimer": true,
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto/v1716238084/SEE/Lottie/shareslide_lqdkod.json"
           },
-          "text": "Were you able to use awareness to bring your mind back when you got distracted or sleepy? "
+          "text": "",
+          "heading": "Were you able to use awareness to bring your mind back when you got distracted or sleepy? "
         }
       },
       {
@@ -104,9 +121,11 @@
             "durationTimer": true
           },
           "lottie": {
-            "durationTimer": true
+            "durationTimer": true,
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto/v1716238084/SEE/Lottie/shareslide_lqdkod.json"
           },
-          "text": "What sensations do you notice in your body now?"
+          "text": "",
+          "heading": "What sensations do you notice in your body now?"
         }
       },
       {
@@ -122,15 +141,24 @@
             "text": "Plan the steps you will take by considering a time in your day when this might be helpful or timely. Before we leave this space, let’s do a mini check-out: How are you feeling right now? Has anything shifted? Please answer in two to three words."
           },
           {
-            "text": "Who would like to start? > Let everyone in the session check out one by one. Thank you all for checking out and for joining this session today. > Finish session to send everyone off to the exit experience."
+            "text": "Who would like to start? \n\n> Let everyone in the session check out one by one. \n\nThank you all for checking out and for joining this session today. \n\n> Finish session to send everyone off to the exit experience."
           }
         ]
       },
       {
         "type": "instruction",
         "content": {
-          "text": "You have now started to build a set of strategies that you can use at any time to regulate your mind and body. \n\nIf you’re up for it, you can continue with this mission.\n\nTry practising breathing during your day when you are waiting for something. When you feel tense or worried try to see if you can use the breath to return to a place of calm.",
-          "heading": "Well done",
+          "text": "Today, we’ve explored building our capacity for attention by focusing on an object, our breath. As we become skillful in focused attention, it can help to bring about greater calm and well-being in our bodies and minds, and help strengthen our ability to pay attention the same way we can build muscle.",
+          "heading": "Attention to breath",
+          "image": {
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1715194844/SEE/Icons/Awareness/AttentiontoBreathing_CardImage_otoh1t.png"
+          }
+        }
+      },
+      {
+        "type": "instruction",
+        "content": {
+          "text": "If we're up for it, we can continue with a mission: Practice using the breath or another object to practice your focusing on three occasions this week.\n\nPlan the steps you will take by considering a time in your day when this might be helpful or timely.",
           "image": {
             "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1715194051/SEE/SEELearning_Logo_Apple_2022_iyrrnd.png"
           }
