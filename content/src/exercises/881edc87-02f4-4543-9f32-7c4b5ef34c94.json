@@ -159,8 +159,17 @@
       {
         "type": "instruction",
         "content": {
-          "text": " Well done. Today, we’ve explored observing the mind. \n\nWe all have personal power over how we react to emotional impulses or challenging thoughts. We do not have to act on each emotional impulse. We can navigate emotional experiences in healthy ways to the benefit of ourselves and others.\n\nObserving the mind helps us notice potential thoughts and ideas that could be unhelpful.",
+          "text": " Well done. Today, we’ve explored observing the mind. \n\nWe all have personal power over how we react to emotional impulses or challenging thoughts. We do not have to act on each emotional impulse.",
           "heading": "Observing the mind",
+          "image": {
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1715194852/SEE/Icons/Awareness/ObservingTheMind_CardImage_sm7nn9.png"
+          }
+        }
+      },
+      {
+        "type": "instruction",
+        "content": {
+          "text": "We can navigate emotional experiences in healthy ways to the benefit of ourselves and others.\n\nObserving the mind helps us notice potential thoughts and ideas that could be unhelpful.",
           "image": {
             "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1715194852/SEE/Icons/Awareness/ObservingTheMind_CardImage_sm7nn9.png"
           }
