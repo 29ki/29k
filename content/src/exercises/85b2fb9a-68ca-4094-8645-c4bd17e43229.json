@@ -33,7 +33,7 @@
           "image": {
             "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1716243671/SEE/Icons/Reflection/Reflection_CardImage_rgqk5l.png"
           },
-          "heading": "Time for reflection",
+          "heading": "Reflection",
           "text": "You can take notes on a piece of paper or just mental notes in your head. And there is no right or wrong here, our answers are our own."
         }
       },
@@ -43,7 +43,8 @@
           "text": "How was that experience for you? Did you experience a change before and after tracking?",
           "image": {
             "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1716243671/SEE/Icons/Reflection/Reflection_CardImage_rgqk5l.png"
-          }
+          },
+          "heading": "Reflection"
         }
       },
       {
@@ -161,7 +162,7 @@
         "type": "instruction",
         "content": {
           "text": "Well done. Today, we’ve explored tracking sensations in our body. Emotions vary in levels of activation in the body (high to low energy, or neutral) and in feeling tone (pleasant, neutral, unpleasant). We can learn about our emotional state by tracking our level of activation and sensations.",
-          "heading": "Tracking",
+          "heading": "Awareness",
           "image": {
             "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1715194856/SEE/Icons/Awareness/Tracking_CardImage_xce0qv.png"
           }
@@ -173,16 +174,17 @@
           "text": "Ideally, resourcing and tracking should be practiced together. Both resourcing and tracking are skills that develop over time with practice, and lead to what can be called “body literacy” since we are learning about our own bodies and how they respond to stress and well-being.\n\nAs you’ve reflected on what you can bring from this to the rest of your day, take this opportunity to practice making space for things on the inside during the rest of today, and see where that takes you.",
           "image": {
             "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1715194856/SEE/Icons/Awareness/Tracking_CardImage_xce0qv.png"
-          }
+          },
+          "heading": "Awareness"
         }
       },
       {
         "type": "instruction",
         "content": {
           "text": "If we're up for it, we can continue with a mission: Practice using the tracking on four occasions during the next three days and remember to notice the energy and tone of each sensation.\n\nPlan the steps you will take by considering a time in your day when this might be helpful or timely.",
-          "heading": "",
+          "heading": "Awareness",
           "image": {
-            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1715194051/SEE/SEELearning_Logo_Apple_2022_iyrrnd.png"
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1715194856/SEE/Icons/Awareness/Tracking_CardImage_xce0qv.png"
           }
         }
       }
