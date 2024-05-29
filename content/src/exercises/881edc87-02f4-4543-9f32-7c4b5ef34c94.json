@@ -34,7 +34,7 @@
       {
         "type": "instruction",
         "content": {
-          "heading": "Time for reflection",
+          "heading": "Reflection",
           "text": "You can take notes on a piece of paper or just mental notes in your head. And there is no right or wrong here, our answers are our own.",
           "image": {
             "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1716243671/SEE/Icons/Reflection/Reflection_CardImage_rgqk5l.png"
@@ -47,7 +47,8 @@
           "text": "How was that experience for you? \n\nWas anyone able to watch some thoughts coming and going? What was that like? \n\nDid anyone notice a time when there were no thoughts?",
           "image": {
             "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1716243671/SEE/Icons/Reflection/Reflection_CardImage_rgqk5l.png"
-          }
+          },
+          "heading": "Reflection"
         }
       },
       {
@@ -56,7 +57,8 @@
           "text": "Maybe a pause or a break or gap between thoughts? \n\nWhat have you learned about the mind that you find most interesting or most helpful? \n\nHow might it help us if we learned to watch our minds?",
           "image": {
             "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1716243671/SEE/Icons/Reflection/Reflection_CardImage_rgqk5l.png"
-          }
+          },
+          "heading": "Reflection"
         }
       },
       {
@@ -160,7 +162,7 @@
         "type": "instruction",
         "content": {
           "text": " Well done. Today, we’ve explored observing the mind. \n\nWe all have personal power over how we react to emotional impulses or challenging thoughts. We do not have to act on each emotional impulse.",
-          "heading": "Observing the mind",
+          "heading": "Awareness",
           "image": {
             "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1715194852/SEE/Icons/Awareness/ObservingTheMind_CardImage_sm7nn9.png"
           }
@@ -172,14 +174,15 @@
           "text": "We can navigate emotional experiences in healthy ways to the benefit of ourselves and others.\n\nObserving the mind helps us notice potential thoughts and ideas that could be unhelpful.",
           "image": {
             "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1715194852/SEE/Icons/Awareness/ObservingTheMind_CardImage_sm7nn9.png"
-          }
+          },
+          "heading": "Awareness"
         }
       },
       {
         "type": "instruction",
         "content": {
           "text": "If we're up for it, we can continue with a mission: Practice observing your mind once a day for 4 minutes over the next two days.\n\nPlan the steps you will take by considering a time in your day when this might be helpful or timely.",
-          "heading": "",
+          "heading": "Awareness",
           "image": {
             "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1715194051/SEE/SEELearning_Logo_Apple_2022_iyrrnd.png"
           }
