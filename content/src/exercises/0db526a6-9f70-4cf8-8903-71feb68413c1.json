@@ -40,7 +40,7 @@
       {
         "type": "instruction",
         "content": {
-          "heading": "Time for reflection",
+          "heading": "",
           "text": "What do you notice about your list of “unhelpful expectations”? What do the items on this list have in common, if anything? What impact might these “unhelpful expectations” be having on you?",
           "image": {
             "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1716243671/SEE/Icons/Reflection/Reflection_CardImage_rgqk5l.png"
@@ -51,7 +51,7 @@
         "type": "instruction",
         "content": {
           "text": "What do you notice about feelings or sensations that arise in you as you think carefully about these expectations you’re holding for yourself today?",
-          "heading": "Time for reflection",
+          "heading": "",
           "image": {
             "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1716243671/SEE/Icons/Reflection/Reflection_CardImage_rgqk5l.png"
           }
@@ -169,7 +169,7 @@
         "type": "instruction",
         "content": {
           "text": "Managing our expectation can form a crucial part of this process by providing us with realistic perceptions and goal aiding our ability remain grounded in what is present for us.",
-          "heading": "Expectations",
+          "heading": "",
           "image": {
             "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1715667118/SEE/Icons/Compassion/Expectations_CardImage_zkjcx2.png"
           }
