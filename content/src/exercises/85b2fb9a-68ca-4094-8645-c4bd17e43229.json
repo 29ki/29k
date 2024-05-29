@@ -1,0 +1,516 @@
+{
+  "en": {
+    "slides": [
+      {
+        "type": "host",
+        "hostNotes": [
+          {
+            "text": "Welcome. I am X and today we will work for around 10 minutes on attention and awareness.\n\nWe’ll be exploring how tracking can help us to cultivate greater attention and awareness by focusing on our bodies."
+          },
+          {
+            "text": "Let’s start with a mini check-in. How are you feeling right now? Please answer in two-three words. X, would you like to start?\n\n> Let everyone in the session, including yourself, check in one by one.\n\nThank you all for checking in. Let’s get started."
+          }
+        ]
+      },
+      {
+        "type": "content",
+        "hostNotes": [
+          {
+            "text": "Find a comfortable position. I will start the audio exercise and we'll meet back here afterwards. > Tap play to start the audio exercise"
+          }
+        ],
+        "content": {
+          "lottie": {
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto/v1715663485/SEE/Lottie/Awareness/Awareness2_gtrgxy.json",
+            "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1715752249/SEE/SRT/Awareness/Tracking_baikiy.srt",
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1715198899/SEE/Audio/Awareness/Tracking_24_x0uaaa.mp3"
+          }
+        }
+      },
+      {
+        "type": "instruction",
+        "content": {
+          "image": {
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1716951212/SEE/Icons/Reflection/Reflection_Awareness_CardImage_wgzwcf.png"
+          },
+          "heading": "Reflection",
+          "text": "You can take notes on a piece of paper or just mental notes in your head. And there is no right or wrong here, our answers are our own."
+        }
+      },
+      {
+        "type": "instruction",
+        "content": {
+          "text": "How was that experience for you? Did you experience a change before and after tracking?",
+          "image": {
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1716951212/SEE/Icons/Reflection/Reflection_Awareness_CardImage_wgzwcf.png"
+          },
+          "heading": "Reflection"
+        }
+      },
+      {
+        "type": "reflection",
+        "content": {
+          "video": {
+            "durationTimer": true,
+            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1716235083/SEE/Video/SEELearning_Aware_1MinTimer_2024_mv72mj.mp4"
+          },
+          "lottie": {
+            "durationTimer": true
+          }
+        },
+        "hostNotes": [
+          {
+            "text": "Now we’ll take 1 minutes to reflect on our own. \n\nHow was that experience for you? \n\nTracking is paying attention to sensations in our body with the intention of enhancing our experience of wellbeing and returning to our resilient zone. \n\nDid you experience a change before and after tracking?"
+          },
+          {
+            "text": "You can take notes on a piece of paper or just mental notes in your head. And there is no right or wrong here, our answers are our own. 1 minute starting now. \n\n> Press play to start the timer. \n\nThat’s 1 minute and it’s time to move on."
+          }
+        ]
+      },
+      {
+        "type": "sharing",
+        "id": "sharing 1",
+        "content": {
+          "video": {
+            "durationTimer": true
+          },
+          "lottie": {
+            "durationTimer": true,
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto/v1716238084/SEE/Lottie/shareslide_lqdkod.json"
+          },
+          "text": "",
+          "heading": "What did we discover about tracking the sensations in our bodies?"
+        },
+        "hostNotes": [
+          {
+            "text": "Now we are getting into the sharing part. We have three rules for sharing:\n\n1. **What is said in here, stays in here.**\n2. **All you need to do is listen.** There is no fixing, helping or advice-giving needed. We are just showing up and exploring what ourselves and others are going through."
+          },
+          {
+            "text": "3. **Everything on the inside is okay.** Anger, love, hatred, sadness. Whatever shows up. No wrongs, no rights. It is what it is.\n\nThere will be a timer set for 2 minutes as an indicator. If you don’t want to share you can always say ‘pass’."
+          },
+          {
+            "text": "Who would like to start?\n\n> Let everyone (or as many as you got time for) share one by one. Press play to start the timer. Re-start for each new sharing.\n\nThank you so much everyone."
+          }
+        ]
+      },
+      {
+        "type": "sharing",
+        "id": "sharing 2",
+        "content": {
+          "video": {
+            "durationTimer": true
+          },
+          "lottie": {
+            "durationTimer": true,
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto/v1716238084/SEE/Lottie/shareslide_lqdkod.json"
+          },
+          "text": "",
+          "heading": " What kinds of sensations came when we  looked at our personal resources?"
+        }
+      },
+      {
+        "type": "sharing",
+        "id": "sharing 3",
+        "content": {
+          "video": {
+            "durationTimer": true
+          },
+          "lottie": {
+            "durationTimer": true,
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto/v1716238084/SEE/Lottie/shareslide_lqdkod.json"
+          },
+          "text": "",
+          "heading": "Where in our bodies did we feel those  sensations? "
+        }
+      },
+      {
+        "type": "sharing",
+        "id": "sharing 4",
+        "content": {
+          "video": {
+            "durationTimer": true
+          },
+          "lottie": {
+            "durationTimer": true,
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto/v1716238084/SEE/Lottie/shareslide_lqdkod.json"
+          },
+          "text": "",
+          "heading": "If you ever feel unpleasant, do you think you  could use one of your personal resources to  help your body feel better?"
+        }
+      },
+      {
+        "type": "host",
+        "hostNotes": [
+          {
+            "text": "Well done. Today, we’ve explored tracking sensations in our body. Emotions vary in levels of activation in the  body (high to low energy, or neutral) and in feeling tone (pleasant, neutral, unpleasant). We can learn about our emotional state by tracking our level of activation and sensations."
+          },
+          {
+            "text": "Ideally, resourcing and tracking should be practiced together. Both resourcing and tracking are skills that develop over time with practice, and lead to what can be called “body literacy” since we are learning about our own bodies and how they respond to stress and well-being."
+          },
+          {
+            "text": "As you’ve reflected on what you can bring from this to the rest of your day, take this opportunity to practice making space for things on the inside during the rest of today, and see where that takes you."
+          },
+          {
+            "text": "If we're up for it, we can continue with a mission: Practice using the tracking on four occasions during the next three days and remember to notice the energy and tone of each sensation.\n\nPlan the steps you will take by considering a time in your day when this might be helpful or timely.\n\nBefore we leave this space, let’s do a mini check-out: How are you feeling right now? Has anything shifted? Please answer in two to three words."
+          },
+          {
+            "text": "Who would like to start? \n\n> Let everyone in the session check out one by one. \n\nThank you all for checking out and for joining this session today. \n\n> Finish session to send everyone off to the exit experience."
+          }
+        ]
+      },
+      {
+        "type": "instruction",
+        "content": {
+          "text": "Well done. Today, we’ve explored tracking sensations in our body. Emotions vary in levels of activation in the body (high to low energy, or neutral) and in feeling tone (pleasant, neutral, unpleasant). We can learn about our emotional state by tracking our level of activation and sensations.",
+          "heading": "Awareness",
+          "image": {
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1715194856/SEE/Icons/Awareness/Tracking_CardImage_xce0qv.png"
+          }
+        }
+      },
+      {
+        "type": "instruction",
+        "content": {
+          "text": "Ideally, resourcing and tracking should be practiced together. Both resourcing and tracking are skills that develop over time with practice, and lead to what can be called “body literacy” since we are learning about our own bodies and how they respond to stress and well-being.\n\nAs you’ve reflected on what you can bring from this to the rest of your day, take this opportunity to practice making space for things on the inside during the rest of today, and see where that takes you.",
+          "image": {
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1715194856/SEE/Icons/Awareness/Tracking_CardImage_xce0qv.png"
+          },
+          "heading": "Awareness"
+        }
+      },
+      {
+        "type": "instruction",
+        "content": {
+          "text": "If we're up for it, we can continue with a mission: Practice using the tracking on four occasions during the next three days and remember to notice the energy and tone of each sensation.\n\nPlan the steps you will take by considering a time in your day when this might be helpful or timely.",
+          "heading": "Awareness",
+          "image": {
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1715194856/SEE/Icons/Awareness/Tracking_CardImage_xce0qv.png"
+          }
+        }
+      }
+    ],
+    "theme": {
+      "textColor": "#2E2E2E",
+      "backgroundColor": "#f5f5f5"
+    },
+    "hidden": false,
+    "locked": true,
+    "name": "Tracking",
+    "live": true,
+    "published": true,
+    "card": {
+      "image": {
+        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1715194856/SEE/Icons/Awareness/Tracking_CardImage_xce0qv.png"
+      }
+    },
+    "coCreators": [
+      {
+        "name": "SEE Learning ",
+        "url": "https://seelearning.emory.edu/en/home",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1713881366/SEE/see-logo_1_kewtlt.png"
+      }
+    ],
+    "duration": 10,
+    "outroPortal": {
+      "video": {
+        "source": ""
+      }
+    },
+    "introPortal": {
+      "textColor": "#2AE2D7",
+      "hostNotes": [
+        {
+          "text": "> Press play to start the audio exercise"
+        }
+      ],
+      "videoLoop": {
+        "p5JsScript": {
+          "lang": "javascript"
+        },
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1716935845/SEE/Video/SEELearning_AwareApp_IntroVideo_2024_V3_k4jtws.mp4"
+      },
+      "videoEnd": {
+        "source": ""
+      }
+    },
+    "tags": [
+      "cfc00217-f65b-4a4d-8b82-8ccc8f852dd6"
+    ],
+    "id": "85b2fb9a-68ca-4094-8645-c4bd17e43229",
+    "async": true,
+    "description": "When we then direct our attention to those sensations that are pleasant or neutral we are practicing tracking or reading the sensations. This can enhance the body’s experience of well-being and help it return to (or go deeper into) our resilient zone."
+  },
+  "pt": {
+    "slides": [
+      {
+        "type": "host",
+        "hostNotes": [
+          {
+            "text": "Welcome. I am X and today we will work for around 30 minutes on xx\n\nWe’ll be doing xx ex. meditation followed by time for reflection and sharing with each other."
+          },
+          {
+            "text": "Let’s start with a mini check-in. How are you feeling right now? Please answer in two-three words. X, would you like to start?\n\n> Let everyone in the session, including yourself, check in one by one.\n\nThank you all for checking in. Let’s get started."
+          }
+        ]
+      },
+      {
+        "type": "content",
+        "hostNotes": [
+          {
+            "text": "Find a comfortable position. I will start the audio exercise and we'll meet back here afterwards. \n\n> Push play to start the audio exercise"
+          }
+        ]
+      },
+      {
+        "type": "reflection",
+        "hostNotes": [
+          {
+            "text": "Now we’ll take 1 minute to reflect on our own.\n\nxxMain question\n\nxxFurther explanations of main question if needed"
+          },
+          {
+            "text": "You can take notes on a piece of paper or just mental notes in your head. And there is no right or wrong here, our answers are our own. 1 minute starting now.\n\n> Press play to start the timer.\n\nThat’s 1 minute and it’s time to move on."
+          }
+        ]
+      },
+      {
+        "type": "sharing",
+        "hostNotes": [
+          {
+            "text": "Now we are getting into the sharing part. We have three rules for sharing:\n\n1. **What is said in here, stays in here.**\n2. **All you need to do is listen.** There is no fixing, helping or advice-giving needed. We are just showing up and exploring what ourselves and others are going through."
+          },
+          {
+            "text": "3. **Everything on the inside is okay.** Anger, love, hatred, sadness. Whatever shows up. No wrongs, no rights. It is what it is.\n\nThere will be a timer set for 2 minutes as an indicator. If you don’t want to share you can always say ‘pass’."
+          },
+          {
+            "text": "Who would like to start?\n\n> Let everyone (or as many as you got time for) share one by one. Press play to start the timer. Re-start for each new sharing.\n\nThank you so much everyone."
+          }
+        ],
+        "id": "Sharing 1"
+      },
+      {
+        "type": "host",
+        "hostNotes": [
+          {
+            "text": "Well done. If you’re up for it, you can continue what we started here today with a mission to bring this into your everyday life.\n\nxx mission description"
+          },
+          {
+            "text": "Before we leave this space let’s do a mini check-out. \n\nHow are you feeling right now? Has anything shifted? Please answer in two-three words."
+          },
+          {
+            "text": "Who would like to start?\n\n> Let everyone in the session check out one by one.\n\nThank you all for checking out and for joining this session today.\n\n> Finish session to send everyone off to the exit experience."
+          }
+        ]
+      },
+      {
+        "type": "instruction",
+        "content": {
+          "text": "Well done.\n\nSummary.\n\nIf you’re up for it, you can continue with this mission.\n\nmission description"
+        }
+      }
+    ],
+    "theme": {
+      "textColor": "#2AE2D7"
+    },
+    "hidden": false,
+    "locked": true,
+    "live": true,
+    "published": false,
+    "card": {},
+    "duration": 10,
+    "introPortal": {
+      "textColor": "#2AE2D7",
+      "hostNotes": [
+        {
+          "text": "> Start the session when you're ready to go"
+        }
+      ]
+    },
+    "tags": [
+      "cfc00217-f65b-4a4d-8b82-8ccc8f852dd6"
+    ],
+    "id": "85b2fb9a-68ca-4094-8645-c4bd17e43229",
+    "async": false
+  },
+  "sv": {
+    "slides": [
+      {
+        "type": "host",
+        "hostNotes": [
+          {
+            "text": "Welcome. I am X and today we will work for around 30 minutes on xx\n\nWe’ll be doing xx ex. meditation followed by time for reflection and sharing with each other."
+          },
+          {
+            "text": "Let’s start with a mini check-in. How are you feeling right now? Please answer in two-three words. X, would you like to start?\n\n> Let everyone in the session, including yourself, check in one by one.\n\nThank you all for checking in. Let’s get started."
+          }
+        ]
+      },
+      {
+        "type": "content",
+        "hostNotes": [
+          {
+            "text": "Find a comfortable position. I will start the audio exercise and we'll meet back here afterwards. \n\n> Push play to start the audio exercise"
+          }
+        ]
+      },
+      {
+        "type": "reflection",
+        "hostNotes": [
+          {
+            "text": "Now we’ll take 1 minute to reflect on our own.\n\nxxMain question\n\nxxFurther explanations of main question if needed"
+          },
+          {
+            "text": "You can take notes on a piece of paper or just mental notes in your head. And there is no right or wrong here, our answers are our own. 1 minute starting now.\n\n> Press play to start the timer.\n\nThat’s 1 minute and it’s time to move on."
+          }
+        ]
+      },
+      {
+        "type": "sharing",
+        "hostNotes": [
+          {
+            "text": "Now we are getting into the sharing part. We have three rules for sharing:\n\n1. **What is said in here, stays in here.**\n2. **All you need to do is listen.** There is no fixing, helping or advice-giving needed. We are just showing up and exploring what ourselves and others are going through."
+          },
+          {
+            "text": "3. **Everything on the inside is okay.** Anger, love, hatred, sadness. Whatever shows up. No wrongs, no rights. It is what it is.\n\nThere will be a timer set for 2 minutes as an indicator. If you don’t want to share you can always say ‘pass’."
+          },
+          {
+            "text": "Who would like to start?\n\n> Let everyone (or as many as you got time for) share one by one. Press play to start the timer. Re-start for each new sharing.\n\nThank you so much everyone."
+          }
+        ],
+        "id": "Sharing 1"
+      },
+      {
+        "type": "host",
+        "hostNotes": [
+          {
+            "text": "Well done. If you’re up for it, you can continue what we started here today with a mission to bring this into your everyday life.\n\nxx mission description"
+          },
+          {
+            "text": "Before we leave this space let’s do a mini check-out. \n\nHow are you feeling right now? Has anything shifted? Please answer in two-three words."
+          },
+          {
+            "text": "Who would like to start?\n\n> Let everyone in the session check out one by one.\n\nThank you all for checking out and for joining this session today.\n\n> Finish session to send everyone off to the exit experience."
+          }
+        ]
+      },
+      {
+        "type": "instruction",
+        "content": {
+          "text": "Well done.\n\nSummary.\n\nIf you’re up for it, you can continue with this mission.\n\nmission description"
+        }
+      }
+    ],
+    "theme": {
+      "textColor": "#2AE2D7"
+    },
+    "hidden": false,
+    "locked": true,
+    "live": true,
+    "published": false,
+    "card": {},
+    "duration": 10,
+    "introPortal": {
+      "textColor": "#2AE2D7",
+      "hostNotes": [
+        {
+          "text": "> Start the session when you're ready to go"
+        }
+      ]
+    },
+    "tags": [
+      "cfc00217-f65b-4a4d-8b82-8ccc8f852dd6"
+    ],
+    "id": "85b2fb9a-68ca-4094-8645-c4bd17e43229",
+    "async": false
+  },
+  "ja": {
+    "slides": [
+      {
+        "type": "host",
+        "hostNotes": [
+          {
+            "text": "Welcome. I am X and today we will work for around 30 minutes on xx\n\nWe’ll be doing xx ex. meditation followed by time for reflection and sharing with each other."
+          },
+          {
+            "text": "Let’s start with a mini check-in. How are you feeling right now? Please answer in two-three words. X, would you like to start?\n\n> Let everyone in the session, including yourself, check in one by one.\n\nThank you all for checking in. Let’s get started."
+          }
+        ]
+      },
+      {
+        "type": "content",
+        "hostNotes": [
+          {
+            "text": "Find a comfortable position. I will start the audio exercise and we'll meet back here afterwards. \n\n> Push play to start the audio exercise"
+          }
+        ]
+      },
+      {
+        "type": "reflection",
+        "hostNotes": [
+          {
+            "text": "Now we’ll take 1 minute to reflect on our own.\n\nxxMain question\n\nxxFurther explanations of main question if needed"
+          },
+          {
+            "text": "You can take notes on a piece of paper or just mental notes in your head. And there is no right or wrong here, our answers are our own. 1 minute starting now.\n\n> Press play to start the timer.\n\nThat’s 1 minute and it’s time to move on."
+          }
+        ]
+      },
+      {
+        "type": "sharing",
+        "hostNotes": [
+          {
+            "text": "Now we are getting into the sharing part. We have three rules for sharing:\n\n1. **What is said in here, stays in here.**\n2. **All you need to do is listen.** There is no fixing, helping or advice-giving needed. We are just showing up and exploring what ourselves and others are going through."
+          },
+          {
+            "text": "3. **Everything on the inside is okay.** Anger, love, hatred, sadness. Whatever shows up. No wrongs, no rights. It is what it is.\n\nThere will be a timer set for 2 minutes as an indicator. If you don’t want to share you can always say ‘pass’."
+          },
+          {
+            "text": "Who would like to start?\n\n> Let everyone (or as many as you got time for) share one by one. Press play to start the timer. Re-start for each new sharing.\n\nThank you so much everyone."
+          }
+        ],
+        "id": "Sharing 1"
+      },
+      {
+        "type": "host",
+        "hostNotes": [
+          {
+            "text": "Well done. If you’re up for it, you can continue what we started here today with a mission to bring this into your everyday life.\n\nxx mission description"
+          },
+          {
+            "text": "Before we leave this space let’s do a mini check-out. \n\nHow are you feeling right now? Has anything shifted? Please answer in two-three words."
+          },
+          {
+            "text": "Who would like to start?\n\n> Let everyone in the session check out one by one.\n\nThank you all for checking out and for joining this session today.\n\n> Finish session to send everyone off to the exit experience."
+          }
+        ]
+      },
+      {
+        "type": "instruction",
+        "content": {
+          "text": "Well done.\n\nSummary.\n\nIf you’re up for it, you can continue with this mission.\n\nmission description"
+        }
+      }
+    ],
+    "theme": {
+      "textColor": "#2AE2D7"
+    },
+    "hidden": false,
+    "locked": true,
+    "live": true,
+    "published": false,
+    "card": {},
+    "duration": 10,
+    "introPortal": {
+      "textColor": "#2AE2D7",
+      "hostNotes": [
+        {
+          "text": "> Start the session when you're ready to go"
+        }
+      ]
+    },
+    "tags": [
+      "cfc00217-f65b-4a4d-8b82-8ccc8f852dd6"
+    ],
+    "id": "85b2fb9a-68ca-4094-8645-c4bd17e43229",
+    "async": false
+  }
+}
