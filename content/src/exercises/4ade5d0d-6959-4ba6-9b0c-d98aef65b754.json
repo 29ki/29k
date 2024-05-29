@@ -50,7 +50,10 @@
         "type": "instruction",
         "content": {
           "heading": "Reflection",
-          "text": "How did you find the idea of the resilient zone? \n\nHow do you experience the high and low zones? \n\nHow would you describe being in the OK zone?"
+          "text": "How did you find the idea of the resilient zone? \n\nHow do you experience the high and low zones? \n\nHow would you describe being in the OK zone?",
+          "image": {
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1716243671/SEE/Icons/Reflection/Reflection_CardImage_rgqk5l.png"
+          }
         }
       },
       {
@@ -179,9 +182,9 @@
         "content": {
           "text": "If we're up for it, we can continue with a mission: Practice growing our awareness by noticing where we might be in the resilient zone over the next few days.\n\nPlan the step you will take by considering how the resilient zone concept could be useful in your day.",
           "image": {
-            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1715194051/SEE/SEELearning_Logo_Apple_2022_iyrrnd.png"
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1715187102/SEE/Icons/Resilience/ResilientZone_CardImage_gem1py.png"
           },
-          "heading": ""
+          "heading": "Resilient Zone"
         }
       }
     ],
