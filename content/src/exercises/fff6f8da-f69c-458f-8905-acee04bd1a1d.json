@@ -5,7 +5,7 @@
         "type": "host",
         "hostNotes": [
           {
-            "text": "Welcome. I am X and today we will work for around 30 minutes on values and how we want to act in life.\n\nWe’ll be doing an audio exercise, followed by time for reflection and sharing with each other."
+            "text": "Welcome. I am X and today we will work for around 30 minutes on visualizing a future and how we want to act in life.\n\nWe’ll be doing an audio exercise, followed by time for reflection and sharing with each other."
           },
           {
             "text": "Let’s start with a mini check-in. How are you feeling right now? Please answer in two-three words. X, would you like to start?\n\n> Let everyone in the session, including yourself, check in one by one.\n\nThank you all for checking in. Let’s get started."
@@ -125,7 +125,10 @@
       ],
       "videoLoop": {
         "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1698157747/Video/portal1_the_future_you_ss8zxh.mp4",
-        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1698157732/Audio/portal_audio_the_future_you_ghxefe.mp3"
+        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1698157732/Audio/portal_audio_the_future_you_ghxefe.mp3",
+        "p5JsScript": {
+          "lang": "javascript"
+        }
       },
       "videoEnd": {
         "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1698157742/Video/portal2_the_future_you_obfsqf.mp4"
@@ -138,7 +141,7 @@
     "link": "https://aware.29k.org/the-future-you",
     "id": "fff6f8da-f69c-458f-8905-acee04bd1a1d",
     "async": true,
-    "description": "Finding direction and values in life can be tricky. In this exercise, we'll visualize ourselves in the future to find guidance. Having a sense of long-term direction can improve well-being, goal fulfillment, and life satisfaction."
+    "description": "To dare to dream and find direction in life can be tricky. In this exercise, we'll visualize ourselves in the future to find guidance. Having a sense of long-term direction can improve our well-being, goal fulfillment, and life satisfaction."
   },
   "pt": {
     "slides": [
@@ -214,7 +217,12 @@
         {
           "text": "> Start the session when you're ready to go"
         }
-      ]
+      ],
+      "videoLoop": {
+        "p5JsScript": {
+          "lang": "javascript"
+        }
+      }
     },
     "tags": [
       "9c2c08a9-7dc6-4058-bc78-016d0eb00614",
@@ -230,7 +238,7 @@
         "type": "host",
         "hostNotes": [
           {
-            "text": "Välkommen. Jag heter X och vi kommer att jobba tillsammans i ungefär 30 minuter med värderingar och hur vi vill leva våra liv.\n\nVi kommer att lyssna på en ljudövning tillsammans, reflektera en stund för oss själva och sedan finns det möjlighet att dela sina erfarenheter."
+            "text": "Välkommen. Jag heter X och vi kommer att jobba tillsammans i ungefär 30 minuter med drömmar om framtiden och hur vi vill leva våra liv.\n\nVi kommer att lyssna på en ljudövning tillsammans, reflektera en stund för oss själva och sedan finns det möjlighet att dela sina erfarenheter."
           },
           {
             "text": "Vi börjar med en mini-check-in. Hur känner du dig just nu? Svara gärna med två-tre ord. X, skulle du vilja börja?\n\n> Låt alla deltagare, inklusive dig själv, checka in en och en. \n\nTack för att ni checkade in. Då kör vi igång."
@@ -296,7 +304,7 @@
         "type": "host",
         "hostNotes": [
           {
-            "text": "Bra jobbat. Låt orden från ditt framtida jag styra dina beteenden i dag och i morgon. Lägg märke till hur det känns, och vad du eventuellt gör annorlunda."
+            "text": "Bra jobbat. Låt orden från ditt framtida jag styra dina beteenden i dag och i morgon. Lägg märke till hur det känns, och om det får dig att göra något annorlunda."
           },
           {
             "text": "Innan vi avslutar så gör vi en mini-utcheckning.\nHur känner du dig nu? Har något ändrats? Svara med två-tre ord.\nVem vill börja?"
@@ -309,7 +317,7 @@
       {
         "type": "instruction",
         "content": {
-          "text": "Bra gjort.\n\nOm du vill så finns det ett uppdrag till dig:\n\nLåt orden från ditt framtida jag styra dina beteenden i dag och i morgon. Lägg märke till hur det känns, och vad du gör eventuellt gör annorlunda.",
+          "text": "Bra gjort.\n\nOm du vill så finns det ett uppdrag till dig:\n\nLåt orden från ditt framtida jag styra dina beteenden i dag och i morgon. Lägg märke till hur det känns, och om det får dig att göra något annorlunda.",
           "image": {
             "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1698157752/Images/card_image_the_future_you_imvrwj.png"
           }
@@ -350,7 +358,10 @@
       ],
       "videoLoop": {
         "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1698157747/Video/portal1_the_future_you_ss8zxh.mp4",
-        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1698157732/Audio/portal_audio_the_future_you_ghxefe.mp3"
+        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1698157732/Audio/portal_audio_the_future_you_ghxefe.mp3",
+        "p5JsScript": {
+          "lang": "javascript"
+        }
       },
       "videoEnd": {
         "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1698157742/Video/portal2_the_future_you_obfsqf.mp4"
@@ -363,7 +374,7 @@
     "link": "https://aware.29k.org/the-future-you",
     "id": "fff6f8da-f69c-458f-8905-acee04bd1a1d",
     "async": true,
-    "description": "Att hitta riktning i livet kan vara svårt. I den här övningen föreställer vi oss oss själva i framtiden för att få vägledning. En känsla av vad som är viktigt i längden kan hjälpa oss att må bättre, nå våra mål och ge ökad livstillfredsställelse."
+    "description": "Att våga drömma och hitta riktning i livet kan vara svårt. I den här övningen föreställer vi oss oss själva i framtiden för att få vägledning. En känsla av vad som är viktigt i längden kan hjälpa oss att må bättre, nå våra mål och ge ökad livstillfredsställelse."
   },
   "ja": {
     "slides": [
