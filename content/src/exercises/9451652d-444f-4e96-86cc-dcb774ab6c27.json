@@ -51,7 +51,7 @@
         "type": "reflection",
         "hostNotes": [
           {
-            "text": "Now we’ll take 1 minutes to reflect on our own. \n\nHow was that experience for you? \n\nHow might analyzing events and behaviors in this way help us empathize with others? \n\nHow might it help us practice self-compassion towards ourselves?"
+            "text": "Now we’ll take 1 minute to reflect on our own. \n\nHow was that experience for you? \n\nHow might analyzing events and behaviors in this way help us empathize with others? \n\nHow might it help us practice self-compassion towards ourselves?"
           },
           {
             "text": "You can take notes on a piece of paper or just mental notes in your head. And there is no right or wrong here, our answers are our own. 1 minute starting now.\n\n> Press play to start the timer.\n\nThat’s 1 minute and it’s time to move on."
@@ -79,7 +79,7 @@
         "id": "Sharing 1",
         "content": {
           "text": "How might analyzing events and behaviors in this way help us empathize with others? • How might it help us practice self-compassion towards ourselves?",
-          "heading": "How can this help?",
+          "heading": "How can this help us empathize with others and ourselves?",
           "lottie": {
             "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1716238084/SEE/Lottie/shareslide_lqdkod.json"
           }
@@ -104,13 +104,10 @@
         "type": "host",
         "hostNotes": [
           {
-            "text": "Well done. Today, we’ve explored systems thinking by using the metaphor of an iceberg."
+            "text": "Well done. Today, we’ve explored systems thinking by using the metaphor of an iceberg. This can help us to more deeply understand an action or event by considering the many variables and factors that have led to it, including underlying systemic structures."
           },
           {
-            "text": "This has helped us to more deeply understand an action or event by considering the many  variables and factors that have led to it, including underlying systemic structures."
-          },
-          {
-            "text": "Rather than placing all blame or praise on an individual, we can identify how internal and external structures, some of which are beyond an individual’s control, contribute to events. This understanding can deepen an appreciation of interdependence and common humanity.\n\nBefore we leave this space, let’s do a mini check-out: How are you feeling right now? Has anything shifted? Please answer in two to three words."
+            "text": "Rather than placing all blame or praise on an individual, we can identify how internal and external structures, some of which are beyond an individual’s control, contribute to events. This understanding can deepen an appreciation of interdependence and common humanity."
           },
           {
             "text": "If you’re up for it, you can continue with this mission.\n\nReflect on a situation where you had a difficult encounter with a thought or another person. How could using the model of iceberg help to encourage compassion for yourself and others in that thought of situation."
@@ -123,7 +120,7 @@
       {
         "type": "instruction",
         "content": {
-          "text": "Well done. Today, we’ve explored systems thinking by using the metaphor of an iceberg.\n\nThis has helped us to more deeply understand an action or event by considering the many variables and factors that have led to it, including underlying systemic structures.",
+          "text": "Well done. Today, we’ve explored systems thinking by using the metaphor of an iceberg.\n\nThis can help us to more deeply understand an action or event by considering the many variables and factors that have led to it, including underlying systemic structures.",
           "heading": "Systems thinking",
           "image": {
             "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1715667139/SEE/Icons/Systems%20Thinking/SystemsThinking_CardImage_m3zrzv.png"
@@ -134,7 +131,7 @@
         "type": "instruction",
         "content": {
           "heading": "Systems thinking",
-          "text": "Rather than placing all blame or praise on an individual, we can identify how internal and external structures, some of which are beyond an individual’s control, contribute to events. This understanding can deepen an appreciation of interdependence and common humanity",
+          "text": "Rather than placing all blame or praise on an individual, we can identify how internal and external structures, some of which are beyond an individual’s control, contribute to events. This understanding can deepen an appreciation of interdependence and common humanity.",
           "image": {
             "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1715667139/SEE/Icons/Systems%20Thinking/SystemsThinking_CardImage_m3zrzv.png"
           }
@@ -176,7 +173,7 @@
       "textColor": "#2AE2D7",
       "hostNotes": [
         {
-          "text": "> Press play to start the audio exercise\n>\n>\n>\n>"
+          "text": "Start the session when you are ready to go."
         }
       ],
       "videoLoop": {
