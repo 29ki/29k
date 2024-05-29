@@ -193,11 +193,11 @@
       "textColor": "#2E2E2E",
       "backgroundColor": "#f5f5f5"
     },
-    "hidden": true,
+    "hidden": false,
     "locked": true,
     "name": "Tracking",
     "live": true,
-    "published": false,
+    "published": true,
     "card": {
       "image": {
         "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1715194856/SEE/Icons/Awareness/Tracking_CardImage_xce0qv.png"
