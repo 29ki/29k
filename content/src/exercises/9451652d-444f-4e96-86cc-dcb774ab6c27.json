@@ -78,8 +78,8 @@
         ],
         "id": "Sharing 1",
         "content": {
-          "text": "",
-          "heading": "How might analyzing events and behaviors in this way help us empathize with others? • How might it help us practice self-compassion towards ourselves?",
+          "text": "How might analyzing events and behaviors in this way help us empathize with others? • How might it help us practice self-compassion towards ourselves?",
+          "heading": "How can this help?",
           "lottie": {
             "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1716238084/SEE/Lottie/shareslide_lqdkod.json"
           }
@@ -154,11 +154,11 @@
     "theme": {
       "textColor": "#2E2E2E"
     },
-    "hidden": true,
+    "hidden": false,
     "locked": true,
     "name": "Iceberg",
     "live": true,
-    "published": false,
+    "published": true,
     "card": {
       "image": {
         "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1715667139/SEE/Icons/Systems%20Thinking/SystemsThinking_CardImage_m3zrzv.png"
@@ -189,7 +189,7 @@
     "link": "",
     "id": "9451652d-444f-4e96-86cc-dcb774ab6c27",
     "async": true,
-    "description": "We are going to explore a deeper way of looking at events, by analyzing how they rest upon systemic structures. Often an action (such as someone being rude or failing a test) is not understood within a larger context; rather, it is merely ascribed to a perceived pattern of behavior (being rude in general or not studying enough). Using the image of an iceberg, students are taught  to go deeper in their analysis. Lets learn to look for deeper systemic structures—both internal and  external—that reinforce the patterns of behaviors that contribute to individual events. Addressing  these deeper systemic structures can help us to  understand events and patterns of behavior  better, and provide insights that help us to take more effective action in changing such patterns"
+    "description": "We are going to explore a deeper way of looking at events, by analyzing how they rest upon systemic structures. Often an action (such as someone being rude or failing a test) is not understood within a larger context; rather, it is merely ascribed to a perceived pattern of behavior (being rude in general or not studying enough). Using the image of an iceberg, students are taught to go deeper in their analysis. Lets learn to look for deeper systemic structures—both internal and  external—that reinforce the patterns of behaviors that contribute to individual events. Addressing these deeper systemic structures can help us to understand events and patterns of behavior better, and provide insights that help us to take more effective action in changing such patterns."
   },
   "pt": {
     "slides": [
