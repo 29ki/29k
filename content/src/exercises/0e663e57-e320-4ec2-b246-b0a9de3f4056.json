@@ -44,7 +44,10 @@
         "type": "instruction",
         "content": {
           "heading": "Reflection",
-          "text": "How did you experience practising grounding? \n\nHow did you feel before and after grounding? \n\nDid you notice any change?"
+          "text": "How did you experience practising grounding? \n\nHow did you feel before and after grounding? \n\nDid you notice any change?",
+          "image": {
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1716243671/SEE/Icons/Reflection/Reflection_CardImage_rgqk5l.png"
+          }
         }
       },
       {
@@ -148,7 +151,7 @@
         "type": "instruction",
         "content": {
           "text": "Well done. Today, we’ve practised grounding. Grounding allows us to attend to the sensation at the point of contact of one’s body with objects or the ground to return to or stay in the resilient zone.",
-          "heading": "Grounding",
+          "heading": "Resilience",
           "image": {
             "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1715666197/SEE/Icons/Resilience/Grounding_CardImage_wdhvzr.png"
           }
@@ -158,7 +161,7 @@
         "type": "instruction",
         "content": {
           "text": "If we're up for it, we can continue with a mission: Practice using grounding on three different days this week.\n\nPlan the steps you will take by considering moments when grounding might help you during your week.",
-          "heading": "Grounding",
+          "heading": "Resilience",
           "image": {
             "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1715666197/SEE/Icons/Resilience/Grounding_CardImage_wdhvzr.png"
           }
