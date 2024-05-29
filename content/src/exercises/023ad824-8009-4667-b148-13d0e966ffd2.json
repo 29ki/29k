@@ -202,11 +202,11 @@
       "textColor": "#2E2E2E",
       "backgroundColor": "#f5f5f5"
     },
-    "hidden": true,
+    "hidden": false,
     "locked": true,
     "name": "Mind Jar",
     "live": true,
-    "published": false,
+    "published": true,
     "card": {
       "image": {
         "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1715664324/SEE/Icons/Awareness/MindJar_CardImage_lk0zhj.png"
