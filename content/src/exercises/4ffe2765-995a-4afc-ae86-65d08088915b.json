@@ -5,7 +5,7 @@
         "type": "host",
         "hostNotes": [
           {
-            "text": "Welcome. I am X and today we will work for around 20 minutes on resilience.\n\nWe’ll be exploring the concept of grounding followed by time for reflection and sharing with each other."
+            "text": "Welcome. I am xx and today we will work for around 20 minutes on attention and awareness.\n\nWe’ll be exploring the how to cultivate greater attention and awareness by paying attention to our breath."
           },
           {
             "text": "Let’s start with a mini check-in. How are you feeling right now? Please answer in two-three words. Now, would you like to start?\n\n> Let everyone in the session, including yourself, check in one by one.\n\nThank you all for checking in. Let’s get started."
@@ -21,13 +21,11 @@
         ],
         "content": {
           "lottie": {
-            "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1715751769/SEE/SRT/Resilence/Grounding_mctzro.srt",
-            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1713881008/SEE/Audio/Resilience/Grounding_sennca.mp3",
-            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto/v1715663474/SEE/Lottie/Resiliance/FC5Sj91cWw_bxwt4v.json"
+            "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1715752244/SEE/SRT/Awareness/Breathing_1_z20wcp.srt",
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1715198361/SEE/Audio/Awareness/Breathing_x7iroz.mp3",
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto/v1715663487/SEE/Lottie/Awareness/Awareness3_ecxtbr.json"
           },
-          "image": {
-            "source": ""
-          }
+          "heading": ""
         }
       },
       {
@@ -36,18 +34,18 @@
           "heading": "Reflection",
           "text": "You can take notes on a piece of paper or just mental notes in your head. And there is no right or wrong here, our answers are our own.",
           "image": {
-            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1716951214/SEE/Icons/Reflection/Reflection_Resilience_CardImage_hcac5a.png"
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1716951212/SEE/Icons/Reflection/Reflection_Awareness_CardImage_wgzwcf.png"
           }
         }
       },
       {
         "type": "instruction",
         "content": {
-          "heading": "Reflection",
-          "text": "How did you experience practising grounding? \n\nHow did you feel before and after grounding? \n\nDid you notice any change?",
+          "text": "How was that experience for you? \n\nHow easy or difficult was it for you to keep your attention on the breath with mindfulness? \n\nWere you able to use awareness to bring your mind back when you got distracted or sleepy? \n\nWhat sensations do you notice in your body now?",
           "image": {
-            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1716951214/SEE/Icons/Reflection/Reflection_Resilience_CardImage_hcac5a.png"
-          }
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1716951212/SEE/Icons/Reflection/Reflection_Awareness_CardImage_wgzwcf.png"
+          },
+          "heading": "Reflection"
         }
       },
       {
@@ -60,14 +58,12 @@
           "lottie": {
             "durationTimer": true
           },
-          "heading": "How did you experience practising grounding? How did you feel before and after grounding? Did you notice any change?",
-          "image": {
-            "source": ""
-          }
+          "text": "",
+          "heading": "How was that experience for you? How easy or difficult was it for you to keep your attention on the breath with mindfulness? Were you able to use awareness to bring your mind back when you got distracted or sleepy? What sensations do you notice in your body now?"
         },
         "hostNotes": [
           {
-            "text": "Now we’ll take 1 minute to reflect on our own. How did you experience practising grounding? How did you feel before and after grounding? Did you notice any change?"
+            "text": "Now we’ll take 1 minutes to reflect on our own. How was that experience for you? How easy or difficult was it for you to keep your attention on the breath with mindfulness? Were you able to use awareness to bring your mind back when you got distracted or sleepy? What sensations do you notice in your body now?"
           },
           {
             "text": "You can take notes on a piece of paper or just mental notes in your head. And there is no right or wrong here, our answers are our own. 1 minute starting now.\n\n> Press play to start the timer. \n\nThat’s 1 minute and it’s time to move on."
@@ -83,10 +79,10 @@
           },
           "lottie": {
             "durationTimer": true,
-            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1716238084/SEE/Lottie/shareslide_lqdkod.json"
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto/v1716238084/SEE/Lottie/shareslide_lqdkod.json"
           },
           "text": "",
-          "heading": "We have spent some time together trying out different ways of grounding ourselves and noticing sensations within our bodies."
+          "heading": "How was that experience for you?"
         },
         "hostNotes": [
           {
@@ -109,10 +105,10 @@
           },
           "lottie": {
             "durationTimer": true,
-            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1716238084/SEE/Lottie/shareslide_lqdkod.json"
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto/v1716238084/SEE/Lottie/shareslide_lqdkod.json"
           },
           "text": "",
-          "heading": "Which has been the best one for you (i.e. which has given you pleasant or neutral sensations) and which one did not work for you? "
+          "heading": "How easy or difficult was it for you to keep your attention on the breath with mindfulness?"
         }
       },
       {
@@ -124,47 +120,62 @@
           },
           "lottie": {
             "durationTimer": true,
-            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1716238084/SEE/Lottie/shareslide_lqdkod.json"
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto/v1716238084/SEE/Lottie/shareslide_lqdkod.json"
           },
           "text": "",
-          "heading": "When do you think you could use grounding?"
+          "heading": "Were you able to use awareness to bring your mind back when you got distracted or sleepy? "
+        }
+      },
+      {
+        "type": "sharing",
+        "id": "sharing 4",
+        "content": {
+          "video": {
+            "durationTimer": true
+          },
+          "lottie": {
+            "durationTimer": true,
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto/v1716238084/SEE/Lottie/shareslide_lqdkod.json"
+          },
+          "text": "",
+          "heading": "What sensations do you notice in your body now?"
         }
       },
       {
         "type": "host",
         "hostNotes": [
           {
-            "text": "Well done. Today, we’ve practised grounding. Grounding allows us to attend to the sensation at the point of contact of one’s body with objects or the ground to return to or stay in the resilient zone."
+            "text": "Well done. Today, we’ve explored building our capacity for attention by focusing on an object, our breath. As we become skillful in focused attention, it can help to bring about greater calm and well-being in our bodies and minds, and help strengthen our ability to pay attention the same way we can build muscle."
           },
           {
-            "text": "If we're up for it, we can continue with a mission: Practice using grounding on three different days this week."
+            "text": "If we're up for it, we can continue with a mission: Practice using the breath or another object to practice your focusing on three occasions this week."
           },
           {
-            "text": "Plan the steps you will take by considering moments when grounding might help you during your week. Before we leave this space, let’s do a mini check-out: How are you feeling right now? Has anything shifted? Please answer in two to three words."
+            "text": "Plan the steps you will take by considering a time in your day when this might be helpful or timely. Before we leave this space, let’s do a mini check-out: How are you feeling right now? Has anything shifted? Please answer in two to three words."
           },
           {
-            "text": "Who would like to start?\n\n> Let everyone in the session check out one by one. \n\nThank you all for checking out and for joining this session today. \n\n> Finish session to send everyone off to the exit experience."
+            "text": "Who would like to start? \n\n> Let everyone in the session check out one by one. \n\nThank you all for checking out and for joining this session today. \n\n> Finish session to send everyone off to the exit experience."
           }
         ]
       },
       {
         "type": "instruction",
         "content": {
-          "text": "Well done. Today, we’ve practised grounding. Grounding allows us to attend to the sensation at the point of contact of one’s body with objects or the ground to return to or stay in the resilient zone.",
-          "heading": "Resilience",
+          "text": "Well done. Today, we’ve explored building our capacity for attention by focusing on an object, our breath. \n\nAs we become skillful in focused attention, it can help to bring about greater calm and well-being in our bodies and minds, and help strengthen our ability to pay attention the same way we can build muscle.",
+          "heading": "Awareness",
           "image": {
-            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1716951140/SEE/Icons/Resilience/Grounding_CardImage_f9oynb.png"
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1715194844/SEE/Icons/Awareness/AttentiontoBreathing_CardImage_otoh1t.png"
           }
         }
       },
       {
         "type": "instruction",
         "content": {
-          "text": "If we're up for it, we can continue with a mission: Practice using grounding on three different days this week.\n\nPlan the steps you will take by considering moments when grounding might help you during your week.",
-          "heading": "Resilience",
+          "text": "If we're up for it, we can continue with a mission: Practice using the breath or another object to practice your focusing on three occasions this week.\n\nPlan the steps you will take by considering a time in your day when this might be helpful or timely.",
           "image": {
-            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1716951140/SEE/Icons/Resilience/Grounding_CardImage_f9oynb.png"
-          }
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1715194844/SEE/Icons/Awareness/AttentiontoBreathing_CardImage_otoh1t.png"
+          },
+          "heading": "Awareness"
         }
       }
     ],
@@ -174,12 +185,12 @@
     },
     "hidden": false,
     "locked": true,
-    "name": "Grounding ",
+    "name": "Attention to Breath",
     "live": true,
     "published": true,
     "card": {
       "image": {
-        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1716951140/SEE/Icons/Resilience/Grounding_CardImage_f9oynb.png"
+        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1715194844/SEE/Icons/Awareness/AttentiontoBreathing_CardImage_otoh1t.png"
       }
     },
     "coCreators": [
@@ -189,7 +200,7 @@
         "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1713881366/SEE/see-logo_1_kewtlt.png"
       }
     ],
-    "duration": 20,
+    "duration": 10,
     "outroPortal": {
       "video": {
         "source": ""
@@ -207,17 +218,14 @@
           "lang": "javascript"
         },
         "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1716935845/SEE/Video/SEELearning_AwareApp_IntroVideo_2024_V3_k4jtws.mp4"
-      },
-      "videoEnd": {
-        "source": ""
       }
     },
     "tags": [
-      "8da0534a-5da9-430a-bdf3-242ace6460fb"
+      "cfc00217-f65b-4a4d-8b82-8ccc8f852dd6"
     ],
-    "id": "0e663e57-e320-4ec2-b246-b0a9de3f4056",
+    "id": "4ffe2765-995a-4afc-ae86-65d08088915b",
     "async": true,
-    "description": "Grounding is noticing the physical contact our body has with things, including things we touch or how we are standing or sitting. Grounding can be a very helpful tool for calming the body and mind."
+    "description": "As we become skillful in focused attention, it can help to bring about greater calm and well-being in our bodies and minds, and help strengthen our ability to pay attention the same way we can build muscle."
   },
   "pt": {
     "slides": [
@@ -295,7 +303,7 @@
     "live": true,
     "published": false,
     "card": {},
-    "duration": 20,
+    "duration": 10,
     "introPortal": {
       "textColor": "#2AE2D7",
       "hostNotes": [
@@ -305,9 +313,9 @@
       ]
     },
     "tags": [
-      "8da0534a-5da9-430a-bdf3-242ace6460fb"
+      "cfc00217-f65b-4a4d-8b82-8ccc8f852dd6"
     ],
-    "id": "0e663e57-e320-4ec2-b246-b0a9de3f4056",
+    "id": "4ffe2765-995a-4afc-ae86-65d08088915b",
     "async": false
   },
   "sv": {
@@ -386,7 +394,7 @@
     "live": true,
     "published": false,
     "card": {},
-    "duration": 20,
+    "duration": 10,
     "introPortal": {
       "textColor": "#2AE2D7",
       "hostNotes": [
@@ -396,9 +404,9 @@
       ]
     },
     "tags": [
-      "8da0534a-5da9-430a-bdf3-242ace6460fb"
+      "cfc00217-f65b-4a4d-8b82-8ccc8f852dd6"
     ],
-    "id": "0e663e57-e320-4ec2-b246-b0a9de3f4056",
+    "id": "4ffe2765-995a-4afc-ae86-65d08088915b",
     "async": false
   },
   "ja": {
@@ -477,7 +485,7 @@
     "live": true,
     "published": false,
     "card": {},
-    "duration": 20,
+    "duration": 10,
     "introPortal": {
       "textColor": "#2AE2D7",
       "hostNotes": [
@@ -487,9 +495,9 @@
       ]
     },
     "tags": [
-      "8da0534a-5da9-430a-bdf3-242ace6460fb"
+      "cfc00217-f65b-4a4d-8b82-8ccc8f852dd6"
     ],
-    "id": "0e663e57-e320-4ec2-b246-b0a9de3f4056",
+    "id": "4ffe2765-995a-4afc-ae86-65d08088915b",
     "async": false
   }
 }

@@ -5,7 +5,7 @@
         "type": "host",
         "hostNotes": [
           {
-            "text": "Welcome. I am X and today we will work for around 20 minutes on resilience.\n\nWe’ll be exploring the concept of grounding followed by time for reflection and sharing with each other."
+            "text": "Welcome. I am xx and today we will work for around 20 minutes on attention and awareness.\n\nWe’ll be exploring the how to cultivate greater attention, awareness, mindfulness and heedfulness."
           },
           {
             "text": "Let’s start with a mini check-in. How are you feeling right now? Please answer in two-three words. Now, would you like to start?\n\n> Let everyone in the session, including yourself, check in one by one.\n\nThank you all for checking in. Let’s get started."
@@ -21,12 +21,9 @@
         ],
         "content": {
           "lottie": {
-            "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1715751769/SEE/SRT/Resilence/Grounding_mctzro.srt",
-            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1713881008/SEE/Audio/Resilience/Grounding_sennca.mp3",
-            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto/v1715663474/SEE/Lottie/Resiliance/FC5Sj91cWw_bxwt4v.json"
-          },
-          "image": {
-            "source": ""
+            "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1715752248/SEE/SRT/Awareness/Mind_Jar_1_kqgt7u.srt",
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1715195090/SEE/Audio/Awareness/Mind_Jar_kpthpe.mp3",
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1715663489/SEE/Lottie/Awareness/Awareness4_xwwr2o.json"
           }
         }
       },
@@ -36,17 +33,17 @@
           "heading": "Reflection",
           "text": "You can take notes on a piece of paper or just mental notes in your head. And there is no right or wrong here, our answers are our own.",
           "image": {
-            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1716951214/SEE/Icons/Reflection/Reflection_Resilience_CardImage_hcac5a.png"
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1716951212/SEE/Icons/Reflection/Reflection_Awareness_CardImage_wgzwcf.png"
           }
         }
       },
       {
         "type": "instruction",
         "content": {
+          "text": "How did you experience the Mind Jar? \n\nDid you find it a helpful way of considering our mind’s state when we are stressed or overwhelmed?",
           "heading": "Reflection",
-          "text": "How did you experience practising grounding? \n\nHow did you feel before and after grounding? \n\nDid you notice any change?",
           "image": {
-            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1716951214/SEE/Icons/Reflection/Reflection_Resilience_CardImage_hcac5a.png"
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1716951212/SEE/Icons/Reflection/Reflection_Awareness_CardImage_wgzwcf.png"
           }
         }
       },
@@ -59,15 +56,11 @@
           },
           "lottie": {
             "durationTimer": true
-          },
-          "heading": "How did you experience practising grounding? How did you feel before and after grounding? Did you notice any change?",
-          "image": {
-            "source": ""
           }
         },
         "hostNotes": [
           {
-            "text": "Now we’ll take 1 minute to reflect on our own. How did you experience practising grounding? How did you feel before and after grounding? Did you notice any change?"
+            "text": "Now, we’ll take 1 minute to reflect on our own. How did you experience the Mind Jar? Did you find it a helpful way of considering our mind’s state when we are stressed or overwhelmed?"
           },
           {
             "text": "You can take notes on a piece of paper or just mental notes in your head. And there is no right or wrong here, our answers are our own. 1 minute starting now.\n\n> Press play to start the timer. \n\nThat’s 1 minute and it’s time to move on."
@@ -83,10 +76,10 @@
           },
           "lottie": {
             "durationTimer": true,
-            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1716238084/SEE/Lottie/shareslide_lqdkod.json"
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto/v1716238084/SEE/Lottie/shareslide_lqdkod.json"
           },
           "text": "",
-          "heading": "We have spent some time together trying out different ways of grounding ourselves and noticing sensations within our bodies."
+          "heading": "What did you notice – in your mind or in your body - as you watched the jar settle? "
         },
         "hostNotes": [
           {
@@ -96,7 +89,7 @@
             "text": "3. **Everything on the inside is okay.** Anger, love, hatred, sadness. Whatever shows up. No wrongs, no rights. It is what it is.\n\nThere will be a timer set for 2 minutes as an indicator. If you don’t want to share you can always say ‘pass’."
           },
           {
-            "text": "Who would like to start?\n\n> Let everyone (or as many as you got time for) share one by one. Press play to start the timer. Re-start for each new sharing.\n\nThank you so much everyone."
+            "text": "Who would like to start? \n\n> Let everyone (or as many as you got time for) share one by one. Press play to start the timer. Re-start for each new sharing. \n\nThank you so much, everyone."
           }
         ]
       },
@@ -109,10 +102,10 @@
           },
           "lottie": {
             "durationTimer": true,
-            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1716238084/SEE/Lottie/shareslide_lqdkod.json"
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto/v1716238084/SEE/Lottie/shareslide_lqdkod.json"
           },
           "text": "",
-          "heading": "Which has been the best one for you (i.e. which has given you pleasant or neutral sensations) and which one did not work for you? "
+          "heading": "Who had a strategy or a way that helped you stay focused on the Mind Jar? "
         }
       },
       {
@@ -124,47 +117,84 @@
           },
           "lottie": {
             "durationTimer": true,
-            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1716238084/SEE/Lottie/shareslide_lqdkod.json"
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto/v1716238084/SEE/Lottie/shareslide_lqdkod.json"
           },
           "text": "",
-          "heading": "When do you think you could use grounding?"
+          "heading": "Do you think it helps us if our minds are calmer and more settled? "
+        }
+      },
+      {
+        "type": "sharing",
+        "id": "sharing 4",
+        "content": {
+          "video": {
+            "durationTimer": true
+          },
+          "lottie": {
+            "durationTimer": true,
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto/v1716238084/SEE/Lottie/shareslide_lqdkod.json"
+          },
+          "heading": "What does it help us do?"
         }
       },
       {
         "type": "host",
         "hostNotes": [
           {
-            "text": "Well done. Today, we’ve practised grounding. Grounding allows us to attend to the sensation at the point of contact of one’s body with objects or the ground to return to or stay in the resilient zone."
+            "text": "Well done. Today, we’ve explored and the Mind Jar. The “mind” is a broad category that involves our first-person experiences of the world, which can include feelings, emotions, thoughts, memories, hopes and fears, and our imagination."
           },
           {
-            "text": "If we're up for it, we can continue with a mission: Practice using grounding on three different days this week."
+            "text": "A “mind jar” is a visual representation of the mind.\n\nBy considering the metaphor of the mind jar we can learn that our mind can be relatively clear or cloudy, making it easier or harder to discern what is happening within us and around us; that the way we perceive things is affected by the state of our own mind.By pausing and focusing our attention on something, we can help to clear the mind and therefore work with the mind to support it in clear optimal functioning."
           },
           {
-            "text": "Plan the steps you will take by considering moments when grounding might help you during your week. Before we leave this space, let’s do a mini check-out: How are you feeling right now? Has anything shifted? Please answer in two to three words."
+            "text": "If we're up for it, we can continue with a mission: Practice noticing and focusing on awareness on our minds current state three different days this week."
           },
           {
-            "text": "Who would like to start?\n\n> Let everyone in the session check out one by one. \n\nThank you all for checking out and for joining this session today. \n\n> Finish session to send everyone off to the exit experience."
+            "text": "Alternatively, you could watch a video or make your own mind jar and practice watching it to help settle your own mind. \n\nBefore we leave this space, let’s do a mini check-out: How are you feeling right now? Has anything shifted? Please answer in two to three words."
+          },
+          {
+            "text": "Who would like to start? \n\n> Let everyone in the session check out one by one. \n\nThank you all for checking out and for joining this session today. \n\n> Finish session to send everyone off to the exit experience."
           }
         ]
       },
       {
         "type": "instruction",
         "content": {
-          "text": "Well done. Today, we’ve practised grounding. Grounding allows us to attend to the sensation at the point of contact of one’s body with objects or the ground to return to or stay in the resilient zone.",
-          "heading": "Resilience",
+          "text": "Well done. Today, we’ve explored and the Mind Jar. The “mind” is a broad category that involves our first-person experiences of the world, which can include feelings, emotions, thoughts, memories, hopes and fears, and our imagination.",
+          "heading": "Mind Jar",
           "image": {
-            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1716951140/SEE/Icons/Resilience/Grounding_CardImage_f9oynb.png"
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1715664324/SEE/Icons/Awareness/MindJar_CardImage_lk0zhj.png"
           }
         }
       },
       {
         "type": "instruction",
         "content": {
-          "text": "If we're up for it, we can continue with a mission: Practice using grounding on three different days this week.\n\nPlan the steps you will take by considering moments when grounding might help you during your week.",
-          "heading": "Resilience",
+          "text": " A “mind jar” is a visual representation of the mind.\n\nBy considering the metaphor of the mind jar we can learn that our mind can be relatively clear or cloudy, making it easier or harder to discern what is happening within us and around us; that the way we perceive things is affected by the state of our own mind.",
+          "heading": "Mind Jar",
           "image": {
-            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1716951140/SEE/Icons/Resilience/Grounding_CardImage_f9oynb.png"
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1715664324/SEE/Icons/Awareness/MindJar_CardImage_lk0zhj.png"
           }
+        }
+      },
+      {
+        "type": "instruction",
+        "content": {
+          "image": {
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1715664324/SEE/Icons/Awareness/MindJar_CardImage_lk0zhj.png"
+          },
+          "heading": "Mind Jar",
+          "text": "By pausing and focusing our attention on something, we can help to clear the mind and therefore work with the mind to support it in clear optimal functioning."
+        }
+      },
+      {
+        "type": "instruction",
+        "content": {
+          "heading": "Mind Jar",
+          "image": {
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1715664324/SEE/Icons/Awareness/MindJar_CardImage_lk0zhj.png"
+          },
+          "text": "If we're up for it, we can continue with a mission: Practice noticing and focusing on awareness on our minds current state three different days this week. \n\nAlternatively, you could watch a video or make your own mind jar and practice watching it to help settle your own mind."
         }
       }
     ],
@@ -174,12 +204,12 @@
     },
     "hidden": false,
     "locked": true,
-    "name": "Grounding ",
+    "name": "Mind Jar",
     "live": true,
     "published": true,
     "card": {
       "image": {
-        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1716951140/SEE/Icons/Resilience/Grounding_CardImage_f9oynb.png"
+        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1715664324/SEE/Icons/Awareness/MindJar_CardImage_lk0zhj.png"
       }
     },
     "coCreators": [
@@ -189,7 +219,7 @@
         "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1713881366/SEE/see-logo_1_kewtlt.png"
       }
     ],
-    "duration": 20,
+    "duration": 10,
     "outroPortal": {
       "video": {
         "source": ""
@@ -213,11 +243,11 @@
       }
     },
     "tags": [
-      "8da0534a-5da9-430a-bdf3-242ace6460fb"
+      "cfc00217-f65b-4a4d-8b82-8ccc8f852dd6"
     ],
-    "id": "0e663e57-e320-4ec2-b246-b0a9de3f4056",
+    "id": "023ad824-8009-4667-b148-13d0e966ffd2",
     "async": true,
-    "description": "Grounding is noticing the physical contact our body has with things, including things we touch or how we are standing or sitting. Grounding can be a very helpful tool for calming the body and mind."
+    "description": "The mind jar represents how our minds take in and process experiences, thoughts, and feelings all day long. When we don’t pause to check in with and clear the mind our thinking can become cloudy. By considering the metaphor of the mind jar we can learn that our mind can be relatively clear or cloudy, making it easier or harder to discern what is happening within us and around us; that the way we perceive things is affected by the state of our own mind."
   },
   "pt": {
     "slides": [
@@ -295,7 +325,7 @@
     "live": true,
     "published": false,
     "card": {},
-    "duration": 20,
+    "duration": 10,
     "introPortal": {
       "textColor": "#2AE2D7",
       "hostNotes": [
@@ -305,9 +335,9 @@
       ]
     },
     "tags": [
-      "8da0534a-5da9-430a-bdf3-242ace6460fb"
+      "cfc00217-f65b-4a4d-8b82-8ccc8f852dd6"
     ],
-    "id": "0e663e57-e320-4ec2-b246-b0a9de3f4056",
+    "id": "023ad824-8009-4667-b148-13d0e966ffd2",
     "async": false
   },
   "sv": {
@@ -386,7 +416,7 @@
     "live": true,
     "published": false,
     "card": {},
-    "duration": 20,
+    "duration": 10,
     "introPortal": {
       "textColor": "#2AE2D7",
       "hostNotes": [
@@ -396,9 +426,9 @@
       ]
     },
     "tags": [
-      "8da0534a-5da9-430a-bdf3-242ace6460fb"
+      "cfc00217-f65b-4a4d-8b82-8ccc8f852dd6"
     ],
-    "id": "0e663e57-e320-4ec2-b246-b0a9de3f4056",
+    "id": "023ad824-8009-4667-b148-13d0e966ffd2",
     "async": false
   },
   "ja": {
@@ -477,7 +507,7 @@
     "live": true,
     "published": false,
     "card": {},
-    "duration": 20,
+    "duration": 10,
     "introPortal": {
       "textColor": "#2AE2D7",
       "hostNotes": [
@@ -487,9 +517,9 @@
       ]
     },
     "tags": [
-      "8da0534a-5da9-430a-bdf3-242ace6460fb"
+      "cfc00217-f65b-4a4d-8b82-8ccc8f852dd6"
     ],
-    "id": "0e663e57-e320-4ec2-b246-b0a9de3f4056",
+    "id": "023ad824-8009-4667-b148-13d0e966ffd2",
     "async": false
   }
 }

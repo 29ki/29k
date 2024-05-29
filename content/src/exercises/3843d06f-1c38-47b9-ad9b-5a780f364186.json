@@ -35,10 +35,31 @@
         }
       },
       {
+        "type": "instruction",
+        "content": {
+          "heading": "Reflection",
+          "image": {
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1716951214/SEE/Icons/Reflection/Reflection_Resilience_CardImage_hcac5a.png"
+          },
+          "text": "You can take notes on a piece of paper or just mental notes in your head. And there is no right or wrong here, our answers are our own."
+        }
+      },
+      {
+        "type": "instruction",
+        "content": {
+          "text": "How did you experience the Help Now! Strategies? \n\nDid you find that some effected you differently to others?",
+          "image": {
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1716951214/SEE/Icons/Reflection/Reflection_Resilience_CardImage_hcac5a.png"
+          },
+          "heading": "Reflection"
+        }
+      },
+      {
         "type": "reflection",
         "content": {
           "video": {
-            "durationTimer": true
+            "durationTimer": true,
+            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1716235083/SEE/Video/SEELearning_Aware_1MinTimer_2024_mv72mj.mp4"
           },
           "lottie": {
             "durationTimer": true
@@ -62,7 +83,8 @@
             "durationTimer": true
           },
           "lottie": {
-            "durationTimer": true
+            "durationTimer": true,
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto/v1716238084/SEE/Lottie/shareslide_lqdkod.json"
           },
           "text": "",
           "heading": "What are some things you learned today about sensations? "
@@ -87,7 +109,8 @@
             "durationTimer": true
           },
           "lottie": {
-            "durationTimer": true
+            "durationTimer": true,
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto/v1716238084/SEE/Lottie/shareslide_lqdkod.json"
           },
           "text": "",
           "heading": "What are some words that describe sensations? "
@@ -101,7 +124,8 @@
             "durationTimer": true
           },
           "lottie": {
-            "durationTimer": true
+            "durationTimer": true,
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto/v1716238084/SEE/Lottie/shareslide_lqdkod.json"
           },
           "text": "",
           "heading": "How can knowing a little more about the idea of sensations help us be happier and kinder?"
@@ -115,7 +139,8 @@
             "durationTimer": true
           },
           "lottie": {
-            "durationTimer": true
+            "durationTimer": true,
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto/v1716238084/SEE/Lottie/shareslide_lqdkod.json"
           },
           "text": "",
           "heading": "When do you think it might be useful to use one of these Help Now! activities?"
@@ -142,17 +167,27 @@
             "text": "Plan the steps you will take by considering moments when Help Now! strategies might help you during your week. Before we leave this space, let’s do a mini check-out: How are you feeling right now? Has anything shifted? Please answer in two to three words."
           },
           {
-            "text": "Who would like to start? > Let everyone in the session check out one by one. Thank you all for checking out and for joining this session today. > Finish session to send everyone off to the exit experience."
+            "text": "Who would like to start? \n\n> Let everyone in the session check out one by one. \n\nThank you all for checking out and for joining this session today. \n\n> Finish session to send everyone off to the exit experience."
           }
         ]
       },
       {
         "type": "instruction",
         "content": {
-          "text": "You have now started to build a set of strategies that you can use at any time to regulate your mind and body. \n\nIf you’re up for it, you can continue with this mission.\n\nTry out all of our Help Strategies and track the change in your body and mind to see which is most useful to you. You could walk and focus on the sensations in your feet and hands, drink a cool beverage, touch an object focusing on the feeling, notice the temperature in different areas of your body or listen for sounds close and far away.",
-          "heading": "Well done",
+          "text": "Well done. Today, we’ve explored and tried out Help Now! Strategies. These are simple and immediate techniques for helping us return to their resilient zone when we get “bumped out” of that zone.",
+          "heading": "Resilience",
           "image": {
-            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1715194051/SEE/SEELearning_Logo_Apple_2022_iyrrnd.png"
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1716951141/SEE/Icons/Resilience/HelpNow_CardImage_f02cmc.png"
+          }
+        }
+      },
+      {
+        "type": "instruction",
+        "content": {
+          "text": "If we're up for it, we can continue with a mission: Practice using three Help Now! Strategies on three different days this week. \n\nPlan the steps you will take by considering moments when Help Now! strategies might help you during your week.",
+          "heading": "Resilience",
+          "image": {
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1716951141/SEE/Icons/Resilience/HelpNow_CardImage_f02cmc.png"
           }
         }
       }
@@ -168,7 +203,7 @@
     "published": true,
     "card": {
       "image": {
-        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1715187099/SEE/Icons/Resilience/HelpNow_CardImage_she1tr.png"
+        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1716951141/SEE/Icons/Resilience/HelpNow_CardImage_f02cmc.png"
       }
     },
     "coCreators": [
@@ -195,7 +230,10 @@
         "p5JsScript": {
           "lang": "javascript"
         },
-        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1715662633/SEE/Video/SEELearning_AwareApp_IntroVideo_2024_cljrvr.mp4"
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1716935845/SEE/Video/SEELearning_AwareApp_IntroVideo_2024_V3_k4jtws.mp4"
+      },
+      "videoEnd": {
+        "source": ""
       }
     },
     "tags": [

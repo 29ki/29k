@@ -5,10 +5,10 @@
         "type": "host",
         "hostNotes": [
           {
-            "text": "Welcome. I am X and today we will work for around 20 minutes on resilience.\n\nWe’ll be exploring the concept of grounding followed by time for reflection and sharing with each other."
+            "text": "Welcome. I am X, and today, we will work on compassion for around 15 minutes.\n\nWe’ll be exploring how to cultivate greater self-compassion for ourselves."
           },
           {
-            "text": "Let’s start with a mini check-in. How are you feeling right now? Please answer in two-three words. Now, would you like to start?\n\n> Let everyone in the session, including yourself, check in one by one.\n\nThank you all for checking in. Let’s get started."
+            "text": "Let’s start with a mini check-in. How are you feeling right now? Please answer in two-three words. Now, X would you like to start?\n\n> Let everyone in the session, including yourself, check in one by one.\n\nThank you all for checking in. Let’s get started."
           }
         ]
       },
@@ -21,12 +21,9 @@
         ],
         "content": {
           "lottie": {
-            "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1715751769/SEE/SRT/Resilence/Grounding_mctzro.srt",
-            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1713881008/SEE/Audio/Resilience/Grounding_sennca.mp3",
-            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto/v1715663474/SEE/Lottie/Resiliance/FC5Sj91cWw_bxwt4v.json"
-          },
-          "image": {
-            "source": ""
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto/v1715668477/SEE/Lottie/Compassion/Compassion3_p2v806.json",
+            "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1715753403/SEE/SRT/Compassion/Self_Compassion_jm8obd.srt",
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1715663871/SEE/Audio/Compassion/Self_Compassion_24_yclahi.mp3"
           }
         }
       },
@@ -36,17 +33,17 @@
           "heading": "Reflection",
           "text": "You can take notes on a piece of paper or just mental notes in your head. And there is no right or wrong here, our answers are our own.",
           "image": {
-            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1716951214/SEE/Icons/Reflection/Reflection_Resilience_CardImage_hcac5a.png"
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1716951210/SEE/Icons/Reflection/Compassion_Resilience_CardImage_fhvugt.png"
           }
         }
       },
       {
         "type": "instruction",
         "content": {
+          "text": "How was that experience for you? \n\nWhat would the benefit of practicing self-compassion be for you? \n\nHow might you take one or more of these reflections and integrate them into your life? \n\nHow could these practices/reflections be applied to how you relate, think about, and interact with others?",
           "heading": "Reflection",
-          "text": "How did you experience practising grounding? \n\nHow did you feel before and after grounding? \n\nDid you notice any change?",
           "image": {
-            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1716951214/SEE/Icons/Reflection/Reflection_Resilience_CardImage_hcac5a.png"
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1716951210/SEE/Icons/Reflection/Compassion_Resilience_CardImage_fhvugt.png"
           }
         }
       },
@@ -59,35 +56,19 @@
           },
           "lottie": {
             "durationTimer": true
-          },
-          "heading": "How did you experience practising grounding? How did you feel before and after grounding? Did you notice any change?",
-          "image": {
-            "source": ""
           }
         },
         "hostNotes": [
           {
-            "text": "Now we’ll take 1 minute to reflect on our own. How did you experience practising grounding? How did you feel before and after grounding? Did you notice any change?"
+            "text": "Now we’ll take 1 minutes to reflect on our own. \n\nHow was that experience for you? What would the benefit of practicing self-compassion be for you? How might you take one or more of these reflections and integrate them into your life? How could these practices/reflections be applied to how you relate, think about, and interact with others?"
           },
           {
-            "text": "You can take notes on a piece of paper or just mental notes in your head. And there is no right or wrong here, our answers are our own. 1 minute starting now.\n\n> Press play to start the timer. \n\nThat’s 1 minute and it’s time to move on."
+            "text": "You can take notes on a piece of paper or just mental notes in your head. And there is no right or wrong here, our answers are our own. 1 minute starting now. \n\n> Press play to start the timer. \n\nThat’s 1 minute and it’s time to move on."
           }
         ]
       },
       {
         "type": "sharing",
-        "id": "sharing 1",
-        "content": {
-          "video": {
-            "durationTimer": true
-          },
-          "lottie": {
-            "durationTimer": true,
-            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1716238084/SEE/Lottie/shareslide_lqdkod.json"
-          },
-          "text": "",
-          "heading": "We have spent some time together trying out different ways of grounding ourselves and noticing sensations within our bodies."
-        },
         "hostNotes": [
           {
             "text": "Now we are getting into the sharing part. We have three rules for sharing:\n\n1. **What is said in here, stays in here.**\n2. **All you need to do is listen.** There is no fixing, helping or advice-giving needed. We are just showing up and exploring what ourselves and others are going through."
@@ -98,7 +79,15 @@
           {
             "text": "Who would like to start?\n\n> Let everyone (or as many as you got time for) share one by one. Press play to start the timer. Re-start for each new sharing.\n\nThank you so much everyone."
           }
-        ]
+        ],
+        "id": "Sharing 1",
+        "content": {
+          "text": "",
+          "heading": "What would the benefit of practicing self-compassion be for you?",
+          "lottie": {
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto/v1716238084/SEE/Lottie/shareslide_lqdkod.json"
+          }
+        }
       },
       {
         "type": "sharing",
@@ -109,10 +98,10 @@
           },
           "lottie": {
             "durationTimer": true,
-            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1716238084/SEE/Lottie/shareslide_lqdkod.json"
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto/v1716238084/SEE/Lottie/shareslide_lqdkod.json"
           },
           "text": "",
-          "heading": "Which has been the best one for you (i.e. which has given you pleasant or neutral sensations) and which one did not work for you? "
+          "heading": "How might you take one or more of these reflections and integrate them into your life? "
         }
       },
       {
@@ -124,62 +113,90 @@
           },
           "lottie": {
             "durationTimer": true,
-            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1716238084/SEE/Lottie/shareslide_lqdkod.json"
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto/v1716238084/SEE/Lottie/shareslide_lqdkod.json"
           },
           "text": "",
-          "heading": "When do you think you could use grounding?"
+          "heading": "How could these practices/reflections be applied to how you relate, think about, and interact with others or your students? "
+        }
+      },
+      {
+        "type": "sharing",
+        "id": "sharing 4",
+        "content": {
+          "video": {
+            "durationTimer": true
+          },
+          "lottie": {
+            "durationTimer": true,
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto/v1716238084/SEE/Lottie/shareslide_lqdkod.json"
+          },
+          "text": "",
+          "heading": "How would relating to others or your students in this way shape and benefit your outlook of them and your relationship with them? "
         }
       },
       {
         "type": "host",
         "hostNotes": [
           {
-            "text": "Well done. Today, we’ve practised grounding. Grounding allows us to attend to the sensation at the point of contact of one’s body with objects or the ground to return to or stay in the resilient zone."
+            "text": "Well done. Today, we’ve explored self-compassion.\n\nA high number of children and adults struggle with anxiety, and self-esteem and self-worth. The expectations of society compound this and can be internalized in unhealthy ways. It is, therefore, especially important to practice self-compassion."
           },
           {
-            "text": "If we're up for it, we can continue with a mission: Practice using grounding on three different days this week."
+            "text": "Self-compassion can provide us with a route to soften (or alleviate) our internal self-critic, cultivate forgiveness for ourselves and treat ourselves with the tenderness and nurturing kindness we need and deserve."
           },
           {
-            "text": "Plan the steps you will take by considering moments when grounding might help you during your week. Before we leave this space, let’s do a mini check-out: How are you feeling right now? Has anything shifted? Please answer in two to three words."
+            "text": "If we're up for it, we can continue with a mission: Practice self-compassion once a day when we fail, or something doesn’t go as planned over the next three days."
           },
           {
-            "text": "Who would like to start?\n\n> Let everyone in the session check out one by one. \n\nThank you all for checking out and for joining this session today. \n\n> Finish session to send everyone off to the exit experience."
+            "text": "Plan the steps you will take by considering what you need to practice to implement self-compassion. Before we leave this space, let’s do a mini check-out: How are you feeling right now? Has anything shifted? Please answer in two to three words."
+          },
+          {
+            "text": "Who would like to start? > Let everyone in the session check out one by one. Thank you all for checking out and for joining this session today. > Finish session to send everyone off to the exit experience."
           }
         ]
       },
       {
         "type": "instruction",
         "content": {
-          "text": "Well done. Today, we’ve practised grounding. Grounding allows us to attend to the sensation at the point of contact of one’s body with objects or the ground to return to or stay in the resilient zone.",
-          "heading": "Resilience",
+          "text": "Well done. Today, we’ve explored self-compassion.\n\nA high number of children and adults struggle with anxiety, and self-esteem and self-worth. The expectations of society compound this and can be internalized in unhealthy ways. It is, therefore, especially important to practice self-compassion.",
+          "heading": "Compassion",
           "image": {
-            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1716951140/SEE/Icons/Resilience/Grounding_CardImage_f9oynb.png"
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1715667121/SEE/Icons/Compassion/SelfCompassion_CardImage_ctu5yx.png"
           }
         }
       },
       {
         "type": "instruction",
         "content": {
-          "text": "If we're up for it, we can continue with a mission: Practice using grounding on three different days this week.\n\nPlan the steps you will take by considering moments when grounding might help you during your week.",
-          "heading": "Resilience",
+          "text": "Self-compassion can provide us with a route to soften (or alleviate) our internal self-critic, cultivate forgiveness for ourselves and treat ourselves with the tenderness and nurturing kindness we need and deserve.",
           "image": {
-            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1716951140/SEE/Icons/Resilience/Grounding_CardImage_f9oynb.png"
-          }
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1715667121/SEE/Icons/Compassion/SelfCompassion_CardImage_ctu5yx.png",
+            "description": ""
+          },
+          "heading": "Compassion"
+        }
+      },
+      {
+        "type": "instruction",
+        "content": {
+          "text": "f we're up for it, we can continue with a mission: Practice self-compassion once a day when we fail, or something doesn’t go as planned over the next three days.\n\nPlan the steps you will take by considering what you need to practice to implement self-compassion.",
+          "image": {
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1715667121/SEE/Icons/Compassion/SelfCompassion_CardImage_ctu5yx.png"
+          },
+          "heading": "Compassion"
         }
       }
     ],
     "theme": {
-      "textColor": "#2E2E2E",
-      "backgroundColor": "#f5f5f5"
+      "textColor": "#2E2E2E"
     },
     "hidden": false,
     "locked": true,
-    "name": "Grounding ",
+    "name": "Self Compassion",
     "live": true,
     "published": true,
     "card": {
       "image": {
-        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1716951140/SEE/Icons/Resilience/Grounding_CardImage_f9oynb.png"
+        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1715667121/SEE/Icons/Compassion/SelfCompassion_CardImage_ctu5yx.png"
       }
     },
     "coCreators": [
@@ -189,12 +206,7 @@
         "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1713881366/SEE/see-logo_1_kewtlt.png"
       }
     ],
-    "duration": 20,
-    "outroPortal": {
-      "video": {
-        "source": ""
-      }
-    },
+    "duration": 15,
     "introPortal": {
       "textColor": "#2AE2D7",
       "hostNotes": [
@@ -207,17 +219,11 @@
           "lang": "javascript"
         },
         "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1716935845/SEE/Video/SEELearning_AwareApp_IntroVideo_2024_V3_k4jtws.mp4"
-      },
-      "videoEnd": {
-        "source": ""
       }
     },
-    "tags": [
-      "8da0534a-5da9-430a-bdf3-242ace6460fb"
-    ],
-    "id": "0e663e57-e320-4ec2-b246-b0a9de3f4056",
+    "id": "a1da8d37-0330-4611-ad1b-f65d08f71d2e",
     "async": true,
-    "description": "Grounding is noticing the physical contact our body has with things, including things we touch or how we are standing or sitting. Grounding can be a very helpful tool for calming the body and mind."
+    "description": "Sometimes, it can be challenging at first to offer the same compassionate response to ourselves as we do to our friends. Self-compassion is when we show kindness and compassion to ourselves in the same way we do for others. Like we did for our friends, we can offer ourselves kindness or time to practice self-care. We can use positive self-talk. We can catch ourselves when we fall into thinking traps or take time to look at our situation from a broader perspective. Doing so can help us find ways to shift what we’re thinking and take steps to feel better."
   },
   "pt": {
     "slides": [
@@ -295,7 +301,7 @@
     "live": true,
     "published": false,
     "card": {},
-    "duration": 20,
+    "duration": 15,
     "introPortal": {
       "textColor": "#2AE2D7",
       "hostNotes": [
@@ -304,10 +310,7 @@
         }
       ]
     },
-    "tags": [
-      "8da0534a-5da9-430a-bdf3-242ace6460fb"
-    ],
-    "id": "0e663e57-e320-4ec2-b246-b0a9de3f4056",
+    "id": "a1da8d37-0330-4611-ad1b-f65d08f71d2e",
     "async": false
   },
   "sv": {
@@ -386,7 +389,7 @@
     "live": true,
     "published": false,
     "card": {},
-    "duration": 20,
+    "duration": 15,
     "introPortal": {
       "textColor": "#2AE2D7",
       "hostNotes": [
@@ -395,10 +398,7 @@
         }
       ]
     },
-    "tags": [
-      "8da0534a-5da9-430a-bdf3-242ace6460fb"
-    ],
-    "id": "0e663e57-e320-4ec2-b246-b0a9de3f4056",
+    "id": "a1da8d37-0330-4611-ad1b-f65d08f71d2e",
     "async": false
   },
   "ja": {
@@ -477,7 +477,7 @@
     "live": true,
     "published": false,
     "card": {},
-    "duration": 20,
+    "duration": 15,
     "introPortal": {
       "textColor": "#2AE2D7",
       "hostNotes": [
@@ -486,10 +486,7 @@
         }
       ]
     },
-    "tags": [
-      "8da0534a-5da9-430a-bdf3-242ace6460fb"
-    ],
-    "id": "0e663e57-e320-4ec2-b246-b0a9de3f4056",
+    "id": "a1da8d37-0330-4611-ad1b-f65d08f71d2e",
     "async": false
   }
 }

@@ -5,10 +5,10 @@
         "type": "host",
         "hostNotes": [
           {
-            "text": "Welcome. I am X and today we will work for around 20 minutes on resilience.\n\nWe’ll be exploring the concept of grounding followed by time for reflection and sharing with each other."
+            "text": "Welcome. I am X and today we will practice compassion for others for around 10 minutes. We’ll be doing an audio exercise, followed by time for reflection and finally sharing with each other – if we're up for it."
           },
           {
-            "text": "Let’s start with a mini check-in. How are you feeling right now? Please answer in two-three words. Now, would you like to start?\n\n> Let everyone in the session, including yourself, check in one by one.\n\nThank you all for checking in. Let’s get started."
+            "text": "Let’s start with a mini check-in. How are you feeling right now? Please answer in two-three words. X, would you like to start? \n\n> Let everyone in the session, including yourself, check in one by one. \n\nThank you all for checking in. Let’s get started."
           }
         ]
       },
@@ -21,12 +21,9 @@
         ],
         "content": {
           "lottie": {
-            "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1715751769/SEE/SRT/Resilence/Grounding_mctzro.srt",
-            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1713881008/SEE/Audio/Resilience/Grounding_sennca.mp3",
-            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto/v1715663474/SEE/Lottie/Resiliance/FC5Sj91cWw_bxwt4v.json"
-          },
-          "image": {
-            "source": ""
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto/v1715668474/SEE/Lottie/Compassion/Compassion2_esarf0.json",
+            "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1715753400/SEE/SRT/Compassion/Compassion_for_Others_eyymym.srt",
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1715663869/SEE/Audio/Compassion/Compassion_for_Others_i5duy4.mp3"
           }
         }
       },
@@ -36,7 +33,7 @@
           "heading": "Reflection",
           "text": "You can take notes on a piece of paper or just mental notes in your head. And there is no right or wrong here, our answers are our own.",
           "image": {
-            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1716951214/SEE/Icons/Reflection/Reflection_Resilience_CardImage_hcac5a.png"
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1716243671/SEE/Icons/Reflection/Reflection_CardImage_rgqk5l.png"
           }
         }
       },
@@ -44,50 +41,30 @@
         "type": "instruction",
         "content": {
           "heading": "Reflection",
-          "text": "How did you experience practising grounding? \n\nHow did you feel before and after grounding? \n\nDid you notice any change?",
+          "text": "How was that experience for you? \n\nHow can you cultivate compassion in your personal life, what challenges do you anticipate in extending compassion to others? \n\nHow can we extend the compassion we engage in within this our family and extend to our community?”",
           "image": {
-            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1716951214/SEE/Icons/Reflection/Reflection_Resilience_CardImage_hcac5a.png"
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1716243671/SEE/Icons/Reflection/Reflection_CardImage_rgqk5l.png"
           }
         }
       },
       {
         "type": "reflection",
-        "content": {
-          "video": {
-            "durationTimer": true,
-            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1716235083/SEE/Video/SEELearning_Aware_1MinTimer_2024_mv72mj.mp4"
-          },
-          "lottie": {
-            "durationTimer": true
-          },
-          "heading": "How did you experience practising grounding? How did you feel before and after grounding? Did you notice any change?",
-          "image": {
-            "source": ""
-          }
-        },
         "hostNotes": [
           {
-            "text": "Now we’ll take 1 minute to reflect on our own. How did you experience practising grounding? How did you feel before and after grounding? Did you notice any change?"
+            "text": "Now we’ll take 1 minutes to reflect on our own. \n\nHow was that experience for you? \n\nHow can you cultivate compassion in your personal life, what challenges do you anticipate in extending compassion to others? \n\nHow can we extend the compassion we engage in within this our family and extend to our community?”"
           },
           {
-            "text": "You can take notes on a piece of paper or just mental notes in your head. And there is no right or wrong here, our answers are our own. 1 minute starting now.\n\n> Press play to start the timer. \n\nThat’s 1 minute and it’s time to move on."
+            "text": "You can take notes on a piece of paper or just mental notes in your head. And there is no right or wrong here, our answers are our own. 1 minute starting now. \n\n> Press play to start the timer. \n\nThat’s 1 minute and it’s time to move on."
           }
-        ]
+        ],
+        "content": {
+          "video": {
+            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1716235083/SEE/Video/SEELearning_Aware_1MinTimer_2024_mv72mj.mp4"
+          }
+        }
       },
       {
         "type": "sharing",
-        "id": "sharing 1",
-        "content": {
-          "video": {
-            "durationTimer": true
-          },
-          "lottie": {
-            "durationTimer": true,
-            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1716238084/SEE/Lottie/shareslide_lqdkod.json"
-          },
-          "text": "",
-          "heading": "We have spent some time together trying out different ways of grounding ourselves and noticing sensations within our bodies."
-        },
         "hostNotes": [
           {
             "text": "Now we are getting into the sharing part. We have three rules for sharing:\n\n1. **What is said in here, stays in here.**\n2. **All you need to do is listen.** There is no fixing, helping or advice-giving needed. We are just showing up and exploring what ourselves and others are going through."
@@ -98,7 +75,15 @@
           {
             "text": "Who would like to start?\n\n> Let everyone (or as many as you got time for) share one by one. Press play to start the timer. Re-start for each new sharing.\n\nThank you so much everyone."
           }
-        ]
+        ],
+        "id": "Sharing 1",
+        "content": {
+          "text": "",
+          "heading": "How can you cultivate compassion in your personal life, what challenges do you anticipate in extending compassion to others?",
+          "lottie": {
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto/v1716238084/SEE/Lottie/shareslide_lqdkod.json"
+          }
+        }
       },
       {
         "type": "sharing",
@@ -109,77 +94,61 @@
           },
           "lottie": {
             "durationTimer": true,
-            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1716238084/SEE/Lottie/shareslide_lqdkod.json"
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto/v1716238084/SEE/Lottie/shareslide_lqdkod.json"
           },
           "text": "",
-          "heading": "Which has been the best one for you (i.e. which has given you pleasant or neutral sensations) and which one did not work for you? "
-        }
-      },
-      {
-        "type": "sharing",
-        "id": "sharing 3",
-        "content": {
-          "video": {
-            "durationTimer": true
-          },
-          "lottie": {
-            "durationTimer": true,
-            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1716238084/SEE/Lottie/shareslide_lqdkod.json"
-          },
-          "text": "",
-          "heading": "When do you think you could use grounding?"
+          "heading": "How can we extend the compassion we engage in within this our family and extend to our community?"
         }
       },
       {
         "type": "host",
         "hostNotes": [
           {
-            "text": "Well done. Today, we’ve practised grounding. Grounding allows us to attend to the sensation at the point of contact of one’s body with objects or the ground to return to or stay in the resilient zone."
+            "text": "Good job. Today, we’ve explored and practiced compassion for others."
           },
           {
-            "text": "If we're up for it, we can continue with a mission: Practice using grounding on three different days this week."
+            "text": "By practising and cultivating compassion for others we begin to understand others’ feelings and reactions in relation to the situations in which they occur, and understand that, like oneself, others have feelings caused by needs."
           },
           {
-            "text": "Plan the steps you will take by considering moments when grounding might help you during your week. Before we leave this space, let’s do a mini check-out: How are you feeling right now? Has anything shifted? Please answer in two to three words."
+            "text": "If you’re up for it, you can continue with this mission.\n\nPlan the step you will take by considering how the resilient zone concept could be useful in your day. Before we leave this space, let’s do a mini check-out: How are you feeling right now? Has anything shifted? Please answer in two to three words."
           },
           {
-            "text": "Who would like to start?\n\n> Let everyone in the session check out one by one. \n\nThank you all for checking out and for joining this session today. \n\n> Finish session to send everyone off to the exit experience."
+            "text": "Who would like to start? \n\n> Let everyone in the session check out one by one.\n\nThank you all for checking out and for joining this session today. \n\n> Finish session to send everyone off to the exit experience."
           }
         ]
       },
       {
         "type": "instruction",
         "content": {
-          "text": "Well done. Today, we’ve practised grounding. Grounding allows us to attend to the sensation at the point of contact of one’s body with objects or the ground to return to or stay in the resilient zone.",
-          "heading": "Resilience",
+          "text": "Good job. Today, we’ve explored and practiced compassion for others.\n\nBy practising and cultivating compassion for others we begin to understand others’ feelings and reactions in relation to the situations in which they occur, and understand that, like oneself, others have feelings caused by needs.",
+          "heading": "Compassion ",
           "image": {
-            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1716951140/SEE/Icons/Resilience/Grounding_CardImage_f9oynb.png"
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1715667116/SEE/Icons/Compassion/CompassionforOthers_CardImage_jlz9hw.png"
           }
         }
       },
       {
         "type": "instruction",
         "content": {
-          "text": "If we're up for it, we can continue with a mission: Practice using grounding on three different days this week.\n\nPlan the steps you will take by considering moments when grounding might help you during your week.",
-          "heading": "Resilience",
+          "heading": "Compassion",
+          "text": "If you’re up for it, you can continue with this mission.\n\nPlan the step you will take by considering how the resilient zone concept could be useful in your day.",
           "image": {
-            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1716951140/SEE/Icons/Resilience/Grounding_CardImage_f9oynb.png"
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1715667116/SEE/Icons/Compassion/CompassionforOthers_CardImage_jlz9hw.png"
           }
         }
       }
     ],
     "theme": {
-      "textColor": "#2E2E2E",
-      "backgroundColor": "#f5f5f5"
+      "textColor": "#2E2E2E"
     },
     "hidden": false,
     "locked": true,
-    "name": "Grounding ",
+    "name": "Compassion for Others",
     "live": true,
     "published": true,
     "card": {
       "image": {
-        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1716951140/SEE/Icons/Resilience/Grounding_CardImage_f9oynb.png"
+        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1715667116/SEE/Icons/Compassion/CompassionforOthers_CardImage_jlz9hw.png"
       }
     },
     "coCreators": [
@@ -189,12 +158,7 @@
         "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1713881366/SEE/see-logo_1_kewtlt.png"
       }
     ],
-    "duration": 20,
-    "outroPortal": {
-      "video": {
-        "source": ""
-      }
-    },
+    "duration": 10,
     "introPortal": {
       "textColor": "#2AE2D7",
       "hostNotes": [
@@ -207,17 +171,14 @@
           "lang": "javascript"
         },
         "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1716935845/SEE/Video/SEELearning_AwareApp_IntroVideo_2024_V3_k4jtws.mp4"
-      },
-      "videoEnd": {
-        "source": ""
       }
     },
     "tags": [
-      "8da0534a-5da9-430a-bdf3-242ace6460fb"
+      "db34d82a-4c48-4ddd-9de5-f562d8aa1bc9"
     ],
-    "id": "0e663e57-e320-4ec2-b246-b0a9de3f4056",
+    "id": "9d86dfa5-c0ed-49bb-856d-8185a017785e",
     "async": true,
-    "description": "Grounding is noticing the physical contact our body has with things, including things we touch or how we are standing or sitting. Grounding can be a very helpful tool for calming the body and mind."
+    "description": "Compassion depends on awareness of the other’s situation and an ability to empathize with them, combined with a sense of affection or endearment towards that person, at even the most basic level of human connection. Compassion goes deeper than just external actions and also refers to a state of mind and heart: one’s intention to bring help and happiness to another person."
   },
   "pt": {
     "slides": [
@@ -295,7 +256,7 @@
     "live": true,
     "published": false,
     "card": {},
-    "duration": 20,
+    "duration": 10,
     "introPortal": {
       "textColor": "#2AE2D7",
       "hostNotes": [
@@ -305,9 +266,9 @@
       ]
     },
     "tags": [
-      "8da0534a-5da9-430a-bdf3-242ace6460fb"
+      "db34d82a-4c48-4ddd-9de5-f562d8aa1bc9"
     ],
-    "id": "0e663e57-e320-4ec2-b246-b0a9de3f4056",
+    "id": "9d86dfa5-c0ed-49bb-856d-8185a017785e",
     "async": false
   },
   "sv": {
@@ -386,7 +347,7 @@
     "live": true,
     "published": false,
     "card": {},
-    "duration": 20,
+    "duration": 10,
     "introPortal": {
       "textColor": "#2AE2D7",
       "hostNotes": [
@@ -396,9 +357,9 @@
       ]
     },
     "tags": [
-      "8da0534a-5da9-430a-bdf3-242ace6460fb"
+      "db34d82a-4c48-4ddd-9de5-f562d8aa1bc9"
     ],
-    "id": "0e663e57-e320-4ec2-b246-b0a9de3f4056",
+    "id": "9d86dfa5-c0ed-49bb-856d-8185a017785e",
     "async": false
   },
   "ja": {
@@ -477,7 +438,7 @@
     "live": true,
     "published": false,
     "card": {},
-    "duration": 20,
+    "duration": 10,
     "introPortal": {
       "textColor": "#2AE2D7",
       "hostNotes": [
@@ -487,9 +448,9 @@
       ]
     },
     "tags": [
-      "8da0534a-5da9-430a-bdf3-242ace6460fb"
+      "db34d82a-4c48-4ddd-9de5-f562d8aa1bc9"
     ],
-    "id": "0e663e57-e320-4ec2-b246-b0a9de3f4056",
+    "id": "9d86dfa5-c0ed-49bb-856d-8185a017785e",
     "async": false
   }
 }

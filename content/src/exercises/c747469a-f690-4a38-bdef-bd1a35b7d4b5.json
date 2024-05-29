@@ -5,7 +5,7 @@
         "type": "host",
         "hostNotes": [
           {
-            "text": "Welcome. I am X and today we will work for around 20 minutes on resilience.\n\nWe’ll be exploring the concept of grounding followed by time for reflection and sharing with each other."
+            "text": "Welcome. I am X. Today, we will work on interdependence, connection and systems thinking for others for about 10 minutes."
           },
           {
             "text": "Let’s start with a mini check-in. How are you feeling right now? Please answer in two-three words. Now, would you like to start?\n\n> Let everyone in the session, including yourself, check in one by one.\n\nThank you all for checking in. Let’s get started."
@@ -16,17 +16,13 @@
         "type": "content",
         "hostNotes": [
           {
-            "text": "Find a comfortable position. I will start the audio exercise and we'll meet back here afterwards. \n\n> Tap play to start the audio exercise"
+            "text": "Find a comfortable position. I will start the audio exercise and we'll meet back here afterwards. \n\n>  Tap play to start the audio exercise"
           }
         ],
         "content": {
           "lottie": {
-            "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1715751769/SEE/SRT/Resilence/Grounding_mctzro.srt",
-            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1713881008/SEE/Audio/Resilience/Grounding_sennca.mp3",
-            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto/v1715663474/SEE/Lottie/Resiliance/FC5Sj91cWw_bxwt4v.json"
-          },
-          "image": {
-            "source": ""
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto/v1715668433/SEE/Lottie/Systems%20Thinking/SystemThinking1_sniz3i.json",
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1715663927/SEE/Audio/Systems%20Thinking/Web_of_Connections_l2ms8t.mp3"
           }
         }
       },
@@ -36,58 +32,38 @@
           "heading": "Reflection",
           "text": "You can take notes on a piece of paper or just mental notes in your head. And there is no right or wrong here, our answers are our own.",
           "image": {
-            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1716951214/SEE/Icons/Reflection/Reflection_Resilience_CardImage_hcac5a.png"
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1716951215/SEE/Icons/Reflection/Reflection_SystemsThinking_CardImage_fpbpfh.png"
           }
         }
       },
       {
         "type": "instruction",
         "content": {
-          "heading": "Reflection",
-          "text": "How did you experience practising grounding? \n\nHow did you feel before and after grounding? \n\nDid you notice any change?",
+          "text": "How was that experience for you? \n\nHow are these people in your independence web connected to you? \n\nHow do they impact your well-being? \n\nInterdependence is part of our daily life, but often we do not see it. How can we highlight our interdependence more?",
           "image": {
-            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1716951214/SEE/Icons/Reflection/Reflection_Resilience_CardImage_hcac5a.png"
-          }
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1716951215/SEE/Icons/Reflection/Reflection_SystemsThinking_CardImage_fpbpfh.png"
+          },
+          "heading": "Reflection"
         }
       },
       {
         "type": "reflection",
-        "content": {
-          "video": {
-            "durationTimer": true,
-            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1716235083/SEE/Video/SEELearning_Aware_1MinTimer_2024_mv72mj.mp4"
-          },
-          "lottie": {
-            "durationTimer": true
-          },
-          "heading": "How did you experience practising grounding? How did you feel before and after grounding? Did you notice any change?",
-          "image": {
-            "source": ""
-          }
-        },
         "hostNotes": [
           {
-            "text": "Now we’ll take 1 minute to reflect on our own. How did you experience practising grounding? How did you feel before and after grounding? Did you notice any change?"
+            "text": "Now we’ll take 1 minutes to reflect on our own. \n\nHow was that experience for you? \n\nHow are these people in your independence web connected to you? How do they impact your well-being? \n\nInterdependence is part of our daily life, but often we do not see it. \n\nHow can we highlight our interdependence more?"
           },
           {
-            "text": "You can take notes on a piece of paper or just mental notes in your head. And there is no right or wrong here, our answers are our own. 1 minute starting now.\n\n> Press play to start the timer. \n\nThat’s 1 minute and it’s time to move on."
+            "text": "You can take notes on a piece of paper or just mental notes in your head. And there is no right or wrong here, our answers are our own. 1 minute starting now. \n\n> Press play to start the timer. \n\nThat’s 1 minute and it’s time to move on."
           }
-        ]
+        ],
+        "content": {
+          "video": {
+            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1716235083/SEE/Video/SEELearning_Aware_1MinTimer_2024_mv72mj.mp4"
+          }
+        }
       },
       {
         "type": "sharing",
-        "id": "sharing 1",
-        "content": {
-          "video": {
-            "durationTimer": true
-          },
-          "lottie": {
-            "durationTimer": true,
-            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1716238084/SEE/Lottie/shareslide_lqdkod.json"
-          },
-          "text": "",
-          "heading": "We have spent some time together trying out different ways of grounding ourselves and noticing sensations within our bodies."
-        },
         "hostNotes": [
           {
             "text": "Now we are getting into the sharing part. We have three rules for sharing:\n\n1. **What is said in here, stays in here.**\n2. **All you need to do is listen.** There is no fixing, helping or advice-giving needed. We are just showing up and exploring what ourselves and others are going through."
@@ -98,7 +74,16 @@
           {
             "text": "Who would like to start?\n\n> Let everyone (or as many as you got time for) share one by one. Press play to start the timer. Re-start for each new sharing.\n\nThank you so much everyone."
           }
-        ]
+        ],
+        "id": "Sharing 1",
+        "content": {
+          "text": "",
+          "lottie": {
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1715668433/SEE/Lottie/Systems%20Thinking/SystemThinking1_sniz3i.json",
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1715663927/SEE/Audio/Systems%20Thinking/Web_of_Connections_l2ms8t.mp3"
+          },
+          "heading": "What did you realize about yourself and others through this activity? "
+        }
       },
       {
         "type": "sharing",
@@ -108,11 +93,10 @@
             "durationTimer": true
           },
           "lottie": {
-            "durationTimer": true,
-            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1716238084/SEE/Lottie/shareslide_lqdkod.json"
+            "durationTimer": true
           },
           "text": "",
-          "heading": "Which has been the best one for you (i.e. which has given you pleasant or neutral sensations) and which one did not work for you? "
+          "heading": "How can you carry those insights with you throughout your day/life?"
         }
       },
       {
@@ -123,63 +107,96 @@
             "durationTimer": true
           },
           "lottie": {
-            "durationTimer": true,
-            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1716238084/SEE/Lottie/shareslide_lqdkod.json"
+            "durationTimer": true
           },
           "text": "",
-          "heading": "When do you think you could use grounding?"
+          "heading": "How might an understanding of interdependence inform your personal decisions on a day to day basis? "
+        }
+      },
+      {
+        "type": "sharing",
+        "id": "sharing 4",
+        "content": {
+          "video": {
+            "durationTimer": true
+          },
+          "lottie": {
+            "durationTimer": true
+          },
+          "text": "",
+          "heading": "How might your decisions impact the larger systems?"
         }
       },
       {
         "type": "host",
         "hostNotes": [
           {
-            "text": "Well done. Today, we’ve practised grounding. Grounding allows us to attend to the sensation at the point of contact of one’s body with objects or the ground to return to or stay in the resilient zone."
+            "text": "Well done. Today, we’ve explored systems thinking by creating our own web of connections."
           },
           {
-            "text": "If we're up for it, we can continue with a mission: Practice using grounding on three different days this week."
+            "text": "Interdependence can help us recognise how we depend on others and how others rely on us.\n\nThis can help us feel gratitude, compassion, and connectedness to other people we may never meet."
           },
           {
-            "text": "Plan the steps you will take by considering moments when grounding might help you during your week. Before we leave this space, let’s do a mini check-out: How are you feeling right now? Has anything shifted? Please answer in two to three words."
+            "text": "Spend time reflecting on interdependence as you move about your day. How might interdependence impact on your day to day life?"
           },
           {
-            "text": "Who would like to start?\n\n> Let everyone in the session check out one by one. \n\nThank you all for checking out and for joining this session today. \n\n> Finish session to send everyone off to the exit experience."
+            "text": "As you’ve reflected on what you can bring from this to the rest of your day, take this opportunity to practice making space for things on the inside during the rest of today, and see where that takes you."
+          }
+        ]
+      },
+      {
+        "type": "host",
+        "hostNotes": [
+          {
+            "text": "Plan the step you will take by considering how the resilient zone concept could be useful in your day. \n\nBefore we leave this space, let’s do a mini check-out: How are you feeling right now? Has anything shifted? Please answer in two to three words."
+          },
+          {
+            "text": "Who would like to start?\n\n> Let everyone in the session check out one by one.\n\nThank you all for checking out and for joining this session today.\n\n> Finish session to send everyone off to the exit experience."
           }
         ]
       },
       {
         "type": "instruction",
         "content": {
-          "text": "Well done. Today, we’ve practised grounding. Grounding allows us to attend to the sensation at the point of contact of one’s body with objects or the ground to return to or stay in the resilient zone.",
-          "heading": "Resilience",
+          "text": "Well done. Today, we’ve explored systems thinking by creating our own web of connections.\n\nInterdependence can help us recognise how we depend on others and how others rely on us.\n\nThis can help us feel gratitude, compassion, and connectedness to other people we may never meet.",
+          "heading": "Systems Thinking",
           "image": {
-            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1716951140/SEE/Icons/Resilience/Grounding_CardImage_f9oynb.png"
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1715667142/SEE/Icons/Systems%20Thinking/WebsofConnection_CardImage_n0o2xn.png"
           }
         }
       },
       {
         "type": "instruction",
         "content": {
-          "text": "If we're up for it, we can continue with a mission: Practice using grounding on three different days this week.\n\nPlan the steps you will take by considering moments when grounding might help you during your week.",
-          "heading": "Resilience",
+          "text": "Spend time reflecting on interdependence as you move about your day. How might interdependence impact on your day to day life?\n\nAs you’ve reflected on what you can bring from this to the rest of your day, take this opportunity to practice making space for things on the inside during the rest of today, and see where that takes you.",
+          "heading": "Systems Thinking",
           "image": {
-            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1716951140/SEE/Icons/Resilience/Grounding_CardImage_f9oynb.png"
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1715667142/SEE/Icons/Systems%20Thinking/WebsofConnection_CardImage_n0o2xn.png"
           }
+        }
+      },
+      {
+        "type": "instruction",
+        "content": {
+          "text": "If you’re up for it, you can continue with this mission.\n\nYou can create a second web of connections from a new starting point to discover how our interconnectedness can unlock greater awareness, appreciation and compassion for others.\n\nPlan the step you will take by considering how the resilient zone concept could be useful in your day.",
+          "image": {
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1715667142/SEE/Icons/Systems%20Thinking/WebsofConnection_CardImage_n0o2xn.png"
+          },
+          "heading": "Systems Thinking"
         }
       }
     ],
     "theme": {
-      "textColor": "#2E2E2E",
-      "backgroundColor": "#f5f5f5"
+      "textColor": "#2E2E2E"
     },
-    "hidden": false,
+    "hidden": true,
     "locked": true,
-    "name": "Grounding ",
+    "name": "Web of Connection",
     "live": true,
     "published": true,
     "card": {
       "image": {
-        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1716951140/SEE/Icons/Resilience/Grounding_CardImage_f9oynb.png"
+        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1715667142/SEE/Icons/Systems%20Thinking/WebsofConnection_CardImage_n0o2xn.png"
       }
     },
     "coCreators": [
@@ -189,12 +206,7 @@
         "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1713881366/SEE/see-logo_1_kewtlt.png"
       }
     ],
-    "duration": 20,
-    "outroPortal": {
-      "video": {
-        "source": ""
-      }
-    },
+    "duration": 10,
     "introPortal": {
       "textColor": "#2AE2D7",
       "hostNotes": [
@@ -207,17 +219,11 @@
           "lang": "javascript"
         },
         "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1716935845/SEE/Video/SEELearning_AwareApp_IntroVideo_2024_V3_k4jtws.mp4"
-      },
-      "videoEnd": {
-        "source": ""
       }
     },
-    "tags": [
-      "8da0534a-5da9-430a-bdf3-242ace6460fb"
-    ],
-    "id": "0e663e57-e320-4ec2-b246-b0a9de3f4056",
+    "id": "c747469a-f690-4a38-bdef-bd1a35b7d4b5",
     "async": true,
-    "description": "Grounding is noticing the physical contact our body has with things, including things we touch or how we are standing or sitting. Grounding can be a very helpful tool for calming the body and mind."
+    "description": "Interdependence refers to the fact that everything that exists – including all objects, events or people – exists in dependence, connected to other things and in relationship to other things. Exploring interdependence helps us appreciate complexity and is a key aspect of what is called “systems thinking.\""
   },
   "pt": {
     "slides": [
@@ -295,7 +301,7 @@
     "live": true,
     "published": false,
     "card": {},
-    "duration": 20,
+    "duration": 10,
     "introPortal": {
       "textColor": "#2AE2D7",
       "hostNotes": [
@@ -304,10 +310,7 @@
         }
       ]
     },
-    "tags": [
-      "8da0534a-5da9-430a-bdf3-242ace6460fb"
-    ],
-    "id": "0e663e57-e320-4ec2-b246-b0a9de3f4056",
+    "id": "c747469a-f690-4a38-bdef-bd1a35b7d4b5",
     "async": false
   },
   "sv": {
@@ -386,7 +389,7 @@
     "live": true,
     "published": false,
     "card": {},
-    "duration": 20,
+    "duration": 10,
     "introPortal": {
       "textColor": "#2AE2D7",
       "hostNotes": [
@@ -395,10 +398,7 @@
         }
       ]
     },
-    "tags": [
-      "8da0534a-5da9-430a-bdf3-242ace6460fb"
-    ],
-    "id": "0e663e57-e320-4ec2-b246-b0a9de3f4056",
+    "id": "c747469a-f690-4a38-bdef-bd1a35b7d4b5",
     "async": false
   },
   "ja": {
@@ -477,7 +477,7 @@
     "live": true,
     "published": false,
     "card": {},
-    "duration": 20,
+    "duration": 10,
     "introPortal": {
       "textColor": "#2AE2D7",
       "hostNotes": [
@@ -486,10 +486,7 @@
         }
       ]
     },
-    "tags": [
-      "8da0534a-5da9-430a-bdf3-242ace6460fb"
-    ],
-    "id": "0e663e57-e320-4ec2-b246-b0a9de3f4056",
+    "id": "c747469a-f690-4a38-bdef-bd1a35b7d4b5",
     "async": false
   }
 }
