@@ -34,7 +34,16 @@
             "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1716243671/SEE/Icons/Reflection/Reflection_CardImage_rgqk5l.png"
           },
           "heading": "Time for reflection",
-          "text": "You can take notes on a piece of paper or just mental notes in your head. And there is no right or wrong here, our answers are our own.\n\n*How was that experience for you? Did you experience a change before and after tracking?*"
+          "text": "You can take notes on a piece of paper or just mental notes in your head. And there is no right or wrong here, our answers are our own."
+        }
+      },
+      {
+        "type": "instruction",
+        "content": {
+          "text": "How was that experience for you? Did you experience a change before and after tracking?",
+          "image": {
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1716243671/SEE/Icons/Reflection/Reflection_CardImage_rgqk5l.png"
+          }
         }
       },
       {
@@ -132,7 +141,7 @@
         "type": "host",
         "hostNotes": [
           {
-            "text": " Well done. If you’re up for it, you can continue what we started here today with a mission."
+            "text": "Well done. Today, we’ve explored tracking sensations in our body. Emotions vary in levels of activation in the  body (high to low energy, or neutral) and in feeling tone (pleasant, neutral, unpleasant). We can learn about our emotional state by tracking our level of activation and sensations."
           },
           {
             "text": "Ideally, resourcing and tracking should be practiced together. Both resourcing and tracking are skills that develop over time with practice, and lead to what can be called “body literacy” since we are learning about our own bodies and how they respond to stress and well-being."
@@ -141,7 +150,7 @@
             "text": "As you’ve reflected on what you can bring from this to the rest of your day, take this opportunity to practice making space for things on the inside during the rest of today, and see where that takes you."
           },
           {
-            "text": " Before we leave this space, let’s do a mini check-out: How are you feeling right now? Has anything shifted? Please answer in two to three words."
+            "text": "If we're up for it, we can continue with a mission: Practice using the tracking on four occasions during the next three days and remember to notice the energy and tone of each sensation.\n\nPlan the steps you will take by considering a time in your day when this might be helpful or timely.\n\nBefore we leave this space, let’s do a mini check-out: How are you feeling right now? Has anything shifted? Please answer in two to three words."
           },
           {
             "text": "Who would like to start? \n\n> Let everyone in the session check out one by one. \n\nThank you all for checking out and for joining this session today. \n\n> Finish session to send everyone off to the exit experience."
@@ -151,7 +160,7 @@
       {
         "type": "instruction",
         "content": {
-          "text": "Well done. If you’re up for it, you can continue what we started here today with a mission.\n\nIdeally, resourcing and tracking should be practiced together. Both resourcing and tracking are skills that develop over time with practice, and lead to what can be called “body literacy” since we are learning about our own bodies and how they respond to stress and well-being.",
+          "text": "Well done. Today, we’ve explored tracking sensations in our body. Emotions vary in levels of activation in the body (high to low energy, or neutral) and in feeling tone (pleasant, neutral, unpleasant). We can learn about our emotional state by tracking our level of activation and sensations.",
           "heading": "Tracking",
           "image": {
             "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1715194856/SEE/Icons/Awareness/Tracking_CardImage_xce0qv.png"
@@ -161,7 +170,16 @@
       {
         "type": "instruction",
         "content": {
-          "text": "As you’ve reflected on what you can bring from this to the rest of your day, take this opportunity to practice making space for things on the inside during the rest of today, and see where that takes you.",
+          "text": "Ideally, resourcing and tracking should be practiced together. Both resourcing and tracking are skills that develop over time with practice, and lead to what can be called “body literacy” since we are learning about our own bodies and how they respond to stress and well-being.\n\nAs you’ve reflected on what you can bring from this to the rest of your day, take this opportunity to practice making space for things on the inside during the rest of today, and see where that takes you.",
+          "image": {
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1715194856/SEE/Icons/Awareness/Tracking_CardImage_xce0qv.png"
+          }
+        }
+      },
+      {
+        "type": "instruction",
+        "content": {
+          "text": "If we're up for it, we can continue with a mission: Practice using the tracking on four occasions during the next three days and remember to notice the energy and tone of each sensation.\n\nPlan the steps you will take by considering a time in your day when this might be helpful or timely.",
           "heading": "",
           "image": {
             "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1715194051/SEE/SEELearning_Logo_Apple_2022_iyrrnd.png"
