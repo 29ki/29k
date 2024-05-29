@@ -1895,12 +1895,12 @@ PODS:
     - React-Core
   - react-native-background-timer (2.4.1):
     - React-Core
-  - react-native-daily-js (0.60.0):
+  - react-native-daily-js (0.63.0):
     - React-Core
     - ReactNativeDailyJSScreenShareExtension (= 0.0.1)
   - react-native-get-random-values (1.11.0):
     - React-Core
-  - react-native-idle-timer (2.2.2):
+  - react-native-idle-timer (2.2.3):
     - React-Core
   - react-native-netinfo (11.3.1):
     - React-Core
@@ -1912,7 +1912,7 @@ PODS:
   - react-native-webrtc (118.0.3-daily.1):
     - JitsiWebRTC (~> 118.0.0)
     - React-Core
-  - react-native-webview (13.8.4):
+  - react-native-webview (13.10.2):
     - glog
     - RCT-Folly (= 2022.05.16.00)
     - React-Core
@@ -2091,7 +2091,7 @@ PODS:
     - React-Core
   - RNDateTimePicker (7.6.4):
     - React-Core
-  - RNDeviceInfo (10.13.1):
+  - RNDeviceInfo (11.1.0):
     - React-Core
   - RNFBApp (19.2.2):
     - Firebase/CoreOnly (= 10.24.0)
@@ -2114,7 +2114,7 @@ PODS:
     - Firebase/Storage (= 10.24.0)
     - React-Core
     - RNFBApp
-  - RNGestureHandler (2.16.0):
+  - RNGestureHandler (2.16.2):
     - glog
     - RCT-Folly (= 2022.05.16.00)
     - React-Core
@@ -2145,56 +2145,57 @@ PODS:
     - RCT-Folly (= 2022.05.16.00)
     - React-Core
     - ReactCommon/turbomodule/core
-  - RNScreens (3.30.1):
+  - RNScreens (3.31.1):
     - glog
     - RCT-Folly (= 2022.05.16.00)
     - React-Core
+    - React-RCTImage
   - RNSentry (5.22.2):
     - hermes-engine
     - React-Core
     - React-hermes
     - Sentry/HybridSDK (= 8.25.0)
-  - RNSVG (15.1.0):
+  - RNSVG (15.3.0):
     - React-Core
   - Sentry/HybridSDK (8.25.0)
   - SocketRocket (0.6.1)
   - SSZipArchive (2.2.3)
-  - Stripe (23.26.0):
-    - StripeApplePay (= 23.26.0)
-    - StripeCore (= 23.26.0)
-    - StripePayments (= 23.26.0)
-    - StripePaymentsUI (= 23.26.0)
-    - StripeUICore (= 23.26.0)
-  - stripe-react-native (0.37.2):
+  - Stripe (23.27.2):
+    - StripeApplePay (= 23.27.2)
+    - StripeCore (= 23.27.2)
+    - StripePayments (= 23.27.2)
+    - StripePaymentsUI (= 23.27.2)
+    - StripeUICore (= 23.27.2)
+  - stripe-react-native (0.38.0):
     - React-Core
-    - Stripe (~> 23.26.0)
-    - StripeApplePay (~> 23.26.0)
-    - StripeFinancialConnections (~> 23.26.0)
-    - StripePayments (~> 23.26.0)
-    - StripePaymentSheet (~> 23.26.0)
-    - StripePaymentsUI (~> 23.26.0)
-  - StripeApplePay (23.26.0):
-    - StripeCore (= 23.26.0)
-  - StripeCore (23.26.0)
-  - StripeFinancialConnections (23.26.0):
-    - StripeCore (= 23.26.0)
-    - StripeUICore (= 23.26.0)
-  - StripePayments (23.26.0):
-    - StripeCore (= 23.26.0)
-    - StripePayments/Stripe3DS2 (= 23.26.0)
-  - StripePayments/Stripe3DS2 (23.26.0):
-    - StripeCore (= 23.26.0)
-  - StripePaymentSheet (23.26.0):
-    - StripeApplePay (= 23.26.0)
-    - StripeCore (= 23.26.0)
-    - StripePayments (= 23.26.0)
-    - StripePaymentsUI (= 23.26.0)
-  - StripePaymentsUI (23.26.0):
-    - StripeCore (= 23.26.0)
-    - StripePayments (= 23.26.0)
-    - StripeUICore (= 23.26.0)
-  - StripeUICore (23.26.0):
-    - StripeCore (= 23.26.0)
+    - Stripe (~> 23.27.0)
+    - StripeApplePay (~> 23.27.0)
+    - StripeFinancialConnections (~> 23.27.0)
+    - StripePayments (~> 23.27.0)
+    - StripePaymentSheet (~> 23.27.0)
+    - StripePaymentsUI (~> 23.27.0)
+  - StripeApplePay (23.27.2):
+    - StripeCore (= 23.27.2)
+  - StripeCore (23.27.2)
+  - StripeFinancialConnections (23.27.2):
+    - StripeCore (= 23.27.2)
+    - StripeUICore (= 23.27.2)
+  - StripePayments (23.27.2):
+    - StripeCore (= 23.27.2)
+    - StripePayments/Stripe3DS2 (= 23.27.2)
+  - StripePayments/Stripe3DS2 (23.27.2):
+    - StripeCore (= 23.27.2)
+  - StripePaymentSheet (23.27.2):
+    - StripeApplePay (= 23.27.2)
+    - StripeCore (= 23.27.2)
+    - StripePayments (= 23.27.2)
+    - StripePaymentsUI (= 23.27.2)
+  - StripePaymentsUI (23.27.2):
+    - StripeCore (= 23.27.2)
+    - StripePayments (= 23.27.2)
+    - StripeUICore (= 23.27.2)
+  - StripeUICore (23.27.2):
+    - StripeCore (= 23.27.2)
   - TOCropViewController (2.6.1)
   - Yoga (1.14.0)
 
@@ -2565,14 +2566,14 @@ SPEC CHECKSUMS:
   React-Mapbuffer: 114be72666d7e3e317c1a36fb566cd3ad712fcc8
   react-native-add-calendar-event: b9802a8be8ad4beb0dcb3efb28969c077558fb29
   react-native-background-timer: 17ea5e06803401a379ebf1f20505b793ac44d0fe
-  react-native-daily-js: 3348cf1de3e56d21cac4c4bd94c325908ecd2acb
+  react-native-daily-js: 33c637f667b40055527337140c56fe90e57d8806
   react-native-get-random-values: 21325b2244dfa6b58878f51f9aa42821e7ba3d06
-  react-native-idle-timer: 8873ec1573aa1af50b75d21d9c63f7a78a486755
+  react-native-idle-timer: b4e9ff189950bcd3ba03257d9f033f3432341db8
   react-native-netinfo: bdb108d340cdb41875c9ced535977cac6d2ff321
   react-native-safe-area-context: b97eb6f9e3b7f437806c2ce5983f479f8eb5de4b
   react-native-volume-manager: 3c7d8047841b6831730dea7bf25250522388b4f4
   react-native-webrtc: f0863a670c08895cebfd74d7790e499397d5be1a
-  react-native-webview: ed06e61661eb91fe778dd0c7d117b6752d41017b
+  react-native-webview: 92cb09d7edac43fb6b750f1b4beb6b9bb4b2149f
   React-nativeconfig: ca8b90c736cf3be019cb332ca42d93dd95b32e05
   React-NativeModulesApple: 1fdffcce7772e274baeab33a1900f45feba86cbd
   React-perflogger: 8a1e1af5733004bdd91258dcefbde21e0d1faccd
@@ -2598,13 +2599,13 @@ SPEC CHECKSUMS:
   RNCAsyncStorage: 826b603ae9c0f88b5ac4e956801f755109fa4d5c
   RNCPicker: 3e2c37a8328f368ce14da050cdc8231deb5fc9f9
   RNDateTimePicker: 08f00a2c341bf96e4b30da15799fbdd4c5fa48a3
-  RNDeviceInfo: 4f9c7cfd6b9db1b05eb919620a001cf35b536423
+  RNDeviceInfo: b899ce37a403a4dea52b7cb85e16e49c04a5b88e
   RNFBApp: 91311b27bc9a33e23b76a62825afd1635501018a
   RNFBAuth: 92172d8976baaa829825017174106e2b2c550319
   RNFBDynamicLinks: b342064ffb51770091d9269c4c015fde962c93fe
   RNFBFirestore: 58f9f2f1d61eadcf16bf6d75737d92ad651bb264
   RNFBStorage: 2ef3bcc956d6c771f94efda0c3714c04019dde86
-  RNGestureHandler: fdcd620c0e90c3d80612dd994e8518a8866ed34b
+  RNGestureHandler: a51b249f3c779e38a5d9ec45cb107d8780b39fb2
   RNImageCropPicker: e7ab6fb43d2fc3e84651e786ef4a080d63b0ed3d
   RNLocalize: e8694475db034bf601e17bd3dfa8986565e769eb
   RNNotifee: 8e2d3df3f0e9ce8f5d1fe4c967431138190b6175
@@ -2612,23 +2613,23 @@ SPEC CHECKSUMS:
   RNRate: ef3bcff84f39bb1d1e41c5593d3eea4aab2bd73a
   RNReactNativeHapticFeedback: ec56a5f81c3941206fd85625fa669ffc7b4545f9
   RNReanimated: 8c009e95ed82289b412801b9fc220dca24455f8d
-  RNScreens: 56b4a83c6c84e01f4eaa7e06d4f335a0300f99ab
+  RNScreens: 35f3344904f6bba888c0e61532278436e275de3c
   RNSentry: f6a5aee809d646763640130714d1fdfe69aac36b
-  RNSVG: 50cf2c7018e57cf5d3522d98d0a3a4dd6bf9d093
+  RNSVG: a48668fd382115bc89761ce291a81c4ca5f2fd2e
   Sentry: cd86fc55628f5b7c572cabe66cc8f95a9d2f165a
   SocketRocket: f32cd54efbe0f095c4d7594881e52619cfe80b17
   SSZipArchive: 62d4947b08730e4cda640473b0066d209ff033c9
-  Stripe: e6f816be5a573f7ef45b82d9d843130154fd0269
-  stripe-react-native: f1af0235d838495e0c209da6da321eb6f74b70b8
-  StripeApplePay: d6ef43f2bf834463e1dcaaf4a61c681aec04990e
-  StripeCore: c38075c1b083ee36d6f867d4133f78ecf623d6dc
-  StripeFinancialConnections: 346c6200ffac9bd3fe80bfe7e17795125f9b7379
-  StripePayments: ade58825c7d75d78a212c5db37e23b05387fb6ba
-  StripePaymentSheet: b7cab74c10a5a4b225f948e225dda427a6899e08
-  StripePaymentsUI: 1f0cbac9145149fbbb87e27660af0d3be91aae98
-  StripeUICore: d6803286f1e2b80c62c320b304503c87bf65de3c
+  Stripe: ec902be2e477aa8c6cfb758f4ed9a4603c4b5d63
+  stripe-react-native: c89f0b9abbac8a4093695a85ac34cc09f8935d0c
+  StripeApplePay: 55e0fe7095d18bc6d8390cab176692c801d865c6
+  StripeCore: 55c1fb4ec4edd61243c59839cef592b0ac4c469a
+  StripeFinancialConnections: e646628ca798faa26bf794d8dc76c17ddb8405e4
+  StripePayments: 1702ca63bf83c5170330bc4fbf587acb869a7da1
+  StripePaymentSheet: bf96500ca25dadf72079e4f256d827955dd7d1ef
+  StripePaymentsUI: a51fd3468d9944b602f79ddae26d83e6dd2d9048
+  StripeUICore: 436db87a21e3bb45b7a6a90c114a6d21c35b4be0
   TOCropViewController: edfd4f25713d56905ad1e0b9f5be3fbe0f59c863
-  Yoga: 64cd2a583ead952b0315d5135bf39e053ae9be70
+  Yoga: 1b901a6d6eeba4e8a2e8f308f708691cdb5db312
 
 PODFILE CHECKSUM: eca7106cb4acdaa2f539d18295f1019a34a370f4
 
