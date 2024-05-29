@@ -183,11 +183,11 @@
       "textColor": "#2E2E2E",
       "backgroundColor": "#f5f5f5"
     },
-    "hidden": true,
+    "hidden": false,
     "locked": true,
     "name": "Attention to Breath",
     "live": true,
-    "published": false,
+    "published": true,
     "card": {
       "image": {
         "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1715194844/SEE/Icons/Awareness/AttentiontoBreathing_CardImage_otoh1t.png"
