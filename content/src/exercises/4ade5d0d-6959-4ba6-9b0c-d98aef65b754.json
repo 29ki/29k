@@ -171,7 +171,7 @@
         "type": "instruction",
         "content": {
           "text": "Well done. We've explored the idea of the resilient zone. It’s important to remember that each of us will experience a challenging situation differently. We’re all human. We’re all in this together. We can build the skills needed to return ourselves to our Resilient Zone, even in very challenging situations.",
-          "heading": "Resilient Zone",
+          "heading": "Resilience",
           "image": {
             "source": "https://res.cloudinary.com/cupcake-29k/image/upload/v1715187102/SEE/Icons/Resilience/ResilientZone_CardImage_gem1py.png"
           }
@@ -184,7 +184,7 @@
           "image": {
             "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1715187102/SEE/Icons/Resilience/ResilientZone_CardImage_gem1py.png"
           },
-          "heading": "Resilient Zone"
+          "heading": "Resilience"
         }
       }
     ],
