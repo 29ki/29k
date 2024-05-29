@@ -44,7 +44,7 @@
       {
         "type": "instruction",
         "content": {
-          "text": "*How was that experience for you?* \n\n*Was anyone able to watch some thoughts coming and going? What was that like?* \n\n*Did anyone notice a time when there were no thoughts?*",
+          "text": "How was that experience for you? \n\nWas anyone able to watch some thoughts coming and going? What was that like? \n\nDid anyone notice a time when there were no thoughts?",
           "image": {
             "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1716243671/SEE/Icons/Reflection/Reflection_CardImage_rgqk5l.png"
           }
@@ -53,7 +53,7 @@
       {
         "type": "instruction",
         "content": {
-          "text": "*Maybe a pause or a break or gap between thoughts?* \n\n*What have you learned about the mind that you find most interesting or most helpful?* \n\n*How might it help us if we learned to watch our minds?*",
+          "text": "Maybe a pause or a break or gap between thoughts? \n\nWhat have you learned about the mind that you find most interesting or most helpful? \n\nHow might it help us if we learned to watch our minds?",
           "image": {
             "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1716243671/SEE/Icons/Reflection/Reflection_CardImage_rgqk5l.png"
           }
@@ -159,7 +159,7 @@
       {
         "type": "instruction",
         "content": {
-          "text": " Well done. Today, we’ve explored observing the mind. \n\nWe all have personal power over how we react to emotional impulses or challenging thoughts. We do not have to act on each emotional impulse. We can navigate emotional experiences in healthy ways to the benefit of ourselves and others.",
+          "text": " Well done. Today, we’ve explored observing the mind. \n\nWe all have personal power over how we react to emotional impulses or challenging thoughts. We do not have to act on each emotional impulse. We can navigate emotional experiences in healthy ways to the benefit of ourselves and others.\n\nObserving the mind helps us notice potential thoughts and ideas that could be unhelpful.",
           "heading": "Observing the mind",
           "image": {
             "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1715194852/SEE/Icons/Awareness/ObservingTheMind_CardImage_sm7nn9.png"
@@ -169,7 +169,7 @@
       {
         "type": "instruction",
         "content": {
-          "text": "Observing the mind helps us notice potential thoughts and ideas that could be unhelpful. \n\nIf we're up for it, we can continue with a mission: Practice observing your mind once a day for 4 minutes over the next two days.\n\nPlan the steps you will take by considering a time in your day when this might be helpful or timely.",
+          "text": "If we're up for it, we can continue with a mission: Practice observing your mind once a day for 4 minutes over the next two days.\n\nPlan the steps you will take by considering a time in your day when this might be helpful or timely.",
           "heading": "",
           "image": {
             "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1715194051/SEE/SEELearning_Logo_Apple_2022_iyrrnd.png"
