@@ -37,7 +37,7 @@
       {
         "type": "instruction",
         "content": {
-          "heading": "Time for reflection",
+          "heading": "Reflection",
           "image": {
             "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1716243671/SEE/Icons/Reflection/Reflection_CardImage_rgqk5l.png"
           },
@@ -47,10 +47,11 @@
       {
         "type": "instruction",
         "content": {
-          "text": "How did you experience the Help Now! Strategies? Did you find that some effected you differently to others?",
+          "text": "How did you experience the Help Now! Strategies? \n\nDid you find that some effected you differently to others?",
           "image": {
             "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1716243671/SEE/Icons/Reflection/Reflection_CardImage_rgqk5l.png"
-          }
+          },
+          "heading": "Reflection"
         }
       },
       {
@@ -174,7 +175,7 @@
         "type": "instruction",
         "content": {
           "text": "Well done. Today, we’ve explored and tried out Help Now! Strategies. These are simple and immediate techniques for helping us return to their resilient zone when we get “bumped out” of that zone.",
-          "heading": "Help Now!",
+          "heading": "Resilience",
           "image": {
             "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1715187099/SEE/Icons/Resilience/HelpNow_CardImage_she1tr.png"
           }
@@ -184,7 +185,7 @@
         "type": "instruction",
         "content": {
           "text": "If we're up for it, we can continue with a mission: Practice using three Help Now! Strategies on three different days this week. \n\nPlan the steps you will take by considering moments when Help Now! strategies might help you during your week.",
-          "heading": "",
+          "heading": "Resilience",
           "image": {
             "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1715194051/SEE/SEELearning_Logo_Apple_2022_iyrrnd.png"
           }
