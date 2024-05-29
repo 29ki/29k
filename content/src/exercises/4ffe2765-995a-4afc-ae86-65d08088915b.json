@@ -31,10 +31,10 @@
       {
         "type": "instruction",
         "content": {
-          "heading": "Time for reflection",
+          "heading": "Reflection",
           "text": "You can take notes on a piece of paper or just mental notes in your head. And there is no right or wrong here, our answers are our own.",
           "image": {
-            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1716243671/SEE/Icons/Reflection/Reflection_CardImage_rgqk5l.png"
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1716951212/SEE/Icons/Reflection/Reflection_Awareness_CardImage_wgzwcf.png"
           }
         }
       },
@@ -43,8 +43,9 @@
         "content": {
           "text": "How was that experience for you? \n\nHow easy or difficult was it for you to keep your attention on the breath with mindfulness? \n\nWere you able to use awareness to bring your mind back when you got distracted or sleepy? \n\nWhat sensations do you notice in your body now?",
           "image": {
-            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1716243671/SEE/Icons/Reflection/Reflection_CardImage_rgqk5l.png"
-          }
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1716951212/SEE/Icons/Reflection/Reflection_Awareness_CardImage_wgzwcf.png"
+          },
+          "heading": "Reflection"
         }
       },
       {
