@@ -1,0 +1,52 @@
+{
+  "en": {
+    "published": true,
+    "hidden": false,
+    "locked": true,
+    "id": "29b0e349-256d-44e7-b0e9-dc152339b4fc",
+    "name": "SEE Compassion",
+    "description": "SEE compassion placeholder",
+    "card": {
+      "image": {
+        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1715194051/SEE/SEELearning_Logo_Apple_2022_iyrrnd.png"
+      }
+    },
+    "exercises": [
+      "a1da8d37-0330-4611-ad1b-f65d08f71d2e",
+      "9d86dfa5-c0ed-49bb-856d-8185a017785e"
+    ]
+  },
+  "pt": {
+    "published": false,
+    "hidden": false,
+    "locked": true,
+    "id": "29b0e349-256d-44e7-b0e9-dc152339b4fc",
+    "card": {},
+    "exercises": [
+      "a1da8d37-0330-4611-ad1b-f65d08f71d2e",
+      "9d86dfa5-c0ed-49bb-856d-8185a017785e"
+    ]
+  },
+  "sv": {
+    "published": false,
+    "hidden": false,
+    "locked": true,
+    "id": "29b0e349-256d-44e7-b0e9-dc152339b4fc",
+    "card": {},
+    "exercises": [
+      "a1da8d37-0330-4611-ad1b-f65d08f71d2e",
+      "9d86dfa5-c0ed-49bb-856d-8185a017785e"
+    ]
+  },
+  "ja": {
+    "published": false,
+    "hidden": false,
+    "locked": true,
+    "id": "29b0e349-256d-44e7-b0e9-dc152339b4fc",
+    "card": {},
+    "exercises": [
+      "a1da8d37-0330-4611-ad1b-f65d08f71d2e",
+      "9d86dfa5-c0ed-49bb-856d-8185a017785e"
+    ]
+  }
+}
