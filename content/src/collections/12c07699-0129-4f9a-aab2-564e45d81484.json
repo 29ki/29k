@@ -2,7 +2,7 @@
   "en": {
     "hidden": false,
     "locked": true,
-    "name": "Resilience SEE",
+    "name": "Resilience SEE Learning",
     "published": true,
     "sortOrder": 1,
     "card": {
@@ -10,6 +10,13 @@
         "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1715194051/SEE/SEELearning_Logo_Apple_2022_iyrrnd.png"
       }
     },
+    "coCreators": [
+      {
+        "name": "SEE Learning",
+        "url": "https://seelearning.emory.edu/en/home",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1713881366/SEE/see-logo_1_kewtlt.png"
+      }
+    ],
     "tags": [
       "8da0534a-5da9-430a-bdf3-242ace6460fb"
     ],
