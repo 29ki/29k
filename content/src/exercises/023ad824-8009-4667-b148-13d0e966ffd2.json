@@ -41,7 +41,10 @@
         "type": "instruction",
         "content": {
           "text": "How did you experience the Mind Jar? \n\nDid you find it a helpful way of considering our mind’s state when we are stressed or overwhelmed?",
-          "heading": "Reflection"
+          "heading": "Reflection",
+          "image": {
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1716243671/SEE/Icons/Reflection/Reflection_CardImage_rgqk5l.png"
+          }
         }
       },
       {
@@ -167,7 +170,7 @@
       {
         "type": "instruction",
         "content": {
-          "text": "Well done. By considering the metaphor of the mind jar we can learn that our mind can be relatively clear or cloudy, making it easier or harder to discern what is happening within us and around us; that the way we perceive things is affected by the state of our own mind.",
+          "text": " A “mind jar” is a visual representation of the mind.\n\nBy considering the metaphor of the mind jar we can learn that our mind can be relatively clear or cloudy, making it easier or harder to discern what is happening within us and around us; that the way we perceive things is affected by the state of our own mind.",
           "heading": "Mind Jar",
           "image": {
             "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1715664324/SEE/Icons/Awareness/MindJar_CardImage_lk0zhj.png"
@@ -181,15 +184,15 @@
             "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1715664324/SEE/Icons/Awareness/MindJar_CardImage_lk0zhj.png"
           },
           "heading": "Mind Jar",
-          "text": " By pausing and focusing our attention on something, we can help to clear the mind and therefore work with the mind to support it in clear optimal functioning."
+          "text": "By pausing and focusing our attention on something, we can help to clear the mind and therefore work with the mind to support it in clear optimal functioning."
         }
       },
       {
         "type": "instruction",
         "content": {
-          "heading": "",
+          "heading": "Mind Jar",
           "image": {
-            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1715194051/SEE/SEELearning_Logo_Apple_2022_iyrrnd.png"
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1715664324/SEE/Icons/Awareness/MindJar_CardImage_lk0zhj.png"
           },
           "text": "If we're up for it, we can continue with a mission: Practice noticing and focusing on awareness on our minds current state three different days this week. \n\nAlternatively, you could watch a video or make your own mind jar and practice watching it to help settle your own mind."
         }
