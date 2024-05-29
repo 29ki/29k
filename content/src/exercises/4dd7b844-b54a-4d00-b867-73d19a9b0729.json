@@ -41,7 +41,10 @@
         "type": "instruction",
         "content": {
           "text": "How did you experience practising resourcing? \n\nHow did you feel before and after resourcing? \n\nDid you notice any change?",
-          "heading": "Reflection"
+          "heading": "Reflection",
+          "image": {
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1716243671/SEE/Icons/Reflection/Reflection_CardImage_rgqk5l.png"
+          }
         }
       },
       {
@@ -184,9 +187,9 @@
         "content": {
           "text": "\n\nIf we're up for it, we can continue with a mission: Practice using one of your resources on three different days this week. \n\nPlan the step you will take by considering moments when resourcing might help to bring you calm and clarity.",
           "image": {
-            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1715194051/SEE/SEELearning_Logo_Apple_2022_iyrrnd.png"
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1715187105/SEE/Icons/Resilience/Resourcing_CardImage_m6fy1w.png"
           },
-          "heading": ""
+          "heading": "Resourcing"
         }
       }
     ],
