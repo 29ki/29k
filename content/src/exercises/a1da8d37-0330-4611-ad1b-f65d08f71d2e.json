@@ -30,8 +30,18 @@
       {
         "type": "instruction",
         "content": {
-          "heading": "Time for reflection",
-          "text": "You can take notes on a piece of paper or just mental notes in your head. And there is no right or wrong here, our answers are our own.\n\n*How was that experience for you? What would the benefit of practicing self-compassion be for you? How might you take one or more of these reflections and integrate them into your life? How could these practices/reflections be applied to how you relate, think about, and interact with others?*",
+          "heading": "Reflection",
+          "text": "You can take notes on a piece of paper or just mental notes in your head. And there is no right or wrong here, our answers are our own.",
+          "image": {
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1716243671/SEE/Icons/Reflection/Reflection_CardImage_rgqk5l.png"
+          }
+        }
+      },
+      {
+        "type": "instruction",
+        "content": {
+          "text": "How was that experience for you? \n\nWhat would the benefit of practicing self-compassion be for you? \n\nHow might you take one or more of these reflections and integrate them into your life? \n\nHow could these practices/reflections be applied to how you relate, think about, and interact with others?",
+          "heading": "Reflection",
           "image": {
             "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1716243671/SEE/Icons/Reflection/Reflection_CardImage_rgqk5l.png"
           }
@@ -148,7 +158,7 @@
         "type": "instruction",
         "content": {
           "text": "Well done. Today, we’ve explored self-compassion.\n\nA high number of children and adults struggle with anxiety, and self-esteem and self-worth. The expectations of society compound this and can be internalized in unhealthy ways. It is, therefore, especially important to practice self-compassion.",
-          "heading": "Self-compassion",
+          "heading": "Compassion",
           "image": {
             "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1715667121/SEE/Icons/Compassion/SelfCompassion_CardImage_ctu5yx.png"
           }
@@ -162,17 +172,17 @@
             "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1715667121/SEE/Icons/Compassion/SelfCompassion_CardImage_ctu5yx.png",
             "description": ""
           },
-          "heading": "Self-compassion"
+          "heading": "Compassion"
         }
       },
       {
         "type": "instruction",
         "content": {
-          "text": "If we're up for it, we can continue with a mission: Practice self-compassion once a day when we fail, or something doesn’t go as planned over the next three days.\n\nPlan the steps you will take by considering what you need to practice to implement self-compassion.",
+          "text": "f we're up for it, we can continue with a mission: Practice self-compassion once a day when we fail, or something doesn’t go as planned over the next three days.\n\nPlan the steps you will take by considering what you need to practice to implement self-compassion.",
           "image": {
-            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1715194051/SEE/SEELearning_Logo_Apple_2022_iyrrnd.png"
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1715667121/SEE/Icons/Compassion/SelfCompassion_CardImage_ctu5yx.png"
           },
-          "heading": "Self-compassion"
+          "heading": "Compassion"
         }
       }
     ],
