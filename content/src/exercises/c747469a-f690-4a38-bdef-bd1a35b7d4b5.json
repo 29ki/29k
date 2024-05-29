@@ -193,7 +193,7 @@
     "locked": true,
     "name": "Web of Connection",
     "live": true,
-    "published": false,
+    "published": true,
     "card": {
       "image": {
         "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1715667142/SEE/Icons/Systems%20Thinking/WebsofConnection_CardImage_n0o2xn.png"
