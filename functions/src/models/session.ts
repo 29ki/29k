@@ -15,6 +15,7 @@ import {
   LiveSessionRecord,
   SessionStateRecord,
 } from './types/types';
+import {DEFAULT_LANGUAGE_TAG, LANGUAGE_TAG} from '../lib/i18n';
 
 const defaultSessionState = {
   index: 0,
@@ -71,12 +72,13 @@ export const getSessionByInviteCode = async ({
     .collection(SESSIONS_COLLECTION)
     .where('inviteCode', '==', inviteCode);
 
-  const result = await (activeOnly
-    ? query
-        .where('ended', '==', false)
-        .orderBy('closingTime')
-        .where('closingTime', '>', sessionClosingRange())
-    : query
+  const result = await (
+    activeOnly
+      ? query
+          .where('ended', '==', false)
+          .orderBy('closingTime')
+          .where('closingTime', '>', sessionClosingRange())
+      : query
   )
     .orderBy('startTime', 'asc')
     .get();
@@ -107,6 +109,7 @@ export const getUpcomingPublicSessions = async (limit?: number) => {
 
 export const getSessionsByUserId = async (
   userId: string,
+  languages: LANGUAGE_TAG[] = [DEFAULT_LANGUAGE_TAG],
   exerciseId?: string,
   hostId?: string,
   limit?: number,
@@ -114,6 +117,7 @@ export const getSessionsByUserId = async (
   let query = firestore()
     .collection(SESSIONS_COLLECTION)
     .where('userIds', 'array-contains-any', ['*', userId])
+    .where('language', 'in', languages)
     .where('ended', '==', false)
     .orderBy('closingTime')
     .where('closingTime', '>', sessionClosingRange())
@@ -275,12 +279,13 @@ export const getSessionByHostingCode = async ({
     .collection(SESSIONS_COLLECTION)
     .where('hostingCode', '==', hostingCode);
 
-  const result = await (activeOnly
-    ? query
-        .where('ended', '==', false)
-        .orderBy('closingTime')
-        .where('closingTime', '>', sessionClosingRange())
-    : query
+  const result = await (
+    activeOnly
+      ? query
+          .where('ended', '==', false)
+          .orderBy('closingTime')
+          .where('closingTime', '>', sessionClosingRange())
+      : query
   )
     .orderBy('startTime', 'asc')
     .get();
