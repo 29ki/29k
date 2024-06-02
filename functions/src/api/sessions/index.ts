@@ -53,13 +53,17 @@ sessionsRouter.get(
     response: yup.array().of(LiveSessionSchema),
   }),
   async ctx => {
-    const {response, user, request} = ctx;
+    const {response, user, request, language} = ctx;
+    const {exerciseId, hostId, limit} = request.query;
+
+    const languages = uniq([language, DEFAULT_LANGUAGE_TAG]);
 
     const sessions = await sessionsController.getSessionsByUserId(
       user.id,
-      request.query.exerciseId,
-      request.query.hostId,
-      request.query.limit,
+      languages,
+      exerciseId,
+      hostId,
+      limit,
     );
 
     response.status = 200;

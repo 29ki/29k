@@ -118,6 +118,7 @@ describe('sessions - controller', () => {
         undefined,
         undefined,
         undefined,
+        undefined,
       );
       expect(mockGetUser).toHaveBeenCalledTimes(1);
       expect(mockGetUser).toHaveBeenCalledWith('some-user-id');
@@ -148,6 +149,7 @@ describe('sessions - controller', () => {
         undefined,
         undefined,
         undefined,
+        undefined,
       );
       expect(mockGetUser).toHaveBeenCalledTimes(1);
       expect(mockGetUser).toHaveBeenCalledWith('some-user-id');
@@ -169,6 +171,7 @@ describe('sessions - controller', () => {
 
       const sessions = await getSessionsByUserId(
         'some-user-id',
+        undefined,
         'some-exercise-id',
       );
 
@@ -178,6 +181,7 @@ describe('sessions - controller', () => {
       expect(mockGetSessionsByUserId).toHaveBeenCalledTimes(1);
       expect(mockGetSessionsByUserId).toHaveBeenCalledWith(
         'some-user-id',
+        undefined,
         'some-exercise-id',
         undefined,
         undefined,
@@ -208,9 +212,10 @@ describe('sessions - controller', () => {
           userIds: ['*'],
         },
       ]);
-      await getSessionsByUserId('all', undefined, undefined, 5);
+      await getSessionsByUserId('all', undefined, undefined, undefined, 5);
       expect(mockGetSessionsByUserId).toHaveBeenCalledWith(
         'all',
+        undefined,
         undefined,
         undefined,
         5,
