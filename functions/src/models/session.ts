@@ -1,6 +1,6 @@
 import 'firebase-functions';
 import {firestore} from 'firebase-admin';
-import {Timestamp} from 'firebase-admin/firestore';
+import {Filter, Timestamp} from 'firebase-admin/firestore';
 import dayjs from 'dayjs';
 
 import {
@@ -116,8 +116,13 @@ export const getSessionsByUserId = async (
 ) => {
   let query = firestore()
     .collection(SESSIONS_COLLECTION)
+    .where(
+      Filter.or(
+        Filter.where('language', 'in', languages),
+        Filter.where('hostId', '==', userId),
+      ),
+    )
     .where('userIds', 'array-contains-any', ['*', userId])
-    .where('language', 'in', languages)
     .where('ended', '==', false)
     .orderBy('closingTime')
     .where('closingTime', '>', sessionClosingRange())

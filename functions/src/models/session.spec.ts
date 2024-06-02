@@ -204,12 +204,18 @@ describe('session model', () => {
       ]);
     });
 
-    it('supports support filtering by languages', async () => {
+    it('supports filtering by languages', async () => {
       await getSessionsByUserId('some-user-id', ['en', 'sv']);
-      expect(mockWhere).toHaveBeenCalledWith('language', 'in', ['en', 'sv']);
+      expect(mockWhere).toHaveBeenCalledWith({
+        filters: [
+          {field: 'language', operator: 'in', value: ['en', 'sv']},
+          {field: 'hostId', operator: '==', value: 'some-user-id'},
+        ],
+        operator: 'OR',
+      });
     });
 
-    it('supports support filtering by exercises id', async () => {
+    it('supports filtering by exercises id', async () => {
       await getSessionsByUserId('some-user-id', undefined, 'some-exercise-id');
       expect(mockWhere).toHaveBeenCalledWith(
         'exerciseId',
