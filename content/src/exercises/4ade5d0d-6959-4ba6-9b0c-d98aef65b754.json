@@ -207,7 +207,7 @@
       {
         "name": "SEE Learning",
         "url": "https://seelearning.emory.edu/en/home",
-        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1713881366/SEE/see-logo_1_kewtlt.png"
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1717533458/SEE/SEELearning_Logo_Apple_2022_fe9mjc.png"
       }
     ],
     "duration": 20,
@@ -217,17 +217,17 @@
       }
     },
     "introPortal": {
-      "textColor": "#2AE2D7",
+      "textColor": "#2E2E2E",
       "hostNotes": [
         {
-          "text": "> Press play to start the audio exercise"
+          "text": "> Start the session when you're ready to go"
         }
       ],
       "videoLoop": {
         "p5JsScript": {
           "lang": "javascript"
         },
-        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1716935845/SEE/Video/SEELearning_AwareApp_IntroVideo_2024_V3_k4jtws.mp4",
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1717469190/SEE/Video/SEELearning_AwareApp_IntroVideo_2024_V3_1_giheh7.mp4",
         "description": ""
       },
       "videoEnd": {
