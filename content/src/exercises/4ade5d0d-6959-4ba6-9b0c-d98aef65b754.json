@@ -67,7 +67,7 @@
             "durationTimer": false,
             "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto/v1676642915/Lottie/default_1min_white_wvgwma.json"
           },
-          "heading": "What do you think of the resilient zone?"
+          "heading": "How did you find the idea of the resilient zone?"
         },
         "hostNotes": [
           {
@@ -91,7 +91,7 @@
             "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1716238084/SEE/Lottie/shareslide_lqdkod.json"
           },
           "text": "",
-          "heading": "How do you think we’d know if someone else was in their high zone?"
+          "heading": "How do we know if someone else is in their high zone?"
         },
         "hostNotes": [
           {
@@ -132,7 +132,7 @@
             "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1716238084/SEE/Lottie/shareslide_lqdkod.json"
           },
           "text": "",
-          "heading": "What do you think are other words we could use to explain to someone what resilient means? "
+          "heading": "What other words can explain what resilient means? "
         }
       },
       {
@@ -147,30 +147,30 @@
             "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1716238084/SEE/Lottie/shareslide_lqdkod.json"
           },
           "text": "",
-          "heading": "Do you think most people have been stuck in the high zone some time? What about the low zone?"
+          "heading": "Can people can be been stuck in the high zone? Or the low zone?"
         }
       },
       {
         "type": "host",
         "hostNotes": [
           {
-            "text": "Good job. We've explored the idea of the resilient zone. It’s important to remember that each of us will experience a challenging situation differently. We’re all human. We’re all in this together. We can build the skills needed to return ourselves to our Resilient Zone, even in very challenging situations."
+            "text": "Good job. We've explored the idea of the resilient zone. Each of us will experience a challenging situation differently. We’re all human. We’re all in this together. We can build the skills to return to our Resilient Zone, even in challenging situations."
           },
           {
-            "text": "If we're up for it, we can continue with a mission: Practice growing our awareness by noticing where we might be in the resilient zone over the next few days."
+            "text": "If we're up for it, we can continue with a mission: Practice growing our awareness by noticing when we might be in the resilient zone over the next few days. Plan the step you will take by considering how the resilient zone concept could be useful in your day."
           },
           {
-            "text": "Plan the step you will take by considering how the resilient zone concept could be useful in your day. Before we leave this space, let’s do a mini check-out: How are you feeling right now? Has anything shifted? Please answer in two to three words."
+            "text": "Before we leave this space, let’s do a mini check-out: How are you feeling right now? Has anything shifted? Please answer in two to three words. Who would like to start?"
           },
           {
-            "text": "Who would like to start? \n\n> Let everyone in the session check out one by one. \n\nThank you all for checking out and for joining this session today. \n\n> Finish session to send everyone off to the exit experience."
+            "text": "> Let everyone in the session check out one by one. \n\nThank you all for checking out and for joining this session today. \n\n> Finish session to send everyone off to the exit experience."
           }
         ]
       },
       {
         "type": "instruction",
         "content": {
-          "text": "Well done. We've explored the idea of the resilient zone. It’s important to remember that each of us will experience a challenging situation differently. We’re all human. We’re all in this together. We can build the skills needed to return ourselves to our Resilient Zone, even in very challenging situations.",
+          "text": "Well done. We've explored the idea of the resilient zone. Each of us will experience a challenging situation differently. We’re all human. We’re all in this together. We can build the skills needed to return ourselves to our Resilient Zone, even in very challenging situations.",
           "heading": "Resilience",
           "image": {
             "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1716951143/SEE/Icons/Resilience/ResilientZone_CardImage_rfboep.png"
