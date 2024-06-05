@@ -5,6 +5,11 @@
     "name": "Self-compassion I: An inside job",
     "published": true,
     "sortOrder": 1,
+    "card": {
+      "image": {
+        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1716379707/Images/inner_friend_card_lvgppt.png"
+      }
+    },
     "coCreators": [
       {
         "name": "Kristin Neff, Chris Germer, original research",
@@ -47,7 +52,8 @@
       "e4bf8d17-a774-4702-abfe-c7452c3fee0f",
       "2ea0d73d-4bfe-4e23-9124-2998acc9743f",
       "b4307d0b-512d-46d6-a500-7fb372bfe057"
-    ]
+    ],
+    "card": {}
   },
   "sv": {
     "published": false,
@@ -65,7 +71,8 @@
       "e4bf8d17-a774-4702-abfe-c7452c3fee0f",
       "2ea0d73d-4bfe-4e23-9124-2998acc9743f",
       "b4307d0b-512d-46d6-a500-7fb372bfe057"
-    ]
+    ],
+    "card": {}
   },
   "ja": {
     "published": false,
@@ -83,6 +90,7 @@
       "e4bf8d17-a774-4702-abfe-c7452c3fee0f",
       "2ea0d73d-4bfe-4e23-9124-2998acc9743f",
       "b4307d0b-512d-46d6-a500-7fb372bfe057"
-    ]
+    ],
+    "card": {}
   }
 }
