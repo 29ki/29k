@@ -1,0 +1,96 @@
+{
+  "en": {
+    "hidden": true,
+    "locked": false,
+    "name": "Self-compassion I: The inside job",
+    "published": true,
+    "sortOrder": 1,
+    "card": {
+      "image": {
+        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1716379707/Images/inner_friend_card_lvgppt.png"
+      }
+    },
+    "coCreators": [
+      {
+        "name": "Kristin Neff, Chris Germer, original research",
+        "url": "https://centerformsc.org/",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1697723039/Images/Germer%2C%20Neff.png"
+      },
+      {
+        "name": "Jenny Rickardsson, editor",
+        "url": "https://www.linkedin.com/in/jenny-rickardson-6770a959/",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413228/Contributors/Jenny%20Rickardsson.jpg"
+      }
+    ],
+    "tags": [
+      "db34d82a-4c48-4ddd-9de5-f562d8aa1bc9"
+    ],
+    "id": "7bb77b5d-7a97-4fd1-9102-21eb0c4a70af",
+    "exercises": [
+      "a0600ebe-748d-481c-81af-dab25fa32b76",
+      "2fdb95f0-d18d-444d-9935-2c71b9b413d4",
+      "13dfd5b5-f0af-4783-9fe1-3ba7773bcb89",
+      "e4bf8d17-a774-4702-abfe-c7452c3fee0f",
+      "2ea0d73d-4bfe-4e23-9124-2998acc9743f",
+      "b4307d0b-512d-46d6-a500-7fb372bfe057"
+    ],
+    "description": "Being gentle and meeting ourselves with compassion does not come naturally for many of us. In this program we practice taking an inner stance, treating ourselves with kindness and care. Self-compassionate practices can improve our wellbeing and the relationship to ourselves and others."
+  },
+  "pt": {
+    "published": false,
+    "hidden": false,
+    "locked": false,
+    "id": "7bb77b5d-7a97-4fd1-9102-21eb0c4a70af",
+    "tags": [
+      "db34d82a-4c48-4ddd-9de5-f562d8aa1bc9"
+    ],
+    "sortOrder": 1,
+    "exercises": [
+      "a0600ebe-748d-481c-81af-dab25fa32b76",
+      "2fdb95f0-d18d-444d-9935-2c71b9b413d4",
+      "13dfd5b5-f0af-4783-9fe1-3ba7773bcb89",
+      "e4bf8d17-a774-4702-abfe-c7452c3fee0f",
+      "2ea0d73d-4bfe-4e23-9124-2998acc9743f",
+      "b4307d0b-512d-46d6-a500-7fb372bfe057"
+    ],
+    "card": {}
+  },
+  "sv": {
+    "published": false,
+    "hidden": false,
+    "locked": false,
+    "id": "7bb77b5d-7a97-4fd1-9102-21eb0c4a70af",
+    "tags": [
+      "db34d82a-4c48-4ddd-9de5-f562d8aa1bc9"
+    ],
+    "sortOrder": 1,
+    "exercises": [
+      "a0600ebe-748d-481c-81af-dab25fa32b76",
+      "2fdb95f0-d18d-444d-9935-2c71b9b413d4",
+      "13dfd5b5-f0af-4783-9fe1-3ba7773bcb89",
+      "e4bf8d17-a774-4702-abfe-c7452c3fee0f",
+      "2ea0d73d-4bfe-4e23-9124-2998acc9743f",
+      "b4307d0b-512d-46d6-a500-7fb372bfe057"
+    ],
+    "card": {}
+  },
+  "ja": {
+    "published": false,
+    "hidden": false,
+    "locked": false,
+    "id": "7bb77b5d-7a97-4fd1-9102-21eb0c4a70af",
+    "tags": [
+      "db34d82a-4c48-4ddd-9de5-f562d8aa1bc9"
+    ],
+    "sortOrder": 1,
+    "exercises": [
+      "a0600ebe-748d-481c-81af-dab25fa32b76",
+      "2fdb95f0-d18d-444d-9935-2c71b9b413d4",
+      "13dfd5b5-f0af-4783-9fe1-3ba7773bcb89",
+      "e4bf8d17-a774-4702-abfe-c7452c3fee0f",
+      "2ea0d73d-4bfe-4e23-9124-2998acc9743f",
+      "b4307d0b-512d-46d6-a500-7fb372bfe057"
+    ],
+    "card": {}
+  }
+}
