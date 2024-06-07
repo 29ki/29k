@@ -83,7 +83,7 @@
         "id": "Sharing 1",
         "content": {
           "text": "",
-          "heading": "What would the benefit of practicing self-compassion be for you?",
+          "heading": "What would the benefit of self-compassion be for you?",
           "lottie": {
             "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto/v1716238084/SEE/Lottie/shareslide_lqdkod.json"
           }
@@ -101,7 +101,7 @@
             "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto/v1716238084/SEE/Lottie/shareslide_lqdkod.json"
           },
           "text": "",
-          "heading": "How might you take one or more of these reflections and integrate them into your life? "
+          "heading": "How might you integrate self compassion into your life? "
         }
       },
       {
@@ -116,22 +116,7 @@
             "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto/v1716238084/SEE/Lottie/shareslide_lqdkod.json"
           },
           "text": "",
-          "heading": "How could these practices/reflections be applied to how you relate, think about, and interact with others or your students? "
-        }
-      },
-      {
-        "type": "sharing",
-        "id": "sharing 4",
-        "content": {
-          "video": {
-            "durationTimer": true
-          },
-          "lottie": {
-            "durationTimer": true,
-            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto/v1716238084/SEE/Lottie/shareslide_lqdkod.json"
-          },
-          "text": "",
-          "heading": "How would relating to others or your students in this way shape and benefit your outlook of them and your relationship with them? "
+          "heading": "How could self compassion impact how you relate to others? "
         }
       },
       {
