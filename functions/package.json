@@ -77,7 +77,7 @@
     "koa-bodyparser": "^4.4.1",
     "localtunnel": "^2.0.2",
     "mockdate": "^3.0.5",
-    "prettier": "^3.2.5",
+    "prettier": "^3.3.1",
     "supertest": "^7.0.0",
     "ts-jest": "^28.0.8",
     "typescript": "^5.4.5"
