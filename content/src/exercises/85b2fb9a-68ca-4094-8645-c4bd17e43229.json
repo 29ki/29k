@@ -52,10 +52,11 @@
         "content": {
           "video": {
             "durationTimer": true,
-            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1716235083/SEE/Video/SEELearning_Aware_1MinTimer_2024_mv72mj.mp4"
+            "source": ""
           },
           "lottie": {
-            "durationTimer": true
+            "durationTimer": true,
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto/v1718146076/SEE/Lottie/Timer/1min_timer_ag9fyg.json"
           }
         },
         "hostNotes": [
@@ -76,7 +77,7 @@
           },
           "lottie": {
             "durationTimer": true,
-            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto/v1716238084/SEE/Lottie/shareslide_lqdkod.json"
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto/v1718146077/SEE/Lottie/Timer/2min_timer_yjuzls.json"
           },
           "text": "",
           "heading": "What did we discover about tracking the sensations?"
@@ -102,7 +103,7 @@
           },
           "lottie": {
             "durationTimer": true,
-            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto/v1716238084/SEE/Lottie/shareslide_lqdkod.json"
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto/v1718146077/SEE/Lottie/Timer/2min_timer_yjuzls.json"
           },
           "text": "",
           "heading": " What kinds of sensations came when we used our resources?"
@@ -117,7 +118,7 @@
           },
           "lottie": {
             "durationTimer": true,
-            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto/v1716238084/SEE/Lottie/shareslide_lqdkod.json"
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto/v1718146077/SEE/Lottie/Timer/2min_timer_yjuzls.json"
           },
           "text": "",
           "heading": "Where in our bodies did we feel those  sensations? "
@@ -132,7 +133,7 @@
           },
           "lottie": {
             "durationTimer": true,
-            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto/v1716238084/SEE/Lottie/shareslide_lqdkod.json"
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto/v1718146077/SEE/Lottie/Timer/2min_timer_yjuzls.json"
           },
           "text": "",
           "heading": "Could use one of your personal resources if in discomfort?"
@@ -164,7 +165,7 @@
           "text": "Well done. Today, we’ve explored tracking sensations in our body. Emotions vary in levels of activation in the body (high to low energy, or neutral) and in feeling tone (pleasant, neutral, unpleasant). We can learn about our emotional state by tracking our level of activation and sensations.",
           "heading": "Awareness",
           "image": {
-            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1715194856/SEE/Icons/Awareness/Tracking_CardImage_xce0qv.png"
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1718152376/SEE/Icons/Awareness/Tracking_CardImage_xfvi8y.png"
           }
         }
       },
@@ -173,7 +174,7 @@
         "content": {
           "text": "Ideally, resourcing and tracking should be practiced together. Both resourcing and tracking are skills that develop over time with practice, and lead to what can be called “body literacy” since we are learning about our own bodies and how they respond to stress and well-being.\n\nAs you’ve reflected on what you can bring from this to the rest of your day, take this opportunity to practice making space for things on the inside during the rest of today, and see where that takes you.",
           "image": {
-            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1715194856/SEE/Icons/Awareness/Tracking_CardImage_xce0qv.png"
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1718152376/SEE/Icons/Awareness/Tracking_CardImage_xfvi8y.png"
           },
           "heading": "Awareness"
         }
@@ -184,7 +185,7 @@
           "text": "If we're up for it, we can continue with a mission: Practice using the tracking on four occasions during the next three days and remember to notice the energy and tone of each sensation.\n\nPlan the steps you will take by considering a time in your day when this might be helpful or timely.",
           "heading": "Awareness",
           "image": {
-            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1715194856/SEE/Icons/Awareness/Tracking_CardImage_xce0qv.png"
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1718152376/SEE/Icons/Awareness/Tracking_CardImage_xfvi8y.png"
           }
         }
       }
@@ -200,7 +201,7 @@
     "published": true,
     "card": {
       "image": {
-        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1715194856/SEE/Icons/Awareness/Tracking_CardImage_xce0qv.png"
+        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1718152376/SEE/Icons/Awareness/Tracking_CardImage_xfvi8y.png"
       }
     },
     "coCreators": [
@@ -220,14 +221,14 @@
       "textColor": "#2AE2D7",
       "hostNotes": [
         {
-          "text": "> Press play to start the audio exercise"
+          "text": "> Press play to start the exercise"
         }
       ],
       "videoLoop": {
         "p5JsScript": {
           "lang": "javascript"
         },
-        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1716935845/SEE/Video/SEELearning_AwareApp_IntroVideo_2024_V3_k4jtws.mp4"
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1717469190/SEE/Video/SEELearning_AwareApp_IntroVideo_2024_V3_1_giheh7.mp4"
       },
       "videoEnd": {
         "source": ""
