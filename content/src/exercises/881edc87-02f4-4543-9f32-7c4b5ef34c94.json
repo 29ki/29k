@@ -66,10 +66,11 @@
         "content": {
           "video": {
             "durationTimer": true,
-            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1716235083/SEE/Video/SEELearning_Aware_1MinTimer_2024_mv72mj.mp4"
+            "source": ""
           },
           "lottie": {
-            "durationTimer": true
+            "durationTimer": true,
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto/v1718146076/SEE/Lottie/Timer/1min_timer_ag9fyg.json"
           },
           "heading": "How was that experience for you? Was anyone able to watch some thoughts coming and going? What was that like? Did anyone notice a time when there were no thoughts?"
         },
@@ -94,10 +95,10 @@
           },
           "lottie": {
             "durationTimer": true,
-            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto/v1716238084/SEE/Lottie/shareslide_lqdkod.json"
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto/v1718146077/SEE/Lottie/Timer/2min_timer_yjuzls.json"
           },
           "text": "",
-          "heading": "What have you learned about the mind that you find most interesting or most helpful? "
+          "heading": "What have you learned about the mind? "
         },
         "hostNotes": [
           {
@@ -120,7 +121,7 @@
           },
           "lottie": {
             "durationTimer": true,
-            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto/v1716238084/SEE/Lottie/shareslide_lqdkod.json"
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto/v1718146077/SEE/Lottie/Timer/2min_timer_yjuzls.json"
           },
           "text": "",
           "heading": "How might it help us if we learned to watch our minds? "
@@ -135,10 +136,10 @@
           },
           "lottie": {
             "durationTimer": true,
-            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto/v1716238084/SEE/Lottie/shareslide_lqdkod.json"
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto/v1718146077/SEE/Lottie/Timer/2min_timer_yjuzls.json"
           },
           "text": "",
-          "heading": "Do you think you could spend a moment watching your own mind sometime in the next few days and share what you notice?"
+          "heading": "Do you think you could spend a moment watching your mind?"
         }
       },
       {
@@ -164,7 +165,7 @@
           "text": " Well done. Today, we’ve explored observing the mind. \n\nWe all have personal power over how we react to emotional impulses or challenging thoughts. We do not have to act on each emotional impulse.",
           "heading": "Awareness",
           "image": {
-            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1715194852/SEE/Icons/Awareness/ObservingTheMind_CardImage_sm7nn9.png"
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1718152376/SEE/Icons/Awareness/ObservingTheMind_CardImage_crvfoi.png"
           }
         }
       },
@@ -173,7 +174,7 @@
         "content": {
           "text": "We can navigate emotional experiences in healthy ways to the benefit of ourselves and others.\n\nObserving the mind helps us notice potential thoughts and ideas that could be unhelpful.",
           "image": {
-            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1715194852/SEE/Icons/Awareness/ObservingTheMind_CardImage_sm7nn9.png"
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1718152376/SEE/Icons/Awareness/ObservingTheMind_CardImage_crvfoi.png"
           },
           "heading": "Awareness"
         }
@@ -184,7 +185,7 @@
           "text": "If we're up for it, we can continue with a mission: Practice observing your mind once a day for 4 minutes over the next two days.\n\nPlan the steps you will take by considering a time in your day when this might be helpful or timely.",
           "heading": "Awareness",
           "image": {
-            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1715194852/SEE/Icons/Awareness/ObservingTheMind_CardImage_sm7nn9.png"
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1718152376/SEE/Icons/Awareness/ObservingTheMind_CardImage_crvfoi.png"
           }
         }
       }
@@ -200,7 +201,7 @@
     "published": true,
     "card": {
       "image": {
-        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1715194852/SEE/Icons/Awareness/ObservingTheMind_CardImage_sm7nn9.png"
+        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1718152376/SEE/Icons/Awareness/ObservingTheMind_CardImage_crvfoi.png"
       }
     },
     "coCreators": [
@@ -217,17 +218,17 @@
       }
     },
     "introPortal": {
-      "textColor": "#2AE2D7",
+      "textColor": "#2E2E2E",
       "hostNotes": [
         {
-          "text": "> Press play to start the audio exercise"
+          "text": "> Press play to start the exercise"
         }
       ],
       "videoLoop": {
         "p5JsScript": {
           "lang": "javascript"
         },
-        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1716935845/SEE/Video/SEELearning_AwareApp_IntroVideo_2024_V3_k4jtws.mp4"
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1717469190/SEE/Video/SEELearning_AwareApp_IntroVideo_2024_V3_1_giheh7.mp4"
       }
     },
     "tags": [
@@ -235,7 +236,7 @@
     ],
     "id": "881edc87-02f4-4543-9f32-7c4b5ef34c94",
     "async": true,
-    "description": "Developing an ability to watch thought processes in the mind is a great way to catch thinking traps. Sometimes when we are experiencing distressing thoughts or challenging feelings, we might feel that there is no space or time to choose a more constructive way to deal with the challenge. Our ideas or feelings could be so intense, paralyzing or compelling that it seems to us we have no choice to think, feel, or act differently. We do often have more choice than that, however. We can pause to remember: “I do not have to act on each emotional impulse or thought. I can navigate emotional experiences in healthy ways, to the benefit of myself and others.\""
+    "description": "Developing an ability to watch thought processes in the mind is a great way to catch thinking traps. We can pause to remember: “I do not have to act on each emotional impulse or thought. I can navigate emotional experiences in healthy ways, to the benefit of myself and others.\""
   },
   "pt": {
     "slides": [
