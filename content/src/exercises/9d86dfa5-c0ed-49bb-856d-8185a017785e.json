@@ -33,7 +33,7 @@
           "heading": "Reflection",
           "text": "You can take notes on a piece of paper or just mental notes in your head. And there is no right or wrong here, our answers are our own.",
           "image": {
-            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1716243671/SEE/Icons/Reflection/Reflection_CardImage_rgqk5l.png"
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1716951212/SEE/Icons/Reflection/Reflection_Awareness_CardImage_wgzwcf.png"
           }
         }
       },
@@ -43,7 +43,7 @@
           "heading": "Reflection",
           "text": "How was that experience for you? \n\nHow can you cultivate compassion in your personal life, what challenges do you anticipate in extending compassion to others? \n\nHow can we extend the compassion we engage in within this our family and extend to our community?”",
           "image": {
-            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1716243671/SEE/Icons/Reflection/Reflection_CardImage_rgqk5l.png"
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1716951212/SEE/Icons/Reflection/Reflection_Awareness_CardImage_wgzwcf.png"
           }
         }
       },
@@ -59,7 +59,10 @@
         ],
         "content": {
           "video": {
-            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1716235083/SEE/Video/SEELearning_Aware_1MinTimer_2024_mv72mj.mp4"
+            "source": ""
+          },
+          "lottie": {
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1718146076/SEE/Lottie/Timer/1min_timer_ag9fyg.json"
           }
         }
       },
@@ -81,7 +84,7 @@
           "text": "",
           "heading": "How can you cultivate compassion in your life?",
           "lottie": {
-            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto/v1716238084/SEE/Lottie/shareslide_lqdkod.json"
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1718146077/SEE/Lottie/Timer/2min_timer_yjuzls.json"
           }
         }
       },
@@ -94,7 +97,7 @@
           },
           "lottie": {
             "durationTimer": true,
-            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto/v1716238084/SEE/Lottie/shareslide_lqdkod.json"
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1718146077/SEE/Lottie/Timer/2min_timer_yjuzls.json"
           },
           "text": "",
           "heading": "What challenges do you expect in being compassionate to others?"
@@ -123,7 +126,7 @@
           "text": "Good job. Today, we’ve explored and practiced compassion for others.\n\nBy practising and cultivating compassion for others we begin to understand others’ feelings and reactions in relation to the situations in which they occur, and understand that, like oneself, others have feelings caused by needs.",
           "heading": "Compassion ",
           "image": {
-            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1715667116/SEE/Icons/Compassion/CompassionforOthers_CardImage_jlz9hw.png"
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1718143927/SEE/Icons/Compassion/CompassionforOthers_CardImage_i0bt08.png"
           }
         }
       },
@@ -133,7 +136,7 @@
           "heading": "Compassion",
           "text": "If you’re up for it, you can continue with this mission.\n\nPlan the step you will take by considering how the resilient zone concept could be useful in your day.",
           "image": {
-            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1715667116/SEE/Icons/Compassion/CompassionforOthers_CardImage_jlz9hw.png"
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1718143927/SEE/Icons/Compassion/CompassionforOthers_CardImage_i0bt08.png"
           }
         }
       }
@@ -148,7 +151,7 @@
     "published": true,
     "card": {
       "image": {
-        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1715667116/SEE/Icons/Compassion/CompassionforOthers_CardImage_jlz9hw.png"
+        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1718143927/SEE/Icons/Compassion/CompassionforOthers_CardImage_i0bt08.png"
       }
     },
     "coCreators": [
@@ -160,17 +163,17 @@
     ],
     "duration": 10,
     "introPortal": {
-      "textColor": "#2AE2D7",
+      "textColor": "#2E2E2E",
       "hostNotes": [
         {
-          "text": "> Press play to start the audio exercise"
+          "text": "> Press play to start the exercise"
         }
       ],
       "videoLoop": {
         "p5JsScript": {
           "lang": "javascript"
         },
-        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1716935845/SEE/Video/SEELearning_AwareApp_IntroVideo_2024_V3_k4jtws.mp4"
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1717469190/SEE/Video/SEELearning_AwareApp_IntroVideo_2024_V3_1_giheh7.mp4"
       }
     },
     "tags": [
