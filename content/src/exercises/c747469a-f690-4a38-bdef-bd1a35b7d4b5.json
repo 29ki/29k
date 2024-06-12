@@ -32,7 +32,7 @@
           "heading": "Reflection",
           "text": "You can take notes on a piece of paper or just mental notes in your head. And there is no right or wrong here, our answers are our own.",
           "image": {
-            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1716951215/SEE/Icons/Reflection/Reflection_SystemsThinking_CardImage_fpbpfh.png"
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1716951212/SEE/Icons/Reflection/Reflection_Awareness_CardImage_wgzwcf.png"
           }
         }
       },
@@ -41,7 +41,7 @@
         "content": {
           "text": "How was that experience for you? \n\nHow are these people in your independence web connected to you? \n\nHow do they impact your well-being? \n\nInterdependence is part of our daily life, but often we do not see it. How can we highlight our interdependence more?",
           "image": {
-            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1716951215/SEE/Icons/Reflection/Reflection_SystemsThinking_CardImage_fpbpfh.png"
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1716951212/SEE/Icons/Reflection/Reflection_Awareness_CardImage_wgzwcf.png"
           },
           "heading": "Reflection"
         }
@@ -58,7 +58,10 @@
         ],
         "content": {
           "video": {
-            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1716235083/SEE/Video/SEELearning_Aware_1MinTimer_2024_mv72mj.mp4"
+            "source": ""
+          },
+          "lottie": {
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1718146076/SEE/Lottie/Timer/1min_timer_ag9fyg.json"
           }
         }
       },
@@ -79,7 +82,7 @@
         "content": {
           "text": "",
           "lottie": {
-            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1715668433/SEE/Lottie/Systems%20Thinking/SystemThinking1_sniz3i.json",
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1718146077/SEE/Lottie/Timer/2min_timer_yjuzls.json",
             "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1715663927/SEE/Audio/Systems%20Thinking/Web_of_Connections_l2ms8t.mp3"
           },
           "heading": "What did you realize about yourself during this activity? "
@@ -93,7 +96,8 @@
             "durationTimer": true
           },
           "lottie": {
-            "durationTimer": true
+            "durationTimer": true,
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1718146077/SEE/Lottie/Timer/2min_timer_yjuzls.json"
           },
           "text": "",
           "heading": "What did you discover about your relationship to others?"
@@ -107,7 +111,8 @@
             "durationTimer": true
           },
           "lottie": {
-            "durationTimer": true
+            "durationTimer": true,
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1718146077/SEE/Lottie/Timer/2min_timer_yjuzls.json"
           },
           "text": "",
           "heading": "How might interdependence inform you decisions?"
@@ -121,7 +126,8 @@
             "durationTimer": true
           },
           "lottie": {
-            "durationTimer": true
+            "durationTimer": true,
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1718146077/SEE/Lottie/Timer/2min_timer_yjuzls.json"
           },
           "text": "",
           "heading": "How might your decisions impact the larger systems?"
@@ -161,7 +167,7 @@
           "text": "Well done. Today, we’ve explored systems thinking by creating our own web of connections.\n\nInterdependence can help us recognise how we depend on others and how others rely on us.\n\nThis can help us feel gratitude, compassion, and connectedness to other people we may never meet.",
           "heading": "Systems Thinking",
           "image": {
-            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1715667142/SEE/Icons/Systems%20Thinking/WebsofConnection_CardImage_n0o2xn.png"
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1718143990/SEE/Icons/Systems%20Thinking/WebsofConnection_CardImage_uspqqz.png"
           }
         }
       },
@@ -171,7 +177,7 @@
           "text": "Spend time reflecting on interdependence as you move about your day. How might interdependence impact on your day to day life?\n\nAs you’ve reflected on what you can bring from this to the rest of your day, take this opportunity to practice making space for things on the inside during the rest of today, and see where that takes you.",
           "heading": "Systems Thinking",
           "image": {
-            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1715667142/SEE/Icons/Systems%20Thinking/WebsofConnection_CardImage_n0o2xn.png"
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1718143990/SEE/Icons/Systems%20Thinking/WebsofConnection_CardImage_uspqqz.png"
           }
         }
       },
@@ -180,7 +186,7 @@
         "content": {
           "text": "If you’re up for it, you can continue with this mission.\n\nYou can create a second web of connections from a new starting point to discover how our interconnectedness can unlock greater awareness, appreciation and compassion for others.\n\nPlan the step you will take by considering how the resilient zone concept could be useful in your day.",
           "image": {
-            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1715667142/SEE/Icons/Systems%20Thinking/WebsofConnection_CardImage_n0o2xn.png"
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1718143990/SEE/Icons/Systems%20Thinking/WebsofConnection_CardImage_uspqqz.png"
           },
           "heading": "Systems Thinking"
         }
@@ -196,7 +202,7 @@
     "published": true,
     "card": {
       "image": {
-        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1715667142/SEE/Icons/Systems%20Thinking/WebsofConnection_CardImage_n0o2xn.png"
+        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1718143990/SEE/Icons/Systems%20Thinking/WebsofConnection_CardImage_uspqqz.png"
       }
     },
     "coCreators": [
@@ -208,17 +214,17 @@
     ],
     "duration": 10,
     "introPortal": {
-      "textColor": "#2AE2D7",
+      "textColor": "#2E2E2E",
       "hostNotes": [
         {
-          "text": "> Press play to start the audio exercise"
+          "text": "> Press play to start the exercise"
         }
       ],
       "videoLoop": {
         "p5JsScript": {
           "lang": "javascript"
         },
-        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1716935845/SEE/Video/SEELearning_AwareApp_IntroVideo_2024_V3_k4jtws.mp4"
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1717469190/SEE/Video/SEELearning_AwareApp_IntroVideo_2024_V3_1_giheh7.mp4"
       }
     },
     "id": "c747469a-f690-4a38-bdef-bd1a35b7d4b5",
