@@ -42,7 +42,7 @@
           "text": "You can take notes on a piece of paper or just mental notes in your head. And there is no right or wrong here, our answers are our own.",
           "heading": "Reflection",
           "image": {
-            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1716951214/SEE/Icons/Reflection/Reflection_Resilience_CardImage_hcac5a.png"
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1716951212/SEE/Icons/Reflection/Reflection_Awareness_CardImage_wgzwcf.png"
           }
         }
       },
@@ -52,7 +52,7 @@
           "heading": "Reflection",
           "text": "How did you find the idea of the resilient zone? \n\nHow do you experience the high and low zones? \n\nHow would you describe being in the OK zone?",
           "image": {
-            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1716951214/SEE/Icons/Reflection/Reflection_Resilience_CardImage_hcac5a.png"
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1716951212/SEE/Icons/Reflection/Reflection_Awareness_CardImage_wgzwcf.png"
           }
         }
       },
@@ -65,7 +65,7 @@
           },
           "lottie": {
             "durationTimer": false,
-            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto/v1676642915/Lottie/default_1min_white_wvgwma.json"
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1718146076/SEE/Lottie/Timer/1min_timer_ag9fyg.json"
           },
           "heading": "How did you find the idea of the resilient zone?"
         },
@@ -88,7 +88,7 @@
           },
           "lottie": {
             "durationTimer": true,
-            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1716238084/SEE/Lottie/shareslide_lqdkod.json"
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto/v1718146077/SEE/Lottie/Timer/2min_timer_yjuzls.json"
           },
           "text": "",
           "heading": "How do we know if someone else is in their high zone?"
@@ -114,7 +114,7 @@
           },
           "lottie": {
             "durationTimer": false,
-            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1716238084/SEE/Lottie/shareslide_lqdkod.json"
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto/v1718146077/SEE/Lottie/Timer/2min_timer_yjuzls.json"
           },
           "text": "",
           "heading": "What about their low zone?"
@@ -129,7 +129,7 @@
           },
           "lottie": {
             "durationTimer": true,
-            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1716238084/SEE/Lottie/shareslide_lqdkod.json"
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto/v1718146077/SEE/Lottie/Timer/2min_timer_yjuzls.json"
           },
           "text": "",
           "heading": "What other words can explain what resilient means? "
@@ -144,10 +144,10 @@
           },
           "lottie": {
             "durationTimer": false,
-            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1716238084/SEE/Lottie/shareslide_lqdkod.json"
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto/v1718146077/SEE/Lottie/Timer/2min_timer_yjuzls.json"
           },
           "text": "",
-          "heading": "Can people can be been stuck in the high zone? Or the low zone?"
+          "heading": "Can people be been stuck in the high zone? Or the low zone?"
         }
       },
       {
@@ -173,7 +173,7 @@
           "text": "Well done. We've explored the idea of the resilient zone. Each of us will experience a challenging situation differently. We’re all human. We’re all in this together. We can build the skills needed to return ourselves to our Resilient Zone, even in very challenging situations.",
           "heading": "Resilience",
           "image": {
-            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1716951143/SEE/Icons/Resilience/ResilientZone_CardImage_rfboep.png"
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1718143968/SEE/Icons/Resilience/ResilientZone_CardImage_pl0uuf.png"
           }
         }
       },
@@ -182,7 +182,7 @@
         "content": {
           "text": "If we're up for it, we can continue with a mission: Practice growing our awareness by noticing where we might be in the resilient zone over the next few days.\n\nPlan the step you will take by considering how the resilient zone concept could be useful in your day.",
           "image": {
-            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1716951143/SEE/Icons/Resilience/ResilientZone_CardImage_rfboep.png"
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1718143968/SEE/Icons/Resilience/ResilientZone_CardImage_pl0uuf.png"
           },
           "heading": "Resilience"
         }
@@ -200,7 +200,7 @@
     "card": {
       "imageBackgroundColor": "",
       "image": {
-        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1716951143/SEE/Icons/Resilience/ResilientZone_CardImage_rfboep.png"
+        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1718143968/SEE/Icons/Resilience/ResilientZone_CardImage_pl0uuf.png"
       }
     },
     "coCreators": [
@@ -210,7 +210,7 @@
         "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1717533458/SEE/SEELearning_Logo_Apple_2022_fe9mjc.png"
       }
     ],
-    "duration": 20,
+    "duration": 19,
     "outroPortal": {
       "video": {
         "source": ""
@@ -319,7 +319,7 @@
     "card": {
       "imageBackgroundColor": ""
     },
-    "duration": 20,
+    "duration": 19,
     "introPortal": {
       "textColor": "#2AE2D7",
       "hostNotes": [
@@ -412,7 +412,7 @@
     "card": {
       "imageBackgroundColor": ""
     },
-    "duration": 20,
+    "duration": 19,
     "introPortal": {
       "textColor": "#2AE2D7",
       "hostNotes": [
@@ -505,7 +505,7 @@
     "card": {
       "imageBackgroundColor": ""
     },
-    "duration": 20,
+    "duration": 19,
     "introPortal": {
       "textColor": "#2AE2D7",
       "hostNotes": [
