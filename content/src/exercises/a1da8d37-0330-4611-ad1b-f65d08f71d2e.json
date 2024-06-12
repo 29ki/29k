@@ -33,7 +33,7 @@
           "heading": "Reflection",
           "text": "You can take notes on a piece of paper or just mental notes in your head. And there is no right or wrong here, our answers are our own.",
           "image": {
-            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1716951210/SEE/Icons/Reflection/Compassion_Resilience_CardImage_fhvugt.png"
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1718143927/SEE/Icons/Compassion/SelfCompassion_CardImage_gyeshn.png"
           }
         }
       },
@@ -43,7 +43,7 @@
           "text": "How was that experience for you? \n\nWhat would the benefit of practicing self-compassion be for you? \n\nHow might you take one or more of these reflections and integrate them into your life? \n\nHow could these practices/reflections be applied to how you relate, think about, and interact with others?",
           "heading": "Reflection",
           "image": {
-            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1716951210/SEE/Icons/Reflection/Compassion_Resilience_CardImage_fhvugt.png"
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1718143927/SEE/Icons/Compassion/SelfCompassion_CardImage_gyeshn.png"
           }
         }
       },
@@ -52,10 +52,11 @@
         "content": {
           "video": {
             "durationTimer": true,
-            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1716235083/SEE/Video/SEELearning_Aware_1MinTimer_2024_mv72mj.mp4"
+            "source": ""
           },
           "lottie": {
-            "durationTimer": true
+            "durationTimer": true,
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1718146076/SEE/Lottie/Timer/1min_timer_ag9fyg.json"
           }
         },
         "hostNotes": [
@@ -85,7 +86,7 @@
           "text": "",
           "heading": "What would the benefit of self-compassion be for you?",
           "lottie": {
-            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto/v1716238084/SEE/Lottie/shareslide_lqdkod.json"
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1718146077/SEE/Lottie/Timer/2min_timer_yjuzls.json"
           }
         }
       },
@@ -98,7 +99,7 @@
           },
           "lottie": {
             "durationTimer": true,
-            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto/v1716238084/SEE/Lottie/shareslide_lqdkod.json"
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1718146077/SEE/Lottie/Timer/2min_timer_yjuzls.json"
           },
           "text": "",
           "heading": "How might you integrate self compassion into your life? "
@@ -113,7 +114,7 @@
           },
           "lottie": {
             "durationTimer": true,
-            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto/v1716238084/SEE/Lottie/shareslide_lqdkod.json"
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1718146077/SEE/Lottie/Timer/2min_timer_yjuzls.json"
           },
           "text": "",
           "heading": "How could self compassion impact how you relate to others? "
@@ -145,7 +146,7 @@
           "text": "Well done. Today, we’ve explored self-compassion.\n\nA high number of children and adults struggle with anxiety, and self-esteem and self-worth. The expectations of society compound this and can be internalized in unhealthy ways. It is, therefore, especially important to practice self-compassion.",
           "heading": "Compassion",
           "image": {
-            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1715667121/SEE/Icons/Compassion/SelfCompassion_CardImage_ctu5yx.png"
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1718143927/SEE/Icons/Compassion/SelfCompassion_CardImage_gyeshn.png"
           }
         }
       },
@@ -154,7 +155,7 @@
         "content": {
           "text": "Self-compassion can provide us with a route to soften (or alleviate) our internal self-critic, cultivate forgiveness for ourselves and treat ourselves with the tenderness and nurturing kindness we need and deserve.",
           "image": {
-            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1715667121/SEE/Icons/Compassion/SelfCompassion_CardImage_ctu5yx.png",
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1718143927/SEE/Icons/Compassion/SelfCompassion_CardImage_gyeshn.png",
             "description": ""
           },
           "heading": "Compassion"
@@ -165,7 +166,7 @@
         "content": {
           "text": "f we're up for it, we can continue with a mission: Practice self-compassion once a day when we fail, or something doesn’t go as planned over the next three days.\n\nPlan the steps you will take by considering what you need to practice to implement self-compassion.",
           "image": {
-            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1715667121/SEE/Icons/Compassion/SelfCompassion_CardImage_ctu5yx.png"
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1718143927/SEE/Icons/Compassion/SelfCompassion_CardImage_gyeshn.png"
           },
           "heading": "Compassion"
         }
@@ -193,17 +194,17 @@
     ],
     "duration": 15,
     "introPortal": {
-      "textColor": "#2AE2D7",
+      "textColor": "#2E2E2E",
       "hostNotes": [
         {
-          "text": "> Press play to start the audio exercise"
+          "text": "> Press play to start the exercise"
         }
       ],
       "videoLoop": {
         "p5JsScript": {
           "lang": "javascript"
         },
-        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1716935845/SEE/Video/SEELearning_AwareApp_IntroVideo_2024_V3_k4jtws.mp4"
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1717469190/SEE/Video/SEELearning_AwareApp_IntroVideo_2024_V3_1_giheh7.mp4"
       }
     },
     "id": "a1da8d37-0330-4611-ad1b-f65d08f71d2e",
