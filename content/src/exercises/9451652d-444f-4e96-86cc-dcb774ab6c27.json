@@ -5,7 +5,7 @@
         "type": "host",
         "hostNotes": [
           {
-            "text": "Welcome. I am X and today we will explore events and systemic strcutures for others for around 15 minutes. We’ll be doing an audio exercise, followed by time for reflection and finally sharing with each other – if we're up for it."
+            "text": "Welcome. I am X and today we will explore events and systemic structures for around 15 minutes. We’ll be doing an audio exercise, followed by time for reflection and finally sharing with each other – if we're up for it."
           },
           {
             "text": "Let’s start with a mini check-in. How are you feeling right now? Please answer in two-three words. X, would you like to start? > Let everyone in the session, including yourself, check in one by one. Thank you all for checking in. Let’s get started."
@@ -100,7 +100,7 @@
             "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1718146077/SEE/Lottie/Timer/2min_timer_yjuzls.json"
           },
           "text": "",
-          "heading": "How the Iceberg help understand interdependence?"
+          "heading": "How can the Iceberg help understand interdependence?"
         }
       },
       {
@@ -143,7 +143,7 @@
       {
         "type": "instruction",
         "content": {
-          "text": "If you’re up for it, you can continue with this mission.\n\nReflect on a situation where you had a difficult encounter with a thought or another person. How could using the model of iceberg help to encourage compassion for yourself and others in that thought of situation.",
+          "text": "If you’re up for it, you can continue with this mission.\n\nReflect on a situation where you had a difficult encounter with a thought or another person. How could using the model of iceberg help to encourage compassion for yourself and others in that thought or situation?",
           "heading": "Systems thinking",
           "image": {
             "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1718143991/SEE/Icons/Systems%20Thinking/SystemsThinking_CardImage_vq0o0c.png"
