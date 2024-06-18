@@ -22,7 +22,9 @@
         "content": {
           "lottie": {
             "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1711623917/SRT%20%28captions%29%20files/Self-soothing_ulujmr.srt",
-            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1711623967/Audio/Self-soothing_wwepk3.mp3"
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1711623967/Audio/Self-soothing_wwepk3.mp3",
+            "durationTimer": true,
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1676642915/Lottie/default_audio_black_zjrmu2.json"
           }
         }
       },
@@ -35,7 +37,14 @@
           {
             "text": "You can take notes on a piece of paper or just mental notes in your head. And there is no right or wrong here, our answers are our own. 1 minute starting now.\n\n> Press play to start the timer.\n\nThat’s 1 minute and it’s time to move on."
           }
-        ]
+        ],
+        "content": {
+          "lottie": {
+            "durationTimer": true,
+            "duration": 60,
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1676642915/Lottie/default_1min_black_rosi2l.json"
+          }
+        }
       },
       {
         "type": "sharing",
@@ -50,7 +59,14 @@
             "text": "Who would like to start?\n\n> Let everyone (or as many as you got time for) share one by one. Press play to start the timer. Re-start for each new sharing.\n\nThank you so much everyone."
           }
         ],
-        "id": "Sharing 1"
+        "id": "Sharing 1",
+        "content": {
+          "lottie": {
+            "durationTimer": true,
+            "duration": 120,
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1676639253/Lottie/default_2min_black_o6egey.json"
+          }
+        }
       },
       {
         "type": "host",
@@ -69,21 +85,37 @@
       {
         "type": "instruction",
         "content": {
-          "text": "Well done.\n\nSummary.\n\nIf you’re up for it, you can continue with this mission.\n\nmission description"
+          "text": "Well done.\n\nSummary.\n\nIf you’re up for it, you can continue with this mission.\n\nmission description",
+          "image": {
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1718693339/Images/card_NO_BG_self_soothing_zmszfx.png"
+          }
         }
       }
     ],
     "theme": {
-      "textColor": "#2AE2D7"
+      "textColor": "#2E2E2E",
+      "backgroundColor": "#badfe5"
     },
     "hidden": true,
     "locked": false,
     "name": "Self-soothing",
     "live": true,
     "published": true,
+    "card": {
+      "image": {
+        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1718693341/Images/card_self_soothing_eekh1t.png"
+      }
+    },
+    "coCreators": [
+      {
+        "name": "Kusakari, artwork",
+        "url": "https://openprocessing.org/user/224308?view=sketches&o=1",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1718693937/Contributors/kusakari_y3h4ta.jpg"
+      }
+    ],
     "duration": 30,
     "introPortal": {
-      "textColor": "#2AE2D7",
+      "textColor": "#2E2E2E",
       "hostNotes": [
         {
           "text": "> Start the session when you're ready to go"
@@ -91,8 +123,10 @@
       ],
       "videoLoop": {
         "p5JsScript": {
-          "lang": "javascript"
-        }
+          "lang": "javascript",
+          "code": "//Created by kusakari\n//https://twitter.com/kusakarism\n\nfunction setup() {\n  createCanvas(windowWidth, windowHeight, WEBGL);\n  setObject();\n}\n\nlet _minW;\nlet _maxW;\nlet _palette0 = [\"FAD7B6\", \"E0AC69\", \"C68642\", \"8D5524\", \"4E342E\"];\nlet _count;\nlet _aryRing = [];\nlet _aryRotate = [];\nlet _aryAryRing = [];\n\nfunction setObject() {\n  _count = 0;\n  _minW = min(width, height) * 1;\n  _maxW = max(width, height);\n  rectMode(CENTER);\n  ellipseMode(RADIUS);\n  noFill();\n  stroke(0, 60, 90);\n  strokeWeight(_minW / 800 * pixelDensity());//600 * pixelDensity());\n\n  let numRing = 800;\n  let posXy = createVector(0, 0);\n  let posZNoiseInit_0 = [random(10000), random(10000), random(10000)];\n  let rNoiseInit_0 = [random(10000), random(10000), random(10000)];\n  let posRNoiseInit_0 = [random(10000), random(10000), random(10000)];\n  let posZNoiseThetaInit = random(2*PI);\n  let rNoiseThetaInit = random(2*PI);\n  let posRNoiseThetaInit = random(2*PI);\n  let posZNoiseStep = 0.01/3;\n  let rNoiseStep = 0.01/2;//0.2;\n  let posRNoiseStep = 0.01/4;//0.2;\n  let posZNoiseSpeed = 0.004/2 * random([-1, 1]);\n  let rNoiseSpeed = 0.004/2 * random([-1, 1]);\n  let posRNoiseSpeed = 0.004/3 * random([-1, 1]);\n  let hi = _minW / 1;//1.5;\n  shuffle(_palette0, true);\n  _aryRing = [];\n  for (let i = 0; i < numRing; i++) {\n    let posZInit = hi / numRing * i;\n    let posZNoiseInit = [posZNoiseInit_0[0], posZNoiseInit_0[1], posZNoiseInit_0[2] + posZNoiseStep * i];\n    let rNoiseInit = [rNoiseInit_0[0], rNoiseInit_0[1], rNoiseInit_0[2] + rNoiseStep * i];\n    let posRNoiseInit = [posRNoiseInit_0[0], posRNoiseInit_0[1], posRNoiseInit_0[2] + posRNoiseStep * i];\n\n    _aryRing[i] = new Ring(posXy, hi, posZInit, posZNoiseInit, posZNoiseThetaInit, posZNoiseSpeed, rNoiseInit, rNoiseThetaInit, rNoiseSpeed, posRNoiseInit, posRNoiseThetaInit, posRNoiseSpeed, _palette0);\n  }\n\n  _aryRotate = [[random(2*PI), random(0.01)], [random(2*PI), random(0.01)], [random(2*PI), random(0.01)]];\n}\n\nclass Ring {\n  constructor(posXy, hi, posZInit, posZNoiseInit, posZNoiseThetaInit, posZNoiseSpeed, rNoiseInit, rNoiseThetaInit, rNoiseSpeed, posRNoiseInit, posRNoiseThetaInit, posRNoiseSpeed, palette) {\n    this.posXy = posXy;\n    this.hi = hi;\n\n    this.posZInit = posZInit;\n    this.posZNoiseInit = posZNoiseInit;\n    this.posZNoiseThetaInit = posZNoiseThetaInit;\n    this.rNoiseInit = rNoiseInit;\n    this.rNoiseThetaInit = rNoiseThetaInit;\n    this.posRNoiseInit = posRNoiseInit;\n    this.posRNoiseThetaInit = posRNoiseThetaInit;\n    \n    this.posZNoiseSpeed = posZNoiseSpeed;\n    this.posZMax = hi / 4;//5;\n    this.posZMin = -this.posZMax;\n    this.posZGap = this.posZMax - this.posZMin;\n    this.posZNoiseFreq = 4;\n    \n    this.rNoiseSpeed = rNoiseSpeed;\n    this.rMax = _minW / 3;\n    this.rMin = this.rMax / 100;//10;\n    this.rGap = this.rMax - this.rMin;\n    this.rNoiseFreq = 4;\n\n    this.posRNoiseSpeed = posRNoiseSpeed;\n\n    this.colNoiseFreq = 4;//3;\n\n    this.rotZ = random(2*PI);\n\n    this.palette = palette;\n    this.aryCol = [];\n    for (let i = 0; i < this.palette.length; i++) {\n      this.aryCol[i] = color(\"#\" + this.palette[i]);\n    }\n\n    this.numCol = 5;\n\n    this.count = 0;\n  }\n\n  draw() {\n    let posZNoiseVal = sin(this.posZNoiseThetaInit + 2*PI * this.posZNoiseFreq * \n      noise(this.posZNoiseInit[0] + this.posZNoiseSpeed * this.count, this.posZNoiseInit[1] + this.posZNoiseSpeed * this.count, this.posZNoiseInit[2])) * 0.5 + 0.5;\n    let posZ = this.posZInit + this.posZMin + this.posZGap * posZNoiseVal;\n\n    let rNoiseVal = sin(this.rNoiseThetaInit + 2*PI * this.rNoiseFreq * \n      noise(this.rNoiseInit[0] + this.rNoiseSpeed * this.count, this.rNoiseInit[1] + this.rNoiseSpeed * this.count, this.rNoiseInit[2])) * 0.5 + 0.5;\n    let r = this.rMin + this.rGap * rNoiseVal;\n\n    let colNoiseVal = sin(this.posRNoiseThetaInit + 2*PI * this.colNoiseFreq * \n      noise(this.posRNoiseInit[0] + this.posRNoiseSpeed * this.count + 1000, this.posRNoiseInit[1] + this.posRNoiseSpeed * this.count + 1000, this.posRNoiseInit[2] + 1000)) * 0.5 + 0.5;\n    let col_i1 = int(colNoiseVal * this.numCol);\n    let col_i2 = (col_i1 + 1) % this.numCol;\n    let colAmp = (colNoiseVal - col_i1 / this.numCol) * this.numCol;\n    let col = lerpColor(this.aryCol[col_i1], this.aryCol[col_i2], colAmp);\n\n    push();\n    stroke(col);\n    translate(this.posXy.x, this.posXy.y, posZ - this.hi / 2);\n    rotateZ(this.rotZ);\n    ellipse(0, 0, r, r, 50);//36);\n    pop();\n\n    this.count += 0.1; // Incrementing by a smaller value to slow down the animation\n  }\n}\n\nfunction draw() {\n  let zoomFactor = 1.2; // Adjust this factor to control the zoom level (greater than 1 to zoom out)\n  ortho(-width / 2 * zoomFactor, width / 2 * zoomFactor, -height / 2 * zoomFactor, height / 2 * zoomFactor, -_maxW * 2, _maxW * 4);\n  background('#B0E0E6');\n  orbitControl();\n  rotateX(PI / 3);\n\n  for (let i = 0; i < _aryRing.length; i++) {\n    _aryRing[i].draw();\n  }\n}"
+        },
+        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1676972801/Audio/portal_audio_the_willingnes_stance_pxrzfe.mp3"
       }
     },
     "tags": [
@@ -177,6 +211,7 @@
     "locked": false,
     "live": true,
     "published": false,
+    "card": {},
     "duration": 30,
     "introPortal": {
       "textColor": "#2AE2D7",
@@ -268,6 +303,7 @@
     "locked": false,
     "live": true,
     "published": false,
+    "card": {},
     "duration": 30,
     "introPortal": {
       "textColor": "#2AE2D7",
@@ -359,6 +395,7 @@
     "locked": false,
     "live": true,
     "published": false,
+    "card": {},
     "duration": 30,
     "introPortal": {
       "textColor": "#2AE2D7",
