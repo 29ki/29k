@@ -1,0 +1,73 @@
+{
+  "en": {
+    "hidden": true,
+    "locked": false,
+    "name": "Self-compassion II: self-care",
+    "published": true,
+    "sortOrder": 1,
+    "coCreators": [
+      {
+        "name": "Kristin Neff & Chris Germer, original research",
+        "url": "https://centerformsc.org/",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1697723039/Images/Germer%2C%20Neff.png"
+      },
+      {
+        "name": "Agnes Branny, writing and editing",
+        "url": "https://www.agnesbranny.com/",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665414181/Contributors/Agnes%20Branny.png"
+      },
+      {
+        "name": "Jenny Rickardsson, editor",
+        "url": "https://www.linkedin.com/in/jenny-rickardson-6770a959/",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413228/Contributors/Jenny%20Rickardsson.jpg"
+      }
+    ],
+    "tags": [
+      "db34d82a-4c48-4ddd-9de5-f562d8aa1bc9"
+    ],
+    "id": "36603867-7f45-4f66-8065-2d9b6eb26d0e",
+    "exercises": [
+      "095f9642-73b6-4c9a-ae9a-ea7dea7363f5"
+    ],
+    "description": "In self-compassion part II we focus on self-care and gratitude, to lead a more compassionate and full life. Practice navigating through difficulties, being gentle and kind to yourself."
+  },
+  "pt": {
+    "published": false,
+    "hidden": false,
+    "locked": false,
+    "id": "36603867-7f45-4f66-8065-2d9b6eb26d0e",
+    "tags": [
+      "db34d82a-4c48-4ddd-9de5-f562d8aa1bc9"
+    ],
+    "sortOrder": 1,
+    "exercises": [
+      "095f9642-73b6-4c9a-ae9a-ea7dea7363f5"
+    ]
+  },
+  "sv": {
+    "published": false,
+    "hidden": false,
+    "locked": false,
+    "id": "36603867-7f45-4f66-8065-2d9b6eb26d0e",
+    "tags": [
+      "db34d82a-4c48-4ddd-9de5-f562d8aa1bc9"
+    ],
+    "sortOrder": 1,
+    "exercises": [
+      "095f9642-73b6-4c9a-ae9a-ea7dea7363f5"
+    ]
+  },
+  "ja": {
+    "published": false,
+    "hidden": false,
+    "locked": false,
+    "id": "36603867-7f45-4f66-8065-2d9b6eb26d0e",
+    "tags": [
+      "db34d82a-4c48-4ddd-9de5-f562d8aa1bc9"
+    ],
+    "sortOrder": 1,
+    "exercises": [
+      "095f9642-73b6-4c9a-ae9a-ea7dea7363f5"
+    ]
+  }
+}
