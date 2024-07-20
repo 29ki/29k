@@ -46,7 +46,6 @@ import SessionModal from '../../routes/modals/SessionModal/SessionModal';
 import FeedbackPostModal from '../../routes/modals/FeedbackPostModal/FeedbackPostModal';
 import LiveSessionsModal from '../../routes/modals/LiveSessionsModal/LiveSessionsModal';
 import UnlockCollectionModal from '../../routes/modals/UnlockCollectionModal/UnlockCollectionModal';
-import {ReduceMotion} from 'react-native-reanimated';
 
 const {Navigator, Screen, Group} =
   createBottomSheetNavigator<ModalStackProps>();
