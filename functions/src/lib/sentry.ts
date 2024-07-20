@@ -1,5 +1,4 @@
 import * as Sentry from '@sentry/node';
-import {CaptureConsole, RewriteFrames} from '@sentry/integrations';
 import {Context} from 'koa';
 import config from './config';
 
@@ -12,12 +11,12 @@ Sentry.init({
   environment: ENVIRONMENT,
   maxValueLength: 750,
   integrations: [
-    new RewriteFrames({
+    Sentry.rewriteFramesIntegration({
       // This is the root in Google Cloud Functions and needs to be stripped from all paths to match source maps
       root: '/workspace',
       prefix: '/functions/',
     }),
-    new CaptureConsole({
+    Sentry.captureConsoleIntegration({
       levels: ['error'],
     }),
   ],
