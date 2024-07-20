@@ -956,7 +956,7 @@ PODS:
   - BoringSSL-GRPC/Interface (0.0.32)
   - BVLinearGradient (2.8.3):
     - React-Core
-  - CodePush (8.2.2):
+  - CodePush (8.3.0):
     - Base64 (~> 1.1)
     - JWT (~> 3.0.0-beta.12)
     - React-Core
@@ -1126,7 +1126,7 @@ PODS:
   - JitsiWebRTC (118.0.0)
   - JWT (3.0.0-beta.14):
     - Base64 (~> 1.1.2)
-  - kingstinct-react-native-healthkit (7.3.2):
+  - kingstinct-react-native-healthkit (8.1.1):
     - React
   - leveldb-library (1.22.5)
   - lottie-ios (4.4.1)
@@ -2093,14 +2093,14 @@ PODS:
     - React-Core
   - react-native-background-timer (2.4.1):
     - React-Core
-  - react-native-daily-js (0.63.0):
+  - react-native-daily-js (0.66.0):
     - React-Core
     - ReactNativeDailyJSScreenShareExtension (= 0.0.1)
   - react-native-get-random-values (1.11.0):
     - React-Core
   - react-native-idle-timer (2.2.3):
     - React-Core
-  - react-native-netinfo (11.3.1):
+  - react-native-netinfo (11.3.2):
     - React-Core
   - react-native-safe-area-context (4.10.8):
     - React-Core
@@ -2110,7 +2110,7 @@ PODS:
   - react-native-webrtc (118.0.3-daily.1):
     - JitsiWebRTC (~> 118.0.0)
     - React-Core
-  - react-native-webview (13.10.2):
+  - react-native-webview (13.10.5):
     - DoubleConversion
     - glog
     - hermes-engine
@@ -2362,11 +2362,11 @@ PODS:
     - React-utils (= 0.74.3)
   - ReactNativeDailyJSScreenShareExtension (0.0.1)
   - RecaptchaInterop (100.0.0)
-  - RNCAsyncStorage (1.23.1):
+  - RNCAsyncStorage (1.24.0):
     - React-Core
-  - RNCPicker (2.7.5):
+  - RNCPicker (2.7.7):
     - React-Core
-  - RNDateTimePicker (7.6.4):
+  - RNDateTimePicker (8.2.0):
     - React-Core
   - RNDeviceInfo (11.1.0):
     - React-Core
@@ -2391,7 +2391,7 @@ PODS:
     - Firebase/Storage (= 10.29.0)
     - React-Core
     - RNFBApp
-  - RNGestureHandler (2.16.2):
+  - RNGestureHandler (2.17.1):
     - DoubleConversion
     - glog
     - hermes-engine
@@ -2412,16 +2412,16 @@ PODS:
     - ReactCommon/turbomodule/bridging
     - ReactCommon/turbomodule/core
     - Yoga
-  - RNImageCropPicker (0.40.3):
+  - RNImageCropPicker (0.41.2):
     - React-Core
     - React-RCTImage
-    - RNImageCropPicker/QBImagePickerController (= 0.40.3)
-    - TOCropViewController
-  - RNImageCropPicker/QBImagePickerController (0.40.3):
+    - RNImageCropPicker/QBImagePickerController (= 0.41.2)
+    - TOCropViewController (~> 2.7.4)
+  - RNImageCropPicker/QBImagePickerController (0.41.2):
     - React-Core
     - React-RCTImage
-    - TOCropViewController
-  - RNLocalize (3.1.0):
+    - TOCropViewController (~> 2.7.4)
+  - RNLocalize (3.2.0):
     - React-Core
   - RNNotifee (7.8.2):
     - React-Core
@@ -2477,53 +2477,53 @@ PODS:
     - ReactCommon/turbomodule/bridging
     - ReactCommon/turbomodule/core
     - Yoga
-  - RNSentry (5.22.2):
+  - RNSentry (5.26.0):
     - hermes-engine
     - React-Core
     - React-hermes
-    - Sentry/HybridSDK (= 8.25.0)
-  - RNSVG (15.3.0):
+    - Sentry/HybridSDK (= 8.31.1)
+  - RNSVG (15.4.0):
     - React-Core
-  - Sentry/HybridSDK (8.25.0)
+  - Sentry/HybridSDK (8.31.1)
   - SocketRocket (0.7.0)
   - SSZipArchive (2.2.3)
-  - Stripe (23.27.2):
-    - StripeApplePay (= 23.27.2)
-    - StripeCore (= 23.27.2)
-    - StripePayments (= 23.27.2)
-    - StripePaymentsUI (= 23.27.2)
-    - StripeUICore (= 23.27.2)
-  - stripe-react-native (0.38.0):
+  - Stripe (23.28.1):
+    - StripeApplePay (= 23.28.1)
+    - StripeCore (= 23.28.1)
+    - StripePayments (= 23.28.1)
+    - StripePaymentsUI (= 23.28.1)
+    - StripeUICore (= 23.28.1)
+  - stripe-react-native (0.38.2):
     - React-Core
-    - Stripe (~> 23.27.0)
-    - StripeApplePay (~> 23.27.0)
-    - StripeFinancialConnections (~> 23.27.0)
-    - StripePayments (~> 23.27.0)
-    - StripePaymentSheet (~> 23.27.0)
-    - StripePaymentsUI (~> 23.27.0)
-  - StripeApplePay (23.27.2):
-    - StripeCore (= 23.27.2)
-  - StripeCore (23.27.2)
-  - StripeFinancialConnections (23.27.2):
-    - StripeCore (= 23.27.2)
-    - StripeUICore (= 23.27.2)
-  - StripePayments (23.27.2):
-    - StripeCore (= 23.27.2)
-    - StripePayments/Stripe3DS2 (= 23.27.2)
-  - StripePayments/Stripe3DS2 (23.27.2):
-    - StripeCore (= 23.27.2)
-  - StripePaymentSheet (23.27.2):
-    - StripeApplePay (= 23.27.2)
-    - StripeCore (= 23.27.2)
-    - StripePayments (= 23.27.2)
-    - StripePaymentsUI (= 23.27.2)
-  - StripePaymentsUI (23.27.2):
-    - StripeCore (= 23.27.2)
-    - StripePayments (= 23.27.2)
-    - StripeUICore (= 23.27.2)
-  - StripeUICore (23.27.2):
-    - StripeCore (= 23.27.2)
-  - TOCropViewController (2.6.1)
+    - Stripe (~> 23.28.0)
+    - StripeApplePay (~> 23.28.0)
+    - StripeFinancialConnections (~> 23.28.0)
+    - StripePayments (~> 23.28.0)
+    - StripePaymentSheet (~> 23.28.0)
+    - StripePaymentsUI (~> 23.28.0)
+  - StripeApplePay (23.28.1):
+    - StripeCore (= 23.28.1)
+  - StripeCore (23.28.1)
+  - StripeFinancialConnections (23.28.1):
+    - StripeCore (= 23.28.1)
+    - StripeUICore (= 23.28.1)
+  - StripePayments (23.28.1):
+    - StripeCore (= 23.28.1)
+    - StripePayments/Stripe3DS2 (= 23.28.1)
+  - StripePayments/Stripe3DS2 (23.28.1):
+    - StripeCore (= 23.28.1)
+  - StripePaymentSheet (23.28.1):
+    - StripeApplePay (= 23.28.1)
+    - StripeCore (= 23.28.1)
+    - StripePayments (= 23.28.1)
+    - StripePaymentsUI (= 23.28.1)
+  - StripePaymentsUI (23.28.1):
+    - StripeCore (= 23.28.1)
+    - StripePayments (= 23.28.1)
+    - StripeUICore (= 23.28.1)
+  - StripeUICore (23.28.1):
+    - StripeCore (= 23.28.1)
+  - TOCropViewController (2.7.4)
   - Yoga (0.0.0)
 
 DEPENDENCIES:
@@ -2851,7 +2851,7 @@ SPEC CHECKSUMS:
   boost: d3f49c53809116a5d38da093a8aa78bf551aed09
   BoringSSL-GRPC: 1e2348957acdbcad360b80a264a90799984b2ba6
   BVLinearGradient: 880f91a7854faff2df62518f0281afb1c60d49a3
-  CodePush: eaa66fc8dd9ff611304ecc48397ce8831ba79ac9
+  CodePush: 8c28cdffd7fe685351cce700c8a86d672d433161
   DoubleConversion: fea03f2699887d960129cc54bba7e52542b6f953
   FBLazyVector: 7e977dd099937dc5458851233141583abba49ff2
   Firebase: cec914dab6fd7b1bd8ab56ea07ce4e03dd251c2d
@@ -2875,7 +2875,7 @@ SPEC CHECKSUMS:
   hermes-engine: 1f547997900dd0752dc0cc0ae6dd16173c49e09b
   JitsiWebRTC: 3a41671ef65a51d7204323814b055a2690b921c7
   JWT: ef71dfb03e1f842081e64dc42eef0e164f35d251
-  kingstinct-react-native-healthkit: 5b083e1121bd9799fea91a08f9793337262c95e7
+  kingstinct-react-native-healthkit: f94de2c6d88830ce96e46f6dd85e966f9ca32f66
   leveldb-library: e8eadf9008a61f9e1dde3978c086d2b6d9b9dc28
   lottie-ios: e047b1d2e6239b787cc5e9755b988869cf190494
   lottie-react-native: 445dc3d3c964a4365ec39131d8b991556dc55b01
@@ -2909,14 +2909,14 @@ SPEC CHECKSUMS:
   React-Mapbuffer: 70da5955150a58732e9336a0c7e71cd49e909f25
   react-native-add-calendar-event: b9802a8be8ad4beb0dcb3efb28969c077558fb29
   react-native-background-timer: 17ea5e06803401a379ebf1f20505b793ac44d0fe
-  react-native-daily-js: 33c637f667b40055527337140c56fe90e57d8806
+  react-native-daily-js: e64a94d0275406d047794698ea7f2db84fca87d7
   react-native-get-random-values: 21325b2244dfa6b58878f51f9aa42821e7ba3d06
   react-native-idle-timer: b4e9ff189950bcd3ba03257d9f033f3432341db8
-  react-native-netinfo: bdb108d340cdb41875c9ced535977cac6d2ff321
+  react-native-netinfo: 076df4f9b07f6670acf4ce9a75aac8d34c2e2ccc
   react-native-safe-area-context: b7daa1a8df36095a032dff095a1ea8963cb48371
   react-native-volume-manager: 3c7d8047841b6831730dea7bf25250522388b4f4
   react-native-webrtc: f0863a670c08895cebfd74d7790e499397d5be1a
-  react-native-webview: bd1c6c2661bb51e45469c7badb02ccdcef93671b
+  react-native-webview: 04168cbda528df7154fdef3086b4644b9e6dd683
   React-nativeconfig: 84806b820491db30175afbf027e99e8415dc63f0
   React-NativeModulesApple: 7b79212f8cf496ab554e0b7b09acbd4aa4690260
   React-perflogger: 7bb9ba49435ff66b666e7966ee10082508a203e8
@@ -2942,41 +2942,41 @@ SPEC CHECKSUMS:
   ReactCommon: 4a09c7d8a06e93c1e2e988a3b9f3db3d2449f2fc
   ReactNativeDailyJSScreenShareExtension: 70af702672121fcd283d7d567def4e501ce207b1
   RecaptchaInterop: 7d1a4a01a6b2cb1610a47ef3f85f0c411434cb21
-  RNCAsyncStorage: 826b603ae9c0f88b5ac4e956801f755109fa4d5c
-  RNCPicker: 3e2c37a8328f368ce14da050cdc8231deb5fc9f9
-  RNDateTimePicker: 08f00a2c341bf96e4b30da15799fbdd4c5fa48a3
+  RNCAsyncStorage: ec53e44dc3e75b44aa2a9f37618a49c3bc080a7a
+  RNCPicker: b7873ba797dc586bfaf3307d737cbdc620a9ff3e
+  RNDateTimePicker: 40ffda97d071a98a10fdca4fa97e3977102ccd14
   RNDeviceInfo: b899ce37a403a4dea52b7cb85e16e49c04a5b88e
   RNFBApp: 793adb33298db7e67dc365dc1ec0dc8a55a7a044
   RNFBAuth: e923d3f87088009ac8505140599ec1e784d77bd0
   RNFBDynamicLinks: 6e5d52576c079e65040110c8a9b895c6e1f02edc
   RNFBFirestore: 9b5e7d645787f02d5d16c4e060e778e9da762e02
   RNFBStorage: a86f59a4adae00b3061e55257d6c3d70851a1810
-  RNGestureHandler: 20a4307fd21cbff339abfcfa68192f3f0a6a518b
-  RNImageCropPicker: e7ab6fb43d2fc3e84651e786ef4a080d63b0ed3d
-  RNLocalize: e8694475db034bf601e17bd3dfa8986565e769eb
+  RNGestureHandler: 5538c370587d7e757667b9283ca867dd7635f154
+  RNImageCropPicker: 771e2ca319d2cf92e04ebf334ece892ee9a6728f
+  RNLocalize: b77875884750cb6a58cd6865863fe2ba2729b72b
   RNNotifee: 8e2d3df3f0e9ce8f5d1fe4c967431138190b6175
   RNPermissions: a58e61bd4e6bd417adcf8ef8ca094b93d772e492
   RNRate: ef3bcff84f39bb1d1e41c5593d3eea4aab2bd73a
   RNReactNativeHapticFeedback: ec56a5f81c3941206fd85625fa669ffc7b4545f9
   RNReanimated: f6b214732ff303cb815ac81b26bbfd2070b69f43
   RNScreens: fd2722bcc59f36a629205af8cc7b48e4bc0d09f5
-  RNSentry: f6a5aee809d646763640130714d1fdfe69aac36b
-  RNSVG: a48668fd382115bc89761ce291a81c4ca5f2fd2e
-  Sentry: cd86fc55628f5b7c572cabe66cc8f95a9d2f165a
+  RNSentry: 85fe1023bf60ead12d059d9c845de19de0ed6f0d
+  RNSVG: cb24fb322de8c1ebf59904e7aca0447bb8dbed5a
+  Sentry: 9c1188876ea1291d1a9db4b38c3f17ebd8e6985e
   SocketRocket: abac6f5de4d4d62d24e11868d7a2f427e0ef940d
   SSZipArchive: 62d4947b08730e4cda640473b0066d209ff033c9
-  Stripe: ec902be2e477aa8c6cfb758f4ed9a4603c4b5d63
-  stripe-react-native: c89f0b9abbac8a4093695a85ac34cc09f8935d0c
-  StripeApplePay: 55e0fe7095d18bc6d8390cab176692c801d865c6
-  StripeCore: 55c1fb4ec4edd61243c59839cef592b0ac4c469a
-  StripeFinancialConnections: e646628ca798faa26bf794d8dc76c17ddb8405e4
-  StripePayments: 1702ca63bf83c5170330bc4fbf587acb869a7da1
-  StripePaymentSheet: bf96500ca25dadf72079e4f256d827955dd7d1ef
-  StripePaymentsUI: a51fd3468d9944b602f79ddae26d83e6dd2d9048
-  StripeUICore: 436db87a21e3bb45b7a6a90c114a6d21c35b4be0
-  TOCropViewController: edfd4f25713d56905ad1e0b9f5be3fbe0f59c863
+  Stripe: 20e24971647daa5750e7764faa1e8aefe4917243
+  stripe-react-native: 9dfbda93796649dc6e343f00af750a22adc34959
+  StripeApplePay: 5b098a0ba6136f4b587e03f5a3776461b4f20dd4
+  StripeCore: 880a68482cf78d4745c5213c2fd3446efc73574b
+  StripeFinancialConnections: 49a19ca17dbb3055a8b559a1e3adfe769784a8f8
+  StripePayments: 3af5b03fa1831c301a4d1621eb0e790280dccb46
+  StripePaymentSheet: 8321efebb6d104add8fce929286d414545913114
+  StripePaymentsUI: 4c35e12ebcd4bd9bd21e379f03f730bee097250d
+  StripeUICore: 22b314dc9f7ea8814d0f9eeba0ddb5e4b77f34f3
+  TOCropViewController: 80b8985ad794298fb69d3341de183f33d1853654
   Yoga: bd92064a0d558be92786820514d74fc4dddd1233
 
 PODFILE CHECKSUM: d3b70e6d42003752efcb1b7a4cbb7e8c97f2ad67
 
-COCOAPODS: 1.14.3
+COCOAPODS: 1.15.2
