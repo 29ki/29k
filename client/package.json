@@ -46,7 +46,7 @@
     "@stripe/stripe-react-native": "^0.38.0",
     "@th3rdwave/react-navigation-bottom-sheet": "^0.2.2",
     "@types/lodash.throttle": "^4.1.9",
-    "dayjs": "^1.11.10",
+    "dayjs": "^1.11.12",
     "debug": "^4.3.5",
     "eslint": "^8.57.0",
     "hex-to-rgba": "^2.0.1",
