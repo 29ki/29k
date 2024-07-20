@@ -359,7 +359,7 @@
           "arrayConfig": "CONTAINS"
         },
         {
-          "fieldPath": "language",
+          "fieldPath": "ended",
           "order": "ASCENDING"
         },
         {
@@ -367,7 +367,7 @@
           "order": "ASCENDING"
         },
         {
-          "fieldPath": "ended",
+          "fieldPath": "language",
           "order": "ASCENDING"
         },
         {
