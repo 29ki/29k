@@ -81,7 +81,7 @@ const Line = styled.View<
   position: 'absolute',
   left: NODE_SIZE / 2 - 1,
   width: 2,
-  height: isLast ? SPACINGS.SIXTEEN : height ?? HEIGHT,
+  height: isLast ? SPACINGS.SIXTEEN : (height ?? HEIGHT),
   backgroundColor: COLORS.MEDIUM_DARK_GREEN,
   marginTop: isFirst ? SPACINGS.SIXTEEN : 0,
 }));
