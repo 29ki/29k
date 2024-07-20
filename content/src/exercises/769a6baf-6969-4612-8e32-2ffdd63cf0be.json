@@ -5,10 +5,10 @@
         "type": "host",
         "hostNotes": [
           {
-            "text": "Welcome. I am xx and today we will work for around 20 minutes on attention and awareness.\n\nWe’ll be exploring the how to cultivate greater attention and awareness by paying attention to our breath."
+            "text": "Welcome. I am X and today we will work for around 30 minutes on being present\n\nWe’ll be doing a silent meditation followed by time for reflection and sharing with each other if we're up for it."
           },
           {
-            "text": "Let’s start with a mini check-in. How are you feeling right now? Please answer in two-three words. Now, would you like to start?\n\n> Let everyone in the session, including yourself, check in one by one.\n\nThank you all for checking in. Let’s get started."
+            "text": "Let’s start with a mini check-in. How are you feeling right now? Please answer in two-three words. X, would you like to start?\n\n> Let everyone in the session, including yourself, check in one by one.\n\nThank you all for checking in. Let’s get started."
           }
         ]
       },
@@ -16,75 +16,34 @@
         "type": "content",
         "hostNotes": [
           {
-            "text": "Find a comfortable position. I will start the audio exercise and we'll meet back here afterwards. \n\n> Tap play to start the audio exercise"
+            "text": "In this exercise we'll just sit with whatever shows up. It is a practice in observing, without judging. Our task is to notice what thoughts, feelings and sensations show up, and letting them go. Over and over again."
+          },
+          {
+            "text": "This mindfulness exercise does not have any guidance, but a starting and an ending bell, so find yourself a comfortable position and get ready. I will start the exercise now, and we'll meet back here afterwards. \n\n> Tap play to start the audio."
           }
         ],
         "content": {
           "lottie": {
-            "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1715752244/SEE/SRT/Awareness/Breathing_1_z20wcp.srt",
-            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1715198361/SEE/Audio/Awareness/Breathing_x7iroz.mp3",
-            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto/v1715663487/SEE/Lottie/Awareness/Awareness3_ecxtbr.json"
-          },
-          "heading": ""
-        }
-      },
-      {
-        "type": "instruction",
-        "content": {
-          "heading": "Reflection",
-          "text": "You can take notes on a piece of paper or just mental notes in your head. And there is no right or wrong here, our answers are our own.",
-          "image": {
-            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1716951212/SEE/Icons/Reflection/Reflection_Awareness_CardImage_wgzwcf.png"
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1718701440/Audio/silent_meditation_bell.mp3"
           }
-        }
-      },
-      {
-        "type": "instruction",
-        "content": {
-          "text": "How was that experience for you? \n\nHow easy or difficult was it for you to keep your attention on the breath with mindfulness? \n\nWere you able to use awareness to bring your mind back when you got distracted or sleepy? \n\nWhat sensations do you notice in your body now?",
-          "image": {
-            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1716951212/SEE/Icons/Reflection/Reflection_Awareness_CardImage_wgzwcf.png"
-          },
-          "heading": "Reflection"
         }
       },
       {
         "type": "reflection",
-        "content": {
-          "video": {
-            "durationTimer": true,
-            "source": ""
-          },
-          "lottie": {
-            "durationTimer": true,
-            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto/v1718146076/SEE/Lottie/Timer/1min_timer_ag9fyg.json"
-          },
-          "text": "",
-          "heading": "How was that experience for you? How easy or difficult was it for you to keep your attention on the breath with mindfulness? Were you able to use awareness to bring your mind back when you got distracted or sleepy? What sensations do you notice in your body now?"
-        },
         "hostNotes": [
           {
-            "text": "Now we’ll take 1 minutes to reflect on our own. How was that experience for you? How easy or difficult was it for you to keep your attention on the breath with mindfulness? Were you able to use awareness to bring your mind back when you got distracted or sleepy? What sensations do you notice in your body now?"
+            "text": "Now we’ll take 1 minute to reflect on our own.\n\nHow did you experience observing in silence today?\n\nWhat did you learn?"
           },
           {
-            "text": "You can take notes on a piece of paper or just mental notes in your head. And there is no right or wrong here, our answers are our own. 1 minute starting now.\n\n> Press play to start the timer. \n\nThat’s 1 minute and it’s time to move on."
+            "text": "You can take notes on a piece of paper or just mental notes in your head. And there is no right or wrong here, our answers are our own. 1 minute starting now.\n\n> Press play to start the timer.\n\nThat’s 1 minute and it’s time to move on."
           }
-        ]
+        ],
+        "content": {
+          "heading": "How was the experience of observing in silence?"
+        }
       },
       {
         "type": "sharing",
-        "id": "sharing 1",
-        "content": {
-          "video": {
-            "durationTimer": true
-          },
-          "lottie": {
-            "durationTimer": true,
-            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto/v1718146077/SEE/Lottie/Timer/2min_timer_yjuzls.json"
-          },
-          "text": "",
-          "heading": "How was that experience for you?"
-        },
         "hostNotes": [
           {
             "text": "Now we are getting into the sharing part. We have three rules for sharing:\n\n1. **What is said in here, stays in here.**\n2. **All you need to do is listen.** There is no fixing, helping or advice-giving needed. We are just showing up and exploring what ourselves and others are going through."
@@ -95,138 +54,62 @@
           {
             "text": "Who would like to start?\n\n> Let everyone (or as many as you got time for) share one by one. Press play to start the timer. Re-start for each new sharing.\n\nThank you so much everyone."
           }
-        ]
-      },
-      {
-        "type": "sharing",
-        "id": "sharing 2",
+        ],
+        "id": "Sharing 1",
         "content": {
-          "video": {
-            "durationTimer": true
-          },
-          "lottie": {
-            "durationTimer": true,
-            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto/v1718146077/SEE/Lottie/Timer/2min_timer_yjuzls.json"
-          },
-          "text": "",
-          "heading": "How easy or difficult was it to pay attention to the breath?"
-        }
-      },
-      {
-        "type": "sharing",
-        "id": "sharing 3",
-        "content": {
-          "video": {
-            "durationTimer": true
-          },
-          "lottie": {
-            "durationTimer": true,
-            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto/v1718146077/SEE/Lottie/Timer/2min_timer_yjuzls.json"
-          },
-          "text": "",
-          "heading": "Were you able to bring your mind back when it wandered? "
-        }
-      },
-      {
-        "type": "sharing",
-        "id": "sharing 4",
-        "content": {
-          "video": {
-            "durationTimer": true
-          },
-          "lottie": {
-            "durationTimer": true,
-            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto/v1718146077/SEE/Lottie/Timer/2min_timer_yjuzls.json"
-          },
-          "text": "",
-          "heading": "What sensations do you notice in your body now?"
+          "heading": "How was the experience of observing in silence?"
         }
       },
       {
         "type": "host",
         "hostNotes": [
           {
-            "text": "Well done. Today, we’ve explored building our capacity for attention by focusing on an object, our breath. As we become skillful in focused attention, it can help to bring about greater calm and well-being in our bodies and minds, and help strengthen our ability to pay attention the same way we can build muscle."
+            "text": "Well done. If you’re up for it, you can continue what we started here today with a mission to bring this into your everyday life.\n\nFor the coming three days, take 2 minutes a day closing your eyes and silently observe. Notice if the experience changes as you practice."
           },
           {
-            "text": "If we're up for it, we can continue with a mission: Practice using the breath or another object to practice your focusing on three occasions this week."
+            "text": "Before we leave this space let’s do a mini check-out. \n\nHow are you feeling right now? Has anything shifted? Please answer in two-three words."
           },
           {
-            "text": "Plan the steps you will take by considering a time in your day when this might be helpful or timely. Before we leave this space, let’s do a mini check-out: How are you feeling right now? Has anything shifted? Please answer in two to three words."
-          },
-          {
-            "text": "Who would like to start? \n\n> Let everyone in the session check out one by one. \n\nThank you all for checking out and for joining this session today. \n\n> Finish session to send everyone off to the exit experience."
+            "text": "Who would like to start?\n\n> Let everyone in the session check out one by one.\n\nThank you all for checking out and for joining this session today.\n\n> Finish session to send everyone off to the exit experience."
           }
         ]
       },
       {
         "type": "instruction",
         "content": {
-          "text": "Well done. Today, we’ve explored building our capacity for attention by focusing on an object, our breath. \n\nAs we become skillful in focused attention, it can help to bring about greater calm and well-being in our bodies and minds, and help strengthen our ability to pay attention the same way we can build muscle.",
-          "heading": "Awareness",
-          "image": {
-            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1715194844/SEE/Icons/Awareness/AttentiontoBreathing_CardImage_otoh1t.png"
-          }
-        }
-      },
-      {
-        "type": "instruction",
-        "content": {
-          "text": "If we're up for it, we can continue with a mission: Practice using the breath or another object to practice your focusing on three occasions this week.\n\nPlan the steps you will take by considering a time in your day when this might be helpful or timely.",
-          "image": {
-            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1715194844/SEE/Icons/Awareness/AttentiontoBreathing_CardImage_otoh1t.png"
-          },
-          "heading": "Awareness"
+          "text": "Well done. If you’re up for it, you can continue with a mission to bring this into your everyday life.\n\nFor the coming three days, take two minutes a day closing your eyes and silently observe. Notice if the experience changes as you practice."
         }
       }
     ],
     "theme": {
-      "textColor": "#2E2E2E",
-      "backgroundColor": "#f5f5f5"
+      "textColor": "#2AE2D7"
     },
-    "hidden": false,
-    "locked": true,
-    "name": "Attention to Breath",
+    "hidden": true,
+    "locked": false,
+    "name": "Silent mindfulness",
     "live": true,
     "published": true,
-    "card": {
-      "image": {
-        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1715194844/SEE/Icons/Awareness/AttentiontoBreathing_CardImage_otoh1t.png"
-      }
-    },
-    "coCreators": [
-      {
-        "name": "SEE Learning",
-        "url": "https://seelearning.emory.edu/en/home",
-        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1713881366/SEE/see-logo_1_kewtlt.png"
-      }
-    ],
-    "duration": 10,
-    "outroPortal": {
-      "video": {
-        "source": ""
-      }
-    },
+    "duration": 29,
     "introPortal": {
-      "textColor": "#2E2E2E",
+      "textColor": "#2AE2D7",
       "hostNotes": [
         {
-          "text": "> Press play to start the exercise"
+          "text": "> Start the session when you're ready to go"
         }
       ],
       "videoLoop": {
         "p5JsScript": {
           "lang": "javascript"
-        },
-        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1717469190/SEE/Video/SEELearning_AwareApp_IntroVideo_2024_V3_1_giheh7.mp4"
+        }
       }
     },
     "tags": [
+      "db34d82a-4c48-4ddd-9de5-f562d8aa1bc9",
       "cfc00217-f65b-4a4d-8b82-8ccc8f852dd6"
     ],
-    "id": "4ffe2765-995a-4afc-ae86-65d08088915b",
+    "id": "769a6baf-6969-4612-8e32-2ffdd63cf0be",
     "async": true,
-    "description": "As we become skillful in focused attention, it can help to bring about greater calm and well-being in our bodies and minds, and help strengthen our ability to pay attention the same way we can build muscle."
+    "description": "Practice being in the present moment without guidance. Observing whatever shows up is a skill that can make us happier and calmer in the long run."
   },
   "pt": {
     "slides": [
@@ -300,11 +183,10 @@
       "textColor": "#2AE2D7"
     },
     "hidden": false,
-    "locked": true,
+    "locked": false,
     "live": true,
     "published": false,
-    "card": {},
-    "duration": 10,
+    "duration": 29,
     "introPortal": {
       "textColor": "#2AE2D7",
       "hostNotes": [
@@ -314,9 +196,10 @@
       ]
     },
     "tags": [
+      "db34d82a-4c48-4ddd-9de5-f562d8aa1bc9",
       "cfc00217-f65b-4a4d-8b82-8ccc8f852dd6"
     ],
-    "id": "4ffe2765-995a-4afc-ae86-65d08088915b",
+    "id": "769a6baf-6969-4612-8e32-2ffdd63cf0be",
     "async": false
   },
   "sv": {
@@ -391,11 +274,10 @@
       "textColor": "#2AE2D7"
     },
     "hidden": false,
-    "locked": true,
+    "locked": false,
     "live": true,
     "published": false,
-    "card": {},
-    "duration": 10,
+    "duration": 29,
     "introPortal": {
       "textColor": "#2AE2D7",
       "hostNotes": [
@@ -405,9 +287,10 @@
       ]
     },
     "tags": [
+      "db34d82a-4c48-4ddd-9de5-f562d8aa1bc9",
       "cfc00217-f65b-4a4d-8b82-8ccc8f852dd6"
     ],
-    "id": "4ffe2765-995a-4afc-ae86-65d08088915b",
+    "id": "769a6baf-6969-4612-8e32-2ffdd63cf0be",
     "async": false
   },
   "ja": {
@@ -482,11 +365,10 @@
       "textColor": "#2AE2D7"
     },
     "hidden": false,
-    "locked": true,
+    "locked": false,
     "live": true,
     "published": false,
-    "card": {},
-    "duration": 10,
+    "duration": 29,
     "introPortal": {
       "textColor": "#2AE2D7",
       "hostNotes": [
@@ -496,9 +378,10 @@
       ]
     },
     "tags": [
+      "db34d82a-4c48-4ddd-9de5-f562d8aa1bc9",
       "cfc00217-f65b-4a4d-8b82-8ccc8f852dd6"
     ],
-    "id": "4ffe2765-995a-4afc-ae86-65d08088915b",
+    "id": "769a6baf-6969-4612-8e32-2ffdd63cf0be",
     "async": false
   }
 }

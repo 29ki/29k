@@ -5,7 +5,7 @@
         "type": "host",
         "hostNotes": [
           {
-            "text": "Welcome. I am X and today we will explore events and systemic strcutures for others for around 15 minutes. We’ll be doing an audio exercise, followed by time for reflection and finally sharing with each other – if we're up for it."
+            "text": "Welcome. I am X and today we will explore events and systemic structures for around 15 minutes. We’ll be doing an audio exercise, followed by time for reflection and finally sharing with each other – if we're up for it."
           },
           {
             "text": "Let’s start with a mini check-in. How are you feeling right now? Please answer in two-three words. X, would you like to start? > Let everyone in the session, including yourself, check in one by one. Thank you all for checking in. Let’s get started."
@@ -21,7 +21,7 @@
         ],
         "content": {
           "lottie": {
-            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1716147316/SEE/SRT/Systems%20Thinking/SystemThinking1_a0sil7.json",
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1715668430/SEE/Lottie/Systems%20Thinking/SystemThinking2_t0eula.json",
             "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1716147371/SEE/SRT/Systems%20Thinking/Iceberg_k4wbbd.srt",
             "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1715663929/SEE/Audio/Systems%20Thinking/Iceberg_irbxnn.mp3"
           }
@@ -32,7 +32,7 @@
         "content": {
           "heading": "Reflection",
           "image": {
-            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1716951215/SEE/Icons/Reflection/Reflection_SystemsThinking_CardImage_fpbpfh.png"
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1716951212/SEE/Icons/Reflection/Reflection_Awareness_CardImage_wgzwcf.png"
           },
           "text": "You can take notes on a piece of paper or just mental notes in your head. And there is no right or wrong here, our answers are our own. 1 minute starting now."
         }
@@ -43,7 +43,7 @@
           "heading": "Reflection",
           "text": "How was that experience for you?\n\nHow might analyzing events and behaviors in this way help us empathize with others?\n\nHow might it help us practice self-compassion towards ourselves?",
           "image": {
-            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1716951215/SEE/Icons/Reflection/Reflection_SystemsThinking_CardImage_fpbpfh.png"
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1716951212/SEE/Icons/Reflection/Reflection_Awareness_CardImage_wgzwcf.png"
           }
         }
       },
@@ -59,7 +59,10 @@
         ],
         "content": {
           "video": {
-            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1716235083/SEE/Video/SEELearning_Aware_1MinTimer_2024_mv72mj.mp4"
+            "source": ""
+          },
+          "lottie": {
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1718146076/SEE/Lottie/Timer/1min_timer_ag9fyg.json"
           }
         }
       },
@@ -81,7 +84,7 @@
           "text": "How might analyzing events and behaviors in this way help us empathize with others? • How might it help us practice self-compassion towards ourselves?",
           "heading": "How can this help us empathize with others and ourselves?",
           "lottie": {
-            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1716238084/SEE/Lottie/shareslide_lqdkod.json"
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1718146077/SEE/Lottie/Timer/2min_timer_yjuzls.json"
           }
         }
       },
@@ -94,10 +97,10 @@
           },
           "lottie": {
             "durationTimer": true,
-            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1716238084/SEE/Lottie/shareslide_lqdkod.json"
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1718146077/SEE/Lottie/Timer/2min_timer_yjuzls.json"
           },
           "text": "",
-          "heading": "When we look at these factors we start to see how that behavior is taking place within a broader system of interdependence."
+          "heading": "How can the Iceberg help understand interdependence?"
         }
       },
       {
@@ -123,7 +126,7 @@
           "text": "Well done. Today, we’ve explored systems thinking by using the metaphor of an iceberg.\n\nThis can help us to more deeply understand an action or event by considering the many variables and factors that have led to it, including underlying systemic structures.",
           "heading": "Systems thinking",
           "image": {
-            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1715667139/SEE/Icons/Systems%20Thinking/SystemsThinking_CardImage_m3zrzv.png"
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1718143991/SEE/Icons/Systems%20Thinking/SystemsThinking_CardImage_vq0o0c.png"
           }
         }
       },
@@ -133,17 +136,17 @@
           "heading": "Systems thinking",
           "text": "Rather than placing all blame or praise on an individual, we can identify how internal and external structures, some of which are beyond an individual’s control, contribute to events. This understanding can deepen an appreciation of interdependence and common humanity.",
           "image": {
-            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1715667139/SEE/Icons/Systems%20Thinking/SystemsThinking_CardImage_m3zrzv.png"
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1718143991/SEE/Icons/Systems%20Thinking/SystemsThinking_CardImage_vq0o0c.png"
           }
         }
       },
       {
         "type": "instruction",
         "content": {
-          "text": "If you’re up for it, you can continue with this mission.\n\nReflect on a situation where you had a difficult encounter with a thought or another person. How could using the model of iceberg help to encourage compassion for yourself and others in that thought of situation.",
+          "text": "If you’re up for it, you can continue with this mission.\n\nReflect on a situation where you had a difficult encounter with a thought or another person. How could using the model of iceberg help to encourage compassion for yourself and others in that thought or situation?",
           "heading": "Systems thinking",
           "image": {
-            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1715667139/SEE/Icons/Systems%20Thinking/SystemsThinking_CardImage_m3zrzv.png"
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1718143991/SEE/Icons/Systems%20Thinking/SystemsThinking_CardImage_vq0o0c.png"
           }
         }
       }
@@ -158,7 +161,7 @@
     "published": true,
     "card": {
       "image": {
-        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1715667139/SEE/Icons/Systems%20Thinking/SystemsThinking_CardImage_m3zrzv.png"
+        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1718143991/SEE/Icons/Systems%20Thinking/SystemsThinking_CardImage_vq0o0c.png"
       }
     },
     "coCreators": [
@@ -170,23 +173,26 @@
     ],
     "duration": 15,
     "introPortal": {
-      "textColor": "#2AE2D7",
+      "textColor": "#2E2E2E",
       "hostNotes": [
         {
-          "text": "Start the session when you are ready to go."
+          "text": "> Press play to start the exercise"
         }
       ],
       "videoLoop": {
         "p5JsScript": {
           "lang": "javascript"
         },
-        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1716935845/SEE/Video/SEELearning_AwareApp_IntroVideo_2024_V3_k4jtws.mp4"
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1717469190/SEE/Video/SEELearning_AwareApp_IntroVideo_2024_V3_1_giheh7.mp4"
+      },
+      "videoEnd": {
+        "source": ""
       }
     },
     "link": "",
     "id": "9451652d-444f-4e96-86cc-dcb774ab6c27",
     "async": true,
-    "description": "We are going to explore a deeper way of looking at events, by analyzing how they rest upon systemic structures. Often an action (such as someone being rude or failing a test) is not understood within a larger context; rather, it is merely ascribed to a perceived pattern of behavior (being rude in general or not studying enough). Using the image of an iceberg, students are taught to go deeper in their analysis. Lets learn to look for deeper systemic structures—both internal and  external—that reinforce the patterns of behaviors that contribute to individual events. Addressing these deeper systemic structures can help us to understand events and patterns of behavior better, and provide insights that help us to take more effective action in changing such patterns."
+    "description": "We are going to explore a deeper way of looking at events, by analyzing how they rest upon systemic structures. Addressing these deeper systemic structures can help us to understand events and patterns of behavior better, and provide insights that help us to take more effective action in changing such patterns."
   },
   "pt": {
     "slides": [

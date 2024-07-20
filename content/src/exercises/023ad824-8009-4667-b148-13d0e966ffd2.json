@@ -52,10 +52,11 @@
         "content": {
           "video": {
             "durationTimer": true,
-            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1716235083/SEE/Video/SEELearning_Aware_1MinTimer_2024_mv72mj.mp4"
+            "source": ""
           },
           "lottie": {
-            "durationTimer": true
+            "durationTimer": true,
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto/v1718146076/SEE/Lottie/Timer/1min_timer_ag9fyg.json"
           }
         },
         "hostNotes": [
@@ -76,10 +77,10 @@
           },
           "lottie": {
             "durationTimer": true,
-            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto/v1716238084/SEE/Lottie/shareslide_lqdkod.json"
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto/v1718146077/SEE/Lottie/Timer/2min_timer_yjuzls.json"
           },
           "text": "",
-          "heading": "What did you notice – in your mind or in your body - as you watched the jar settle? "
+          "heading": "What did you notice in your mind or in your body? "
         },
         "hostNotes": [
           {
@@ -102,10 +103,10 @@
           },
           "lottie": {
             "durationTimer": true,
-            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto/v1716238084/SEE/Lottie/shareslide_lqdkod.json"
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto/v1718146077/SEE/Lottie/Timer/2min_timer_yjuzls.json"
           },
           "text": "",
-          "heading": "Who had a strategy or a way that helped you stay focused on the Mind Jar? "
+          "heading": "Who had a strategy or a way that helped you stay focused? "
         }
       },
       {
@@ -117,10 +118,10 @@
           },
           "lottie": {
             "durationTimer": true,
-            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto/v1716238084/SEE/Lottie/shareslide_lqdkod.json"
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto/v1718146077/SEE/Lottie/Timer/2min_timer_yjuzls.json"
           },
           "text": "",
-          "heading": "Do you think it helps us if our minds are calmer and more settled? "
+          "heading": "Do you think it helps us if our minds are more settled? "
         }
       },
       {
@@ -132,7 +133,7 @@
           },
           "lottie": {
             "durationTimer": true,
-            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto/v1716238084/SEE/Lottie/shareslide_lqdkod.json"
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto/v1718146077/SEE/Lottie/Timer/2min_timer_yjuzls.json"
           },
           "heading": "What does it help us do?"
         }
@@ -144,10 +145,10 @@
             "text": "Well done. Today, we’ve explored and the Mind Jar. The “mind” is a broad category that involves our first-person experiences of the world, which can include feelings, emotions, thoughts, memories, hopes and fears, and our imagination."
           },
           {
-            "text": "A “mind jar” is a visual representation of the mind.\n\nBy considering the metaphor of the mind jar we can learn that our mind can be relatively clear or cloudy, making it easier or harder to discern what is happening within us and around us; that the way we perceive things is affected by the state of our own mind.By pausing and focusing our attention on something, we can help to clear the mind and therefore work with the mind to support it in clear optimal functioning."
+            "text": "A “mind jar” is a visual representation of the mind.\n\nBy considering the metaphor of the mind jar we can learn that our mind can be relatively clear or cloudy, making it easier or harder to discern what is happening within us and around us; that the way we perceive things is affected by the state of our own mind."
           },
           {
-            "text": "If we're up for it, we can continue with a mission: Practice noticing and focusing on awareness on our minds current state three different days this week."
+            "text": "By pausing and focusing our attention on something, we can help to clear the mind and therefore work with the mind to support it in clear optimal functioning. If we're up for it, we can continue with a mission: Practice noticing and focusing on awareness on our minds current state three different days this week."
           },
           {
             "text": "Alternatively, you could watch a video or make your own mind jar and practice watching it to help settle your own mind. \n\nBefore we leave this space, let’s do a mini check-out: How are you feeling right now? Has anything shifted? Please answer in two to three words."
@@ -226,17 +227,17 @@
       }
     },
     "introPortal": {
-      "textColor": "#2AE2D7",
+      "textColor": "#2E2E2E",
       "hostNotes": [
         {
-          "text": "> Press play to start the audio exercise"
+          "text": "> Press play to start the exercise"
         }
       ],
       "videoLoop": {
         "p5JsScript": {
           "lang": "javascript"
         },
-        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1716935845/SEE/Video/SEELearning_AwareApp_IntroVideo_2024_V3_k4jtws.mp4"
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1717469190/SEE/Video/SEELearning_AwareApp_IntroVideo_2024_V3_1_giheh7.mp4"
       },
       "videoEnd": {
         "source": ""
@@ -247,7 +248,7 @@
     ],
     "id": "023ad824-8009-4667-b148-13d0e966ffd2",
     "async": true,
-    "description": "The mind jar represents how our minds take in and process experiences, thoughts, and feelings all day long. When we don’t pause to check in with and clear the mind our thinking can become cloudy. By considering the metaphor of the mind jar we can learn that our mind can be relatively clear or cloudy, making it easier or harder to discern what is happening within us and around us; that the way we perceive things is affected by the state of our own mind."
+    "description": "The mind jar represents how our minds take in and process experiences, thoughts, and feelings all day long. By considering the metaphor of the mind jar we can learn that our mind can be relatively clear or cloudy, making it easier or harder to discern what is happening within us and around us; that the way we perceive things is affected by the state of our own mind."
   },
   "pt": {
     "slides": [

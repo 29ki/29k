@@ -36,7 +36,7 @@
           "heading": "Reflection",
           "text": "You can take notes on a piece of paper or just mental notes in your head. And there is no right or wrong here, our answers are our own.",
           "image": {
-            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1716951214/SEE/Icons/Reflection/Reflection_Resilience_CardImage_hcac5a.png"
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1716951212/SEE/Icons/Reflection/Reflection_Awareness_CardImage_wgzwcf.png"
           }
         }
       },
@@ -46,7 +46,7 @@
           "heading": "Reflection",
           "text": "How did you experience practising grounding? \n\nHow did you feel before and after grounding? \n\nDid you notice any change?",
           "image": {
-            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1716951214/SEE/Icons/Reflection/Reflection_Resilience_CardImage_hcac5a.png"
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1716951212/SEE/Icons/Reflection/Reflection_Awareness_CardImage_wgzwcf.png"
           }
         }
       },
@@ -55,10 +55,11 @@
         "content": {
           "video": {
             "durationTimer": true,
-            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1716235083/SEE/Video/SEELearning_Aware_1MinTimer_2024_mv72mj.mp4"
+            "source": ""
           },
           "lottie": {
-            "durationTimer": true
+            "durationTimer": true,
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1718146076/SEE/Lottie/Timer/1min_timer_ag9fyg.json"
           },
           "heading": "How did you experience practising grounding? How did you feel before and after grounding? Did you notice any change?",
           "image": {
@@ -83,10 +84,10 @@
           },
           "lottie": {
             "durationTimer": true,
-            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1716238084/SEE/Lottie/shareslide_lqdkod.json"
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1718146077/SEE/Lottie/Timer/2min_timer_yjuzls.json"
           },
           "text": "",
-          "heading": "We have spent some time together trying out different ways of grounding ourselves and noticing sensations within our bodies."
+          "heading": "What sensations did you notice when you were grounding?"
         },
         "hostNotes": [
           {
@@ -109,10 +110,10 @@
           },
           "lottie": {
             "durationTimer": true,
-            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1716238084/SEE/Lottie/shareslide_lqdkod.json"
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1718146077/SEE/Lottie/Timer/2min_timer_yjuzls.json"
           },
           "text": "",
-          "heading": "Which has been the best one for you (i.e. which has given you pleasant or neutral sensations) and which one did not work for you? "
+          "heading": "Which grounding has been good and which one did not work? "
         }
       },
       {
@@ -124,7 +125,7 @@
           },
           "lottie": {
             "durationTimer": true,
-            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1716238084/SEE/Lottie/shareslide_lqdkod.json"
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1718146077/SEE/Lottie/Timer/2min_timer_yjuzls.json"
           },
           "text": "",
           "heading": "When do you think you could use grounding?"
@@ -153,7 +154,7 @@
           "text": "Well done. Today, we’ve practised grounding. Grounding allows us to attend to the sensation at the point of contact of one’s body with objects or the ground to return to or stay in the resilient zone.",
           "heading": "Resilience",
           "image": {
-            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1716951140/SEE/Icons/Resilience/Grounding_CardImage_f9oynb.png"
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1718143969/SEE/Icons/Resilience/Grounding_CardImage_jh9gn8.png"
           }
         }
       },
@@ -163,7 +164,7 @@
           "text": "If we're up for it, we can continue with a mission: Practice using grounding on three different days this week.\n\nPlan the steps you will take by considering moments when grounding might help you during your week.",
           "heading": "Resilience",
           "image": {
-            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1716951140/SEE/Icons/Resilience/Grounding_CardImage_f9oynb.png"
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1718143969/SEE/Icons/Resilience/Grounding_CardImage_jh9gn8.png"
           }
         }
       }
@@ -179,7 +180,7 @@
     "published": true,
     "card": {
       "image": {
-        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1716951140/SEE/Icons/Resilience/Grounding_CardImage_f9oynb.png"
+        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1718143969/SEE/Icons/Resilience/Grounding_CardImage_jh9gn8.png"
       }
     },
     "coCreators": [
@@ -196,17 +197,17 @@
       }
     },
     "introPortal": {
-      "textColor": "#2AE2D7",
+      "textColor": "#2E2E2E",
       "hostNotes": [
         {
-          "text": "> Press play to start the audio exercise"
+          "text": "> Press play to start the exercise"
         }
       ],
       "videoLoop": {
         "p5JsScript": {
           "lang": "javascript"
         },
-        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1716935845/SEE/Video/SEELearning_AwareApp_IntroVideo_2024_V3_k4jtws.mp4"
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1717469190/SEE/Video/SEELearning_AwareApp_IntroVideo_2024_V3_1_giheh7.mp4"
       },
       "videoEnd": {
         "source": ""
