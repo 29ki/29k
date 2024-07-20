@@ -14,7 +14,7 @@ import SessionErrorModal from '../../routes/modals/SessionErrorModal/SessionErro
 import {COLORS} from '../../../../shared/src/constants/colors';
 import SETTINGS from '../constants/settings';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
-import {ANIMATION_CONFIGS, BottomSheetBackdrop} from '@gorhom/bottom-sheet';
+import {BottomSheetBackdrop} from '@gorhom/bottom-sheet';
 import ChangeLanguageModal from '../../routes/modals/ChangeLanguageModal/ChangeLanguageModal';
 import ProfileSettingsModal from '../../routes/modals/ProfileSettingsModal/ProfileSettingsModal';
 import SignInModal from '../../routes/modals/SignInModal/SignInModal';
@@ -80,14 +80,6 @@ const modalScreenOptions: BottomSheetNavigationOptions = {
     position: 'absolute',
     left: 0,
     right: 0,
-  },
-  /*
-    TODO: Should be fixed in react-navigation-bottom-sheet v5
-    https://github.com/gorhom/react-native-bottom-sheet/issues/1674
-    */
-  animationConfigs: {
-    ...ANIMATION_CONFIGS,
-    reduceMotion: ReduceMotion.Never,
   },
   /*
     TODO: Fixes issues with modals being clipped when focusing on input fields
