@@ -2302,7 +2302,7 @@ PODS:
     - React-Core
   - RNReactNativeHapticFeedback (2.2.0):
     - React-Core
-  - RNReanimated (3.8.1):
+  - RNReanimated (3.14.0):
     - DoubleConversion
     - glog
     - hermes-engine
@@ -2826,7 +2826,7 @@ SPEC CHECKSUMS:
   RNPermissions: a58e61bd4e6bd417adcf8ef8ca094b93d772e492
   RNRate: ef3bcff84f39bb1d1e41c5593d3eea4aab2bd73a
   RNReactNativeHapticFeedback: ec56a5f81c3941206fd85625fa669ffc7b4545f9
-  RNReanimated: 1522546f18d7a1c0b69e708cc3417a74a4f67d95
+  RNReanimated: f6b214732ff303cb815ac81b26bbfd2070b69f43
   RNScreens: 30249f9331c3b00ae7cb7922e11f58b3ed369c07
   RNSentry: f6a5aee809d646763640130714d1fdfe69aac36b
   RNSVG: a48668fd382115bc89761ce291a81c4ca5f2fd2e
@@ -2847,4 +2847,4 @@ SPEC CHECKSUMS:
 
 PODFILE CHECKSUM: d3b70e6d42003752efcb1b7a4cbb7e8c97f2ad67
 
-COCOAPODS: 1.14.3
+COCOAPODS: 1.15.2
