@@ -1970,7 +1970,7 @@ PODS:
     - React-Core
   - react-native-netinfo (11.3.1):
     - React-Core
-  - react-native-safe-area-context (4.9.0):
+  - react-native-safe-area-context (4.10.8):
     - React-Core
   - react-native-volume-manager (1.10.0):
     - Mute
@@ -2781,7 +2781,7 @@ SPEC CHECKSUMS:
   react-native-get-random-values: 21325b2244dfa6b58878f51f9aa42821e7ba3d06
   react-native-idle-timer: b4e9ff189950bcd3ba03257d9f033f3432341db8
   react-native-netinfo: bdb108d340cdb41875c9ced535977cac6d2ff321
-  react-native-safe-area-context: b97eb6f9e3b7f437806c2ce5983f479f8eb5de4b
+  react-native-safe-area-context: b7daa1a8df36095a032dff095a1ea8963cb48371
   react-native-volume-manager: 3c7d8047841b6831730dea7bf25250522388b4f4
   react-native-webrtc: f0863a670c08895cebfd74d7790e499397d5be1a
   react-native-webview: bd1c6c2661bb51e45469c7badb02ccdcef93671b
