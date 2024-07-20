@@ -4313,10 +4313,10 @@ firebase-functions@^5.0.1:
     express "^4.17.1"
     protobufjs "^7.2.2"
 
-firebase-tools@^13.13.2:
-  version "13.13.2"
-  resolved "https://registry.yarnpkg.com/firebase-tools/-/firebase-tools-13.13.2.tgz#d8f5bb5fbe2c1e1476b58c1fca52e46f81de385c"
-  integrity sha512-pX20oZSG7+SW8Jo10/JJilQn+IB5xES45dgiAMtPrx+aJ9RRnHkcosDe6kq9AEsufiRv1/KCn430jS3NF7jtvg==
+firebase-tools@^13.13.3:
+  version "13.13.3"
+  resolved "https://registry.yarnpkg.com/firebase-tools/-/firebase-tools-13.13.3.tgz#bf42717df878adbbc18d54a9dde07b15b175b6f8"
+  integrity sha512-xTlaEhIGkfsMPsJkvjir/AeOQryuRTcoXSlqJO2CZR+IzZCoYPMHO8zMKwEIc1ZEb6nYdRl14gjM8DpGCRpm2A==
   dependencies:
     "@google-cloud/cloud-sql-connector" "^1.2.3"
     "@google-cloud/pubsub" "^4.4.0"
