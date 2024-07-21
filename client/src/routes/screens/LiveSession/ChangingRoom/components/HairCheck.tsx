@@ -88,9 +88,7 @@ const VideoText = styled(Body16)({
 });
 
 const InputWrapper = styled.View({
-  flexGrow: 0,
   flexDirection: 'row',
-  backgroundColor: 'red',
 });
 
 const StyledTextInput = styled(TextInput)({
