@@ -52,6 +52,8 @@ import SessionMood from './SessionMood';
 import AutoScrollView from '../../../../../lib/components/AutoScrollView/AutoScrollView';
 import useLogSessionMood from '../hooks/useLogSessionMood';
 
+const DISPLAY_NAME_MAX_LENGTH = 20;
+
 const KeyboardWrapper = styled.KeyboardAvoidingView.attrs({
   behavior: Platform.select<KeyboardAvoidingViewProps['behavior']>({
     ios: 'position',
@@ -90,7 +92,7 @@ const InputWrapper = styled.View({
 });
 
 const StyledTextInput = styled(TextInput)({
-  flexGrow: 1,
+  flex: 1,
 });
 
 const Audio = styled(AudioIndicator)({
@@ -132,7 +134,9 @@ const HairCheck = () => {
   const isFocused = useIsFocused();
   const me = useLocalParticipant();
   const user = useUser();
-  const [localUserName, setLocalUserName] = useState(user?.displayName ?? '');
+  const [localUserName, setLocalUserName] = useState(
+    user?.displayName?.slice(0, DISPLAY_NAME_MAX_LENGTH) ?? '',
+  );
   const logSessionMetricEvent = useLiveSessionMetricEvents();
   const {
     checkAndPromptJoinPermissions,
@@ -257,7 +261,7 @@ const HairCheck = () => {
                 onSubmitEditing={joinPress}
                 autoCapitalize="words"
                 autoCorrect={false}
-                maxLength={20}
+                maxLength={DISPLAY_NAME_MAX_LENGTH}
                 defaultValue={localUserName}
                 placeholder={t('placeholder')}
               />
