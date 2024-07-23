@@ -35,7 +35,7 @@ postsRouter.get(
     const posts = await getPosts(limit, languages);
 
     response.status = 200;
-    //ctx.set('Cache-Control', 'max-age=300');
+    ctx.set('Cache-Control', 'max-age=300');
     ctx.body = posts;
   },
 );
