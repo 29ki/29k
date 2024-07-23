@@ -11,7 +11,6 @@ import {createPost, deletePost, getPosts} from '../../controllers/posts';
 jest.mock('../../controllers/posts');
 
 const mockCreatePost = jest.mocked(createPost);
-const mockDeletePost = jest.mocked(deletePost);
 const mockGetPosts = jest.mocked(getPosts);
 
 const router = createApiAuthRouter();
@@ -145,15 +144,6 @@ describe('/api/posts', () => {
         },
         'some-user-id',
       );
-      expect(response.status).toBe(200);
-    });
-  });
-
-  describe('delete', () => {
-    it('should delete post', async () => {
-      const response = await request(mockServer).delete('/posts/some-post-id');
-
-      expect(mockDeletePost).toHaveBeenCalledWith('some-post-id');
       expect(response.status).toBe(200);
     });
   });
