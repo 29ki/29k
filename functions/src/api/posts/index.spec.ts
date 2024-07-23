@@ -6,12 +6,19 @@ import {postsRouter} from '.';
 import createMockServer from '../lib/createMockServer';
 import {createApiAuthRouter} from '../../lib/routers';
 
-import {createPost, deletePost, getPosts} from '../../controllers/posts';
+import {
+  createPost,
+  increasePostRelates,
+  decreasePostRelates,
+  getPosts,
+} from '../../controllers/posts';
 
 jest.mock('../../controllers/posts');
 
 const mockCreatePost = jest.mocked(createPost);
 const mockGetPosts = jest.mocked(getPosts);
+const mockIncreasePostRelates = jest.mocked(increasePostRelates);
+const mockDecreasePostRelates = jest.mocked(decreasePostRelates);
 
 const router = createApiAuthRouter();
 router.use('/posts', postsRouter.routes());
@@ -71,6 +78,7 @@ describe('/api/posts', () => {
             displayName: 'some name',
             photoURL: 'some-url',
           },
+          relates: null,
           approved: true,
           language: 'en',
           createdAt: expect.any(String),
@@ -116,6 +124,7 @@ describe('/api/posts', () => {
             displayName: 'some name',
             photoURL: 'some-url',
           },
+          relates: null,
           approved: true,
           language: 'en',
           createdAt: expect.any(String),
@@ -192,6 +201,7 @@ describe('/api/posts', () => {
               displayName: 'some name',
               photoURL: 'some-url',
             },
+            relates: null,
             approved: true,
             language: 'en',
             createdAt: expect.any(String),
@@ -242,12 +252,39 @@ describe('/api/posts', () => {
               displayName: 'some name',
               photoURL: 'some-url',
             },
+            relates: null,
             approved: true,
             language: 'en',
             createdAt: expect.any(String),
             updatedAt: expect.any(String),
           },
         ]);
+      });
+    });
+  });
+
+  describe(':postId/relate', () => {
+    describe('post', () => {
+      it('should increase post relates', async () => {
+        const response = await request(mockServer)
+          .post('/posts/some-post-id/relate')
+          .send();
+
+        expect(mockIncreasePostRelates).toHaveBeenCalledTimes(1);
+        expect(mockIncreasePostRelates).toHaveBeenCalledWith('some-post-id');
+        expect(response.status).toBe(200);
+      });
+    });
+
+    describe('delete', () => {
+      it('should decrease post relates', async () => {
+        const response = await request(mockServer)
+          .delete('/posts/some-post-id/relate')
+          .send();
+
+        expect(mockDecreasePostRelates).toHaveBeenCalledTimes(1);
+        expect(mockDecreasePostRelates).toHaveBeenCalledWith('some-post-id');
+        expect(response.status).toBe(200);
       });
     });
   });

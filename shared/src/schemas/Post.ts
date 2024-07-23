@@ -12,6 +12,7 @@ const PostFieldsSchema = yup.object({
   language: LanguageSchema.required(),
   approved: yup.boolean().required(),
   text: yup.string().required(),
+  relates: yup.number().nullable().default(null),
 });
 export type PostFieldsType = yup.InferType<typeof PostFieldsSchema>;
 

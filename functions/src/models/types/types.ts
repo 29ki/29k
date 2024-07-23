@@ -1,4 +1,4 @@
-import {Timestamp} from 'firebase-admin/firestore';
+import {FieldValue, Timestamp} from 'firebase-admin/firestore';
 import {SessionMode, SessionType} from '../../../../shared/src/schemas/Session';
 import {ROLE} from '../../../../shared/src/schemas/User';
 import {LANGUAGE_TAG} from '../../lib/i18n';
@@ -40,13 +40,17 @@ export type PostRecord = {
   userId: string | null;
   approved: boolean;
   text: string;
+  relates?: number | FieldValue;
   translatedText?: string;
   classifications?: string[] | null;
   createdAt: Timestamp;
   updatedAt: Timestamp;
 };
 
-export type PostInput = Omit<PostRecord, 'id' | 'createdAt' | 'updatedAt'>;
+export type PostInput = Omit<
+  PostRecord,
+  'id' | 'relates' | 'createdAt' | 'updatedAt'
+>;
 
 export type LiveSessionRecord = {
   id: string;

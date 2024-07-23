@@ -1,9 +1,12 @@
 import {uniq} from 'ramda';
 import * as yup from 'yup';
 import {createApiAuthRouter} from '../../lib/routers';
-import {PostError} from '../../../../shared/src/errors/Post';
-import {createPost, deletePost, getPosts} from '../../controllers/posts';
-import {RequestError} from '../../controllers/errors/RequestError';
+import {
+  createPost,
+  getPosts,
+  decreasePostRelates,
+  increasePostRelates,
+} from '../../controllers/posts';
 import validation from '../lib/validation';
 import {
   CreatePostSchema,
@@ -71,5 +74,37 @@ postsRouter.post('/', validation({body: CreatePostSchema}), async ctx => {
   await createPost(postData, id);
   ctx.response.status = 200;
 });
+
+const PostRelateParamsSchema = yup.object({
+  postId: yup.string().required(),
+});
+
+postsRouter.post(
+  '/:postId/relate',
+  validation({
+    params: PostRelateParamsSchema,
+  }),
+  async ctx => {
+    const {postId} = ctx.params;
+
+    await increasePostRelates(postId);
+
+    ctx.response.status = 200;
+  },
+);
+
+postsRouter.delete(
+  '/:postId/relate',
+  validation({
+    params: PostRelateParamsSchema,
+  }),
+  async ctx => {
+    const {postId} = ctx.params;
+
+    await decreasePostRelates(postId);
+
+    ctx.response.status = 200;
+  },
+);
 
 export {postsRouter};
