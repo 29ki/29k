@@ -4501,10 +4501,10 @@ firebase-admin@^12.2.0:
     "@google-cloud/firestore" "^7.7.0"
     "@google-cloud/storage" "^7.7.0"
 
-firebase-functions-test@^3.2.0:
-  version "3.2.0"
-  resolved "https://registry.yarnpkg.com/firebase-functions-test/-/firebase-functions-test-3.2.0.tgz#aeeab99229930dcc2ad47ac10ee94c9efc32c28f"
-  integrity sha512-UkOPIJH4I4qUGGSr4vaBcbAqn+YblVtMqRI2KQMW2nhMw5So91Iw1klu5Epk8vhEOhn1LPG5/tMaBI1MAtOt6Q==
+firebase-functions-test@^3.3.0:
+  version "3.3.0"
+  resolved "https://registry.yarnpkg.com/firebase-functions-test/-/firebase-functions-test-3.3.0.tgz#63566f0ea71d9fd0651c756b29a8b50ec5f408d8"
+  integrity sha512-X+OOA34MGrsTimFXTDnWT0psAqnmBkJ85bGCoLMwjgei5Prfkqh3bv5QASnXC/cmIVBSF2Qw9uW1+mF/t3kFlw==
   dependencies:
     "@types/lodash" "^4.14.104"
     lodash "^4.17.5"
