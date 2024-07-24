@@ -32,4 +32,4 @@ const Gem = ({style}: GemProps) => (
   </ImageContainer>
 );
 
-export default Gem;
+export default React.memo(Gem);

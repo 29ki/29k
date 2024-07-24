@@ -1,20 +1,19 @@
 import React, {useEffect, useRef} from 'react';
 import styled from 'styled-components/native';
-import {COLORS} from '../../../../../shared/src/constants/colors';
+import {COLORS} from '../../../../shared/src/constants/colors';
 import {
   Easing,
-  cancelAnimation,
   useAnimatedStyle,
   useSharedValue,
   withDelay,
-  withRepeat,
   withSequence,
   withTiming,
 } from 'react-native-reanimated';
-import {Body16} from '../Typography/Body/Body';
-import {Spacer4} from '../Spacers/Spacer';
-import {HKGroteskMedium} from '../../constants/fonts';
-import Gem from './Gem';
+import {Body16} from '../components/Typography/Body/Body';
+import {Spacer4} from '../components/Spacers/Spacer';
+import {HKGroteskMedium} from '../constants/fonts';
+import Gem from './components/Gem';
+import {ViewStyle} from 'react-native';
 
 const Container = styled.View({
   paddingVertical: 2,
@@ -35,10 +34,11 @@ const Text = styled(Body16)({
 });
 
 type RelatesProps = {
-  count?: number;
+  count: number | null;
+  style?: ViewStyle;
 };
-const Relates = ({count = 0}: RelatesProps) => {
-  const prevCount = useRef<undefined | number>();
+const Relates = ({count = 0, style}: RelatesProps) => {
+  const prevCount = useRef<number | undefined>();
 
   const gemScale = useSharedValue(1);
   const gemStyle = useAnimatedStyle(() => ({
@@ -57,11 +57,11 @@ const Relates = ({count = 0}: RelatesProps) => {
       );
     }
 
-    prevCount.current = count;
+    prevCount.current = count || 0;
   }, [gemScale, count]);
 
   return (
-    <Container>
+    <Container style={style}>
       <Gem style={gemStyle} />
       {Boolean(count) && (
         <>
@@ -73,4 +73,4 @@ const Relates = ({count = 0}: RelatesProps) => {
   );
 };
 
-export default Relates;
+export default React.memo(Relates);

@@ -19,7 +19,7 @@ import * as ErrorBanner from '../../components/ErrorBanner/ErrorBanner.library';
 import * as DescriptionBlock from '../../components/DescriptionBlock/DescriptionBlock.library';
 import * as BackgroundBlock from '../../components/BackgroundBlock/BackgroundBlock.library';
 import * as CardGraphic from '../../components/CardGraphic/CardGraphic.library';
-import * as Relates from '../../components/Relates/Relates.library';
+import * as Relates from '../../relates/Relates.library';
 
 export type ComponentLibrary = {[key: string]: React.ComponentType};
 export type ComponentList = {[key: string]: Array<ComponentLibrary>};
