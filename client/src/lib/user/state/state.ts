@@ -47,6 +47,7 @@ export type UserState = {
   practiceReminderConfig?: PracticeReminderConfig | null;
   logMindfulMinutes?: boolean;
   unlockedCollectionIds?: Array<string>;
+  postRelates?: Array<string>;
 };
 
 type SetCurrentUserState = (

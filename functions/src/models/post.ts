@@ -1,6 +1,6 @@
 import 'firebase-functions';
 import {firestore} from 'firebase-admin';
-import {Timestamp} from 'firebase-admin/firestore';
+import {FieldValue, Timestamp} from 'firebase-admin/firestore';
 import {getData} from '../../../shared/src/modelUtils/firestore';
 import {SHARING_POST_MIN_LENGTH} from '../lib/constants/post';
 import {PostInput, PostRecord} from './types/types';
@@ -76,4 +76,12 @@ export const updatePost = async (
 
 export const deletePost = async (id: string) => {
   await firestore().collection(POSTS_COLLECTION).doc(id).delete();
+};
+
+export const increasePostRelates = async (id: string) => {
+  await updatePost(id, {relates: FieldValue.increment(1)});
+};
+
+export const decreasePostRelates = async (id: string) => {
+  await updatePost(id, {relates: FieldValue.increment(-1)});
 };

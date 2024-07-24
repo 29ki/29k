@@ -50,6 +50,7 @@ const DUMMY_SHARING_POST = {
       photoURL:
         'https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1682602411/Images/Jenny_Rickardsson_kopia_sdodwf.jpg',
     },
+    relates: 37,
   },
 } as TextPostItem;
 
@@ -59,6 +60,7 @@ const DUMMY_ANONYMOUS_SHARING_POST = {
     exerciseId: '1a53e633-6916-4fea-a072-977c4b215288',
     text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce sodales urna in turpis laoreet, et feugiat justo maximus. ',
     userProfile: null,
+    relates: null,
   },
 } as TextPostItem;
 
@@ -92,6 +94,7 @@ const DUMMY_LONG_SHARING_POST = {
       photoURL:
         'https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1682602411/Images/Jenny_Rickardsson_kopia_sdodwf.jpg',
     },
+    relates: 1337,
   },
 } as TextPostItem;
 
