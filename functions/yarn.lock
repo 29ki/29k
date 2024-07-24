@@ -1541,10 +1541,10 @@
   dependencies:
     "@sinonjs/commons" "^1.7.0"
 
-"@slack/bolt@^3.18.0":
-  version "3.18.0"
-  resolved "https://registry.yarnpkg.com/@slack/bolt/-/bolt-3.18.0.tgz#e19dcee8cc5917569bf0806db8dc0c54c98680bd"
-  integrity sha512-A7bDi5kY50fS6/nsmURkQdO3iMxD8aX/rA+m1UXEM2ue2z4KijeQtx2sOZ4YkJQ/h7BsgTQM0CYh3qqmo+m5sQ==
+"@slack/bolt@^3.19.0":
+  version "3.19.0"
+  resolved "https://registry.yarnpkg.com/@slack/bolt/-/bolt-3.19.0.tgz#f49d6162a9029e43e42a4fdb9beb4450a282880f"
+  integrity sha512-P5Yup/PbO8sE5xsuqkBkpSPkxEkfWZ6yo5ZlmBGxRhhoU1usUSU2w0bgZoiDX4WFm7ZX+3x2Dyf4VMa9kzfmVQ==
   dependencies:
     "@slack/logger" "^4.0.0"
     "@slack/oauth" "^2.6.2"
