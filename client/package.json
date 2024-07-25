@@ -62,7 +62,7 @@
     "react-native": "0.74.3",
     "react-native-action-sheet": "^2.2.0",
     "react-native-add-calendar-event": "^5.0.0",
-    "react-native-awesome-slider": "^2.5.2",
+    "react-native-awesome-slider": "^2.5.3",
     "react-native-background-timer": "^2.3.1",
     "react-native-circular-progress": "^1.4.0",
     "react-native-code-push": "^8.3.0",
@@ -87,14 +87,14 @@
     "react-native-webview": "^13.10.5",
     "srt-parser-2": "^1.2.3",
     "styled-components": "^6.1.8",
-    "uuid": "^9.0.1",
+    "uuid": "^10.0.0",
     "vtt-to-json": "^0.1.1",
     "yup": "^1.4.0",
-    "zustand": "^4.5.2"
+    "zustand": "^4.5.4"
   },
   "devDependencies": {
     "@babel/core": "^7.24.6",
-    "@babel/preset-env": "^7.24.6",
+    "@babel/preset-env": "^7.24.8",
     "@babel/runtime": "^7.24.8",
     "@react-native/babel-preset": "0.74.85",
     "@react-native/eslint-config": "0.74.85",
@@ -108,7 +108,7 @@
     "@types/ramda": "^0.29.11",
     "@types/react": "^18.2.58",
     "@types/react-test-renderer": "^18.0.0",
-    "@types/uuid": "^9.0.8",
+    "@types/uuid": "^10.0.0",
     "appcenter-cli": "^3.0.0",
     "babel-jest": "^29.6.3",
     "eslint-plugin-i18next": "^6.0.9",
@@ -123,7 +123,7 @@
     "react-native-clean-project": "^4.0.3",
     "react-native-dotenv": "^3.4.11",
     "react-test-renderer": "18.2.0",
-    "typescript": "^5.4.5"
+    "typescript": "^5.5.4"
   },
   "resolutions": {
     "@types/react": "^18.2.43",
