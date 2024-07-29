@@ -20,7 +20,7 @@
     "test": "yarn build:content && yarn test:ts && yarn test:lint && yarn test:jest"
   },
   "dependencies": {
-    "@google-cloud/translate": "^8.1.0",
+    "@google-cloud/translate": "^8.3.0",
     "@googleapis/firebasedynamiclinks": "^1.0.7",
     "@koa/router": "^12.0.1",
     "@sendgrid/mail": "^8.1.3",
