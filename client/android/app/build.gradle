@@ -81,7 +81,7 @@ android {
     defaultConfig {
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode 204
+        versionCode 205
         versionName "2.56.0"
     }
     signingConfigs {
