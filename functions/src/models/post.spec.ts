@@ -6,7 +6,11 @@ mockFirebase(
       posts: [],
     },
   },
-  {includeIdsInData: true, mutable: true},
+  {
+    includeIdsInData: true,
+    mutable: true,
+    simulateQueryFilters: false,
+  },
 );
 import {
   mockWhere,

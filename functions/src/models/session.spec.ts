@@ -6,7 +6,11 @@ mockFirebase(
       sessions: [],
     },
   },
-  {includeIdsInData: true, mutable: true},
+  {
+    includeIdsInData: true,
+    mutable: true,
+    simulateQueryFilters: false,
+  },
 );
 
 import {
