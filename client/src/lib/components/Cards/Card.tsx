@@ -20,8 +20,10 @@ import {ExerciseCard} from '../../../../../shared/src/types/generated/Exercise';
 import CardGraphic from '../CardGraphic/CardGraphic';
 import Markdown from '../Typography/Markdown/Markdown';
 import textStyles from '../Typography/styles';
-import {Collection} from '../../../../../shared/src/types/generated/Collection';
 import CollectionTag from '../Tag/CollectionTag';
+import {CollectionWithLanguage} from '../../content/types';
+import {LANGUAGE_TAG} from '../../i18n';
+import LanguageTag from '../Tag/LanguageTag';
 
 export const HEIGHT = 175;
 
@@ -140,6 +142,7 @@ const Content = styled.View({
 type CardProps = {
   title?: string;
   description?: string;
+  language?: LANGUAGE_TAG;
   tags?: Array<string>;
   cardStyle?: ExerciseCard;
   onPress: () => void;
@@ -148,7 +151,7 @@ type CardProps = {
   isPinned?: boolean;
   reminderEnabled?: boolean;
   interestedCount?: number;
-  collection?: Collection | null;
+  collection?: CollectionWithLanguage | null;
   style?: ViewStyle;
   backgroundColor?: string;
   textColor?: string;
@@ -157,6 +160,7 @@ type CardProps = {
 export const Card: React.FC<CardProps> = ({
   title,
   description,
+  language,
   tags,
   cardStyle,
   onPress,
@@ -170,7 +174,7 @@ export const Card: React.FC<CardProps> = ({
   backgroundColor,
   textColor,
 }) => {
-  const {t} = useTranslation('Component.Card');
+  const {t, i18n} = useTranslation('Component.Card');
 
   return (
     <Wrapper
@@ -201,6 +205,12 @@ export const Card: React.FC<CardProps> = ({
         {collection && (
           <>
             <CollectionTag>{collection.name}</CollectionTag>
+            <Spacer4 />
+          </>
+        )}
+        {language && language !== i18n.resolvedLanguage && (
+          <>
+            <LanguageTag>{language.toUpperCase()}</LanguageTag>
             <Spacer4 />
           </>
         )}

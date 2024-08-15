@@ -6,7 +6,7 @@ import useSubscribeToSessionIfFocused from './useSubscribeToSessionIfFocused';
 import useSubscribeToSession from './useSubscribeToSession';
 import useGetExerciseById from '../../content/hooks/useGetExerciseById';
 import {LiveSessionType} from '../../../../../shared/src/schemas/Session';
-import {Exercise} from '../../../../../shared/src/types/generated/Exercise';
+import {ExerciseWithLanguage} from '../../content/types';
 
 jest.mock('../../../lib/sessions/hooks/useSessions');
 jest.mock('./useSubscribeToSession');
@@ -33,7 +33,7 @@ describe('useSubscribeToSessionIfFocused', () => {
   const mockGetExerciseById = jest.fn().mockReturnValue({
     name: 'Some Exercise',
     slides: [{type: 'instruction'}, {type: 'content'}],
-  } as Exercise);
+  } as ExerciseWithLanguage);
   mockUseGetExerciseById.mockReturnValue(mockGetExerciseById);
 
   const navigation = useNavigation();

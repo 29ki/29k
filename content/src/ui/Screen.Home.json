@@ -13,7 +13,13 @@
   "pt": {
     "heading": "Sessões",
     "add": "Sessão",
-    "sections": {}
+    "sections": {
+      "forYou": "Para ti",
+      "liveSessions": "Sessões ao vivo",
+      "community": "Comunidade Aware",
+      "sharingPosts": "O que os outros estão a partilhar"
+    },
+    "seeAll": "Ver tudo"
   },
   "sv": {
     "heading": "Sessioner",

@@ -3,6 +3,7 @@ import {AddFeedbackBody} from '../../../shared/src/types/Feedback';
 import * as slack from '../models/slack';
 import {getExerciseById} from '../lib/exercise';
 import {SessionMode} from '../../../shared/src/schemas/Session';
+import {DEFAULT_LANGUAGE_TAG} from '../lib/i18n';
 
 export const addFeedback = async (feedback: AddFeedbackBody) => {
   const savedData = await metricsModel.addFeedback(feedback);
@@ -21,6 +22,7 @@ export const addFeedback = async (feedback: AddFeedbackBody) => {
       feedback.sessionMode,
       Boolean(savedData.approved),
       feedback.params,
+      feedback.language || DEFAULT_LANGUAGE_TAG,
     );
   }
 };
@@ -29,7 +31,11 @@ export const getFeedbackCountByExercise = async (
   exerciseId: string,
   mode?: SessionMode,
 ) => {
-  const docs = await metricsModel.getFeedbackByExercise(exerciseId, mode);
+  const docs = await metricsModel.getFeedbackByExercise(
+    exerciseId,
+    undefined,
+    mode,
+  );
 
   return docs.reduce(
     (agg, feedback) => ({
@@ -41,8 +47,3 @@ export const getFeedbackCountByExercise = async (
     {positive: 0, negative: 0},
   );
 };
-
-export const getApprovedFeedbackByExercise = async (
-  exerciseId: string,
-  mode?: SessionMode,
-) => metricsModel.getFeedbackByExercise(exerciseId, mode, true);

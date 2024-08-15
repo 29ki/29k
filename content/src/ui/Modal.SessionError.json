@@ -10,7 +10,12 @@
   },
   "pt": {
     "description": "A sessão que estás a procurar já não está disponível.",
-    "image__image": "https://res.cloudinary.com/cupcake-29k/image/upload/v1683807355/Images/flowers_slijjk.png"
+    "image__image": "https://res.cloudinary.com/cupcake-29k/image/upload/v1683807355/Images/flowers_slijjk.png",
+    "descriptionEjected": "Foste removido desta sessão pelo moderador.",
+    "infoEjected": "Não poderás voltar a entrar na sessão.",
+    "codeOfConductInfo": "Lê o nosso código de conduta",
+    "codeOfConductHere": "aqui",
+    "codeOfConductLink": "https://wiki.29k.org/user-code-of-conduct"
   },
   "sv": {
     "description": "Sessionen du letar efter finns inte längre.",

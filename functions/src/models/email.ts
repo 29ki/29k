@@ -68,6 +68,11 @@ const createReportEmail = (
       params,
     }),
     categories: ['Report from user'],
+    mailSettings: {
+      bypassUnsubscribeManagement: {
+        enable: true,
+      },
+    },
   };
 };
 

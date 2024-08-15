@@ -1,9 +1,9 @@
 import {useMemo} from 'react';
 import {useTranslation} from 'react-i18next';
-import {Exercise} from '../../../../../../../shared/src/types/generated/Exercise';
 import useTags from '../../../../content/hooks/useTags';
+import {ExerciseWithLanguage} from '../../../../content/types';
 
-const useGetSessionCardTags = (exercise?: Exercise | null) => {
+const useGetSessionCardTags = (exercise?: ExerciseWithLanguage | null) => {
   const {t} = useTranslation('Component.SessionCard');
   const tagObjs = useTags(exercise?.tags);
 

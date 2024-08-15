@@ -17,9 +17,11 @@
     "errors": {
       "auth/invalid-email": "Email e/ou password errada",
       "auth/wrong-password": "Email e/ou password errada",
-      "auth/user-not-found": "Email não existe",
-      "auth/user-disabled": "Email inativo"
-    }
+      "auth/user-not-found": "Email e/ou password errada",
+      "auth/user-disabled": "Email e/ou password errada"
+    },
+    "title": "Autentica-te para removeres os teus dados",
+    "confirm": "Confirmar"
   },
   "sv": {
     "email": "Email",

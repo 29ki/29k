@@ -3,7 +3,10 @@
     "sessions": "sessions",
     "new": "New"
   },
-  "pt": {},
+  "pt": {
+    "sessions": "sessões",
+    "new": "Novo"
+  },
   "sv": {
     "sessions": "sessioner",
     "new": "Ny"

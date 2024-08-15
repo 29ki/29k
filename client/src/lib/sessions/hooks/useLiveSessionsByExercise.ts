@@ -1,9 +1,12 @@
 import {useState, useEffect} from 'react';
 import {LiveSessionType} from '../../../../../shared/src/schemas/Session';
 import {fetchSessions} from '../api/sessions';
-import {Exercise} from '../../../../../shared/src/types/generated/Exercise';
+import {ExerciseWithLanguage} from '../../content/types';
 
-const useLiveSessionsByExercise = (exercise?: Exercise, limit: number = 5) => {
+const useLiveSessionsByExercise = (
+  exercise?: ExerciseWithLanguage,
+  limit: number = 5,
+) => {
   const [sessions, setSessions] = useState<Array<LiveSessionType>>([]);
   const [loading, setLoading] = useState(false);
 

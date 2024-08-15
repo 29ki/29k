@@ -106,7 +106,7 @@ const CompletedSessionModal = () => {
   const {payload, timestamp} = completedSessionEvent;
   const exercise = useExerciseById(payload.exerciseId, payload.language);
   const tags = useTags(exercise?.tags);
-  const {getSharingPostForSession} = useSessionSharingPosts(exercise?.id);
+  const {getSharingPostForSession} = useSessionSharingPosts();
   const getFeedbackBySessionId = useGetFeedbackBySessionId();
   const relatedExercises = useExercisesByTags(exercise?.tags, exercise?.id, 5);
 

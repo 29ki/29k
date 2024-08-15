@@ -14,7 +14,7 @@ const LiveSessionWrapper = styled.View({
   width: CARD_WIDTH,
 });
 
-const renderSharingPost: ListRenderItem<LiveSessionType> = ({item}) => (
+const renderLiveSharing: ListRenderItem<LiveSessionType> = ({item}) => (
   <LiveSessionWrapper>
     <SessionCard session={item} />
   </LiveSessionWrapper>
@@ -30,7 +30,7 @@ const LiveSessions: React.FC<Props> = ({sessions}) =>
     </Gutters>
   ) : (
     <FlatList
-      renderItem={renderSharingPost}
+      renderItem={renderLiveSharing}
       horizontal
       data={sessions}
       ListHeaderComponent={Spacer16}

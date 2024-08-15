@@ -1,18 +1,21 @@
 {
   "en": {
     "featuredHeading": "New releases",
-    "collectionsHeading": "Collections",
+    "collectionsHeading": "Programs",
     "sessionsHeading": "Sessions",
     "liveSessionsHeading": "Live sessions",
     "skillsHeading": "Skills"
   },
   "pt": {
     "sessionsHeading": "Sessões",
-    "collectionsHeading": "Coleções"
+    "collectionsHeading": "Coleções",
+    "featuredHeading": "Novos lançamentos",
+    "liveSessionsHeading": "Sessões ao vivo",
+    "skillsHeading": "Competências"
   },
   "sv": {
     "featuredHeading": "Nya releaser",
-    "collectionsHeading": "Samlingar",
+    "collectionsHeading": "Program",
     "sessionsHeading": "Sessioner",
     "skillsHeading": "Färdigheter",
     "liveSessionsHeading": "Live-sessioner"

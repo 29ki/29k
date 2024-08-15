@@ -8,7 +8,15 @@
     "step_3": "Nervous",
     "answer_3": "Thanks for sharing. In this place, all of you is welcome. We're here to support. And it's okay to just listen in with the camera off - we appreciate your presence in any form."
   },
-  "pt": {},
+  "pt": {
+    "question": "Como te estás a sentir por participares nesta sessão?",
+    "step_1": "Entusiasmada/o",
+    "answer_1": "Boa! Obrigada por estares aqui. A tua presença torna a sessão excelente.",
+    "step_2": "Neutra/o",
+    "answer_2": "Obrigada pela tua presença. Se tens algumas dúvidas estás no lugar certo. Vamos guiar-te nesta experiência. Podes limitar-te a ouvir ou então participar da forma que quiseres. ",
+    "step_3": "Nervosa/o",
+    "answer_3": "Obrigada por partilhares. Neste lugar todos são bem-vindos. Estamos aqui para te apoiar. E está tudo bem se quiseres apenas ouvir e manter a câmara desligada. Agradecemos a tua presença de qualquer forma."
+  },
   "sv": {
     "question": "Hur känner du dig inför sessionen?",
     "step_1": "Uppspelt",

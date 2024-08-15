@@ -12,7 +12,8 @@
     "actions": {
       "cancel": "Cancelar",
       "confirm": "Abrir configurações"
-    }
+    },
+    "message": "Acede às configurações para nos dares permissões para adicionar eventos ao teu calendário. Isto vai reiniciar a app Aware FJN."
   },
   "sv": {
     "title": "Du har inte gett tillåtelse.",

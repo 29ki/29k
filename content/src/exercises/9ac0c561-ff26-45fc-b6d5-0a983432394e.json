@@ -139,7 +139,10 @@
       "videoLoop": {
         "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1676991218/Video/portal1_the_willingnes_stance_cosgwx.mp4",
         "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1676972801/Audio/portal_audio_the_willingnes_stance_pxrzfe.mp3",
-        "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1676991354/Images/portal_the_willingnes_stance_thumbnail_hvcvof.png"
+        "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1676991354/Images/portal_the_willingnes_stance_thumbnail_hvcvof.png",
+        "p5JsScript": {
+          "lang": "javascript"
+        }
       },
       "videoEnd": {
         "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1676991218/Video/portal2_the_willingnes_stance_kti6ub.mp4"
@@ -248,6 +251,16 @@
             "text": "Quem quer começar?\n\n> Deixa todos os presentes fazerem o check-out individualmente.\n\nObrigada/o a todos por fazerem o check-out e estarem presentes hoje nesta sessão.\n\n> Conclui a sessão para encaminhar os presentes para a experiência de saída."
           }
         ]
+      },
+      {
+        "type": "instruction",
+        "content": {
+          "heading": "Parabéns",
+          "text": "Gostaríamos muito que continuasses esta missão:\n\nDurante o resto do dia, sempre que sentires que estás a resistir a alguma coisa no teu interior, ativa a tua predisposição e dá as boas-vindas a essa experiência.",
+          "image": {
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1684329936/Images/card_image_the_willingnes_stance_1_bcwhxk.png"
+          }
+        }
       }
     ],
     "theme": {
@@ -273,7 +286,10 @@
       "videoLoop": {
         "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1676991218/Video/portal1_the_willingnes_stance_cosgwx.mp4",
         "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1676972801/Audio/portal_audio_the_willingnes_stance_pxrzfe.mp3",
-        "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1676991354/Images/portal_the_willingnes_stance_thumbnail_hvcvof.png"
+        "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1676991354/Images/portal_the_willingnes_stance_thumbnail_hvcvof.png",
+        "p5JsScript": {
+          "lang": "javascript"
+        }
       },
       "videoEnd": {
         "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1676991218/Video/portal2_the_willingnes_stance_kti6ub.mp4"
@@ -285,6 +301,7 @@
     ],
     "link": "https://aware.29k.org/the-willingness-stance",
     "id": "9ac0c561-ff26-45fc-b6d5-0a983432394e",
+    "async": true,
     "description": "Uma meditação guiada para parar a luta interior e canalizar a nossa energia para o que realmente importa. Aceitar os desafios internos pode ajudar-nos a redirecionar o nosso foco e impulsionar-nos para ações com significado."
   },
   "sv": {

@@ -15,7 +15,9 @@
     "clearUpdate": "Limpar atualização",
     "title": "Programador",
     "showHiddenContent": "Mostrar conteúdo escondido",
-    "addDevUserEvents": "Adicionar eventos de usuário para desenvolvimento"
+    "addDevUserEvents": "Adicionar eventos de utilizador para desenvolvimento",
+    "showLockedContent": "Mostrar conteúdo bloqueado",
+    "logUserEvents": "Registar eventos de utilizador"
   },
   "sv": {
     "title": "Utvecklare",

@@ -201,11 +201,16 @@
         "content": {
           "heading": "O amor puro e simples",
           "video": {
-            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1670322252/FJN/Live%20Sessions/meditation_pure_simple_love_pt_awrfo6_pf7qo7.mp4",
-            "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1674554578/Images/thumb_meditation_pure_simple_love_wex49u.png",
+            "source": "",
+            "preview": "",
             "durationTimer": true
           },
-          "image": "https://res.cloudinary.com/twentyninek/image/upload/q_auto,t_global/v1636016815/Singles/sticky_eng_ps00eg.png"
+          "image": "https://res.cloudinary.com/twentyninek/image/upload/q_auto,t_global/v1636016815/Singles/sticky_eng_ps00eg.png",
+          "lottie": {
+            "durationTimer": true,
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1676977421/Lottie/audio_meditation_default_black_default_omemwt.json",
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1716379843/FJN/Meditations/O_AMOR_PURO_E_SIMPLES_-_04_10_lo18fe_raoct3.mp3"
+          }
         },
         "hostNotes": [
           {
@@ -279,6 +284,16 @@
         "video": {
           "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1675958263/Video/async_outro_pure_simple_love_kjkjaq.mp4",
           "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/v1675960044/Images/thumb_async_pure%20simple_love_q6jg7c.png"
+        }
+      },
+      {
+        "type": "instruction",
+        "content": {
+          "image": {
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1698256076/Images/pure-simple-love_vi9ura.png"
+          },
+          "heading": "Parabéns",
+          "text": "Gostaríamos muito que continuasses esta missão:\n\nDefine um lembrete a uma hora aleatória do dia durante uma semana. Quando o lembrete ativar faz uma reflexão acerca de um momento de felicidade nas últimas 24 horas. Está atento ao que estás a sentir interiormente."
         }
       }
     ],

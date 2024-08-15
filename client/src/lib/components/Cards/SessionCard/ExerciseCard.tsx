@@ -1,7 +1,6 @@
 import {useNavigation} from '@react-navigation/native';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import React, {useCallback} from 'react';
-import {Exercise} from '../../../../../../shared/src/types/generated/Exercise';
 import {ModalStackProps} from '../../../navigation/constants/routes';
 import {formatContentName} from '../../../utils/string';
 import CardSmall from '../CardSmall';
@@ -9,9 +8,10 @@ import {ViewStyle} from 'react-native';
 import Card from '../Card';
 import useGetSessionCardTags from './hooks/useGetSessionCardTags';
 import useGetActiveCollectionByExerciseId from '../../../content/hooks/useGetActiveCollectionByExerciseId';
+import {ExerciseWithLanguage} from '../../../content/types';
 
 type ExerciseCardContainerProps = {
-  exercise: Exercise;
+  exercise: ExerciseWithLanguage;
   small?: boolean;
   resolvePinnedCollection?: boolean;
   onPress?: () => void;
@@ -51,6 +51,7 @@ const ExerciseCard: React.FC<ExerciseCardContainerProps> = ({
     return (
       <CardSmall
         title={formatContentName(exercise)}
+        language={exercise.language}
         cardStyle={exercise?.card}
         collection={collection}
         onPress={onPressHandle}
@@ -65,6 +66,7 @@ const ExerciseCard: React.FC<ExerciseCardContainerProps> = ({
     <Card
       title={formatContentName(exercise)}
       description={exercise.description}
+      language={exercise.language}
       tags={tags}
       cardStyle={exercise.card}
       collection={collection}

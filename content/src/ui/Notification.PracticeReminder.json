@@ -95,7 +95,102 @@
       }
     }
   },
-  "pt": {},
+  "pt": {
+    "reminders": {
+      "collection": {
+        "0": {
+          "id": "reminder-1-v1",
+          "personal": {
+            "title": "{{collectionName}}",
+            "body": "{{userName}}, preparada/o para praticar?"
+          },
+          "generic": {
+            "title": "{{collectionName}}",
+            "body": "Preparada/o para praticar?"
+          }
+        },
+        "1": {
+          "id": "reminder-2-v1",
+          "personal": {
+            "title": "{{collectionName}}",
+            "body": "{{userName}}, não te esqueças de praticar."
+          },
+          "generic": {
+            "title": "{{collectionName}}",
+            "body": "Não te esqueças de praticar."
+          }
+        },
+        "2": {
+          "id": "reminder-3-v1",
+          "personal": {
+            "title": "{{collectionName}}",
+            "body": "{{userName}}, a prática contínua é muito importante."
+          },
+          "generic": {
+            "title": "{{collectionName}}",
+            "body": "A prática contínua é muito importante."
+          }
+        },
+        "3": {
+          "id": "reminder-4-v1",
+          "personal": {
+            "title": "{{collectionName}}",
+            "body": "{{userName}}, um último lembrete para praticares."
+          },
+          "generic": {
+            "title": "{{collectionName}}",
+            "body": "Um último lembrete para praticares."
+          }
+        }
+      },
+      "general": {
+        "0": {
+          "id": "reminder-1-v1",
+          "personal": {
+            "title": "Lembrete",
+            "body": "{{userName}}, pronta/o para praticar?"
+          },
+          "generic": {
+            "title": "Lembrete",
+            "body": "Pronta/o para praticar?"
+          }
+        },
+        "1": {
+          "id": "reminder-2-v1",
+          "personal": {
+            "title": "Lembrete",
+            "body": "{{userName}}, não te esqueças de praticar."
+          },
+          "generic": {
+            "title": "Lembrete",
+            "body": "Não te esqueças de praticar."
+          }
+        },
+        "2": {
+          "id": "reminder-3-v1",
+          "personal": {
+            "title": "Lembrete",
+            "body": "{{userName}}, a prática contínua é muito importante."
+          },
+          "generic": {
+            "title": "Lembrete",
+            "body": "A prática contínua é muito importante."
+          }
+        },
+        "3": {
+          "id": "reminder-4-v1",
+          "personal": {
+            "title": "Lembrete",
+            "body": "{{userName}}, um último lembrete para praticares."
+          },
+          "generic": {
+            "title": "Lembrete",
+            "body": "Um último lembrete para praticares."
+          }
+        }
+      }
+    }
+  },
   "sv": {
     "title": "Övningspåminnelse",
     "reminders": {

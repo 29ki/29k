@@ -233,7 +233,12 @@
         {
           "text": "> Start the session when you're ready to go"
         }
-      ]
+      ],
+      "videoLoop": {
+        "p5JsScript": {
+          "lang": "javascript"
+        }
+      }
     },
     "tags": [
       "9c2c08a9-7dc6-4058-bc78-016d0eb00614"
@@ -247,88 +252,152 @@
         "type": "host",
         "hostNotes": [
           {
-            "text": "Welcome. I am X and today we will work for around 30 minutes on xx\n\nWe’ll be doing xx ex. meditation followed by time for reflection and sharing with each other."
+            "text": "Välkommen. Jag heter X och vi kommer att jobba tillsammans i ungefär 30 minuter med att omvandla värderingar till beteenden och mål.\n\nVi kommer att lyssna på en ljudövning tillsammans, reflektera en stund för oss själva och sedan finns det möjlighet att dela sina erfarenheter."
           },
           {
-            "text": "Let’s start with a mini check-in. How are you feeling right now? Please answer in two-three words. X, would you like to start?\n\n> Let everyone in the session, including yourself, check in one by one.\n\nThank you all for checking in. Let’s get started."
-          }
-        ]
-      },
-      {
-        "type": "content",
-        "hostNotes": [
-          {
-            "text": "Find a comfortable position. I will start the audio exercise and we'll meet back here afterwards. \n\n> Push play to start the audio exercise"
-          }
-        ]
-      },
-      {
-        "type": "reflection",
-        "hostNotes": [
-          {
-            "text": "Now we’ll take 1 minute to reflect on our own.\n\nxxMain question\n\nxxFurther explanations of main question if needed"
-          },
-          {
-            "text": "You can take notes on a piece of paper or just mental notes in your head. And there is no right or wrong here, our answers are our own. 1 minute starting now.\n\n> Press play to start the timer.\n\nThat’s 1 minute and it’s time to move on."
-          }
-        ]
-      },
-      {
-        "type": "sharing",
-        "hostNotes": [
-          {
-            "text": "Now we are getting into the sharing part. We have three rules for sharing:\n\n1. **What is said in here, stays in here.**\n2. **All you need to do is listen.** There is no fixing, helping or advice-giving needed. We are just showing up and exploring what ourselves and others are going through."
-          },
-          {
-            "text": "3. **Everything on the inside is okay.** Anger, love, hatred, sadness. Whatever shows up. No wrongs, no rights. It is what it is.\n\nThere will be a timer set for 2 minutes as an indicator. If you don’t want to share you can always say ‘pass’."
-          },
-          {
-            "text": "Who would like to start?\n\n> Let everyone (or as many as you got time for) share one by one. Press play to start the timer. Re-start for each new sharing.\n\nThank you so much everyone."
-          }
-        ],
-        "id": "Sharing 1"
-      },
-      {
-        "type": "host",
-        "hostNotes": [
-          {
-            "text": "Well done. If you’re up for it, you can continue what we started here today with a mission to bring this into your everyday life.\n\nxx mission description"
-          },
-          {
-            "text": "Before we leave this space let’s do a mini check-out. \n\nHow are you feeling right now? Has anything shifted? Please answer in two-three words."
-          },
-          {
-            "text": "Who would like to start?\n\n> Let everyone in the session check out one by one.\n\nThank you all for checking out and for joining this session today.\n\n> Finish session to send everyone off to the exit experience."
+            "text": "Vi börjar med en mini-check-in. Hur känner du dig just nu? Svara gärna med två-tre ord. X, skulle du vilja börja?\n\n> Låt alla deltagare, inklusive dig själv, checka in en och en. \n\nTack för att ni checkade in. Då kör vi igång."
           }
         ]
       },
       {
         "type": "instruction",
         "content": {
-          "text": "Well done.\n\nSummary.\n\nIf you’re up for it, you can continue with this mission.\n\nmission description"
+          "text": "SMART:a mål är ett sätt förvandla värderingar från ord till handling. \n\nDu behöver någonstans att skriva för den här övningen.",
+          "image": {
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/v1707994019/Contributors/async_set_smart-goals_jfwido.png"
+          }
+        }
+      },
+      {
+        "type": "content",
+        "hostNotes": [
+          {
+            "text": "Sätt dig bekvämt. Jag kommer att starta ljudövningen, så ses vi här igen efteråt. \n\n> Tryck play för att starta ljudfilen."
+          }
+        ],
+        "content": {
+          "lottie": {
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1713536044/Audio/Set_SMART_goals_Swe_ynnxxp.mp3",
+            "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1713535945/SRT%20(captions)%20files/Set_SMART_goals_Swe_new.srt",
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/t_card_image/v1676977421/Lottie/audio_meditation_default_black_default_omemwt.json",
+            "durationTimer": true
+          }
+        }
+      },
+      {
+        "type": "reflection",
+        "hostNotes": [
+          {
+            "text": "Nästa steg är att tyst reflektera i en minut.\n\nFrågan är Vad ska du göra? Och varför är det viktigt för dig?"
+          },
+          {
+            "text": "Om du vill kan du skriva ner dina funderingar på ett papper, eller bara tänka fritt. Det finns inga svar som är rätt eller fel här – vad som än dyker upp är okej.\n\n> Tryck på play för att starta timern.\n\nDå har det gått en minut och det är dags att gå vidare."
+          }
+        ],
+        "content": {
+          "heading": "Vad ska du göra? Varför är det viktigt?",
+          "lottie": {
+            "durationTimer": true,
+            "duration": 59,
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/t_card_image/v1676642915/Lottie/default_1min_black_rosi2l.json",
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1707994709/Audio/portal_audio-Set_SMART_goals_guj1ma.mp3"
+          }
+        }
+      },
+      {
+        "type": "sharing",
+        "hostNotes": [
+          {
+            "text": "Det här steget handlar om att dela med sig av sin upplevelse och lyssna på andras. Vi har tre regler:\n\n1. **Det som sägs här, stannar här.**\n2. **Allt som behövs är att vi lyssnar på varandra.** Inget fixande, ingen rådgivning eller annan hjälp behövs. Vi är bara här för att utforska våra egna och andras upplevelser."
+          },
+          {
+            "text": "3. **Allt som händer på insidan är okej.** Ilska, kärlek, smärta, glädje. Vad som än dyker upp, det finns inget rätt eller fel. Det bara är som det är.\n\nDet finns en timer på två minuter att hålla sig efter på ett ungefär. Om du inte vill dela med dig är det bara att säga 'pass'."
+          },
+          {
+            "text": "Vem vill börja?\n\n> Låt alla, eller så många som det finns tid för, dela en efter en. Tryck på play för att starta timern. Starta om för varje person.\n\nTack så mycket för att ni lyssnar och delar med er."
+          }
+        ],
+        "id": "Sharing 1",
+        "content": {
+          "heading": "Vad ska du göra? Varför är det viktigt?",
+          "lottie": {
+            "durationTimer": true,
+            "duration": 120,
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/t_card_image/v1676639253/Lottie/default_2min_black_o6egey.json"
+          }
+        }
+      },
+      {
+        "type": "host",
+        "hostNotes": [
+          {
+            "text": "Nu vet vi hur en sätter SMART:a mål. Mål som är specifika, mätbara, accepterade, realistiska och tidsbestämda. Det kan hjälpa oss att göra mer av sådant som känns meningsfullt."
+          },
+          {
+            "text": "Innan vi avslutar så gör vi en mini-utcheckning.\nHur känner du dig nu? Har något ändrats? Svara med två-tre ord.\n\nVem vill börja?"
+          },
+          {
+            "text": "> Låt alla checka ut en efter en.\n\nTack så mycket för era utcheckningar, och för att ni deltog i den här sessionen.\n\n> Avsluta sessionen för att skicka deltagarna till exit-upplevelsen."
+          }
+        ]
+      },
+      {
+        "type": "instruction",
+        "content": {
+          "text": "Nu har du lärt dig att sätta SMART:a mål:\n\n* Specifikt\n* Mätbart\n* Accepterat\n* Realistiskt\n* Tidsbundet\n\nSMART:a mål kan hjälpa oss att ta steg mot ett mer meningsfullt liv. Gör ett åtagande till dig själv för när du ska börja, och när du ska utvärdera målet du har satt i dag.",
+          "image": {
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1707994019/Contributors/async_set_smart-goals_jfwido.png"
+          }
         }
       }
     ],
     "theme": {
-      "textColor": "#2AE2D7"
+      "textColor": "#2E2E2E",
+      "backgroundColor": "#ff979d"
     },
     "hidden": false,
+    "name": "Sätt SMART:a mål",
     "live": true,
-    "published": false,
-    "card": {},
+    "published": true,
+    "card": {
+      "image": {
+        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1707994021/Contributors/card_set_smart-goals_uhwtmz.png"
+      }
+    },
+    "coCreators": [
+      {
+        "name": "Jenny Rickardsson, manus och röst",
+        "url": "https://www.linkedin.com/in/jenny-rickardson-6770a959/",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413228/Contributors/Jenny%20Rickardsson.jpg"
+      },
+      {
+        "name": "Samuel Yan, art works",
+        "url": "https://openprocessing.org/user/293890?view=sketches&o=48",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1707993748/Contributors/SamuelYAN_vtyjjx.jpg"
+      }
+    ],
     "duration": 30,
     "introPortal": {
       "hostNotes": [
         {
-          "text": "> Start the session when you're ready to go"
+          "text": "> Starta sessionen är du är redo.\n>\n>\n>\n>"
         }
-      ]
+      ],
+      "videoLoop": {
+        "p5JsScript": {
+          "lang": "javascript",
+          "code": "// by SamuelYAN\n// more works //\n// https://twitter.com/SamuelAnn0924\n// https://www.instagram.com/samuel_yan_1990/\n\n//pink scene\n//refer:https://www.youtube.com/watch?v=mHQmnumnNgo&t=513s\n\n// var seed = Math.random() * 1453;\nvar seed = 8901;\nvar a = 2,\n\tb = 3;\nvar th = 0,\n\tseg = 0.01;\nvar r;\nvar mySize, margin;\nlet colors_dress_1 = \"9ce1fd-fdf7af-fdd5a4-9ce1fd-fdf7af\".split(\"-\").map((a) => \"#\" + a);\nlet colors_dress_2 = \"9ce1fd-fdf7af-fdd5a4-9ce1fd-fdf7af-2450A6-639CBF-F2EFBD-F28705-F2380F-AAD9CD-E8D595-E9BBB5-E7CBA9-8DA47E\".split(\"-\").map((a) => \"#\" + a);\nlet colors111 = \"f2f2f2-d9d9d9-595959-262626-0d0d0d\".split(\"-\").map((a) => \"#\" + a);\nlet colors1111 = \"2450A6-639CBF-F2EFBD-F28705-F2380F\".split(\"-\").map((a) => \"#\" + a);\nlet color_shapes;\nlet colors2 = \"f8f9fb-f9f6e0-45454c-ef9643-f06543\"\n\t.split(\"-\")\n\t.map((a) => \"#\" + a + \"00\");\nlet colorbg2 = \"e9ebfb80\".split(\"-\").map((a) => \"#\" + a);\nlet colorbg = \"FF979D\".split(\"-\").map((a) => \"#\" + a);\n\n\nfunction setup() {\n\t// frameRate(25);\n\tmySize = min(windowWidth, windowHeight);\n\t// mySize = 1000;\n\tmargin = mySize / 100;\n\t// createCanvas(windowWidth, windowHeight);\n\t createCanvas(windowWidth, windowHeight);\n\tcolorMode(HSB, 360, 100, 100, 100);\n\t// pixelDensity(5);\n\tr = mySize / random(4, 7);\n\tcolor_shapes = colors111;\n\tbackground(colorbg);\n\tlet filter1 = new makeFilter();\n}\n\nfunction draw() {\n\trandomSeed(seed);\n\tbg_lines();\n\tnoFill();\n\tstrokeCap(SQUARE);\n\tpush();\n\tlet speed1 = random(0.15, 0.45);\n\tlet distance = random(1, 4);\n\ttranslate(width / 2, height / 2);\n\n\tlet ele_num = 6;\n\tfor (let i = 0; i < ele_num; i += 1) {\n\n\t\t// if (i > ele_num / 2) {\n\t\tr = mySize / random(3, 6);\n\t\tr = r * random(0.75, 1.25);\n\t\ta = random(1) * speed1;\n\t\tb = random(2) * speed1;\n\t\tstrokeWeight(random(0.25, 0.5) * 5);\n\t\trotate(random(TAU));\n\t\tstroke(\"#FF979D\");\n\t\tpush();\n\t\ttranslate(random(-i * 50, i * 50) + r * cos(a * th), random(-i * 50, i * 50) + r * sin(b * th));\n\t\tline(0, 0, r * 1 * cos(a * (th + seg) * 2), r * 2 * sin(b * (th + seg) * 2));\n\t\tpop();\n\t\t// }\n\n\t\tif (i % ele_num == 0) {\n\t\t\t// dancer01\n\t\t\tr = mySize / random(3, 6);\n\t\t\tr = r * random(0.75, 1.25);\n\t\t\ta = random(0.5, 1) * speed1;\n\t\t\tb = random(1.5, 1) * speed1;\n\t\t\trotate(random(TAU));\n\t\t\tpush();\n\t\t\ttranslate(random(-i * 50, i * 50) + distance * r * cos(a * th), random(-i * 50, i * 50) + distance * r * sin(b * th));\n\t\t\trotate(random(th * 1));\n\t\t\tnoStroke();\n\t\t\tlet i_num = 80;\n\t\t\tfor (let i = 0; i < i_num; i++) {\n\t\t\t\tpush();\n\t\t\t\trotate(TAU / i_num * i);\n\t\t\t\tnoFill();\n\t\t\t\tstroke(\"#f2f2f2\");\n\t\t\t\tstrokeWeight(r / 50);\n\t\t\t\tline(0, 0, r / 1.95 * cos(b * (th + seg)), r / 1.95 * cos(b * (th + seg)));\n\t\t\t\tpop();\n\t\t\t}\n\n\t\t\t//body\n\t\t\tfill(\"#b80000\");\n\t\t\tellipse(0, 0, r / 1 * cos(b * (th + seg)), r / 2 * cos(b * (th + seg)));\n\n\t\t\t// arms & hands\n\t\t\tfill(\"#f2f2f2\");\n\t\t\trectMode(CENTER);\n\t\t\trect(0, 0, r / 0.45 * cos(b * (th + seg)), r / 8 * cos(b * (th + seg)));\n\t\t\tpush();\n\t\t\ttranslate(-r / 0.45 * cos(b * (th + seg)) / 2, 0);\n\t\t\tcircle(0, 0, r / 4 * cos(b * (th + seg)));\n\t\t\tpop();\n\t\t\tpush();\n\t\t\ttranslate(r / 0.45 * cos(b * (th + seg)) / 2, 0);\n\t\t\tcircle(0, 0, r / 4 * cos(b * (th + seg)));\n\t\t\tpop();\n\n\t\t\tdrawingContext.shadowColor = \"#20202040\";\n\t\t\tdrawingContext.shadowOffsetX = 1;\n\t\t\tdrawingContext.shadowOffsetY = 1;\n\t\t\tdrawingContext.shadowBlur = 5;\n\t\t\t//head\n\t\t\tfill(\"#f2f2f2\");\n\t\t\tcircle(0, 0, r / 4 * (0.75 + abs(cos(a * (th + seg))) / 2));\n\t\t\tlet i_num2 = 6;\n\t\t\tfor (let i = 0; i < i_num2; i++) {\n\t\t\t\tpush();\n\t\t\t\trotate(TAU / i_num2 * i);\n\t\t\t\ttranslate(0, r / 10 * (0.75 + abs(cos(a * (th + seg))) / 2));\n\t\t\t\tnoStroke();\n\t\t\t\tfill(\"#fff46d\");\n\t\t\t\tcircle(0, 0, r / 10 * (0.75 + abs(cos(a * (th + seg))) / 2));\n\t\t\t\tpop();\n\t\t\t}\n\t\t\tfor (let i = 0; i < i_num2; i++) {\n\t\t\t\tpush();\n\t\t\t\trotate(TAU / i_num2 * i + TAU / 12);\n\t\t\t\ttranslate(0, r / 8 * (0.75 + abs(cos(a * (th + seg))) / 2));\n\t\t\t\tnoStroke();\n\t\t\t\tfill(\"#ff0000\");\n\t\t\t\tcircle(0, 0, r / 12 * (0.75 + abs(cos(a * (th + seg))) / 2));\n\t\t\t\tpop();\n\t\t\t}\n\t\t\tpop();\n\t\t} else if (i % ele_num == 1) {\n\t\t\t// dancer02\n\t\t\tr = mySize / random(3, 6);\n\t\t\tr = r * random(0.75, 1.25);\n\t\t\ta = random(1, 0.5) * speed1;\n\t\t\tb = random(0.5, 1) * speed1;\n\t\t\tnoStroke();\n\t\t\trotate(random(TAU));\n\t\t\tpush();\n\t\t\ttranslate(random(-i * 50, i * 50) + distance * r * cos(a * th), random(-i * 50, i * 50) + distance * r * sin(b * th));\n\t\t\trotate(random(th * 4));\n\n\t\t\tdrawingContext.shadowColor = \"#20202040\";\n\t\t\tdrawingContext.shadowOffsetX = 1;\n\t\t\tdrawingContext.shadowOffsetY = 1;\n\t\t\tdrawingContext.shadowBlur = 5;\n\n\t\t\t//body\n\t\t\tfill(\"#c2b9c6\");\n\t\t\tarc(0, 0, r / 1.5 * abs(sin(a * (th + seg))), r / 1 * abs(sin(a * (th + seg))), 0, PI, PIE);\n\t\t\tpush();\n\t\t\ttranslate(0, r / 2 * abs(sin(a * (th + seg))));\n\t\t\tellipse(0, 0, r / 3 * abs(sin(a * (th + seg))), r / 1.5 * abs(sin(a * (th + seg))));\n\t\t\ttranslate(0, r / 3 * abs(sin(a * (th + seg))));\n\t\t\tellipse(0, 0, r / 4 * abs(sin(a * (th + seg))), r / 2 * abs(sin(a * (th + seg))));\n\t\t\tpop();\n\n\t\t\tarc(0, 0, r / 1.5 * abs(sin(a * (th + seg))), r / 1 * abs(sin(a * (th + seg))), -PI, 0, PIE);\n\t\t\tpush();\n\t\t\ttranslate(0, -r / 2 * abs(sin(a * (th + seg))));\n\n\t\t\tellipse(0, 0, r / 3 * abs(sin(a * (th + seg))), r / 1.5 * abs(sin(a * (th + seg))));\n\t\t\ttranslate(0, -r / 3 * abs(sin(a * (th + seg))));\n\t\t\tellipse(0, 0, r / 4 * abs(sin(a * (th + seg))), r / 2 * abs(sin(a * (th + seg))));\n\t\t\tpop();\n\n\t\t\t// head\n\t\t\tarc(0, 0, r / 3 * (0.75 + abs(sin(b * (th + seg))) / 2), r / 2 * (0.75 + abs(sin(b * (th + seg))) / 2), 0, PI, PIE);\n\t\t\tarc(0, 0, r / 3 * (0.75 + abs(sin(b * (th + seg))) / 2), r / 2 * (0.75 + abs(sin(b * (th + seg))) / 2), -PI, 0, PIE);\n\n\t\t\tfill(\"#f2f2f2\");\n\t\t\tcircle(0, 0, r / 6 * (0.75 + abs(sin(b * (th + seg))) / 2));\n\n\t\t\tpop();\n\t\t} else if (i % ele_num == 2) {\n\t\t\t// dancer03\n\t\t\tr = mySize / random(3, 6);\n\t\t\tr = r * random(0.75, 1.25);\n\t\t\ta = random(0.5, 1) * speed1;\n\t\t\tb = random(1.5, 1) * speed1;\n\t\t\trotate(random(TAU));\n\t\t\tpush();\n\t\t\ttranslate(random(-i * 50, i * 50) + distance * r * cos(a * th), random(-i * 50, i * 50) + distance * r * sin(b * th));\n\t\t\trotate(random(th * 1));\n\t\t\tnoStroke();\n\t\t\tfill(\"#fff4cd\");\n\t\t\tcircle(0, 0, r / 0.75 * cos(b * (th + seg)));\n\n\t\t\tdrawingContext.shadowColor = \"#20202040\";\n\t\t\tdrawingContext.shadowOffsetX = 1;\n\t\t\tdrawingContext.shadowOffsetY = 1;\n\t\t\tdrawingContext.shadowBlur = 5;\n\n\t\t\t//body\n\t\t\tfill(\"#ad0a00\");\n\t\t\tcircle(0, 0, r / 1.25 * cos(b * (th + seg)));\n\n\t\t\t// arms & hands\n\t\t\tfor (let i = 0; i < 20; i++) {\n\t\t\t\trandomSeed(seed * i);\n\t\t\t\tfill(random(colors_dress_2));\n\t\t\t\tpush();\n\t\t\t\ttranslate(-r / 1.5 * cos(b * (th + seg)) / 2 - i * r / 30 * cos(b * (th + seg)), 0);\n\t\t\t\tellipse(0, 0, (r / 8 - i * r / 60) * cos(b * (th + seg)), (r / 2 - i * r / 60) * cos(b * (th + seg)));\n\t\t\t\tpop();\n\t\t\t}\n\t\t\tfor (let i = 0; i < 20; i++) {\n\t\t\t\trandomSeed(seed * i);\n\t\t\t\tfill(random(colors_dress_2));\n\t\t\t\tpush();\n\t\t\t\ttranslate(r / 1.5 * cos(b * (th + seg)) / 2 + i * r / 30 * cos(b * (th + seg)), 0);\n\t\t\t\tellipse(0, 0, (r / 8 - i * r / 60) * cos(b * (th + seg)), (r / 2 - i * r / 60) * cos(b * (th + seg)));\n\t\t\t\tpop();\n\t\t\t}\n\n\t\t\t//head\n\t\t\tfill(\"#f2f2f2\");\n\t\t\tcircle(0, 0, r / 4 * (0.75 + abs(cos(a * (th + seg))) / 2));\n\n\t\t\tpop();\n\t\t} else if (i % ele_num == 3) {\n\n\t\t\t// dancer04\n\t\t\tr = mySize / random(3, 6);\n\t\t\tr = r * random(0.75, 1.25);\n\t\t\ta = random(1.5, 1) * speed1;\n\t\t\tb = random(0.5, 1) * speed1;\n\t\t\trotate(random(TAU));\n\t\t\tpush();\n\t\t\ttranslate(random(-i * 50, i * 50) + distance * r * cos(a * th), random(-i * 50, i * 50) + distance * r * sin(b * th));\n\t\t\trotate(random(th * 1));\n\t\t\tnoStroke();\n\t\t\tfill(\"#470054\"); //dress\n\t\t\tcircle(0, 0, r / 0.75 * cos(b * (th + seg)));\n\n\t\t\tdrawingContext.shadowColor = \"#20202040\";\n\t\t\tdrawingContext.shadowOffsetX = 1;\n\t\t\tdrawingContext.shadowOffsetY = 1;\n\t\t\tdrawingContext.shadowBlur = 5;\n\n\t\t\t//body //colorful\n\t\t\tfor (let i = 0; i < 20; i++) {\n\t\t\t\trandomSeed(seed * i);\n\t\t\t\tfill(random(colors_dress_2));\n\t\t\t\tcircle(0, 0, (r / 1.25 - i / 1) * cos(b * (th + seg)));\n\t\t\t}\n\n\t\t\t// arms & hands\n\t\t\tfill(\"#fff8b6\");\n\t\t\tpush();\n\t\t\ttranslate(-r / 1.25 * cos(b * (th + seg)) / 1, 0);\n\t\t\trectMode(CENTER);\n\t\t\trect(0, 0, r / 1.0 * cos(b * (th + seg)), r / 2.5 * cos(b * (th + seg)));\n\t\t\ttranslate(-r / 1.0 * cos(b * (th + seg)) / 2, 0);\n\t\t\tcircle(0, 0, r / 10.0 * cos(b * (th + seg)));\n\t\t\tpop();\n\t\t\tpush();\n\t\t\ttranslate(r / 1.25 * cos(b * (th + seg)) / 1, 0);\n\t\t\trectMode(CENTER);\n\t\t\trect(0, 0, r / 1.0 * cos(b * (th + seg)), r / 2.5 * cos(b * (th + seg)));\n\t\t\ttranslate(r / 1.0 * cos(b * (th + seg)) / 2, 0);\n\t\t\tcircle(0, 0, r / 10.0 * cos(b * (th + seg)));\n\t\t\tpop();\n\n\t\t\t//head\n\t\t\tfill(\"#470054\");\n\t\t\tcircle(0, 0, r / 4 * (0.75 + abs(cos(a * (th + seg))) / 2));\n\t\t\tpop();\n\n\t\t} else if (i % ele_num == 4) {\n\n\t\t\t// dancer05\n\t\t\tr = mySize / random(3, 6);\n\t\t\tr = r * random(0.75, 1.25);\n\t\t\ta = random(1.5, 1) * speed1;\n\t\t\tb = random(0.5, 1) * speed1;\n\t\t\trotate(random(TAU));\n\t\t\tpush();\n\t\t\ttranslate(random(-i * 50, i * 50) + distance * r * cos(a * th), random(-i * 50, i * 50) + distance * r * sin(b * th));\n\t\t\trotate(random(th * 1));\n\t\t\tnoStroke();\n\t\t\tfill(\"#f2f2f2\");\n\t\t\tcircle(0, 0, r / 0.75 * cos(b * (th + seg)));\n\n\t\t\tdrawingContext.shadowColor = \"#20202040\";\n\t\t\tdrawingContext.shadowOffsetX = 1;\n\t\t\tdrawingContext.shadowOffsetY = 1;\n\t\t\tdrawingContext.shadowBlur = 5;\n\n\t\t\t//body\n\t\t\tfill(\"#f2f2f2\");\n\t\t\tellipse(0, 0, r / 1.25 * cos(b * (th + seg)), r / 1.25 * cos(b * (th + seg)) / 2);\n\n\t\t\t// arms & hands\n\t\t\tpush();\n\t\t\ttranslate(-r / 1.5 * cos(b * (th + seg)) / 2, 0);\n\t\t\trectMode(CENTER);\n\t\t\trect(0, 0, (r / 2) * cos(b * (th + seg)), (r / 8) * cos(b * (th + seg)));\n\t\t\tpop();\n\t\t\tpush();\n\t\t\ttranslate(r / 1.5 * cos(b * (th + seg)) / 2, 0);\n\t\t\trectMode(CENTER);\n\t\t\trect(0, 0, (r / 2) * cos(b * (th + seg)), (r / 8) * cos(b * (th + seg)));\n\t\t\tpop();\n\n\t\t\t//head\n\t\t\tfill(\"#f2f2f2\");\n\t\t\tstroke(\"#202020\");\n\t\t\tstrokeWeight(0.2);\n\t\t\tellipse(0, 0, r / 4 * (0.75 + abs(cos(a * (th + seg))) / 2),r / 4 * (0.75 + abs(cos(a * (th + seg))) / 2));\n\t\t\tellipse(0, 0, r / 4 * (0.75 + abs(cos(a * (th + seg))) / 2),r / 6 * (0.75 + abs(cos(a * (th + seg))) / 2));\n\t\t\tellipse(0, 0, r / 4 * (0.75 + abs(cos(a * (th + seg))) / 2),r / 10 * (0.75 + abs(cos(a * (th + seg))) / 2));\n\t\t\tellipse(0, 0, r / 4 * (0.75 + abs(cos(a * (th + seg))) / 2),r / 20 * (0.75 + abs(cos(a * (th + seg))) / 2));\n\n\t\t\tpop();\n\n\t\t} else if (i % ele_num == 5) {\n\t\t\t// dancer06\n\t\t\tr = mySize / random(3, 6);\n\t\t\tr = r * random(0.75, 1.25);\n\t\t\ta = random(0.5, 1) * speed1;\n\t\t\tb = random(1.5, 1) * speed1;\n\t\t\trotate(random(TAU));\n\t\t\tpush();\n\t\t\ttranslate(random(-i * 50, i * 50) + distance * r * cos(a * th), random(-i * 50, i * 50) + distance * r * sin(b * th));\n\t\t\trotate(random(th * 1));\n\t\t\tnoStroke();\n\t\t\tfill(\"#fffa4c\");\n\t\t\tcircle(0, 0, r / 0.75 * cos(b * (th + seg)));\n\t\t\tdrawingContext.shadowColor = \"#20202040\";\n\t\t\tdrawingContext.shadowOffsetX = 1;\n\t\t\tdrawingContext.shadowOffsetY = 1;\n\t\t\tdrawingContext.shadowBlur = 5;\n\t\t\tlet c_num = 12;\n\t\t\tfor (let i = 0; i < c_num; i++) {\n\t\t\t\tpush();\n\t\t\t\trotate(TAU / 5 + TAU / c_num * i);\n\t\t\t\ttranslate(0, r / 2 * abs(cos(b * (th + seg))));\n\t\t\t\tnoStroke();\n\t\t\t\tfill(random([\"#FF0000\", \"#FFE40E\", \"#3500FF\"]));\n\t\t\t\tcircle(0, 0, r / 3.5 * abs(cos(b * (th + seg))));\n\t\t\t\tpop();\n\t\t\t}\n\n\t\t\tlet c_num1 = 10;\n\t\t\tfor (let i = 0; i < c_num1; i++) {\n\t\t\t\tpush();\n\t\t\t\trotate(TAU / 5 + TAU / c_num1 * i);\n\t\t\t\ttranslate(0, r / 3 * abs(cos(b * (th + seg))));\n\t\t\t\tnoStroke();\n\t\t\t\tfill(random([\"#FFE40E\", \"#3500FF\", \"#FF0000\"]));\n\t\t\t\tcircle(0, 0, r / 4.5 * abs(cos(b * (th + seg))));\n\t\t\t\tpop();\n\t\t\t}\n\t\t\tlet c_num2 = 5;\n\t\t\tfor (let i = 0; i < c_num2; i++) {\n\t\t\t\tpush();\n\t\t\t\trotate(TAU / c_num2 * i);\n\t\t\t\ttranslate(0, r / 4 * abs(cos(b * (th + seg))));\n\t\t\t\tnoStroke();\n\t\t\t\tfill(random([\"#3500FF\", \"#FF0000\", \"#FFE40E\"]));\n\t\t\t\tcircle(0, 0, r / 6 * abs(cos(b * (th + seg))));\n\t\t\t\tpop();\n\t\t\t}\n\n\t\t\tdrawingContext.shadowColor = \"#20202000\";\n\t\t\tdrawingContext.shadowOffsetX = 1;\n\t\t\tdrawingContext.shadowOffsetY = 1;\n\t\t\tdrawingContext.shadowBlur = 0;\n\t\t\t// arms & hands\n\t\t\tpush();\n\t\t\ttranslate(-r / 2 * cos(b * (th + seg)), 0);\n\t\t\trectMode(CENTER);\n\t\t\tfill(\"#b80600\");\n\t\t\trect(0, 0, r / 1.5 * cos(b * (th + seg)), r / 8 * cos(b * (th + seg)));\n\t\t\ttranslate(-r / 1.5 * cos(b * (th + seg)) / 2, 0);\n\t\t\tfill(\"#f2f2f2\");\n\t\t\tcircle(0, 0, r / 10 * cos(b * (th + seg)));\n\t\t\tpop();\n\t\t\tpush();\n\t\t\ttranslate(r / 2 * cos(b * (th + seg)), 0);\n\t\t\trectMode(CENTER);\n\t\t\tfill(\"#b80600\");\n\t\t\trect(0, 0, r / 1.5 * cos(b * (th + seg)), r / 8 * cos(b * (th + seg)));\n\t\t\ttranslate(r / 1.5 * cos(b * (th + seg)) / 2, 0);\n\t\t\tfill(\"#f2f2f2\");\n\t\t\tcircle(0, 0, r / 10 * cos(b * (th + seg)));\n\t\t\tpop();\n\n\t\t\t//body\n\t\t\tfill(\"#e60800\");\n\t\t\tellipse(0, 0, r / 1 * cos(b * (th + seg)), r / 2 * cos(b * (th + seg)));\n\n\t\t\tdrawingContext.shadowColor = \"#20202040\";\n\t\t\tdrawingContext.shadowOffsetX = 1;\n\t\t\tdrawingContext.shadowOffsetY = 1;\n\t\t\tdrawingContext.shadowBlur = 5;\n\t\t\t//head\n\t\t\tfill(\"#f2f2f2\");\n\t\t\tcircle(0, 0, r / 4 * (0.75 + abs(cos(a * (th + seg))) / 2));\n\t\t\tlet i_num2 = 12;\n\t\t\tfor (let i = 0; i < i_num2; i++) {\n\t\t\t\tpush();\n\t\t\t\trotate(TAU / i_num2 * i);\n\t\t\t\ttranslate(0, r / 20 * (0.75 + abs(cos(a * (th + seg))) / 2));\n\t\t\t\tnoStroke();\n\t\t\t\tfill(\"#fff46d\");\n\t\t\t\tcircle(0, 0, r / 20 * (0.75 + abs(cos(a * (th + seg))) / 2));\n\t\t\t\tpop();\n\t\t\t}\n\t\t\tfor (let i = 0; i < i_num2; i++) {\n\t\t\t\tpush();\n\t\t\t\trotate(TAU / i_num2 * i + TAU / 12);\n\t\t\t\ttranslate(0, r / 16 * (0.75 + abs(cos(a * (th + seg))) / 2));\n\t\t\t\tnoStroke();\n\t\t\t\tfill(\"#ff0000\");\n\t\t\t\tcircle(0, 0, r / 24 * (0.75 + abs(cos(a * (th + seg))) / 2));\n\t\t\t\tpop();\n\t\t\t}\n\t\t\tfor (let i = 0; i < i_num2; i++) {\n\t\t\t\tpush();\n\t\t\t\trotate(TAU / i_num2 * i);\n\t\t\t\ttranslate(0, r / 10 * (0.75 + abs(cos(a * (th + seg))) / 2));\n\t\t\t\tnoStroke();\n\t\t\t\tfill(\"#fff46d\");\n\t\t\t\tcircle(0, 0, r / 15 * (0.75 + abs(cos(a * (th + seg))) / 2));\n\t\t\t\tpop();\n\t\t\t}\n\t\t\tfor (let i = 0; i < i_num2; i++) {\n\t\t\t\tpush();\n\t\t\t\trotate(TAU / i_num2 * i + TAU / 12);\n\t\t\t\ttranslate(0, r / 8 * (0.75 + abs(cos(a * (th + seg))) / 2));\n\t\t\t\tnoStroke();\n\t\t\t\tfill(\"#ff0000\");\n\t\t\t\tcircle(0, 0, r / 24 * (0.75 + abs(cos(a * (th + seg))) / 2));\n\t\t\t\tpop();\n\t\t\t}\n\t\t\tpop();\n\n\t\t}\n\t}\n\tpop();\n\tth += seg;\n\timage(overAllTexture, 0, 0);\n}\n\n\n\n\n\nfunction bg_lines() {\n\tnoFill();\n\tstroke(\"#f2f2f2\");\n\tstrokeWeight(random(0.1, 0.1) * 10);\n\n\t//middle\n\tfor (let i = 0; i < 10; i++) {\n\t\trandomSeed(seed * i);\n\t\tlet line_x = random(width * 0.4, width * 0.6);\n\n\t\tline(line_x, 0, line_x, height * 0.75);\n\t}\n\tstrokeCap(PROJECT);\n\tline(width * 0.4, 0, width * 0.4, height * 0.75);\n\tline(width * 0.6, 0, width * 0.6, height * 0.75);\n\tline(width * 0.4, height * 0.75, width * 0.6, height * 0.75);\n\n\t//left\n\tline(0, height * 0.75, width * 0.2, height * 0.75);\n\tline(width * 0.2, height * 0.75, width * 0.2, height * 0.8);\n\tline(width * 0.2, height * 0.8, width * 0.3, height * 0.8);\n\tline(width * 0.3, height * 0.8, width * 0.3, height * 0.85);\n\tline(width * 0.3, height * 0.85, width * 0.4, height * 0.85);\n\tline(width * 0.4, height * 0.85, width * 0.4, height * 0.9);\n\tline(width * 0, height * 0.9, width * 0.4, height * 0.9);\n\n\t//right\n\ttriangle(width*1.1, height * 0.85, width * 0.7, height * 0.85, width*1.1, height * 0.8);\n}\n\n\n\n\nfunction makeFilter() {\n\tlet filterNum = int(Math.random() * 982);\n\trandomSeed(seed);\n\t// noiseのフィルターをつくる\n\tcolorMode(HSB, 360, 100, 100, 100);\n\tdrawingContext.shadowColor = color(0, 0, 5, 10);\n\toverAllTexture = createGraphics(width, height);\n\toverAllTexture.loadPixels();\n\tfor (var i = 0; i < width; i++) { // noprotect\n\t\tfor (var j = 0; j < height; j++) {\n\t\t\toverAllTexture.set(i,j,color(random(356,353), 40, 98, noise(i / 3, j / 3, (i * j) / 50) * 12));\n\t\t}\n\t}\n\toverAllTexture.updatePixels();\n}\n\nfunction drawOverPattern() {\n\tpush();\n\ttranslate(width / 2, height / 2);\n\t//rotate(-PI / 2);\n\n\tlet s = max(width, height) / 1 * sqrt(3) - 2;\n\tlet n = 6;\n\n\tfor (let theta = TWO_PI / 6; theta < TWO_PI; theta += TWO_PI / 6) { // noprotect\n\t\tdivideOP(0, 0, s * cos(theta), s * sin(theta), s * cos(theta + TWO_PI / 6), s * sin(theta + TWO_PI / 6), n);\n\t}\n\tpop();\n}\n\nfunction prop(x1, y1, x2, y2, k) {\n\tlet x3 = (1 - k) * x1 + k * x2;\n\tlet y3 = (1 - k) * y1 + k * y2;\n\treturn [x3, y3];\n}\n\nfunction divideOP(x1, y1, x2, y2, x3, y3, n) {\n\tif (n > 1) {\n\t\tlet [xA, yA] = prop(x1, y1, x2, y2, 1 / 3);\n\t\tlet [xB, yB] = prop(x1, y1, x2, y2, 2 / 3);\n\t\tlet [xC, yC] = prop(x2, y2, x3, y3, 1 / 3);\n\t\tlet [xD, yD] = prop(x2, y2, x3, y3, 2 / 3);\n\t\tlet [xE, yE] = prop(x3, y3, x1, y1, 1 / 3);\n\t\tlet [xF, yF] = prop(x3, y3, x1, y1, 2 / 3);\n\t\tlet [xG, yG] = prop(xF, yF, xC, yC, 1 / 2);\n\t\tdivideOP(x1, y1, xA, yA, xF, yF, n - 1);\n\t\tdivideOP(xA, yA, xB, yB, xG, yG, n - 1);\n\t\tdivideOP(xB, yB, x2, y2, xC, yC, n - 1);\n\t\tdivideOP(xG, yG, xF, yF, xA, yA, n - 1);\n\t\tdivideOP(xC, yC, xG, yG, xB, yB, n - 1);\n\t\tdivideOP(xF, yF, xG, yG, xE, yE, n - 1);\n\t\tdivideOP(xG, yG, xC, yC, xD, yD, n - 1);\n\t\tdivideOP(xD, yD, xE, yE, xG, yG, n - 1);\n\t\tdivideOP(xE, yE, xD, yD, x3, y3, n - 1);\n\t} else {\n\t\tmakeTriangle([x1, y1], [x2, y2], [x3, y3]);\n\t}\n}\n\nfunction makeTriangle(v1, v2, v3) {\n\tlet points = shuffle([v1, v2, v3]);\n\tlet [x1, y1] = points[0];\n\tlet [x2, y2] = points[1];\n\tlet [x3, y3] = points[2];\n\tlet iStep = 1 / (pow(2, floor(random(4, 2))));\n\tfor (let i = 0; i < 1; i += iStep) { // noprotect\n\t\tlet [x4, y4] = prop(x1, y1, x2, y2, 1 - i);\n\t\tlet [x5, y5] = prop(x1, y1, x3, y3, 1 - i);\n\t\ttriangle(x1, y1, x4, y4, x5, y5);\n\t}\n}"
+        },
+        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1707994709/Audio/portal_audio-Set_SMART_goals_guj1ma.mp3"
+      },
+      "textColor": "#2E2E2E"
     },
     "tags": [
       "9c2c08a9-7dc6-4058-bc78-016d0eb00614"
     ],
     "id": "33a188a2-6871-47d6-a754-f5c246bd6b9a",
-    "async": false
+    "async": true,
+    "description": "Att förvandla värderingar och önskningar till mål görs enklast med en bra struktur: lär dig SMART:a mål."
   },
   "ja": {
     "slides": [

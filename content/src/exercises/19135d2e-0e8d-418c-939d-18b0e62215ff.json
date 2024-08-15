@@ -99,7 +99,7 @@
       "textColor": "#2E2E2E",
       "backgroundColor": "#cacaca"
     },
-    "hidden": true,
+    "hidden": false,
     "locked": false,
     "name": "Open up to compassion",
     "live": true,
@@ -125,11 +125,16 @@
         "name": "Erik Fernholm, editor",
         "url": "https://www.linkedin.com/in/lyckoaktivist/?originalSubdomain=se",
         "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665412608/Contributors/Erik%20Fernholm.png"
+      },
+      {
+        "url": "https://openprocessing.org/user/183691?view=sketches&o=228",
+        "name": "Aaron Reuland, artwork",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1713964400/Images/user183691_i74pfh.jpg"
       }
     ],
     "duration": 30,
     "introPortal": {
-      "textColor": "#2AE2D7",
+      "textColor": "#2E2E2E",
       "hostNotes": [
         {
           "text": "> Start the session when you're ready to go"
@@ -139,7 +144,8 @@
         "p5JsScript": {
           "lang": "javascript",
           "code": "function loadScript(url, callback) {\n    const script = document.createElement(\"script\");\n    script.type = \"text/javascript\";\n    script.src = url;\n\n    // Optional: Provide a callback function to run once the script is loaded\n    script.onload = function() {\n        if (callback) callback();\n    };\n\n    // Append the script to the document's head\n    document.head.appendChild(script);\n}\n\n// URLs of the external JavaScript libraries\nconst simplexNoiseURL = \"https://openprocessing-usercontent.s3.amazonaws.com/files/user183691/visual2179025/h5636a7067b4b5f2d98624459645bf990/simplexNoise.js\";\nconst spectralURL = \"https://openprocessing-usercontent.s3.amazonaws.com/files/user183691/visual2179025/h5636a7067b4b5f2d98624459645bf990/spectral.min.js\";\n\n// Load the simplexNoise library first\nloadScript(simplexNoiseURL, function() {\n    console.log(\"simplexNoise.js loaded successfully!\");\n\n    // Load the spectral library next\n    loadScript(spectralURL, function() {\n        console.log(\"spectral.min.js loaded successfully!\");\n\n        // Now both libraries are loaded, you can safely use their functionality here\n        // For example, initialize your sketch or call a function that relies on these libraries\n    });\n});\n\n\n\nlet colors = [\"#c78b25\", \"#4e5b6d\", \"#636b4b\", \"#2b5c72\", \"#973535\", \"#ad9690\", \"#15171f\"]\n\nlet drops = []\nlet splatters = []\nlet straps = []\nlet simplex\n\nfunction setup() {\n\tcreateCanvas(windowWidth, windowHeight);\n\tsimplex = new openSimplexNoise(Date.now())\n\tbackground(210);\n\tlet x = random(width)\n\tlet s = noise(x / 100) * width / 50\n\tdrops.push(new drop(x, s))\n}\n\nfunction draw() {\n\tif (frameCount % 50 == 0 && frameCount < 2500) {\n\n\t\tlet x = map(simplex.noise2D(frameCount / 300, random()), -1, 1, -width / 4, width + width / 4)\n\t\tlet s = noise(x / 100) * width / 50\n\t\tdrops.push(new drop(x, s))\n    straps.push(new strap(random(width), random(height / 5, height / 2.5)))\n\t\tstraps.push(new strap(random(width), random(height / 5, height / 2.5)))\n\n\t}\n\n\n\tif (frameCount % 100 == 0 && frameCount > 500 && frameCount < 4000) {\n\t\tsplatters.push(new splatter(random(width), random(0, height * 0.66), random(height * 0.02, height * 0.1)))\n\t}\n\tfor (let d of drops) {\n\t\td.move();\n\t\td.show();\n\t\td.done();\n\t}\n\tfor (let s of splatters) {\n\t\ts.move();\n\t\ts.show();\n\t\ts.done();\n\t}\n\tfor (let st of straps) {\n\t\tst.move();\n\t\tst.show();\n\t\tst.done();\n\t}\n\n}\n\nclass splatter {\n\tconstructor(x, y, r) {\n\t\tthis.pos = createVector(x, y);\n\t\tthis.color1 = random(colors)\n\t\tthis.color2 = random(colors)\n\t\tthis.r = r\n\t\tthis.currentR = 0\n\t\tthis.runs = []\n\t\tlet amount = floor(random(15, 30))\n\t\tlet startAngle = random(TAU)\n\t\tfor (let a = 0; a < TAU; a += TAU / amount) {\n\t\t\tlet aOff = random(-TAU / 12, TAU / 12)\n\t\t\tlet sizeRange = this.r / (amount / 4)\n\t\t\tvar sp = {\n\t\t\t\tangle: a + aOff,\n\t\t\t\tsize: random(sizeRange * 0.75, sizeRange * 1.5)\n\t\t\t}\n\t\t\tthis.runs.push(sp)\n\t\t}\n\t\tthis.speed = this.r / 40\n\t}\n\n\tmove() {\n\t\tthis.currentR += this.speed\n\t}\n\n\tshow() {\n\t\tlet mixer = map(this.currentR, 0, this.r, 0, 1)\n\t\tlet filler = color(spectral.mix(this.color1, this.color2, mixer))\n\t\t// let alpha= map(this.currentR, 0, this.r, 2, 100)\n\t\t// filler.setAlpha(alpha)\n\t\tfill(filler)\n\n\t\t//probably need to add some jiggle\n\t\tfor (let r of this.runs) {\n\t\t\tlet quaver = simplex.noise2D(r.angle, this.currentR / (this.r / 3)) * r.size / 4\n\t\t\tlet xoff = simplex.noise2D(r.angle, this.currentR / 100, this.pos.x) * this.currentR / 5\n\t\t\tlet yoff = noise(r.angle, this.currentR / 100, this.pos.y) * this.currentR\n\t\t\tellipse(this.pos.x + cos(r.angle) * this.currentR + xoff, this.pos.y + sin(r.angle) * this.currentR + yoff, r.size + quaver)\n\t\t}\n\t}\n\n\tdone() {\n\t\tif (this.currentR >= this.r) {\n\t\t\tlet index = splatters.indexOf(this);\n\t\t\tsplatters.splice(index, 1);\n\t\t}\n\n\t}\n}\n\nclass drop {\n\tconstructor(x, s) {\n\t\tthis.pos = createVector(x, -s)\n\t\tthis.color1 = random(colors)\n\t\tthis.color2 = random(colors)\n\t\tthis.size = s\n\t\tthis.speed = random(1, 5)\n\t}\n\n\tmove() {\n\t\tlet xdrift = simplex.noise2D(this.pos.x / 100, frameCount / 50) * this.size / 10\n\t\tlet mover = createVector(xdrift, this.speed)\n\t\tthis.pos.add(mover)\n\n\t}\n\n\tshow() {\n\t\tnoStroke()\n\t\tlet quaver = simplex.noise3D(this.pos.y / 200, this.pos.x / 200, frameCount / 50) * this.size / 2\n\t\tlet m = map(this.pos.y, 0, height, 0, 1)\n\t\tlet mixer = color(spectral.mix(this.color1, this.color2, m))\n\t\tlet a = map(this.size, width / 100, width / 10, 75, 1)\n\t\tmixer.setAlpha(a)\n\t\tfill(mixer)\n\t\tellipse(this.pos.x, this.pos.y, this.size + quaver)\n\t}\n\n\tdone() {\n\t\tif (this.pos.y > this.size + height) {\n\t\t\tlet index = drops.indexOf(this);\n\t\t\tdrops.splice(index, 1);\n\t\t}\n\n\t}\n}\n\nclass strap {\n\tconstructor(x, h) {\n\t\tthis.h = h\n\t\tthis.w = random(width / 100, width / 40)\n\t\tthis.pos = createVector(x, height + this.w)\n\t\tthis.color1 = random(colors)\n\t\tthis.color2 = random(colors)\n\t}\n\n\tmove() {\n\t\tthis.pos.y -= 1\n\t}\n\n\tshow() {\n\t\tpush()\n\t\tlet mix = map(this.pos.y, height, height - this.h, 0, 1)\n\t\tlet filler = color(spectral.mix(this.color1, this.color2, mix))\n\t\tfill(filler)\n\t\tlet curve = map(this.pos.y, height, height - this.h, 0, this.h)\n\t\tlet xoff = simplex.noise3D(this.pos.x, this.pos.y / (this.h * 2), frameCount / 200) * curve\n\t\tlet sizing = map(this.pos.y, height, height - this.h, this.w, 1)\n\t\tellipse(this.pos.x + xoff, this.pos.y, sizing)\npop()\n\t}\n\n\tdone() {\n\t\tif (this.pos.y < height - this.h) {\n\t\t\tlet index = straps.indexOf(this);\n\t\t\tstraps.splice(index, 1);\n\t\t}\n\t}\n}"
-        }
+        },
+        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1712905258/Audio/portal_audio_open_up_to_compassion_jclox4.mp3"
       }
     },
     "tags": [
@@ -156,10 +162,10 @@
         "type": "host",
         "hostNotes": [
           {
-            "text": "Welcome. I am X and today we will work for around 30 minutes on xx\n\nWe’ll be doing xx ex. meditation followed by time for reflection and sharing with each other."
+            "text": "Bem-vindos. Sou X e hoje vamos aprender durante cerca de 30 minutos como sentimos as emoções nos nossos corpos e como podemos acolhê-las com autocompaixão.\n\nVamos fazer uma meditação seguida de um tempo para reflexão e partilha entre todos."
           },
           {
-            "text": "Let’s start with a mini check-in. How are you feeling right now? Please answer in two-three words. X, would you like to start?\n\n> Let everyone in the session, including yourself, check in one by one.\n\nThank you all for checking in. Let’s get started."
+            "text": "Vamos começar com um mini check-in. Como te estás a sentir agora? Por favor, responde com duas ou três palavras. X, queres começar?\n\n> Deixa que todos na sessão, incluindo-te a ti, façam o check-in individualmente.\n\nObrigada/o a todos por fazerem o check-in. Vamos começar."
           }
         ]
       },
@@ -167,79 +173,131 @@
         "type": "content",
         "hostNotes": [
           {
-            "text": "Find a comfortable position. I will start the audio exercise and we'll meet back here afterwards. \n\n> Push play to start the audio exercise"
+            "text": "Encontra uma posição confortável. Vou iniciar a meditação.\n\n> Carrega play para iniciar a meditação"
           }
-        ]
+        ],
+        "content": {
+          "lottie": {
+            "subtitles": "",
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1716388572/FJN/Meditations/Opening_Space_to_Compassion_amzllt_ppzy9u.mp3",
+            "durationTimer": true,
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/t_card_image/v1676977421/Lottie/audio_meditation_default_black_default_omemwt.json"
+          }
+        }
       },
       {
         "type": "reflection",
         "hostNotes": [
           {
-            "text": "Now we’ll take 1 minute to reflect on our own.\n\nxxMain question\n\nxxFurther explanations of main question if needed"
+            "text": "Agora, vamos tirar 1 minuto para refletir individualmente.\n\nComo foi a tua experiência de te ligares fisicamente com as emoções e acolhê-las com compaixão?"
           },
           {
-            "text": "You can take notes on a piece of paper or just mental notes in your head. And there is no right or wrong here, our answers are our own. 1 minute starting now.\n\n> Press play to start the timer.\n\nThat’s 1 minute and it’s time to move on."
+            "text": "Podes tomar notas num papel ou mentalmente. Não há certo ou errado, as respostas são só tuas. 1 minuto a começar agora.\n\n> Carrega play para iniciar o cronómetro.\n\nPassou 1 minuto e é hora de seguir em frente."
           }
-        ]
+        ],
+        "content": {
+          "heading": "O que sentiste ao fazer este exercício?",
+          "lottie": {
+            "durationTimer": true,
+            "duration": 59,
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/t_card_image/v1676642915/Lottie/default_1min_black_rosi2l.json"
+          }
+        }
       },
       {
         "type": "sharing",
         "hostNotes": [
           {
-            "text": "Now we are getting into the sharing part. We have three rules for sharing:\n\n1. **What is said in here, stays in here.**\n2. **All you need to do is listen.** There is no fixing, helping or advice-giving needed. We are just showing up and exploring what ourselves and others are going through."
+            "text": "Agora vamos para a parte da partilha. Temos três regras para a partilha:\n\n1. **O que é dito aqui, fica aqui.**\n2. **Só tens de ouvir.** Não há necessidade de corrigir, ajudar ou dar conselhos. Estamos apenas a explorar o que estamos a sentir."
           },
           {
-            "text": "3. **Everything on the inside is okay.** Anger, love, hatred, sadness. Whatever shows up. No wrongs, no rights. It is what it is.\n\nThere will be a timer set for 2 minutes as an indicator. If you don’t want to share you can always say ‘pass’."
+            "text": "3. **Tudo o que sentires é aceitável.** Raiva, amor, ódio, tristeza. O que quer que apareça. Sem erros, sem acertos. É o que é.\n\nHaverá um cronómetro de 2 minutos como indicador. Se não quiseres partilhar, podes sempre dizer 'passo'."
           },
           {
-            "text": "Who would like to start?\n\n> Let everyone (or as many as you got time for) share one by one. Press play to start the timer. Re-start for each new sharing.\n\nThank you so much everyone."
+            "text": "Quem gostaria de começar?\n\n> Deixa que todos (ou o máximo de pessoas para as quais houver tempo) partilhem individualmente. Carrega play para iniciar o cronómetro. Reinicia para cada nova partilha.\n\nMuito obrigada/o a todos."
           }
         ],
-        "id": "Sharing 1"
+        "id": "Sharing 1",
+        "content": {
+          "heading": "O que sentiste ao fazer este exercício?",
+          "lottie": {
+            "durationTimer": true,
+            "duration": 120,
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/t_card_image/v1676639253/Lottie/default_2min_black_o6egey.json"
+          }
+        }
       },
       {
         "type": "host",
         "hostNotes": [
           {
-            "text": "Well done. If you’re up for it, you can continue what we started here today with a mission to bring this into your everyday life.\n\nxx mission description"
+            "text": "Muito bem. As emoções estão aqui para serem sentidas, e estar presente com elas permite-nos ser compassivos e autênticos. Podes continuar a sua prática com uma missão:\n\nDurante o resto do dia, sempre que sentires uma emoção surgir dentro de ti tira um momento para a localizares no corpo e dá-lhe espaço com compaixão."
           },
           {
-            "text": "Before we leave this space let’s do a mini check-out. \n\nHow are you feeling right now? Has anything shifted? Please answer in two-three words."
+            "text": "Antes de deixarmos este espaço, vamos fazer um mini check-out.\n\nComo te estás a sentir agora? Alguma coisa mudou? Por favor, responde com duas ou três palavras."
           },
           {
-            "text": "Who would like to start?\n\n> Let everyone in the session check out one by one.\n\nThank you all for checking out and for joining this session today.\n\n> Finish session to send everyone off to the exit experience."
+            "text": "Quem gostaria de começar?\n\n> Deixa que todos na sessão façam o check-out individualmente.\n\nObrigada/o a todos por fazerem o check-out e por participarem nesta sessão de hoje.\n\n> Termina a sessão para encaminhares todos para a saída."
           }
         ]
       },
       {
         "type": "instruction",
         "content": {
-          "text": "Well done.\n\nSummary.\n\nIf you’re up for it, you can continue with this mission.\n\nmission description"
+          "text": "As emoções estão aqui para serem sentidas, e estares presente com elas permite-te ser compassivo e autêntico.\n\nGostaríamos que continuasses esta missão: \n\nDurante o resto do dia, sempre que sentires uma emoção surgir dentro de ti tira um momento para a localizares no corpo e dá-lhe espaço com compaixão.",
+          "image": {
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1711547476/Images/card_Open_up_to_compassion_xqbsa2.png"
+          },
+          "heading": "Parabéns"
         }
       }
     ],
     "theme": {
-      "textColor": "#2AE2D7"
+      "textColor": "#2E2E2E",
+      "backgroundColor": "#cacaca"
     },
     "hidden": false,
     "locked": false,
+    "name": "Dá espaço à compaixão",
     "live": true,
-    "published": false,
+    "published": true,
     "card": {
-      "imageBackgroundColor": ""
+      "imageBackgroundColor": "",
+      "image": {
+        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1711547476/Images/card_Open_up_to_compassion_xqbsa2.png"
+      }
     },
+    "coCreators": [
+      {
+        "name": "Kristin Neff & Chris Germer, CMSC, original research",
+        "url": "https://centerformsc.org/",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1697723039/Images/Germer%2C%20Neff.png"
+      },
+      {
+        "name": "Erik Fernholm, editor",
+        "url": "https://www.linkedin.com/in/lyckoaktivist/?originalSubdomain=se",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665412608/Contributors/Erik%20Fernholm.png"
+      },
+      {
+        "url": "https://openprocessing.org/user/183691?view=sketches&o=228",
+        "name": "Aaron Reuland, artwork",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1713964400/Images/user183691_i74pfh.jpg"
+      }
+    ],
     "duration": 30,
     "introPortal": {
-      "textColor": "#2AE2D7",
+      "textColor": "#2E2E2E",
       "hostNotes": [
         {
-          "text": "> Start the session when you're ready to go"
+          "text": "> Começa quando estiveres pronta/o"
         }
       ],
       "videoLoop": {
         "p5JsScript": {
-          "lang": "javascript"
-        }
+          "lang": "javascript",
+          "code": "function loadScript(url, callback) {\n    const script = document.createElement(\"script\");\n    script.type = \"text/javascript\";\n    script.src = url;\n\n    // Optional: Provide a callback function to run once the script is loaded\n    script.onload = function() {\n        if (callback) callback();\n    };\n\n    // Append the script to the document's head\n    document.head.appendChild(script);\n}\n\n// URLs of the external JavaScript libraries\nconst simplexNoiseURL = \"https://openprocessing-usercontent.s3.amazonaws.com/files/user183691/visual2179025/h5636a7067b4b5f2d98624459645bf990/simplexNoise.js\";\nconst spectralURL = \"https://openprocessing-usercontent.s3.amazonaws.com/files/user183691/visual2179025/h5636a7067b4b5f2d98624459645bf990/spectral.min.js\";\n\n// Load the simplexNoise library first\nloadScript(simplexNoiseURL, function() {\n    console.log(\"simplexNoise.js loaded successfully!\");\n\n    // Load the spectral library next\n    loadScript(spectralURL, function() {\n        console.log(\"spectral.min.js loaded successfully!\");\n\n        // Now both libraries are loaded, you can safely use their functionality here\n        // For example, initialize your sketch or call a function that relies on these libraries\n    });\n});\n\n\n\nlet colors = [\"#c78b25\", \"#4e5b6d\", \"#636b4b\", \"#2b5c72\", \"#973535\", \"#ad9690\", \"#15171f\"]\n\nlet drops = []\nlet splatters = []\nlet straps = []\nlet simplex\n\nfunction setup() {\n\tcreateCanvas(windowWidth, windowHeight);\n\tsimplex = new openSimplexNoise(Date.now())\n\tbackground(210);\n\tlet x = random(width)\n\tlet s = noise(x / 100) * width / 50\n\tdrops.push(new drop(x, s))\n}\n\nfunction draw() {\n\tif (frameCount % 50 == 0 && frameCount < 2500) {\n\n\t\tlet x = map(simplex.noise2D(frameCount / 300, random()), -1, 1, -width / 4, width + width / 4)\n\t\tlet s = noise(x / 100) * width / 50\n\t\tdrops.push(new drop(x, s))\n    straps.push(new strap(random(width), random(height / 5, height / 2.5)))\n\t\tstraps.push(new strap(random(width), random(height / 5, height / 2.5)))\n\n\t}\n\n\n\tif (frameCount % 100 == 0 && frameCount > 500 && frameCount < 4000) {\n\t\tsplatters.push(new splatter(random(width), random(0, height * 0.66), random(height * 0.02, height * 0.1)))\n\t}\n\tfor (let d of drops) {\n\t\td.move();\n\t\td.show();\n\t\td.done();\n\t}\n\tfor (let s of splatters) {\n\t\ts.move();\n\t\ts.show();\n\t\ts.done();\n\t}\n\tfor (let st of straps) {\n\t\tst.move();\n\t\tst.show();\n\t\tst.done();\n\t}\n\n}\n\nclass splatter {\n\tconstructor(x, y, r) {\n\t\tthis.pos = createVector(x, y);\n\t\tthis.color1 = random(colors)\n\t\tthis.color2 = random(colors)\n\t\tthis.r = r\n\t\tthis.currentR = 0\n\t\tthis.runs = []\n\t\tlet amount = floor(random(15, 30))\n\t\tlet startAngle = random(TAU)\n\t\tfor (let a = 0; a < TAU; a += TAU / amount) {\n\t\t\tlet aOff = random(-TAU / 12, TAU / 12)\n\t\t\tlet sizeRange = this.r / (amount / 4)\n\t\t\tvar sp = {\n\t\t\t\tangle: a + aOff,\n\t\t\t\tsize: random(sizeRange * 0.75, sizeRange * 1.5)\n\t\t\t}\n\t\t\tthis.runs.push(sp)\n\t\t}\n\t\tthis.speed = this.r / 40\n\t}\n\n\tmove() {\n\t\tthis.currentR += this.speed\n\t}\n\n\tshow() {\n\t\tlet mixer = map(this.currentR, 0, this.r, 0, 1)\n\t\tlet filler = color(spectral.mix(this.color1, this.color2, mixer))\n\t\t// let alpha= map(this.currentR, 0, this.r, 2, 100)\n\t\t// filler.setAlpha(alpha)\n\t\tfill(filler)\n\n\t\t//probably need to add some jiggle\n\t\tfor (let r of this.runs) {\n\t\t\tlet quaver = simplex.noise2D(r.angle, this.currentR / (this.r / 3)) * r.size / 4\n\t\t\tlet xoff = simplex.noise2D(r.angle, this.currentR / 100, this.pos.x) * this.currentR / 5\n\t\t\tlet yoff = noise(r.angle, this.currentR / 100, this.pos.y) * this.currentR\n\t\t\tellipse(this.pos.x + cos(r.angle) * this.currentR + xoff, this.pos.y + sin(r.angle) * this.currentR + yoff, r.size + quaver)\n\t\t}\n\t}\n\n\tdone() {\n\t\tif (this.currentR >= this.r) {\n\t\t\tlet index = splatters.indexOf(this);\n\t\t\tsplatters.splice(index, 1);\n\t\t}\n\n\t}\n}\n\nclass drop {\n\tconstructor(x, s) {\n\t\tthis.pos = createVector(x, -s)\n\t\tthis.color1 = random(colors)\n\t\tthis.color2 = random(colors)\n\t\tthis.size = s\n\t\tthis.speed = random(1, 5)\n\t}\n\n\tmove() {\n\t\tlet xdrift = simplex.noise2D(this.pos.x / 100, frameCount / 50) * this.size / 10\n\t\tlet mover = createVector(xdrift, this.speed)\n\t\tthis.pos.add(mover)\n\n\t}\n\n\tshow() {\n\t\tnoStroke()\n\t\tlet quaver = simplex.noise3D(this.pos.y / 200, this.pos.x / 200, frameCount / 50) * this.size / 2\n\t\tlet m = map(this.pos.y, 0, height, 0, 1)\n\t\tlet mixer = color(spectral.mix(this.color1, this.color2, m))\n\t\tlet a = map(this.size, width / 100, width / 10, 75, 1)\n\t\tmixer.setAlpha(a)\n\t\tfill(mixer)\n\t\tellipse(this.pos.x, this.pos.y, this.size + quaver)\n\t}\n\n\tdone() {\n\t\tif (this.pos.y > this.size + height) {\n\t\t\tlet index = drops.indexOf(this);\n\t\t\tdrops.splice(index, 1);\n\t\t}\n\n\t}\n}\n\nclass strap {\n\tconstructor(x, h) {\n\t\tthis.h = h\n\t\tthis.w = random(width / 100, width / 40)\n\t\tthis.pos = createVector(x, height + this.w)\n\t\tthis.color1 = random(colors)\n\t\tthis.color2 = random(colors)\n\t}\n\n\tmove() {\n\t\tthis.pos.y -= 1\n\t}\n\n\tshow() {\n\t\tpush()\n\t\tlet mix = map(this.pos.y, height, height - this.h, 0, 1)\n\t\tlet filler = color(spectral.mix(this.color1, this.color2, mix))\n\t\tfill(filler)\n\t\tlet curve = map(this.pos.y, height, height - this.h, 0, this.h)\n\t\tlet xoff = simplex.noise3D(this.pos.x, this.pos.y / (this.h * 2), frameCount / 200) * curve\n\t\tlet sizing = map(this.pos.y, height, height - this.h, this.w, 1)\n\t\tellipse(this.pos.x + xoff, this.pos.y, sizing)\npop()\n\t}\n\n\tdone() {\n\t\tif (this.pos.y < height - this.h) {\n\t\t\tlet index = straps.indexOf(this);\n\t\t\tstraps.splice(index, 1);\n\t\t}\n\t}\n}"
+        },
+        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1712905258/Audio/portal_audio_open_up_to_compassion_jclox4.mp3"
       }
     },
     "tags": [
@@ -247,7 +305,8 @@
       "34100e43-2eb8-4d35-8eb0-9fa9f78e4935"
     ],
     "id": "19135d2e-0e8d-418c-939d-18b0e62215ff",
-    "async": false
+    "async": true,
+    "description": "Investiga onde sentes as emoções no teu corpo, para praticares a autocompaixão quando enfrentares emoções difíceis e pensamentos autocríticos."
   },
   "sv": {
     "slides": [

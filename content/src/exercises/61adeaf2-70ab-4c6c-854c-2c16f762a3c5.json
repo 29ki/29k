@@ -24,7 +24,7 @@
         },
         "hostNotes": [
           {
-            "text": "Defining personal values can give us a sense of direction in life. Heads up you’ll need to take notes somewhere for this exercise. \n\n> Press play to start."
+            "text": "Defining personal values can give us a sense of direction in life. Heads up you’ll need to take notes somewhere for this exercise. \n\nFind a comfortable position. I will push play and we'll meet back here afterwards. \n\n> Press play to start."
           }
         ]
       },
@@ -39,7 +39,7 @@
           }
         ],
         "content": {
-          "text": "What do your values and scores tell you? What did you learn about yourself?",
+          "text": "What did you learn about yourself?",
           "lottie": {
             "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1676642915/Lottie/default_1min_black_rosi2l.json",
             "durationTimer": true,
@@ -61,7 +61,7 @@
           }
         ],
         "content": {
-          "heading": "What can you learn about yourself from your values and your scores?",
+          "heading": "What can you learn about yourself?",
           "lottie": {
             "durationTimer": true,
             "duration": 120,
@@ -87,10 +87,11 @@
       {
         "type": "instruction",
         "content": {
-          "text": "Well done for defining what matters to you in life, to navigate through both ups and downs.\n\nYou can continue with this mission: Pick a value where it feels more difficult to live in line with it. Define a small behavior in line with this value, that you can do today or tomorrow.",
+          "text": "You have now defined what matters to you in life, to navigate through both ups and downs.\n\nAre you up for a mission? \n\nIf so, pick a value where it feels more difficult to live in line with it. Define a small behavior in line with this value, that you can do today or tomorrow.",
           "image": {
             "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1692872012/Images/card_personal_values_xpcp9x.png"
-          }
+          },
+          "heading": "Well done"
         }
       }
     ],
@@ -147,7 +148,7 @@
     "link": "https://aware.29k.org/personal-values",
     "id": "61adeaf2-70ab-4c6c-854c-2c16f762a3c5",
     "async": true,
-    "description": "Define personal values to navigate life in both ups and downs. Living a value-based life has been proven to increase sense of purpose and long term happiness."
+    "description": "Your personal values can help you navigate life in both ups and downs. Also, living a value-based life has been proven to increase sense of purpose and long term happiness.\n\nThis session will guide you to define your personal values."
   },
   "pt": {
     "slides": [
@@ -273,7 +274,7 @@
           }
         ],
         "content": {
-          "text": "Vad ser du i dina värderingar och poäng? Vad kan du lära dig om dig själv?",
+          "text": "Vad kan du lära dig om dig själv?",
           "lottie": {
             "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1676642915/Lottie/default_1min_black_rosi2l.json",
             "durationTimer": true,
@@ -295,7 +296,7 @@
           }
         ],
         "content": {
-          "heading": "Vad kan du lära dig från dina värderingar och poäng?",
+          "heading": "Vad kan du lära dig om dig själv?",
           "lottie": {
             "durationTimer": true,
             "duration": 120,
@@ -321,7 +322,7 @@
       {
         "type": "instruction",
         "content": {
-          "text": "Du har nu satt ord på vad som är betydelsefullt för dig i livet, för att hantera både med- och motgångar. Om du vill så finns det ett uppdrag för dig:\n\nVälj en värdering som känns lite extra utmanande just nu. Välj ett beteende eller en aktivitet i linje med den värderingen som du kan utföra idag eller i morgon. ",
+          "text": "Du har nu satt ord på vad som är betydelsefullt för dig i livet, för att hantera både med- och motgångar. \n\nVill du ta dig an en utmaning?\n\nVälj i så fall en värdering som känns lite extra utmanande just nu. Välj ett beteende eller en aktivitet i linje med den värderingen som du kan utföra redan idag eller i morgon. ",
           "image": {
             "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1692872012/Images/card_personal_values_xpcp9x.png"
           },
@@ -387,7 +388,7 @@
     "link": "https://aware.29k.org/personal-values",
     "id": "61adeaf2-70ab-4c6c-854c-2c16f762a3c5",
     "async": true,
-    "description": "Med hjälp av dina personliga värderingar kan du navigera livets med- och motgångar. Att leva i linje med sina värderingar har har visat sig ge en ökning av både upplevd mening och lycka. "
+    "description": "Dina personliga värderingar kan hjälpa dig navigera livets med- och motgångar. Att leva i linje med sina värderingar har har visat sig ge en ökning av både upplevd mening och lycka.\n\nI den här sessionen kommer du få möjlighet att hitta fram till just dina personliga värderingar."
   },
   "ja": {
     "slides": [

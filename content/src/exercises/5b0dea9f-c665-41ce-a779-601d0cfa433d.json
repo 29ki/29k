@@ -8,10 +8,7 @@
             "text": "Welcome. I am X and today we will work for around 30 minutes on acceptance and letting go of control.\\\n\\\nWe’ll be listening to a short audio file together, then we’ll take a two rounds to reflect on our own, and two rounds to share with each other."
           },
           {
-            "text": "Before moving on into the exercise, let's ground ourselves in the here and now with 3 cycles of breathing.\n\n> Inhale and exhale slowly x 3"
-          },
-          {
-            "text": "Let’s do a mini check-in. How are you feeling right now? Please answer in two-three words. X, would you like to start?\n\n> Let everyone in the session, including yourself, check in one by one.\n\nThank you all for checking in. Let’s move on."
+            "text": "Before moving on into the exercise, let’s do a mini check-in. How are you feeling right now? Please answer in two-three words. X, would you like to start?\n\n> Let everyone in the session, including yourself, check in one by one.\n\nThank you all for checking in. Let’s move on."
           }
         ],
         "video": {
@@ -28,11 +25,17 @@
         ],
         "content": {
           "video": {
-            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1673871362/Video/meditation_letting_go_of_control_mplxsm.mp4",
+            "source": "",
             "autoPlayLoop": false,
+            "audio": "",
+            "durationTimer": false,
+            "subtitles": ""
+          },
+          "lottie": {
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1676642915/Lottie/default_audio_white_sufmbz.json",
+            "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1689679219/SRT%20(captions)%20files/letting_go_of_control_nhnnwa.srt",
             "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1668093018/Audio/meditation_letting_go_of_control_becb1s.mp3",
-            "durationTimer": true,
-            "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1689679219/SRT%20(captions)%20files/letting_go_of_control_nhnnwa.srt"
+            "durationTimer": true
           }
         }
       },
@@ -49,8 +52,13 @@
         "content": {
           "heading": "What's in your beach ball?",
           "video": {
-            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1673875921/Video/timer1_letting_go_of_control_z1x47a.mp4",
-            "durationTimer": true
+            "source": "",
+            "durationTimer": false
+          },
+          "lottie": {
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1676642915/Lottie/default_1min_white_wvgwma.json",
+            "durationTimer": true,
+            "duration": 60
           }
         }
       },
@@ -59,7 +67,12 @@
         "content": {
           "heading": "What's in your beach ball?",
           "video": {
-            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1673879667/Video/timer2_letting_go_of_control_nxhgat.mp4",
+            "source": "",
+            "durationTimer": false
+          },
+          "lottie": {
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1676639253/Lottie/default_2min_white_arvrf2.json",
+            "duration": 120,
             "durationTimer": true
           }
         },
@@ -95,8 +108,13 @@
         "content": {
           "heading": "What if you let go of your beach ball?",
           "video": {
-            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1673875921/Video/timer1_letting_go_of_control_z1x47a.mp4",
+            "source": "",
             "durationTimer": true
+          },
+          "lottie": {
+            "durationTimer": true,
+            "duration": 60,
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1676642915/Lottie/default_1min_white_wvgwma.json"
           }
         }
       },
@@ -114,8 +132,13 @@
         "content": {
           "heading": "What if you let go of your beach ball?",
           "video": {
-            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1673879667/Video/timer2_letting_go_of_control_nxhgat.mp4",
-            "durationTimer": true
+            "source": "",
+            "durationTimer": false
+          },
+          "lottie": {
+            "durationTimer": true,
+            "duration": 60,
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1676639253/Lottie/default_2min_white_arvrf2.json"
           }
         },
         "hostNotes": [
@@ -180,9 +203,9 @@
         "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665414181/Contributors/Agnes%20Branny.png"
       },
       {
-        "name": "Ints Ivanovskis, art works",
-        "url": "https://www.linkedin.com/in/ints-ivanovskis-46ab0311a/",
-        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413436/Contributors/Ints%20Ivanovskis.jpg"
+        "name": "Alexandra Söderlund, art works",
+        "url": "www.29k.org",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1669213656/Contributors/Alexandra%20S%C3%B6derlund.jpg"
       },
       {
         "name": "Jenny Rickardsson, editor",
@@ -204,7 +227,10 @@
       ],
       "videoLoop": {
         "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1667919733/Video/portal1_letting_go_of_control_g0izpw.mp4",
-        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1667915462/Audio/portal_letting_go_of_controlmp3_eintur.mp3"
+        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1667915462/Audio/portal_letting_go_of_controlmp3_eintur.mp3",
+        "p5JsScript": {
+          "lang": "javascript"
+        }
       },
       "videoEnd": {
         "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1668093279/Video/portal2_letting_go_of_control_bnzxxr.mp4",
@@ -388,7 +414,10 @@
       ],
       "videoLoop": {
         "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1667919733/Video/portal1_letting_go_of_control_g0izpw.mp4",
-        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1667915462/Audio/portal_letting_go_of_controlmp3_eintur.mp3"
+        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1667915462/Audio/portal_letting_go_of_controlmp3_eintur.mp3",
+        "p5JsScript": {
+          "lang": "javascript"
+        }
       },
       "videoEnd": {
         "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1668093279/Video/portal2_letting_go_of_control_bnzxxr.mp4",
@@ -405,17 +434,251 @@
     "description": "Tentar controlar o que sentimos ou pensamos tende a ser contraproducente. Neste exercício vamos aprender a renunciar a essa luta inútil e em vez disso usarmos a nossa energia para o que interessa."
   },
   "sv": {
-    "published": false,
+    "slides": [
+      {
+        "type": "host",
+        "hostNotes": [
+          {
+            "text": "Välkommen. Jag heter X och vi kommer att jobba tillsammans i ungefär 30 minuter med acceptans och att släppa på kontrollen.\n\nVi kommer att lyssna på en ljudövning tillsammans, reflektera en stund för oss själva och sedan finns det möjlighet att dela sina erfarenheter."
+          },
+          {
+            "text": "Vi börjar med en mini-check-in. Hur känner du dig just nu? Svara gärna med två-tre ord. X, skulle du vilja börja?\n\n> Låt alla deltagare, inklusive dig själv, checka in en och en. \n\nTack för att ni checkade in. Då kör vi igång."
+          }
+        ],
+        "video": {
+          "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1679331088/Video/IntroLettingGoOfControl_p2xzg9.mp4",
+          "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1679331097/Images/hostThumbLettingGo_l9vxv4.jpg"
+        }
+      },
+      {
+        "type": "content",
+        "hostNotes": [
+          {
+            "text": "\nNär svåra känslor uppstår har många av oss en naturlig tendens att försöka kontrollera dem. Det kan skapa en känsla av kontroll, men vetenskapen visar att detta bara är en illusion.\n\nHitta en bekväm position och slappna av i axlarna, så startar vi den här övningen tillsammans. \n\n> Tryck på play för att starta."
+          }
+        ],
+        "content": {
+          "video": {
+            "source": "",
+            "autoPlayLoop": false,
+            "audio": "",
+            "durationTimer": false,
+            "subtitles": ""
+          },
+          "lottie": {
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1676642915/Lottie/default_audio_white_sufmbz.json",
+            "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1715606230/SRT%20(captions)%20files/The_beach_ball_Swe_Jackie_ceu9lk.srt",
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1715606290/Audio/The_beach_ball_Swe_Jackie_oin9je.mp3",
+            "durationTimer": true
+          }
+        }
+      },
+      {
+        "type": "reflection",
+        "hostNotes": [
+          {
+            "text": "Nästa steg är att tyst reflektera i en minut.\n\nVad finns i din badboll? Vad är det du försöker dölja under ytan?"
+          },
+          {
+            "text": "Om du vill kan du skriva ner dina funderingar på ett papper, eller bara tänka fritt. Det finns inga svar som är rätt eller fel här – vad som än dyker upp är okej.\n\n> Tryck på play för att starta timern.\n\nDå har det gått en minut och det är dags att gå vidare."
+          }
+        ],
+        "content": {
+          "heading": "Vad finns i din badboll?",
+          "video": {
+            "source": "",
+            "durationTimer": false
+          },
+          "lottie": {
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1676642915/Lottie/default_1min_white_wvgwma.json",
+            "durationTimer": true,
+            "duration": 60
+          }
+        }
+      },
+      {
+        "type": "sharing",
+        "content": {
+          "heading": "Vad finns i din badboll?",
+          "video": {
+            "source": "",
+            "durationTimer": false
+          },
+          "lottie": {
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1676639253/Lottie/default_2min_white_arvrf2.json",
+            "duration": 120,
+            "durationTimer": true
+          }
+        },
+        "hostNotes": [
+          {
+            "text": "Det här steget handlar om att dela med sig av sin upplevelse och lyssna på andras. Vi har tre regler:\n\n1. **Det som sägs här, stannar här.**\n2. **Allt som behövs är att vi lyssnar på varandra.** Inget fixande, ingen rådgivning eller annan hjälp behövs. Vi är bara här för att utforska våra egna och andras upplevelser."
+          },
+          {
+            "text": "3. **Allt som händer på insidan är okej.** Ilska, kärlek, smärta, glädje. Vad som än dyker upp, det finns inget rätt eller fel. Det bara är som det är.\n\nDet finns en timer på två minuter att hålla sig efter på ett ungefär. Om du inte vill dela med dig är det bara att säga 'pass'."
+          },
+          {
+            "text": "Vem vill börja?\n\n> Låt alla, eller så många som det finns tid för, dela en efter en. Tryck på play för att starta timern. Starta om för varje person.\n\nTack så mycket för att ni lyssnar och delar med er."
+          }
+        ],
+        "id": "sharing-1"
+      },
+      {
+        "type": "reflection",
+        "hostNotes": [
+          {
+            "text": "Ju mer tid och energi vi lägger på att försöka kontrollera våra känslor, desto mer tenderar de att diktera våra liv. Samma sak gäller för många saker i livet. Ibland tror vi att ju mer kontroll vi har, desto enklare vi att nå våra mål.\n\nDet kan vara sant i vissa fall..."
+          },
+          {
+            "text": "Men när vi fastnar i en loop av att försöka kontrollera oss själva och händelserna runt omkring oss, hamnar vi ofta på avvägar från våra värderingar. Eller så går vi miste om upplevelser som faktiskt betyder något för oss."
+          },
+          {
+            "text": "Nu ska vi ta en minut för att reflektera igen.\n\nVad skulle det innebära för dig om du släppte taget om din badboll? Vad skulle du göra annorlunda?"
+          },
+          {
+            "text": "1 minut startar nu.\n\n> Tryck på play för att starta timern.\n\nDå har det gått en minut och det är dags att gå vidare."
+          }
+        ],
+        "content": {
+          "heading": "Vad skulle hända om du släppte taget om din badboll?",
+          "video": {
+            "source": "",
+            "durationTimer": true
+          },
+          "lottie": {
+            "durationTimer": true,
+            "duration": 60,
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1676642915/Lottie/default_1min_white_wvgwma.json"
+          }
+        }
+      },
+      {
+        "type": "instruction",
+        "content": {
+          "text": "Ju mer tid och energi vi lägger på att försöka kontrollera våra känslor, desto mer tenderar de att diktera våra liv. Samma sak gäller för många saker i livet. Ibland tror vi att ju mer kontroll vi har, desto enklare vi att nå våra mål.\n\nDet kan vara sant i vissa fall... Men när vi fastnar i en loop av att försöka kontrollera oss själva och händelserna runt omkring oss, hamnar vi ofta på avvägar från våra värderingar. Eller så går vi miste om upplevelser som faktiskt betyder något för oss.",
+          "image": {
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1668092579/Images/cover_letting_go_of_control_t5fi5i.png"
+          }
+        }
+      },
+      {
+        "type": "sharing",
+        "content": {
+          "heading": "Vad skulle hända om du släppte taget om din badboll?",
+          "video": {
+            "source": "",
+            "durationTimer": false
+          },
+          "lottie": {
+            "durationTimer": true,
+            "duration": 60,
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1676639253/Lottie/default_2min_white_arvrf2.json"
+          }
+        },
+        "hostNotes": [
+          {
+            "text": "Dags att dela våra tankar igen.\n\nVad skulle hända om du släppte taget om din badboll? Vad skulle det innebära för dig? Vad skulle du göra annorlunda?\n\nPrecis som förra gången är timern på 2 minuter, och du delar bara om du känner att du vill."
+          },
+          {
+            "text": "Vem vill börja?\n\n> Låt alla, eller så många som det finns tid för, dela en efter en. Tryck på play för att starta timern. Starta om för varje person.\n\nTack så mycket för att ni lyssnar och delar med er."
+          }
+        ],
+        "id": "sharing-2"
+      },
+      {
+        "type": "host",
+        "hostNotes": [
+          {
+            "text": "Att släppa kontrollen kan verka skrämmande, riskabelt och väldigt obekvämt. Genom att öva på acceptans kan vi lära oss att skapa plats för en rad olika känslor och upplevelser, utan att försöka fly, bedöva eller bekämpa dem vi inte gillar. Då kan vi istället använda vår energi till alla de saker som är viktiga för oss."
+          },
+          {
+            "text": "Om du vill kan du fortsätta det vi började här idag med ett litet uppdrag. \n\nUnder resten av idag och imorgon, försök att observera när du har svåra känslor och försöker skjuta bort dem. \n\nFörsök att istället välkomna dem eller bara låta dem vara där med dig. Se om det kan hjälpa dig att agera annorlunda och göra mer av det som är viktigt för dig."
+          },
+          {
+            "text": "Innan vi avslutar så gör vi en mini-utcheckning.\nHur känner du dig nu? Har något ändrats? Svara med två-tre ord.\n\nVem vill börja?"
+          },
+          {
+            "text": "> Låt alla checka ut en efter en.\n\nTack så mycket för era utcheckningar, och för att ni deltog i den här sessionen.\n\n> Avsluta sessionen för att skicka deltagarna till exit-upplevelsen."
+          }
+        ],
+        "video": {
+          "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1679331092/Video/OutroLettingGoOfControl_x8cyes.mp4",
+          "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1679331097/Images/hostThumbLettingGo_l9vxv4.jpg"
+        }
+      },
+      {
+        "type": "instruction",
+        "content": {
+          "image": {
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1668092579/Images/cover_letting_go_of_control_t5fi5i.png"
+          },
+          "heading": "Bra jobbat",
+          "text": "Om du vill kan du fortsätta det vi började här idag med ett uppdrag. \n\nUnder resten av idag och imorgon, försök att observera när du har svåra känslor och försöker skjuta bort dem. \n\nFörsök att istället välkomna dem eller bara låta dem vara där med dig. Se om det kan hjälpa dig att agera annorlunda och göra mer av det som är viktigt för dig."
+        }
+      }
+    ],
     "theme": {
-      "textColor": "#2AE2D7"
+      "textColor": "#F9F8F4",
+      "backgroundColor": "#b9535f"
     },
-    "id": "5b0dea9f-c665-41ce-a779-601d0cfa433d",
+    "hidden": false,
+    "name": "Badbollen",
+    "live": true,
+    "published": true,
+    "card": {
+      "image": {
+        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1668092579/Images/cover_letting_go_of_control_t5fi5i.png"
+      }
+    },
+    "coCreators": [
+      {
+        "name": "Jacqueline Levi, röst",
+        "url": "https://www.linkedin.com/in/jacqueline-levi-292065ab/?originalSubdomain=se",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665414232/Contributors/Jacqueline%20Levi.png"
+      },
+      {
+        "name": "Alexandra Söderlund, art works",
+        "url": "www.29k.org",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1669213656/Contributors/Alexandra%20S%C3%B6derlund.jpg"
+      },
+      {
+        "name": "Jenny Rickardsson, redaktör",
+        "url": "https://www.linkedin.com/in/jenny-rickardson-6770a959/",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413228/Contributors/Jenny%20Rickardsson.jpg"
+      }
+    ],
     "duration": 30,
+    "outroPortal": {
+      "video": {
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1671527730/Video/mission_letting_go_of_control.mp4_t6zweg.mp4"
+      }
+    },
+    "introPortal": {
+      "hostNotes": [
+        {
+          "text": "> Starta sessionen när ni är redo"
+        }
+      ],
+      "videoLoop": {
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1667919733/Video/portal1_letting_go_of_control_g0izpw.mp4",
+        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1667915462/Audio/portal_letting_go_of_controlmp3_eintur.mp3",
+        "p5JsScript": {
+          "lang": "javascript"
+        }
+      },
+      "videoEnd": {
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1668093279/Video/portal2_letting_go_of_control_bnzxxr.mp4",
+        "preview": ""
+      }
+    },
     "tags": [
       "34100e43-2eb8-4d35-8eb0-9fa9f78e4935",
       "566aeb1b-1649-4f5a-96a2-0c80be27efc0"
     ],
-    "link": "https://aware.29k.org/letting-go-of-control"
+    "link": "https://aware.29k.org/letting-go-of-control",
+    "id": "5b0dea9f-c665-41ce-a779-601d0cfa433d",
+    "async": true,
+    "description": "Att försöka kontrollera vad vi känner eller tänker tenderar att slå tillbaka. I den här övningen övar vi på att släppa taget om en meningslös kamp för att istället använda vår energi till det som verkligen betyder något."
   },
   "ja": {
     "id": "5b0dea9f-c665-41ce-a779-601d0cfa433d",
@@ -424,6 +687,7 @@
       "34100e43-2eb8-4d35-8eb0-9fa9f78e4935",
       "566aeb1b-1649-4f5a-96a2-0c80be27efc0"
     ],
-    "link": "https://aware.29k.org/letting-go-of-control"
+    "link": "https://aware.29k.org/letting-go-of-control",
+    "card": {}
   }
 }

@@ -11,14 +11,14 @@ import SessionProgress from '../../SessionProgress/SessionProgress';
 import {CollectionIcon} from '../../Icons';
 import {Body12} from '../../Typography/Body/Body';
 import {PlayfairDisplayMedium} from '../../../constants/fonts';
-import {Collection} from '../../../../../../shared/src/types/generated/Collection';
 import {formatContentName} from '../../../utils/string';
 import CardGraphic from '../../CardGraphic/CardGraphic';
+import {CollectionWithLanguage} from '../../../content/types';
 
 export const HEIGHT = 138;
 
 type CollectionFullCardProps = {
-  collection: Collection;
+  collection: CollectionWithLanguage;
   progressItems: Array<boolean>;
   backgroundColor?: string;
   textColor?: string;

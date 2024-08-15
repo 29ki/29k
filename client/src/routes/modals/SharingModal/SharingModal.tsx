@@ -32,12 +32,7 @@ import RadioButton from '../../../lib/components/Buttons/RadioButton/RadioButton
 import TouchableOpacity from '../../../lib/components/TouchableOpacity/TouchableOpacity';
 import {ExerciseSlideSharingSlide} from '../../../../../shared/src/types/generated/Exercise';
 import {SPACINGS} from '../../../lib/constants/spacings';
-import {
-  RouteProp,
-  useIsFocused,
-  useNavigation,
-  useRoute,
-} from '@react-navigation/native';
+import {useIsFocused, useNavigation} from '@react-navigation/native';
 import useSessionSharingPosts from '../../../lib/posts/hooks/useSessionSharingPosts';
 import {
   AppStackProps,
@@ -89,15 +84,12 @@ const SharingInput = styled(BottomSheetTextInput)({
 });
 
 const SharingModal = () => {
-  const {
-    params: {exerciseId},
-  } = useRoute<RouteProp<ModalStackProps, 'SharingModal'>>();
   const {goBack, navigate} =
     useNavigation<NativeStackNavigationProp<AppStackProps & ModalStackProps>>();
   const {t} = useTranslation('Modal.Sharing');
   const user = useUser();
   const sessionState = useAsyncSessionSlideState();
-  const {addSharingPost} = useSessionSharingPosts(exerciseId);
+  const {addSharingPost} = useSessionSharingPosts();
 
   const userProfile = useMemo(() => {
     if (user?.uid && user?.displayName) {

@@ -3,7 +3,10 @@
     "session-reminders": "Session Reminders",
     "practice-reminders": "Practice Reminders"
   },
-  "pt": {},
+  "pt": {
+    "session-reminders": "Lembretes de sessão",
+    "practice-reminders": "Lembretes de utilização"
+  },
   "sv": {
     "session-reminders": "Sessionspåminnelser",
     "practice-reminders": "Övningspåminnelser"

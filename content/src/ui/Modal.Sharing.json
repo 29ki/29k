@@ -11,13 +11,15 @@
     "header": "A tua reflexão",
     "description": "Quem pode ver a tua reflexão?",
     "privateLabel": "Só eu",
-    "submitCta": "Submeter"
+    "submitCta": "Submeter",
+    "publicLabel": "Todos, como {{displayName}}",
+    "anonymousLabel": "Todos de forma anónima"
   },
   "sv": {
     "header": "Din reflektion",
     "description": "Vem kan se din reflektion?",
     "publicLabel": "Alla, som {{displayName}}",
-    "anonymousLabel": "All, anonymt",
+    "anonymousLabel": "Alla, anonymt",
     "privateLabel": "Bara jag",
     "submitCta": "Skicka"
   },

@@ -2,9 +2,9 @@ import {isNotNil} from 'ramda';
 import {useMemo} from 'react';
 import useExerciseIds from './useExerciseIds';
 import useGetExerciseById from './useGetExerciseById';
-import {Exercise} from '../../../../../shared/src/types/generated/Exercise';
+import {ExerciseWithLanguage} from '../types';
 
-const sortByName = (a: Exercise, b: Exercise) =>
+const sortByName = (a: ExerciseWithLanguage, b: ExerciseWithLanguage) =>
   a.name < b.name ? -1 : a.name > b.name ? 1 : 0;
 
 const useExercises = (exerciseIds?: string[], sort: boolean = true) => {

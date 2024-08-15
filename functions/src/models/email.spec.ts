@@ -41,6 +41,11 @@ describe('email', () => {
         subject: 'Your feedback to Aware - 10/12/2022',
         text: 'email-plain-text',
         to: 'help@29k.org',
+        mailSettings: {
+          bypassUnsubscribeManagement: {
+            enable: true,
+          },
+        },
       });
       expect(renderUserReportHtmlMock).toHaveBeenCalledTimes(1);
       expect(renderUserReportHtmlMock).toHaveBeenCalledWith({

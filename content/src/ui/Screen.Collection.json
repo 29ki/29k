@@ -1,6 +1,6 @@
 {
   "en": {
-    "collectionHeading": "Collection",
+    "collectionHeading": "Program",
     "addToJourney": "My journey",
     "sessionsHeading": "Sessions",
     "coCreatorsHeading": "Co-created with"
@@ -8,10 +8,11 @@
   "pt": {
     "sessionsHeading": "Sessões",
     "collectionHeading": "Coleção",
-    "addToJourney": "Adicionar à minha jornada"
+    "addToJourney": "Adicionar à minha jornada",
+    "coCreatorsHeading": "Co-criada com"
   },
   "sv": {
-    "collectionHeading": "Samling",
+    "collectionHeading": "Program",
     "sessionsHeading": "Sessioner",
     "addToJourney": "Min plan",
     "coCreatorsHeading": "Skapad med "

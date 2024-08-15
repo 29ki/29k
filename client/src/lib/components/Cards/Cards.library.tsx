@@ -13,8 +13,8 @@ import Button from '../Buttons/Button';
 import CardSmall from './CardSmall';
 import Interested from '../Interested/Interested';
 import Node from '../Node/Node';
-import {Collection} from '../../../../../shared/src/types/generated/Collection';
 import {COLORS} from '../../../../../shared/src/constants/colors';
+import {CollectionWithLanguage} from '../../content/types';
 
 const VerticalAlign = styled.View({
   flexDirection: 'row',
@@ -71,8 +71,9 @@ const DUMMY_LOTTIE_CARD_STYLE: ExerciseCard = {
   },
 };
 
-const DUMMY_COLLECTION: Collection = {
+const DUMMY_COLLECTION: CollectionWithLanguage = {
   id: 'some-id',
+  language: 'en',
   name: 'Collection name',
   published: true,
   exercises: [],
@@ -93,6 +94,7 @@ const CardsList = () => (
     <Spacer16 />
     <Card
       title="Accepting thoughts and feelings"
+      language="pt"
       tags={DUMMY_TAGS}
       hostProfile={DUMMY_HOST}
       cardStyle={DUMMY_TRANSPARENT_LOTTIE_CARD_STYLE}
@@ -132,6 +134,7 @@ const CardsList = () => (
     <Spacer16 />
     <Card
       title="Accepting thoughts and feeeeeeeeeeeeeelings"
+      language="pt"
       tags={DUMMY_TAGS}
       hostProfile={DUMMY_HOST}
       cardStyle={DUMMY_IMAGE_CARD_STYLE}
@@ -229,6 +232,20 @@ const CardSmallsList = () => (
     <Spacer16 />
     <CardSmall
       title="Pure Simple Love"
+      cardStyle={DUMMY_TRANSPARENT_IMAGE_CARD_STYLE}
+      language="ja"
+      onPress={() => {}}
+    />
+    <Spacer16 />
+    <CardSmall
+      title="Accepting thoughts and feeeeeeeeeeeeeelings"
+      cardStyle={DUMMY_TRANSPARENT_LOTTIE_CARD_STYLE}
+      language="ja"
+      onPress={() => {}}
+    />
+    <Spacer16 />
+    <CardSmall
+      title="Pure Simple Love"
       hostProfile={DUMMY_HOST}
       cardStyle={DUMMY_IMAGE_CARD_STYLE}
       onPress={() => {}}
@@ -302,6 +319,7 @@ const CardSmallsList = () => (
       title="Pure Simple Love"
       hostProfile={DUMMY_HOST}
       cardStyle={DUMMY_IMAGE_CARD_STYLE}
+      language="ja"
       onPress={() => {}}>
       <Badge text="Mon, 7 Sep 17.30" IconAfter={<CommunityIcon />} />
       <Spacer4 />
@@ -312,6 +330,7 @@ const CardSmallsList = () => (
       title="Accepting thoughts and feeeeeeeeeeeeeelings"
       hostProfile={DUMMY_HOST}
       cardStyle={DUMMY_IMAGE_CARD_STYLE}
+      language="ja"
       onPress={() => {}}>
       <Badge text="Mon, 7 Sep 17.30" IconAfter={<CommunityIcon />} />
       <Spacer4 />
@@ -362,6 +381,7 @@ const CardSmallsList = () => (
         title="Accepting thoughts and feeeeeeeeeeeeeelings"
         hostProfile={DUMMY_HOST}
         cardStyle={DUMMY_IMAGE_CARD_STYLE}
+        language="ja"
         onPress={() => {}}>
         <Badge text="Mon, 7 Sep 17.30" IconAfter={<CommunityIcon />} />
         <Spacer4 />

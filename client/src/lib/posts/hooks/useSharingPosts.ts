@@ -7,23 +7,17 @@ const useSharingPosts = () => {
   const getExerciseById = useGetExerciseById();
   const [sharingPosts, setSharingPosts] = useState<PostItem[]>([]);
 
-  const filterPosts = useCallback(
-    (posts: PostItem[]) =>
-      posts.filter(({item: {exerciseId}}) => getExerciseById(exerciseId)),
-    [getExerciseById],
-  );
-
   const fetchSharingPosts = useCallback(async () => {
     const posts = await fetchPosts(20);
     setSharingPosts(
-      filterPosts(
-        posts.map<PostItem>(post => ({
+      posts
+        .map<PostItem>(post => ({
           type: 'text',
           item: post,
-        })),
-      ),
+        }))
+        .filter(({item: {exerciseId}}) => getExerciseById(exerciseId)),
     );
-  }, [filterPosts]);
+  }, [getExerciseById]);
 
   return {
     sharingPosts,

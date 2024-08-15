@@ -139,7 +139,10 @@
       "videoLoop": {
         "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1678973899/Video/portal1_breathing_anchor_iv6ljo.mp4",
         "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1678973955/Images/portal1_breathing_anchor_thumbnail_a9slfm.png",
-        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1678973982/Audio/portal_audio_breathing_anchor_ul2agi.mp3"
+        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1678973982/Audio/portal_audio_breathing_anchor_ul2agi.mp3",
+        "p5JsScript": {
+          "lang": "javascript"
+        }
       },
       "videoEnd": {
         "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1678973897/Video/portal2_breathing_anchor_yzwgnb.mp4",
@@ -244,6 +247,16 @@
             "text": "Quem gostaria de começar?\n\n> Deixa todas as pessoas fazerem o check-out individualmente.\n\nObrigada/o a todos pelo check-out e por terem participado nesta sessão.\n\n> Termina a sessão enviando toda a gente para a experiência de saída."
           }
         ]
+      },
+      {
+        "type": "instruction",
+        "content": {
+          "image": {
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1678973954/Images/card_image_breathing_anchor_vibuvl.png"
+          },
+          "heading": "Parabéns",
+          "text": "Gostaríamos muito que continuasses esta missão:\n\nDurante os próximos três dias, reserva uns minutos todos os dias para te focares totalmente no momento presente através da tua respiração."
+        }
       }
     ],
     "theme": {
@@ -269,7 +282,10 @@
       "videoLoop": {
         "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1678973899/Video/portal1_breathing_anchor_iv6ljo.mp4",
         "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1678973955/Images/portal1_breathing_anchor_thumbnail_a9slfm.png",
-        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1678973982/Audio/portal_audio_breathing_anchor_ul2agi.mp3"
+        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1678973982/Audio/portal_audio_breathing_anchor_ul2agi.mp3",
+        "p5JsScript": {
+          "lang": "javascript"
+        }
       },
       "videoEnd": {
         "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1678973897/Video/portal2_breathing_anchor_yzwgnb.mp4",
@@ -282,6 +298,7 @@
     ],
     "link": "https://aware.29k.org/breathing-anchor",
     "id": "b18c1cff-bb43-44b1-81a1-2877cc018ab4",
+    "async": true,
     "description": "Uma meditação guiada para nos ancorarmos no momento presente através da nossa respiração. A consciência do momento presente pode ajudar-nos a reduzir a ruminação e o stress assim como melhorar a nossa capacidade de decisão."
   },
   "sv": {

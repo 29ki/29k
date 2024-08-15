@@ -12,7 +12,7 @@
     "deleteButton": "Delete session"
   },
   "pt": {
-    "done": "Terminar",
+    "done": "Gravar",
     "deleteButton": "Remover sessão",
     "delete": {
       "header": "Remover sessão?",

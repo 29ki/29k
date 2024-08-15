@@ -1,9 +1,7 @@
 import {useMemo} from 'react';
-import {
-  Exercise,
-  ExerciseIntroPortalHostNote,
-} from '../../../../../shared/src/types/generated/Exercise';
+import {ExerciseIntroPortalHostNote} from '../../../../../shared/src/types/generated/Exercise';
 import {SessionSlideState} from './useLiveSessionSlideState';
+import {ExerciseWithLanguage} from '../../content/types';
 
 const resolveNotes = (hoseNotes?: ExerciseIntroPortalHostNote[]) => {
   return hoseNotes?.filter(n => n.text).map(n => ({text: n.text}));
@@ -11,7 +9,7 @@ const resolveNotes = (hoseNotes?: ExerciseIntroPortalHostNote[]) => {
 
 const useResolveHostNotes = (
   introPortal: boolean | undefined,
-  exercise: Exercise | null,
+  exercise: ExerciseWithLanguage | null,
   slideState: SessionSlideState | null,
 ) => {
   return useMemo(() => {

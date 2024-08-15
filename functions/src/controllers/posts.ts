@@ -98,3 +98,11 @@ export const deletePost = async (postId: string) => {
 
   await postModel.deletePost(postId);
 };
+
+export const increasePostRelates = async (postId: string) => {
+  await postModel.increasePostRelates(postId);
+};
+
+export const decreasePostRelates = async (postId: string) => {
+  await postModel.decreasePostRelates(postId);
+};
