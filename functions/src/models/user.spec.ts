@@ -7,7 +7,11 @@ mockFirebase(
       users: [],
     },
   },
-  {includeIdsInData: true, mutable: true},
+  {
+    includeIdsInData: true,
+    mutable: true,
+    simulateQueryFilters: false,
+  },
 );
 
 import {firestore} from 'firebase-admin';
