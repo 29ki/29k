@@ -2493,7 +2493,7 @@ PODS:
     - StripePayments (= 23.28.1)
     - StripePaymentsUI (= 23.28.1)
     - StripeUICore (= 23.28.1)
-  - stripe-react-native (0.38.3):
+  - stripe-react-native (0.38.4):
     - React-Core
     - Stripe (~> 23.28.0)
     - StripeApplePay (~> 23.28.0)
@@ -2852,7 +2852,7 @@ SPEC CHECKSUMS:
   BoringSSL-GRPC: 1e2348957acdbcad360b80a264a90799984b2ba6
   BVLinearGradient: 880f91a7854faff2df62518f0281afb1c60d49a3
   CodePush: 8c28cdffd7fe685351cce700c8a86d672d433161
-  DoubleConversion: 76ab83afb40bddeeee456813d9c04f67f78771b5
+  DoubleConversion: fea03f2699887d960129cc54bba7e52542b6f953
   FBLazyVector: 7e977dd099937dc5458851233141583abba49ff2
   Firebase: cec914dab6fd7b1bd8ab56ea07ce4e03dd251c2d
   FirebaseAppCheckInterop: 6a1757cfd4067d8e00fccd14fcc1b8fd78cfac07
@@ -2867,7 +2867,7 @@ SPEC CHECKSUMS:
   FirebaseSharedSwift: 20530f495084b8d840f78a100d8c5ee613375f6e
   FirebaseStorage: 436c30aa46f2177ba152f268fe4452118b8a4856
   fmt: 4c2741a687cc09f0634a2e2c72a838b99f1ff120
-  glog: fdfdfe5479092de0c4bdbebedd9056951f092c4f
+  glog: c5d68082e772fa1c511173d6b30a9de2c05a69a2
   GoogleUtilities: 0759d1a57ebb953965c2dfe0ba4c82e95ccc2e34
   "gRPC-C++": e725ef63c4475d7cdb7e2cf16eb0fde84bd9ee51
   gRPC-Core: eee4be35df218649fe66d721a05a7f27a28f069b
@@ -2966,7 +2966,7 @@ SPEC CHECKSUMS:
   SocketRocket: abac6f5de4d4d62d24e11868d7a2f427e0ef940d
   SSZipArchive: 62d4947b08730e4cda640473b0066d209ff033c9
   Stripe: 20e24971647daa5750e7764faa1e8aefe4917243
-  stripe-react-native: 9459d482b56398265eab765a00ea722cf7cfa278
+  stripe-react-native: 3479d62b758ac162b4465cb0aed313b525a575f3
   StripeApplePay: 5b098a0ba6136f4b587e03f5a3776461b4f20dd4
   StripeCore: 880a68482cf78d4745c5213c2fd3446efc73574b
   StripeFinancialConnections: 49a19ca17dbb3055a8b559a1e3adfe769784a8f8
@@ -2975,7 +2975,7 @@ SPEC CHECKSUMS:
   StripePaymentsUI: 4c35e12ebcd4bd9bd21e379f03f730bee097250d
   StripeUICore: 22b314dc9f7ea8814d0f9eeba0ddb5e4b77f34f3
   TOCropViewController: 80b8985ad794298fb69d3341de183f33d1853654
-  Yoga: eed50599a85bd9f6882a9938d118aed6a397db9c
+  Yoga: bd92064a0d558be92786820514d74fc4dddd1233
 
 PODFILE CHECKSUM: d3b70e6d42003752efcb1b7a4cbb7e8c97f2ad67
 
