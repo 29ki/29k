@@ -53,8 +53,8 @@ const ChangingRoom = () => {
       MICROPHONE_PERMISSION,
     ]);
     /*
-      Show session onboarding if all permissions have not yet been granted.
-      We use react-native-permissions here as Daily won't give us that information
+      Show session onboarding if all permissions have not yet been granted. 
+      We use react-native-permissions here as Daily won't give us that information 
       until we've asked the user for permissions
     */
     setShowOnboarding(
@@ -76,49 +76,37 @@ const ChangingRoom = () => {
   }, [logSessionMetricEvent]);
 
   const preJoin = useCallback(
-    async (url: string, id: string, host?: string | null) => {
-      // Checks against the backend to see that the session is still available
-      const allowedToJoin = await isAllowedToJoin(id);
-      if (allowedToJoin) {
-        try {
-          const token = await getSessionToken(id);
-          preJoinMeeting(url, token, {
-            iconName: 'ic_small_icon',
-            title: t('title', {
-              ns: 'Notification.InSession',
-            }),
-            subtitle: t('subtitle', {
-              ns: 'Notification.InSession',
-              host,
-            }),
-          });
-        } catch (e: any) {
-          Alert.alert(t('errorTitle'), t(`errors.${e.code ?? e.message}`), [
-            {
-              onPress: goBack,
-              style: 'cancel',
-            },
-          ]);
-        }
+    async (url: string, id: string) => {
+      try {
+        const token = await getSessionToken(id);
+        preJoinMeeting(url, token);
+      } catch (e: any) {
+        Alert.alert(t('errorTitle'), t(`errors.${e.code ?? e.message}`), [
+          {
+            onPress: goBack,
+            style: 'cancel',
+          },
+        ]);
       }
     },
-    [goBack, t, isAllowedToJoin, preJoinMeeting],
+    [goBack, t, preJoinMeeting],
   );
 
   useEffect(() => {
-    // If switching between sessions, the session will first be the old one
-    // and then beacome the current one by useSubscribeToSessionIfFocused.
-    // Only pre join when the session is the same as passed in by params
-    if (isFocused && session?.url && session?.id) {
-      preJoin(session.url, session.id, session.hostProfile?.displayName);
-    }
-  }, [
-    isFocused,
-    session?.url,
-    session?.id,
-    session.hostProfile?.displayName,
-    preJoin,
-  ]);
+    const run = async () => {
+      // If switching between sessions, the session will first be the old one
+      // and then beacome the current one by useSubscribeToSessionIfFocused.
+      // Only pre join when the session is the same as passed in by params
+      if (isFocused && session?.url && session?.id) {
+        // Checks against the backend to see that the session is still available
+        const allowedToJoin = await isAllowedToJoin(session.id);
+        if (allowedToJoin) {
+          preJoin(session.url, session.id);
+        }
+      }
+    };
+    run();
+  }, [isFocused, session?.url, session?.id, preJoin, isAllowedToJoin]);
 
   const onHideOnboarding = useCallback(() => setShowOnboarding(false), []);
 
