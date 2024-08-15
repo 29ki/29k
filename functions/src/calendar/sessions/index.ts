@@ -7,7 +7,7 @@ import i18next from '../../lib/i18n';
 
 const router = createMetricsRouter();
 
-export const sessionsRouter = router.get('/', async ({res}) => {
+export const sessionsRouter = router.get('/', async ctx => {
   const sessions = await sessionsController.getUpcomingPublicSessions();
   const t = i18next.getFixedT(null, 'Component.AddToCalendar');
 
@@ -37,5 +37,8 @@ export const sessionsRouter = router.get('/', async ({res}) => {
     });
   });
 
-  calendar.serve(res);
+  ctx.status = 200;
+  ctx.set('Content-Type', 'text/calendar; charset=utf-8');
+  ctx.set('Content-Disposition', 'attachment; filename="calendar.ics"');
+  ctx.body = calendar.toString();
 });
