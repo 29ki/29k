@@ -51,6 +51,7 @@ const ExerciseCard: React.FC<ExerciseCardContainerProps> = ({
     return (
       <CardSmall
         title={formatContentName(exercise)}
+        language={exercise.language}
         cardStyle={exercise?.card}
         collection={collection}
         onPress={onPressHandle}
@@ -65,6 +66,7 @@ const ExerciseCard: React.FC<ExerciseCardContainerProps> = ({
     <Card
       title={formatContentName(exercise)}
       description={exercise.description}
+      language={exercise.language}
       tags={tags}
       cardStyle={exercise.card}
       collection={collection}

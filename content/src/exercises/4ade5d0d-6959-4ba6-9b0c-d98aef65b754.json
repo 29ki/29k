@@ -8,18 +8,22 @@
             "text": "Welcome. I am X and today we will work for around 20 minutes on resilience.\n\nWe’ll be exploring the concept of our resilient zone followed by time for reflection and sharing with each other."
           },
           {
-            "text": "Let’s start with a mini check-in. How are you feeling right now? Please answer in two-three words. Now, would you like to start?\n\nLet everyone in the session, including yourself, check in one by one.\n\nThank you all for checking in. Let’s get started."
+            "text": "Let’s start with a mini check-in. How are you feeling right now? Please answer in two-three words. Now, would you like to start?\n\n> Let everyone in the session, including yourself, check in one by one.\n\nThank you all for checking in. Let’s get started."
           }
         ]
       },
       {
         "type": "content",
-        "hostNotes": [],
+        "hostNotes": [
+          {
+            "text": "Find a comfortable position. I will start the audio exercise and we'll meet back here afterwards. \n\n> Tap play to start the audio exercise"
+          }
+        ],
         "content": {
           "lottie": {
-            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1713881009/SEE/Resllient_Zone_mpz5wo.mp3",
-            "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1713881134/SEE/Resllient_Zone_cwmfac.srt",
-            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1715191495/SEE/W1quN6g2zk_upqpv6.json"
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1713881009/SEE/Audio/Resilience/Resllient_Zone_mpz5wo.mp3",
+            "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1715751168/SEE/SRT/Resilence/Resllient_Zone_1_s4xhlb.srt",
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1715663477/SEE/Lottie/Resiliance/W1quN6g2zk_trdnmj.json"
           },
           "text": "",
           "video": {
@@ -28,43 +32,159 @@
           },
           "image": {
             "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1715140416/SEE/ResilientZone_Image1_qkr6a6.png"
+          },
+          "heading": ""
+        }
+      },
+      {
+        "type": "instruction",
+        "content": {
+          "text": "You can take notes on a piece of paper or just mental notes in your head. And there is no right or wrong here, our answers are our own.",
+          "heading": "Reflection",
+          "image": {
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1716951212/SEE/Icons/Reflection/Reflection_Awareness_CardImage_wgzwcf.png"
+          }
+        }
+      },
+      {
+        "type": "instruction",
+        "content": {
+          "heading": "Reflection",
+          "text": "How did you find the idea of the resilient zone? \n\nHow do you experience the high and low zones? \n\nHow would you describe being in the OK zone?",
+          "image": {
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1716951212/SEE/Icons/Reflection/Reflection_Awareness_CardImage_wgzwcf.png"
           }
         }
       },
       {
         "type": "reflection",
-        "hostNotes": [
-          {
-            "text": "How do you think we’d know if someone else was in their high zone? \n\nWhat about their low zone?"
-          },
-          {
-            "text": "What do you think are other words we could use to explain to someone what resilient means? \n\nDo you think most people have been stuck in the high zone some time? What about the low zone?"
-          }
-        ],
         "content": {
-          "text": "",
-          "image": {
+          "video": {
+            "durationTimer": false,
             "source": ""
           },
-          "heading": "The Resilient Zone"
+          "lottie": {
+            "durationTimer": false,
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1718146076/SEE/Lottie/Timer/1min_timer_ag9fyg.json"
+          },
+          "heading": "How did you find the idea of the resilient zone?"
+        },
+        "hostNotes": [
+          {
+            "text": "Now we’ll take 1 minute to reflect on our own.\n\nHow did you find the idea of the resilient zone? How do you experience the high and low zones? How would you describe being in the OK zone?"
+          },
+          {
+            "text": "You can take notes on a piece of paper or just mental notes in your head. And there is no right or wrong here, our answers are our own. 1 minute starting now.\n\n> Press play to start the timer.\n\nThat’s 1 minute and it’s time to move on."
+          }
+        ]
+      },
+      {
+        "type": "sharing",
+        "id": "sharing 1",
+        "content": {
+          "video": {
+            "durationTimer": false,
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto/v1716238084/SEE/Lottie/shareslide_lqdkod.json"
+          },
+          "lottie": {
+            "durationTimer": true,
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto/v1718146077/SEE/Lottie/Timer/2min_timer_yjuzls.json"
+          },
+          "text": "",
+          "heading": "How do we know if someone else is in their high zone?"
+        },
+        "hostNotes": [
+          {
+            "text": "Now we are getting into the sharing part. We have three rules for sharing:\n\n1. **What is said in here, stays in here.**\n2. **All you need to do is listen.** There is no fixing, helping or advice-giving needed. We are just showing up and exploring what ourselves and others are going through."
+          },
+          {
+            "text": "3. **Everything on the inside is okay.** Anger, love, hatred, sadness. Whatever shows up. No wrongs, no rights. It is what it is.\n\nThere will be a timer set for 2 minutes as an indicator. If you don’t want to share you can always say ‘pass’."
+          },
+          {
+            "text": "Who would like to start?\n\n> Let everyone (or as many as you got time for) share one by one. Press play to start the timer. Re-start for each new sharing.\n\nThank you so much everyone."
+          }
+        ]
+      },
+      {
+        "type": "sharing",
+        "id": "sharing 2",
+        "content": {
+          "video": {
+            "durationTimer": true
+          },
+          "lottie": {
+            "durationTimer": false,
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto/v1718146077/SEE/Lottie/Timer/2min_timer_yjuzls.json"
+          },
+          "text": "",
+          "heading": "What about their low zone?"
+        }
+      },
+      {
+        "type": "sharing",
+        "id": "sharing 3",
+        "content": {
+          "video": {
+            "durationTimer": true
+          },
+          "lottie": {
+            "durationTimer": true,
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto/v1718146077/SEE/Lottie/Timer/2min_timer_yjuzls.json"
+          },
+          "text": "",
+          "heading": "What other words can explain what resilient means? "
+        }
+      },
+      {
+        "type": "sharing",
+        "id": "sharing 4",
+        "content": {
+          "video": {
+            "durationTimer": true
+          },
+          "lottie": {
+            "durationTimer": false,
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto/v1718146077/SEE/Lottie/Timer/2min_timer_yjuzls.json"
+          },
+          "text": "",
+          "heading": "Can people be been stuck in the high zone? Or the low zone?"
         }
       },
       {
         "type": "host",
         "hostNotes": [
           {
-            "text": "Try to be aware of when you are feeling yourself at different points in your resilient zone and when you night enter your high and low zone. Try to increase your awareness of your internal regulation and how it presents itself in your mind and body."
+            "text": "Good job. We've explored the idea of the resilient zone. Each of us will experience a challenging situation differently. We’re all human. We’re all in this together. We can build the skills to return to our Resilient Zone, even in challenging situations."
+          },
+          {
+            "text": "If we're up for it, we can continue with a mission: Practice growing our awareness by noticing when we might be in the resilient zone over the next few days. Plan the step you will take by considering how the resilient zone concept could be useful in your day."
+          },
+          {
+            "text": "Before we leave this space, let’s do a mini check-out: How are you feeling right now? Has anything shifted? Please answer in two to three words. Who would like to start?"
+          },
+          {
+            "text": "> Let everyone in the session check out one by one. \n\nThank you all for checking out and for joining this session today. \n\n> Finish session to send everyone off to the exit experience."
           }
         ]
       },
       {
         "type": "instruction",
         "content": {
-          "text": "\n\nToday we explored our resilient zone. It is our zone of well-being, where we feel calm and alert, and where we feel more in control and better able to make good decisions.",
+          "text": "Well done. We've explored the idea of the resilient zone. Each of us will experience a challenging situation differently. We’re all human. We’re all in this together. We can build the skills needed to return ourselves to our Resilient Zone, even in very challenging situations.",
+          "heading": "Resilience",
           "image": {
-            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1715194051/SEE/SEELearning_Logo_Apple_2022_iyrrnd.png"
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1718143968/SEE/Icons/Resilience/ResilientZone_CardImage_pl0uuf.png"
+          }
+        }
+      },
+      {
+        "type": "instruction",
+        "content": {
+          "text": "If we're up for it, we can continue with a mission: Practice growing our awareness by noticing where we might be in the resilient zone over the next few days.\n\nPlan the step you will take by considering how the resilient zone concept could be useful in your day.",
+          "image": {
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1718143968/SEE/Icons/Resilience/ResilientZone_CardImage_pl0uuf.png"
           },
-          "heading": "Well Done"
+          "heading": "Resilience"
         }
       }
     ],
@@ -78,26 +198,26 @@
     "live": true,
     "published": true,
     "card": {
-      "imageBackgroundColor": "#ffffff",
+      "imageBackgroundColor": "",
       "image": {
-        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1715187102/SEE/ResilientZone_CardImage_gem1py.png"
+        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1718143968/SEE/Icons/Resilience/ResilientZone_CardImage_pl0uuf.png"
       }
     },
     "coCreators": [
       {
         "name": "SEE Learning",
         "url": "https://seelearning.emory.edu/en/home",
-        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1713881366/SEE/see-logo_1_kewtlt.png"
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1717533458/SEE/SEELearning_Logo_Apple_2022_fe9mjc.png"
       }
     ],
-    "duration": 20,
+    "duration": 19,
     "outroPortal": {
       "video": {
-        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1715196344/SEE/SEELearning_Aware_Resilience_IntroVideo_yq7iag.mp4"
+        "source": ""
       }
     },
     "introPortal": {
-      "textColor": "#2AE2D7",
+      "textColor": "#2E2E2E",
       "hostNotes": [
         {
           "text": "> Start the session when you're ready to go"
@@ -107,7 +227,11 @@
         "p5JsScript": {
           "lang": "javascript"
         },
-        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1715196344/SEE/SEELearning_Aware_Resilience_IntroVideo_yq7iag.mp4"
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1717469190/SEE/Video/SEELearning_AwareApp_IntroVideo_2024_V3_1_giheh7.mp4",
+        "description": ""
+      },
+      "videoEnd": {
+        "source": ""
       }
     },
     "tags": [
@@ -193,9 +317,9 @@
     "live": true,
     "published": false,
     "card": {
-      "imageBackgroundColor": "#ffffff"
+      "imageBackgroundColor": ""
     },
-    "duration": 20,
+    "duration": 19,
     "introPortal": {
       "textColor": "#2AE2D7",
       "hostNotes": [
@@ -286,9 +410,9 @@
     "live": true,
     "published": false,
     "card": {
-      "imageBackgroundColor": "#ffffff"
+      "imageBackgroundColor": ""
     },
-    "duration": 20,
+    "duration": 19,
     "introPortal": {
       "textColor": "#2AE2D7",
       "hostNotes": [
@@ -379,9 +503,9 @@
     "live": true,
     "published": false,
     "card": {
-      "imageBackgroundColor": "#ffffff"
+      "imageBackgroundColor": ""
     },
-    "duration": 20,
+    "duration": 19,
     "introPortal": {
       "textColor": "#2AE2D7",
       "hostNotes": [

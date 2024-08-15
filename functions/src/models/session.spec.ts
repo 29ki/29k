@@ -204,8 +204,19 @@ describe('session model', () => {
       ]);
     });
 
-    it('supports support filtering by exercises id', async () => {
-      await getSessionsByUserId('some-user-id', 'some-exercise-id');
+    it('supports filtering by languages', async () => {
+      await getSessionsByUserId('some-user-id', ['en', 'sv']);
+      expect(mockWhere).toHaveBeenCalledWith({
+        filters: [
+          {field: 'language', operator: 'in', value: ['en', 'sv']},
+          {field: 'hostId', operator: '==', value: 'some-user-id'},
+        ],
+        operator: 'OR',
+      });
+    });
+
+    it('supports filtering by exercises id', async () => {
+      await getSessionsByUserId('some-user-id', undefined, 'some-exercise-id');
       expect(mockWhere).toHaveBeenCalledWith(
         'exerciseId',
         '==',
@@ -219,7 +230,13 @@ describe('session model', () => {
     });
 
     it('supports limiting query result', async () => {
-      await getSessionsByUserId('some-user-id', undefined, undefined, 5);
+      await getSessionsByUserId(
+        'some-user-id',
+        undefined,
+        undefined,
+        undefined,
+        5,
+      );
       expect(mockLimit).toHaveBeenCalledWith(5);
     });
   });

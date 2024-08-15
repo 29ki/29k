@@ -1,5 +1,12 @@
 import * as postsController from './posts';
-import {addPost, getPosts, getPostById, deletePost} from '../models/post';
+import {
+  addPost,
+  getPosts,
+  getPostById,
+  deletePost,
+  increasePostRelates,
+  decreasePostRelates,
+} from '../models/post';
 import {PostRecord} from '../models/types/types';
 import {getAuthUserInfo} from '../models/auth';
 import {sendPostMessage} from '../models/slack';
@@ -34,6 +41,8 @@ const mockGetPublicUserInfo = jest.mocked(getAuthUserInfo);
 const mockGetExerciseById = jest.mocked(getExerciseById);
 const mockGetSharingSlideById = jest.mocked(getSharingSlideById);
 const mockSendPostMessage = jest.mocked(sendPostMessage);
+const mockIncreasePostRelates = jest.mocked(increasePostRelates);
+const mockDecreasePostRelates = jest.mocked(decreasePostRelates);
 
 beforeEach(async () => {
   jest.clearAllMocks();
@@ -527,6 +536,24 @@ describe('posts - controller', () => {
       } catch (error) {
         expect(error).toEqual(new RequestError(PostError.notFound));
       }
+    });
+  });
+
+  describe('increasePostRelates', () => {
+    it('increase post relates', async () => {
+      await postsController.increasePostRelates('some-post-id');
+
+      expect(mockIncreasePostRelates).toHaveBeenCalledTimes(1);
+      expect(mockIncreasePostRelates).toHaveBeenCalledWith('some-post-id');
+    });
+  });
+
+  describe('decreasePostRelates', () => {
+    it('decrease post relates', async () => {
+      await postsController.decreasePostRelates('some-post-id');
+
+      expect(mockDecreasePostRelates).toHaveBeenCalledTimes(1);
+      expect(mockDecreasePostRelates).toHaveBeenCalledWith('some-post-id');
     });
   });
 });

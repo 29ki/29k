@@ -18,6 +18,9 @@ import {ExerciseCard} from '../../../../../shared/src/types/generated/Exercise';
 import CardGraphic from '../CardGraphic/CardGraphic';
 import CollectionTag from '../Tag/CollectionTag';
 import {CollectionWithLanguage} from '../../content/types';
+import LanguageTag from '../Tag/LanguageTag';
+import {useTranslation} from 'react-i18next';
+import {LANGUAGE_TAG} from '../../i18n';
 
 export const HEIGHT = 80;
 
@@ -79,6 +82,7 @@ const Content = styled.View({
 type CardProps = {
   title?: string;
   tags?: Array<string>;
+  language?: LANGUAGE_TAG;
   cardStyle?: ExerciseCard;
   onPress?: () => void;
   hostProfile?: UserType | null;
@@ -93,6 +97,7 @@ type CardProps = {
 export const CardSmall: React.FC<CardProps> = ({
   title,
   tags,
+  language,
   cardStyle,
   onPress,
   hostProfile,
@@ -103,6 +108,8 @@ export const CardSmall: React.FC<CardProps> = ({
   backgroundColor,
   textColor,
 }) => {
+  const {i18n} = useTranslation('Component.Card');
+
   return (
     <Wrapper
       onPress={onPress}
@@ -149,10 +156,20 @@ export const CardSmall: React.FC<CardProps> = ({
             />
           </>
         )}
-        {children && (
+        {(language || children) && (
           <>
             <Spacer4 />
-            <Content>{children}</Content>
+            <Content>
+              {children && (
+                <>
+                  {children}
+                  <Spacer4 />
+                </>
+              )}
+              {language && language !== i18n.resolvedLanguage && (
+                <LanguageTag small>{language.toUpperCase()}</LanguageTag>
+              )}
+            </Content>
           </>
         )}
       </Main>

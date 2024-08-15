@@ -16,7 +16,7 @@ const style = ({hasError = false}) => ({
   ...textStyles.Body16,
   backgroundColor: COLORS.PURE_WHITE,
   borderRadius: 16,
-  color: hasError ? COLORS.ERROR : undefined,
+  color: hasError ? COLORS.ERROR : textStyles.Body16.color,
 });
 
 const TextInput = styled.TextInput<TextInputProps>(style);
