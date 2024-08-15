@@ -1,9 +1,12 @@
 import {uniq} from 'ramda';
 import * as yup from 'yup';
 import {createApiAuthRouter} from '../../lib/routers';
-import {PostError} from '../../../../shared/src/errors/Post';
-import {createPost, deletePost, getPosts} from '../../controllers/posts';
-import {RequestError} from '../../controllers/errors/RequestError';
+import {
+  createPost,
+  getPosts,
+  decreasePostRelates,
+  increasePostRelates,
+} from '../../controllers/posts';
 import validation from '../lib/validation';
 import {
   CreatePostSchema,
@@ -35,7 +38,7 @@ postsRouter.get(
     const posts = await getPosts(limit, languages);
 
     response.status = 200;
-    //ctx.set('Cache-Control', 'max-age=300');
+    ctx.set('Cache-Control', 'max-age=300');
     ctx.body = posts;
   },
 );
@@ -72,31 +75,35 @@ postsRouter.post('/', validation({body: CreatePostSchema}), async ctx => {
   ctx.response.status = 200;
 });
 
-const DeletePostParamsSchema = yup.object({
+const PostRelateParamsSchema = yup.object({
   postId: yup.string().required(),
 });
 
-postsRouter.delete(
-  '/:postId',
-  validation({params: DeletePostParamsSchema}),
+postsRouter.post(
+  '/:postId/relate',
+  validation({
+    params: PostRelateParamsSchema,
+  }),
   async ctx => {
     const {postId} = ctx.params;
 
-    try {
-      await deletePost(postId);
-      ctx.response.status = 200;
-    } catch (error) {
-      const requestError = error as RequestError;
-      switch (requestError.code) {
-        case PostError.notFound:
-          ctx.status = 404;
-          break;
+    await increasePostRelates(postId);
 
-        default:
-          throw error;
-      }
-      ctx.message = requestError.code;
-    }
+    ctx.response.status = 200;
+  },
+);
+
+postsRouter.delete(
+  '/:postId/relate',
+  validation({
+    params: PostRelateParamsSchema,
+  }),
+  async ctx => {
+    const {postId} = ctx.params;
+
+    await decreasePostRelates(postId);
+
+    ctx.response.status = 200;
   },
 );
 

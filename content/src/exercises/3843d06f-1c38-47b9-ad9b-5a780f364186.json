@@ -35,13 +35,35 @@
         }
       },
       {
+        "type": "instruction",
+        "content": {
+          "heading": "Reflection",
+          "image": {
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1716951212/SEE/Icons/Reflection/Reflection_Awareness_CardImage_wgzwcf.png"
+          },
+          "text": "You can take notes on a piece of paper or just mental notes in your head. And there is no right or wrong here, our answers are our own."
+        }
+      },
+      {
+        "type": "instruction",
+        "content": {
+          "text": "How did you experience the Help Now! Strategies? \n\nDid you find that some effected you differently to others?",
+          "image": {
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1716951212/SEE/Icons/Reflection/Reflection_Awareness_CardImage_wgzwcf.png"
+          },
+          "heading": "Reflection"
+        }
+      },
+      {
         "type": "reflection",
         "content": {
           "video": {
-            "durationTimer": true
+            "durationTimer": true,
+            "source": ""
           },
           "lottie": {
-            "durationTimer": true
+            "durationTimer": true,
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1718146076/SEE/Lottie/Timer/1min_timer_ag9fyg.json"
           },
           "heading": "How did you experience the strategies?"
         },
@@ -62,7 +84,8 @@
             "durationTimer": true
           },
           "lottie": {
-            "durationTimer": true
+            "durationTimer": true,
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1718146077/SEE/Lottie/Timer/2min_timer_yjuzls.json"
           },
           "text": "",
           "heading": "What are some things you learned today about sensations? "
@@ -87,7 +110,8 @@
             "durationTimer": true
           },
           "lottie": {
-            "durationTimer": true
+            "durationTimer": true,
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1718146077/SEE/Lottie/Timer/2min_timer_yjuzls.json"
           },
           "text": "",
           "heading": "What are some words that describe sensations? "
@@ -101,10 +125,11 @@
             "durationTimer": true
           },
           "lottie": {
-            "durationTimer": true
+            "durationTimer": true,
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1718146077/SEE/Lottie/Timer/2min_timer_yjuzls.json"
           },
           "text": "",
-          "heading": "How can knowing a little more about the idea of sensations help us be happier and kinder?"
+          "heading": "How can knowing sensations help us be happier and kinder?"
         }
       },
       {
@@ -115,10 +140,11 @@
             "durationTimer": true
           },
           "lottie": {
-            "durationTimer": true
+            "durationTimer": true,
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1718146077/SEE/Lottie/Timer/2min_timer_yjuzls.json"
           },
           "text": "",
-          "heading": "When do you think it might be useful to use one of these Help Now! activities?"
+          "heading": "When do you think it might be useful to use these strategies?"
         }
       },
       {
@@ -133,7 +159,7 @@
         },
         "hostNotes": [
           {
-            "text": "Well done. Today, we’ve explored and tried out Help Now! Strategies. These are simple and immediate techniques for helping us return to their resilient zone when we get “bumped out” of that zone."
+            "text": "Well done. Today, we’ve explored and tried out Help Now! Strategies. These are simple and immediate techniques for helping us return to the resilient zone when we get “bumped out” of that zone."
           },
           {
             "text": "If we're up for it, we can continue with a mission: Practice using three Help Now! Strategies on three different days this week."
@@ -142,17 +168,27 @@
             "text": "Plan the steps you will take by considering moments when Help Now! strategies might help you during your week. Before we leave this space, let’s do a mini check-out: How are you feeling right now? Has anything shifted? Please answer in two to three words."
           },
           {
-            "text": "Who would like to start? > Let everyone in the session check out one by one. Thank you all for checking out and for joining this session today. > Finish session to send everyone off to the exit experience."
+            "text": "Who would like to start? \n\n> Let everyone in the session check out one by one. \n\nThank you all for checking out and for joining this session today. \n\n> Finish session to send everyone off to the exit experience."
           }
         ]
       },
       {
         "type": "instruction",
         "content": {
-          "text": "You have now started to build a set of strategies that you can use at any time to regulate your mind and body. \n\nIf you’re up for it, you can continue with this mission.\n\nTry out all of our Help Strategies and track the change in your body and mind to see which is most useful to you. You could walk and focus on the sensations in your feet and hands, drink a cool beverage, touch an object focusing on the feeling, notice the temperature in different areas of your body or listen for sounds close and far away.",
-          "heading": "Well done",
+          "text": "Well done. Today, we’ve explored and tried out Help Now! Strategies. These are simple and immediate techniques for helping us return to the resilient zone when we get “bumped out” of that zone.",
+          "heading": "Resilience",
           "image": {
-            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1715194051/SEE/SEELearning_Logo_Apple_2022_iyrrnd.png"
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1718143970/SEE/Icons/Resilience/HelpNow_CardImage_u4w1ha.png"
+          }
+        }
+      },
+      {
+        "type": "instruction",
+        "content": {
+          "text": "If we're up for it, we can continue with a mission: Practice using three Help Now! Strategies on three different days this week. \n\nPlan the steps you will take by considering moments when Help Now! strategies might help you during your week.",
+          "heading": "Resilience",
+          "image": {
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1718143970/SEE/Icons/Resilience/HelpNow_CardImage_u4w1ha.png"
           }
         }
       }
@@ -168,7 +204,7 @@
     "published": true,
     "card": {
       "image": {
-        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1715187099/SEE/Icons/Resilience/HelpNow_CardImage_she1tr.png"
+        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1718143970/SEE/Icons/Resilience/HelpNow_CardImage_u4w1ha.png"
       }
     },
     "coCreators": [
@@ -185,17 +221,20 @@
       }
     },
     "introPortal": {
-      "textColor": "#2AE2D7",
+      "textColor": "#2E2E2E",
       "hostNotes": [
         {
-          "text": "> Press play to start the audio exercise"
+          "text": "> Press play to start the exercise"
         }
       ],
       "videoLoop": {
         "p5JsScript": {
           "lang": "javascript"
         },
-        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1715662633/SEE/Video/SEELearning_AwareApp_IntroVideo_2024_cljrvr.mp4"
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1717469190/SEE/Video/SEELearning_AwareApp_IntroVideo_2024_V3_1_giheh7.mp4"
+      },
+      "videoEnd": {
+        "source": ""
       }
     },
     "tags": [
@@ -203,7 +242,7 @@
     ],
     "id": "3843d06f-1c38-47b9-ad9b-5a780f364186",
     "async": true,
-    "description": "Help Now! Strategies are easy actions that can be practiced to quickly return our bodies and minds to the present moment, and thus function as useful ways to bring our bodies back to a place of balance if we get bumped into our high or low zones (states of hyper-arousal or hypo-arousal)."
+    "description": "Help Now! Strategies are easy actions that can be practiced to quickly return our bodies and minds to the present moment, and thus function as useful ways to bring our bodies and minds back to a place of balance."
   },
   "pt": {
     "slides": [

@@ -25,7 +25,7 @@ import {generateSessionToken} from '../lib/dailyUtils';
 import {createRctUserId} from '../lib/id';
 import {LiveSessionRecord} from '../models/types/types';
 import {LiveSessionModel} from './types/types';
-import {DEFAULT_LANGUAGE_TAG} from '../lib/i18n';
+import {DEFAULT_LANGUAGE_TAG, LANGUAGE_TAG} from '../lib/i18n';
 import {ROLE} from '../../../shared/src/schemas/User';
 
 const mapSession = async (
@@ -53,12 +53,14 @@ const isUserAllowedToJoin = (session: LiveSessionRecord, userId: string) =>
 
 export const getSessionsByUserId = async (
   userId: string,
+  languages?: LANGUAGE_TAG[],
   exerciseId?: string,
   hostId?: string,
   limit?: number,
 ): Promise<LiveSessionModel[]> => {
   const sessions = await sessionModel.getSessionsByUserId(
     userId,
+    languages,
     exerciseId,
     hostId,
     limit,
