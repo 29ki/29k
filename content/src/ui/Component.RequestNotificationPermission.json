@@ -9,7 +9,7 @@
   },
   "pt": {
     "title": "Não deste permissão.",
-    "message": "Abre as configurações para nos dares permissão para enviar notificações",
+    "message": "Abre as configurações para nos dares permissão para enviar notificações. A app Aware será reiniciada.",
     "actions": {
       "cancel": "Cancelar",
       "confirm": "Abrir configurações"
@@ -23,5 +23,5 @@
       "confirm": "Öppna inställningar"
     }
   },
-  "es": {}
+  "ja": {}
 }

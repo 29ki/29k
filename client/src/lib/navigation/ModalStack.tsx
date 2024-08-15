@@ -45,6 +45,7 @@ import HowItWorksModal from '../../routes/modals/HowItWorksModal/HowItWorksModal
 import SessionModal from '../../routes/modals/SessionModal/SessionModal';
 import FeedbackPostModal from '../../routes/modals/FeedbackPostModal/FeedbackPostModal';
 import LiveSessionsModal from '../../routes/modals/LiveSessionsModal/LiveSessionsModal';
+import UnlockCollectionModal from '../../routes/modals/UnlockCollectionModal/UnlockCollectionModal';
 
 const {Navigator, Screen, Group} =
   createBottomSheetNavigator<ModalStackProps>();
@@ -80,7 +81,7 @@ const modalScreenOptions: BottomSheetNavigationOptions = {
     right: 0,
   },
   /*
-    Fixes issues with modals being clipped when focusing on input fields
+    TODO: Fixes issues with modals being clipped when focusing on input fields
     https://github.com/gorhom/react-native-bottom-sheet/issues/618
   */
   android_keyboardInputMode: 'adjustResize',
@@ -90,7 +91,7 @@ const modalScreenOptions: BottomSheetNavigationOptions = {
 const ModalStack = () => {
   const {top} = useSafeAreaInsets();
 
-  const sheetModalScreenOptions = useMemo(
+  const sheetModalScreenOptions: BottomSheetNavigationOptions = useMemo(
     () => ({
       ...modalScreenOptions,
       // Please note - Having a fixed snap point as first value improves keyboard input focus on Android
@@ -106,7 +107,7 @@ const ModalStack = () => {
     [top],
   );
 
-  const shortSheetModalScreenOptions = useMemo(
+  const shortSheetModalScreenOptions: BottomSheetNavigationOptions = useMemo(
     () => ({
       ...sheetModalScreenOptions,
       // Please note - Having a fixed snap point as first value improves keyboard input focus on Android
@@ -115,7 +116,7 @@ const ModalStack = () => {
     [sheetModalScreenOptions],
   );
 
-  const tallSheetModalScreenOptions = useMemo(
+  const tallSheetModalScreenOptions: BottomSheetNavigationOptions = useMemo(
     () => ({
       ...sheetModalScreenOptions,
       // Please note - Having a fixed snap point as first value improves keyboard input focus on Android
@@ -124,7 +125,7 @@ const ModalStack = () => {
     [sheetModalScreenOptions],
   );
 
-  const fullSheetModalScreenOptions = useMemo(
+  const fullSheetModalScreenOptions: BottomSheetNavigationOptions = useMemo(
     () => ({
       ...sheetModalScreenOptions,
       snapPoints: ['100%'],
@@ -132,7 +133,7 @@ const ModalStack = () => {
     [sheetModalScreenOptions],
   );
 
-  const donateSheetModalScreenOptions = useMemo(
+  const donateSheetModalScreenOptions: BottomSheetNavigationOptions = useMemo(
     () => ({
       ...sheetModalScreenOptions,
       snapPoints: [450],
@@ -140,18 +141,23 @@ const ModalStack = () => {
     [sheetModalScreenOptions],
   );
 
-  const cardModalScreenOptions = useMemo(
+  const cardModalScreenOptions: BottomSheetNavigationOptions = useMemo(
     () => ({
       ...modalScreenOptions,
-      snapPoints: [200],
+      /*
+        A smaller snapPoint number would cause an issue where keyboard animation closes the modal
+        https://github.com/gorhom/react-native-bottom-sheet/issues/1602
+      */
+      snapPoints: [300],
       detached: true,
       bottomInset: 10,
       style: {
         marginHorizontal: 10,
       },
       handleIndicatorStyle: {
-        opacity: 0,
+        display: 'none',
       },
+      handleHeight: 0,
     }),
     [],
   );
@@ -310,6 +316,10 @@ const ModalStack = () => {
       </Group>
 
       <Group screenOptions={cardModalScreenOptions}>
+        <Screen
+          name="UnlockCollectionModal"
+          component={UnlockCollectionModal}
+        />
         <Screen
           name={'AddSessionByInviteModal'}
           component={AddSessionByInviteModal}

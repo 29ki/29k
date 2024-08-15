@@ -1,5 +1,5 @@
 import * as yup from 'yup';
-import {DEFAULT_LANGUAGE_TAG} from '../constants/i18n';
+import {DEFAULT_LANGUAGE_TAG} from '../i18n/constants';
 import {transformTimestamp} from '../modelUtils/transform';
 import {LanguageSchema} from './Language';
 import {UserSchema} from './User';
@@ -12,6 +12,7 @@ const PostFieldsSchema = yup.object({
   language: LanguageSchema.required(),
   approved: yup.boolean().required(),
   text: yup.string().required(),
+  relates: yup.number().nullable().default(null),
 });
 export type PostFieldsType = yup.InferType<typeof PostFieldsSchema>;
 

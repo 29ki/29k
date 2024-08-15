@@ -24,6 +24,13 @@
     "errors": {
       "validateSession/not-found": "Não consigo encontrar a sessão.",
       "validateSession/user-not-found": "Utilizador não faz parte da sessão."
+    },
+    "onboarding": {
+      "title": "Prepara-te para esta sessão",
+      "about": "Esta sessão é uma chamada de vídeo ao vivo. Podes ouvir apenas, ou partilhar a tua esperiência com o grupo.",
+      "headset": "Usa uns auriculares e encontra um local calmo e sossegado.",
+      "permissions": "Confirma que permites o acesso à tua câmara e microfone.",
+      "button": "Percebi"
     }
   },
   "sv": {
@@ -43,5 +50,5 @@
       "validateSession/user-not-found": "Användaren hittades inte för sessionen."
     }
   },
-  "es": {}
+  "ja": {}
 }

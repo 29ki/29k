@@ -1,11 +1,15 @@
 {
   "en": {
     "removeTitle": "Remove {{displayName}} from session",
-    "removeText": "Are you sure ypu want to remove {{displayName}} from this session? They won't be able to rejoin.",
+    "removeText": "Are you sure you want to remove {{displayName}} from this session? They won't be able to rejoin.",
     "removeYes": "Yes, remove",
     "removeNo": "Cancel"
   },
   "pt": {
+    "removeTitle": "Remover {{displayName}} da sessão",
+    "removeText": "Tens a certeza que queres remover a/o {{displayName}} da sessão? Não será possível juntar-se de novo à sessão.",
+    "removeYes": "Sim, remover",
+    "removeNo": "Cancelar"
   },
   "sv": {
     "removeTitle": "Ta bort {{displayName}} från sessinen",
@@ -13,5 +17,5 @@
     "removeYes": "Ja, ta bort",
     "removeNo": "Avbryt"
   },
-  "es": {}
+  "ja": {}
 }

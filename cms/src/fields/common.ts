@@ -1,4 +1,4 @@
-import {CmsField, CmsFieldBase, CmsFieldObject} from 'netlify-cms-core';
+import {CmsField, CmsFieldBase, CmsFieldObject} from 'decap-cms-core';
 import {
   CLOUDINARY_AUDIO_CONFIG,
   CLOUDINARY_CARD_IMAGE_CONFIG,
@@ -67,6 +67,16 @@ export const HIDDEN_FIELD: CmsField = {
   hint: "This will make it hidden by default. For work in progress, use in combination with published and the 'Show work in progress' switch in the app to access it only in staging.",
 };
 
+export const LOCKED_FIELD: CmsField = {
+  label: '🔐 Locked',
+  name: 'locked',
+  widget: 'boolean',
+  required: false,
+  default: false,
+  i18n: 'duplicate',
+  hint: 'This requires users to unlock the content with a deep link.',
+};
+
 export const NAME_FIELD: CmsField = {
   label: '📇 Name',
   name: 'name',
@@ -116,6 +126,14 @@ export const BACKGROUND_COLOR_FIELD: CmsField = {
   name: 'backgroundColor',
   widget: 'color',
   i18n: true,
+  required: false,
+};
+
+export const IMAGE_BACKGROUND_COLOR_FIELD: CmsField = {
+  label: '🎨 Image Background Color',
+  name: 'imageBackgroundColor',
+  widget: 'color',
+  i18n: 'duplicate',
   required: false,
 };
 
@@ -210,7 +228,7 @@ const SUBTITLES_FIELD: CmsField = {
   media_library: CLOUDINARY_IMAGE_CONFIG,
 };
 
-export const LOTTE_FIELD: CmsFieldBase & CmsFieldObject = {
+export const LOTTIE_FIELD: CmsFieldBase & CmsFieldObject = {
   label: '💃 Lottie',
   name: 'lottie',
   widget: 'object',
@@ -275,7 +293,7 @@ export const VIDEO_FIELD: CmsFieldBase & CmsFieldObject = {
   ],
 };
 
-const AUDIO_FIELD: CmsField = {
+export const AUDIO_FIELD: CmsField = {
   label: '🔈 Audio file',
   name: 'audio',
   widget: 'file',
@@ -297,9 +315,9 @@ export const VIDEO_FIELD_WITH_AUDIO: CmsFieldBase & CmsFieldObject = {
 };
 
 export const LOTTIE_FIELD_WITH_AUDIO: CmsFieldBase & CmsFieldObject = {
-  ...LOTTE_FIELD,
+  ...LOTTIE_FIELD,
   fields: [
-    ...LOTTE_FIELD.fields,
+    ...LOTTIE_FIELD.fields,
     {
       ...AUDIO_FIELD,
       hint: '❗️ Lottie will automatically loop to the length of the audio.',

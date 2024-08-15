@@ -8,7 +8,6 @@ import React, {
 } from 'react';
 import {View} from 'react-native';
 import styled from 'styled-components/native';
-import IdleTimerManager from 'react-native-idle-timer';
 
 import VideoLooper from '../../../../../components/VideoLooper/VideoLooper';
 import useSessionState from '../../../../state/state';
@@ -21,6 +20,7 @@ import MediaControls from '../../../../../components/MediaControls/MediaControls
 import Subtitles from '../../../../../components/Subtitles/Subtitles';
 import Gutters from '../../../../../components/Gutters/Gutters';
 import {ProgressTimerContext} from '../../../../context/TimerContext';
+import useIdleTimerManager from '../../../../hooks/useIdleTimerManager';
 
 const LottiePlayer = styled(LPlayer)({
   flex: 1,
@@ -75,6 +75,7 @@ const Lottie: React.FC<LottieProps> = ({
   );
   const previousState = useRef({playing: false, timestamp: new Date()});
   const progressTimerContext = useContext(ProgressTimerContext);
+  const setIdleTimerDisabled = useIdleTimerManager();
 
   const seek = useCallback(
     (seconds: number) => {
@@ -91,10 +92,9 @@ const Lottie: React.FC<LottieProps> = ({
   useEffect(() => {
     if (!isLive) {
       // Only disable idle timer for async sessions as daily handles this in live sessions
-      IdleTimerManager.setIdleTimerDisabled(active && !paused);
-      return () => IdleTimerManager.setIdleTimerDisabled(false);
+      return setIdleTimerDisabled(active && !paused);
     }
-  }, [isLive, active, paused]);
+  }, [isLive, active, paused, setIdleTimerDisabled]);
 
   useEffect(() => {
     if (!active) {

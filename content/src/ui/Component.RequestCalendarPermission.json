@@ -1,0 +1,27 @@
+{
+  "en": {
+    "title": "You have denied permission.",
+    "message": "Open settings to give us permission to add events to your calendar. This will restart the Aware app.",
+    "actions": {
+      "cancel": "Cancel",
+      "confirm": "Open Settings"
+    }
+  },
+  "pt": {
+    "title": "Não deste permissão.",
+    "actions": {
+      "cancel": "Cancelar",
+      "confirm": "Abrir configurações"
+    },
+    "message": "Acede às configurações para nos dares permissões para adicionar eventos ao teu calendário. Isto vai reiniciar a app Aware FJN."
+  },
+  "sv": {
+    "title": "Du har inte gett tillåtelse.",
+    "message": "Öppna inställningar för att ge Aware tillåtelse att lägga till kalenderhändelser. Appen startas om när inställningar ändras. ",
+    "actions": {
+      "cancel": "Avbryt",
+      "confirm": "Öppna inställningar"
+    }
+  },
+  "ja": {}
+}

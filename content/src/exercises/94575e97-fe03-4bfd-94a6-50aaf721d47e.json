@@ -176,7 +176,10 @@
       "videoLoop": {
         "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1667376603/Video/portal1_Accepting_thoughts_and_feelings_upvkxb.mp4",
         "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1667317049/Audio/portal_Accepting_thoughts_and_feelings_ynb5i9.mp3",
-        "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1674554616/Images/thumb_portal_accepting_thoughts_and..._ozmmt2.png"
+        "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1674554616/Images/thumb_portal_accepting_thoughts_and..._ozmmt2.png",
+        "p5JsScript": {
+          "lang": "javascript"
+        }
       },
       "videoEnd": {
         "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1667317594/Video/portal2_Accepting_thoughts_and_feelings_iyqnuk.mp4"
@@ -287,6 +290,16 @@
           "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1675960919/Video/async_outro_Accepting_thoughts_and_feelings_jpyrdo.mp4",
           "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1675954575/Images/async_thumbnail_Accepting_thoughts_and_feelings_yaur8a.jpg"
         }
+      },
+      {
+        "type": "instruction",
+        "content": {
+          "heading": "Parabéns",
+          "text": "Gostaríamos que continuasses esta missão:\n\nO que podes trazer desta experiência para o resto do teu dia?\n\nAo refletires sobre o que aprendeste, aproveita a oportunidade e cria espaço para os teus temas interiores durante o resto do dia. Vê onde isso te leva.",
+          "image": {
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1667318313/Images/cover_Accepting_thoughts_and_feelings_w323ui.png"
+          }
+        }
       }
     ],
     "theme": {
@@ -316,7 +329,11 @@
       ],
       "videoLoop": {
         "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1667376603/Video/portal1_Accepting_thoughts_and_feelings_upvkxb.mp4",
-        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1667317049/Audio/portal_Accepting_thoughts_and_feelings_ynb5i9.mp3"
+        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1667317049/Audio/portal_Accepting_thoughts_and_feelings_ynb5i9.mp3",
+        "p5JsScript": {
+          "lang": "javascript"
+        },
+        "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1674554616/Images/thumb_portal_accepting_thoughts_and..._ozmmt2.png"
       },
       "videoEnd": {
         "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1667317594/Video/portal2_Accepting_thoughts_and_feelings_iyqnuk.mp4"
@@ -501,7 +518,7 @@
     "async": true,
     "description": "En guidad meditationsövning om att acceptera det som pågår inuti oss. Att öva på acceptans kan hjälpa oss att göra mer av det som är viktigt för oss och har visat sig vara ett effektivt sätt att hantera inre upplevelser."
   },
-  "es": {
+  "ja": {
     "id": "94575e97-fe03-4bfd-94a6-50aaf721d47e",
     "duration": 30,
     "tags": [

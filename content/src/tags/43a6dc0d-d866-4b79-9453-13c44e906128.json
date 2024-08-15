@@ -2,20 +2,25 @@
   "en": {
     "id": "43a6dc0d-d866-4b79-9453-13c44e906128",
     "name": "Gratitude",
-    "sortOrder": 1
+    "sortOrder": 1,
+    "published": true
   },
   "pt": {
     "id": "43a6dc0d-d866-4b79-9453-13c44e906128",
     "sortOrder": 1,
-    "name": "Gratidão"
+    "name": "Gratidão",
+    "published": true
   },
   "sv": {
     "id": "43a6dc0d-d866-4b79-9453-13c44e906128",
     "sortOrder": 1,
-    "name": "Tacksamhet"
+    "name": "Tacksamhet",
+    "published": true
   },
-  "es": {
+  "ja": {
+    "name": "感謝",
     "id": "43a6dc0d-d866-4b79-9453-13c44e906128",
-    "sortOrder": 1
+    "sortOrder": 1,
+    "published": true
   }
 }

@@ -17,12 +17,13 @@ LogBox.ignoreLogs([
     https://github.com/styled-components/styled-components/issues/835
     https://github.com/styled-components/css-to-react-native/issues/40
   */
-  'contain units',
+  'to contain units',
   'to be unitless',
   /*
-    React Native Video v5 uses the deprecated ViewPropTypes. Remove this after upgrading to a stable v6
+    react-native-background-timer is using a deprecated API
+    https://github.com/ocetnik/react-native-background-timer/issues/366
   */
-  'ViewPropTypes',
+  'new NativeEventEmitter',
 ]);
 
 if (__DEV__) {

@@ -2,8 +2,8 @@
   "en": {
     "privacyNotice": "Privacy Notice",
     "start": {
-      "heading1": "New",
-      "heading2": "perspectives"
+      "heading1": "",
+      "heading2": "Discover yourself, connect with others."
     },
     "page1": {
       "heading__text": "Science-based\npsychological tools"
@@ -31,9 +31,10 @@
     "getStartedButton": "Get started"
   },
   "pt": {
+    "privacyNotice": "Privacidade",
     "start": {
-      "heading1": "Um planeta próspero começa com",
-      "heading2": "um eu próspero"
+      "heading1": "",
+      "heading2": "Descobre-te, liga-te aos outros."
     },
     "page1": {
       "heading__text": "Ferramentas psicológicas\nbaseadas em ciência"
@@ -55,10 +56,41 @@
       "sessions__text": "Experiências guiadas para\nnovas perspetivas de vida.\n\nIndividualmente, com\nos amigos ou novas ligações.",
       "journey__text": "O teu caminho pessoal\npara uma vida mais próspera."
     },
+    "privacyNoticeUrl": "https://wiki.29k.org/aware-privacy-notice",
     "skipButton": "Ignorar",
     "continueButton": "Continuar",
     "getStartedButton": "Começar"
   },
-  "sv": {},
-  "es": {}
+  "sv": {
+    "privacyNotice": "Integritetspolicy",
+    "start": {
+      "heading1": "",
+      "heading2": "Utforska dig själv, tillsammans med andra."
+    },
+    "page1": {
+      "heading__text": "Forskningsbaserade\npsykologiska verktyg"
+    },
+    "page2": {
+      "heading__text": "Meningsfullt\nsammanhang",
+      "name1": "Ints",
+      "name2": "Jenny",
+      "name3": "Lisa"
+    },
+    "page3": {
+      "heading__text": "För en \nbättre värld",
+      "card": {
+        "heading": "Icke vinst-drivande",
+        "text__markdown": "Gratis för privat bruk.\\\nVi säljer aldrig data. Vi har inga annonser.\\\nSå att du kan fokusera på ditt välbefinnande, utvecklas och bidra till en bättre framtid för alla."
+      }
+    },
+    "page4": {
+      "sessions__text": "Guidade övningar för\nnya perspektiv.\n\nPå egen hand, med\nvänner eller nya kontakter.",
+      "journey__text": "Din personliga plan\nför ett meningsfullt liv."
+    },
+    "privacyNoticeUrl": "https://wiki.29k.org/aware-privacy-notice",
+    "skipButton": "Hoppa över",
+    "continueButton": "Fortsätt",
+    "getStartedButton": "Kom igång"
+  },
+  "ja": {}
 }

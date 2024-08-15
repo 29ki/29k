@@ -4,8 +4,8 @@ import {IconType} from '..';
 import {COLORS} from '../../../../../../shared/src/constants/colors';
 import Icon from '../Icon';
 
-export const InfoIcon: IconType = ({fill = COLORS.BLACK}) => (
-  <Icon>
+export const InfoIcon: IconType = ({fill = COLORS.BLACK, style}) => (
+  <Icon style={style}>
     <Path
       fillRule="evenodd"
       clipRule="evenodd"

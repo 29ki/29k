@@ -1,5 +1,6 @@
 import {PostType} from '../../../../../shared/src/schemas/Post';
 import apiClient from '../../apiClient/apiClient';
+import {LANGUAGE_TAG} from '../../i18n';
 
 const POSTS_ENDPOINT = '/posts';
 
@@ -19,12 +20,13 @@ export const fetchPosts = async (limit: number): Promise<PostType[]> => {
 };
 
 export const fetchExercisePosts = async (
+  language: LANGUAGE_TAG,
   exerciseId: string,
   sharingId: string,
 ): Promise<PostType[]> => {
   try {
     const response = await apiClient(
-      `${POSTS_ENDPOINT}/${exerciseId}/${sharingId}`,
+      `${POSTS_ENDPOINT}/${exerciseId}/${sharingId}?language=${language}`,
     );
     if (!response.ok) {
       throw new Error(await response.text());
@@ -37,6 +39,7 @@ export const fetchExercisePosts = async (
 };
 
 export const addPost = async (
+  language: LANGUAGE_TAG,
   exerciseId: string,
   sharingId: string,
   text: string,
@@ -45,7 +48,7 @@ export const addPost = async (
   try {
     const response = await apiClient(POSTS_ENDPOINT, {
       method: 'post',
-      body: JSON.stringify({exerciseId, sharingId, text, anonymous}),
+      body: JSON.stringify({language, exerciseId, sharingId, text, anonymous}),
     });
     if (!response.ok) {
       throw new Error(await response.text());

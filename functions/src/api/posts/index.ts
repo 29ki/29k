@@ -1,19 +1,26 @@
+import {uniq} from 'ramda';
 import * as yup from 'yup';
 import {createApiAuthRouter} from '../../lib/routers';
-import {PostError} from '../../../../shared/src/errors/Post';
-import {createPost, deletePost, getPosts} from '../../controllers/posts';
-import {RequestError} from '../../controllers/errors/RequestError';
+import {
+  createPost,
+  getPosts,
+  decreasePostRelates,
+  increasePostRelates,
+} from '../../controllers/posts';
 import validation from '../lib/validation';
 import {
   CreatePostSchema,
   PostSchema,
 } from '../../../../shared/src/schemas/Post';
+import {DEFAULT_LANGUAGE_TAG} from '../../lib/i18n';
+import {LanguageSchema} from '../../../../shared/src/schemas/Language';
 
 const postsRouter = createApiAuthRouter();
 
 const POSTS_LIMIT = 20;
 
 const GetPostsQuerySchema = yup.object({
+  language: LanguageSchema.default(DEFAULT_LANGUAGE_TAG),
   limit: yup.number().max(100).default(POSTS_LIMIT),
 });
 
@@ -24,10 +31,11 @@ postsRouter.get(
     response: yup.array().of(PostSchema),
   }),
   async ctx => {
-    const {response} = ctx;
+    const {response, language} = ctx;
     const {limit} = ctx.request.query;
+    const languages = uniq([language, DEFAULT_LANGUAGE_TAG]);
 
-    const posts = await getPosts(limit);
+    const posts = await getPosts(limit, languages);
 
     response.status = 200;
     ctx.set('Cache-Control', 'max-age=300');
@@ -50,10 +58,10 @@ postsRouter.get(
   async ctx => {
     const {response} = ctx;
     const {exerciseId, sharingId} = ctx.params;
-    const {limit} = ctx.request.query;
+    const {limit, language} = ctx.request.query;
 
-    const posts = await getPosts(limit, exerciseId, sharingId);
-
+    const languages = uniq([language, DEFAULT_LANGUAGE_TAG]);
+    const posts = await getPosts(limit, languages, exerciseId, sharingId);
     response.status = 200;
     ctx.body = posts;
   },
@@ -61,38 +69,41 @@ postsRouter.get(
 
 postsRouter.post('/', validation({body: CreatePostSchema}), async ctx => {
   const {id} = ctx.user;
-  const language = ctx.language;
   const postData = ctx.request.body;
 
-  await createPost({...postData, language}, id);
+  await createPost(postData, id);
   ctx.response.status = 200;
 });
 
-const DeletePostParamsSchema = yup.object({
+const PostRelateParamsSchema = yup.object({
   postId: yup.string().required(),
 });
 
-postsRouter.delete(
-  '/:postId',
-  validation({params: DeletePostParamsSchema}),
+postsRouter.post(
+  '/:postId/relate',
+  validation({
+    params: PostRelateParamsSchema,
+  }),
   async ctx => {
     const {postId} = ctx.params;
 
-    try {
-      await deletePost(postId);
-      ctx.response.status = 200;
-    } catch (error) {
-      const requestError = error as RequestError;
-      switch (requestError.code) {
-        case PostError.notFound:
-          ctx.status = 404;
-          break;
+    await increasePostRelates(postId);
 
-        default:
-          throw error;
-      }
-      ctx.message = requestError.code;
-    }
+    ctx.response.status = 200;
+  },
+);
+
+postsRouter.delete(
+  '/:postId/relate',
+  validation({
+    params: PostRelateParamsSchema,
+  }),
+  async ctx => {
+    const {postId} = ctx.params;
+
+    await decreasePostRelates(postId);
+
+    ctx.response.status = 200;
   },
 );
 

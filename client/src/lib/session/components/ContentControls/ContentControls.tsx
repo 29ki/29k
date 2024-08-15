@@ -9,16 +9,16 @@ import {
   ChevronRight,
   ChevronLeftIcon,
   PlayIcon,
-  Pause,
+  PauseIcon,
   RewindIcon,
 } from '../../../components/Icons';
 
 import {Spacer8} from '../../../components/Spacers/Spacer';
 import Button from '../../../components/Buttons/Button';
 import IconButton from '../../../components/Buttons/IconButton/IconButton';
-import {Exercise} from '../../../../../../shared/src/types/generated/Exercise';
 import {SessionStateType} from '../../../../../../shared/src/schemas/Session';
 import SETTINGS from '../../../constants/settings';
+import {ExerciseWithLanguage} from '../../../content/types';
 
 const Wrapper = styled.View({
   flexDirection: 'row',
@@ -44,7 +44,7 @@ const IconSlideButton = styled(IconButton)<{hidden?: boolean}>(({hidden}) => ({
 type ContentControlsProps = {
   style?: ViewStyle;
   async?: boolean;
-  exercise: Exercise | null;
+  exercise: ExerciseWithLanguage | null;
   isHost: boolean;
   sessionState: SessionStateType | null;
   currentContentReachedEnd: boolean;
@@ -138,7 +138,7 @@ const ContentControls: React.FC<ContentControlsProps> = ({
               variant="tertiary"
               Icon={
                 sessionState.playing && !currentContentReachedEnd
-                  ? Pause
+                  ? PauseIcon
                   : PlayIcon
               }
               onPress={onTogglePlayingPress}

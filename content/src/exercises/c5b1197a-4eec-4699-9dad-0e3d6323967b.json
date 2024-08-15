@@ -235,11 +235,15 @@
       "videoLoop": {
         "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1672829134/Video/portal1_setting_boundaries_b3rx64.mp4",
         "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1674207970/Audio/portal_audio_setting_boundaries_mixdown_gapless_e33ufm.m4a",
-        "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1674554570/Images/thumb_portal_setting_boundaries_mlg0yv.png"
+        "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1674554570/Images/thumb_portal_setting_boundaries_mlg0yv.png",
+        "p5JsScript": {
+          "lang": "javascript"
+        }
       },
       "videoEnd": {
         "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1672835034/Video/portal2_setting_boundaries_craqov.mp4"
-      }
+      },
+      "textColor": "#F9F8F4"
     },
     "tags": [
       "8da0534a-5da9-430a-bdf3-242ace6460fb",
@@ -515,7 +519,7 @@
     "link": "https://aware.29k.org/setting-boundaries",
     "id": "c5b1197a-4eec-4699-9dad-0e3d6323967b"
   },
-  "es": {
+  "ja": {
     "slides": [
       {
         "type": "host",

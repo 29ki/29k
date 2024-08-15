@@ -10,6 +10,14 @@ export type PostPayload = {
   text: string;
 };
 
+export type MoodPayload = {
+  type: 'liveSession';
+  question: string;
+  mood: number;
+  exerciseId: string;
+  sessionId: string;
+};
+
 export type FeedbackPayload = {
   question: string;
   answer: boolean;
@@ -41,6 +49,11 @@ export type PostEvent = BaseEvent & {
   payload: PostPayload;
 };
 
+export type MoodEvent = BaseEvent & {
+  type: 'mood';
+  payload: MoodPayload;
+};
+
 export type FeedbackEvent = BaseEvent & {
   type: 'feedback';
   payload: FeedbackPayload;
@@ -58,6 +71,7 @@ export type CompletedCollectionEvent = BaseEvent & {
 
 export type UserEvent =
   | PostEvent
+  | MoodEvent
   | FeedbackEvent
   | CompletedSessionEvent
   | CompletedCollectionEvent;

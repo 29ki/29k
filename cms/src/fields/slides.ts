@@ -3,7 +3,7 @@ import {
   CmsFieldBase,
   CmsFieldObject,
   CmsFieldList,
-} from 'netlify-cms-core';
+} from 'decap-cms-core';
 
 import {
   DURATION_FIELD,
@@ -130,7 +130,7 @@ const INSTRUCTION_FIELDS: Array<CmsField> = [
 ];
 
 export const HOST_SLIDE: CmsFieldBase & CmsFieldObject = {
-  label: '💁‍♀️ Host slide',
+  label: '💁‍♀️ Host slide (Live only)',
   name: SLIDE_TYPES.HOST,
   widget: 'object',
   collapsed: true,
@@ -156,7 +156,7 @@ export const CONTENT_SLIDE: CmsFieldBase & CmsFieldObject = {
 };
 
 export const INSTRUCTION_SLIDE: CmsFieldBase & CmsFieldObject = {
-  label: '📃 Instruction slide (Async)',
+  label: '📃 Instruction slide',
   name: SLIDE_TYPES.INSTRUCTION,
   widget: 'object',
   collapsed: true,
@@ -173,7 +173,7 @@ export const INSTRUCTION_SLIDE: CmsFieldBase & CmsFieldObject = {
 };
 
 export const REFLECTION_SLIDE: CmsFieldBase & CmsFieldObject = {
-  label: '🤔 Reflection slide',
+  label: '🤔 Reflection slide (Live only)',
   name: SLIDE_TYPES.REFLECTION,
   widget: 'object',
   collapsed: true,

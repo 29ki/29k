@@ -108,6 +108,9 @@
       "imageBackgroundColor": "#ebf4f3",
       "lottie": {
         "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1701789361/Lottie/Join_engagement_part2_card_image_climatP_yzwiwq.json"
+      },
+      "image": {
+        "source": ""
       }
     },
     "coCreators": [
@@ -146,6 +149,7 @@
       "9c2c08a9-7dc6-4058-bc78-016d0eb00614",
       "566aeb1b-1649-4f5a-96a2-0c80be27efc0"
     ],
+    "link": "https://aware.29k.org/contribute-to-sustainability",
     "id": "9a4834e6-8d3f-420b-88e3-dd3df9a98001",
     "async": true,
     "description": "Acting for change can be difficult and frustrating, especially when there is a feeling of emergency. Doing it with others is often necessary, but it is sometimes hard to know where to start. In this exercise, we get to imagine different types of joint engagement to explore what fits our needs."
@@ -218,6 +222,9 @@
     "hidden": false,
     "live": true,
     "published": false,
+    "card": {
+      "imageBackgroundColor": "#ebf4f3"
+    },
     "duration": 30,
     "introPortal": {
       "hostNotes": [
@@ -230,6 +237,7 @@
       "9c2c08a9-7dc6-4058-bc78-016d0eb00614",
       "566aeb1b-1649-4f5a-96a2-0c80be27efc0"
     ],
+    "link": "https://aware.29k.org/contribute-to-sustainability",
     "id": "9a4834e6-8d3f-420b-88e3-dd3df9a98001",
     "async": false
   },
@@ -380,11 +388,12 @@
       "9c2c08a9-7dc6-4058-bc78-016d0eb00614",
       "566aeb1b-1649-4f5a-96a2-0c80be27efc0"
     ],
+    "link": "https://aware.29k.org/contribute-to-sustainability",
     "id": "9a4834e6-8d3f-420b-88e3-dd3df9a98001",
     "async": true,
     "description": "Att skapa stora förändringar kan kännas otroligt svårt och frustrerande när det är bråttom. Att göra det tillsammans med andra är nödvändigt, men det är inte alltid så lätt att veta var man ska börja. I den här övningen får du föreställa dig olika typer av engagemang och fundera över vad som passar dig."
   },
-  "es": {
+  "ja": {
     "slides": [
       {
         "type": "host",
@@ -452,6 +461,9 @@
     "hidden": false,
     "live": true,
     "published": false,
+    "card": {
+      "imageBackgroundColor": "#ebf4f3"
+    },
     "duration": 30,
     "introPortal": {
       "hostNotes": [
@@ -464,6 +476,7 @@
       "9c2c08a9-7dc6-4058-bc78-016d0eb00614",
       "566aeb1b-1649-4f5a-96a2-0c80be27efc0"
     ],
+    "link": "https://aware.29k.org/contribute-to-sustainability",
     "id": "9a4834e6-8d3f-420b-88e3-dd3df9a98001",
     "async": false
   }

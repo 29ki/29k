@@ -8,7 +8,7 @@ import {addPost, fetchExercisePosts} from '../api/posts';
 import {ExerciseSlideSharingSlideSharingVideo} from '../../../../../shared/src/types/generated/Exercise';
 import {PostItem, VideoPostItem} from '../types/PostItem';
 
-const useSessionSharingPosts = (exerciseId?: string) => {
+const useSessionSharingPosts = () => {
   const addUserEvent = useAddUserEvent();
   const {postEvents} = useUserEvents();
   const session = useSessionState(state => state.asyncSession);
@@ -19,15 +19,23 @@ const useSessionSharingPosts = (exerciseId?: string) => {
       sharingId: string,
       sharingVideos: Array<ExerciseSlideSharingSlideSharingVideo> = [],
     ): Promise<Array<PostItem>> => {
-      if (exerciseId) {
-        const posts = await fetchExercisePosts(exerciseId, sharingId);
+      if (session?.exerciseId) {
+        const posts = await fetchExercisePosts(
+          session.language,
+          session.exerciseId,
+          sharingId,
+        );
         const postItems = sharingVideos.reduce((acc, post, index) => {
           if (post.video?.source) {
             let result: Array<PostItem> = [
               ...acc,
               {
                 type: 'video',
-                item: {...post, exerciseId, sharingId},
+                item: {
+                  ...post,
+                  exerciseId: session.exerciseId,
+                  sharingId,
+                },
               } as VideoPostItem,
             ];
             if (posts[index]) {
@@ -50,7 +58,7 @@ const useSessionSharingPosts = (exerciseId?: string) => {
       }
       return [];
     },
-    [exerciseId],
+    [session?.exerciseId, session?.language],
   );
 
   const addSharingPost = useCallback(
@@ -60,12 +68,18 @@ const useSessionSharingPosts = (exerciseId?: string) => {
       isPublic: boolean,
       isAnonymous: boolean,
     ) => {
-      if (exerciseId && session?.id) {
+      if (session?.id) {
         if (isPublic) {
-          await addPost(exerciseId, sharingId, text, isAnonymous);
+          await addPost(
+            session.language,
+            session.exerciseId,
+            sharingId,
+            text,
+            isAnonymous,
+          );
         }
         addUserEvent('post', {
-          exerciseId,
+          exerciseId: session.exerciseId,
           sessionId: session.id,
           sharingId,
           isPublic,
@@ -75,7 +89,13 @@ const useSessionSharingPosts = (exerciseId?: string) => {
         logAsyncPostMetricEvent('Create Async Post', isPublic, isAnonymous);
       }
     },
-    [exerciseId, session?.id, addUserEvent, logAsyncPostMetricEvent],
+    [
+      session?.id,
+      session?.exerciseId,
+      session?.language,
+      addUserEvent,
+      logAsyncPostMetricEvent,
+    ],
   );
 
   const getSharingPostForSession = useCallback(
@@ -83,33 +103,15 @@ const useSessionSharingPosts = (exerciseId?: string) => {
       return postEvents.find(
         event =>
           event.payload.sessionId === sessionId &&
-          (exerciseId ? event.payload.exerciseId === exerciseId : true) &&
           (sharingId ? event.payload.sharingId === sharingId : true),
       );
     },
-    [postEvents, exerciseId],
-  );
-
-  const getSharingPostsForExercise = useCallback(
-    (sharingId: string) => {
-      return postEvents
-        .filter(
-          event =>
-            event.payload.exerciseId === exerciseId &&
-            event.payload.sharingId === sharingId,
-        )
-        .sort(
-          (a, b) =>
-            new Date(b.timestamp).getTime() - new Date(a.timestamp).getTime(),
-        );
-    },
-    [postEvents, exerciseId],
+    [postEvents],
   );
 
   return {
     getSharingPosts,
     getSharingPostForSession,
-    getSharingPostsForExercise,
     addSharingPost,
   };
 };

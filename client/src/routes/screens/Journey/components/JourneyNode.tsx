@@ -81,7 +81,7 @@ const Line = styled.View<
   position: 'absolute',
   left: NODE_SIZE / 2 - 1,
   width: 2,
-  height: isLast ? SPACINGS.SIXTEEN : height ?? HEIGHT,
+  height: isLast ? SPACINGS.SIXTEEN : (height ?? HEIGHT),
   backgroundColor: COLORS.MEDIUM_DARK_GREEN,
   marginTop: isFirst ? SPACINGS.SIXTEEN : 0,
 }));
@@ -91,13 +91,13 @@ const Spacer2 = styled.View({height: 2});
 const ThumbsUp = styled(ThumbsUpWithoutPadding)({
   position: 'static',
   width: 22,
-  aspectRatio: 1,
+  aspectRatio: '1',
 });
 
 const ThumbsDown = styled(ThumbsDownWithoutPadding)({
   position: 'static',
   width: 22,
-  aspectRatio: 1,
+  aspectRatio: '1',
 });
 
 const NodeContainer = styled.View<{isFirst: boolean}>({

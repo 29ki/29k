@@ -16,7 +16,7 @@ afterEach(() => {
 });
 
 describe('useCollections', () => {
-  it('should return collections', () => {
+  it('should return collections sorted by name', () => {
     mockUseCollectionIds.mockReturnValueOnce([
       'some-collection-id',
       'some-other-collection-id',
@@ -33,6 +33,47 @@ describe('useCollections', () => {
       'some-other-collection-id',
     );
     expect(result.current).toEqual([{name: 'aaa'}, {name: 'bbb'}]);
+  });
+
+  it('should return collections sorted by sortOrder', () => {
+    mockUseCollectionIds.mockReturnValueOnce([
+      'some-collection-id',
+      'some-other-collection-id',
+    ]);
+    mockGetCollectionById
+      .mockReturnValueOnce({name: 'aaa'})
+      .mockReturnValueOnce({name: 'bbb', sortOrder: 1});
+
+    const {result} = renderHook(() => useCollections());
+
+    expect(mockGetCollectionById).toHaveBeenCalledTimes(2);
+    expect(mockGetCollectionById).toHaveBeenCalledWith('some-collection-id');
+    expect(mockGetCollectionById).toHaveBeenCalledWith(
+      'some-other-collection-id',
+    );
+    expect(result.current).toEqual([
+      {name: 'bbb', sortOrder: 1},
+      {name: 'aaa'},
+    ]);
+  });
+
+  it('should not sort when sort = false', () => {
+    mockUseCollectionIds.mockReturnValueOnce([
+      'some-collection-id',
+      'some-other-collection-id',
+    ]);
+    mockGetCollectionById
+      .mockReturnValueOnce({name: 'bbb'})
+      .mockReturnValueOnce({name: 'aaa'});
+
+    const {result} = renderHook(() => useCollections(undefined, false));
+
+    expect(mockGetCollectionById).toHaveBeenCalledTimes(2);
+    expect(mockGetCollectionById).toHaveBeenCalledWith('some-collection-id');
+    expect(mockGetCollectionById).toHaveBeenCalledWith(
+      'some-other-collection-id',
+    );
+    expect(result.current).toEqual([{name: 'bbb'}, {name: 'aaa'}]);
   });
 
   it('filters out nil collections', () => {

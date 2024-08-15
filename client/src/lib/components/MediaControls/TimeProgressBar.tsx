@@ -1,16 +1,11 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 import {ViewStyle} from 'react-native';
-import Animated, {
-  Easing,
-  useAnimatedStyle,
-  useSharedValue,
-  withTiming,
-} from 'react-native-reanimated';
 import styled from 'styled-components/native';
 import hexToRgba from 'hex-to-rgba';
 
 import {COLORS} from '../../../../../shared/src/constants/colors';
 import {SPACINGS} from '../../constants/spacings';
+import ProgressBar from './ProgressBar';
 
 const Wrapper = styled.View<{color?: string}>(({color}) => ({
   flexDirection: 'row',
@@ -18,33 +13,6 @@ const Wrapper = styled.View<{color?: string}>(({color}) => ({
   borderRadius: SPACINGS.EIGHT,
   height: SPACINGS.FOUR,
 }));
-
-const Fill = styled(Animated.View)<{color?: string}>(({color}) => ({
-  backgroundColor: color ? color : COLORS.BLACK,
-  borderRadius: SPACINGS.EIGHT,
-  minWidth: 6,
-  maxWidth: '100%',
-}));
-
-const Progress: React.FC<{percentage: number; color?: string}> = ({
-  percentage,
-  color,
-}) => {
-  const width = useSharedValue(percentage);
-
-  const fillStyle = useAnimatedStyle(() => ({
-    width: `${width.value * 100}%`,
-  }));
-
-  useEffect(() => {
-    width.value = withTiming(percentage, {
-      duration: 100,
-      easing: Easing.bezier(0.33, 1, 0.68, 1),
-    });
-  }, [width, percentage]);
-
-  return <Fill color={color} style={fillStyle} />;
-};
 
 type TimeProgressBarProps = {
   length?: number;
@@ -61,7 +29,7 @@ const TimeProgressBar: React.FC<TimeProgressBarProps> = ({
 }) => (
   <>
     <Wrapper color={color} style={style}>
-      <Progress color={color} percentage={index / (length - 1)} />
+      <ProgressBar color={color} percentage={index / (length - 1)} />
     </Wrapper>
   </>
 );

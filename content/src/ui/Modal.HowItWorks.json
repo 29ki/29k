@@ -6,7 +6,13 @@
     "item3": "A handy tip is to use a headset and make sure to be in a place where you can focus and feel comfortable.",
     "codeOfConduct": "For more details check the [user code of conduct.](https://wiki.29k.org/user-code-of-conduct)"
   },
-  "pt": {},
+  "pt": {
+    "title": "Como funciona",
+    "item1": "Nesta sessão vamos fazer um exercício de meditação em grupo.",
+    "item2": "Terás tempo para refletir sobre ti e, se desejares, partilhar as tuas ideias com o grupo.",
+    "item3": "Uma dica útil é usar uns auriculares e certificar-te que estás num local confortável onde te possas concentrar.",
+    "codeOfConduct": "Para mais detalhes acede ao [código de conduta do utilizador.](https://wiki.29k.org/user-code-of-conduct)"
+  },
   "sv": {
     "title": "Så funkar det",
     "item1": "I den här sessionen kommer vi att göra en övning tillsammans.",
@@ -14,5 +20,5 @@
     "item3": "Ett bra tips är att använda headset och se till att vara på en plats där du kan vara ostörd.",
     "codeOfConduct": "För mer information, se vår [user code of conduct.](https://wiki.29k.org/user-code-of-conduct)"
   },
-  "es": {}
+  "ja": {}
 }

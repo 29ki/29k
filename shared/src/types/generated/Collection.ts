@@ -7,19 +7,21 @@ export interface CollectionCoCreator {
   image: string;
 }
 
-export interface CollectionImage {
+export interface CollectionCardImage {
   description?: string;
   source?: string;
 }
 
-export interface CollectionCardColor {
-  color: string;
+export interface CollectionCardLottie {
+  description?: string;
+  source?: string;
+  subtitles?: string;
 }
 
 export interface CollectionCard {
-  description?: string;
-  backgroundColorGradient?: CollectionCardColor[];
-  textColor?: string;
+  image?: CollectionCardImage;
+  imageBackgroundColor?: string;
+  lottie?: CollectionCardLottie;
 }
 
 export interface Collection {
@@ -28,11 +30,11 @@ export interface Collection {
   description?: string;
   coCreators?: CollectionCoCreator[];
   link?: string;
-  image?: CollectionImage;
+  card?: CollectionCard;
   tags?: any[];
   sortOrder?: number;
   published: boolean;
   hidden?: boolean;
+  locked?: boolean;
   exercises: any[];
-  card?: CollectionCard;
 }

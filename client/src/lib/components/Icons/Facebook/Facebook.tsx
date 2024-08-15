@@ -4,8 +4,8 @@ import {IconType} from '..';
 import {COLORS} from '../../../../../../shared/src/constants/colors';
 import Icon from '../Icon';
 
-export const FacebookIcon: IconType = ({fill = COLORS.BLACK}) => (
-  <Icon>
+export const FacebookIcon: IconType = ({fill = COLORS.BLACK, style}) => (
+  <Icon style={style}>
     <Path
       d="M13.35 24.9C8.6 24.05 5 19.95 5 15 5 9.5 9.5 5 15 5s10 4.5 10 10c0 4.95-3.6 9.05-8.35 9.9l-.55-.45h-2.2l-.55.45Z"
       fill={fill}

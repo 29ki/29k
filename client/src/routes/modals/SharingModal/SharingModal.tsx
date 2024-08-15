@@ -1,5 +1,4 @@
 import React, {useCallback, useMemo, useState} from 'react';
-import {Switch} from 'react-native';
 import {useTranslation} from 'react-i18next';
 import styled from 'styled-components/native';
 import {
@@ -25,7 +24,7 @@ import {
   Body16,
   BodyBold,
 } from '../../../lib/components/Typography/Body/Body';
-import {EarthIcon, PrivateEyeIcon} from '../../../lib/components/Icons';
+import {PrivateEyeIcon, ProfileIcon} from '../../../lib/components/Icons';
 import useAsyncSessionSlideState from '../../../lib/session/hooks/useAsyncSessionSlideState';
 import BylineUser from '../../../lib/components/Bylines/BylineUser';
 import {HKGroteskBold} from '../../../lib/constants/fonts';
@@ -33,18 +32,14 @@ import RadioButton from '../../../lib/components/Buttons/RadioButton/RadioButton
 import TouchableOpacity from '../../../lib/components/TouchableOpacity/TouchableOpacity';
 import {ExerciseSlideSharingSlide} from '../../../../../shared/src/types/generated/Exercise';
 import {SPACINGS} from '../../../lib/constants/spacings';
-import {
-  RouteProp,
-  useIsFocused,
-  useNavigation,
-  useRoute,
-} from '@react-navigation/native';
+import {useIsFocused, useNavigation} from '@react-navigation/native';
 import useSessionSharingPosts from '../../../lib/posts/hooks/useSessionSharingPosts';
 import {
   AppStackProps,
   ModalStackProps,
 } from '../../../lib/navigation/constants/routes';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
+import ProfilePicture from '../../../lib/components/User/ProfilePicture';
 
 const HeaderWrapper = styled.View({
   flexDirection: 'row',
@@ -63,21 +58,18 @@ const Row = styled.View({
   alignItems: 'center',
 });
 
-const RightAlign = styled.View({
-  flexDirection: 'row',
-  justifyContent: 'flex-end',
-  alignItems: 'center',
-});
-
 const ActionWrapper = styled.View({
   flexDirection: 'row',
   alignItems: 'center',
 });
 
-const IconWrapper = styled.View({
-  height: 20,
-  width: 20,
-});
+const IconWrapper = styled.View<{border?: boolean}>(({border}) => ({
+  height: 21,
+  width: 21,
+  borderRadius: 21 / 2,
+  borderWidth: border ? 1 : 0,
+  borderColor: COLORS.BLACK,
+}));
 
 const RadioButtonLabel = styled(Body14)({
   fontFamily: HKGroteskBold,
@@ -91,23 +83,13 @@ const SharingInput = styled(BottomSheetTextInput)({
   height: 250,
 });
 
-const AnonymousText = styled(Body16)({
-  color: COLORS.BLACK,
-});
-
 const SharingModal = () => {
-  const {
-    params: {exerciseId},
-  } = useRoute<RouteProp<ModalStackProps, 'SharingModal'>>();
   const {goBack, navigate} =
     useNavigation<NativeStackNavigationProp<AppStackProps & ModalStackProps>>();
   const {t} = useTranslation('Modal.Sharing');
   const user = useUser();
   const sessionState = useAsyncSessionSlideState();
-  const {addSharingPost} = useSessionSharingPosts(exerciseId);
-  const [isPublic, setIsPublic] = useState(true);
-  const [isAnonymous, setIsAnonymous] = useState(true);
-  const [text, setText] = useState('');
+  const {addSharingPost} = useSessionSharingPosts();
 
   const userProfile = useMemo(() => {
     if (user?.uid && user?.displayName) {
@@ -117,16 +99,19 @@ const SharingModal = () => {
         photoURL: user?.photoURL ? user?.photoURL : undefined,
       };
     }
-    return undefined;
   }, [user?.uid, user?.displayName, user?.photoURL]);
 
-  const setPrivate = useCallback(() => {
-    setIsPublic(false);
-  }, []);
+  const [isPublic, setIsPublic] = useState(true);
+  const [isAnonymous, setIsAnonymous] = useState(!userProfile);
+  const [text, setText] = useState('');
 
-  const setPublic = useCallback(() => {
-    setIsPublic(true);
-  }, []);
+  const setVisibilty = useCallback(
+    (makePublic: boolean, makeAnonymous: boolean) => () => {
+      setIsPublic(makePublic);
+      setIsAnonymous(makeAnonymous);
+    },
+    [],
+  );
 
   const question = useMemo(() => {
     if (sessionState?.current.type === 'sharing') {
@@ -141,8 +126,6 @@ const SharingModal = () => {
       return sharingSlide.id;
     }
   }, [sessionState]);
-
-  const trackColor = useMemo(() => ({true: COLORS.PRIMARY}), []);
 
   const onSubmit = useCallback(() => {
     if (sharingId) {
@@ -169,6 +152,7 @@ const SharingModal = () => {
             </TouchableOpacity>
             <Button
               variant="primary"
+              size="small"
               disabled={text.length < 5}
               onPress={onSubmit}>
               {t('submitCta')}
@@ -178,33 +162,58 @@ const SharingModal = () => {
           <Spacer16 />
           <Body16>{t('description')}</Body16>
           <Spacer16 />
-          <RadioButtonRow onPress={setPublic}>
+          {user?.displayName && (
+            <>
+              <RadioButtonRow onPress={setVisibilty(true, false)}>
+                <ActionWrapper>
+                  <ProfilePicture
+                    size={21}
+                    pictureURL={user?.photoURL}
+                    letter={user?.displayName?.[0]}
+                    backgroundColor={COLORS.GREYLIGHTEST}
+                  />
+                  <Spacer4 />
+                  <RadioButtonLabel>
+                    {t('publicLabel', {displayName: user.displayName})}
+                  </RadioButtonLabel>
+                </ActionWrapper>
+                <Spacer8 />
+                <RadioButton
+                  color={COLORS.BLACK}
+                  active={isPublic && !isAnonymous}
+                  onPress={setVisibilty(true, false)}
+                />
+              </RadioButtonRow>
+              <Spacer8 />
+            </>
+          )}
+          <RadioButtonRow onPress={setVisibilty(true, true)}>
             <ActionWrapper>
-              <IconWrapper>
-                <EarthIcon />
+              <IconWrapper border>
+                <ProfileIcon />
               </IconWrapper>
               <Spacer4 />
-              <RadioButtonLabel>{t('publicLabel')}</RadioButtonLabel>
+              <RadioButtonLabel>{t('anonymousLabel')}</RadioButtonLabel>
             </ActionWrapper>
             <RadioButton
               color={COLORS.BLACK}
-              active={isPublic}
-              onPress={setPublic}
+              active={isPublic && isAnonymous}
+              onPress={setVisibilty(true, true)}
             />
           </RadioButtonRow>
           <Spacer8 />
-          <RadioButtonRow onPress={setPrivate}>
+          <RadioButtonRow onPress={setVisibilty(false, true)}>
             <ActionWrapper>
               <IconWrapper>
                 <PrivateEyeIcon />
               </IconWrapper>
               <Spacer4 />
-              <RadioButtonLabel>{t('onlyMeLabel')}</RadioButtonLabel>
+              <RadioButtonLabel>{t('privateLabel')}</RadioButtonLabel>
             </ActionWrapper>
             <RadioButton
               color={COLORS.BLACK}
               active={!isPublic}
-              onPress={setPrivate}
+              onPress={setVisibilty(false, true)}
             />
           </RadioButtonRow>
           <Spacer24 />
@@ -221,19 +230,6 @@ const SharingModal = () => {
             textAlignVertical="top"
           />
           <Spacer16 />
-          <RightAlign>
-            {isPublic && user?.displayName && (
-              <ActionWrapper>
-                <AnonymousText>{t('anonymousLabel')}</AnonymousText>
-                <Spacer8 />
-                <Switch
-                  trackColor={trackColor}
-                  onValueChange={setIsAnonymous}
-                  value={isAnonymous}
-                />
-              </ActionWrapper>
-            )}
-          </RightAlign>
         </Gutters>
       </BottomSheetScrollView>
     </SheetModal>

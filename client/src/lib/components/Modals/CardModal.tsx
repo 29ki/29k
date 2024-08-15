@@ -8,7 +8,6 @@ import SETTINGS from '../../constants/settings';
 const Container = styled.View<{backgroundColor?: string}>(
   ({backgroundColor}) => ({
     flex: 1,
-    paddingTop: 24, // Equals the height of the modal handle
     backgroundColor,
     borderRadius: SETTINGS.BORDER_RADIUS.MODALS,
   }),

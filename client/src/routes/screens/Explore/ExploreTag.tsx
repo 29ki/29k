@@ -20,16 +20,21 @@ import {
 } from '../../../lib/components/Spacers/Spacer';
 import StickyHeading from '../../../lib/components/StickyHeading/StickyHeading';
 import {Heading16} from '../../../lib/components/Typography/Heading/Heading';
-import {Choices, Choice, Collection, Label} from './Choices';
 import useExercisesByTags from '../../../lib/content/hooks/useExercisesByTags';
 import useCollectionsByTags from '../../../lib/content/hooks/useCollectionsByTags';
 import {useTranslation} from 'react-i18next';
+import Collections from './components/Collections';
+import useFeaturedExercisesByTags from '../../../lib/content/hooks/useFeaturedExercisesByTags';
+import Sessions from './components/Sessions';
+import {CollectionIcon} from '../../../lib/components/Icons';
+import IconWrapper from './components/IconWrapper';
+import useLiveSessionsByTags from '../../../lib/sessions/hooks/useLiveSessionsByTags';
 
 const ExploreTag = () => {
   const {
     params: {tagId},
   } = useRoute<RouteProp<ExploreStackProps, 'ExploreTag'>>();
-  const {goBack, navigate} =
+  const {goBack} =
     useNavigation<
       NativeStackNavigationProp<OverlayStackProps & ExploreStackProps>
     >();
@@ -37,8 +42,10 @@ const ExploreTag = () => {
 
   const tag = useTagById(tagId);
   const tagFilter = useMemo(() => (tag ? [tag.id] : []), [tag]);
-  const exercises = useExercisesByTags(tagFilter);
   const collections = useCollectionsByTags(tagFilter);
+  const exercises = useExercisesByTags(tagFilter);
+  const liveSessions = useLiveSessionsByTags(tagFilter);
+  const featuredExercises = useFeaturedExercisesByTags(tagFilter);
 
   return (
     <Screen
@@ -47,28 +54,38 @@ const ExploreTag = () => {
       title={tag?.name}>
       <TopSafeArea />
       <Spacer32 />
-      <AutoScrollView stickyHeaderIndices={[1, 3]}>
+      <AutoScrollView stickyHeaderIndices={[1, 3, 5, 7]}>
         <Spacer16 />
-        {collections.length > 0 && (
+        {liveSessions.length > 0 && (
           <StickyHeading>
-            <Heading16>{t('collectionsHeading')}</Heading16>
+            <Heading16>{t('liveSessionsHeading')}</Heading16>
           </StickyHeading>
         )}
-        {collections.length > 0 && (
-          <Choices>
-            {collections.map(collection => (
-              <Choice
-                key={collection.id}
-                onPress={() =>
-                  navigate('Collection', {collectionId: collection.id})
-                }>
-                <Collection>
-                  <Label>{collection.name}</Label>
-                </Collection>
-              </Choice>
-            ))}
-          </Choices>
+        {liveSessions.length > 0 && (
+          <>
+            <Sessions sessions={liveSessions} />
+            <Spacer16 />
+          </>
         )}
+        {featuredExercises.length > 0 && (
+          <StickyHeading>
+            <Heading16>{t('featuredHeading')}</Heading16>
+          </StickyHeading>
+        )}
+        {featuredExercises.length > 0 && (
+          <>
+            <Sessions sessions={featuredExercises} />
+            <Spacer16 />
+          </>
+        )}
+        {collections.length > 0 && (
+          <StickyHeading>
+            <IconWrapper Icon={CollectionIcon}>
+              <Heading16>{t('collectionsHeading')}</Heading16>
+            </IconWrapper>
+          </StickyHeading>
+        )}
+        {collections.length > 0 && <Collections collections={collections} />}
         {exercises.length > 0 && (
           <StickyHeading>
             <Heading16>{t('sessionsHeading')}</Heading16>

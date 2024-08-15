@@ -8,7 +8,15 @@
       "confirm": "Yes"
     }
   },
-  "pt": {},
+  "pt": {
+    "title": "Faz disto um hábito",
+    "message": "Queres definir um lembrete que te ajude a tornar esta prática um hábito?",
+    "actions": {
+      "dismiss": "Não",
+      "cancel": "Talvez mais tarde",
+      "confirm": "Sim"
+    }
+  },
   "sv": {
     "title": "Gör det till en vana",
     "message": "Vill du bli påmind om att träna över tid?",
@@ -18,5 +26,5 @@
       "confirm": "Ja"
     }
   },
-  "es": {}
+  "ja": {}
 }

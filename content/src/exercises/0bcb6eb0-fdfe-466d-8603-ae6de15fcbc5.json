@@ -19,7 +19,7 @@
             "text": "Sometimes life can pass us by, while we’re busy making other plans. Taking a step back, reflecting on what’s most important for us, can help us find direction."
           },
           {
-            "text": "A compass to help us steer in a meaningful direction through life’s ups and downs. The first step on that journey is imagining ourselves in a distant future.\n\n> Press play to start the audio exercise"
+            "text": "And thereby help us steer in a meaningful direction through life’s ups and downs. \n\nFind a comfortable position. I'll push play and we meet again here afterwards. \n\n> Press play to start the audio exercise"
           }
         ],
         "content": {
@@ -40,15 +40,15 @@
         "type": "reflection",
         "hostNotes": [
           {
-            "text": "Now we’ll take 1 minute to reflect on our own.\n\nWhat insights did you get during the exercise? What simple action can you take towards something important to you, right after this session?"
+            "text": "Now we’ll take 1 minute to reflect on our own.\n\nWhat insights did you get during the exercise? How would you like to be remembered by the time you’re 90?"
           },
           {
             "text": "You can take notes on a piece of paper or just mental notes in your head. And there is no right or wrong here, our answers are our own. 1 minute starting now.\n\n> Press play to start the timer.\n\nThat’s 1 minute and it’s time to move on."
           }
         ],
         "content": {
-          "heading": "What insights?",
-          "text": "What simple action?",
+          "heading": "How would you like to be remembered by the time you’re 90?",
+          "text": "",
           "lottie": {
             "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1676642915/Lottie/default_1min_black_rosi2l.json",
             "durationTimer": true,
@@ -70,7 +70,7 @@
           }
         ],
         "content": {
-          "heading": "What insights did you get?",
+          "heading": "How would you like to be remembered by the time you’re 90?",
           "text": "",
           "lottie": {
             "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1676639253/Lottie/default_2min_black_o6egey.json",
@@ -112,7 +112,7 @@
         "type": "host",
         "hostNotes": [
           {
-            "text": "Well done. We've just imagined ourselves in the future, to see what we can learn from our future selves, right here right now. This can help us identify values, and give us a sense of direction and meaning in life."
+            "text": "Well done. We've just imagined ourselves in the future, to see what we can learn from our future selves, right here right now. This can help us identify values, and give us a sense of direction and meaning in life.\n\nAre you up for a mission? If so, decide a simple action you can do today or tomorrow to take you closer to how you want to be remembered."
           },
           {
             "text": "Before we leave this space let’s do a mini check-out. \n\nHow are you feeling right now? Has anything shifted? Please answer in two-three words."
@@ -125,10 +125,11 @@
       {
         "type": "instruction",
         "content": {
-          "text": "Well done. We've just imagined ourselves in the future, to see what we can learn from our future selves, right here right now. This can help us identify values, and give us a sense of direction and meaning in life.\n\nAs a mission, decide a simple action you can do today or tomorrow that can take you closer to your values.",
+          "text": "We've just imagined ourselves in the future, to see what we can learn from our future selves, right here right now. This can help us identify values, and give us a sense of direction and meaning in life.\n\nAre you up for a mission? If so, decide a simple action you can do today or tomorrow to take you closer to how you want to be remembered.",
           "image": {
             "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1692855592/Images/card_image_90th_birthday_noi09y.png"
-          }
+          },
+          "heading": "Well done"
         }
       }
     ],
@@ -158,11 +159,15 @@
       ],
       "videoLoop": {
         "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1692855519/Video/portal1_90th_birthday_sjt1ao.mp4",
-        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1692855561/Audio/portal_audio_90th_birthday_e9ngzj.mp3"
+        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1692855561/Audio/portal_audio_90th_birthday_e9ngzj.mp3",
+        "p5JsScript": {
+          "lang": "javascript"
+        }
       },
       "videoEnd": {
         "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1692855528/Video/portal2_90th_birthday_cofsf7.mp4"
-      }
+      },
+      "textColor": "#2E2E2E"
     },
     "tags": [
       "9c2c08a9-7dc6-4058-bc78-016d0eb00614",
@@ -171,7 +176,7 @@
     "link": "https://aware.29k.org/your-90th-birthday",
     "id": "0bcb6eb0-fdfe-466d-8603-ae6de15fcbc5",
     "async": true,
-    "description": "Visualizing our future can guide us in the present moment by shining a light on what’s important in the long run.\n\nThis can be extra helpful when we’re under pressure, when we tend to be short-sighted and out of touch with what truly matters."
+    "description": "Dreaming about our future can guide us in the present moment by shining a light on what’s important in the long run.\n\nThis can be extra helpful when we’re under pressure, when we tend to be short-sighted and out of touch with what truly matters."
   },
   "pt": {
     "slides": [
@@ -240,7 +245,12 @@
         {
           "text": "> Start the session when you're ready to go"
         }
-      ]
+      ],
+      "videoLoop": {
+        "p5JsScript": {
+          "lang": "javascript"
+        }
+      }
     },
     "tags": [
       "9c2c08a9-7dc6-4058-bc78-016d0eb00614",
@@ -256,7 +266,7 @@
         "type": "host",
         "hostNotes": [
           {
-            "text": "Välkommen. Jag heter X och vi kommer att jobba tillsammans i ungefär 30 minuter med värden och att hitta en riktning i livet.\n\nVi kommer att lyssna på en ljudövning tillsammans, reflektera en stund för oss själva och sedan finns det möjlighet att dela sina erfarenheter."
+            "text": "Välkommen. Jag heter X och vi kommer att jobba tillsammans i ungefär 30 minuter med värderingar och att hitta en riktning i livet.\n\nVi kommer att lyssna på en ljudövning tillsammans, reflektera en stund för oss själva och sedan finns det möjlighet att dela sina erfarenheter."
           },
           {
             "text": "Vi börjar med en mini-check-in. Hur känner du dig just nu? Svara gärna med två-tre ord. X, skulle du vilja börja?\n\n> Låt alla deltagare, även du själv, checka in en och en.\n\nTack för att ni checkade in. Då kör vi igång."
@@ -267,10 +277,10 @@
         "type": "content",
         "hostNotes": [
           {
-            "text": "Ibland kan det kännas som att livet pågår medan vi gör andra planer. Att ta ett steg tillbaka och reflektera över vad som är viktigt för oss på riktigt, kan hjälpa oss att hitta en riktning."
+            "text": "Ibland kan det kännas som att livet passerar medan vi har fokus på annat. Att ta ett steg tillbaka och reflektera över vad som är viktigt för oss på riktigt, kan hjälpa oss att hitta en riktning."
           },
           {
-            "text": "En kompass som kan hjälpa oss navigera både när allt flyter på och när livet är svårare. Det första steget är att fantisera om sig själv i framtiden. \n\n> Tryck på play för att starta ljudövningen."
+            "text": "På så vis kan vi hjälpa oss själva att navigera både när allt flyter på och när livet känns svårt. \n\nSätt dig bekvämt tillrätta. Jag startar övningen så ses vi här igen efteråt. \n\n> Tryck på play för att starta ljudövningen."
           }
         ],
         "content": {
@@ -291,15 +301,15 @@
         "type": "reflection",
         "hostNotes": [
           {
-            "text": "Nästa steg är att tyst reflektera i en minut.\n\nVad upptäckte du under övningen? Vilket beteende som är viktigt för dig, kan du göra nu direkt?"
+            "text": "Nästa steg är att tyst reflektera i en minut.\n\nVad upptäckte du under övningen? Hur vill du bli ihågkommen som 90åring?"
           },
           {
             "text": "Om du vill kan du skriva ner dina funderingar på ett papper, eller bara tänka fritt. Det finns inga svar som är rätt eller fel här. Vad som än dyker upp är okej.\n\n> Tryck på play för att starta timern.\n\nDå har det gått en minut och det är dags att gå vidare."
           }
         ],
         "content": {
-          "heading": "Vad upptäckte du?",
-          "text": "Bestäm ett beteende du vill göra.",
+          "heading": "Hur vill du bli ihågkommen som 90åring?",
+          "text": "",
           "lottie": {
             "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1676642915/Lottie/default_1min_black_rosi2l.json",
             "durationTimer": true,
@@ -321,7 +331,7 @@
           }
         ],
         "content": {
-          "heading": "Vad upptäckte du?",
+          "heading": "Hur vill du bli ihågkommen som 90åring?",
           "text": "Bestäm ett beteende du vill göra.",
           "lottie": {
             "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1676639253/Lottie/default_2min_black_o6egey.json",
@@ -350,7 +360,7 @@
         "type": "host",
         "hostNotes": [
           {
-            "text": "Bra jobbat.\n\nVi har just föreställt oss oss själva i framtiden, för att se vad vi kan lära oss av våra framtida jag här och nu. Det kan hjälpa oss att få syn på vad som är viktigt i längden, och ge en kompassriktning i livet."
+            "text": "Bra jobbat. Vi har just hälsat på oss själva i framtiden, för att se vad vi kan lära oss av våra framtida jag här och nu. Det kan hjälpa oss att få syn på vad som är viktigt i längden, och ge en riktning i livet.\n\nVill du ta dig an en utmaning? Hitta i så fall något enkelt du kan göra redan idag för att ta dig närmre hur du vill bli ihågkommen."
           },
           {
             "text": "Innan vi avslutar så gör vi en mini-utcheckning.\n\nHur känner du dig nu? Har något ändrats? Svara med två-tre ord."
@@ -366,7 +376,8 @@
           "image": {
             "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1692855592/Images/card_image_90th_birthday_noi09y.png"
           },
-          "text": "Bra jobbat.\n\nVi har just föreställt oss oss själva i framtiden, för att se vad vi kan lära oss av våra framtida jag här och nu. Det kan hjälpa oss att få syn på vad som är viktigt i längden, och ge en kompassriktning i livet."
+          "text": "Vi har just hälsat på oss själva i framtiden, för att se vad vi kan lära oss av våra framtida jag här och nu. Det kan hjälpa oss att få syn på vad som är viktigt i längden, och ge en riktning i livet.\n\nVill du ta dig an en utmaning? Hitta i så fall något enkelt du kan göra redan idag för att ta dig närmre hur du vill bli ihågkommen.",
+          "heading": "Bra jobbat"
         }
       }
     ],
@@ -396,6 +407,134 @@
       ],
       "videoLoop": {
         "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1692855519/Video/portal1_90th_birthday_sjt1ao.mp4",
+        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1692855561/Audio/portal_audio_90th_birthday_e9ngzj.mp3",
+        "p5JsScript": {
+          "lang": "javascript"
+        }
+      },
+      "videoEnd": {
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1692855528/Video/portal2_90th_birthday_cofsf7.mp4"
+      },
+      "textColor": "#2E2E2E"
+    },
+    "tags": [
+      "9c2c08a9-7dc6-4058-bc78-016d0eb00614",
+      "cfc00217-f65b-4a4d-8b82-8ccc8f852dd6"
+    ],
+    "link": "https://aware.29k.org/your-90th-birthday",
+    "id": "0bcb6eb0-fdfe-466d-8603-ae6de15fcbc5",
+    "async": true,
+    "description": "Att drömma om framtiden kan hjälpa oss att få syn på vad som är viktigt både i nuet – och på längre sikt.\n\nDet kan vara extra hjälpsamt när vi är pressade, agerar kortsiktigt eller ägnar alltför lite tid åt sådant som är betydelsefullt för oss på riktigt."
+  },
+  "ja": {
+    "slides": [
+      {
+        "hostNotes": [
+          {
+            "text": "ようこそ。私は××です。今日は30分ほど、価値観と人生の方向性を見つけることについてワークします。簡単な自己紹介をし、音声ファイルを聴き、その後、内省と分かち合いの時間を設けます。"
+          },
+          {
+            "text": "ミニ・チェックインから始めましょう。今、どんな気分ですか？二言三言で答えてください。Xさん、始めますか？\n\n> 自分を含め、セッションに参加している全員に、一人ずつチェックインをさせる。\n\nチェックインしてくれてありがとう。さあ、始めよう。"
+          }
+        ]
+      },
+      {
+        "hostNotes": [
+          {
+            "text": "他の計画を立てるのに忙しくしているうちに、人生が過ぎ去ってしまうこともある。一歩引いて、自分にとって何が一番大切かを振り返ることは、方向性を見つける助けになる。"
+          },
+          {
+            "text": "人生の浮き沈みの中で、意味のある方向へ舵を取るための羅針盤。その旅の第一歩は、遠い未来の自分を想像することだ。\n\n> 再生ボタンを押して音声エクササイズを開始"
+          }
+        ]
+      },
+      {
+        "content": {
+          "heading": "どんな洞察力？",
+          "text": "簡単な行動は？"
+        },
+        "hostNotes": [
+          {
+            "text": "では、1分間、自分自身を振り返ってみましょう。\n\n練習中にどんな気づきを得ましたか？このセッションの後すぐに、あなたにとって重要なことに向かって、どのような簡単な行動を起こせますか？"
+          },
+          {
+            "text": "紙にメモしてもいいし、頭の中にメモしてもいい。正解も不正解もありません。今から1分間。\n\n> 再生ボタンを押してタイマーをスタートさせる。\n\nよし、これで1分だ。先に進もう。"
+          }
+        ]
+      },
+      {
+        "content": {
+          "heading": "どんな洞察を得ましたか？"
+        },
+        "hostNotes": [
+          {
+            "text": "さて、いよいよ共有のパートに入ります。分かち合いには3つのルールがある：\n\n1.**ここで言われたことは、ここに残る。\n2.**直すことも、助けることも、アドバイスすることも必要ありません。私たちはただ姿を現し、自分自身や他の人たちが経験していることを探っているだけなのです。"
+          },
+          {
+            "text": "3.**怒り、愛、憎しみ、悲しみ。現れるものは何でも。間違いも、権利もない。あるがまま。\n\nタイマーが2分間セットされているので、それを目印にしてください。もしシェアしたくなければ、いつでも言ってください。"
+          },
+          {
+            "text": "どなたから始めますか？\n\n> 全員（または時間のある限り）に一人ずつシェアさせる。再生ボタンを押すとタイマーがスタートします。新しい共有があるたびに再スタート。\n\n皆さん、本当にありがとうございました。"
+          }
+        ],
+        "sharingVideos": [
+          {
+            "profile": {
+              "displayName": "夏"
+            }
+          },
+          {
+            "profile": {
+              "displayName": "バネッサ"
+            }
+          }
+        ]
+      },
+      {
+        "hostNotes": [
+          {
+            "text": "よくやった。私たちは今、未来の自分から何を学べるかを確かめるために、未来の自分を想像したところです。これは価値観を特定するのに役立ち、人生の方向性と意味を与えてくれる。"
+          },
+          {
+            "text": "この空間を去る前に、ミニ・チェックアウトをしよう。\n\n今の気分はどうですか？何か変化はありましたか？二言三言で答えてください。"
+          },
+          {
+            "text": "誰が始めたいですか？\n\n> セッションに参加している全員に一人ずつチェックアウトさせる。\n\n今日のセッションに参加してくれてありがとう。\n\n> 全員を退場体験に送り出す終了セッション"
+          }
+        ]
+      },
+      {
+        "content": {
+          "text": "よくやった。私たちは今、未来の自分を想像し、未来の自分から何を学べるかを確認しました。これは価値観を見極め、人生の方向性や意味を見出すのに役立つ。\n\nミッションとして、自分の価値観に近づけるような、今日あるいは明日できる簡単な行動を決めてください。"
+        }
+      }
+    ],
+    "theme": {
+      "textColor": "#2E2E2E",
+      "backgroundColor": "#ffd788"
+    },
+    "hidden": false,
+    "name": "90歳の誕生日",
+    "live": true,
+    "published": true,
+    "card": {
+      "image": {
+        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1692855592/Images/card_image_90th_birthday_noi09y.png"
+      }
+    },
+    "socialMeta": {
+      "image": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1692855592/Images/card_image_90th_birthday_noi09y.png"
+    },
+    "coCreators": [],
+    "duration": 30,
+    "introPortal": {
+      "hostNotes": [
+        {
+          "text": "> 準備ができたらセッションを始めてください。"
+        }
+      ],
+      "videoLoop": {
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1692855519/Video/portal1_90th_birthday_sjt1ao.mp4",
         "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1692855561/Audio/portal_audio_90th_birthday_e9ngzj.mp3"
       },
       "videoEnd": {
@@ -409,83 +548,6 @@
     "link": "https://aware.29k.org/your-90th-birthday",
     "id": "0bcb6eb0-fdfe-466d-8603-ae6de15fcbc5",
     "async": true,
-    "description": "Att hälsa på oss själva i framtiden kan hjälpa oss att få syn på vad som är viktigt i nuet – och på längre sikt.\n\nDet kan vara extra hjälpsamt när vi är pressade, när vi agerar kortsiktigt eller när vi ägnar alltför lite tid åt sådant som är betydelsefullt för oss på riktigt."
-  },
-  "es": {
-    "slides": [
-      {
-        "type": "host",
-        "hostNotes": [
-          {
-            "text": "Welcome. I am X and today we will work for around 30 minutes on xx\n\nWe’ll be doing xx ex. meditation followed by time for reflection and sharing with each other."
-          },
-          {
-            "text": "Let’s start with a mini check-in. How are you feeling right now? Please answer in two-three words. X, would you like to start?\n\n> Let everyone in the session, including yourself, check in one by one.\n\nThank you all for checking in. Let’s get started."
-          }
-        ]
-      },
-      {
-        "type": "content"
-      },
-      {
-        "type": "reflection",
-        "hostNotes": [
-          {
-            "text": "Now we’ll take 1 minute to reflect on our own.\n\nxxMain question\n\nxxFurther explanations of main question if needed"
-          },
-          {
-            "text": "You can take notes on a piece of paper or just mental notes in your head. And there is no right or wrong here, our answers are our own. 1 minute starting now.\n\n> Press play to start the timer.\n\nThat’s 1 minute and it’s time to move on."
-          }
-        ]
-      },
-      {
-        "type": "sharing",
-        "hostNotes": [
-          {
-            "text": "Now we are getting into the sharing part. We have three rules for sharing:\n\n1. **What is said in here, stays in here.**\n2. **All you need to do is listen.** There is no fixing, helping or advice-giving needed. We are just showing up and exploring what ourselves and others are going through."
-          },
-          {
-            "text": "3. **Everything on the inside is okay.** Anger, love, hatred, sadness. Whatever shows up. No wrongs, no rights. It is what it is.\n\nThere will be a timer set for 2 minutes as an indicator. If you don’t want to share you can always say ‘pass’."
-          },
-          {
-            "text": "Who would like to start?\n\n> Let everyone (or as many as you got time for) share one by one. Press play to start the timer. Re-start for each new sharing.\n\nThank you so much everyone."
-          }
-        ]
-      },
-      {
-        "type": "host",
-        "hostNotes": [
-          {
-            "text": "Well done. if you’re up for it, you can continue what we started here today with a mission to bring this into your everyday life.\n\nxx mission description"
-          },
-          {
-            "text": "Before we leave this space let’s do a mini check-out. \n\nHow are you feeling right now? Has anything shifted? Please answer in two-three words."
-          },
-          {
-            "text": "Who would like to start?\n\n> Let everyone in the session check out one by one.\n\nThank you all for checking out and for joining this session today.\n\n> Finish session to send everyone off to the exit experience."
-          }
-        ]
-      }
-    ],
-    "theme": {
-      "textColor": "#2AE2D7"
-    },
-    "hidden": false,
-    "published": false,
-    "duration": 30,
-    "introPortal": {
-      "hostNotes": [
-        {
-          "text": "> Start the session when you're ready to go"
-        }
-      ]
-    },
-    "tags": [
-      "9c2c08a9-7dc6-4058-bc78-016d0eb00614",
-      "cfc00217-f65b-4a4d-8b82-8ccc8f852dd6"
-    ],
-    "link": "https://aware.29k.org/your-90th-birthday",
-    "id": "0bcb6eb0-fdfe-466d-8603-ae6de15fcbc5",
-    "async": false
+    "description": "将来を見える化することは、長い目で見て何が大切かを明らかにすることで、今この瞬間の私たちに指針を与えてくれる。\n\nこれは、プレッシャーにさらされている時や、物事に対して近視眼的になりがちな時に、特に役立つ。"
   }
 }

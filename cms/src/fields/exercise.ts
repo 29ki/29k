@@ -1,11 +1,15 @@
-import {CmsField} from 'netlify-cms-core';
+import {
+  CmsField,
+  CmsFieldBase,
+  CmsFieldCode,
+  CmsFieldList,
+} from 'decap-cms-core';
 import {applyDefaults} from '../lib/fields';
 import defaults from '../defaults/exercise.json';
 
 import {COLORS} from '../../../shared/src/constants/colors';
 import {
   ID_FIELD,
-  VIDEO_FIELD_WITH_AUDIO,
   NAME_FIELD,
   PUBLISHED_FIELD,
   VIDEO_FIELD,
@@ -18,7 +22,10 @@ import {
   LINK_FIELD,
   CO_CREATORS_FIELD,
   BACKGROUND_COLOR_FIELD,
-  LOTTE_FIELD,
+  LOTTIE_FIELD,
+  IMAGE_BACKGROUND_COLOR_FIELD,
+  AUDIO_FIELD,
+  LOCKED_FIELD,
 } from './common';
 import {TAGS_FIELD} from './relations';
 import {
@@ -39,16 +46,24 @@ const CARD_FIELD: CmsField = {
   widget: 'object',
   collapsed: true,
   fields: [
-    {
-      label: '🎨 Image Background Color',
-      name: 'imageBackgroundColor',
-      widget: 'color',
-      i18n: true,
-      required: false,
-    },
+    IMAGE_BACKGROUND_COLOR_FIELD,
     CARD_IMAGE_FIELD,
-    {...LOTTE_FIELD, hint: 'Overrides image'},
+    {...LOTTIE_FIELD, hint: '❗️ Overrides image'},
   ],
+};
+
+const TEXT_COLOR: CmsField = {
+  label: '㊗️ Text Color',
+  name: 'textColor',
+  widget: 'select',
+  multiple: false,
+  i18n: true,
+  default: COLORS.ACTION,
+  options: [
+    {label: 'Light', value: COLORS.WHITE},
+    {label: 'Dark', value: COLORS.BLACK},
+  ],
+  required: false,
 };
 
 export const SOCIAL_MEDIA: CmsField = {
@@ -62,7 +77,7 @@ export const SOCIAL_MEDIA: CmsField = {
     {
       label: '🪧 Title',
       name: 'title',
-      hint: `Defaults to ${NAME_FIELD.label}`,
+      hint: `❗️ Defaults to ${NAME_FIELD.label}`,
       widget: 'string',
       i18n: true,
       required: false,
@@ -70,7 +85,7 @@ export const SOCIAL_MEDIA: CmsField = {
     {
       label: '📃 Description',
       name: 'description',
-      hint: `Defaults to ${DESCRIPTION_FIELD.label}`,
+      hint: `❗️ Defaults to ${DESCRIPTION_FIELD.label}`,
       widget: 'string',
       i18n: true,
       required: false,
@@ -78,7 +93,7 @@ export const SOCIAL_MEDIA: CmsField = {
     {
       label: '🌅 Image',
       name: 'image',
-      hint: `Defaults to ${CARD_FIELD.label} → ${CARD_IMAGE_FIELD.label}`,
+      hint: `❗️ Defaults to ${CARD_FIELD.label} → ${CARD_IMAGE_FIELD.label}`,
       widget: 'image',
       required: false,
       i18n: true,
@@ -86,6 +101,15 @@ export const SOCIAL_MEDIA: CmsField = {
       media_library: CLOUDINARY_IMAGE_CONFIG,
     },
   ],
+};
+
+const P5JS_SCRIPT: CmsFieldBase & CmsFieldCode = {
+  label: '🎆 P5.js script',
+  name: 'p5JsScript',
+  widget: 'code',
+  default_language: 'javascript',
+  allow_language_selection: false,
+  hint: '❗️ Overrides video',
 };
 
 export const INTRO_PORTAL: CmsField = {
@@ -96,8 +120,14 @@ export const INTRO_PORTAL: CmsField = {
   required: false,
   i18n: true,
   fields: [
-    {...VIDEO_FIELD_WITH_AUDIO, label: '🎥 Video Loop', name: 'videoLoop'},
+    {
+      ...VIDEO_FIELD,
+      fields: [...VIDEO_FIELD.fields, P5JS_SCRIPT, AUDIO_FIELD],
+      label: '🎥 Video Loop',
+      name: 'videoLoop',
+    },
     {...VIDEO_FIELD, label: '🎥 Video End', name: 'videoEnd'},
+    TEXT_COLOR,
     HOST_NOTES,
   ],
 };
@@ -109,7 +139,13 @@ export const OUTRO_PORTAL: CmsField = {
   collapsed: true,
   required: false,
   i18n: true,
-  fields: [VIDEO_FIELD_WITH_AUDIO],
+  fields: [
+    {
+      ...VIDEO_FIELD,
+      fields: [...VIDEO_FIELD.fields, AUDIO_FIELD],
+      hint: `❗️ ${INTRO_PORTAL.label} will be used if no video is provided`,
+    },
+  ],
 };
 
 const THEME: CmsField = {
@@ -119,25 +155,10 @@ const THEME: CmsField = {
   collapsed: true,
   required: false,
   i18n: true,
-  fields: [
-    {
-      label: '㊗️ Text Color',
-      name: 'textColor',
-      widget: 'select',
-      multiple: false,
-      i18n: true,
-      default: COLORS.ACTION,
-      options: [
-        {label: 'Light', value: COLORS.WHITE},
-        {label: 'Dark', value: COLORS.BLACK},
-      ],
-      required: false,
-    },
-    BACKGROUND_COLOR_FIELD,
-  ],
+  fields: [TEXT_COLOR, BACKGROUND_COLOR_FIELD],
 };
 
-export const SLIDES: CmsField = {
+export const SLIDES: CmsFieldBase & CmsFieldList = {
   label: '🖼️ Slides',
   label_singular: '🖼️ Slide',
   name: 'slides',
@@ -164,6 +185,7 @@ const EXERCISE_FIELDS: Array<CmsField> = applyDefaults(
     LINK_FIELD,
     PUBLISHED_FIELD,
     HIDDEN_FIELD,
+    LOCKED_FIELD,
     LIVE_FIELD,
     ASYNC_FIELD,
     SOCIAL_MEDIA,

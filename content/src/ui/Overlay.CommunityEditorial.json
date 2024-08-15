@@ -34,8 +34,10 @@
     "contributeLink": "https://wiki.29k.org/community-contribution-central"
   },
   "sv": {
+    "image__image": "https://res.cloudinary.com/cupcake-29k/image/upload/v1681373965/Images/community_wb6inc.jpg",
     "heading": "Stöd Aware",
     "preamble__markdown": "Vi är en icke vinst-drivande stiftelse.\\\nVi är gratis för personligt bruk.\\\nVi säljer ingen användardata.\\\nVi har inga annonser.\n\nVårt fokus är att bygga världens bästa app för att så många som möjligt ska kunna förbättra sin psykiska hälsa, trivas och bidra till en bättre framtid för oss alla.",
+    "body__markdown": "",
     "donateLink": "https://donorbox.org/29ksessions1",
     "corporateLink": "mailto:partnerships@29k.org",
     "contributeLink": "https://wiki.29k.org/community-contribution-central",
@@ -48,5 +50,5 @@
       "partners": "Partners"
     }
   },
-  "es": {}
+  "ja": {}
 }

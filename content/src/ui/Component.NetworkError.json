@@ -8,6 +8,12 @@
     "subscriptionMessage": "It seems there is a problem getting updates to the session."
   },
   "pt": {
+    "title": "Problema de ligação à internet",
+    "message": "Parece que não tens nenhuma ligação à internet neste momento.",
+    "requestTitle": "Falha ao atualizar sessão",
+    "requestMessage": "Pedido de acesso à rede falhou. Por favor tenta outra vez.",
+    "subscriptionTitle": "Problema na obtenção do progresso das atualizações",
+    "subscriptionMessage": "Parece haver problemas em obter as atualizações da sessão."
   },
   "sv": {
     "title": "Tappat uppkoppling till Internet",
@@ -17,5 +23,5 @@
     "subscriptionTitle": "Problem med att få uppdateringar",
     "subscriptionMessage": "Det verkar vara problem att få sessionens uppdateringar just nu."
   },
-  "es": {}
+  "ja": {}
 }

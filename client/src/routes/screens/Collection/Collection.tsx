@@ -7,11 +7,9 @@ import {SectionList, SectionListRenderItem, Share} from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import styled from 'styled-components/native';
 import {COLORS} from '../../../../../shared/src/constants/colors';
-import {Exercise} from '../../../../../shared/src/types/generated/Exercise';
 import CompletedSessionCard from '../../../lib/components/Cards/SessionCard/CompletedSessionCard';
 import ExerciseCard from '../../../lib/components/Cards/SessionCard/ExerciseCard';
 import Gutters from '../../../lib/components/Gutters/Gutters';
-import Image from '../../../lib/components/Image/Image';
 import Screen from '../../../lib/components/Screen/Screen';
 import {
   Spacer12,
@@ -43,10 +41,12 @@ import {
 } from '../../../lib/components/Icons';
 import IconButton from '../../../lib/components/Buttons/IconButton/IconButton';
 import CoCreators from '../../../lib/components/CoCreators/CoCreators';
+import CardGraphic from '../../../lib/components/CardGraphic/CardGraphic';
+import {ExerciseWithLanguage} from '../../../lib/content/types';
 
 type Section = {
   title: string;
-  data: Exercise[];
+  data: ExerciseWithLanguage[];
 };
 
 const Row = styled.View({
@@ -69,9 +69,12 @@ const LeftColumn = styled.View({
   justifyContent: 'space-between',
 });
 
-const GraphicsWrapper = styled.View({
+const Graphic = styled(CardGraphic)({
   width: 134,
   height: 134,
+  aspectRatio: '1',
+  borderRadius: 8,
+  overflow: 'hidden',
 });
 
 const Wrapper = styled.View({flex: 1});
@@ -101,13 +104,6 @@ const Collection = () => {
     [],
   );
 
-  const image = useMemo(
-    () => ({
-      uri: collection?.image?.source,
-    }),
-    [collection],
-  );
-
   const exerciseSections = useMemo(() => {
     return [
       {
@@ -129,7 +125,7 @@ const Collection = () => {
   );
 
   const renderExerciseItem = useCallback<
-    SectionListRenderItem<Exercise, Section>
+    SectionListRenderItem<ExerciseWithLanguage, Section>
   >(
     ({item}) => {
       const completedExerciseEvent = savedCollection
@@ -185,9 +181,7 @@ const Collection = () => {
                   <Markdown>{collection?.description}</Markdown>
                 </LeftColumn>
                 <Spacer16 />
-                <GraphicsWrapper>
-                  <Image source={image} />
-                </GraphicsWrapper>
+                <Graphic graphic={collection?.card} />
               </RowJustified>
 
               <Spacer16 />

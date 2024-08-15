@@ -1,0 +1,21 @@
+{
+  "en": {
+    "heading1": "Congratulations!",
+    "heading2": "You have unlocked",
+    "invalidLink": "Oops! Looks like you opened an invalid link.",
+    "confirmButton": "OK"
+  },
+  "pt": {
+    "heading1": "Parabéns!",
+    "heading2": "Desbloqueaste",
+    "invalidLink": "Oops! Parece que abriste uma ligação inválida.",
+    "confirmButton": "Confirmar"
+  },
+  "sv": {
+    "heading1": "Grattis!",
+    "heading2": "Du har låst upp",
+    "invalidLink": "Hoppsan! Det verkar som att du har öppnat en ogiltig länk.",
+    "confirmButton": "OK"
+  },
+  "ja": {}
+}

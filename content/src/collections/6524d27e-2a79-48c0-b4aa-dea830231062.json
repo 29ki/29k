@@ -1,0 +1,52 @@
+{
+  "en": {
+    "published": true,
+    "hidden": false,
+    "locked": true,
+    "id": "6524d27e-2a79-48c0-b4aa-dea830231062",
+    "name": "SEE systems thinking",
+    "description": "SEE systems thinking placeholder",
+    "card": {
+      "image": {
+        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1715194051/SEE/SEELearning_Logo_Apple_2022_iyrrnd.png"
+      }
+    },
+    "exercises": [
+      "c747469a-f690-4a38-bdef-bd1a35b7d4b5",
+      "9451652d-444f-4e96-86cc-dcb774ab6c27"
+    ]
+  },
+  "pt": {
+    "published": false,
+    "hidden": false,
+    "locked": true,
+    "id": "6524d27e-2a79-48c0-b4aa-dea830231062",
+    "card": {},
+    "exercises": [
+      "c747469a-f690-4a38-bdef-bd1a35b7d4b5",
+      "9451652d-444f-4e96-86cc-dcb774ab6c27"
+    ]
+  },
+  "sv": {
+    "published": false,
+    "hidden": false,
+    "locked": true,
+    "id": "6524d27e-2a79-48c0-b4aa-dea830231062",
+    "card": {},
+    "exercises": [
+      "c747469a-f690-4a38-bdef-bd1a35b7d4b5",
+      "9451652d-444f-4e96-86cc-dcb774ab6c27"
+    ]
+  },
+  "ja": {
+    "published": false,
+    "hidden": false,
+    "locked": true,
+    "id": "6524d27e-2a79-48c0-b4aa-dea830231062",
+    "card": {},
+    "exercises": [
+      "c747469a-f690-4a38-bdef-bd1a35b7d4b5",
+      "9451652d-444f-4e96-86cc-dcb774ab6c27"
+    ]
+  }
+}

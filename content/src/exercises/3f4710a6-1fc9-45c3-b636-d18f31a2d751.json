@@ -1,0 +1,222 @@
+{
+  "en": {
+    "slides": [
+      {
+        "type": "host",
+        "hostNotes": [
+          {
+            "text": "I am X and today we will work for around 40 minutes on relating to the outdoors and ourselves. Skills as appreciation and connectedness come in to play, as we use all of our senses to take in our surroundings.\n\nYou can participate anywhere where you have access to the outdoors. A street, a balcony, a park or in the wilderness."
+          },
+          {
+            "text": "We’ll be listening to a 20-minute meditation together, followed by time for reflection and sharing with each other. \n\nLet’s start with a mini check-in."
+          },
+          {
+            "text": "How are you feeling right now? Please answer in two-three words. X, would you like to start?\n\n> Let everyone in the session, including yourself, check in one by one.\n\nThank you all for checking in. Let’s get started."
+          }
+        ],
+        "video": {
+          "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1682070990/Video/Intro_Outdoor_sensing_guzdei.mp4",
+          "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1682070994/Images/host%20image%20outdoors%20sensing.jpg"
+        }
+      },
+      {
+        "type": "instruction",
+        "content": {
+          "text": "How we relate to others and the world can affect how we care and make decisions, as well as how we feel and act. In this outdoor meditation we’ll be using all our five senses: hearing, smell, vision, taste and touch, to practice fully relating to what’s around us at this moment.\n\nPlace yourself where you can comfortably stand for 20 minutes before moving on.",
+          "image": {
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/v1709149024/Images/Relaiting_async_image_gwu4c7.png"
+          }
+        }
+      },
+      {
+        "type": "content",
+        "hostNotes": [
+          {
+            "text": "How we relate to others and the world can affect how we care and make decisions, as well as how we feel and act. In this outdoor meditation we’ll be using all our five senses: hearing, smell, vision, taste and touch, to practice fully relating to what’s around us at this moment."
+          },
+          {
+            "text": "Before we start, place yourself where you can comfortably stand for 20 minutes. Take a couple of deeper breaths, and just notice breathing for a few seconds.\n\n> Press play to start the meditation"
+          }
+        ],
+        "content": {
+          "video": {
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1683795468/Audio/Outdoor_sensing_Jenny_x9ztl5.mp3",
+            "durationTimer": false,
+            "source": "",
+            "autoPlayLoop": false,
+            "subtitles": ""
+          },
+          "lottie": {
+            "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1689591586/SRT%20(captions)%20files/Outdoor_sensing_Jenny_hmqwou.srt",
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1683795468/Audio/Outdoor_sensing_Jenny_x9ztl5.mp3",
+            "durationTimer": true,
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1709134306/Lottie/IDG_lotties/Relaiting_meditation_nrjd6z.json"
+          }
+        }
+      },
+      {
+        "type": "reflection",
+        "hostNotes": [
+          {
+            "text": "Now we’ll take 1 minute to reflect on our own.\n\nWhat thoughts, feelings and experiences showed up during the meditation?"
+          },
+          {
+            "text": "You can take notes on a piece of paper or just mental notes in your head. And there is no right or wrong here, our answers are our own. 1 minute starting now.\n\n> Press play to start the timer.\n\nThat’s 1 minute and it’s time to move on."
+          }
+        ],
+        "content": {
+          "heading": "What thoughts, feelings and experiences showed up?",
+          "text": "",
+          "lottie": {
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1709133218/Lottie/IDG_lotties/1_min_IDG_e1tws9.json",
+            "durationTimer": true,
+            "duration": 60,
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1709641158/Audio/Thinking_and_Relaiting_1min._osmdga.mp3"
+          }
+        }
+      },
+      {
+        "type": "sharing",
+        "hostNotes": [
+          {
+            "text": "Now we are getting into the sharing part. We have three rules for sharing:\n\n1. **What is said in here, stays in here.**\n2. **All you need to do is listen.** There is no fixing, helping or advice-giving needed. We are just showing up and exploring what ourselves and others are going through."
+          },
+          {
+            "text": "3. **Everything on the inside is okay.** Anger, love, hatred, sadness. Whatever shows up. No wrongs, no rights. It is what it is.\n\nThere will be a timer set for 2 minutes as an indicator. If you don’t want to share you can always say ‘pass’."
+          },
+          {
+            "text": "Who would like to start?\n\n> Let everyone (or as many as you got time for) share one by one. Press play to start the timer. Re-start for each new sharing.\n\nThank you so much everyone."
+          }
+        ],
+        "content": {
+          "heading": "What thoughts, feelings and experiences showed up?",
+          "text": "",
+          "lottie": {
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1709133221/Lottie/IDG_lotties/Relaiting_2min_naphbp.json",
+            "durationTimer": true,
+            "duration": 120
+          }
+        },
+        "id": "sharing"
+      },
+      {
+        "type": "host",
+        "hostNotes": [
+          {
+            "text": "Well done. If you’re up for it, you can continue with a mission to bring this into your everyday life.\n\nFor the coming two days, pick a sweet spot outdoors where you take a few minutes to go through sensing all your senses, one by one."
+          },
+          {
+            "text": " See if you can mindfully observe what’s going on at that spot, practising relating. \n\nBefore we leave this space let’s do a mini check-out. How do you feel now, has anything shifted? Please answer in two-three words."
+          },
+          {
+            "text": "Who would like to start?\n\n> Let everyone in the session check out one by one.\n\nThank you all for checking out and for joining this session today.\n\n> Finish session to send everyone off to the exit experience."
+          }
+        ],
+        "video": {
+          "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1682070992/Video/outro_outdoors_sensing_efei2u.mp4",
+          "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1682070994/Images/host%20image%20outdoors%20sensing.jpg"
+        }
+      },
+      {
+        "type": "instruction",
+        "content": {
+          "heading": "Well done",
+          "text": "If you’re up for it, you can continue with this mission:\n\nFor the coming two days, pick a sweet spot outdoors where you take a few minutes to go through sensing all your senses, one by one.\n\nSee if you can mindfully observe what’s going on at that spot, and practise how you relate.",
+          "image": {
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1709149024/Images/Relaiting_async_image_gwu4c7.png"
+          }
+        }
+      }
+    ],
+    "theme": {
+      "textColor": "#F9F8F4",
+      "backgroundColor": "#e84139"
+    },
+    "hidden": false,
+    "locked": true,
+    "name": "Relating",
+    "live": true,
+    "published": true,
+    "card": {
+      "image": {
+        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1709126730/Images/Relaiting_card_image_ultfss.png"
+      }
+    },
+    "coCreators": [
+      {
+        "name": "Jenny Rickardsson, editor, voice",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413228/Contributors/Jenny%20Rickardsson.jpg",
+        "url": "https://www.linkedin.com/in/jenny-rickardson-6770a959/"
+      },
+      {
+        "name": "Göran Gennvi, original script and research",
+        "url": "https://www.gorangennvi.eu/nature-academy/",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1698408621/Contributors/Goran-Gennvi_ucyj82.jpg"
+      },
+      {
+        "name": "Ints Ivanovskis, art works",
+        "url": "https://www.linkedin.com/in/ints-ivanovskis-46ab0311a/",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413436/Contributors/Ints%20Ivanovskis.jpg"
+      }
+    ],
+    "duration": 40,
+    "outroPortal": {
+      "video": {
+        "source": ""
+      }
+    },
+    "introPortal": {
+      "hostNotes": [
+        {
+          "text": "> Start the session when you're ready to go"
+        }
+      ],
+      "videoLoop": {
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1709196108/Video/Relaiting_portal_1_df2pua.mp4",
+        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1707994709/Audio/portal_audio-Set_SMART_goals_guj1ma.mp3",
+        "preview": "",
+        "p5JsScript": {
+          "lang": "javascript"
+        }
+      },
+      "videoEnd": {
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1709210912/Relaiting_portal_2_lhejqy.mp4"
+      }
+    },
+    "tags": [
+      "43a6dc0d-d866-4b79-9453-13c44e906128",
+      "cfc00217-f65b-4a4d-8b82-8ccc8f852dd6"
+    ],
+    "link": "https://aware.29k.org/outdoor-sensing",
+    "id": "3f4710a6-1fc9-45c3-b636-d18f31a2d751",
+    "async": true,
+    "description": "Practice appreciation and connectedness – two of the skills in the Relating category. In this outdoors meditative session we use all our senses to connect with ourselves and the surrounding nature. Fostering a sense of connection and appreciation of nature helps us lay the groundwork for just and sustainable systems."
+  },
+  "pt": {
+    "id": "3f4710a6-1fc9-45c3-b636-d18f31a2d751",
+    "tags": [
+      "43a6dc0d-d866-4b79-9453-13c44e906128",
+      "cfc00217-f65b-4a4d-8b82-8ccc8f852dd6"
+    ],
+    "card": {},
+    "locked": true
+  },
+  "sv": {
+    "id": "3f4710a6-1fc9-45c3-b636-d18f31a2d751",
+    "tags": [
+      "43a6dc0d-d866-4b79-9453-13c44e906128",
+      "cfc00217-f65b-4a4d-8b82-8ccc8f852dd6"
+    ],
+    "card": {},
+    "locked": true
+  },
+  "ja": {
+    "id": "3f4710a6-1fc9-45c3-b636-d18f31a2d751",
+    "tags": [
+      "43a6dc0d-d866-4b79-9453-13c44e906128",
+      "cfc00217-f65b-4a4d-8b82-8ccc8f852dd6"
+    ],
+    "card": {},
+    "locked": true
+  }
+}

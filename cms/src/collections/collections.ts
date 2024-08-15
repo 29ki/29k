@@ -1,4 +1,4 @@
-import {CmsCollection} from 'netlify-cms-core';
+import {CmsCollection} from 'decap-cms-core';
 import EXERCISE_FIELDS from '../fields/exercise';
 import CONTRIBUTORS_FIELDS from '../fields/contributors';
 import * as content from '../../../content/content.json';
@@ -6,9 +6,10 @@ import {generateFilesCollectionFromi18nFiles} from '../lib/i18n';
 import EXERCISE_DEFAULTS_FIELDS from '../fields/defaults';
 import {TAG_FIELDS} from '../fields/tag';
 import {COLLECTION_FIELDS} from '../fields/collection';
-import {DEFAULT_LANGUAGE_TAG} from '../../../shared/src/constants/i18n';
+import {DEFAULT_LANGUAGE_TAG} from '../../../shared/src/i18n/constants';
 import EDITOR_TEXT_TEMPLATES_FIELDS from '../fields/templates';
 import {CATEGORY_FIELD} from '../fields/category';
+import {FEATURED_FIELDS} from '../fields/featured';
 
 export const exercises: CmsCollection = {
   name: 'exercises',
@@ -24,39 +25,10 @@ export const exercises: CmsCollection = {
   summary: '{{fields.name}}',
   slug: '{{id}}',
   editor: {
-    preview: false,
+    preview: true,
   },
   fields: EXERCISE_FIELDS,
   i18n: true,
-};
-
-export const settings: CmsCollection = {
-  name: 'settings',
-  label: '⚙️ Settings',
-  files: [
-    {
-      label: '📝 Exercise defaults',
-      name: 'exercise-defaults',
-      file: '/cms/src/defaults/exercise.json',
-      fields: EXERCISE_DEFAULTS_FIELDS,
-    },
-    {
-      label: '🔖 Editor text templates',
-      name: 'text-templates',
-      file: '/cms/src/templates/editorTexts.json',
-      fields: EDITOR_TEXT_TEMPLATES_FIELDS,
-    },
-  ],
-  i18n: false,
-  extension: 'json',
-  format: 'json',
-  create: false,
-  delete: false,
-  publish: true,
-  identifier_field: 'label',
-  editor: {
-    preview: false,
-  },
 };
 
 export const tags: CmsCollection = {
@@ -117,6 +89,35 @@ export const collections: CmsCollection = {
   publish: true,
   i18n: true,
   editor: {
+    preview: true,
+  },
+};
+
+export const settings: CmsCollection = {
+  name: 'settings',
+  label: '⚙️ Settings',
+  files: [
+    {
+      label: '📝 Exercise defaults',
+      name: 'exercise-defaults',
+      file: '/cms/src/defaults/exercise.json',
+      fields: EXERCISE_DEFAULTS_FIELDS,
+    },
+    {
+      label: '🔖 Editor text templates',
+      name: 'text-templates',
+      file: '/cms/src/templates/editorTexts.json',
+      fields: EDITOR_TEXT_TEMPLATES_FIELDS,
+    },
+  ],
+  i18n: false,
+  extension: 'json',
+  format: 'json',
+  create: false,
+  delete: false,
+  publish: true,
+  identifier_field: 'label',
+  editor: {
     preview: false,
   },
 };
@@ -126,13 +127,18 @@ export const other: CmsCollection = {
   label: '🪴 Other',
   files: [
     {
+      label: '✨ Featured content',
+      name: 'featured',
+      file: '/content/src/featured/content.json',
+      fields: FEATURED_FIELDS,
+    },
+    {
       label: '👥 All Contributors',
       name: 'all-contributorsrc',
       file: '/.all-contributorsrc',
       fields: CONTRIBUTORS_FIELDS,
     },
   ],
-  i18n: false,
   extension: 'json',
   format: 'json',
   create: false,
@@ -155,5 +161,5 @@ export const ui: CmsCollection = generateFilesCollectionFromi18nFiles(
   'ui',
   '📱 UI',
   content.i18n[DEFAULT_LANGUAGE_TAG],
-  [exercises.name, tags.name, collections.name, email.name],
+  [exercises.name, tags.name, collections.name, email.name, categories.name],
 );

@@ -1,0 +1,540 @@
+{
+  "en": {
+    "slides": [
+      {
+        "type": "host",
+        "hostNotes": [
+          {
+            "text": "Welcome. I am X and today we will work for around 30 minutes on values and authenticity – with self-compassion.\n\nWe’ll be doing a meditation followed by time for reflection and sharing with each other."
+          },
+          {
+            "text": "Let’s start with a mini check-in. How are you feeling right now? Please answer in two-three words. X, would you like to start?\n\n> Let everyone in the session, including yourself, check in one by one.\n\nThank you all for checking in. Let’s get started."
+          }
+        ]
+      },
+      {
+        "type": "content",
+        "hostNotes": [
+          {
+            "text": "Find a comfortable position. I will start the audio exercise and we'll meet back here afterwards. \n\n> Tap play to start the audio exercise"
+          }
+        ],
+        "content": {
+          "lottie": {
+            "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1709573050/SRT%20(captions)%20files/Lead_from_a_place_of_love_nvraaj.srt",
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1709573004/Audio/Lead_from_a_place_of_love_ubqzwk.mp3",
+            "durationTimer": true,
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/t_card_image/v1676642915/Lottie/default_audio_black_zjrmu2.json"
+          }
+        }
+      },
+      {
+        "type": "reflection",
+        "hostNotes": [
+          {
+            "text": "Now we’ll take 1 minute to reflect on our own.\n\nIf you would lead your life with love and authenticity, in accordance with your values, what would that be like?"
+          },
+          {
+            "text": "You can take notes on a piece of paper or just mental notes in your head. And there is no right or wrong here, our answers are our own. 1 minute starting now.\n\n> Press play to start the timer.\n\nThat’s 1 minute and it’s time to move on."
+          }
+        ],
+        "content": {
+          "text": "",
+          "heading": "What would it be like to lead with authenticity and love?",
+          "lottie": {
+            "durationTimer": true,
+            "duration": 60,
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/t_card_image/v1676642915/Lottie/default_1min_black_rosi2l.json"
+          }
+        }
+      },
+      {
+        "type": "sharing",
+        "hostNotes": [
+          {
+            "text": "Now we are getting into the sharing part. We have three rules for sharing:\n\n1. **What is said in here, stays in here.**\n2. **All you need to do is listen.** There is no fixing, helping or advice-giving needed. We are just showing up and exploring what ourselves and others are going through."
+          },
+          {
+            "text": "3. **Everything on the inside is okay.** Anger, love, hatred, sadness. Whatever shows up. No wrongs, no rights. It is what it is.\n\nThere will be a timer set for 2 minutes as an indicator. If you don’t want to share you can always say ‘pass’."
+          },
+          {
+            "text": "Who would like to start?\n\n> Let everyone (or as many as you got time for) share one by one. Press play to start the timer. Re-start for each new sharing.\n\nThank you so much everyone."
+          }
+        ],
+        "id": "Sharing 1",
+        "content": {
+          "heading": "What would it be like to lead with authenticity and love?",
+          "lottie": {
+            "durationTimer": true,
+            "duration": 120,
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/t_card_image/v1676639253/Lottie/default_2min_black_o6egey.json"
+          }
+        }
+      },
+      {
+        "type": "host",
+        "hostNotes": [
+          {
+            "text": "Well done. Letting authentic values lead us in life can make us happier and more fulfilled. If you’re up for it, there's a mission for you.\n\nThe coming two days, whenever you face a decision, listen in to your values and let them guide you. See how that makes you feel."
+          },
+          {
+            "text": "Before we leave this space let’s do a mini check-out. \n\nHow are you feeling right now? Has anything shifted? Please answer in two-three words."
+          },
+          {
+            "text": "Who would like to start?\n\n> Let everyone in the session check out one by one.\n\nThank you all for checking out and for joining this session today.\n\n> Finish session to send everyone off to the exit experience."
+          }
+        ]
+      },
+      {
+        "type": "instruction",
+        "content": {
+          "text": "Letting authentic values lead us in life can make us happier and more fulfilled. \n\nIf you’re up for it, there's a mission for you: \n\nFor the coming two days, whenever you face a decision, listen in to your values and let them guide you. See how that makes you feel.",
+          "image": {
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1711547532/Images/card_Lead_from_a_place_of_love_fesnei.png"
+          },
+          "heading": "Well done."
+        }
+      }
+    ],
+    "theme": {
+      "textColor": "#2E2E2E",
+      "backgroundColor": "#faf7e3"
+    },
+    "hidden": false,
+    "locked": false,
+    "name": "Lead from a place of love",
+    "live": true,
+    "published": true,
+    "card": {
+      "image": {
+        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1711547532/Images/card_Lead_from_a_place_of_love_fesnei.png"
+      }
+    },
+    "coCreators": [
+      {
+        "name": "Rachel Brathen, yoga girl, voice",
+        "url": "https://www.yogagirl.com/rachels-corner/bio",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1709567296/Contributors/Yoga_Girl_016895_color_oju3wq_-_Square_Post_mbemkp.png"
+      },
+      {
+        "name": "Erik Fernholm, editor",
+        "url": "https://www.linkedin.com/in/lyckoaktivist/?originalSubdomain=se",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665412608/Contributors/Erik%20Fernholm.png"
+      },
+      {
+        "name": "Aaron Reuland, artwork",
+        "url": "https://openprocessing.org/user/183691?view=sketches&o=228",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1713964400/Images/user183691_i74pfh.jpg"
+      }
+    ],
+    "duration": 30,
+    "introPortal": {
+      "textColor": "#2E2E2E",
+      "hostNotes": [
+        {
+          "text": "> Start the session when you're ready to go"
+        }
+      ],
+      "videoLoop": {
+        "p5JsScript": {
+          "lang": "javascript",
+          "code": "\nlet particles=[]\n\n\n\nfunction setup() {\n\tlet w=min(windowWidth, windowHeight)\n\tcreateCanvas(windowWidth, windowHeight, WEBGL);\n\tcolorMode(HSB, 100)\n\tparticles.push(new particle())\n}\n\nfunction draw() {\n\tbackground(15, 10, 98);\n\tparticles.push(new particle())\n\tfor(let particle of particles){\n\t\tparticle.update()\n\t\tparticle.display()\n\t}\n}\n\nclass particle{\nconstructor(){\n\tthis.a=random(TAU)\n\tthis.size=1\n\tthis.hue=70\n\tthis.brightness=100\n\tthis.alpha=100\n\tthis.y=0\n}\n\t\nupdate(){\n\tthis.size+=0.15\n\tthis.hue-=0.05\n\tthis.brightness-=0.02\n\tthis.y+=0.2\n\tthis.alpha-=0.07\n\t\n\tif(this.alpha<0.1){\n\t\tlet index = particles.indexOf(this);\n\tparticles.splice(index, 1);\n\t}\n}\n\t\ndisplay() {\n    push();\n    noStroke();\n    // Removed unnecessary translate to the center\n    rotate(this.a); // Apply rotation\n    fill(this.hue % 100, 80, this.brightness, this.alpha); // Apply color with fading\n    ellipse(0, this.y, this.size); // Draw particle\n    pop();\n  }\n\t\n\t\n}"
+        },
+        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1712905249/Audio/portal_audio_lead_from_place_of_love_jl76zz.mp3"
+      }
+    },
+    "tags": [
+      "db34d82a-4c48-4ddd-9de5-f562d8aa1bc9",
+      "9c2c08a9-7dc6-4058-bc78-016d0eb00614"
+    ],
+    "id": "2ea0d73d-4bfe-4e23-9124-2998acc9743f",
+    "async": true,
+    "description": "Explore your values in this body-focused meditation. Leading a value-led life can make us happier and more fulfilled."
+  },
+  "pt": {
+    "slides": [
+      {
+        "type": "host",
+        "hostNotes": [
+          {
+            "text": "Bem-vindos. Eu sou X e hoje vamos aprender durante cerca de 30 minutos acerca de valores e autenticidade - com autocompaixão.\n\nVamos fazer uma meditação seguida de um momento para reflexão e partilha entre nós."
+          },
+          {
+            "text": "Vamos começar com um pequeno check-in. Como te sentes neste momento? Por favor, responde com duas ou três palavras. X, gostarias de começar?\n\n> Deixa todos na sessão, incluindo-te a ti, fazerem o check-in individualmente.\n\nObrigada/o a todos por fazerem o check-in. Vamos começar."
+          }
+        ]
+      },
+      {
+        "type": "content",
+        "hostNotes": [
+          {
+            "text": "Encontra uma posição confortável. Vamos iniciar a meditação e depois voltaremos de novo aqui.\n\n> Carrega play para iniciar a meditação."
+          }
+        ],
+        "content": {
+          "lottie": {
+            "subtitles": "",
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1716393476/FJN/Meditations/Leading_From_a_Place_of_Love_eynxao_stbary.mp3",
+            "durationTimer": true,
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/t_card_image/v1676642915/Lottie/default_audio_black_zjrmu2.json"
+          }
+        }
+      },
+      {
+        "type": "reflection",
+        "hostNotes": [
+          {
+            "text": "Agora vamos reservar 1 minuto para refletir.\n\nSe vivesses a tua vida com amor e autenticidade, de acordo com os seus valores, como seria?"
+          },
+          {
+            "text": "Podes tomar notas num papel ou apenas mentalmente. Não há respostas certas ou erradas, as respostas são tuas. 1 minuto a começar agora.\n\n> Carrega no play para iniciar o cronómetro.\n\nPassou 1 minuto, vamos seguir em frente."
+          }
+        ],
+        "content": {
+          "text": "",
+          "heading": "Como seria viver com autenticidade e amor?",
+          "lottie": {
+            "durationTimer": true,
+            "duration": 60,
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/t_card_image/v1676642915/Lottie/default_1min_black_rosi2l.json"
+          }
+        }
+      },
+      {
+        "type": "sharing",
+        "hostNotes": [
+          {
+            "text": "Agora vamos para a parte da partilha. Temos três regras:\n\n1. **O que é dito aqui, fica aqui.**\n2. **Só precisas de ouvir.** Não é necessário corrigir, ajudar ou dar conselhos. Estamos apenas presentes a explorar o que nós e os outros estão a passar."
+          },
+          {
+            "text": "3. **Tudo o que estás a sentir é aceitável.** Raiva, amor, ódio, tristeza. O que quer que apareça. Sem certo ou errado. É o que é.\n\nO cronómetro será ajustado para 2 minutos como indicador. Se não quiseres partilhar, podes sempre dizer \"passo\"."
+          },
+          {
+            "text": "Quem gostaria de começar?\n\n> Deixa que todos (ou tantos quantos tiveres tempo) partilhem individualmente. Carrega play para iniciar o cronómetro. Reinicia a cada nova partilha.\n\nMuito obrigada/o a todos."
+          }
+        ],
+        "id": "Sharing 1",
+        "content": {
+          "heading": "Como seria viver com autenticidade e amor?",
+          "lottie": {
+            "durationTimer": true,
+            "duration": 120,
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/t_card_image/v1676639253/Lottie/default_2min_black_o6egey.json"
+          }
+        }
+      },
+      {
+        "type": "host",
+        "hostNotes": [
+          {
+            "text": "Muito bem. Deixar que valores autênticos nos guiem na vida pode tornar-nos mais felizes e realizados. Se estiveres disposto, tenho uma missão para ti.\n\nNos próximos dois dias, sempre que enfrentares uma decisão, escuta os teus valores e deixa que eles te guiem. Vê como te sentes."
+          },
+          {
+            "text": "Antes de sairmos deste espaço, vamos fazer um pequeno check-out.\n\nComo te sentes agora? Mudou alguma coisa? Por favor, responde com duas ou três palavras."
+          },
+          {
+            "text": "Quem gostaria de começar?\n\n> Deixa todos na sessão fazerem o check-out individualmente.\n\nObrigada/o a todos por fazerem o check-out e por participarem nesta sessão hoje.\n\n> Termina a sessão para encaminhar todos para a experiência de saída."
+          }
+        ]
+      },
+      {
+        "type": "instruction",
+        "content": {
+          "text": "Deixar que valores autênticos nos guiem na vida pode tornar-nos mais felizes e realizados.\n\nGostaríamos que continuasses esta missão: \n\nNos próximos dois dias, sempre que enfrentares uma decisão, escuta os teus valores e deixa que eles te guiem. Vê como te sentes.",
+          "image": {
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1711547532/Images/card_Lead_from_a_place_of_love_fesnei.png"
+          },
+          "heading": "Parabéns."
+        }
+      }
+    ],
+    "theme": {
+      "textColor": "#2E2E2E",
+      "backgroundColor": "#faf7e3"
+    },
+    "hidden": false,
+    "locked": false,
+    "name": "Guia-te a partir de um lugar de amor",
+    "live": true,
+    "published": true,
+    "card": {
+      "image": {
+        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1711547532/Images/card_Lead_from_a_place_of_love_fesnei.png"
+      }
+    },
+    "coCreators": [
+      {
+        "name": "Erik Fernholm, editor",
+        "url": "https://www.linkedin.com/in/lyckoaktivist/?originalSubdomain=se",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665412608/Contributors/Erik%20Fernholm.png"
+      },
+      {
+        "name": "Aaron Reuland, artwork",
+        "url": "https://openprocessing.org/user/183691?view=sketches&o=228",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1713964400/Images/user183691_i74pfh.jpg"
+      }
+    ],
+    "duration": 30,
+    "introPortal": {
+      "textColor": "#2E2E2E",
+      "hostNotes": [
+        {
+          "text": "> Começa a sessão quando estiveres pronta/o"
+        }
+      ],
+      "videoLoop": {
+        "p5JsScript": {
+          "lang": "javascript",
+          "code": "\nlet particles=[]\n\n\n\nfunction setup() {\n\tlet w=min(windowWidth, windowHeight)\n\tcreateCanvas(windowWidth, windowHeight, WEBGL);\n\tcolorMode(HSB, 100)\n\tparticles.push(new particle())\n}\n\nfunction draw() {\n\tbackground(15, 10, 98);\n\tparticles.push(new particle())\n\tfor(let particle of particles){\n\t\tparticle.update()\n\t\tparticle.display()\n\t}\n}\n\nclass particle{\nconstructor(){\n\tthis.a=random(TAU)\n\tthis.size=1\n\tthis.hue=70\n\tthis.brightness=100\n\tthis.alpha=100\n\tthis.y=0\n}\n\t\nupdate(){\n\tthis.size+=0.15\n\tthis.hue-=0.05\n\tthis.brightness-=0.02\n\tthis.y+=0.2\n\tthis.alpha-=0.07\n\t\n\tif(this.alpha<0.1){\n\t\tlet index = particles.indexOf(this);\n\tparticles.splice(index, 1);\n\t}\n}\n\t\ndisplay() {\n    push();\n    noStroke();\n    // Removed unnecessary translate to the center\n    rotate(this.a); // Apply rotation\n    fill(this.hue % 100, 80, this.brightness, this.alpha); // Apply color with fading\n    ellipse(0, this.y, this.size); // Draw particle\n    pop();\n  }\n\t\n\t\n}"
+        },
+        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1712905249/Audio/portal_audio_lead_from_place_of_love_jl76zz.mp3"
+      }
+    },
+    "tags": [
+      "db34d82a-4c48-4ddd-9de5-f562d8aa1bc9",
+      "9c2c08a9-7dc6-4058-bc78-016d0eb00614"
+    ],
+    "id": "2ea0d73d-4bfe-4e23-9124-2998acc9743f",
+    "async": true,
+    "description": "Explora os teus valores nesta meditação focada no corpo. Viver uma vida guiada por valores pode tornar-nos mais felizes e realizados."
+  },
+  "sv": {
+    "slides": [
+      {
+        "type": "host",
+        "hostNotes": [
+          {
+            "text": "Välkommen. Jag heter X och vi kommer att jobba tillsammans i ungefär 30 minuter. Vi kommer utforska vad det innebär att leva utifrån kärlek och i linje med våra värderingar.\n\nVi kommer att lyssna på en ljudövning tillsammans, reflektera en stund för oss själva och sedan finns det möjlighet att dela sina erfarenheter."
+          },
+          {
+            "text": "Vi börjar med en mini-check-in. Hur känner du dig just nu? Svara gärna med två-tre ord. X, skulle du vilja börja?\n\n> Låt alla deltagare, inklusive dig själv, checka in en och en. \n\nTack för att ni checkade in. Då kör vi igång."
+          }
+        ]
+      },
+      {
+        "type": "content",
+        "hostNotes": [
+          {
+            "text": "Hitta en bekväm position. Jag startar ljudövningen så möts vi här igen efteråt.\n\n> Tryck på play för att starta ljudövningen"
+          }
+        ],
+        "content": {
+          "lottie": {
+            "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1709573935/SRT%20(captions)%20files/Lead_from_a_place_of_love_swe_i4wzey.srt",
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1709573899/Audio/Lead_from_a_place_of_love_swe_hu1np6.mp3",
+            "durationTimer": true,
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/t_card_image/v1676642915/Lottie/default_audio_black_zjrmu2.json"
+          }
+        }
+      },
+      {
+        "type": "reflection",
+        "hostNotes": [
+          {
+            "text": "Nästa steg är att tyst reflektera i en minut.\n\nOm du skulle leva ditt liv utifrån kärlek och i linje med dina värderingar, hur skulle det vara?"
+          },
+          {
+            "text": "Om du vill kan du skriva ner dina funderingar på ett papper, eller bara tänka fritt. Det finns inga svar som är rätt eller fel här – vad som än dyker upp är okej.\n\n> Tryck på play för att starta timern.\n\nDå har det gått en minut och det är dags att gå vidare."
+          }
+        ],
+        "content": {
+          "text": "",
+          "heading": "Hur skulle det vara att leva utifrån kärlek?",
+          "lottie": {
+            "durationTimer": true,
+            "duration": 60,
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/t_card_image/v1676642915/Lottie/default_1min_black_rosi2l.json"
+          }
+        }
+      },
+      {
+        "type": "sharing",
+        "hostNotes": [
+          {
+            "text": "Det här steget handlar om att dela med sig av sin upplevelse och lyssna på andras. Vi har tre regler:\n\n1. **Det som sägs här, stannar här.**\n2. **Allt som behövs är att vi lyssnar på varandra.** Inget fixande, ingen rådgivning eller annan hjälp behövs. Vi är bara här för att utforska våra egna och andras upplevelser."
+          },
+          {
+            "text": "3. **Allt som händer på insidan är okej.** Ilska, kärlek, smärta, glädje. Vad som än dyker upp, det finns inget rätt eller fel. Det bara är som det är.\n\nDet finns en timer på två minuter att hålla sig efter på ett ungefär. Om du inte vill dela med dig är det bara att säga 'pass'."
+          },
+          {
+            "text": "Vem vill börja?\n\n> Låt alla, eller så många som det finns tid för, dela en efter en. Tryck på play för att starta timern. Starta om för varje person.\n\nTack så mycket för att ni lyssnar och delar med er."
+          }
+        ],
+        "id": "Sharing 1",
+        "content": {
+          "heading": "Hur skulle det vara att leva utifrån kärlek?",
+          "lottie": {
+            "durationTimer": true,
+            "duration": 120,
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/t_card_image/v1676639253/Lottie/default_2min_black_o6egey.json"
+          }
+        }
+      },
+      {
+        "type": "host",
+        "hostNotes": [
+          {
+            "text": "\nBra jobbat. Att checka in med oss själva och våra värderingar kan göra oss både lyckligare och mer tillfredsställda. \n\nVill du ha ett uppdrag? I så fall ska du under de kommande två dagarna, varje gång du står inför ett beslut, lyssna in på dina värderingar och låt dem vägleda dig. Var uppmärksam på hur det får dig att känna."
+          },
+          {
+            "text": "Innan vi avslutar så gör vi en mini-utcheckning.\nHur känner du dig nu? Har något ändrats? Svara med två-tre ord.\n\nVem vill börja?"
+          },
+          {
+            "text": "> Låt alla checka ut en efter en.\n\nTack så mycket för era utcheckningar, och för att ni deltog i den här sessionen.\n\n> Avsluta sessionen för att skicka deltagarna till exit-upplevelsen."
+          }
+        ]
+      },
+      {
+        "type": "instruction",
+        "content": {
+          "text": "Att checka in med oss själva och våra värderingar kan göra oss både lyckligare och mer tillfredsställda. \n\nVill du ha ett uppdrag?\n\nI så fall ska du under de kommande två dagarna, varje gång du står inför ett beslut, lyssna in på dina värderingar och låt dem vägleda dig. Var uppmärksam på hur det får dig att känna.",
+          "image": {
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1711547532/Images/card_Lead_from_a_place_of_love_fesnei.png"
+          },
+          "heading": "Bra jobbat."
+        }
+      }
+    ],
+    "theme": {
+      "textColor": "#2E2E2E",
+      "backgroundColor": "#faf7e3"
+    },
+    "hidden": false,
+    "locked": false,
+    "name": "Låt kärlek visa vägen",
+    "live": true,
+    "published": true,
+    "card": {
+      "image": {
+        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1711547532/Images/card_Lead_from_a_place_of_love_fesnei.png"
+      }
+    },
+    "coCreators": [
+      {
+        "name": "Fredrik Livheim, röst",
+        "url": "https://livskompass.se/om-fredrik-livheim/",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413198/Contributors/Fredrik%20Livheim.png"
+      },
+      {
+        "name": "Erik Fernholm, redaktör",
+        "url": "https://www.linkedin.com/in/lyckoaktivist/?originalSubdomain=se",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665412608/Contributors/Erik%20Fernholm.png"
+      }
+    ],
+    "duration": 30,
+    "introPortal": {
+      "textColor": "#2E2E2E",
+      "hostNotes": [
+        {
+          "text": "> Starta sessionen när ni är redo"
+        }
+      ],
+      "videoLoop": {
+        "p5JsScript": {
+          "lang": "javascript",
+          "code": "\nlet particles=[]\n\n\n\nfunction setup() {\n\tlet w=min(windowWidth, windowHeight)\n\tcreateCanvas(windowWidth, windowHeight, WEBGL);\n\tcolorMode(HSB, 100)\n\tparticles.push(new particle())\n}\n\nfunction draw() {\n\tbackground(15, 10, 98);\n\tparticles.push(new particle())\n\tfor(let particle of particles){\n\t\tparticle.update()\n\t\tparticle.display()\n\t}\n}\n\nclass particle{\nconstructor(){\n\tthis.a=random(TAU)\n\tthis.size=1\n\tthis.hue=70\n\tthis.brightness=100\n\tthis.alpha=100\n\tthis.y=0\n}\n\t\nupdate(){\n\tthis.size+=0.15\n\tthis.hue-=0.05\n\tthis.brightness-=0.02\n\tthis.y+=0.2\n\tthis.alpha-=0.07\n\t\n\tif(this.alpha<0.1){\n\t\tlet index = particles.indexOf(this);\n\tparticles.splice(index, 1);\n\t}\n}\n\t\ndisplay() {\n    push();\n    noStroke();\n    // Removed unnecessary translate to the center\n    rotate(this.a); // Apply rotation\n    fill(this.hue % 100, 80, this.brightness, this.alpha); // Apply color with fading\n    ellipse(0, this.y, this.size); // Draw particle\n    pop();\n  }\n\t\n\t\n}"
+        },
+        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1712905249/Audio/portal_audio_lead_from_place_of_love_jl76zz.mp3"
+      }
+    },
+    "tags": [
+      "db34d82a-4c48-4ddd-9de5-f562d8aa1bc9",
+      "9c2c08a9-7dc6-4058-bc78-016d0eb00614"
+    ],
+    "id": "2ea0d73d-4bfe-4e23-9124-2998acc9743f",
+    "async": true,
+    "description": "I den här meditationen får du utforska dina värderingar och vad det innebär att försöka låta kärleken leda oss i livet. Att leva efter sina värderingar kan göra oss både lyckligare och mer nöjda med livet."
+  },
+  "ja": {
+    "slides": [
+      {
+        "type": "host",
+        "hostNotes": [
+          {
+            "text": "Welcome. I am X and today we will work for around 30 minutes on xx\n\nWe’ll be doing xx ex. meditation followed by time for reflection and sharing with each other."
+          },
+          {
+            "text": "Let’s start with a mini check-in. How are you feeling right now? Please answer in two-three words. X, would you like to start?\n\n> Let everyone in the session, including yourself, check in one by one.\n\nThank you all for checking in. Let’s get started."
+          }
+        ]
+      },
+      {
+        "type": "content",
+        "hostNotes": [
+          {
+            "text": "Find a comfortable position. I will start the audio exercise and we'll meet back here afterwards. \n\n> Push play to start the audio exercise"
+          }
+        ]
+      },
+      {
+        "type": "reflection",
+        "hostNotes": [
+          {
+            "text": "Now we’ll take 1 minute to reflect on our own.\n\nxxMain question\n\nxxFurther explanations of main question if needed"
+          },
+          {
+            "text": "You can take notes on a piece of paper or just mental notes in your head. And there is no right or wrong here, our answers are our own. 1 minute starting now.\n\n> Press play to start the timer.\n\nThat’s 1 minute and it’s time to move on."
+          }
+        ]
+      },
+      {
+        "type": "sharing",
+        "hostNotes": [
+          {
+            "text": "Now we are getting into the sharing part. We have three rules for sharing:\n\n1. **What is said in here, stays in here.**\n2. **All you need to do is listen.** There is no fixing, helping or advice-giving needed. We are just showing up and exploring what ourselves and others are going through."
+          },
+          {
+            "text": "3. **Everything on the inside is okay.** Anger, love, hatred, sadness. Whatever shows up. No wrongs, no rights. It is what it is.\n\nThere will be a timer set for 2 minutes as an indicator. If you don’t want to share you can always say ‘pass’."
+          },
+          {
+            "text": "Who would like to start?\n\n> Let everyone (or as many as you got time for) share one by one. Press play to start the timer. Re-start for each new sharing.\n\nThank you so much everyone."
+          }
+        ],
+        "id": "Sharing 1"
+      },
+      {
+        "type": "host",
+        "hostNotes": [
+          {
+            "text": "Well done. If you’re up for it, you can continue what we started here today with a mission to bring this into your everyday life.\n\nxx mission description"
+          },
+          {
+            "text": "Before we leave this space let’s do a mini check-out. \n\nHow are you feeling right now? Has anything shifted? Please answer in two-three words."
+          },
+          {
+            "text": "Who would like to start?\n\n> Let everyone in the session check out one by one.\n\nThank you all for checking out and for joining this session today.\n\n> Finish session to send everyone off to the exit experience."
+          }
+        ]
+      },
+      {
+        "type": "instruction",
+        "content": {
+          "text": "Well done.\n\nSummary.\n\nIf you’re up for it, you can continue with this mission.\n\nmission description"
+        }
+      }
+    ],
+    "theme": {
+      "textColor": "#2AE2D7"
+    },
+    "hidden": false,
+    "locked": false,
+    "live": true,
+    "published": false,
+    "card": {},
+    "duration": 30,
+    "introPortal": {
+      "textColor": "#2AE2D7",
+      "hostNotes": [
+        {
+          "text": "> Start the session when you're ready to go"
+        }
+      ]
+    },
+    "tags": [
+      "db34d82a-4c48-4ddd-9de5-f562d8aa1bc9",
+      "9c2c08a9-7dc6-4058-bc78-016d0eb00614"
+    ],
+    "id": "2ea0d73d-4bfe-4e23-9124-2998acc9743f",
+    "async": false
+  }
+}

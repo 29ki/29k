@@ -7,7 +7,7 @@ import styled from 'styled-components/native';
 import {JoinSessionError} from '../../../../../shared/src/errors/Session';
 import {COLORS} from '../../../../../shared/src/constants/colors';
 import Gutters from '../../../lib/components/Gutters/Gutters';
-import {Spacer16, Spacer8} from '../../../lib/components/Spacers/Spacer';
+import {Spacer16, Spacer32} from '../../../lib/components/Spacers/Spacer';
 import {Body16} from '../../../lib/components/Typography/Body/Body';
 import VerificationCode from '../../../lib/components/VerificationCode/VerificationCode';
 import {ModalStackProps} from '../../../lib/navigation/constants/routes';
@@ -19,6 +19,11 @@ import {LiveSessionType} from '../../../../../shared/src/schemas/Session';
 import useLogSessionMetricEvents from '../../../lib/sessions/hooks/useLogSessionMetricEvents';
 
 const ErrorText = styled(Body16)({color: COLORS.ERROR, textAlign: 'center'});
+
+const Container = styled(Gutters)({
+  flex: 1,
+  justifyContent: 'center',
+});
 
 const AddSessionModal = () => {
   const {t} = useTranslation('Modal.JoinSession');
@@ -65,7 +70,7 @@ const AddSessionModal = () => {
 
   return (
     <CardModal>
-      <Gutters>
+      <Container>
         {errorString ? (
           <ErrorText>{errorString}</ErrorText>
         ) : (
@@ -78,8 +83,8 @@ const AddSessionModal = () => {
           onCodeType={onCodeType}
           onCodeCompleted={onCodeCompleted}
         />
-        <Spacer8 />
-      </Gutters>
+        <Spacer32 />
+      </Container>
     </CardModal>
   );
 };

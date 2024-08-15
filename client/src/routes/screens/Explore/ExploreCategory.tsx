@@ -1,4 +1,4 @@
-import React, {Fragment, useCallback, useMemo} from 'react';
+import React, {Fragment, useCallback} from 'react';
 import {useRoute, RouteProp, useNavigation} from '@react-navigation/native';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import {COLORS} from '../../../../../shared/src/constants/colors';
@@ -15,9 +15,10 @@ import {
   Spacer16,
   Spacer28,
   Spacer32,
+  Spacer4,
   TopSafeArea,
 } from '../../../lib/components/Spacers/Spacer';
-import {Choice, Choices, Collection, FilterChoice, Label} from './Choices';
+import {Column, Columns} from './components/Columns';
 import StickyHeading from '../../../lib/components/StickyHeading/StickyHeading';
 import {Heading16} from '../../../lib/components/Typography/Heading/Heading';
 import useExercises from '../../../lib/content/hooks/useExercises';
@@ -26,23 +27,29 @@ import ExerciseCard from '../../../lib/components/Cards/SessionCard/ExerciseCard
 import Gutters from '../../../lib/components/Gutters/Gutters';
 import styled from 'styled-components/native';
 import {useTranslation} from 'react-i18next';
-import {Body16} from '../../../lib/components/Typography/Body/Body';
+import Collection from './components/Collection';
+import Tag from './components/Tag';
+import useFeaturedExercises from '../../../lib/content/hooks/useFeaturedExercises';
+import Sessions from './components/Sessions';
+import {CollectionIcon} from '../../../lib/components/Icons';
+import IconWrapper from './components/IconWrapper';
+import useLiveSessionsByExercises from '../../../lib/sessions/hooks/useLiveSessionsByExerciseIds';
+import useFilterContentByTags from '../../../lib/content/hooks/useFilterContentByTags';
 
-const FilterTag = styled(Body16)<{active: boolean}>(({active}) => ({
-  paddingHorizontal: 8,
-  paddingVertical: 4,
-  borderRadius: 8,
-  marginBottom: 4,
-  backgroundColor: active ? COLORS.BLACK : COLORS.CREAM,
-  color: active ? COLORS.PURE_WHITE : COLORS.BLACK,
-  overflow: 'hidden',
-}));
+const Tags = styled.ScrollView.attrs({
+  horizontal: true,
+  showsHorizontalScrollIndicator: false,
+  deaccelerationRate: 'fast',
+  contentContainerStyle: {
+    paddingHorizontal: 12,
+  },
+})({});
 
 const ExploreCategory = () => {
   const {
     params: {categoryId},
   } = useRoute<RouteProp<ExploreStackProps, 'ExploreCategory'>>();
-  const {goBack, navigate} =
+  const {goBack} =
     useNavigation<
       NativeStackNavigationProp<OverlayStackProps & ExploreStackProps>
     >();
@@ -52,30 +59,19 @@ const ExploreCategory = () => {
 
   const category = useCategoryById(categoryId);
   const tags = useTagsByCategoryId(categoryId);
-  const collections = useCollections(category?.collections);
-  const exercises = useExercises(category?.exercises);
-
-  const filteredCollections = useMemo(
-    () =>
-      collections.filter(
-        collection =>
-          collection.tags?.some(
-            tag => !activeTags.length || activeTags.includes(tag),
-          ),
-      ),
-    [activeTags, collections],
+  const collections = useFilterContentByTags(
+    useCollections(category?.collections),
+    activeTags,
   );
-
-  const filteredExercises = useMemo(
-    () =>
-      exercises.filter(
-        exercise =>
-          exercise.tags?.some(
-            tag => !activeTags.length || activeTags.includes(tag),
-          ),
-      ),
-    [activeTags, exercises],
+  const exercises = useFilterContentByTags(
+    useExercises(category?.exercises),
+    activeTags,
   );
+  const featuredExercises = useFilterContentByTags(
+    useFeaturedExercises(category?.exercises),
+    activeTags,
+  );
+  const liveSessions = useLiveSessionsByExercises(exercises);
 
   const onPressTag = useCallback(
     (tagId: string) => () => {
@@ -95,45 +91,68 @@ const ExploreCategory = () => {
       title={category?.name}>
       <TopSafeArea />
       <Spacer32 />
-      <AutoScrollView stickyHeaderIndices={[2, 4]}>
+      <AutoScrollView stickyHeaderIndices={[3, 5, 7, 9]}>
         <Spacer16 />
-        <Choices>
+        <Tags>
           {tags.map(tag => (
-            <FilterChoice key={tag.id} onPress={onPressTag(tag.id)}>
-              <FilterTag active={activeTags.includes(tag.id)}>
-                {tag.name}
-              </FilterTag>
-            </FilterChoice>
+            <Fragment key={tag.id}>
+              <Spacer4 />
+              <Tag
+                tag={tag}
+                active={activeTags.includes(tag.id)}
+                onPress={onPressTag(tag.id)}
+              />
+              <Spacer4 />
+            </Fragment>
           ))}
-        </Choices>
-        {filteredCollections.length > 0 && (
+        </Tags>
+        <Spacer16 />
+        {liveSessions.length > 0 && (
           <StickyHeading>
-            <Heading16>{t('collectionsHeading')}</Heading16>
+            <Heading16>{t('liveSessionsHeading')}</Heading16>
           </StickyHeading>
         )}
-        {filteredCollections.length > 0 && (
-          <Choices>
-            {filteredCollections.map(collection => (
-              <Choice
-                key={collection.id}
-                onPress={() =>
-                  navigate('Collection', {collectionId: collection.id})
-                }>
-                <Collection>
-                  <Label>{collection.name}</Label>
-                </Collection>
-              </Choice>
-            ))}
-          </Choices>
+        {liveSessions.length > 0 && (
+          <>
+            <Sessions sessions={liveSessions} />
+            <Spacer16 />
+          </>
         )}
-        {filteredExercises.length > 0 && (
+        {!activeTags.length && featuredExercises.length > 0 && (
+          <StickyHeading>
+            <Heading16>{t('featuredHeading')}</Heading16>
+          </StickyHeading>
+        )}
+        {!activeTags.length && featuredExercises.length > 0 && (
+          <>
+            <Sessions sessions={featuredExercises} />
+            <Spacer16 />
+          </>
+        )}
+        {collections.length > 0 && (
+          <StickyHeading>
+            <IconWrapper Icon={CollectionIcon}>
+              <Heading16>{t('collectionsHeading')}</Heading16>
+            </IconWrapper>
+          </StickyHeading>
+        )}
+        {collections.length > 0 && (
+          <Columns>
+            {collections.map(collection => (
+              <Column key={collection.id}>
+                <Collection collection={collection} />
+              </Column>
+            ))}
+          </Columns>
+        )}
+        {exercises.length > 0 && (
           <StickyHeading>
             <Heading16>{t('sessionsHeading')}</Heading16>
           </StickyHeading>
         )}
-        {filteredExercises.length > 0 && (
+        {exercises.length > 0 && (
           <Gutters>
-            {filteredExercises.map(exercise => (
+            {exercises.map(exercise => (
               <Fragment key={exercise.id}>
                 <ExerciseCard exercise={exercise} small />
                 <Spacer16 />

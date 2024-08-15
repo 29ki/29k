@@ -17,11 +17,13 @@ import {BellFillIcon, CheckIcon} from '../Icons';
 import {useTranslation} from 'react-i18next';
 import {UserType} from '../../../../../shared/src/schemas/User';
 import {ExerciseCard} from '../../../../../shared/src/types/generated/Exercise';
-import ExerciseGraphic from '../ExerciseGraphic/ExerciseGraphic';
+import CardGraphic from '../CardGraphic/CardGraphic';
 import Markdown from '../Typography/Markdown/Markdown';
 import textStyles from '../Typography/styles';
-import {Collection} from '../../../../../shared/src/types/generated/Collection';
 import CollectionTag from '../Tag/CollectionTag';
+import {CollectionWithLanguage} from '../../content/types';
+import {LANGUAGE_TAG} from '../../i18n';
+import LanguageTag from '../Tag/LanguageTag';
 
 export const HEIGHT = 175;
 
@@ -50,7 +52,7 @@ const Wrapper = styled(TouchableOpacity)<{backgroundColor?: string}>(
   }),
 );
 
-const Graphic = styled(ExerciseGraphic)({
+const Graphic = styled(CardGraphic)({
   width: 112,
   height: 112,
   alignSelf: 'flex-end',
@@ -85,14 +87,14 @@ const InterestedTag = styled(Tag)({
 type TagsGradientProps = {
   color?: string;
 };
-const TagsGradient = styled(LinearGradient).attrs<
-  TagsGradientProps,
-  LinearGradientProps
->(({color = COLORS.CREAM}) => ({
-  start: {x: 0, y: 0},
-  end: {x: 1, y: 0},
-  colors: [hexToRgba(color, 0), hexToRgba(color, 1), hexToRgba(color, 1)],
-}))<TagsGradientProps>({
+const TagsGradient = styled(LinearGradient).attrs<TagsGradientProps>(
+  ({color = COLORS.CREAM}) => ({
+    start: {x: 0, y: 0},
+    end: {x: 1, y: 0},
+    colors: [hexToRgba(color, 0), hexToRgba(color, 1), hexToRgba(color, 1)],
+    // Fixes issue with types not being passed down properly from .attrs
+  }),
+)<Optional<LinearGradientProps, 'colors'>>({
   position: 'absolute',
   right: -SPACINGS.SIXTEEN,
   bottom: 0,
@@ -106,7 +108,6 @@ const TitleContainer = styled.View<{minHeight: boolean}>(({minHeight}) => ({
 }));
 
 const Title = styled(Display20)<{color?: string}>(({color}) => ({
-  textOverflow: 'ellipsis',
   color,
 }));
 
@@ -118,12 +119,12 @@ const Description = styled.View({
 type DescriptionGradientProps = {
   color?: string;
 };
-const DescriptionGradient = styled(LinearGradient).attrs<
-  DescriptionGradientProps,
-  LinearGradientProps
->(({color = COLORS.CREAM}) => ({
+const DescriptionGradient = styled(
+  LinearGradient,
+).attrs<DescriptionGradientProps>(({color = COLORS.CREAM}) => ({
   colors: [hexToRgba(color, 0), hexToRgba(color, 1)],
-}))<DescriptionGradientProps>({
+  // Fixes issue with types not being passed down properly from .attrs
+}))<Optional<LinearGradientProps, 'colors'>>({
   position: 'absolute',
   left: 0,
   right: 0,
@@ -141,6 +142,7 @@ const Content = styled.View({
 type CardProps = {
   title?: string;
   description?: string;
+  language?: LANGUAGE_TAG;
   tags?: Array<string>;
   cardStyle?: ExerciseCard;
   onPress: () => void;
@@ -149,7 +151,7 @@ type CardProps = {
   isPinned?: boolean;
   reminderEnabled?: boolean;
   interestedCount?: number;
-  collection?: Collection | null;
+  collection?: CollectionWithLanguage | null;
   style?: ViewStyle;
   backgroundColor?: string;
   textColor?: string;
@@ -158,6 +160,7 @@ type CardProps = {
 export const Card: React.FC<CardProps> = ({
   title,
   description,
+  language,
   tags,
   cardStyle,
   onPress,
@@ -171,7 +174,7 @@ export const Card: React.FC<CardProps> = ({
   backgroundColor,
   textColor,
 }) => {
-  const {t} = useTranslation('Component.Card');
+  const {t, i18n} = useTranslation('Component.Card');
 
   return (
     <Wrapper
@@ -202,6 +205,12 @@ export const Card: React.FC<CardProps> = ({
         {collection && (
           <>
             <CollectionTag>{collection.name}</CollectionTag>
+            <Spacer4 />
+          </>
+        )}
+        {language && language !== i18n.resolvedLanguage && (
+          <>
+            <LanguageTag>{language.toUpperCase()}</LanguageTag>
             <Spacer4 />
           </>
         )}

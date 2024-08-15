@@ -148,6 +148,7 @@
       "566aeb1b-1649-4f5a-96a2-0c80be27efc0",
       "9c2c08a9-7dc6-4058-bc78-016d0eb00614"
     ],
+    "link": "https://aware.29k.org/act-on-eco-emotions",
     "id": "c0e6d8d2-163a-4c2d-a0af-250eef846054",
     "async": true,
     "description": "Allowing and labelling emotions is important for our general wellbeing. In this exercise we'll put words on and make room for all kinds of eco emotions to see how they motivate us."
@@ -249,6 +250,7 @@
       "566aeb1b-1649-4f5a-96a2-0c80be27efc0",
       "9c2c08a9-7dc6-4058-bc78-016d0eb00614"
     ],
+    "link": "https://aware.29k.org/act-on-eco-emotions",
     "id": "c0e6d8d2-163a-4c2d-a0af-250eef846054",
     "async": false
   },
@@ -401,11 +403,12 @@
       "566aeb1b-1649-4f5a-96a2-0c80be27efc0",
       "9c2c08a9-7dc6-4058-bc78-016d0eb00614"
     ],
+    "link": "https://aware.29k.org/act-on-eco-emotions",
     "id": "c0e6d8d2-163a-4c2d-a0af-250eef846054",
     "async": true,
     "description": "Om vi förstår och kan prata om våra olika känslor, blir det mycket lättare att hantera dem. Den här övningen ger dig chans att göra plats för olika ekokänslor och utforska vad de har för effekt på din motivation."
   },
-  "es": {
+  "ja": {
     "slides": [
       {
         "type": "host",
@@ -485,6 +488,7 @@
       "566aeb1b-1649-4f5a-96a2-0c80be27efc0",
       "9c2c08a9-7dc6-4058-bc78-016d0eb00614"
     ],
+    "link": "https://aware.29k.org/act-on-eco-emotions",
     "id": "c0e6d8d2-163a-4c2d-a0af-250eef846054",
     "async": false
   }

@@ -15,7 +15,7 @@ const Wrapper = styled.View<{themeColor?: string; completed?: boolean}>(
       : themeColor
         ? COLORS.BLACK_TRANSPARENT_15
         : COLORS.PURE_WHITE,
-    paddingVertical: 1,
+    paddingVertical: 0,
     paddingHorizontal: SPACINGS.EIGHT,
     borderRadius: SPACINGS.EIGHT,
     flexDirection: 'row',

@@ -15,7 +15,7 @@
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
-	<string>$(PRODUCT_NAME)</string>
+	<string>Aware</string>
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
@@ -38,25 +38,23 @@
 		</dict>
 	</array>
 	<key>CFBundleVersion</key>
-	<string>133</string>
+	<string>184</string>
 	<key>ITSAppUsesNonExemptEncryption</key>
 	<false/>
 	<key>LSApplicationCategoryType</key>
-	<string></string>
+	<string/>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSAppTransportSecurity</key>
 	<dict>
-		<key>NSExceptionDomains</key>
-		<dict>
-			<key>localhost</key>
-			<dict>
-				<key>NSExceptionAllowsInsecureHTTPLoads</key>
-				<true/>
-			</dict>
-		</dict>
+		<key>NSAllowsArbitraryLoads</key>
+		<false/>
+		<key>NSAllowsLocalNetworking</key>
+		<true/>
 	</dict>
 	<key>NSCalendarsUsageDescription</key>
+	<string>This allows us to add sessions to your calendar.</string>
+	<key>NSCalendarsWriteOnlyAccessUsageDescription</key>
 	<string>This allows us to add sessions to your calendar.</string>
 	<key>NSCameraUsageDescription</key>
 	<string>This allows us to take a profile picture of you. It also allows us to stream your video during video sharing.</string>
@@ -64,8 +62,6 @@
 	<string>This allows you to upload a profile picture of you from your library</string>
 	<key>NSContactsUsageDescription</key>
 	<string>This allows us to add sessions to your calendar.</string>
-	<key>NSLocationWhenInUseUsageDescription</key>
-	<string></string>
 	<key>NSMicrophoneUsageDescription</key>
 	<string>This allows us to stream your audio during video sharing.</string>
 	<key>NSHealthShareUsageDescription</key>
@@ -138,7 +134,7 @@
 	<string>LaunchScreen</string>
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
-		<string>armv7</string>
+		<string>arm64</string>
 	</array>
 	<key>UIStatusBarStyle</key>
 	<string>UIStatusBarStyleDarkContent</string>

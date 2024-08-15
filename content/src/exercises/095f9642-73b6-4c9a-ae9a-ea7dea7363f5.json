@@ -24,12 +24,18 @@
         "content": {
           "heading": "Pure simple love",
           "video": {
-            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1689597497/Video/pure_simple_love_vamjsh.mp4",
-            "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1674554578/Images/thumb_meditation_pure_simple_love_wex49u.png",
-            "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1689597639/SRT%20(captions)%20files/pure_simple_love_xp8ouv.srt",
-            "durationTimer": true
+            "source": "",
+            "preview": "",
+            "subtitles": "",
+            "durationTimer": false
           },
-          "image": "https://res.cloudinary.com/twentyninek/image/upload/q_auto,t_global/v1636016815/Singles/sticky_eng_ps00eg.png"
+          "image": "https://res.cloudinary.com/twentyninek/image/upload/q_auto,t_global/v1636016815/Singles/sticky_eng_ps00eg.png",
+          "lottie": {
+            "durationTimer": true,
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1676977421/Lottie/audio_meditation_default_black_default_omemwt.json",
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1702393722/Audio/meditation_pure_simple_love_v9ol90.mp3",
+            "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1689597639/SRT%20(captions)%20files/pure_simple_love_xp8ouv.srt"
+          }
         },
         "hostNotes": [
           {
@@ -147,7 +153,10 @@
       "videoLoop": {
         "source": "https://res.cloudinary.com/twentyninek/video/upload/q_auto/v1663143395/temp/portal-intro_h7qccz.mp4",
         "audio": "https://res.cloudinary.com/twentyninek/video/upload/v1664811123/temp/ocean_s3t5yy_mm2dgh.mp3",
-        "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1674554579/Images/thumb_portal_pure_simple_love_geibz4.png"
+        "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1674554579/Images/thumb_portal_pure_simple_love_geibz4.png",
+        "p5JsScript": {
+          "lang": "javascript"
+        }
       },
       "videoEnd": {
         "source": "https://res.cloudinary.com/twentyninek/video/upload/q_auto/v1663147750/temp/portal-intro-end_crzjih.mp4"
@@ -192,11 +201,16 @@
         "content": {
           "heading": "O amor puro e simples",
           "video": {
-            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1670322252/FJN/Live%20Sessions/meditation_pure_simple_love_pt_awrfo6_pf7qo7.mp4",
-            "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1674554578/Images/thumb_meditation_pure_simple_love_wex49u.png",
+            "source": "",
+            "preview": "",
             "durationTimer": true
           },
-          "image": "https://res.cloudinary.com/twentyninek/image/upload/q_auto,t_global/v1636016815/Singles/sticky_eng_ps00eg.png"
+          "image": "https://res.cloudinary.com/twentyninek/image/upload/q_auto,t_global/v1636016815/Singles/sticky_eng_ps00eg.png",
+          "lottie": {
+            "durationTimer": true,
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1676977421/Lottie/audio_meditation_default_black_default_omemwt.json",
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1716379843/FJN/Meditations/O_AMOR_PURO_E_SIMPLES_-_04_10_lo18fe_raoct3.mp3"
+          }
         },
         "hostNotes": [
           {
@@ -271,6 +285,16 @@
           "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1675958263/Video/async_outro_pure_simple_love_kjkjaq.mp4",
           "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/v1675960044/Images/thumb_async_pure%20simple_love_q6jg7c.png"
         }
+      },
+      {
+        "type": "instruction",
+        "content": {
+          "image": {
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1698256076/Images/pure-simple-love_vi9ura.png"
+          },
+          "heading": "Parabéns",
+          "text": "Gostaríamos muito que continuasses esta missão:\n\nDefine um lembrete a uma hora aleatória do dia durante uma semana. Quando o lembrete ativar faz uma reflexão acerca de um momento de felicidade nas últimas 24 horas. Está atento ao que estás a sentir interiormente."
+        }
       }
     ],
     "name": "O amor puro e simples",
@@ -292,7 +316,10 @@
       "videoLoop": {
         "source": "https://res.cloudinary.com/twentyninek/video/upload/q_auto/v1663143395/temp/portal-intro_h7qccz.mp4",
         "audio": "https://res.cloudinary.com/twentyninek/video/upload/v1664811123/temp/ocean_s3t5yy_mm2dgh.mp3",
-        "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1674554579/Images/thumb_portal_pure_simple_love_geibz4.png"
+        "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1674554579/Images/thumb_portal_pure_simple_love_geibz4.png",
+        "p5JsScript": {
+          "lang": "javascript"
+        }
       },
       "videoEnd": {
         "source": "https://res.cloudinary.com/twentyninek/video/upload/q_auto/v1663147750/temp/portal-intro-end_crzjih.mp4"
@@ -318,13 +345,10 @@
         "type": "host",
         "hostNotes": [
           {
-            "text": "Welcome. I am X and today we will work for around 30 minutes on love and connection to ourselves and others.\n\nWe’ll be doing a short meditation together, then we’ll take a moment to reflect on our own, and the final step is to share with each other what we experienced."
+            "text": "Välkommen. Jag heter X och vi kommer att jobba tillsammans i ungefär 30 minuter med att uppmärksamma något fint i livet.\n\nVi kommer att lyssna på en ljudövning tillsammans, reflektera en stund för oss själva och sedan finns det möjlighet att dela sina erfarenheter."
           },
           {
-            "text": "Before we move on into the session, let's ground ourselves in the here and now. Focusing on our breathing for three circles of inhale and exhale.\n\n> Inhale & exhale slowly x3"
-          },
-          {
-            "text": "Let’s start with a mini check-in. How are you feeling right now? Please answer in two-three words. X, would you like to start?\n\n> Let everyone in the session, including yourself, check in one by one.\n\nThank you all for checking in. Let’s get started."
+            "text": "Vi börjar med en mini-check-in. Hur känner du dig just nu? Svara gärna med två-tre ord. X, vill du börja?\n\n> Låt alla deltagare, inklusive dig själv, checka in en och en. \n\nTack för att ni checkade in. Då kör vi igång."
           }
         ],
         "video": {
@@ -335,65 +359,70 @@
       {
         "type": "content",
         "content": {
-          "heading": "Pure simple love",
+          "heading": "",
           "video": {
-            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1689597497/Video/pure_simple_love_vamjsh.mp4",
-            "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1674554578/Images/thumb_meditation_pure_simple_love_wex49u.png",
-            "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1697622804/SRT%20(captions)%20files/Pure_simple_love_swe_t1zhsg.srt",
-            "durationTimer": true,
-            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1697622758/Audio/pure_simple_love_swe_zddij7.mp3"
+            "source": "",
+            "preview": "",
+            "subtitles": "",
+            "durationTimer": false
           },
-          "image": "https://res.cloudinary.com/twentyninek/image/upload/q_auto,t_global/v1636016815/Singles/sticky_eng_ps00eg.png"
+          "image": "https://res.cloudinary.com/twentyninek/image/upload/q_auto,t_global/v1636016815/Singles/sticky_eng_ps00eg.png",
+          "lottie": {
+            "durationTimer": true,
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1676977421/Lottie/audio_meditation_default_black_default_omemwt.json",
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1711370901/Audio/Pure_simple_love_swe_improvedaudio.mp3",
+            "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1697622804/SRT%20(captions)%20files/Pure_simple_love_swe_t1zhsg.srt"
+          }
         },
         "hostNotes": [
           {
-            "text": "Sometimes it feels like life goes on and on in a never ending treadmill. And even though we may have beautiful things in our lives, our brains are programmed to focus on the things that don’t work. The problems. Potential threats. Things in our lives that we need to solve."
+            "text": "Ibland kan det kännas som att livet bara passerar. Och även om vi har fina saker i våra liv så är våra hjärnor inprogrammerade att uppmärksamma sånt som inte funkar. Problemen. Sånt vi behöver lösa, eller saker som kan vara hotfulla."
           },
           {
-            "text": "Reminding ourselves of what’s working takes an effort. And now we’re gonna do just that. Taking a few minutes to recall a moment of love in our lives together. It's a practice that has been proven to promote happiness, a sense of purpose and slow our systems down a bit.\n\n> Press play to start the meditation."
+            "text": "Att påminna oss själva om sånt som är bra och fint kräver en ansträngning. Och precis det ska vi göra just nu. De närmaste minuterna kommer vi att påminna oss om ett fint ögonblick i livet tillsammans. Det är en övning som kan få oss att känna lycka, mening och sakta ner våra system lite grand. \n\n> Tryck på play för att starta meditationen."
           }
         ]
       },
       {
         "type": "reflection",
         "content": {
-          "heading": "How did this meditation affect you?",
+          "heading": "Hur upplevde du meditationen?",
           "video": {
             "source": "https://res.cloudinary.com/twentyninek/video/upload/q_auto/v1663328538/temp/1_min_eto52x.mp4",
             "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1674554578/Images/thumb_timer1min_pure_simple_love_jahzvt.png",
             "durationTimer": true
           },
-          "text": "What can you bring for the rest of the day?"
+          "text": "Vad tar du med dig?"
         },
         "hostNotes": [
           {
-            "text": "Now we’ll take 1 minute to reflect on our own.\n\nHow did this meditation affect you?\n\nWhat can you bring from this for the rest of your day?"
+            "text": "Nästa steg är att tyst reflektera i en minut.\n\nHur upplevde du att göra den här meditationen? Vad tar du med dig för resten av den här dagen?"
           },
           {
-            "text": "You can take notes on a piece of paper or just mental notes in your head. And there is no right or wrong here, our answers are our own. 1 minute starting now.\n\n> Press play to start the timer.\n\nOkay, that’s 1 minute. Let’s move on."
+            "text": "Om du vill kan du skriva ner dina funderingar på ett papper eller bara tänka fritt. Det finns inga svar som är rätt eller fel här – vad som än dyker upp är okej.\n\n> Tryck på play för att starta timern.\n\nDå har det gått en minut och det är dags att gå vidare."
           }
         ]
       },
       {
         "type": "sharing",
         "content": {
-          "heading": "How did this meditation affect you?",
+          "heading": "Hur upplevde du meditationen?",
           "video": {
             "source": "https://res.cloudinary.com/twentyninek/video/upload/q_auto/v1663328538/temp/2_min_fr9hsu.mp4",
             "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1674554578/Images/thumb_timer2min_pure_simple_love_czlzbh.png",
             "durationTimer": true
           },
-          "text": "What can you bring for the rest of the day?"
+          "text": "Vad tar du med dig?"
         },
         "hostNotes": [
           {
-            "text": "Now we are getting into the sharing part. We have three rules for sharing:\n\n1. **What is said in here, stays in here.**\n2. **All you need to do is listen.** There is no fixing, helping or advice-giving needed. We are just showing up and exploring what ourselves and others are going through."
+            "text": "Det här steget handlar om att dela med sig av sin upplevelse och lyssna på andras. Vi har tre regler:\n\n1. **Det som sägs här, stannar här.**\n2. **Allt som behövs är att vi lyssnar på varandra.** Inget fixande, ingen rådgivning eller annan hjälp behövs. Vi är bara här för att utforska våra egna och andras upplevelser tillsammans."
           },
           {
-            "text": "3. **Everything on the inside is okay.** Anger, love, hatred, sadness. Whatever shows up. No wrongs, no rights. It is what it is.\n\nThere will be a timer set for 2 minutes as an indicator. If you don’t want to share you can always say ‘pass’."
+            "text": "3. **Allt som händer på insidan är okej.** Ilska, kärlek, smärta, glädje. Vad som än dyker upp, det finns inget rätt eller fel. Det bara är som det är.\n\nDet finns en timer på två minuter att hålla sig efter på ett ungefär. Om du inte vill dela med dig är det bara att säga 'pass'."
           },
           {
-            "text": "Who would like to start?\n\n> Let up to six people share one by one. Press play to start the timer. Re-start for each new person.\n\nThank you so much everyone."
+            "text": "Vem vill börja?\n\n> Låt alla, eller så många som det finns tid för, dela en efter en. Tryck på play för att starta timern. Starta om för varje person.\n\nTack så mycket för att ni lyssnar och delar med er."
           }
         ],
         "id": "sharing"
@@ -402,16 +431,16 @@
         "type": "host",
         "hostNotes": [
           {
-            "text": "We've just thought of a moment of love in our live and put one of life’s precious moment into the limelight. To help us balance our brains natural efforts to make us survive by focusing on the negative."
+            "text": "Vi har just dragit fram ett kärleksfullt ögonblick från minnets mörka vrår in i ljuset. Det kan hjälpa oss att väga upp våra hjärnors medfödda förmåga att fokusera på det negativa."
           },
           {
-            "text": "Well done. If you’re up for it, you can continue what we started here today with a mission to bring this into your everyday life.\n\nSet a reminder at a random time of the day for a week. When the reminder goes on, reflect on a loving moment from the last 24 hours. Notice what it feels like on the inside, in your body."
+            "text": "Om du vill finns det ett uppdrag du kan ta dig an: \n\nSätt en påminnelse på vilken tid du vill, varje dag kommande vecka. När du får påminnelsen, tänk på något kärleksfullt som du upplevt under det senaste dygnet. Lägg märke till hur det känns på insidan, i din kropp, när du gör det."
           },
           {
-            "text": "Before we leave this space let’s do a mini check-out. \n\nHow are you feeling right now? Has anything shifted? Please answer in two-three words."
+            "text": "Innan vi avslutar så gör vi en mini-utcheckning.\nHur känner du dig nu? Har något ändrats? Svara gärna med två-tre ord.\n\nVem vill börja?"
           },
           {
-            "text": "Who would like to start?\n\n> Let everyone in the session check out one by one.\n\nThank you all for checking out and for joining this session today.\n\n> Finish session to send everyone off to the exit experience."
+            "text": "> Låt alla checka ut en efter en.\n\nTack så mycket för era utcheckningar, och för att ni deltog i den här sessionen.\n\n> Avsluta sessionen för att skicka deltagarna till exit-upplevelsen."
           }
         ],
         "video": {
@@ -422,16 +451,16 @@
       {
         "type": "instruction",
         "content": {
-          "text": "If you’re up for it, you can continue with this mission:\n\nSet a reminder at a random time of the day for a week. When the reminder goes off, reflect on a loving moment from the past 24 hours. Notice what it feels like on the inside, in your body.",
+          "text": "Vi har just dragit fram ett kärleksfullt ögonblick från minnets mörka vrår in i ljuset. Det kan hjälpa oss att väga upp våra hjärnors medfödda förmåga att fokusera på det negativa.\n\nVill du ta dig an en utmaning? \n\nSätt en påminnelse på valfri tid varje dag i en vecka. När du får påminnelsen, tänk på något kärleksfullt som du upplevt under det senaste dygnet. Lägg märke till hur det känns på insidan, i din kropp när du gör det.",
           "image": {
             "source": "https://res.cloudinary.com/twentyninek/image/upload/v1664528333/temp/pure-simple-love_rd2wvb.png"
           },
-          "heading": "Well done"
+          "heading": "Bra jobbat"
         }
       }
     ],
-    "hidden": true,
-    "name": "Pure simple love",
+    "hidden": false,
+    "name": "Enkel kärlek",
     "live": true,
     "published": true,
     "card": {
@@ -439,6 +468,18 @@
         "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1698256076/Images/pure-simple-love_vi9ura.png"
       }
     },
+    "coCreators": [
+      {
+        "name": "Ints Ivanovskis, illustrationer",
+        "url": "https://www.linkedin.com/in/ints-ivanovskis-46ab0311a/",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413436/Contributors/Ints%20Ivanovskis.jpg"
+      },
+      {
+        "name": "Jacquline Levi, röst",
+        "url": "https://www.linkedin.com/in/jacqueline-levi-292065ab/",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665414232/Contributors/Jacqueline%20Levi.png"
+      }
+    ],
     "duration": 30,
     "outroPortal": {
       "video": {
@@ -450,7 +491,10 @@
       "videoLoop": {
         "source": "https://res.cloudinary.com/twentyninek/video/upload/q_auto/v1663143395/temp/portal-intro_h7qccz.mp4",
         "audio": "https://res.cloudinary.com/twentyninek/video/upload/v1664811123/temp/ocean_s3t5yy_mm2dgh.mp3",
-        "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1674554579/Images/thumb_portal_pure_simple_love_geibz4.png"
+        "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1674554579/Images/thumb_portal_pure_simple_love_geibz4.png",
+        "p5JsScript": {
+          "lang": "javascript"
+        }
       },
       "videoEnd": {
         "source": "https://res.cloudinary.com/twentyninek/video/upload/q_auto/v1663147750/temp/portal-intro-end_crzjih.mp4"
@@ -468,15 +512,139 @@
     "link": "https://aware.29k.org/pure-simple-love",
     "id": "095f9642-73b6-4c9a-ae9a-ea7dea7363f5",
     "async": true,
-    "description": "A guided meditation that brings a precious moment into the limelight. Practicing noticing what's working can help us feel happier and more fulfilled, and counteract our brains natural tendency to focus on the negative."
+    "description": "En guidad meditation där vi plockar fram ett fint minne. Att aktivt lägga märke till saker i livet som fungerar bra kan hjälpa oss att känna lycka och mening. Det kan också balansera upp våra hjärnors inbyggda tendens att fokusera på det negativa."
   },
-  "es": {
-    "id": "095f9642-73b6-4c9a-ae9a-ea7dea7363f5",
+  "ja": {
+    "slides": [
+      {
+        "hostNotes": [
+          {
+            "text": "ようこそ。私はXです。今日は30分ほど、愛と自分自身と他者とのつながりについてワークします。\n\n一緒に短い瞑想をして、それから自分自身を振り返る時間をとり、最後に経験したことをお互いに分かち合うのです。"
+          },
+          {
+            "text": "セッションに入る前に、「今、ここ」に自分自身をグラウンディングさせましょう。吸って吐いてを3周、呼吸に集中します。\n\n> ゆっくり吸って、ゆっくり吐く×3"
+          },
+          {
+            "text": "ミニチェックインから始めよう。今の気分はどうですか？二言三言で答えてください。X、始めますか？\n\n> 自分を含め、セッションに参加している全員に、一人ずつチェックインをさせる。\n\nチェックインしてくれてありがとう。さあ、始めよう。"
+          }
+        ]
+      },
+      {
+        "content": {
+          "heading": "純粋でシンプルな愛"
+        },
+        "hostNotes": [
+          {
+            "text": "人生は終わりのない踏み絵のように続くと感じることがある。私たちの人生には美しいものがあっても、脳はうまくいかないことに集中するようにプログラムされている。問題。潜在的な脅威。私たちの人生で解決しなければならないこと。"
+          },
+          {
+            "text": "うまくいっていることを思い出すには努力が必要だ。そして今、私たちはそれを実行しようとしている。数分かけて、私たちの人生における愛の瞬間を思い出す。これは、幸福感や目的意識を促進し、私たちのシステムを少しスローダウンさせることが証明されている練習です。\n\n> 再生ボタンを押して瞑想を始めてください。"
+          }
+        ]
+      },
+      {
+        "content": {
+          "heading": "この瞑想はあなたにどう影響しましたか？",
+          "text": "今日一日、何を持っていけますか？"
+        },
+        "hostNotes": [
+          {
+            "text": "「では、1分間、自分自身を振り返ってみましょう。\n\nこの瞑想はあなたにどのような影響を与えましたか？\n\n今日一日、ここから何を得ることができますか？"
+          },
+          {
+            "text": "紙にメモしてもいいし、頭の中にメモしてもいい。正解も不正解もありません。今から1分間。\n\n> 再生ボタンを押してタイマーをスタートさせる。\n\nよし、これで1分だ。先に進もう。"
+          }
+        ]
+      },
+      {
+        "content": {
+          "heading": "この瞑想はあなたにどう影響しましたか？",
+          "text": "今日一日、何を持っていけますか？"
+        },
+        "hostNotes": [
+          {
+            "text": "さて、いよいよ分かち合いのパートに入ります。分かち合いには3つのルールがある：\n\n1.**ここで言われたことは、ここに残る。\n2.**直すことも、助けることも、アドバイスすることも必要ありません。私たちはただ姿を現し、自分自身や他の人たちが経験していることを探っているだけなのです。"
+          },
+          {
+            "text": "3.**怒り、愛、憎しみ、悲しみ。現れるものは何でも。間違いも、権利もない。あるがまま。\n\nタイマーが2分間セットされているので、それを目印にしてください。もしシェアしたくなければ、いつでも言ってください。"
+          },
+          {
+            "text": "「どなたから始めますか？\n\n> 最大6人で1人ずつシェアします。再生ボタンを押してタイマーをスタートさせます。新しい人ごとに再スタート。\n\n皆さん、本当にありがとうございました。"
+          }
+        ]
+      },
+      {
+        "hostNotes": [
+          {
+            "text": "私たちは今、私たちの人生における愛の瞬間を思い浮かべ、人生の貴重な瞬間のひとつに脚光を当てている。ネガティブなことに目を向けることで、私たちが生き延びようとする脳の自然な努力のバランスをとるために。"
+          },
+          {
+            "text": "よくやった。もし、あなたがその気になれば、私たちが今日ここで始めたことを、あなたの日常生活に取り入れるという使命をもって続けることができる。\n\n1週間の間、1日のうちランダムな時間にリマインダーをセットする。リマインダーが鳴ったら、過去24時間の愛に満ちた瞬間を振り返ってください。それが内側で、身体でどのように感じられるかに気づいてください」、、、、、、、、、"
+          },
+          {
+            "text": "この空間を去る前に、ミニ・チェックアウトをしよう。\n\n今の気分はどうですか？何か変化はありましたか？二言三言で答えてください。"
+          },
+          {
+            "text": "誰が始めたいですか？\n\n> セッションに参加している全員に一人ずつチェックアウトさせる。\n\n今日のセッションに参加してくれてありがとう。\n\n> 全員を出口体験に送り出すフィニッシュセッション"
+          }
+        ]
+      },
+      {
+        "content": {
+          "heading": "よくやった。",
+          "text": "やる気があるなら、このミッションを続けてもいい：\n\n1週間の間、1日のうちのランダムな時間にリマインダーをセットする。リマインダーが鳴ったら、過去24時間の愛に満ちた瞬間を振り返ってください。それが内側で、身体でどのように感じられるかに気づくのだ。"
+        }
+      }
+    ],
+    "name": "純粋でシンプルな愛",
+    "live": true,
+    "published": true,
+    "card": {
+      "image": {
+        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1698256076/Images/pure-simple-love_vi9ura.png"
+      }
+    },
+    "coCreators": [
+      {
+        "name": "Ints Ivanovskis, art works",
+        "url": "https://www.linkedin.com/in/ints-ivanovskis-46ab0311a/",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413436/Contributors/Ints%20Ivanovskis.jpg"
+      },
+      {
+        "name": "Heidi Andersen, voice",
+        "url": "https://www.linkedin.com/in/heidi-andersen-mindfuel/",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1698414650/Contributors/heidi_andersen_cutguw.jpg"
+      }
+    ],
     "duration": 30,
+    "outroPortal": {
+      "video": {
+        "source": "https://res.cloudinary.com/twentyninek/video/upload/q_auto/v1664798564/temp/portal_outro_lpm80e.mp4"
+      }
+    },
+    "introPortal": {
+      "hostNotes": [
+        {
+          "text": ">準備ができたらセッションを始めてください。"
+        }
+      ],
+      "type": "video",
+      "videoLoop": {
+        "source": "https://res.cloudinary.com/twentyninek/video/upload/q_auto/v1663143395/temp/portal-intro_h7qccz.mp4",
+        "audio": "https://res.cloudinary.com/twentyninek/video/upload/v1664811123/temp/ocean_s3t5yy_mm2dgh.mp3",
+        "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1674554579/Images/thumb_portal_pure_simple_love_geibz4.png"
+      },
+      "videoEnd": {
+        "source": "https://res.cloudinary.com/twentyninek/video/upload/q_auto/v1663147750/temp/portal-intro-end_crzjih.mp4"
+      }
+    },
     "tags": [
       "cfc00217-f65b-4a4d-8b82-8ccc8f852dd6",
       "43a6dc0d-d866-4b79-9453-13c44e906128"
     ],
-    "link": "https://aware.29k.org/pure-simple-love"
+    "link": "https://aware.29k.org/pure-simple-love",
+    "id": "095f9642-73b6-4c9a-ae9a-ea7dea7363f5",
+    "async": true,
+    "description": "貴重な瞬間を脚光を浴びる誘導瞑想。うまくいっていることに気づく練習をすることで、より幸せで充実した気分になり、ネガティブなことに集中する脳の自然な傾向を打ち消すことができます。"
   }
 }

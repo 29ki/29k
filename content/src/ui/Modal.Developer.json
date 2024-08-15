@@ -5,7 +5,9 @@
     "checkUpdate": "Check for update",
     "clearUpdate": "Clear update",
     "showHiddenContent": "Show hidden content",
-    "addDevUserEvents": "Add development user events"
+    "showLockedContent": "Show locked content",
+    "addDevUserEvents": "Add development user events",
+    "logUserEvents": "Log user events"
   },
   "pt": {
     "uiLib": "Biblioteca UI",
@@ -13,15 +15,19 @@
     "clearUpdate": "Limpar atualização",
     "title": "Programador",
     "showHiddenContent": "Mostrar conteúdo escondido",
-    "addDevUserEvents": "Adicionar eventos de usuário para desenvolvimento"
+    "addDevUserEvents": "Adicionar eventos de utilizador para desenvolvimento",
+    "showLockedContent": "Mostrar conteúdo bloqueado",
+    "logUserEvents": "Registar eventos de utilizador"
   },
   "sv": {
     "title": "Utvecklare",
     "uiLib": "UI bibliotek",
     "checkUpdate": "Sök uppdatering",
     "showHiddenContent": "Visa gömt innehåll",
+    "showLockedContent": "Visa låst innehåll",
     "addDevUserEvents": "Add development user events",
-    "clearUpdate": "Clear update"
+    "clearUpdate": "Clear update",
+    "logUserEvents": "Log user events"
   },
-  "es": {}
+  "ja": {}
 }

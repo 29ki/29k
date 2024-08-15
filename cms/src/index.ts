@@ -1,10 +1,10 @@
-import CMS from 'netlify-cms-app';
-import cloudinary from 'netlify-cms-media-library-cloudinary';
+import CMS from 'decap-cms-app';
+import cloudinary from 'decap-cms-media-library-cloudinary';
 
 import {
   DEFAULT_LANGUAGE_TAG,
   LANGUAGE_TAGS,
-} from '../../shared/src/constants/i18n';
+} from '../../shared/src/i18n/constants';
 import {
   exercises,
   other,
@@ -17,6 +17,10 @@ import {
 } from './collections/collections';
 import {Widget as uniqueIdWidget} from './widgets/uniqueIdWidget';
 import textTemplates from './editorComponents.ts/textTemplates';
+import withRNStyles from './lib/withRNStyles';
+import ExercisePreview from './previews/Exercise';
+import previewCss from './preview.css?inline';
+import CollectionPreview from './previews/Collection';
 
 CMS.init({
   config: {
@@ -53,8 +57,8 @@ CMS.init({
       exercises,
       ui,
       email,
-      settings,
       other,
+      settings,
     ],
   },
 });
@@ -62,3 +66,7 @@ CMS.init({
 CMS.registerWidget(uniqueIdWidget);
 CMS.registerMediaLibrary(cloudinary);
 CMS.registerEditorComponent(textTemplates);
+
+CMS.registerPreviewStyle(previewCss, {raw: true});
+CMS.registerPreviewTemplate(exercises.name, withRNStyles(ExercisePreview));
+CMS.registerPreviewTemplate(collections.name, withRNStyles(CollectionPreview));

@@ -16,7 +16,23 @@
     },
     "updateButton": "Update reminders"
   },
-  "pt": {},
+  "pt": {
+    "title": "Lembretes",
+    "sessionRemindersText": "Lembrete para 10 minutos antes do início de sessão.",
+    "weekday": "Dia da semana",
+    "time": "Hora",
+    "intervals": {
+      "daily": "Todos os dias",
+      "monday": "2ª",
+      "tuesday": "3ª",
+      "wednesday": "4ª",
+      "thursday": "5ª",
+      "friday": "6ª",
+      "saturday": "Sábado",
+      "sunday": "Domingo"
+    },
+    "updateButton": "Atualizar lembretes"
+  },
   "sv": {
     "title": "Notiser",
     "sessionRemindersText": "Påminner dig om kommande sessioner 10 minuter före start.",
@@ -34,5 +50,5 @@
     },
     "updateButton": "Uppdatera notiser"
   },
-  "es": {}
+  "ja": {}
 }

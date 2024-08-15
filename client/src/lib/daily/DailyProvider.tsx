@@ -10,6 +10,7 @@ import Daily, {
   DailyEventObject,
   DailyCall,
   DailyCallOptions,
+  DailyReactNativeConfig,
 } from '@daily-co/react-native-daily-js';
 import useDailyState from './state/state';
 import Sentry from '../sentry';
@@ -18,8 +19,12 @@ export type DailyProviderTypes = {
   call?: DailyCall;
   hasCameraPermissions: () => boolean;
   hasMicrophonePermissions: () => boolean;
-  preJoinMeeting: (url: string, token: string) => Promise<void>;
-  startCamera: () => Promise<void>;
+  preJoinMeeting: (
+    url: string,
+    token: string,
+    androidInCallNotification?: DailyReactNativeConfig['androidInCallNotification'],
+  ) => Promise<void>;
+  startCamera: (options?: DailyCallOptions) => Promise<void>;
   joinMeeting: (options?: DailyCallOptions) => Promise<void>;
   leaveMeeting: () => Promise<void>;
   toggleAudio: (enabled: boolean) => void;
@@ -163,11 +168,18 @@ const DailyProvider: React.FC<{children: React.ReactNode}> = ({children}) => {
   }, [daily]);
 
   const preJoinMeeting = useCallback(
-    async (url: string, token: string) => {
+    async (
+      url: string,
+      token: string,
+      androidInCallNotification?: DailyReactNativeConfig['androidInCallNotification'],
+    ) => {
       if (daily.meetingState() === 'new') {
         await daily.preAuth({
           url,
           token,
+          reactNativeConfig: {
+            androidInCallNotification,
+          },
         });
         //await daily.startCamera({url});
       }
@@ -175,11 +187,14 @@ const DailyProvider: React.FC<{children: React.ReactNode}> = ({children}) => {
     [daily],
   );
 
-  const startCamera = useCallback(async () => {
-    if (daily.meetingState() !== 'joined-meeting') {
-      await daily.startCamera();
-    }
-  }, [daily]);
+  const startCamera = useCallback(
+    async (options?: DailyCallOptions) => {
+      if (daily.meetingState() !== 'joined-meeting') {
+        await daily.startCamera(options);
+      }
+    },
+    [daily],
+  );
 
   const joinMeeting = useCallback(
     async (options?: DailyCallOptions) => {
@@ -219,7 +234,7 @@ const DailyProvider: React.FC<{children: React.ReactNode}> = ({children}) => {
 
   const sendMessage = useCallback(
     (message: object) => {
-      if (!daily) {
+      if (!daily || daily.meetingState() !== 'joined-meeting') {
         return;
       }
       daily.sendAppMessage(message);

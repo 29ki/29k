@@ -126,8 +126,32 @@
       "sha1": "983b2c3e18d36ca8438440e6333bd80544bbe529"
     },
     {
+      "path": "src/assets/images/emoji_anxious.png",
+      "sha1": "a83b7b3deea30c68c912780f33803b16892eeeaf"
+    },
+    {
+      "path": "src/assets/images/emoji_grinning.png",
+      "sha1": "875ecd6fdd962f3dccff11bea37838e5097a0074"
+    },
+    {
+      "path": "src/assets/images/emoji_smiling.png",
+      "sha1": "b746e315e6e91bfc09304a90e4c496baee56616e"
+    },
+    {
       "path": "src/assets/images/forest.jpg",
       "sha1": "4c6d5694b37203a6a8746f80ca837c5aaa164068"
+    },
+    {
+      "path": "src/assets/images/gem.gif",
+      "sha1": "9dac6c603343514134bb0fe057e9cb7967c60091"
+    },
+    {
+      "path": "src/assets/images/thumbs_down.png",
+      "sha1": "09abe9cc14620117fd2307a639ba4ebaf41e034c"
+    },
+    {
+      "path": "src/assets/images/thumbs_down_silouette.png",
+      "sha1": "3bd561bbaa5180ac7d524dfc0a2cdaf60cd987a9"
     },
     {
       "path": "src/assets/images/thumbs_up.png",

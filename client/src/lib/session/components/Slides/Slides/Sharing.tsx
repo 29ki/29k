@@ -68,9 +68,7 @@ const Sharing: React.FC<SharingProps> = ({slide}) => {
     useNavigation<NativeStackNavigationProp<AppStackProps & ModalStackProps>>();
   const session = useSessionState(state => state.asyncSession);
   const theme = useSessionState(state => state.exercise?.theme);
-  const {getSharingPosts, getSharingPostForSession} = useSessionSharingPosts(
-    session?.exerciseId,
-  );
+  const {getSharingPosts, getSharingPostForSession} = useSessionSharingPosts();
 
   const [posts, setPosts] = useState<PostItem[]>([]);
 
@@ -80,7 +78,7 @@ const Sharing: React.FC<SharingProps> = ({slide}) => {
 
   const onAddSharing = useCallback(() => {
     if (session?.exerciseId) {
-      navigate('SharingModal', {exerciseId: session.exerciseId});
+      navigate('SharingModal');
     }
   }, [session?.exerciseId, navigate]);
 

@@ -1,17 +1,22 @@
 {
   "en": {
     "id": "cfc00217-f65b-4a4d-8b82-8ccc8f852dd6",
-    "name": "Mindfulness"
+    "name": "Mindfulness",
+    "published": true
   },
   "pt": {
     "id": "cfc00217-f65b-4a4d-8b82-8ccc8f852dd6",
-    "name": "Presença"
+    "name": "Presença",
+    "published": true
   },
   "sv": {
     "id": "cfc00217-f65b-4a4d-8b82-8ccc8f852dd6",
-    "name": "Mindfulness"
+    "name": "Mindfulness",
+    "published": true
   },
-  "es": {
-    "id": "cfc00217-f65b-4a4d-8b82-8ccc8f852dd6"
+  "ja": {
+    "name": "マインドフルネス",
+    "id": "cfc00217-f65b-4a4d-8b82-8ccc8f852dd6",
+    "published": true
   }
 }

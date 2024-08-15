@@ -15,7 +15,7 @@ export const preferedCurrency = head(
   intersection(CURRENCY_CODES, [...getCurrencies(), DEFAULT_CURRENCY_CODE]),
 ) as CURRENCY_CODE;
 
-const CURRENCY_OPTIONS = {
+const CURRENCY_OPTIONS: Intl.NumberFormatOptions = {
   style: 'currency',
   minimumFractionDigits: 0,
   maximumFractionDigits: 0,
@@ -28,4 +28,4 @@ export const getCurrencySymbol = () =>
     .find(({type}) => type === 'currency')?.value;
 
 export const formatCurrency = (amount: number) =>
-  Intl.NumberFormat(preferedLanguageTag, CURRENCY_OPTIONS).format(amount);
+  new Intl.NumberFormat(preferedLanguageTag, CURRENCY_OPTIONS).format(amount);

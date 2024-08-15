@@ -8,7 +8,6 @@ import usePinnedCollectionById from '../../../user/hooks/usePinnedCollectionById
 import useCompletedSessionByTime from '../../../user/hooks/useCompletedSessionByTime';
 import useExercisesByCollectionId from '../../../content/hooks/useExercisesByCollectionId';
 import CollectionFullCard from './CollectionFullCard';
-import {formatContentName} from '../../../utils/string';
 
 type CollectionCardContainer = {
   collectionId: string;
@@ -23,13 +22,6 @@ const CollectionCardContainer: React.FC<CollectionCardContainer> = ({
   const savedCollection = usePinnedCollectionById(collectionId);
   const exercises = useExercisesByCollectionId(collectionId);
   const {getCompletedSessionByExerciseId} = useCompletedSessionByTime();
-
-  const image = useMemo(
-    () => ({
-      uri: collection?.image?.source,
-    }),
-    [collection],
-  );
 
   const items = useMemo(() => {
     if (exercises.length > 0 && savedCollection) {
@@ -56,12 +48,8 @@ const CollectionCardContainer: React.FC<CollectionCardContainer> = ({
 
   return (
     <CollectionFullCard
-      title={formatContentName(collection) || ''}
-      description={collection.card?.description || collection.description}
-      image={image}
+      collection={collection}
       progressItems={items}
-      backgroundColorGradient={collection.card?.backgroundColorGradient}
-      textColor={collection.card?.textColor}
       onPress={onPress}
     />
   );

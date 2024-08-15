@@ -25,6 +25,7 @@ describe('/metrics/logFeedback', () => {
   describe('Success', () => {
     it('Accepts incoming feedback', async () => {
       const response = await request(mockServer).post('/logFeedback').send({
+        language: 'sv',
         exerciseId: 'some-exercise-id',
         completed: true,
         sessionId: 'some-session-id',
@@ -38,6 +39,7 @@ describe('/metrics/logFeedback', () => {
 
       expect(addFeedback).toHaveBeenCalledTimes(1);
       expect(addFeedback).toHaveBeenCalledWith({
+        language: 'sv',
         exerciseId: 'some-exercise-id',
         completed: true,
         sessionId: 'some-session-id',
@@ -55,6 +57,7 @@ describe('/metrics/logFeedback', () => {
 
     it('Accepts undefined host and comment', async () => {
       const response = await request(mockServer).post('/logFeedback').send({
+        language: 'en',
         sessionId: 'some-session-id',
         exerciseId: 'some-exercise-id',
         completed: true,
@@ -67,6 +70,35 @@ describe('/metrics/logFeedback', () => {
 
       expect(addFeedback).toHaveBeenCalledTimes(1);
       expect(addFeedback).toHaveBeenCalledWith({
+        language: 'en',
+        sessionId: 'some-session-id',
+        exerciseId: 'some-exercise-id',
+        completed: true,
+        question: 'Some question?',
+        answer: true,
+        sessionType: SessionType.public,
+        sessionMode: SessionMode.live,
+        params: {},
+      });
+
+      expect(response.status).toBe(200);
+    });
+
+    it('Defaults language to english if not set', async () => {
+      const response = await request(mockServer).post('/logFeedback').send({
+        sessionId: 'some-session-id',
+        exerciseId: 'some-exercise-id',
+        completed: true,
+        question: 'Some question?',
+        answer: true,
+        sessionType: SessionType.public,
+        sessionMode: SessionMode.live,
+        params: {},
+      });
+
+      expect(addFeedback).toHaveBeenCalledTimes(1);
+      expect(addFeedback).toHaveBeenCalledWith({
+        language: 'en',
         sessionId: 'some-session-id',
         exerciseId: 'some-exercise-id',
         completed: true,

@@ -12,11 +12,18 @@ import {
   mockWhere,
   mockOrderBy,
   mockLimit,
+  mockUpdate,
 } from 'firestore-jest-mock/mocks/firestore';
 import {firestore} from 'firebase-admin';
-import {Timestamp} from 'firebase-admin/firestore';
+import {FieldValue, Timestamp} from 'firebase-admin/firestore';
 
-import {addPost, getPostById, getPosts} from './post';
+import {
+  addPost,
+  decreasePostRelates,
+  getPostById,
+  getPosts,
+  increasePostRelates,
+} from './post';
 
 const posts = [
   {
@@ -38,6 +45,7 @@ const posts = [
     language: 'en',
     approved: true,
     text: 'some other sharing text',
+    relates: 1337,
     createdAt: Timestamp.now(),
     updatedAt: Timestamp.now(),
   },
@@ -81,12 +89,31 @@ describe('post model', () => {
     it('should filter approved and public and limit', async () => {
       await getPosts(10);
       expect(mockWhere).toHaveBeenCalledWith('approved', '==', true);
+      expect(mockWhere).toHaveBeenCalledWith('language', 'in', ['en']);
       expect(mockOrderBy).toHaveBeenCalledWith('createdAt', 'desc');
       expect(mockLimit).toHaveBeenCalledWith(10 * 2);
     });
 
+    it('should optionally filter by languages', async () => {
+      await getPosts(10, ['sv']);
+      expect(mockWhere).toHaveBeenCalledWith('approved', '==', true);
+      expect(mockWhere).toHaveBeenCalledWith('language', 'in', ['sv']);
+    });
+
     it('should optionally filter by exerciseId', async () => {
-      await getPosts(10, 'some-exercise-id', 'sharing-id');
+      await getPosts(10, undefined, 'some-exercise-id');
+      expect(mockWhere).toHaveBeenCalledWith(
+        'exerciseId',
+        '==',
+        'some-exercise-id',
+      );
+      expect(mockWhere).toHaveBeenCalledWith('approved', '==', true);
+      expect(mockWhere).toHaveBeenCalledWith('language', 'in', ['en']);
+    });
+
+    it('should optionally filter by exerciseId and sharingId', async () => {
+      await getPosts(10, undefined, 'some-exercise-id', 'sharing-id');
+      await getPosts(10, undefined, 'some-exercise-id');
       expect(mockWhere).toHaveBeenCalledWith(
         'exerciseId',
         '==',
@@ -94,6 +121,7 @@ describe('post model', () => {
       );
       expect(mockWhere).toHaveBeenCalledWith('sharingId', '==', 'sharing-id');
       expect(mockWhere).toHaveBeenCalledWith('approved', '==', true);
+      expect(mockWhere).toHaveBeenCalledWith('language', 'in', ['en']);
     });
   });
 
@@ -117,6 +145,30 @@ describe('post model', () => {
         language: 'en',
         text: 'some text',
         createdAt: expect.any(Timestamp),
+        updatedAt: expect.any(Timestamp),
+      });
+    });
+  });
+
+  describe('increasePostRelates', () => {
+    it('increase post relates', async () => {
+      await increasePostRelates('some-post-id');
+
+      expect(mockUpdate).toHaveBeenCalledTimes(1);
+      expect(mockUpdate).toHaveBeenCalledWith({
+        relates: FieldValue.increment(1),
+        updatedAt: expect.any(Timestamp),
+      });
+    });
+  });
+
+  describe('decreasePostRelates', () => {
+    it('decrease post relates', async () => {
+      await decreasePostRelates('some-post-id');
+
+      expect(mockUpdate).toHaveBeenCalledTimes(1);
+      expect(mockUpdate).toHaveBeenCalledWith({
+        relates: FieldValue.increment(-1),
         updatedAt: expect.any(Timestamp),
       });
     });

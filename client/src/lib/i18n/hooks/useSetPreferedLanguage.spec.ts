@@ -17,7 +17,7 @@ describe('useSetPreferedLanguage', () => {
   it('shows a confirm dialogue', async () => {
     const {result} = renderHook(() => useSetPreferedLanguage());
 
-    await act(() => result.current('sv'));
+    await act(() => result.current('pt'));
 
     expect(alertConfirmMock).toHaveBeenCalledTimes(1);
     expect(alertConfirmMock).toHaveBeenCalledWith(
@@ -44,10 +44,10 @@ describe('useSetPreferedLanguage', () => {
 
     expect(useAppState.getState().settings.preferredLanguage).toBe(undefined);
 
-    await act(() => result.current('sv'));
+    await act(() => result.current('pt'));
 
     expect(alertConfirmMock).toHaveBeenCalledTimes(1);
-    expect(useAppState.getState().settings.preferredLanguage).toBe('sv');
+    expect(useAppState.getState().settings.preferredLanguage).toBe('pt');
   });
 
   it('does nothing on dismiss', async () => {
@@ -60,7 +60,7 @@ describe('useSetPreferedLanguage', () => {
 
     expect(useAppState.getState().settings.preferredLanguage).toBe(undefined);
 
-    await act(() => result.current('sv'));
+    await act(() => result.current('pt'));
 
     expect(alertConfirmMock).toHaveBeenCalledTimes(1);
     expect(useAppState.getState().settings.preferredLanguage).toBe(undefined);

@@ -5,6 +5,10 @@ import {COLORS} from '../../../../../../shared/src/constants/colors';
 import {SPACINGS} from '../../../constants/spacings';
 import textStyles from '../styles';
 
+type TextInputProps = {
+  hasError?: boolean;
+};
+
 const style = ({hasError = false}) => ({
   height: 44,
   paddingHorizontal: SPACINGS.SIXTEEN,
@@ -12,11 +16,11 @@ const style = ({hasError = false}) => ({
   ...textStyles.Body16,
   backgroundColor: COLORS.PURE_WHITE,
   borderRadius: 16,
-  color: hasError ? COLORS.ERROR : undefined,
+  color: hasError ? COLORS.ERROR : textStyles.Body16.color,
 });
 
-const TextInput = styled.TextInput(style);
+const TextInput = styled.TextInput<TextInputProps>(style);
 
-export const BottomSheetTextInput = styled(BSTextInput)(style);
+export const BottomSheetTextInput = styled(BSTextInput)<TextInputProps>(style);
 
 export default TextInput;

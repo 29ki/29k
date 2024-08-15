@@ -5,7 +5,7 @@
     "location": "Aware app"
   },
   "pt": {
-    "title": "Sessão Aware FJN - {{name}}",
+    "title": "Aware FJN - {{name}}",
     "notes": "{{name}}\nCom {{host}}\n{{url}}",
     "location": "Aware FJN app"
   },
@@ -14,5 +14,5 @@
     "notes": "{{name}}\nMed {{host}}\n{{url}}",
     "location": "Aware-appen"
   },
-  "es": {}
+  "ja": {}
 }

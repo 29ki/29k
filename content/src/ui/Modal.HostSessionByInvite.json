@@ -4,11 +4,15 @@
     "confirm": "Accept",
     "cancel": "Decline"
   },
-  "pt": {},
+  "pt": {
+    "description": "{{hostName}} gostaria que moderasses esta sessão em sua vez.",
+    "confirm": "Aceitar",
+    "cancel": "Rejeitar"
+  },
   "sv": {
     "description": "{{hostName}} vill att du är värd för denna session istället för dem.",
     "confirm": "Acceptera",
     "cancel": "Tacka nej"
   },
-  "es": {}
+  "ja": {}
 }

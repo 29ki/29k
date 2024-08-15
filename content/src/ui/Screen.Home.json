@@ -6,6 +6,7 @@
     "sections": {
       "forYou": "For you",
       "liveSessions": "Live sessions",
+      "community": "Aware community",
       "sharingPosts": "What others are doing"
     }
   },
@@ -13,24 +14,12 @@
     "heading": "Sessões",
     "add": "Sessão",
     "sections": {
-      "hostedBy": "As tuas sessões",
-      "comming": "Próximas sessões",
-      "comingSoon": "Próximas novidades",
-      "interested": "Agendado"
+      "forYou": "Para ti",
+      "liveSessions": "Sessões ao vivo",
+      "community": "Comunidade Aware",
+      "sharingPosts": "O que os outros estão a partilhar"
     },
-    "comingSoon": {
-      "description": "Mais conteúdo com as melhores ferramentas de bem-estar e desenvolvimento pessoal.",
-      "items": [
-        {
-          "what": "Gerir o stress na escola e no trabalho",
-          "when": "Primavera"
-        },
-        {
-          "what": "Autocompaixão nas relações",
-          "when": "Outono"
-        }
-      ]
-    }
+    "seeAll": "Ver tudo"
   },
   "sv": {
     "heading": "Sessioner",
@@ -42,5 +31,5 @@
       "sharingPosts": "Vad andra gör"
     }
   },
-  "es": {}
+  "ja": {}
 }

@@ -1,1 +1,1 @@
-export const findBestAvailableLanguage = jest.fn(() => ({languageTag: 'en'}));
+export const findBestLanguageTag = jest.fn(() => ({languageTag: 'en'}));

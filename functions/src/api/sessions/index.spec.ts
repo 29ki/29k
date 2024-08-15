@@ -103,6 +103,7 @@ describe('/api/sessions', () => {
 
       expect(mockGetSessionsByUserId).toHaveBeenCalledWith(
         'some-user-id',
+        ['en'],
         undefined,
         undefined,
         undefined,
@@ -120,6 +121,34 @@ describe('/api/sessions', () => {
       ]);
     });
 
+    it('should get sessions by language', async () => {
+      mockGetSessionsByUserId.mockResolvedValueOnce([
+        createMockSession('some-session-id'),
+        createMockSession('some-other-session-id'),
+      ]);
+
+      const response = await request(mockServer).get('/sessions?language=sv');
+
+      expect(mockGetSessionsByUserId).toHaveBeenCalledWith(
+        'some-user-id',
+        ['sv', 'en'],
+        undefined,
+        undefined,
+        undefined,
+      );
+      expect(response.status).toBe(200);
+      expect(response.body).toMatchObject([
+        {
+          id: 'some-session-id',
+          exerciseId: 'some-exercise-id',
+        },
+        {
+          id: 'some-other-session-id',
+          exerciseId: 'some-exercise-id',
+        },
+      ]);
+    });
+
     it('should get sessions by exerciseId', async () => {
       mockGetSessionsByUserId.mockResolvedValueOnce([
         createMockSession('some-session-id'),
@@ -132,6 +161,7 @@ describe('/api/sessions', () => {
 
       expect(mockGetSessionsByUserId).toHaveBeenCalledWith(
         'some-user-id',
+        ['en'],
         'some-exercise-id',
         undefined,
         undefined,
@@ -161,6 +191,7 @@ describe('/api/sessions', () => {
 
       expect(mockGetSessionsByUserId).toHaveBeenCalledWith(
         'some-user-id',
+        ['en'],
         undefined,
         'some-other-user-id',
         undefined,
@@ -188,6 +219,7 @@ describe('/api/sessions', () => {
 
       expect(mockGetSessionsByUserId).toHaveBeenCalledWith(
         'some-user-id',
+        ['en'],
         undefined,
         undefined,
         5,

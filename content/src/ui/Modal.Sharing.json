@@ -2,26 +2,26 @@
   "en": {
     "header": "Your reflection",
     "description": "Who can see your post?",
-    "publicLabel": "Everyone",
-    "onlyMeLabel": "Only me",
-    "submitCta": "Post",
-    "anonymousLabel": "Post anonymously"
+    "publicLabel": "Everyone, as {{displayName}}",
+    "anonymousLabel": "Everyone, anonymously",
+    "privateLabel": "Only me",
+    "submitCta": "Post"
   },
   "pt": {
     "header": "A tua reflexão",
     "description": "Quem pode ver a tua reflexão?",
-    "publicLabel": "Todos",
-    "onlyMeLabel": "Só eu",
+    "privateLabel": "Só eu",
     "submitCta": "Submeter",
-    "anonymousLabel": "Submeter como anónimo"
+    "publicLabel": "Todos, como {{displayName}}",
+    "anonymousLabel": "Todos de forma anónima"
   },
   "sv": {
     "header": "Din reflektion",
     "description": "Vem kan se din reflektion?",
-    "publicLabel": "Alla",
-    "onlyMeLabel": "Bara jag",
-    "submitCta": "Skicka",
-    "anonymousLabel": "Skicka anonymt"
+    "publicLabel": "Alla, som {{displayName}}",
+    "anonymousLabel": "Alla, anonymt",
+    "privateLabel": "Bara jag",
+    "submitCta": "Skicka"
   },
-  "es": {}
+  "ja": {}
 }

@@ -1,16 +1,22 @@
 {
   "en": {
     "id": "8da0534a-5da9-430a-bdf3-242ace6460fb",
-    "name": "Resilience"
+    "name": "Resilience",
+    "published": true
   },
   "pt": {
-    "id": "8da0534a-5da9-430a-bdf3-242ace6460fb"
+    "id": "8da0534a-5da9-430a-bdf3-242ace6460fb",
+    "name": "Resiliência",
+    "published": true
   },
   "sv": {
     "id": "8da0534a-5da9-430a-bdf3-242ace6460fb",
-    "name": "Resiliens"
+    "name": "Resiliens",
+    "published": true
   },
-  "es": {
-    "id": "8da0534a-5da9-430a-bdf3-242ace6460fb"
+  "ja": {
+    "name": "レジリエンス",
+    "id": "8da0534a-5da9-430a-bdf3-242ace6460fb",
+    "published": true
   }
 }

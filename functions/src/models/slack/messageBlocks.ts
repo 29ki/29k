@@ -231,6 +231,7 @@ export const createFeedbackBlocks = (
   sessionMode: SessionMode | undefined,
   approved: boolean,
   params: FeedbackParams,
+  language: LANGUAGE_TAG,
 ): KnownBlock[] => [
   {
     type: 'header',
@@ -249,6 +250,7 @@ export const createFeedbackBlocks = (
           sessionType ? sessionType : ''
         })\n\n` +
         `*Comment:*\n${comment}\n\n` +
+        `*Langauge:* ${language}\n\n` +
         `*Model:* ${params.model ?? ''}\n\n` +
         `*OS:* ${params.os ?? ''}\n\n` +
         `*Native Version:* ${params.nativeVersion ?? ''}\n\n` +

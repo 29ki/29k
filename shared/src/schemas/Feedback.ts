@@ -2,6 +2,7 @@ import * as yup from 'yup';
 
 import {SessionMode, SessionType} from './Session';
 import {transformTimestamp} from '../modelUtils/transform';
+import {LanguageSchema} from './Language';
 
 export const FeedbackParamsSchema = yup.object().shape({
   screen: yup.string(),
@@ -19,6 +20,8 @@ export const FeedbackInputSchema = yup.object({
   completed: yup.boolean().required(),
   sessionId: yup.string().required(),
   host: yup.boolean(),
+
+  language: LanguageSchema,
 
   question: yup.string().required(),
   answer: yup.boolean().required(),

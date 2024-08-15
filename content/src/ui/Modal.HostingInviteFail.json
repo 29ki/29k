@@ -5,12 +5,17 @@
     "image__image": "https://res.cloudinary.com/cupcake-29k/image/upload/v1683807355/Images/flowers_slijjk.png",
     "hostNameFallback": "the host"
   },
-  "pt": {},
+  "pt": {
+    "title": "Não tens permissões para moderar sessões públicas.",
+    "description": "Por isso não podes aceitar moderar a sessão que a/o {{hostName}} tentou transferir para ti.",
+    "hostNameFallback": "o/a moderador/a",
+    "image__image": "https://res.cloudinary.com/cupcake-29k/image/upload/v1683807355/Images/flowers_slijjk.png"
+  },
   "sv": {
     "title": "Du har inte behörighet att vara värd för sessioner som är öppna för alla.",
     "description": "Därför kan du inte vara värd för sessionen som {{hostName}} ville överföra till dig.",
     "image__image": "https://res.cloudinary.com/cupcake-29k/image/upload/v1683807355/Images/flowers_slijjk.png",
     "hostNameFallback": "värden"
   },
-  "es": {}
+  "ja": {}
 }

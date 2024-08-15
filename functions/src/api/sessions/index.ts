@@ -29,6 +29,8 @@ import validation from '../lib/validation';
 import {getFeedbackCountByExercise} from '../../controllers/feedback';
 import {getFeedbackByExercise} from '../../models/metrics';
 import {FeedbackSchema} from '../../../../shared/src/schemas/Feedback';
+import {DEFAULT_LANGUAGE_TAG} from '../../lib/i18n';
+import {uniq} from 'ramda';
 
 const sessionsRouter = createApiAuthRouter();
 
@@ -51,13 +53,17 @@ sessionsRouter.get(
     response: yup.array().of(LiveSessionSchema),
   }),
   async ctx => {
-    const {response, user, request} = ctx;
+    const {response, user, request, language} = ctx;
+    const {exerciseId, hostId, limit} = request.query;
+
+    const languages = uniq([language, DEFAULT_LANGUAGE_TAG]);
 
     const sessions = await sessionsController.getSessionsByUserId(
       user.id,
-      request.query.exerciseId,
-      request.query.hostId,
-      request.query.limit,
+      languages,
+      exerciseId,
+      hostId,
+      limit,
     );
 
     response.status = 200;
@@ -110,7 +116,17 @@ sessionsRouter.get(
   async ctx => {
     const {mode, limit} = ctx.request.query;
     const {exerciseId} = ctx.params;
-    const feedback = await getFeedbackByExercise(exerciseId, mode, true, limit);
+    const {language} = ctx;
+
+    const languages = uniq([language, DEFAULT_LANGUAGE_TAG]);
+
+    const feedback = await getFeedbackByExercise(
+      exerciseId,
+      languages,
+      mode,
+      true,
+      limit,
+    );
     ctx.set('Cache-Control', 'max-age=1800');
     ctx.body = feedback;
   },

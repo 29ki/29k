@@ -2,14 +2,12 @@ import {useNavigation} from '@react-navigation/native';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import dayjs from 'dayjs';
 import {useCallback} from 'react';
-import {useTranslation} from 'react-i18next';
 import {
   AsyncSessionType,
   SessionMode,
   SessionType,
 } from '../../../../../shared/src/schemas/Session';
 import useGetExerciseById from '../../content/hooks/useGetExerciseById';
-import {LANGUAGE_TAG} from '../../i18n';
 import {
   AppStackProps,
   ModalStackProps,
@@ -21,7 +19,6 @@ import useSessionState from '../state/state';
 const useStartAsyncSession = () => {
   const {navigate} =
     useNavigation<NativeStackNavigationProp<AppStackProps & ModalStackProps>>();
-  const {i18n} = useTranslation();
   const setAsyncSession = useSessionState(state => state.setAsyncSession);
   const setExercise = useSessionState(state => state.setExercise);
   const getExerciseById = useGetExerciseById();
@@ -29,15 +26,19 @@ const useStartAsyncSession = () => {
 
   return useCallback(
     (exerciseId: string) => {
+      const exercise = getExerciseById(exerciseId);
+
+      if (!exercise) return;
+
       const session: AsyncSessionType = {
         type: SessionType.public,
         mode: SessionMode.async,
         id: generateId(),
         startTime: dayjs().toISOString(),
-        exerciseId,
-        language: i18n.resolvedLanguage as LANGUAGE_TAG,
+        exerciseId: exercise.id,
+        language: exercise.language,
       };
-      const exercise = getExerciseById(session.exerciseId, session.language);
+
       setAsyncSession(session);
       setExercise(exercise);
       navigate('AsyncSessionStack', {
@@ -54,7 +55,6 @@ const useStartAsyncSession = () => {
       setAsyncSession,
       setExercise,
       getExerciseById,
-      i18n.resolvedLanguage,
     ],
   );
 };

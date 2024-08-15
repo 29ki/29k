@@ -44,15 +44,18 @@ import Markdown from '../../../../../lib/components/Typography/Markdown/Markdown
 import useTags from '../../../../../lib/content/hooks/useTags';
 import Tag from '../../../../../lib/components/Tag/Tag';
 import IconButton from '../../../../../lib/components/Buttons/IconButton/IconButton';
-import {ThumbsUpWithoutPadding} from '../../../../../lib/components/Thumbs/Thumbs';
+import {
+  ThumbsDownWithoutPadding,
+  ThumbsUpWithoutPadding,
+} from '../../../../../lib/components/Thumbs/Thumbs';
 import useExerciseRating from '../../../../../lib/session/hooks/useExerciseRating';
 import useExerciseFeedback from '../../../../../lib/session/hooks/useExerciseFeedback';
 import FeedbackCarousel from '../../../../../lib/components/FeedbackCarousel/FeedbackCarousel';
-import useLiveSessionsByExercise from '../../../../../lib/session/hooks/useLiveSessionsByExercise';
+import useLiveSessionsByExercise from '../../../../../lib/sessions/hooks/useLiveSessionsByExercise';
 import ExerciseCard from '../../../../../lib/components/Cards/SessionCard/ExerciseCard';
 import useExercisesByTags from '../../../../../lib/content/hooks/useExercisesByTags';
 import CoCreators from '../../../../../lib/components/CoCreators/CoCreators';
-import ExerciseGraphic from '../../../../../lib/components/ExerciseGraphic/ExerciseGraphic';
+import CardGraphic from '../../../../../lib/components/CardGraphic/CardGraphic';
 import BackgroundBlock from '../../../../../lib/components/BackgroundBlock/BackgroundBlock';
 
 const TypeItemWrapper = styled.View<{isLast?: boolean}>(({isLast}) => ({
@@ -108,7 +111,7 @@ const LogoWrapper = styled.View({
   height: 90,
 });
 
-const Graphic = styled(ExerciseGraphic)({
+const Graphic = styled(CardGraphic)({
   width: 90,
   height: 90,
 });
@@ -120,7 +123,11 @@ const RatingContainer = styled.View({
   left: GUTTERS.SMALL,
 });
 
-const FeedbackThumb = styled(ThumbsUpWithoutPadding)({
+const FeedbackThumbsUp = styled(ThumbsUpWithoutPadding)({
+  width: 24,
+  height: 24,
+});
+const FeedbackThumbsDown = styled(ThumbsDownWithoutPadding)({
   width: 24,
   height: 24,
 });
@@ -242,9 +249,13 @@ const SelectTypeStep: React.FC<StepProps> = ({
         <Gutters>
           {rating && rating.positive > 0 ? (
             <RatingContainer>
-              <FeedbackThumb />
+              <FeedbackThumbsUp />
               <Spacer4 />
               <Body16>{rating.positive}</Body16>
+              <Spacer4 />
+              <FeedbackThumbsDown />
+              <Spacer4 />
+              <Body16>{rating.negative}</Body16>
             </RatingContainer>
           ) : null}
           <Spacer12 />
@@ -282,15 +293,11 @@ const SelectTypeStep: React.FC<StepProps> = ({
               </>
             )}
             {exercise.link && (
-              <>
-                <IconButton
-                  variant="secondary"
-                  onPress={onShare}
-                  Icon={ShareIcon}
-                />
-                <Spacer8 />
-                <Body16>{t('shareHeading')}</Body16>
-              </>
+              <IconButton
+                variant="secondary"
+                onPress={onShare}
+                Icon={ShareIcon}
+              />
             )}
           </VCenteredRow>
           <Spacer24 />

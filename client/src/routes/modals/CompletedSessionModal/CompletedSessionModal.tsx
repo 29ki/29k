@@ -49,11 +49,11 @@ import Tag from '../../../lib/components/Tag/Tag';
 import useTags from '../../../lib/content/hooks/useTags';
 import {Heading16} from '../../../lib/components/Typography/Heading/Heading';
 import SessionCard from '../../../lib/components/Cards/SessionCard/SessionCard';
-import useLiveSessionsByExercise from '../../../lib/session/hooks/useLiveSessionsByExercise';
+import useLiveSessionsByExercise from '../../../lib/sessions/hooks/useLiveSessionsByExercise';
 import ExerciseCard from '../../../lib/components/Cards/SessionCard/ExerciseCard';
 import useExercisesByTags from '../../../lib/content/hooks/useExercisesByTags';
 import CoCreators from '../../../lib/components/CoCreators/CoCreators';
-import ExerciseGraphic from '../../../lib/components/ExerciseGraphic/ExerciseGraphic';
+import CardGraphic from '../../../lib/components/CardGraphic/CardGraphic';
 import FeedbackPostCard from '../../../lib/components/PostCard/FeedbackPostCard';
 import SharingPostCard from '../../../lib/components/PostCard/SharingPostCard';
 
@@ -81,7 +81,7 @@ const TitleContainer = styled.View({
   justifyContent: 'center',
 });
 
-const Graphic = styled(ExerciseGraphic)({
+const Graphic = styled(CardGraphic)({
   width: 90,
   height: 90,
 });
@@ -106,7 +106,7 @@ const CompletedSessionModal = () => {
   const {payload, timestamp} = completedSessionEvent;
   const exercise = useExerciseById(payload.exerciseId, payload.language);
   const tags = useTags(exercise?.tags);
-  const {getSharingPostForSession} = useSessionSharingPosts(exercise?.id);
+  const {getSharingPostForSession} = useSessionSharingPosts();
   const getFeedbackBySessionId = useGetFeedbackBySessionId();
   const relatedExercises = useExercisesByTags(exercise?.tags, exercise?.id, 5);
 

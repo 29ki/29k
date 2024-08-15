@@ -14,18 +14,28 @@ import {useTranslation} from 'react-i18next';
 import {COLORS} from '../../../../../shared/src/constants/colors';
 import Image from '../Image/Image';
 import hexToRgba from 'hex-to-rgba';
+import PostRelates from '../../relates/PostRelates';
 
 const Header = styled.View({
   flexDirection: 'row',
   alignItems: 'center',
 });
 
+const Relates = styled(PostRelates)(({interactive}) => ({
+  position: interactive ? 'relative' : 'absolute',
+  right: interactive ? 0 : 16,
+  bottom: interactive ? 0 : 16,
+  paddingTop: 16,
+  zIndex: 1,
+  alignSelf: 'flex-end',
+}));
+
 const VideoWrapper = styled.View<{square: boolean}>(({square}) => ({
   flex: 1,
   backgroundColor: 'red',
   justifyContent: 'center',
   alignItems: 'center',
-  aspectRatio: square ? 1 : undefined,
+  aspectRatio: square ? '1' : undefined,
   borderRadius: 16,
   overflow: 'hidden',
 }));
@@ -55,24 +65,25 @@ const SharingPostCard: React.FC<Props> = ({
   const {t} = useTranslation('Component.SharingPostCard');
   const currentUser = useUser();
 
+  const {type} = sharingPost;
+
   const userProfile =
-    sharingPost.type === 'text'
+    type === 'text'
       ? sharingPost.item.userProfile
-      : sharingPost.type === 'video'
+      : type === 'video'
         ? sharingPost.item.profile
         : sharingPost.type === 'post' && !sharingPost.payload.isAnonymous
           ? currentUser
           : undefined;
 
   const text =
-    sharingPost.type === 'text'
+    type === 'text'
       ? sharingPost.item.text
-      : sharingPost.type === 'post'
+      : type === 'post'
         ? sharingPost.payload.text
         : undefined;
 
-  const video =
-    sharingPost.type === 'video' ? sharingPost.item.video : undefined;
+  const video = type === 'video' ? sharingPost.item.video : undefined;
 
   const previewImage = useMemo(() => ({uri: video?.preview}), [video]);
 
@@ -99,6 +110,9 @@ const SharingPostCard: React.FC<Props> = ({
       </Header>
       <Spacer16 />
       {text && <Body16>{text}</Body16>}
+      {type === 'text' && (
+        <Relates post={sharingPost.item} interactive={!clip} />
+      )}
       {video && (
         <VideoWrapper square={!clip}>
           <PreviewImage source={previewImage} />

@@ -20,15 +20,17 @@ const SafeAreaViewWrapper = styled(SafeAreaView)({flex: 1});
 
 const ScrollViewWrapper = styled.ScrollView({flex: 1});
 
-const MenuWrapper = styled(TouchableOpacity)((props: {active: boolean}) => ({
+type ActiveProps = {active: boolean};
+
+const MenuWrapper = styled(TouchableOpacity)<ActiveProps>(({active}) => ({
   paddingVertical: 5,
-  backgroundColor: props.active ? COLORS.PRIMARY : 'transparent',
+  backgroundColor: active ? COLORS.PRIMARY : 'transparent',
 }));
 
-const MenuText = styled(Text)((props: {active: boolean}) => ({
+const MenuText = styled(Text)<ActiveProps>(({active}) => ({
   fontSize: 15,
   paddingLeft: 40,
-  color: props.active ? 'white' : 'black',
+  color: active ? 'white' : 'black',
 }));
 
 const TopLevelText = styled(Text)({

@@ -1,7 +1,7 @@
 import {useTranslation} from 'react-i18next';
-import {Collection} from '../../../../../shared/src/types/generated/Collection';
 import {DEFAULT_LANGUAGE_TAG} from '../../i18n';
 import {useMemo} from 'react';
+import {CollectionWithLanguage} from '../types';
 
 const getCollectionIds = (
   content: Record<string, Record<string, string>> | undefined,
@@ -12,7 +12,7 @@ const getCollectionIds = (
   return [];
 };
 
-const useCollectionIds: () => Collection['id'][] = () => {
+const useCollectionIds: () => CollectionWithLanguage['id'][] = () => {
   const {i18n} = useTranslation('collections');
   // Default to allways list exercises avalible in English
   return useMemo(

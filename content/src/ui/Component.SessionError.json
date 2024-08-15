@@ -5,11 +5,14 @@
     "rejoinButton": "Rejoin"
   },
   "pt": {
+    "title": "Erro na sessão",
+    "message": "Por favor volta a juntar-te à sessão.",
+    "rejoinButton": "Voltar"
   },
   "sv": {
     "title": "Fel i sessionen",
     "message": "Försök att gå med i sessionen igen.",
     "rejoinButton": "Gå med igen"
   },
-  "es": {}
+  "ja": {}
 }

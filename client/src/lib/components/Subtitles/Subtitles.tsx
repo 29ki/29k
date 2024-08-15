@@ -1,11 +1,11 @@
 import React from 'react';
 import {useMemo} from 'react';
-import {StyleSheet, ViewStyle} from 'react-native';
-import RNSubtitles from 'react-native-subtitles';
+import {TextStyle, ViewStyle} from 'react-native';
+import RNSubtitles from '../../subtitles';
 import hexToRgba from 'hex-to-rgba';
 
 import {COLORS} from '../../../../../shared/src/constants/colors';
-import {SPACINGS} from '../../constants/spacings';
+import textStyles from '../Typography/styles';
 
 type SubtitleProps = {
   src: string;
@@ -13,43 +13,36 @@ type SubtitleProps = {
   backgroundColor?: string;
 };
 
-const styles = StyleSheet.create({
-  containerStyle: {
-    flex: 1,
-    minWidth: '80%',
-    flexDirection: 'row',
-    justifyContent: 'center',
-    alignItems: 'center',
-    borderRadius: 4,
-    backgroundColor: hexToRgba(COLORS.PURE_WHITE, 0.51),
-  },
-  textStyle: {
-    textAlign: 'center',
-    borderRadius: 4,
-    fontSize: 16,
-    fontFamily: 'HK Grotesk',
-    backgroundColor: undefined,
-    color: COLORS.BLACK,
-    paddingVertical: 6,
-    paddingHorizontal: SPACINGS.FOUR,
-    alignSelf: undefined,
-    textShadowColor: undefined,
-    textShadowOffset: undefined,
-    textShadowRadius: undefined,
-  },
-});
+const containerStyle: ViewStyle = {
+  flex: 1,
+  minWidth: '80%',
+  flexDirection: 'row',
+  justifyContent: 'center',
+  alignItems: 'center',
+};
+
+const textStyle: TextStyle = {
+  ...textStyles.Body16,
+  color: COLORS.BLACK,
+  padding: 6,
+  textAlign: 'center',
+  alignSelf: 'center',
+  borderRadius: 4,
+  backgroundColor: hexToRgba(COLORS.PURE_WHITE, 0.51),
+  overflow: 'hidden',
+};
 
 const Subtitles: React.FC<SubtitleProps> = ({src, time, backgroundColor}) => {
   const subtititles = useMemo(() => ({file: src}), [src]);
 
-  const containerStyle = useMemo<ViewStyle>(
+  const customContainerStyle = useMemo<ViewStyle>(
     () =>
       backgroundColor
         ? {
-            ...styles.containerStyle,
+            ...containerStyle,
             backgroundColor: hexToRgba(backgroundColor, 0.51),
           }
-        : styles.containerStyle,
+        : containerStyle,
 
     [backgroundColor],
   );
@@ -57,8 +50,8 @@ const Subtitles: React.FC<SubtitleProps> = ({src, time, backgroundColor}) => {
   return (
     <RNSubtitles
       currentTime={time}
-      containerStyle={containerStyle}
-      textStyle={styles.textStyle}
+      containerStyle={customContainerStyle}
+      textStyle={textStyle}
       selectedsubtitle={subtititles}
     />
   );

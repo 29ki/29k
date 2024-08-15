@@ -153,7 +153,10 @@
     "introPortal": {
       "videoLoop": {
         "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1665480650/Temp/portal_no_sound_o7okas.mp4",
-        "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1674554597/Images/thumb_portal_bring_your_feel..._dthhdh.png"
+        "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1674554597/Images/thumb_portal_bring_your_feel..._dthhdh.png",
+        "p5JsScript": {
+          "lang": "javascript"
+        }
       },
       "videoEnd": {
         "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1665469668/Temp/Comp_13_1_xmcpyo.mp4"
@@ -467,7 +470,7 @@
     },
     "name": "But / And",
     "live": true,
-    "published": true,
+    "published": false,
     "card": {
       "image": {
         "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1675416302/Images/card_bring_your_fee.._cs3oph.png"
@@ -493,7 +496,10 @@
     "introPortal": {
       "videoLoop": {
         "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1665480650/Temp/portal_no_sound_o7okas.mp4",
-        "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1674554597/Images/thumb_portal_bring_your_feel..._dthhdh.png"
+        "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1674554597/Images/thumb_portal_bring_your_feel..._dthhdh.png",
+        "p5JsScript": {
+          "lang": "javascript"
+        }
       },
       "videoEnd": {
         "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1665469668/Temp/Comp_13_1_xmcpyo.mp4"
@@ -513,7 +519,7 @@
     "async": true,
     "description": "How we talk to ourselves affect how we act. In this exercise we practice awareness of our self-talk, and try out how word-switching can be used to open new possibilities to act in meaningful ways."
   },
-  "es": {
+  "ja": {
     "id": "ea0b48c1-745e-418d-93e7-2d8a6cd72898",
     "duration": 30,
     "tags": [

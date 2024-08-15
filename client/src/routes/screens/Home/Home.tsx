@@ -3,6 +3,9 @@ import {useTranslation} from 'react-i18next';
 import styled from 'styled-components/native';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import {useNavigation, useScrollToTop} from '@react-navigation/native';
+import AnimatedLottieView, {LottieViewProps} from 'lottie-react-native';
+
+import todayMap from '../../../assets/animations/today-map.json';
 
 import {SPACINGS} from '../../../lib/constants/spacings';
 import {COLORS} from '../../../../../shared/src/constants/colors';
@@ -14,6 +17,7 @@ import SETTINGS from '../../../lib/constants/settings';
 import {
   Spacer12,
   Spacer16,
+  Spacer28,
   Spacer60,
   TopSafeArea,
 } from '../../../lib/components/Spacers/Spacer';
@@ -37,6 +41,16 @@ import useRecommendedSessions from '../../../lib/sessions/hooks/useRecommendedSe
 import RecommendedSessions from './components/RecommendedSessions';
 import WelcomeBanner from './components/WelcomeBanner';
 import GetStartedBanner from './components/GetStartedBanner';
+import Gutters from '../../../lib/components/Gutters/Gutters';
+
+const Map = styled(AnimatedLottieView).attrs({
+  source: todayMap,
+  autoPlay: true,
+  loop: true,
+  // Fixes issue with types not being passed down properly from .attrs
+})<Optional<LottieViewProps, 'source'>>({
+  aspectRatio: `${1000 / 512}`,
+});
 
 const AddButton = styled(Button)({
   alignSelf: 'center',
@@ -115,7 +129,7 @@ const Home = () => {
         onPressEllipsis={onPressEllipsis}>
         <MiniProfile />
       </TopBar>
-      <AutoScrollView ref={scrollRef} stickyHeaderIndices={[2, 4, 6]}>
+      <AutoScrollView ref={scrollRef} stickyHeaderIndices={[2, 4, 6, 8]}>
         <WelcomeBanner />
         <GetStartedBanner />
         {!isLoading && recommendedSessions.length > 0 && (
@@ -144,6 +158,18 @@ const Home = () => {
             <LiveSessions sessions={otherSessions} />
             <Spacer16 />
           </>
+        )}
+        {!isLoading && sharingPosts.length > 0 && (
+          <StickyHeading>
+            <Heading16>{t('sections.community')}</Heading16>
+          </StickyHeading>
+        )}
+        {!isLoading && sharingPosts.length > 0 && (
+          <Gutters>
+            <Spacer16 />
+            <Map />
+            <Spacer28 />
+          </Gutters>
         )}
         {!isLoading && sharingPosts.length > 0 && (
           <StickyHeading>

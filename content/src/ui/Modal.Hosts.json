@@ -3,10 +3,13 @@
     "title": "Session hosts",
     "text": "Thanks goes to these wonderful people for hosting our sessions for anyone, thank you so much!"
   },
-  "pt": {},
+  "pt": {
+    "title": "Moderadores",
+    "text": "Muito obrigada a todas as pessoas maravilhosas que moderam as nossas sessões públicas."
+  },
   "sv": {
     "text": "Stort tack till er som leder sessioner öppna för alla!",
     "title": "Sessionsvärdar"
   },
-  "es": {}
+  "ja": {}
 }

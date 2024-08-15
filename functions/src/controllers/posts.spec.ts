@@ -1,5 +1,12 @@
 import * as postsController from './posts';
-import {addPost, getPosts, getPostById, deletePost} from '../models/post';
+import {
+  addPost,
+  getPosts,
+  getPostById,
+  deletePost,
+  increasePostRelates,
+  decreasePostRelates,
+} from '../models/post';
 import {PostRecord} from '../models/types/types';
 import {getAuthUserInfo} from '../models/auth';
 import {sendPostMessage} from '../models/slack';
@@ -34,6 +41,8 @@ const mockGetPublicUserInfo = jest.mocked(getAuthUserInfo);
 const mockGetExerciseById = jest.mocked(getExerciseById);
 const mockGetSharingSlideById = jest.mocked(getSharingSlideById);
 const mockSendPostMessage = jest.mocked(sendPostMessage);
+const mockIncreasePostRelates = jest.mocked(increasePostRelates);
+const mockDecreasePostRelates = jest.mocked(decreasePostRelates);
 
 beforeEach(async () => {
   jest.clearAllMocks();
@@ -339,7 +348,84 @@ describe('posts - controller', () => {
 
       const posts = await postsController.getPosts(10);
 
-      expect(mockGetPosts).toHaveBeenCalledWith(10, undefined, undefined);
+      expect(mockGetPosts).toHaveBeenCalledWith(
+        10,
+        undefined,
+        undefined,
+        undefined,
+      );
+      expect(posts).toEqual([
+        {
+          id: 'some-post-id',
+          userId: 'some-user-id',
+          userProfile: {
+            uid: 'some-user-id',
+            displayName: 'some name',
+            photoURL: 'some-url',
+          },
+        },
+      ]);
+    });
+
+    it('should optionally filter by languages', async () => {
+      mockGetPosts.mockResolvedValueOnce([
+        {
+          id: 'some-post-id',
+          userId: 'some-user-id',
+        } as PostRecord,
+      ]);
+      mockGetPublicUserInfo.mockResolvedValueOnce({
+        uid: 'some-user-id',
+        displayName: 'some name',
+        photoURL: 'some-url',
+      });
+
+      const posts = await postsController.getPosts(10, ['sv']);
+
+      expect(mockGetPosts).toHaveBeenCalledWith(
+        10,
+        ['sv'],
+        undefined,
+        undefined,
+      );
+      expect(posts).toEqual([
+        {
+          id: 'some-post-id',
+          userId: 'some-user-id',
+          userProfile: {
+            uid: 'some-user-id',
+            displayName: 'some name',
+            photoURL: 'some-url',
+          },
+        },
+      ]);
+    });
+
+    it('should optionally filter by exerciseId', async () => {
+      mockGetPosts.mockResolvedValueOnce([
+        {
+          id: 'some-post-id',
+          userId: 'some-user-id',
+        } as PostRecord,
+      ]);
+      mockGetPublicUserInfo.mockResolvedValueOnce({
+        uid: 'some-user-id',
+        displayName: 'some name',
+        photoURL: 'some-url',
+      });
+
+      const posts = await postsController.getPosts(
+        10,
+        undefined,
+        'some-exercise-id',
+      );
+
+      expect(mockGetPosts).toHaveBeenCalledWith(
+        10,
+        undefined,
+        'some-exercise-id',
+        undefined,
+      );
       expect(posts).toEqual([
         {
           id: 'some-post-id',
@@ -368,12 +454,14 @@ describe('posts - controller', () => {
 
       const posts = await postsController.getPosts(
         10,
+        undefined,
         'some-exercise-id',
         'sharing-id',
       );
 
       expect(mockGetPosts).toHaveBeenCalledWith(
         10,
+        undefined,
         'some-exercise-id',
         'sharing-id',
       );
@@ -448,6 +536,24 @@ describe('posts - controller', () => {
       } catch (error) {
         expect(error).toEqual(new RequestError(PostError.notFound));
       }
+    });
+  });
+
+  describe('increasePostRelates', () => {
+    it('increase post relates', async () => {
+      await postsController.increasePostRelates('some-post-id');
+
+      expect(mockIncreasePostRelates).toHaveBeenCalledTimes(1);
+      expect(mockIncreasePostRelates).toHaveBeenCalledWith('some-post-id');
+    });
+  });
+
+  describe('decreasePostRelates', () => {
+    it('decrease post relates', async () => {
+      await postsController.decreasePostRelates('some-post-id');
+
+      expect(mockDecreasePostRelates).toHaveBeenCalledTimes(1);
+      expect(mockDecreasePostRelates).toHaveBeenCalledWith('some-post-id');
     });
   });
 });

@@ -28,7 +28,7 @@ import {
 import {BottomSheetTextInput} from '../../../lib/components/Typography/TextInput/TextInput';
 import {ModalStackProps} from '../../../lib/navigation/constants/routes';
 
-import {DEFAULT_LANGUAGE_TAG} from '../../../lib/i18n';
+import {DEFAULT_LANGUAGE_TAG, LANGUAGE_TAG} from '../../../lib/i18n';
 import {
   Display22,
   Display36,
@@ -37,7 +37,9 @@ import {ThumbsUp, ThumbsDown} from '../../../lib/components/Thumbs/Thumbs';
 
 import useCompletedSessionById from '../../../lib/user/hooks/useCompletedSessionById';
 import useSessionFeedback from '../../../lib/session/hooks/useSessionFeedback';
-import VideoLooper from '../../../lib/components/VideoLooper/VideoLooper';
+import VideoLooper, {
+  VideoLooperProperties,
+} from '../../../lib/components/VideoLooper/VideoLooper';
 import {
   Body12,
   BodyBold,
@@ -54,7 +56,8 @@ const BackgroundVideo = styled(VideoLooper).attrs({
       repeat: true,
     },
   ],
-})(({paused}) => ({
+  // Fixes issue with types not being passed down properly from .attrs
+})<Optional<VideoLooperProperties, 'sources'>>(({paused}) => ({
   ...StyleSheet.absoluteFillObject,
   opacity: paused ? 0 : 1, // Hide it when not playing to pre-load it a bit
 }));
@@ -94,7 +97,7 @@ const Submit = styled(Button)({
 });
 
 const SessionFeedbackModal = () => {
-  const {t} = useTranslation('Modal.SessionFeedback');
+  const {t, i18n} = useTranslation('Modal.SessionFeedback');
   const {params} =
     useRoute<RouteProp<ModalStackProps, 'SessionFeedbackModal'>>();
   const {popToTop} =
@@ -126,6 +129,7 @@ const SessionFeedbackModal = () => {
       addSessionFeedback({
         exerciseId,
         sessionId,
+        language: i18n.resolvedLanguage as LANGUAGE_TAG,
         completed,
         question: t('question', {lng: DEFAULT_LANGUAGE_TAG}),
         answer,
@@ -148,6 +152,7 @@ const SessionFeedbackModal = () => {
     sessionMode,
     setSubmitted,
     addSessionFeedback,
+    i18n.resolvedLanguage,
   ]);
 
   useEffect(() => {

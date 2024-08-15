@@ -8,7 +8,12 @@
     "moreLikeThis": "More like this"
   },
   "pt": {
-    "join": "Participar"
+    "join": "Participar",
+    "coCreatorsHeading": "Co-criada com",
+    "howItWorks": "Como funciona",
+    "journeyButton": "Minha jornada",
+    "feedbackHeading": "Comentários",
+    "moreLikeThis": "Semelhantes"
   },
   "sv": {
     "join": "Anslut",
@@ -16,7 +21,8 @@
     "deleteButton": "Ta bort session",
     "coCreatorsHeading": "Skapad med",
     "howItWorks": "Så funkar det",
-    "feedbackHeading": "Recensioner"
+    "feedbackHeading": "Recensioner",
+    "moreLikeThis": "Mer som den här"
   },
-  "es": {}
+  "ja": {}
 }

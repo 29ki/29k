@@ -14,5 +14,9 @@
     "explore": "Utforska",
     "journey": "Min plan"
   },
-  "es": {}
+  "ja": {
+    "explore": "探す",
+    "home": "ホーム",
+    "journey": "ジャーニー"
+  }
 }

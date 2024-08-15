@@ -1,16 +1,13 @@
-import React, {useMemo} from 'react';
+import React from 'react';
 import styled from 'styled-components/native';
-import hexToRgba from 'hex-to-rgba';
-import LinearGradient from 'react-native-linear-gradient';
 
 import {ExerciseSlide} from '../../../../../../shared/src/types/Content';
-import {ExerciseSlideInstructionSlideAsync} from '../../../../../../shared/src/types/generated/Exercise';
+import {ExerciseSlideInstructionSlide} from '../../../../../../shared/src/types/generated/Exercise';
 import {COLORS} from '../../../../../../shared/src/constants/colors';
 import useSessionState from '../../state/state';
 
 import Content from './Slides/Content';
 import Host from './Slides/Host';
-import HostVideo from './Slides/HostVideo';
 import Sharing from './Slides/Sharing';
 import Instruction from './Slides/Instruction';
 
@@ -21,14 +18,6 @@ const Wrapper = styled.View<WrapperProps>(({backgroundColor}) => ({
   justifyContent: 'center',
 }));
 
-const BottomVideoGradient = styled(LinearGradient)({
-  position: 'absolute',
-  left: 0,
-  right: 0,
-  bottom: 0,
-  height: 80,
-});
-
 type SlideProps = {
   slide: ExerciseSlide;
   active: boolean;
@@ -37,23 +26,10 @@ type SlideProps = {
 
 const Slide = ({slide, active, async}: SlideProps) => {
   const theme = useSessionState(state => state.exercise?.theme);
-  const background = theme?.backgroundColor ?? COLORS.WHITE;
-  const colors = useMemo(
-    () => [hexToRgba(background, 0), hexToRgba(background, 1)],
-    [background],
-  );
 
   return (
     <Wrapper backgroundColor={theme?.backgroundColor}>
-      {slide.type === 'host' &&
-        (async ? (
-          <>
-            <HostVideo active={active} slide={slide} />
-            <BottomVideoGradient colors={colors} />
-          </>
-        ) : (
-          <Host active={active} />
-        ))}
+      {slide.type === 'host' && <Host active={active} />}
       {slide.type === 'content' && (
         <Content async={async} slide={slide} active={active} />
       )}
@@ -67,7 +43,7 @@ const Slide = ({slide, active, async}: SlideProps) => {
           <Content async={async} slide={slide} active={active} />
         ))}
       {slide.type === 'instruction' && (
-        <Instruction slide={slide as ExerciseSlideInstructionSlideAsync} />
+        <Instruction slide={slide as ExerciseSlideInstructionSlide} />
       )}
     </Wrapper>
   );

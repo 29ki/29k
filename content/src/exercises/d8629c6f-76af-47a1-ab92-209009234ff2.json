@@ -1,0 +1,193 @@
+{
+  "en": {
+    "slides": [
+      {
+        "type": "host",
+        "hostNotes": [
+          {
+            "text": "Welcome. I am X and today we will work for around 30 minutes on inner compass, integrity and authenticity – some of the aspects of the Being category.\n\nWe’ll be doing an audio exercise, followed by time for reflection and sharing with each other."
+          },
+          {
+            "text": "Let’s start with a mini check-in. How are you feeling right now? Please answer in two-three words. X, would you like to start?\n\n> Let everyone in the session, including yourself, check in one by one.\n\nThank you all for checking in. Let’s get started."
+          }
+        ]
+      },
+      {
+        "type": "instruction",
+        "content": {
+          "text": "An inner compass, integrity and authenticity are some of the skills in the Being category that we'll practice in this exercise.  There will be an audio exercise, followed by time for reflecting and sharing if you want to.",
+          "heading": "Being",
+          "image": {
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1709149023/Images/Being_async_image_ayzooa.png"
+          }
+        }
+      },
+      {
+        "type": "content",
+        "hostNotes": [
+          {
+            "text": "An inner compass, integrity and authenticity are some of the skills in the Being category that we'll practice in this exercise.  \\\nLet's listen to this audio, and then we'll meet back here afterwards.\n\n> Tap play to start the audio."
+          }
+        ],
+        "content": {
+          "lottie": {
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1698312877/Audio/The_future_you_lxcxvt.mp3",
+            "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1696324117/SRT%20(captions)%20files/The_future_you_gzkogk.srt",
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1709134304/Lottie/IDG_lotties/Being_meditation_pqkfgp.json",
+            "durationTimer": true
+          }
+        }
+      },
+      {
+        "type": "reflection",
+        "hostNotes": [
+          {
+            "text": "Now we’ll take 1 minute to reflect on our own.\n\nWhat would you like the future you to tell the current you?"
+          },
+          {
+            "text": "You can take notes on a piece of paper or just mental notes in your head. And there is no right or wrong here, our answers are our own. 1 minute starting now.\n\n> Press play to start the timer.\n\nThat’s 1 minute and it’s time to move on."
+          }
+        ],
+        "content": {
+          "heading": "What would you like the future you to tell the current you?",
+          "lottie": {
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1709133218/Lottie/IDG_lotties/1_min_IDG_e1tws9.json",
+            "durationTimer": true,
+            "duration": 60,
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1709641631/Audio/Being_xm6qfi.mp3"
+          }
+        }
+      },
+      {
+        "type": "sharing",
+        "hostNotes": [
+          {
+            "text": "Now we are getting into the sharing part. We have three rules for sharing:\n\n1. **What is said in here, stays in here.**\n2. **All you need to do is listen.** There is no fixing, helping or advice-giving needed. We are just showing up and exploring what ourselves and others are going through."
+          },
+          {
+            "text": "3. **Everything on the inside is okay.** Anger, love, hatred, sadness. Whatever shows up. No wrongs, no rights. It is what it is.\n\nThere will be a timer set for 2 minutes as an indicator. If you don’t want to share you can always say ‘pass’."
+          },
+          {
+            "text": "Who would like to start?\n\n> Let everyone (or as many as you got time for) share one by one. Press play to start the timer. Re-start for each new sharing.\n\nThank you so much everyone."
+          }
+        ],
+        "id": "1",
+        "content": {
+          "heading": "What would you like the future you to tell the current you?",
+          "lottie": {
+            "durationTimer": true,
+            "duration": 120,
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1709133219/Lottie/IDG_lotties/Being_2min_fyirru.json"
+          }
+        }
+      },
+      {
+        "type": "host",
+        "hostNotes": [
+          {
+            "text": "Well done. If you’re up for it, you can continue with a mission to bring this into your everyday life.\n\nLet the words from the future you guide your actions for today and tomorrow. Notice how that makes you feel and act."
+          },
+          {
+            "text": "Before we leave this space let’s do a mini check-out. \n\nHow are you feeling right now? Has anything shifted? Please answer in two-three words."
+          },
+          {
+            "text": "Who would like to start?\n\n> Let everyone in the session check out one by one.\n\nThank you all for checking out and for joining this session today.\n\n> Finish session to send everyone off to the exit experience."
+          }
+        ]
+      },
+      {
+        "type": "instruction",
+        "content": {
+          "text": "Well done. If you’re up for it, you can continue with a mission to bring this into your everyday life.\n\nLet the words from the future you guide your actions for today and tomorrow. Notice how that makes you feel and act.",
+          "image": {
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1709149023/Images/Being_async_image_ayzooa.png"
+          }
+        }
+      }
+    ],
+    "theme": {
+      "textColor": "#F9F8F4",
+      "backgroundColor": "#d4b88c"
+    },
+    "hidden": false,
+    "locked": true,
+    "name": "Being",
+    "live": true,
+    "published": true,
+    "card": {
+      "image": {
+        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1709127077/Images/Being_card_image_vl36fq.png"
+      }
+    },
+    "coCreators": [
+      {
+        "name": "Jenny Rickardsson, script and voice",
+        "url": "https://www.linkedin.com/in/jenny-rickardson-6770a959/",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1682602411/Images/Jenny_Rickardsson_kopia_sdodwf.jpg"
+      },
+      {
+        "name": "Ints Ivanovskis, art works",
+        "url": "https://www.linkedin.com/in/ints-ivanovskis-46ab0311a/",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413436/Contributors/Ints%20Ivanovskis.jpg"
+      },
+      {
+        "name": "Steven Hayes, original research",
+        "url": "https://stevenchayes.com/about/",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1710157008/Contributors/Steven_Hayes_axpenl.jpg"
+      }
+    ],
+    "duration": 30,
+    "introPortal": {
+      "hostNotes": [
+        {
+          "text": "> Start the session when you're ready to begin"
+        }
+      ],
+      "videoLoop": {
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1709149755/Video/Being_portal_1_dvuapz.mp4",
+        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1705651789/Audio/portal_audiio_relationship_values_wvxw6i.mp3",
+        "p5JsScript": {
+          "lang": "javascript"
+        }
+      },
+      "videoEnd": {
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1709201854/Video/Being_portal_2_ta4xyi.mp4"
+      }
+    },
+    "tags": [
+      "9c2c08a9-7dc6-4058-bc78-016d0eb00614",
+      "43a6dc0d-d866-4b79-9453-13c44e906128"
+    ],
+    "link": "https://aware.29k.org/the-future-you",
+    "id": "d8629c6f-76af-47a1-ab92-209009234ff2",
+    "async": true,
+    "description": "The relationship to ourselves is in focus in the Being category. In this session we practice setting our inner compass, acting with integrity and authenticity, as we meet our future selves."
+  },
+  "pt": {
+    "id": "d8629c6f-76af-47a1-ab92-209009234ff2",
+    "tags": [
+      "9c2c08a9-7dc6-4058-bc78-016d0eb00614",
+      "43a6dc0d-d866-4b79-9453-13c44e906128"
+    ],
+    "locked": true,
+    "card": {}
+  },
+  "sv": {
+    "id": "d8629c6f-76af-47a1-ab92-209009234ff2",
+    "tags": [
+      "9c2c08a9-7dc6-4058-bc78-016d0eb00614",
+      "43a6dc0d-d866-4b79-9453-13c44e906128"
+    ],
+    "locked": true,
+    "card": {}
+  },
+  "ja": {
+    "id": "d8629c6f-76af-47a1-ab92-209009234ff2",
+    "tags": [
+      "9c2c08a9-7dc6-4058-bc78-016d0eb00614",
+      "43a6dc0d-d866-4b79-9453-13c44e906128"
+    ],
+    "locked": true,
+    "card": {}
+  }
+}

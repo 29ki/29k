@@ -1,17 +1,22 @@
 {
   "en": {
     "id": "db34d82a-4c48-4ddd-9de5-f562d8aa1bc9",
-    "name": "Self-compassion"
+    "name": "Self-compassion",
+    "published": true
   },
   "pt": {
     "id": "db34d82a-4c48-4ddd-9de5-f562d8aa1bc9",
-    "name": "Autocompaixão"
+    "name": "Autocompaixão",
+    "published": true
   },
   "sv": {
     "id": "db34d82a-4c48-4ddd-9de5-f562d8aa1bc9",
-    "name": "Självmedkänsla"
+    "name": "Självmedkänsla",
+    "published": true
   },
-  "es": {
-    "id": "db34d82a-4c48-4ddd-9de5-f562d8aa1bc9"
+  "ja": {
+    "name": "セルフ・コンパッション",
+    "id": "db34d82a-4c48-4ddd-9de5-f562d8aa1bc9",
+    "published": true
   }
 }

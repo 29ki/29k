@@ -101,6 +101,7 @@ export const sendFeedbackMessage = async (
   sessionMode: SessionMode | undefined,
   approved: boolean,
   params: FeedbackParams,
+  language: LANGUAGE_TAG,
 ) => {
   if (SLACK_FEEDBACK_CHANNEL) {
     try {
@@ -119,6 +120,7 @@ export const sendFeedbackMessage = async (
           sessionMode,
           approved,
           params,
+          language,
         ),
         username: SLACK_BOT_NAME,
         channel: `#${SLACK_FEEDBACK_CHANNEL}`,

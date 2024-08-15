@@ -4,10 +4,12 @@
     "moreLikeThis": "More like this"
   },
   "pt": {
-    "joinUpcoming": "Junta-te a uma sessão futura"
+    "joinUpcoming": "Junta-te a uma sessão futura",
+    "moreLikeThis": "Semelhantes"
   },
   "sv": {
-    "joinUpcoming": "Gå med i en kommande session"
+    "joinUpcoming": "Gå med i en kommande session",
+    "moreLikeThis": "Mer som den här"
   },
-  "es": {}
+  "ja": {}
 }

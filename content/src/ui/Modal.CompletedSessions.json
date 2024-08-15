@@ -1,6 +1,5 @@
 {
   "en": {
-    "title": "",
     "meaningful": "Meaningfulsessions",
     "notMeaningful": "Not meaningful\nsessions",
     "async": "Just me",
@@ -21,5 +20,5 @@
     "private": "Med vänner",
     "public": "Med andra"
   },
-  "es": {}
+  "ja": {}
 }

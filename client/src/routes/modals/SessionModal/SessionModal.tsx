@@ -19,7 +19,7 @@ import {
 import {COLORS} from '../../../../../shared/src/constants/colors';
 import {SPACINGS} from '../../../lib/constants/spacings';
 
-import {formatContentName} from '../../../lib/utils/string';
+import {formatContentName, formatInviteCode} from '../../../lib/utils/string';
 
 import useGetSessionCardTags from '../../../lib/components/Cards/SessionCard/hooks/useGetSessionCardTags';
 import useExerciseById from '../../../lib/content/hooks/useExerciseById';
@@ -64,13 +64,16 @@ import {
 import ActionList from '../../../lib/components/ActionList/ActionList';
 import ActionButton from '../../../lib/components/ActionList/ActionItems/ActionButton';
 import MagicIcon from '../../../lib/components/Icons/Magic/Magic';
-import {ThumbsUpWithoutPadding} from '../../../lib/components/Thumbs/Thumbs';
+import {
+  ThumbsDownWithoutPadding,
+  ThumbsUpWithoutPadding,
+} from '../../../lib/components/Thumbs/Thumbs';
 import useExerciseFeedback from '../../../lib/session/hooks/useExerciseFeedback';
 import FeedbackCarousel from '../../../lib/components/FeedbackCarousel/FeedbackCarousel';
 import useExercisesByTags from '../../../lib/content/hooks/useExercisesByTags';
 import ExerciseCard from '../../../lib/components/Cards/SessionCard/ExerciseCard';
 import CoCreators from '../../../lib/components/CoCreators/CoCreators';
-import ExerciseGraphic from '../../../lib/components/ExerciseGraphic/ExerciseGraphic';
+import CardGraphic from '../../../lib/components/CardGraphic/CardGraphic';
 import BackgroundBlock from '../../../lib/components/BackgroundBlock/BackgroundBlock';
 import SheetModal from '../../../lib/components/Modals/SheetModal';
 import {BottomSheetScrollView} from '@gorhom/bottom-sheet';
@@ -96,7 +99,11 @@ const RatingContainer = styled(Gutters)({
   alignItems: 'center',
 });
 
-const FeedbackThumb = styled(ThumbsUpWithoutPadding)({
+const FeedbackThumbsUp = styled(ThumbsUpWithoutPadding)({
+  width: 24,
+  height: 24,
+});
+const FeedbackThumbsDown = styled(ThumbsDownWithoutPadding)({
   width: 24,
   height: 24,
 });
@@ -106,7 +113,7 @@ const TitleContainer = styled.View({
   justifyContent: 'center',
 });
 
-const Graphic = styled(ExerciseGraphic)({
+const Graphic = styled(CardGraphic)({
   flex: 1,
 });
 
@@ -150,8 +157,8 @@ const SessionModal = () => {
   const addToCalendar = useAddSessionToCalendar();
   const exercise = useExerciseById(session.exerciseId, session.language);
   const tags = useGetSessionCardTags(exercise);
-  const {rating} = useExerciseRating(session.exerciseId, session.mode);
-  const {feedback} = useExerciseFeedback(session.exerciseId, session.mode);
+  const {rating} = useExerciseRating(session.exerciseId);
+  const {feedback} = useExerciseFeedback(session.exerciseId);
   const {reminderEnabled, toggleReminder} = useSessionReminder(session);
   const confirmToggleReminder = useConfirmSessionReminder(session);
   const relatedExercises = useExercisesByTags(exercise?.tags, exercise?.id, 5);
@@ -236,9 +243,13 @@ const SessionModal = () => {
         <Content>
           {rating && rating.positive > 0 ? (
             <RatingContainer>
-              <FeedbackThumb />
+              <FeedbackThumbsUp />
               <Spacer4 />
               <Body16>{rating.positive}</Body16>
+              <Spacer4 />
+              <FeedbackThumbsDown />
+              <Spacer4 />
+              <Body16>{rating.negative}</Body16>
             </RatingContainer>
           ) : null}
           <Spacer16 />
@@ -354,11 +365,12 @@ const SessionModal = () => {
 
             {session.link && (
               <>
-                <IconButton
+                <Button
                   variant="secondary"
                   onPress={onShare}
-                  Icon={ShareIcon}
-                />
+                  LeftIcon={ShareIcon}>
+                  {formatInviteCode(session.inviteCode)}
+                </Button>
               </>
             )}
           </Row>

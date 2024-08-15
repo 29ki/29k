@@ -29,14 +29,19 @@ afterEach(() => {
 describe('useSessionSharingPosts', () => {
   describe('getSharingPosts', () => {
     it('should return fetched posts as PostItems', async () => {
+      useSessionState.setState({
+        asyncSession: {
+          id: 'some-session-id',
+          exerciseId: 'some-exercise-id',
+          language: 'en',
+        } as AsyncSessionType,
+      });
       mockFetchPosts.mockResolvedValueOnce([
         {
           id: 'some-post-id',
         } as PostType,
       ]);
-      const {result} = renderHook(() =>
-        useSessionSharingPosts('some-exercise-id'),
-      );
+      const {result} = renderHook(() => useSessionSharingPosts());
 
       await act(async () => {
         const posts = await result.current.getSharingPosts('some-sharing-id');
@@ -44,6 +49,34 @@ describe('useSessionSharingPosts', () => {
         expect(posts).toEqual([{type: 'text', item: {id: 'some-post-id'}}]);
         expect(mockFetchPosts).toHaveBeenCalledTimes(1);
         expect(mockFetchPosts).toHaveBeenCalledWith(
+          'en',
+          'some-exercise-id',
+          'some-sharing-id',
+        );
+      });
+    });
+
+    it('should fetch in the session language', async () => {
+      useSessionState.setState({
+        asyncSession: {
+          id: 'some-session-id',
+          exerciseId: 'some-exercise-id',
+          language: 'sv',
+        } as AsyncSessionType,
+      });
+      mockFetchPosts.mockResolvedValueOnce([
+        {
+          id: 'some-post-id',
+        } as PostType,
+      ]);
+      const {result} = renderHook(() => useSessionSharingPosts());
+
+      await act(async () => {
+        await result.current.getSharingPosts('some-sharing-id');
+
+        expect(mockFetchPosts).toHaveBeenCalledTimes(1);
+        expect(mockFetchPosts).toHaveBeenCalledWith(
+          'sv',
           'some-exercise-id',
           'some-sharing-id',
         );
@@ -51,14 +84,19 @@ describe('useSessionSharingPosts', () => {
     });
 
     it('should return sharing videos mixed with fetched posts as PostItems', async () => {
+      useSessionState.setState({
+        asyncSession: {
+          id: 'some-session-id',
+          exerciseId: 'some-exercise-id',
+          language: 'sv',
+        } as AsyncSessionType,
+      });
       mockFetchPosts.mockResolvedValueOnce([
         {
           id: 'some-post-id',
         } as PostType,
       ]);
-      const {result} = renderHook(() =>
-        useSessionSharingPosts('some-exercise-id'),
-      );
+      const {result} = renderHook(() => useSessionSharingPosts());
 
       await act(async () => {
         const posts = await result.current.getSharingPosts('some-sharing-id', [
@@ -80,6 +118,7 @@ describe('useSessionSharingPosts', () => {
         ]);
         expect(mockFetchPosts).toHaveBeenCalledTimes(1);
         expect(mockFetchPosts).toHaveBeenCalledWith(
+          'sv',
           'some-exercise-id',
           'some-sharing-id',
         );
@@ -87,6 +126,13 @@ describe('useSessionSharingPosts', () => {
     });
 
     it('should return sharing videos mixed with fetched posts padded as PostItems', async () => {
+      useSessionState.setState({
+        asyncSession: {
+          id: 'some-session-id',
+          exerciseId: 'some-exercise-id',
+          language: 'en',
+        } as AsyncSessionType,
+      });
       mockFetchPosts.mockResolvedValueOnce([
         {
           id: 'some-post-id',
@@ -95,9 +141,7 @@ describe('useSessionSharingPosts', () => {
           id: 'some-other-post-id',
         } as PostType,
       ]);
-      const {result} = renderHook(() =>
-        useSessionSharingPosts('some-exercise-id'),
-      );
+      const {result} = renderHook(() => useSessionSharingPosts());
 
       await act(async () => {
         const posts = await result.current.getSharingPosts('some-sharing-id', [
@@ -118,6 +162,7 @@ describe('useSessionSharingPosts', () => {
         ]);
         expect(mockFetchPosts).toHaveBeenCalledTimes(1);
         expect(mockFetchPosts).toHaveBeenCalledWith(
+          'en',
           'some-exercise-id',
           'some-sharing-id',
         );
@@ -125,7 +170,7 @@ describe('useSessionSharingPosts', () => {
     });
 
     it('should return empty list if no exerciseId', async () => {
-      const {result} = renderHook(() => useSessionSharingPosts(undefined));
+      const {result} = renderHook(() => useSessionSharingPosts());
 
       await act(async () => {
         const posts = await result.current.getSharingPosts('some-sharing-id');
@@ -139,7 +184,11 @@ describe('useSessionSharingPosts', () => {
   describe('addSharingPost', () => {
     it('should add public post', async () => {
       useSessionState.setState({
-        asyncSession: {id: 'some-session-id'} as AsyncSessionType,
+        asyncSession: {
+          id: 'some-session-id',
+          exerciseId: 'some-exercise-id',
+          language: 'en',
+        } as AsyncSessionType,
       });
       useUserState.setState({
         user: {uid: 'some-user-id'} as FirebaseAuthTypes.User,
@@ -147,9 +196,7 @@ describe('useSessionSharingPosts', () => {
           'some-user-id': {},
         },
       });
-      const {result} = renderHook(() =>
-        useSessionSharingPosts('some-exercise-id'),
-      );
+      const {result} = renderHook(() => useSessionSharingPosts());
 
       await act(async () => {
         await result.current.addSharingPost(
@@ -162,6 +209,7 @@ describe('useSessionSharingPosts', () => {
 
       expect(mockAddPost).toHaveBeenCalledTimes(1);
       expect(mockAddPost).toHaveBeenCalledWith(
+        'en',
         'some-exercise-id',
         'some-sharing-id',
         'some text',
@@ -191,9 +239,42 @@ describe('useSessionSharingPosts', () => {
       ]);
     });
 
+    it('should add post in the session language', async () => {
+      useSessionState.setState({
+        asyncSession: {
+          id: 'some-session-id',
+          exerciseId: 'some-exercise-id',
+          language: 'sv',
+        } as AsyncSessionType,
+      });
+      const {result} = renderHook(() => useSessionSharingPosts());
+
+      await act(async () => {
+        await result.current.addSharingPost(
+          'some-sharing-id',
+          'some text',
+          true,
+          false,
+        );
+      });
+
+      expect(mockAddPost).toHaveBeenCalledTimes(1);
+      expect(mockAddPost).toHaveBeenCalledWith(
+        'sv',
+        'some-exercise-id',
+        'some-sharing-id',
+        'some text',
+        false,
+      );
+    });
+
     it('should add non public post', async () => {
       useSessionState.setState({
-        asyncSession: {id: 'some-session-id'} as AsyncSessionType,
+        asyncSession: {
+          id: 'some-session-id',
+          exerciseId: 'some-exercise-id',
+          language: 'en',
+        } as AsyncSessionType,
       });
       useUserState.setState({
         user: {uid: 'some-user-id'} as FirebaseAuthTypes.User,
@@ -201,9 +282,7 @@ describe('useSessionSharingPosts', () => {
           'some-user-id': {},
         },
       });
-      const {result} = renderHook(() =>
-        useSessionSharingPosts('some-exercise-id'),
-      );
+      const {result} = renderHook(() => useSessionSharingPosts());
 
       await act(async () => {
         await result.current.addSharingPost(
@@ -239,32 +318,6 @@ describe('useSessionSharingPosts', () => {
       ]);
     });
 
-    it('should not add if exercise id is missing', async () => {
-      useSessionState.setState({
-        asyncSession: {id: 'some-session-id'} as AsyncSessionType,
-      });
-      useUserState.setState({
-        user: {uid: 'some-user-id'} as FirebaseAuthTypes.User,
-        userState: {
-          'some-user-id': {},
-        },
-      });
-      const {result} = renderHook(() => useSessionSharingPosts(undefined));
-
-      await result.current.addSharingPost(
-        'some-sharing-id',
-        'some text',
-        true,
-        false,
-      );
-
-      expect(mockAddPost).toHaveBeenCalledTimes(0);
-      expect(mockLogAsyncPostMetricEvent).toHaveBeenCalledTimes(0);
-      expect(useUserState.getState().userState['some-user-id'].userEvents).toBe(
-        undefined,
-      );
-    });
-
     it('should not add if session is not set', async () => {
       useSessionState.setState({
         asyncSession: undefined,
@@ -275,9 +328,7 @@ describe('useSessionSharingPosts', () => {
           'some-user-id': {},
         },
       });
-      const {result} = renderHook(() =>
-        useSessionSharingPosts('some-exercise-id'),
-      );
+      const {result} = renderHook(() => useSessionSharingPosts());
 
       await result.current.addSharingPost(
         'some-sharing-id',
@@ -347,9 +398,7 @@ describe('useSessionSharingPosts', () => {
         },
       });
 
-      const {result} = renderHook(() =>
-        useSessionSharingPosts('some-exercise-id'),
-      );
+      const {result} = renderHook(() => useSessionSharingPosts());
 
       const posts = result.current.getSharingPostForSession(
         'some-session-id',
@@ -365,89 +414,6 @@ describe('useSessionSharingPosts', () => {
         },
         timestamp: expect.any(String),
       });
-    });
-  });
-
-  describe('getSharingPostForExcercise', () => {
-    it('should filter out relevant sharing post events', () => {
-      useUserState.setState({
-        user: {uid: 'some-user-id'} as FirebaseAuthTypes.User,
-        userState: {
-          'some-user-id': {
-            userEvents: [
-              {
-                type: 'feedback',
-                payload: {} as FeedbackPayload,
-                timestamp: new Date('2023-01-01').toISOString(),
-              },
-              {
-                type: 'post',
-                payload: {
-                  exerciseId: 'some-exercise-id',
-                  sessionId: 'some-session-id',
-                  sharingId: 'some-sharing-id',
-                } as PostPayload,
-                timestamp: new Date('2023-01-04').toISOString(),
-              },
-              {
-                type: 'post',
-                payload: {
-                  exerciseId: 'some-exercise-id',
-                  sessionId: 'some-other-session-id',
-                  sharingId: 'some-sharing-id',
-                } as PostPayload,
-                timestamp: new Date('2023-01-03').toISOString(),
-              },
-              {
-                type: 'post',
-                payload: {
-                  exerciseId: 'some-exercise-id',
-                  sessionId: 'some-session-id',
-                  sharingId: 'some-other-sharing-id',
-                } as PostPayload,
-                timestamp: new Date('2023-01-02').toISOString(),
-              },
-              {
-                type: 'post',
-                payload: {
-                  exerciseId: 'some-other-exercise-id',
-                  sessionId: 'some-session-id',
-                  sharingId: 'some-ohter-sharing-id',
-                } as PostPayload,
-                timestamp: new Date('2023-01-01').toISOString(),
-              },
-            ],
-          },
-        },
-      });
-
-      const {result} = renderHook(() =>
-        useSessionSharingPosts('some-exercise-id'),
-      );
-
-      const posts =
-        result.current.getSharingPostsForExercise('some-sharing-id');
-
-      expect(posts).toEqual([
-        {
-          type: 'post',
-          payload: {
-            exerciseId: 'some-exercise-id',
-            sessionId: 'some-session-id',
-            sharingId: 'some-sharing-id',
-          },
-          timestamp: expect.any(String),
-        },
-        {
-          type: 'post',
-          payload: {
-            exerciseId: 'some-exercise-id',
-            sessionId: 'some-other-session-id',
-            sharingId: 'some-sharing-id',
-          },
-          timestamp: expect.any(String),
-        },
-      ]);
     });
   });
 });

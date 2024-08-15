@@ -9,6 +9,12 @@ import {FirebaseAuthTypes} from '@react-native-firebase/auth';
 
 enableFetchMocks();
 
+const mockGetExerciseById = jest.fn().mockReturnValue({id: 'some-exercise-id'});
+jest.mock(
+  '../../content/hooks/useGetExerciseById',
+  () => () => mockGetExerciseById,
+);
+
 afterEach(() => {
   fetchMock.resetMocks();
   jest.clearAllMocks();
@@ -25,7 +31,10 @@ describe('useSessions', () => {
 
     it('should fetch sessions', async () => {
       fetchMock.mockResponseOnce(
-        JSON.stringify([{id: 'session-id', url: '/session-url'}]),
+        JSON.stringify([
+          {id: 'session-id', url: '/session-url'},
+          {id: 'other-session-id', url: '/othersession-url'},
+        ]),
         {status: 200},
       );
       const {result} = renderHook(() => useTestHook());
@@ -37,6 +46,48 @@ describe('useSessions', () => {
       expect(fetchMock).toHaveBeenCalledTimes(1);
       expect(result.current.sessions).toEqual([
         {id: 'session-id', url: '/session-url'},
+        {id: 'other-session-id', url: '/othersession-url'},
+      ]);
+    });
+
+    it('should only return sessions from exercises that are available', async () => {
+      mockGetExerciseById
+        .mockReturnValueOnce({id: 'some-exercise-id'})
+        .mockReturnValueOnce(null);
+      fetchMock.mockResponseOnce(
+        JSON.stringify([
+          {
+            id: 'session-id',
+            url: '/session-url',
+            exerciseId: 'some-exercise-id',
+          },
+          {
+            id: 'other-session-id',
+            url: '/othersession-url',
+            exerciseId: 'some-unavailable-exercise-id',
+          },
+        ]),
+        {status: 200},
+      );
+      const {result} = renderHook(() => useTestHook());
+
+      await act(async () => {
+        await result.current.fetchSessions();
+      });
+
+      expect(mockGetExerciseById).toHaveBeenCalledTimes(2);
+      expect(mockGetExerciseById).toHaveBeenCalledWith('some-exercise-id');
+      expect(mockGetExerciseById).toHaveBeenCalledWith(
+        'some-unavailable-exercise-id',
+      );
+
+      expect(fetchMock).toHaveBeenCalledTimes(1);
+      expect(result.current.sessions).toEqual([
+        {
+          id: 'session-id',
+          url: '/session-url',
+          exerciseId: 'some-exercise-id',
+        },
       ]);
     });
   });
@@ -45,14 +96,16 @@ describe('useSessions', () => {
     const startTime = dayjs.utc('1994-03-08');
 
     it('should resolve to a new session and trigger a refetch', async () => {
-      fetchMock.mockResponseOnce(
-        JSON.stringify({
-          id: 'session-id',
-          url: '/session-url',
-          name: 'A New Session',
-        }),
-        {status: 200},
-      );
+      fetchMock
+        .mockResponseOnce(
+          JSON.stringify({
+            id: 'session-id',
+            url: '/session-url',
+            name: 'A New Session',
+          }),
+          {status: 200},
+        )
+        .mockResponseOnce('[]', {status: 200});
       const {result} = renderHook(() => useSessions());
 
       await act(async () => {
@@ -97,7 +150,9 @@ describe('useSessions', () => {
 
   describe('deleteSession', () => {
     it('should delete a session and refetch', async () => {
-      fetchMock.mockResponseOnce('Success', {status: 200});
+      fetchMock
+        .mockResponseOnce('Success', {status: 200})
+        .mockResponseOnce('[]', {status: 200});
       const {result} = renderHook(() => useSessions());
 
       await act(async () => {

@@ -1,4 +1,4 @@
-import {CmsField} from 'netlify-cms-core';
+import {CmsField} from 'decap-cms-core';
 
 const EDITOR_TEXT_TEMPLATES_FIELDS: Array<CmsField> = [
   {

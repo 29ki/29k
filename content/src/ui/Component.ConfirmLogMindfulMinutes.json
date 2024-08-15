@@ -11,6 +11,15 @@
     }
   },
   "pt": {
+    "title_ios": "Registar minutos de utilização",
+    "title_android": "Registar minutos de meditação",
+    "message_ios": "Queres gravar os teus minutos de utilização na Apple Health?",
+    "message_android": "Queres gravar os teus minutos de meditação na Apple Health?",
+    "actions": {
+      "dismiss": "Não",
+      "cancel": "Talvez mais tarde",
+      "confirm": "Sim"
+    }
   },
   "sv": {
     "title_ios": "Logga Mindfulness-minuter",
@@ -23,5 +32,5 @@
       "confirm": "Ja"
     }
   },
-  "es": {}
+  "ja": {}
 }

@@ -13,7 +13,6 @@ import {
 } from '../../types/Adaptor';
 
 let postHog: PostHog | undefined;
-let initPromise: Promise<PostHog> | undefined;
 
 export const PostHogMetricsProvider: MetricsProvider = ({children}) => (
   <PostHogProvider
@@ -32,15 +31,15 @@ const initPostHog = async () => {
     return;
   }
 
-  if (!initPromise) {
-    postHog = await (initPromise = PostHog.initAsync(POSTHOG_API_KEY, {
+  if (!postHog) {
+    postHog = new PostHog(POSTHOG_API_KEY, {
       host: 'https://eu.posthog.com',
-    }));
+    });
 
     await setConsent(DEFAULT_CONSENT);
   }
 
-  return initPromise;
+  return postHog;
 };
 
 export const init: Init = async () => {

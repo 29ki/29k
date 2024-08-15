@@ -5,8 +5,8 @@ import {
   LiveSessionType,
   SessionStateType,
 } from '../../../../../shared/src/schemas/Session';
-import {Exercise} from '../../../../../shared/src/types/generated/Exercise';
 import {IconType} from '../../../lib/components/Icons';
+import {ExerciseWithLanguage} from '../../content/types';
 
 export type Notification = {
   text: string;
@@ -21,21 +21,23 @@ export type Reaction = {
 };
 
 type State = {
+  mood: number | null;
   liveSession: LiveSessionType | null;
   asyncSession: AsyncSessionType | null;
   sessionState: SessionStateType | null;
-  exercise: Exercise | null;
+  exercise: ExerciseWithLanguage | null;
   currentContentReachedEnd: boolean;
   notifications: Notification[];
   reactions: Reaction[];
 };
 
 type Actions = {
+  setMood: (joinFeeling: number | null) => void;
   setPartialSessionState: (sessionState: Partial<SessionStateType>) => void;
   setSessionState: (sessionState: SessionStateType) => void;
   setLiveSession: (liveSession: LiveSessionType) => void;
   setAsyncSession: (asyncSession: AsyncSessionType) => void;
-  setExercise: (exercise: Exercise | null) => void;
+  setExercise: (exercise: ExerciseWithLanguage | null) => void;
   setCurrentContentReachedEnd: (currentContentReachedEnd: boolean) => void;
   addNotification: (notification: Notification) => void;
   addReaction: (reaction: Reaction) => void;
@@ -43,6 +45,7 @@ type Actions = {
 };
 
 const initialState: State = {
+  mood: null,
   liveSession: null,
   asyncSession: null,
   sessionState: null,
@@ -54,6 +57,7 @@ const initialState: State = {
 
 const useSessionState = create<State & Actions>()((set, get) => ({
   ...initialState,
+  setMood: mood => set({mood}),
   setPartialSessionState: (sessionState: Partial<SessionStateType>) => {
     const existingState = get().sessionState;
     if (existingState) {

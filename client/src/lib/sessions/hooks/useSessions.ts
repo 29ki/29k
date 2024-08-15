@@ -8,16 +8,26 @@ import useSessionsState from '../state/state';
 import {LiveSessionType} from '../../../../../shared/src/schemas/Session';
 import usePinnedSessions from './usePinnedSessions';
 import useUser from '../../user/hooks/useUser';
+import useGetExerciseById from '../../content/hooks/useGetExerciseById';
 
 const useSessions = () => {
   const setSessions = useSessionsState(state => state.setSessions);
+  const getExerciseById = useGetExerciseById();
   const sessions = useSessionsState(state => state.sessions);
   const pinnedSessions = usePinnedSessions();
   const user = useUser();
 
+  const filterSessions = useCallback(
+    (liveSessions: LiveSessionType[]) =>
+      liveSessions.filter(({exerciseId}) => getExerciseById(exerciseId)),
+    [getExerciseById],
+  );
+
   const fetchSessions = useCallback(async () => {
-    setSessions(await sessionsApi.fetchSessions());
-  }, [setSessions]);
+    setSessions(filterSessions(await sessionsApi.fetchSessions()));
+    // Re-fetch sessions on user change
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [setSessions, filterSessions, user?.uid]);
 
   const addSession = useCallback(
     async ({

@@ -9,7 +9,7 @@ import {CreatePostType} from '../../../shared/src/schemas/Post';
 import {omit} from 'ramda';
 import {classifyText} from '../models/openAi';
 import {translate} from '../lib/translation';
-import {DEFAULT_LANGUAGE_TAG} from '../lib/i18n';
+import {DEFAULT_LANGUAGE_TAG, LANGUAGE_TAG} from '../lib/i18n';
 
 const safeGetPublicHostInfo = async (userId: string) => {
   try {
@@ -21,10 +21,16 @@ const safeGetPublicHostInfo = async (userId: string) => {
 
 export const getPosts = async (
   limit: number,
+  languages?: LANGUAGE_TAG[],
   exerciseId?: string,
   sharingId?: string,
 ) => {
-  const posts = await postModel.getPosts(limit, exerciseId, sharingId);
+  const posts = await postModel.getPosts(
+    limit,
+    languages,
+    exerciseId,
+    sharingId,
+  );
   return Promise.all(
     posts.map(async post => ({
       ...post,
@@ -91,4 +97,12 @@ export const deletePost = async (postId: string) => {
   }
 
   await postModel.deletePost(postId);
+};
+
+export const increasePostRelates = async (postId: string) => {
+  await postModel.increasePostRelates(postId);
+};
+
+export const decreasePostRelates = async (postId: string) => {
+  await postModel.decreasePostRelates(postId);
 };

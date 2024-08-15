@@ -1,11 +1,11 @@
 import {renderHook} from '@testing-library/react-hooks';
-import {Exercise} from '../../../../../shared/src/types/generated/Exercise';
 import {
   AsyncSessionType,
   SessionStateType,
 } from '../../../../../shared/src/schemas/Session';
 import useSessionState from '../state/state';
 import useAsyncSessionSlideState from './useAsyncSessionSlideState';
+import {ExerciseWithLanguage} from '../../content/types';
 
 describe('useAsyncSessionSlideState', () => {
   it('should return null if no exercise exists', () => {
@@ -33,7 +33,7 @@ describe('useAsyncSessionSlideState', () => {
           {type: 'reflection'},
           {type: 'sharing'},
         ],
-      } as Exercise,
+      } as ExerciseWithLanguage,
     });
 
     const {result} = renderHook(() => useAsyncSessionSlideState());
@@ -59,7 +59,7 @@ describe('useAsyncSessionSlideState', () => {
           {type: 'reflection'},
           {type: 'sharing'},
         ],
-      } as Exercise,
+      } as ExerciseWithLanguage,
     });
 
     const {result, rerender} = renderHook(() => useAsyncSessionSlideState());
@@ -76,7 +76,7 @@ describe('useAsyncSessionSlideState', () => {
       sessionState: {index: 0} as SessionStateType,
       exercise: {
         slides: [{type: 'content'}],
-      } as Exercise,
+      } as ExerciseWithLanguage,
     });
 
     const {result} = renderHook(() => useAsyncSessionSlideState());
