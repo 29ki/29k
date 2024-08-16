@@ -7,7 +7,11 @@ mockFirebase(
       'metrics-events': [],
     },
   },
-  {includeIdsInData: false, mutable: true},
+  {
+    includeIdsInData: false,
+    mutable: true,
+    simulateQueryFilters: false,
+  },
 );
 
 import {
