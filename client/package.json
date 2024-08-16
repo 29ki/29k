@@ -24,7 +24,7 @@
     "@daily-co/react-native-daily-js": "0.66.0",
     "@daily-co/react-native-webrtc": "118.0.3-daily.1",
     "@dotlottie/react-player": "^1.6.19",
-    "@gorhom/bottom-sheet": "^4.6.3",
+    "@gorhom/bottom-sheet": "^4.6.4",
     "@kingstinct/react-native-healthkit": "^8.1.1",
     "@lottiefiles/react-lottie-player": "^3.5.4",
     "@notifee/react-native": "^7.8.2",
