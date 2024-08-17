@@ -152,6 +152,8 @@ jobs:
 
       - name: Build & Upload App
         working-directory: ./client/fastlane
+        env:
+          RUBYOPT: '-rostruct' # TODO: Remove when https://github.com/fastlane/fastlane/pull/21950 gets released
         run: bundle exec fastlane ios app
 
       - name: Upload IPA
