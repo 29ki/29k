@@ -86,7 +86,7 @@
     "react-native-web-linear-gradient": "^1.1.2",
     "react-native-webview": "^13.10.5",
     "srt-parser-2": "^1.2.3",
-    "styled-components": "^6.1.8",
+    "styled-components": "^6.1.12",
     "uuid": "^10.0.0",
     "vtt-to-json": "^0.1.1",
     "yup": "^1.4.0",
@@ -106,7 +106,7 @@
     "@types/i18next": "^13.0.0",
     "@types/jest": "^29.5.12",
     "@types/ramda": "^0.29.11",
-    "@types/react": "^18.2.58",
+    "@types/react": "^18.3.3",
     "@types/react-test-renderer": "^18.0.0",
     "@types/uuid": "^10.0.0",
     "appcenter-cli": "^3.0.0",
@@ -126,7 +126,6 @@
     "typescript": "^5.5.4"
   },
   "resolutions": {
-    "@types/react": "^18.2.43",
     "markdown-it": "^13"
   }
 }
