@@ -1,7 +1,6 @@
 import React, {forwardRef} from 'react';
-import AnimatedLottieView from 'lottie-react-native';
 import styled from 'styled-components/native';
-import {LottieViewProps} from 'lottie-react-native';
+import AnimatedLottieView, {LottieViewProps} from 'lottie-react-native';
 
 export type AnimatedIconProps = LottieViewProps & {fill?: string};
 export type AnimatedIconType = React.FC<
@@ -14,9 +13,7 @@ const Lottie = styled(AnimatedLottieView)({
   height: '100%',
 });
 
-const AnimatedIcon: React.FC<
-  AnimatedIconProps & {ref: React.Ref<AnimatedLottieView>}
-> = forwardRef<AnimatedLottieView, LottieViewProps>(
+const AnimatedIcon = forwardRef<AnimatedLottieView, LottieViewProps>(
   ({source, ...rest}, ref) => {
     return <Lottie ref={ref} source={source} {...rest} />;
   },
