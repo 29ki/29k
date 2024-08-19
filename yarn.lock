@@ -1520,10 +1520,10 @@ finalhandler@1.2.0:
     statuses "2.0.1"
     unpipe "~1.0.0"
 
-firebase-tools@^13.15.1:
-  version "13.15.1"
-  resolved "https://registry.yarnpkg.com/firebase-tools/-/firebase-tools-13.15.1.tgz#3c2f4f30b7682ec2c5f25b5b6ddfefbe5c1b8aa2"
-  integrity sha512-HD92RbtG3uVeC8KgiIC6ZlQjr5ep6g4Utcv23QOr2sBfwZ1UDQW9Kg89HKPYgEC2Y7h7ANIF+TZqDOvDIA1n5A==
+firebase-tools@^13.15.2:
+  version "13.15.2"
+  resolved "https://registry.yarnpkg.com/firebase-tools/-/firebase-tools-13.15.2.tgz#a00d0d79d164f8864cfedbe038d7f8b6ba5d9bb8"
+  integrity sha512-tZCAEDakS5/U2Kler5+JqDvAa0uaFvBttHfbu8PMeX8NxvXPUZ+nkGUHJD6aiZZMKZWkb7pgKcX7ZN8QTpwb0g==
   dependencies:
     "@google-cloud/cloud-sql-connector" "^1.3.3"
     "@google-cloud/pubsub" "^4.5.0"
