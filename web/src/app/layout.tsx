@@ -1,3 +1,4 @@
+import './globals.css';
 import StyleSheetRegistry from '@/lib/StyleSheetRegistry';
 import type {Metadata} from 'next';
 
