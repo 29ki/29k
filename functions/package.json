@@ -33,7 +33,7 @@
     "dotenv": "^16.4.5",
     "envalid": "^8.0.0",
     "fast-memoize": "^2.5.2",
-    "firebase-admin": "^12.3.1",
+    "firebase-admin": "^12.4.0",
     "firebase-functions": "^5.0.1",
     "handlebars": "^4.7.8",
     "i18next": "^23.14.0",
