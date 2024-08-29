@@ -9,8 +9,9 @@ import useUpdateAsyncSessionState from '../../../lib/session/hooks/useUpdateAsyn
 import useAsyncSessionMetricEvents from '../../../lib/session/hooks/useAsyncSessionMetricEvents';
 import useSessionState from '../../../lib/session/state/state';
 import useConfirmLogMindfulMinutes from '../../../lib/mindfulMinutes/hooks/useConfirmLogMindfulMinutes';
+import {AsyncSessionType} from '../../../../../shared/src/schemas/Session';
 
-const IntroPortal: React.FC = () => {
+const IntroPortal: React.FC<{session?: AsyncSessionType}> = () => {
   const {
     params: {session},
   } = useRoute<RouteProp<AsyncSessionStackProps, 'IntroPortal'>>();

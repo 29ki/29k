@@ -133,7 +133,7 @@ const VerificationCode: React.FC<VerificationCodeProps> = ({
 
     if (text.length >= 6) {
       // From clipboard
-      setCode([...text.trim().replace(' ', '')]);
+      setCode(text.trim().replace(' ', '').split(''));
     } else if (text.length <= 1) {
       //Allows also code to be erased
       setCode(c => {
