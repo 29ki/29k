@@ -11,6 +11,11 @@
       "site": "cupcake-29k-cms",
       "public": "cms/dist",
       "predeploy": ["yarn --cwd \"$RESOURCE_DIR\" run build"]
+    },
+    {
+      "site": "cupcake-web",
+      "public": "web/dist",
+      "predeploy": ["yarn --cwd \"$RESOURCE_DIR\" run build"]
     }
   ],
   "emulators": {
