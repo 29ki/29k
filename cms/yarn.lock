@@ -2520,10 +2520,10 @@
   dependencies:
     "@types/react" "*"
 
-"@types/react-native-web@^0.0.0":
-  version "0.0.0"
-  resolved "https://registry.yarnpkg.com/@types/react-native-web/-/react-native-web-0.0.0.tgz#ebc41cf942f931123e0b17dfc9cdd6cb5d0a1f5b"
-  integrity sha512-WeaDnb57Z60pUVu6FO6WybA+7BAbPz83otLVbOpcPvRN2f/PIDt/9ViiXJ989QFrLhdex/Jen15xMOyO2X2L2A==
+"@types/react-native-web@^0.19.0":
+  version "0.19.0"
+  resolved "https://registry.yarnpkg.com/@types/react-native-web/-/react-native-web-0.19.0.tgz#e0cb3dc54475da996a2bf7e8ae89c1e5dd2b781e"
+  integrity sha512-HWagkGzM/k1iPBy2/xnVU9U0MN9oswZu8/2buh8bnuhwJpgt7avPoGlqT9XuFNlBbQykCg5TfEyXoUJR8tGDGg==
   dependencies:
     "@types/react" "*"
     react-native "*"
