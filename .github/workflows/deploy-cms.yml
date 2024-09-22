@@ -67,7 +67,7 @@ jobs:
         working-directory: ./client
         run: yarn
 
-      - name: Cache CMS Dependencies # Firebase hosting unfortunateley builds all targets (web and cms)
+      - name: Cache CMS Dependencies
         id: cache-cms-node-modules
         uses: actions/cache@v2
         with:
@@ -79,20 +79,12 @@ jobs:
         working-directory: ./cms
         run: yarn
 
-      - name: Cache web Dependencies # Firebase hosting unfortunateley builds all targets (web and cms)
-        id: cache-web-node-modules
-        uses: actions/cache@v2
-        with:
-          path: ./web/node_modules
-          key: web-node-modules-${{ hashFiles('./web/yarn.lock') }}
-
-      - name: Install Web Dependencies
-        if: steps.cache-web-node-modules.outputs.cache-hit != 'true'
-        working-directory: ./web
-        run: yarn
-
       - name: Build Content
         working-directory: ./content
+        run: yarn build
+
+      - name: Build CMS
+        working-directory: ./cms
         run: yarn build
 
       - name: Deploy CMS
