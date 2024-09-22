@@ -1543,10 +1543,10 @@ finalhandler@1.3.1:
     statuses "2.0.1"
     unpipe "~1.0.0"
 
-firebase-tools@^13.15.2:
-  version "13.15.2"
-  resolved "https://registry.yarnpkg.com/firebase-tools/-/firebase-tools-13.15.2.tgz#a00d0d79d164f8864cfedbe038d7f8b6ba5d9bb8"
-  integrity sha512-tZCAEDakS5/U2Kler5+JqDvAa0uaFvBttHfbu8PMeX8NxvXPUZ+nkGUHJD6aiZZMKZWkb7pgKcX7ZN8QTpwb0g==
+firebase-tools@^13.17.0:
+  version "13.17.0"
+  resolved "https://registry.yarnpkg.com/firebase-tools/-/firebase-tools-13.17.0.tgz#0405682b2cc09924f19a4777ff5cd3c65d7e5d67"
+  integrity sha512-spf7h4hbXmG7KVpq2pZ1I01mHBdUfo9QyYb1KcsU7yjI20pt7+LltHuiK9QPv0o3w8s03sCKRAKi60IJ3Th2BA==
   dependencies:
     "@google-cloud/cloud-sql-connector" "^1.3.3"
     "@google-cloud/pubsub" "^4.5.0"
@@ -1612,7 +1612,7 @@ firebase-tools@^13.15.2:
     uuid "^8.3.2"
     winston "^3.0.0"
     winston-transport "^4.4.0"
-    ws "^7.2.3"
+    ws "^7.5.10"
     yaml "^2.4.1"
 
 fn.name@1.x.x:
@@ -4305,7 +4305,7 @@ write-file-atomic@^3.0.0:
     signal-exit "^3.0.2"
     typedarray-to-buffer "^3.1.5"
 
-ws@^7.2.3:
+ws@^7.5.10:
   version "7.5.10"
   resolved "https://registry.yarnpkg.com/ws/-/ws-7.5.10.tgz#58b5c20dc281633f6c19113f39b349bd8bd558d9"
   integrity sha512-+dbF1tHwZpXcbOJdVOkzLDxZP1ailvSxM6ZweXTegylPny803bFhA+vqBYw4s31NSAk4S2Qz+AKXK9a4wkdjcQ==

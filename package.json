@@ -6,6 +6,6 @@
     "node": "18"
   },
   "devDependencies": {
-    "firebase-tools": "^13.15.2"
+    "firebase-tools": "^13.17.0"
   }
 }
