@@ -9,13 +9,11 @@
   "hosting": [
     {
       "site": "cupcake-29k-cms",
-      "public": "./cms/dist",
-      "predeploy": ["yarn --cwd \"$RESOURCE_DIR\" build"]
+      "public": "./cms/dist"
     },
     {
       "site": "cupcake-web",
-      "public": "./web/dist",
-      "predeploy": ["yarn --cwd \"$RESOURCE_DIR\" build"]
+      "public": "./web/dist"
     }
   ],
   "emulators": {
@@ -44,7 +42,6 @@
     }
   },
   "functions": {
-    "predeploy": ["yarn --cwd \"$RESOURCE_DIR\" build"],
     "source": "functions"
   }
 }
