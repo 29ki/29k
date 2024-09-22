@@ -4,6 +4,7 @@ import path from 'path';
 const nextConfig = {
   output: 'export',
   distDir: 'dist',
+  trailingSlash: true,
   compiler: {
     styledComponents: true,
   },
