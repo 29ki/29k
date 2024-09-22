@@ -4562,10 +4562,10 @@ finity@^0.5.4:
   resolved "https://registry.yarnpkg.com/finity/-/finity-0.5.4.tgz#f2a8a9198e8286467328ec32c8bfcc19a2229c11"
   integrity sha512-3l+5/1tuw616Lgb0QBimxfdd2TqaDGpfCBpfX6EqtFmqUV3FtQnVEX4Aa62DagYEqnsTIjZcTfbq9msDbXYgyA==
 
-firebase-admin@^12.3.1:
-  version "12.3.1"
-  resolved "https://registry.yarnpkg.com/firebase-admin/-/firebase-admin-12.3.1.tgz#425ca09e439003043ef7ddbae28d6af214025543"
-  integrity sha512-vEr3s3esl8nPIA9r/feDT4nzIXCfov1CyyCSpMQWp6x63Q104qke0MEGZlrHUZVROtl8FLus6niP/M9I1s4VBA==
+firebase-admin@^12.5.0:
+  version "12.5.0"
+  resolved "https://registry.yarnpkg.com/firebase-admin/-/firebase-admin-12.5.0.tgz#fed378b8b8ee6d7793ba23a5b8e1f43740de8bdb"
+  integrity sha512-ad8vnlPcuuZN9scSgY8UnAxPI4mzP2/Q+dsrVLTf+j3h7bIq0FOelDCDGz4StgKJdk244v2kpOxqJjPG3grBHg==
   dependencies:
     "@fastify/busboy" "^3.0.0"
     "@firebase/database-compat" "^1.0.2"
