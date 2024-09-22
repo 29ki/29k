@@ -7730,10 +7730,10 @@ open@^6.3.0:
   dependencies:
     is-wsl "^1.1.0"
 
-openai@^4.56.0:
-  version "4.56.0"
-  resolved "https://registry.yarnpkg.com/openai/-/openai-4.56.0.tgz#07d3982544cabd5781127288a8dfcceb7319a4cf"
-  integrity sha512-zcag97+3bG890MNNa0DQD9dGmmTWL8unJdNkulZzWRXrl+QeD+YkBI4H58rJcwErxqGK6a0jVPZ4ReJjhDGcmw==
+openai@^4.63.0:
+  version "4.63.0"
+  resolved "https://registry.yarnpkg.com/openai/-/openai-4.63.0.tgz#cabe7223788157c96c818317cc361386807157f7"
+  integrity sha512-Y9V4KODbmrOpqiOmCDVnPfMxMqKLOx8Hwcdn/r8mePq4yv7FSXGnxCs8/jZKO7zCB/IVPWihpJXwJNAIOEiZ2g==
   dependencies:
     "@types/node" "^18.11.18"
     "@types/node-fetch" "^2.6.4"
