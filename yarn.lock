@@ -568,7 +568,7 @@ bl@^4.1.0:
     inherits "^2.0.4"
     readable-stream "^3.4.0"
 
-body-parser@1.20.3:
+body-parser@1.20.3, body-parser@^1.18.3, body-parser@^1.19.0:
   version "1.20.3"
   resolved "https://registry.yarnpkg.com/body-parser/-/body-parser-1.20.3.tgz#1953431221c6fb5cd63c4b36d53fab0928e548c6"
   integrity sha512-7rAxByjUMqQ3/bHJy7D6OGXvx/MMc4IqBn/X0fcM1QUcAItpZrBEYhWGem+tzXH90c+G01ypMcYJBO9Y30203g==
@@ -582,24 +582,6 @@ body-parser@1.20.3:
     iconv-lite "0.4.24"
     on-finished "2.4.1"
     qs "6.13.0"
-    raw-body "2.5.2"
-    type-is "~1.6.18"
-    unpipe "1.0.0"
-
-body-parser@^1.18.3, body-parser@^1.19.0:
-  version "1.20.2"
-  resolved "https://registry.yarnpkg.com/body-parser/-/body-parser-1.20.2.tgz#6feb0e21c4724d06de7ff38da36dad4f57a747fd"
-  integrity sha512-ml9pReCu3M61kGlqoTm2umSXTlRTuGTx0bfYj+uIUKKYycG5NtSbeetV3faSU6R7ajOPw0g/J1PvK4qNy7s5bA==
-  dependencies:
-    bytes "3.1.2"
-    content-type "~1.0.5"
-    debug "2.6.9"
-    depd "2.0.0"
-    destroy "1.2.0"
-    http-errors "2.0.0"
-    iconv-lite "0.4.24"
-    on-finished "2.4.1"
-    qs "6.11.0"
     raw-body "2.5.2"
     type-is "~1.6.18"
     unpipe "1.0.0"
@@ -1543,10 +1525,10 @@ finalhandler@1.3.1:
     statuses "2.0.1"
     unpipe "~1.0.0"
 
-firebase-tools@^13.17.0:
-  version "13.17.0"
-  resolved "https://registry.yarnpkg.com/firebase-tools/-/firebase-tools-13.17.0.tgz#0405682b2cc09924f19a4777ff5cd3c65d7e5d67"
-  integrity sha512-spf7h4hbXmG7KVpq2pZ1I01mHBdUfo9QyYb1KcsU7yjI20pt7+LltHuiK9QPv0o3w8s03sCKRAKi60IJ3Th2BA==
+firebase-tools@^13.18.0:
+  version "13.18.0"
+  resolved "https://registry.yarnpkg.com/firebase-tools/-/firebase-tools-13.18.0.tgz#5cf32cba309570915fbffc9b2e03d3ee0c55b916"
+  integrity sha512-HackYCHIDqGddGCua79jEOL0ZtMr9LOsk99KIzymX8UET7BeFDwFs7zNgJSFxFErqBKWw2Y1zAj7OuE8+EOkIw==
   dependencies:
     "@google-cloud/cloud-sql-connector" "^1.3.3"
     "@google-cloud/pubsub" "^4.5.0"
@@ -3274,13 +3256,6 @@ pupa@^2.1.1:
   integrity sha512-l1jNAspIBSFqbT+y+5FosojNpVpF94nlI+wDUpqP9enwOTfHx9f0gh5nB96vl+6yTpsJsypeNrwfzPrKuHB41A==
   dependencies:
     escape-goat "^2.0.0"
-
-qs@6.11.0:
-  version "6.11.0"
-  resolved "https://registry.yarnpkg.com/qs/-/qs-6.11.0.tgz#fd0d963446f7a65e1367e01abd85429453f0c37a"
-  integrity sha512-MvjoMCJwEarSbUYk5O+nmoSzSutSsTwF85zcHPQ9OrlFoZOYIjaqBAJIqIXjptyD5vThxGq52Xu/MaJzRkIk4Q==
-  dependencies:
-    side-channel "^1.0.4"
 
 qs@6.13.0:
   version "6.13.0"
