@@ -158,10 +158,10 @@
         "type": "host",
         "hostNotes": [
           {
-            "text": "Welcome\n\nI am X and today we will work for around 30 minutes on kindness and gratitude.\n\nWe’ll be doing an audio exercise, followed by time for reflection and sharing with each other."
+            "text": "Bem-vindos. Eu sou X e hoje vamos trabalhar durante cerca de 30 minutos acerca de gentileza e gratidão.\n\nVamos fazer um exercício de áudio, seguido de um tempo para reflexão e partilha entre nós."
           },
           {
-            "text": "Let’s start with a mini check-in. How are you feeling right now? Please answer in two-three words. X, would you like to start?\n\n> Let everyone in the session, including yourself, check in one by one.\n\nThank you all for checking in. Let’s get started."
+            "text": "Vamos começar com um pequeno check-in. Como te estás a sentir? Por favor, responde em duas ou três palavras. X, queres começar?\n\n> Deixa que todos na sessão, incluindo-te a ti, façam o check-in individualmente.\n\nObrigada/o a todos por fazerem o check-in. Vamos começar."
           }
         ]
       },
@@ -169,13 +169,13 @@
         "type": "content",
         "hostNotes": [
           {
-            "text": "> Press play to start the exercise"
+            "text": "Encontra uma posição confortável. Vou iniciar o exercício de áudio e voltamos aqui depois.\n\n> Carrega em play para iniciar o exercício"
           }
         ],
         "content": {
           "lottie": {
-            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1710249978/Audio/Seeing_kindness_hvfgwv.mp3",
-            "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1699020183/SRT%20(captions)%20files/Seeing_kindness_jvjxtv.srt",
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1727166566/FJN/Meditations/Florbela/Vendo_Gentileza_qotuos.mp3",
+            "subtitles": "",
             "durationTimer": true,
             "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1699620866/Lottie/meditation_visual_seeing_kindness_jyu33s.json"
           }
@@ -185,14 +185,14 @@
         "type": "reflection",
         "hostNotes": [
           {
-            "text": "Now we’ll take 1 minute to reflect on our own.\n\nIf you use that situation as an inspiration right here and now, what would it motivate you to do?"
+            "text": "Agora vamos tirar 1 minuto para refletir individualmente.\n\nSe usares essa situação como inspiração, aqui e agora, o que te motivaria a fazeres?"
           },
           {
-            "text": "You can take notes on a piece of paper or just mental notes in your head. And there is no right or wrong here, our answers are our own. 1 minute starting now.\n\n> Press play to start the timer.\n\nThat’s 1 minute and it’s time to move on."
+            "text": "Podes tomar notas num pedaço de papel ou mentalmente. Não há certo ou errado, as nossas respostas são só nossas. 1 minuto a partir de agora.\n\n> Carrega em play para iniciar o cronómetro.\n\nPassou 1 minuto e é hora de avançar."
           }
         ],
         "content": {
-          "heading": "What does the kind action motivate you to do?",
+          "heading": "O que é que essa ação de gentileza te motiva a fazer?",
           "lottie": {
             "durationTimer": true,
             "duration": 60,
@@ -205,18 +205,18 @@
         "type": "sharing",
         "hostNotes": [
           {
-            "text": "Now we are getting into the sharing part. We have three rules for sharing:\n\n1. **What is said in here, stays in here.**\n2. **All you need to do is listen.** There is no fixing, helping or advice-giving needed. We are just showing up and exploring what ourselves and others are going through."
+            "text": "Agora passamos para a parte da partilha. Temos três regras para partilhar:\n\n1. **O que é dito aqui, fica aqui.**\n2. **Só precisas de ouvir.** Não é necessário corrigir, ajudar ou dar conselhos. Estamos apenas a explorar o que nós e os outros estão a passar."
           },
           {
-            "text": "3. **Everything on the inside is okay.** Anger, love, hatred, sadness. Whatever shows up. No wrongs, no rights. It is what it is.\n\nThere will be a timer set for 2 minutes as an indicator. If you don’t want to share you can always say ‘pass’."
+            "text": "3. **Tudo o que sentires é válido.** Raiva, amor, ódio, tristeza. O que quer que surja. Não há certo ou errado. É o que é.\n\nHaverá um cronómetro de 2 minutos como indicador. Se não quiseres partilhar, pode sempre dizer 'passo'."
           },
           {
-            "text": "Who would like to start?\n\n> Let everyone (or as many as you got time for) share one by one. Press play to start the timer. Re-start for each new sharing.\n\nThank you so much everyone."
+            "text": "Quem gostaria de começar?\n\n> Deixa que todos (ou os que houver tempo) partilhem individualmente. Carrega em play para iniciar o cronómetro. Reinicia para cada nova partilha.\n\nMuito obrigada/o a todos."
           }
         ],
         "id": "1",
         "content": {
-          "heading": "What does the kind action motivate you to do?",
+          "heading": "O que é que essa ação de gentileza te motiva a fazer?",
           "lottie": {
             "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto/v1699611515/Lottie/2min_seeing_kindness_hp4bsp.json",
             "duration": 120,
@@ -228,23 +228,24 @@
         "type": "host",
         "hostNotes": [
           {
-            "text": "Well done. Experiencing kind actions can make us feel connected and foster a sense of belonging. If you’re up for it, you can continue with a mission to bring this into your everyday life.\n\nPlan a simple act of kindness you can do during the day, and notice how it affects others as well as yourself."
+            "text": "Muito bem. Vivenciar ações de gentileza pode fazer-nos sentir conectados e promover um sentimento de pertença. Se estiveres com disposição, podes continuar com esta missão e trazer isso para o teu dia-a-dia.\n\nPlaneia um simples ato de gentileza que possas fazer durante o dia e repara em como isso afeta tanto os outros como a ti próprio."
           },
           {
-            "text": "Before we leave this space let’s do a mini check-out. \n\nHow are you feeling right now? Has anything shifted? Please answer in two-three words."
+            "text": "Antes de deixarmos este espaço, vamos fazer um pequeno check-out. \n\nComo te sentes agora? Alguma coisa mudou? Responde por favor em duas ou três palavras."
           },
           {
-            "text": "Who would like to start?\n\n> Let everyone in the session check out one by one.\n\nThank you all for checking out and for joining this session today.\n\n> Finish session to send everyone off to the exit experience."
+            "text": "Quem gostaria de começar?\n\n> Deixa que todos na sessão façam o check-out individualmente.\n\nObrigada/o a todos por fazerem o check-out final e por participarem nesta sessão de hoje.\n\n> Termina a sessão e envia todos para a experiência de saída."
           }
         ]
       },
       {
         "type": "instruction",
         "content": {
-          "text": "Well done. Experiencing kind actions can make us feel connected and foster a sense of belonging. If you’re up for it, you can continue with a mission to bring this into your everyday life.\n\nPlan a simple act of kindness you can do during the day, and notice how it affects others as well as yourself.",
+          "text": "Vivenciar ações de gentileza pode fazer-nos sentir conectados e promover um sentimento de pertença. Se estiveres com disposição, podes continuar com esta missão e trazer isso para o teu dia-a-dia.\n\nPlaneia um simples ato de gentileza que possas fazer durante o dia e repara em como isso afeta tanto os outros como a ti próprio.",
           "image": {
             "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1699611439/Images/asynk_image_seeing_kindness_vfmrmu.png"
-          }
+          },
+          "heading": "Parabéns"
         }
       }
     ],
@@ -286,7 +287,7 @@
     "introPortal": {
       "hostNotes": [
         {
-          "text": "> Start the session when you're ready to begin"
+          "text": "> Inicia a sessão quando estiveres pronta/o para começar"
         }
       ],
       "videoLoop": {
