@@ -158,7 +158,7 @@
         "type": "host",
         "hostNotes": [
           {
-            "text": "Welcome. I am X and today we will work for around 30 minutes on xx\n\nWe’ll be doing xx ex. meditation followed by time for reflection and sharing with each other."
+            "text": "Welcome\n\nI am X and today we will work for around 30 minutes on kindness and gratitude.\n\nWe’ll be doing an audio exercise, followed by time for reflection and sharing with each other."
           },
           {
             "text": "Let’s start with a mini check-in. How are you feeling right now? Please answer in two-three words. X, would you like to start?\n\n> Let everyone in the session, including yourself, check in one by one.\n\nThank you all for checking in. Let’s get started."
@@ -166,18 +166,40 @@
         ]
       },
       {
-        "type": "content"
+        "type": "content",
+        "hostNotes": [
+          {
+            "text": "> Press play to start the exercise"
+          }
+        ],
+        "content": {
+          "lottie": {
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1710249978/Audio/Seeing_kindness_hvfgwv.mp3",
+            "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1699020183/SRT%20(captions)%20files/Seeing_kindness_jvjxtv.srt",
+            "durationTimer": true,
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1699620866/Lottie/meditation_visual_seeing_kindness_jyu33s.json"
+          }
+        }
       },
       {
         "type": "reflection",
         "hostNotes": [
           {
-            "text": "Now we’ll take 1 minute to reflect on our own.\n\nxxMain question\n\nxxFurther explanations of main question if needed"
+            "text": "Now we’ll take 1 minute to reflect on our own.\n\nIf you use that situation as an inspiration right here and now, what would it motivate you to do?"
           },
           {
             "text": "You can take notes on a piece of paper or just mental notes in your head. And there is no right or wrong here, our answers are our own. 1 minute starting now.\n\n> Press play to start the timer.\n\nThat’s 1 minute and it’s time to move on."
           }
-        ]
+        ],
+        "content": {
+          "heading": "What does the kind action motivate you to do?",
+          "lottie": {
+            "durationTimer": true,
+            "duration": 60,
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1699611514/Lottie/1min_seeing_kindness_sqq5s1.json",
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1701419682/Audio/60_sec_seeing_kindness_rodych.mp3"
+          }
+        }
       },
       {
         "type": "sharing",
@@ -191,13 +213,22 @@
           {
             "text": "Who would like to start?\n\n> Let everyone (or as many as you got time for) share one by one. Press play to start the timer. Re-start for each new sharing.\n\nThank you so much everyone."
           }
-        ]
+        ],
+        "id": "1",
+        "content": {
+          "heading": "What does the kind action motivate you to do?",
+          "lottie": {
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto/v1699611515/Lottie/2min_seeing_kindness_hp4bsp.json",
+            "duration": 120,
+            "durationTimer": true
+          }
+        }
       },
       {
         "type": "host",
         "hostNotes": [
           {
-            "text": "Well done. If you’re up for it, you can continue what we started here today with a mission to bring this into your everyday life.\n\nxx mission description"
+            "text": "Well done. Experiencing kind actions can make us feel connected and foster a sense of belonging. If you’re up for it, you can continue with a mission to bring this into your everyday life.\n\nPlan a simple act of kindness you can do during the day, and notice how it affects others as well as yourself."
           },
           {
             "text": "Before we leave this space let’s do a mini check-out. \n\nHow are you feeling right now? Has anything shifted? Please answer in two-three words."
@@ -210,30 +241,72 @@
       {
         "type": "instruction",
         "content": {
-          "text": "Well done.\n\nSummary.\n\nIf you’re up for it, you can continue with this mission.\n\nmission description"
+          "text": "Well done. Experiencing kind actions can make us feel connected and foster a sense of belonging. If you’re up for it, you can continue with a mission to bring this into your everyday life.\n\nPlan a simple act of kindness you can do during the day, and notice how it affects others as well as yourself.",
+          "image": {
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1699611439/Images/asynk_image_seeing_kindness_vfmrmu.png"
+          }
         }
       }
     ],
     "theme": {
-      "textColor": "#2AE2D7"
+      "textColor": "#2E2E2E",
+      "backgroundColor": "#f7dfc9"
     },
     "hidden": false,
+    "name": "Observando gentileza",
     "live": true,
-    "published": false,
+    "published": true,
+    "card": {
+      "backgroundColor": "",
+      "image": {
+        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1699611438/Images/card_image_seeing_kindness_haxh2q.png"
+      }
+    },
+    "coCreators": [
+      {
+        "name": "Jenny Rickardsson, voice and editor",
+        "url": "https://www.linkedin.com/in/jenny-rickardson-6770a959/",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413228/Contributors/Jenny%20Rickardsson.jpg"
+      },
+      {
+        "name": "Ints Ivanovskis, art works",
+        "url": "https://www.linkedin.com/in/ints-ivanovskis-46ab0311a/",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413436/Contributors/Ints%20Ivanovskis.jpg"
+      },
+      {
+        "name": "Jonathan Haidt & Sara Algoe, inspiration & research",
+        "url": "https://ggie.berkeley.edu/",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1700736672/Contributors/Greatergoodsciencelogo.png"
+      },
+      {
+        "name": "Florbela Silva, voz em Português"
+      }
+    ],
     "duration": 30,
     "introPortal": {
       "hostNotes": [
         {
-          "text": "> Start the session when you're ready to go"
+          "text": "> Start the session when you're ready to begin"
         }
-      ]
+      ],
+      "videoLoop": {
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1699611480/Video/portal1_seeing_kindness_bnyu6v.mp4",
+        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1699611545/Audio/portal_audio_seeing_kindness_s2j9wc.mp3",
+        "p5JsScript": {
+          "lang": "javascript"
+        }
+      },
+      "videoEnd": {
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1699611475/Video/portal2_seeing_kindness_bu6lfb.mp4"
+      }
     },
     "tags": [
       "43a6dc0d-d866-4b79-9453-13c44e906128"
     ],
     "link": "https://aware.29k.org/seeing-kindness",
     "id": "648e1802-eb45-47b0-a42e-dd986669a4eb",
-    "async": false
+    "async": true,
+    "description": "Recorda um momento de gentileza e usa-o como inspiração. Ver atos de gentileza pode gerar respostas emocionais positivas e até trazer um sentimento de admiração. Esses atos podem fomentar esperança e conexão, além de se espalharem para os outros"
   },
   "sv": {
     "slides": [
@@ -453,6 +526,7 @@
     "hidden": false,
     "live": true,
     "published": false,
+    "card": {},
     "duration": 30,
     "introPortal": {
       "hostNotes": [
