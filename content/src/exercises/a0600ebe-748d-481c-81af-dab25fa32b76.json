@@ -165,10 +165,10 @@
         "type": "host",
         "hostNotes": [
           {
-            "text": "Welcome. I am X and today we will work for around 30 minutes on self-compassion.\n\nWe’ll be doing an audio exercise, followed by time for reflection and sharing with each other."
+            "text": "Bem-vindos. Eu sou X e hoje vamos trabalhar cerca de 30 minutos em autocompaixão.\n\nVamos fazer um exercício de áudio, seguido de um tempo para reflexão e partilha entre nós."
           },
           {
-            "text": "Let’s start with a mini check-in. How are you feeling right now? Please answer in two-three words. X, would you like to start?\n\n> Let everyone in the session, including yourself, check in one by one.\n\nThank you all for checking in. Let’s get started."
+            "text": "Vamos começar com um pequeno check-in. Como te estás a sentir? Por favor, responde em duas ou três palavras. X, queres começar?\n\n> Deixa que todos na sessão, incluindo-te a ti, façam o check-in individualmente.\n\nObrigada/o a todos por fazerem o check-in. Vamos começar."
           }
         ]
       },
@@ -176,7 +176,7 @@
         "type": "content",
         "hostNotes": [
           {
-            "text": "Finding a self-compassionate inner voice can be tricky. Find a comfortable position. I will start the audio exercise and we'll meet back here afterwards. \n\n> Tap play to start the audio exercise"
+            "text": "Encontrar uma voz interior autocompassiva pode ser complicado. Encontra uma posição confortável. Vou iniciar o exercício de áudio e voltamos aqui depois.\n\n> Carrega em play para iniciar o exercício"
           }
         ],
         "content": {
@@ -264,7 +264,7 @@
     "locked": false,
     "name": "O amigo interior",
     "live": true,
-    "published": true,
+    "published": false,
     "card": {
       "image": {
         "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1716379707/Images/inner_friend_card_lvgppt.png"
@@ -290,6 +290,9 @@
         "name": "Tabitha, AI-generated voice",
         "url": "https://www.descript.com/ai-voices",
         "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1710239861/Contributors/descript_ps0olu.webp"
+      },
+      {
+        "name": "Florbela Silva, Portuguese voice"
       }
     ],
     "duration": 30,
@@ -297,7 +300,7 @@
       "textColor": "#2E2E2E",
       "hostNotes": [
         {
-          "text": "> Start the session when you're ready to go"
+          "text": "> Inicia a sessão quando estiveres pronta/o para começar."
         }
       ],
       "videoLoop": {
