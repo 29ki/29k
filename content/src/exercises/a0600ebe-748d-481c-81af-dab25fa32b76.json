@@ -264,7 +264,7 @@
     "locked": false,
     "name": "O amigo interior",
     "live": true,
-    "published": false,
+    "published": true,
     "card": {
       "image": {
         "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1716379707/Images/inner_friend_card_lvgppt.png"
