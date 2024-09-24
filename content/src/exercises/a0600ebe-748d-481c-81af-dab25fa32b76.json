@@ -264,7 +264,7 @@
     "locked": false,
     "name": "O amigo interior",
     "live": true,
-    "published": true,
+    "published": false,
     "card": {
       "image": {
         "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1716379707/Images/inner_friend_card_lvgppt.png"
@@ -290,6 +290,9 @@
         "name": "Tabitha, AI-generated voice",
         "url": "https://www.descript.com/ai-voices",
         "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1710239861/Contributors/descript_ps0olu.webp"
+      },
+      {
+        "name": "Florbela Silva, voz em Português"
       }
     ],
     "duration": 30,
