@@ -165,10 +165,10 @@
         "type": "host",
         "hostNotes": [
           {
-            "text": "Welcome. I am X and today we will work for around 30 minutes on self-compassion.\n\nWe’ll be doing an audio exercise, followed by time for reflection and sharing with each other."
+            "text": "Bem-vindos. Eu sou X e hoje vamos trabalhar cerca de 30 minutos em autocompaixão.\n\nVamos fazer um exercício de áudio, seguido de um tempo para reflexão e partilha entre nós."
           },
           {
-            "text": "Let’s start with a mini check-in. How are you feeling right now? Please answer in two-three words. X, would you like to start?\n\n> Let everyone in the session, including yourself, check in one by one.\n\nThank you all for checking in. Let’s get started."
+            "text": "Vamos começar com um pequeno check-in. Como te estás a sentir? Por favor, responde em duas ou três palavras. X, queres começar?\n\n> Deixa que todos na sessão, incluindo-te a ti, façam o check-in individualmente.\n\nObrigada/o a todos por fazerem o check-in. Vamos começar."
           }
         ]
       },
@@ -176,13 +176,13 @@
         "type": "content",
         "hostNotes": [
           {
-            "text": "Finding a self-compassionate inner voice can be tricky. Find a comfortable position. I will start the audio exercise and we'll meet back here afterwards. \n\n> Tap play to start the audio exercise"
+            "text": "Encontrar uma voz interior autocompassiva pode ser complicado. Encontra uma posição confortável. Vou iniciar o exercício de áudio e voltamos aqui depois.\n\n> Carrega em play para iniciar o exercício."
           }
         ],
         "content": {
           "lottie": {
-            "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1713530314/SRT%20%28captions%29%20files/Cupcake_inner_friend_obsdxk.srt",
-            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1713530383/Audio/Cupcake_inner_friend_b7ysza.mp3",
+            "subtitles": "",
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1727166572/FJN/Meditations/Florbela/Inner_friend_qfxnbj.mp3",
             "durationTimer": true,
             "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto/v1676977421/Lottie/audio_meditation_default_black_default_omemwt.json"
           }
@@ -192,14 +192,14 @@
         "type": "reflection",
         "hostNotes": [
           {
-            "text": "Now we’ll take 1 minute to reflect on our own.\n\nWhat did this exercise evoke in you?"
+            "text": "Agora vamos tirar 1 minuto para refletir individualmente.\n\nO que é que este exercício despertou em ti?"
           },
           {
-            "text": "You can take notes on a piece of paper or just mental notes in your head. And there is no right or wrong here, our answers are our own. 1 minute starting now.\n\n> Press play to start the timer.\n\nThat’s 1 minute and it’s time to move on."
+            "text": "Podes tomar notas num pedaço de papel ou mentalmente. Não há certo ou errado, as nossas respostas são só nossas. 1 minuto a partir de agora.\n\n> Carrega em play para iniciar o cronómetro.\n\nPassou 1 minuto e é hora de avançar."
           }
         ],
         "content": {
-          "heading": "What did this evoke in you?",
+          "heading": "O que é que este exercício despertou em ti?",
           "lottie": {
             "durationTimer": true,
             "duration": "",
@@ -212,18 +212,18 @@
         "type": "sharing",
         "hostNotes": [
           {
-            "text": "Now we are getting into the sharing part. We have three rules for sharing:\n\n1. **What is said in here, stays in here.**\n2. **All you need to do is listen.** There is no fixing, helping or advice-giving needed. We are just showing up and exploring what ourselves and others are going through."
+            "text": "Agora passamos para a parte da partilha. Temos três regras para partilhar:\n\n1. **O que é dito aqui, fica aqui.**\n2. **Só precisas de ouvir.** Não é necessário corrigir, ajudar ou dar conselhos. Estamos apenas a explorar o que nós e os outros estão a passar."
           },
           {
-            "text": "3. **Everything on the inside is okay.** Anger, love, hatred, sadness. Whatever shows up. No wrongs, no rights. It is what it is.\n\nThere will be a timer set for 2 minutes as an indicator. If you don’t want to share you can always say ‘pass’."
+            "text": "3. **Tudo o que sentires é válido.** Raiva, amor, ódio, tristeza. O que quer que surja. Não há certo ou errado. É o que é.\n\nHaverá um cronómetro de 2 minutos como indicador. Se não quiseres partilhar, pode sempre dizer 'passo'."
           },
           {
-            "text": "Who would like to start?\n\n> Let everyone (or as many as you got time for) share one by one. Press play to start the timer. Re-start for each new sharing.\n\nThank you so much everyone."
+            "text": "Quem gostaria de começar?\n\n> Deixa que todos (ou os que houver tempo) partilhem individualmente. Carrega em play para iniciar o cronómetro. Reinicia para cada nova partilha.\n\nMuito obrigada/o a todos."
           }
         ],
         "id": "Sharing 1",
         "content": {
-          "heading": "What did this evoke in you?",
+          "heading": "O que é que isto despertou em ti?",
           "lottie": {
             "durationTimer": true,
             "duration": 120,
@@ -235,24 +235,24 @@
         "type": "host",
         "hostNotes": [
           {
-            "text": "Well done. If you want to get to know your inner friend more, here's a mission: For the coming two days, notice when the inner critic shows up, and take some time to see what your inner friend says."
+            "text": "Muito bem. Se quiseres conhecer melhor o teu amigo interior, aqui está uma missão: Nos próximos dois dias, está atento quando o teu crítico interior aparece e tira um tempo para ouvir o que ele diz."
           },
           {
-            "text": "Before we leave this space let’s do a mini check-out. \n\nHow are you feeling right now? Has anything shifted? Please answer in two-three words."
+            "text": "Antes de deixarmos este espaço, vamos fazer um pequeno check-out.\n\nComo te sentes agora? Alguma coisa mudou? Responde por favor em duas ou três palavras."
           },
           {
-            "text": "Who would like to start?\n\n> Let everyone in the session check out one by one.\n\nThank you all for checking out and for joining this session today.\n\n> Finish session to send everyone off to the exit experience."
+            "text": "Quem gostaria de começar?\n\n> Deixa que todos na sessão façam o check-out individualmente.\n\nObrigada/o a todos por fazerem o check-out final e por participarem nesta sessão de hoje.\n\n> Termina a sessão e envia todos para a experiência de saída."
           }
         ]
       },
       {
         "type": "instruction",
         "content": {
-          "text": "If you want to get to know your inner friend more, here's a mission: \n\nFor the coming two days, notice when the inner critic shows up, and take some time to see what your inner friend says.",
+          "text": "Se quiseres conhecer melhor o teu amigo interior, aqui está uma missão:\n\nNos próximos dois dias, está atento quando o teu crítico interior aparece e tira um tempo para ouvir o que ele diz.",
           "image": {
             "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1716380005/Images/inner_friend_card_no_bg_rfo4kq.png"
           },
-          "heading": "Well done. "
+          "heading": "Parabéns."
         }
       }
     ],
@@ -300,7 +300,7 @@
       "textColor": "#2E2E2E",
       "hostNotes": [
         {
-          "text": "> Start the session when you're ready to go"
+          "text": "> Inicia a sessão quando estiveres pronta/o para começar."
         }
       ],
       "videoLoop": {
