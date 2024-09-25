@@ -171,7 +171,7 @@
         "type": "content",
         "hostNotes": [
           {
-            "text": "Encontra uma posição confortável. Vou iniciar o exercício de áudio e voltamos aqui depois. \n\n> Carrega em play para iniciar o exercício."
+            "text": "Encontra uma posição confortável e prepara-te para tomar algumas notas. Vou iniciar o exercício de áudio e voltamos aqui depois. \n\n> Carrega em play para iniciar o exercício."
           }
         ],
         "content": {
@@ -310,7 +310,7 @@
     ],
     "id": "13dfd5b5-f0af-4783-9fe1-3ba7773bcb89",
     "async": true,
-    "description": "Aprende sobre a autocompaixão e como pode ser útil na tua vida."
+    "description": "Aprende sobre a autocompaixão e como pode ser útil na tua vida. Encontra uma posição confortável e prepara-te para tomar algumas notas durante o exercício."
   },
   "sv": {
     "slides": [
