@@ -78,9 +78,10 @@ const IntroPortal: React.FC<IntroPortalProps> = ({
     !introPortal?.videoLoop?.p5JsScript?.code &&
     Boolean(introPortal?.videoLoop?.source);
 
-  const [isReadyForAudio, setIsReadyForAudio] = useState(!isVideo);
+  const [isReadyForAudio, setIsReadyForAudio] = useState(!isVideo || !isLive);
   const [isTransitioning, setIsTransitioning] = useState(false);
   const [isLoading, setIsLoading] = useState(isVideo);
+  const [isHidden, setIsHidden] = useState(!isVisible);
   const [hasError, setHasError] = useState(false);
 
   const sessionState = useSessionState(state => state.sessionState);
@@ -105,15 +106,28 @@ const IntroPortal: React.FC<IntroPortalProps> = ({
     onNavigateToSession,
   ]);
 
+  useEffect(() => {
+    if (!isVisible) {
+      setIsTransitioning(true);
+      const timeout = setTimeout(() => {
+        setIsHidden(true);
+      }, 5000);
+
+      return () => clearTimeout(timeout);
+    }
+  }, [isVisible]);
+
   const onVideoLoad = useCallback(() => {
     setIsLoading(false);
-    // TODO remove this timeout when daily is not joined
-    // until after the portal is done
-    // https://www.notion.so/29k/Early-Access-2794500652b34c64b0aff0dbbc53e0ab?pvs=4#2f566fc8ac87402aa92eb6798b469918
-    setTimeout(() => {
-      setIsReadyForAudio(true);
-    }, 2000);
-  }, [setIsReadyForAudio, setIsLoading]);
+    if (isLive) {
+      // TODO remove this timeout when daily is not joined
+      // until after the portal is done
+      // https://www.notion.so/29k/Early-Access-2794500652b34c64b0aff0dbbc53e0ab?pvs=4#2f566fc8ac87402aa92eb6798b469918
+      setTimeout(() => {
+        setIsReadyForAudio(true);
+      }, 2000);
+    }
+  }, [isLive, setIsReadyForAudio, setIsLoading]);
 
   const onVideoTransition = useCallback(() => {
     setIsTransitioning(true);
@@ -129,21 +143,10 @@ const IntroPortal: React.FC<IntroPortalProps> = ({
     setIsLoading(false);
   }, [setHasError]);
 
-  if (!isVisible) return null;
+  if (isHidden) return null;
 
   return (
-    <Screen backgroundColor={exercise?.theme?.backgroundColor}>
-      {(!isHost || hideHostNotes) && (
-        <>
-          <StatusBar
-            barStyle={
-              textColor === COLORS.WHITE ? 'light-content' : 'dark-content'
-            }
-          />
-          <TopSafeArea minSize={SPACINGS.SIXTEEN} />
-        </>
-      )}
-
+    <>
       {introPortal?.videoLoop?.audio ? (
         <AudioFader
           source={introPortal.videoLoop.audio}
@@ -177,36 +180,37 @@ const IntroPortal: React.FC<IntroPortalProps> = ({
         </>
       )}
       {isLoading && <Spinner color={textColor} size="large" />}
-      <Wrapper>
-        <Content>
-          <TopBar>
-            <BackButton
-              onPress={onLeaveSession}
-              fill={textColor}
-              Icon={ArrowLeftIcon}
-              noBackground
-            />
-            {__DEV__ && sessionState?.started && (
-              <Button size="small" onPress={onNavigateToSession}>
-                {t('skipPortal')}
-              </Button>
-            )}
-            {isHost && (
-              <Button
-                size="small"
-                disabled={sessionState?.started}
-                onPress={onStartSession}>
-                {sessionState?.started
-                  ? t('sessionStarted')
-                  : t('startSession')}
-              </Button>
-            )}
-          </TopBar>
-          {statusComponent}
-        </Content>
-      </Wrapper>
-      <BottomSafeArea minSize={SPACINGS.SIXTEEN} />
-    </Screen>
+      {isVisible && (
+        <Wrapper>
+          <Content>
+            <TopBar>
+              <BackButton
+                onPress={onLeaveSession}
+                fill={textColor}
+                Icon={ArrowLeftIcon}
+                noBackground
+              />
+              {__DEV__ && sessionState?.started && (
+                <Button size="small" onPress={onNavigateToSession}>
+                  {t('skipPortal')}
+                </Button>
+              )}
+              {isHost && (
+                <Button
+                  size="small"
+                  disabled={sessionState?.started}
+                  onPress={onStartSession}>
+                  {sessionState?.started
+                    ? t('sessionStarted')
+                    : t('startSession')}
+                </Button>
+              )}
+            </TopBar>
+            {statusComponent}
+          </Content>
+        </Wrapper>
+      )}
+    </>
   );
 };
 

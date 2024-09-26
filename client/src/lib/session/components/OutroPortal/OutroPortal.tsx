@@ -46,7 +46,7 @@ const OutroPortal: React.FC<OutroPortalProps> = ({
 
   const [isLoading, setIsLoading] = useState(isVideo);
   const [isReadyToLeave, setIsReadyToLeave] = useState(!isVideo);
-  usePreventGoingBack();
+  //usePreventGoingBack();
   useNavigateWithFade();
 
   const onVideoLoad = useCallback(() => {
@@ -63,10 +63,7 @@ const OutroPortal: React.FC<OutroPortalProps> = ({
   }, []);
 
   return (
-    <Screen backgroundColor={exercise?.theme?.backgroundColor}>
-      <TopSafeArea minSize={SPACINGS.SIXTEEN} />
-      <StatusBar hidden />
-
+    <>
       {outroPortal?.video?.source ? (
         <VideoTransition
           endSource={outroPortal.video.source}
@@ -108,9 +105,7 @@ const OutroPortal: React.FC<OutroPortalProps> = ({
           {t('leavePortal')}
         </Button>
       </TopBar>
-
-      <BottomSafeArea minSize={SPACINGS.SIXTEEN} />
-    </Screen>
+    </>
   );
 };
 
