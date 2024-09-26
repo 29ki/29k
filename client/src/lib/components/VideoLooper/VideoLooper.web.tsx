@@ -17,7 +17,10 @@ export type VideoPlayerHandle = {
 };
 
 const VideoLooper = forwardRef<VideoPlayerHandle, VideoLooperProperties>(
-  ({sources, style, paused, repeat, onProgress, onLoad}, ref) => {
+  (
+    {sources, style, paused, repeat, muted, volume = 1, onProgress, onLoad},
+    ref,
+  ) => {
     const videoRef = useRef<HTMLVideoElement>(null);
 
     const togglePaused = useCallback((pause?: boolean) => {
@@ -30,9 +33,10 @@ const VideoLooper = forwardRef<VideoPlayerHandle, VideoLooperProperties>(
 
     const onLoadedData = useCallback(() => {
       if (onLoad && videoRef.current) {
+        videoRef.current.muted = false;
         onLoad({duration: videoRef.current.duration});
       }
-    }, [onLoad]);
+    }, [muted, onLoad]);
 
     const onTimeUpdate = useCallback(() => {
       if (onProgress && videoRef.current) {
@@ -57,13 +61,20 @@ const VideoLooper = forwardRef<VideoPlayerHandle, VideoLooperProperties>(
       togglePaused(paused);
     }, [sources, togglePaused, paused]);
 
+    useEffect(() => {
+      if (videoRef.current) {
+        videoRef.current.volume = volume;
+      }
+    }, [volume]);
+
     return (
       <Video
         style={style}
         ref={videoRef}
         onLoadedData={onLoadedData}
         onTimeUpdate={onTimeUpdate}
-        loop={repeat}>
+        loop={repeat || sources[0].repeat}
+        muted>
         {sources.map(({source}) => (
           <source src={source} />
         ))}
