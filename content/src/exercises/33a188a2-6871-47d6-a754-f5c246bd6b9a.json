@@ -100,7 +100,8 @@
           "text": "Now you’ve learnt how to set SMART goals. \n\n* Specific\n* Measurable\n* Attainable\n* Relevant\n* Time-bound\n\nThey can help us take steps towards a more meaningful life. Make a commitment to yourself as to when you will start, and when you will evaluate the goal you've worked on today.",
           "image": {
             "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1707994019/Contributors/async_set_smart-goals_jfwido.png"
-          }
+          },
+          "heading": ""
         }
       }
     ],
@@ -250,10 +251,11 @@
       {
         "type": "instruction",
         "content": {
-          "text": "Agora aprendemos a definir objetivos SMART. Objetivos que são \n\n* específicos, \n* mensuráveis, \n* alcançáveis, \n* relevantes \n* e com prazo definido.\n\nEles podem ajudar-nos a dar passos em direção a uma vida com mais significado. Compromete-te contigo mesmo sobre quando vais começar e quando vais avaliar o objetivo em que trabalhaste hoje.",
+          "text": "Aprendes-te a definir objetivos SMART. Objetivos que são: \n\n* específicos, \n* mensuráveis, \n* alcançáveis, \n* relevantes \n* e com prazo definido.\n\nEles podem ajudar-te a dar passos em direção a uma vida com mais significado. Compromete-te contigo mesmo sobre quando vais começar e quando vais avaliar o objetivo em que trabalhaste hoje.",
           "image": {
             "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1707994019/Contributors/async_set_smart-goals_jfwido.png"
-          }
+          },
+          "heading": "Parabéns"
         }
       }
     ],
