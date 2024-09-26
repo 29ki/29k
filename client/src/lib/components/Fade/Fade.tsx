@@ -12,22 +12,29 @@ const AnimatedView = styled(Animated.View)<{visible: boolean}>(({visible}) => ({
   zIndex: visible ? 1 : undefined,
 }));
 
-const Fade: React.FC<{children: React.ReactNode; visible: boolean}> = ({
-  children,
-  visible,
-}) => {
+const Fade: React.FC<{
+  children: React.ReactNode;
+  visible: boolean;
+  duration?: number;
+}> = ({children, visible, duration = 400}) => {
   const opacity = useSharedValue(visible ? 1 : 0);
 
-  const animatedStyles = useAnimatedStyle(() => ({
-    opacity: opacity.value,
-  }));
+  const animatedStyles = useAnimatedStyle(
+    () => ({
+      opacity: opacity.value,
+    }),
+    [opacity],
+  );
 
   useEffect(() => {
-    opacity.value = withTiming(visible ? 1 : 0, {duration: 400});
-  }, [opacity, visible]);
+    opacity.value = withTiming(visible ? 1 : 0, {duration});
+  }, [opacity, visible, duration]);
 
   return (
-    <AnimatedView visible={visible} style={animatedStyles}>
+    <AnimatedView
+      visible={visible}
+      style={animatedStyles}
+      pointerEvents={visible ? 'auto' : 'none'}>
       {children}
     </AnimatedView>
   );
