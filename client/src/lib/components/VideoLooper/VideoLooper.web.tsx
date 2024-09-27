@@ -17,10 +17,7 @@ export type VideoPlayerHandle = {
 };
 
 const VideoLooper = forwardRef<VideoPlayerHandle, VideoLooperProperties>(
-  (
-    {sources, style, paused, repeat, muted, volume = 1, onProgress, onLoad},
-    ref,
-  ) => {
+  ({sources, style, paused, repeat, volume = 1, onProgress, onLoad}, ref) => {
     const videoRef = useRef<HTMLVideoElement>(null);
 
     const togglePaused = useCallback((pause?: boolean) => {
