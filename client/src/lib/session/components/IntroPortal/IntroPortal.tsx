@@ -1,17 +1,12 @@
 import React, {useCallback, useEffect, useState} from 'react';
-import {StatusBar, StyleSheet} from 'react-native';
+import {StyleSheet} from 'react-native';
 import {useTranslation} from 'react-i18next';
 import styled from 'styled-components/native';
 import ReactNativeHapticFeedback from 'react-native-haptic-feedback';
 
 import {SPACINGS} from '../../../constants/spacings';
 import useSessionState from '../../state/state';
-import Screen from '../../../components/Screen/Screen';
-import {
-  BottomSafeArea,
-  Spacer16,
-  TopSafeArea,
-} from '../../../components/Spacers/Spacer';
+import {Spacer16} from '../../../components/Spacers/Spacer';
 import Gutters from '../../../components/Gutters/Gutters';
 import IconButton from '../../../components/Buttons/IconButton/IconButton';
 import AudioFader from '../AudioFader/AudioFader';
@@ -20,7 +15,6 @@ import {ArrowLeftIcon} from '../../../components/Icons';
 import Button from '../../../components/Buttons/Button';
 import VideoTransition from '../VideoTransition/VideoTransition';
 import P5Animation from '../P5Animation/P5Animation';
-import {COLORS} from '../../../../../../shared/src/constants/colors';
 import {ExerciseWithLanguage} from '../../../content/types';
 
 const Spinner = styled.ActivityIndicator({

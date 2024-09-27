@@ -36,7 +36,7 @@ const VideoLooper = forwardRef<VideoPlayerHandle, VideoLooperProperties>(
         videoRef.current.muted = false;
         onLoad({duration: videoRef.current.duration});
       }
-    }, [muted, onLoad]);
+    }, [onLoad]);
 
     const onTimeUpdate = useCallback(() => {
       if (onProgress && videoRef.current) {
