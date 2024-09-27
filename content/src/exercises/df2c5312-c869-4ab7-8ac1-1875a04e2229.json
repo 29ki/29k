@@ -165,7 +165,10 @@
         "type": "host",
         "hostNotes": [
           {
-            "text": "Welcome. I am X and today we will work for around 30 minutes on xx\n\nWe’ll be doing xx ex. meditation followed by time for reflection and sharing with each other."
+            "text": "Welcome. I am X and today we will work for around 30 minutes on relationship values. Identifying those values can help us strengthen the relationships in our lives, and give us direction on what’s important."
+          },
+          {
+            "text": "We’ll be doing an audio exercise followed by time for reflection and sharing with each other. \n\nNote that you will need pen and paper or something to write on for this session."
           },
           {
             "text": "Let’s start with a mini check-in. How are you feeling right now? Please answer in two-three words. X, would you like to start?\n\n> Let everyone in the session, including yourself, check in one by one.\n\nThank you all for checking in. Let’s get started."
@@ -178,18 +181,35 @@
           {
             "text": "Find a comfortable position. I will start the audio exercise and we'll meet back here afterwards. \n\n> Push play to start the audio exercise"
           }
-        ]
+        ],
+        "content": {
+          "lottie": {
+            "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1705398402/SRT%20%28captions%29%20files/Relationship_values_fwg5tm.srt",
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1705398371/Audio/Relationship_values_yekgif.mp3",
+            "durationTimer": true,
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto/v1676642915/Lottie/default_audio_white_sufmbz.json"
+          }
+        }
       },
       {
         "type": "reflection",
         "hostNotes": [
           {
-            "text": "Now we’ll take 1 minute to reflect on our own.\n\nxxMain question\n\nxxFurther explanations of main question if needed"
+            "text": "Now we’ll take 1 minute to reflect on our own.\n\nHow do you want to relate to others? \n\nAnything you’d like to change in your behavior after looking at your scores?"
           },
           {
             "text": "You can take notes on a piece of paper or just mental notes in your head. And there is no right or wrong here, our answers are our own. 1 minute starting now.\n\n> Press play to start the timer.\n\nThat’s 1 minute and it’s time to move on."
           }
-        ]
+        ],
+        "content": {
+          "heading": "How do you want to relate to others?",
+          "text": "Anything you’d like to change?",
+          "lottie": {
+            "durationTimer": true,
+            "duration": 60,
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto/v1676642915/Lottie/default_1min_white_wvgwma.json"
+          }
+        }
       },
       {
         "type": "sharing",
@@ -204,13 +224,25 @@
             "text": "Who would like to start?\n\n> Let everyone (or as many as you got time for) share one by one. Press play to start the timer. Re-start for each new sharing.\n\nThank you so much everyone."
           }
         ],
-        "id": "Sharing 1"
+        "id": "Sharing 1",
+        "content": {
+          "heading": "How do you want to relate to others?",
+          "text": "Anything you’d like to change?",
+          "lottie": {
+            "durationTimer": true,
+            "duration": 120,
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto/v1676639253/Lottie/default_2min_white_arvrf2.json"
+          }
+        }
       },
       {
         "type": "host",
         "hostNotes": [
           {
-            "text": "Well done. If you’re up for it, you can continue what we started here today with a mission to bring this into your everyday life.\n\nxx mission description"
+            "text": "Great job for finding what matters to you in your relationships and how you want to relate to those around you."
+          },
+          {
+            "text": "If you’re up for it, you can continue with this mission: \n\nPick a value you have written down. Take a day, perhaps tomorrow, and live as closely as possible according to this value all day long. Before you go to bed, consider how this made you feel."
           },
           {
             "text": "Before we leave this space let’s do a mini check-out. \n\nHow are you feeling right now? Has anything shifted? Please answer in two-three words."
@@ -223,17 +255,47 @@
       {
         "type": "instruction",
         "content": {
-          "text": "Well done.\n\nSummary.\n\nIf you’re up for it, you can continue with this mission.\n\nmission description"
+          "text": "If you’re up for it, you can continue with this mission: \n\nPick a value you have written down. Take a day, perhaps tomorrow, and live as closely as possible according to this value all day long. \n\nBefore you go to bed, consider how this made you feel.",
+          "heading": "Well done",
+          "image": {
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1705652123/Images/async_relationship_values_xydlco.png"
+          }
         }
       }
     ],
     "theme": {
-      "textColor": "#2AE2D7"
+      "textColor": "#F9F8F4",
+      "backgroundColor": "#2f406e"
     },
     "hidden": false,
+    "name": "Valores nas relações",
     "live": true,
-    "published": false,
-    "card": {},
+    "published": true,
+    "card": {
+      "image": {
+        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1705652126/Images/card_relationship_values_isbzpe.png"
+      }
+    },
+    "coCreators": [
+      {
+        "name": "Jenny Rickardsson, manuscript",
+        "url": "https://www.linkedin.com/in/jenny-rickardson-6770a959/",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413228/Contributors/Jenny%20Rickardsson.jpg"
+      },
+      {
+        "name": "Ints Ivanovskis, artworks",
+        "url": "https://www.linkedin.com/in/ints-ivanovskis-46ab0311a/",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413436/Contributors/Ints%20Ivanovskis.jpg"
+      },
+      {
+        "name": "Lisa Lööf, voice",
+        "url": "https://www.linkedin.com/in/lisaloof/",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413154/Contributors/Lisa%20L%C3%B6%C3%B6f.jpg"
+      },
+      {
+        "name": "Florbela Silva, voz em Português"
+      }
+    ],
     "duration": 30,
     "introPortal": {
       "hostNotes": [
@@ -242,9 +304,14 @@
         }
       ],
       "videoLoop": {
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1705651869/Video/portal_1_relationship_values_a7gqye.mp4",
+        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1705651789/Audio/portal_audiio_relationship_values_wvxw6i.mp3",
         "p5JsScript": {
           "lang": "javascript"
         }
+      },
+      "videoEnd": {
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1705660732/Video/portal_2_relationship_values_ytwtvg.mp4"
       }
     },
     "tags": [
@@ -252,7 +319,8 @@
       "8da0534a-5da9-430a-bdf3-242ace6460fb"
     ],
     "id": "df2c5312-c869-4ab7-8ac1-1875a04e2229",
-    "async": false
+    "async": true,
+    "description": "Definir os teus valores em relação às tuas relações pode ajudar-te a orientar a forma como te conectas com as pessoas na tua vida. Viver de acordo com os valores tem mostrado aumentar o sentido de propósito e a felicidade a longo prazo.\n\nEncontra uma posição confortável e prepara-te para tomar algumas notas durante o exercício."
   },
   "sv": {
     "slides": [
