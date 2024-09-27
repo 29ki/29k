@@ -9,9 +9,16 @@ import useUpdateAsyncSessionState from '../../../lib/session/hooks/useUpdateAsyn
 import useAsyncSessionMetricEvents from '../../../lib/session/hooks/useAsyncSessionMetricEvents';
 import useSessionState from '../../../lib/session/state/state';
 import useConfirmLogMindfulMinutes from '../../../lib/mindfulMinutes/hooks/useConfirmLogMindfulMinutes';
-import {AsyncSessionType} from '../../../../../shared/src/schemas/Session';
+import Screen from '../../../lib/components/Screen/Screen';
+import {StatusBar} from 'react-native';
+import {
+  BottomSafeArea,
+  TopSafeArea,
+} from '../../../lib/components/Spacers/Spacer';
+import {SPACINGS} from '../../../lib/constants/spacings';
+import {COLORS} from '../../../../../shared/src/constants/colors';
 
-const IntroPortal: React.FC<{session?: AsyncSessionType}> = () => {
+const IntroPortal = () => {
   const {
     params: {session},
   } = useRoute<RouteProp<AsyncSessionStackProps, 'IntroPortal'>>();
@@ -50,16 +57,26 @@ const IntroPortal: React.FC<{session?: AsyncSessionType}> = () => {
     [navigation, session],
   );
 
+  const textColor =
+    exercise?.introPortal?.textColor || exercise?.theme?.textColor;
+
   return (
-    <IntroPortalComponent
-      exercise={exercise}
-      isVisible={isVisible}
-      isHost={true}
-      hideHostNotes={true}
-      onStartSession={onStartSession}
-      onLeaveSession={leaveSessionWithConfirm}
-      onNavigateToSession={navigateToSession}
-    />
+    <Screen backgroundColor={exercise?.theme?.backgroundColor}>
+      <StatusBar
+        barStyle={textColor === COLORS.WHITE ? 'light-content' : 'dark-content'}
+      />
+      <TopSafeArea minSize={SPACINGS.SIXTEEN} />
+      <IntroPortalComponent
+        exercise={exercise}
+        isVisible={isVisible}
+        isHost={true}
+        hideHostNotes={true}
+        onStartSession={onStartSession}
+        onLeaveSession={leaveSessionWithConfirm}
+        onNavigateToSession={navigateToSession}
+      />
+      <BottomSafeArea minSize={SPACINGS.SIXTEEN} />
+    </Screen>
   );
 };
 
