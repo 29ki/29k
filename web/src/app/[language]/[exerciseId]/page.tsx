@@ -15,12 +15,21 @@ import ExerciseSlides from '../../../../../client/src/lib/session/components/Exe
 import ContentControls from '../../../../../client/src/lib/session/components/ContentControls/ContentControls';
 import useUpdateAsyncSessionState from '../../../../../client/src/lib/session/hooks/useUpdateAsyncSessionState';
 import Fade from '../../../../../client/src/lib/components/Fade/Fade';
-import {Spacer32} from '../../../../../client/src/lib/components/Spacers/Spacer';
+import {
+  Spacer16,
+  Spacer24,
+  Spacer32,
+  Spacer40,
+} from '../../../../../client/src/lib/components/Spacers/Spacer';
 import Gutters from '../../../../../client/src/lib/components/Gutters/Gutters';
 import IntroPortal from '../../../../../client/src/lib/session/components/IntroPortal/IntroPortal';
 import {useRouter} from 'next/navigation';
 import OutroPortal from '../../../../../client/src/lib/session/components/OutroPortal/OutroPortal';
 import Wrapper from './components/Wrapper';
+import {Display28} from '../../../../../client/src/lib/components/Typography/Display/Display';
+import {LogoIcon} from '../../../../../client/src/lib/components/Icons';
+import Title from './components/Title';
+import ProgressBar from '../../../../../client/src/lib/session/components/ProgressBar/ProgressBar';
 
 export default function ExercisePage({
   params: {language, exerciseId},
@@ -89,7 +98,6 @@ export default function ExercisePage({
     <>
       {Boolean(sessionState?.ended) && (
         <Wrapper backgroundColor={exercise?.theme?.backgroundColor}>
-          <Spacer32 />
           <OutroPortal exercise={exercise} onLeaveSession={onLeaveSession} />
         </Wrapper>
       )}
@@ -98,8 +106,16 @@ export default function ExercisePage({
         duration={2000}>
         {sessionSlideState !== null && (
           <Wrapper backgroundColor={exercise?.theme?.backgroundColor}>
-            <Spacer32 />
             <Gutters>
+              <Spacer40 />
+              <Title exercise={exercise} />
+              <Spacer24 />
+              <ProgressBar
+                index={sessionSlideState?.index}
+                length={exercise?.slides.length}
+                color={exercise?.theme?.textColor}
+              />
+              <Spacer16 />
               <ContentControls
                 async
                 exercise={exercise}
