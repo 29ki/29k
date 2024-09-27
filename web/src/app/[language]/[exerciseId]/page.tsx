@@ -121,6 +121,7 @@ export default function ExercisePage({
               next={sessionSlideState.next}
               async
             />
+            <Spacer32 />
           </Wrapper>
         )}
       </Fade>
