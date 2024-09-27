@@ -240,7 +240,7 @@
       "backgroundColor": "#a49c80"
     },
     "hidden": false,
-    "name": "The future you",
+    "name": "O teu EU futuro",
     "live": true,
     "published": true,
     "card": {
@@ -258,6 +258,9 @@
         "name": "Ints Ivanovskis, art works",
         "url": "https://www.linkedin.com/in/ints-ivanovskis-46ab0311a/",
         "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413436/Contributors/Ints%20Ivanovskis.jpg"
+      },
+      {
+        "name": "Florbela Silva, voz em Português"
       }
     ],
     "duration": 30,
@@ -285,7 +288,7 @@
     "link": "https://aware.29k.org/the-future-you",
     "id": "fff6f8da-f69c-458f-8905-acee04bd1a1d",
     "async": true,
-    "description": "To dare to dream and find direction in life can be tricky. In this exercise, we'll visualize ourselves in the future to find guidance. Having a sense of long-term direction can improve our well-being, goal fulfillment, and life satisfaction."
+    "description": "Ousar sonhar e encontrar uma direção na vida pode ser desafiante. Neste exercício, vamos visualizar-nos no futuro para encontrar orientação. Ter um sentido de direção a longo prazo pode melhorar o nosso bem-estar, o cumprimento de objetivos e a satisfação com a vida."
   },
   "sv": {
     "slides": [
