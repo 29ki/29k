@@ -96,7 +96,7 @@ export default function ExercisePage({
       <Fade
         visible={Boolean(sessionState?.started && !sessionState?.ended)}
         duration={2000}>
-        {Boolean(sessionSlideState) && (
+        {sessionSlideState !== null && (
           <Wrapper backgroundColor={exercise?.theme?.backgroundColor}>
             <Spacer32 />
             <Gutters>
