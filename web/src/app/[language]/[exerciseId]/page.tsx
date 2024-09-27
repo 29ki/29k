@@ -26,8 +26,7 @@ import IntroPortal from '../../../../../client/src/lib/session/components/IntroP
 import {useRouter} from 'next/navigation';
 import OutroPortal from '../../../../../client/src/lib/session/components/OutroPortal/OutroPortal';
 import Wrapper from './components/Wrapper';
-import {Display28} from '../../../../../client/src/lib/components/Typography/Display/Display';
-import {LogoIcon} from '../../../../../client/src/lib/components/Icons';
+
 import Title from './components/Title';
 import ProgressBar from '../../../../../client/src/lib/session/components/ProgressBar/ProgressBar';
 
@@ -98,6 +97,7 @@ export default function ExercisePage({
     <>
       {Boolean(sessionState?.ended) && (
         <Wrapper backgroundColor={exercise?.theme?.backgroundColor}>
+          <Spacer32 />
           <OutroPortal exercise={exercise} onLeaveSession={onLeaveSession} />
         </Wrapper>
       )}
@@ -112,7 +112,7 @@ export default function ExercisePage({
               <Spacer24 />
               <ProgressBar
                 index={sessionSlideState?.index}
-                length={exercise?.slides.length}
+                length={sessionSlideState?.slides.length}
                 color={exercise?.theme?.textColor}
               />
               <Spacer16 />
