@@ -25,6 +25,7 @@ import {ProgressTimerContext} from '../../../../context/TimerContext';
 
 const VideoPlayer = styled(VideoLooper)({
   flexShrink: 1,
+  height: '100%',
   aspectRatio: '1',
 });
 
