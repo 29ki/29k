@@ -35,34 +35,62 @@ export type VideoPlayerHandle = {
 
 const VideoLooper = forwardRef<VideoPlayerHandle, VideoLooperProperties>(
   (
-    {sources, style, paused, repeat, volume = 1, onProgress, onLoad, onEnd},
+    {
+      sources,
+      style,
+      paused,
+      repeat,
+      volume = 1,
+      onProgress,
+      onLoad,
+      onTransition,
+      onEnd,
+    },
     ref,
   ) => {
     const canvasRef = useRef<HTMLCanvasElement>(null);
-    const videoRef = useRef<HTMLVideoElement>(null);
     const canvasContext = useRef<CanvasRenderingContext2D | null>(null);
+
+    const videoRefs = sources.map(() => useRef<HTMLVideoElement>(null));
+    const currentVideoSource = useRef(0);
+
+    const getCurrentVideoEl = () =>
+      videoRefs[currentVideoSource.current].current;
+
+    const isCurrentVideoSource = (index: number) =>
+      index === currentVideoSource.current;
+
+    const stopAllVideos = () => videoRefs.forEach(ref => ref.current?.pause());
+
+    const playCurrentVideo = () => getCurrentVideoEl()?.play();
+
+    const stopCurrentVideo = () => getCurrentVideoEl()?.pause();
 
     const togglePaused = useCallback((pause?: boolean) => {
       if (pause) {
-        videoRef.current?.pause();
+        stopCurrentVideo();
       } else {
-        videoRef.current?.play();
+        playCurrentVideo();
       }
     }, []);
 
     const drawCurrentFrame = useCallback(() => {
-      if (canvasContext.current && videoRef.current) {
-        canvasContext.current.drawImage(videoRef.current, 0, 0);
+      const videoEl = getCurrentVideoEl();
+      if (canvasContext.current && canvasRef.current && videoEl) {
+        canvasContext.current.drawImage(
+          videoEl,
+          0,
+          0,
+          canvasRef.current.width,
+          canvasRef.current.height,
+        );
       }
     }, []);
 
     const drawFrames = useCallback(() => {
-      if (
-        videoRef.current &&
-        !videoRef.current.paused &&
-        !videoRef.current.ended
-      ) {
-        videoRef.current.requestVideoFrameCallback(() => {
+      const videoEl = getCurrentVideoEl();
+      if (videoEl && !videoEl.paused && !videoEl.ended) {
+        videoEl.requestVideoFrameCallback(() => {
           drawCurrentFrame();
           drawFrames();
         });
@@ -70,74 +98,114 @@ const VideoLooper = forwardRef<VideoPlayerHandle, VideoLooperProperties>(
     }, [drawCurrentFrame]);
 
     const seek = useCallback((seconds: number) => {
-      if (videoRef.current) {
-        videoRef.current.currentTime = seconds;
+      const videoEl = getCurrentVideoEl();
+      if (videoEl) {
+        videoEl.currentTime = seconds;
       }
     }, []);
 
     useImperativeHandle(ref, () => ({seek}), [seek]);
 
-    const onLoadedMetadata = useCallback(() => {
-      if (canvasRef.current && videoRef.current) {
-        canvasContext.current = canvasRef.current.getContext('2d', {
-          alpha: true,
-          desynchronized: true,
-          willReadFrequently: true,
-        });
-        canvasRef.current.width = videoRef.current.videoWidth;
-        canvasRef.current.height = videoRef.current.videoHeight;
-      }
-    }, []);
-
-    const onLoadedData = useCallback(() => {
-      if (videoRef.current) {
-        videoRef.current.muted = false;
-        drawCurrentFrame();
-        videoRef.current.requestVideoFrameCallback(drawCurrentFrame);
-        if (onLoad) {
-          onLoad({duration: videoRef.current.duration});
+    const onLoadedMetadata = useCallback(
+      (sourceIndex: number) => () => {
+        const videoEl = getCurrentVideoEl();
+        if (isCurrentVideoSource(sourceIndex) && canvasRef.current && videoEl) {
+          canvasContext.current = canvasRef.current.getContext('2d', {
+            alpha: true,
+            desynchronized: true,
+            willReadFrequently: true,
+          });
+          canvasRef.current.width = videoEl.videoWidth;
+          canvasRef.current.height = videoEl.videoHeight;
         }
-      }
-    }, [onLoad, drawCurrentFrame]);
+      },
+      [],
+    );
 
-    const onTimeUpdate = useCallback(() => {
-      if (onProgress && videoRef.current) {
-        onProgress({time: videoRef.current.currentTime});
-      }
-    }, [onProgress]);
+    const onLoadedData = useCallback(
+      (sourceIndex: number) => () => {
+        const videoEl = getCurrentVideoEl();
+        if (isCurrentVideoSource(sourceIndex) && videoEl) {
+          videoEl.muted = false;
+          drawCurrentFrame();
+          videoEl.requestVideoFrameCallback(drawCurrentFrame);
+          if (onLoad) {
+            onLoad({duration: videoEl.duration});
+          }
+        }
+      },
+      [onLoad, drawCurrentFrame],
+    );
 
-    const onPlay = useCallback(() => {
-      drawFrames();
-    }, [drawFrames]);
+    const onTimeUpdate = useCallback(
+      (sourceIndex: number) => () => {
+        const videoEl = getCurrentVideoEl();
+        if (isCurrentVideoSource(sourceIndex) && onProgress && videoEl) {
+          onProgress({time: videoEl.currentTime});
+        }
+      },
+      [onProgress],
+    );
+
+    const onEnded = useCallback(
+      (sourceIndex: number) => () => {
+        if (
+          isCurrentVideoSource(sourceIndex) &&
+          sourceIndex < sources.length - 1
+        ) {
+          currentVideoSource.current = sourceIndex + 1;
+          stopAllVideos();
+          playCurrentVideo();
+
+          if (onTransition) {
+            onTransition();
+          }
+        } else if (onEnd) {
+          onEnd();
+        }
+      },
+      [onEnd, onTransition],
+    );
+
+    const onPlay = useCallback(
+      (sourceIndex: number) => () => {
+        if (isCurrentVideoSource(sourceIndex)) {
+          drawFrames();
+        }
+      },
+      [drawFrames],
+    );
+
+    useEffect(() => {
+      const videoEl = getCurrentVideoEl();
+      if (videoEl) {
+        videoEl.volume = volume;
+      }
+    }, [volume]);
 
     useEffect(() => {
       togglePaused(paused);
     }, [paused, togglePaused]);
 
-    useEffect(() => {
-      if (videoRef.current) {
-        videoRef.current.volume = volume;
-      }
-    }, [volume]);
-
     return (
       <Wrapper style={style}>
         <Canvas ref={canvasRef} />
-        <Video
-          ref={videoRef}
-          onLoadedMetadata={onLoadedMetadata}
-          onLoadedData={onLoadedData}
-          onTimeUpdate={onTimeUpdate}
-          onEnded={onEnd}
-          onPlay={onPlay}
-          loop={repeat || sources[0].repeat}
-          autoPlay={!paused}
-          playsInline
-          muted>
-          {sources.map(({source}) => (
-            <source src={source} />
-          ))}
-        </Video>
+        {sources.map(({source, repeat: sourceRepeat}, sourceIndex) => (
+          <Video
+            key={source}
+            ref={videoRefs[sourceIndex]}
+            src={source}
+            onLoadedMetadata={onLoadedMetadata(sourceIndex)}
+            onLoadedData={onLoadedData(sourceIndex)}
+            onTimeUpdate={onTimeUpdate(sourceIndex)}
+            onEnded={onEnded(sourceIndex)}
+            onPlay={onPlay(sourceIndex)}
+            loop={sourceRepeat}
+            autoPlay={!paused && isCurrentVideoSource(sourceIndex)}
+            playsInline
+            muted
+          />
+        ))}
       </Wrapper>
     );
   },
