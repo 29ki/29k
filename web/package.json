@@ -3,13 +3,17 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
+    "build:content": "yarn --cwd \"../content\" build",
+    "dev": "yarn build:content && next dev",
+    "build": "yarn build:content && next build",
+    "start": "yarn build:content && next start",
+    "test:lint": "next lint",
+    "test:ts": "tsc --noEmit",
+    "test": "yarn build:content && yarn test:ts && yarn test:lint"
   },
   "dependencies": {
     "dayjs": "^1.11.13",
+    "hex-to-rgba": "^2.0.1",
     "i18next": "^23.14.0",
     "next": "14.2.10",
     "react": "^18",

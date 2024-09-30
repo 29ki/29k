@@ -3,7 +3,6 @@ import {ExerciseWithLanguage} from '../../../../../../client/src/lib/content/typ
 import {LogoIcon} from '../../../../../../client/src/lib/components/Icons';
 import {Display28} from '../../../../../../client/src/lib/components/Typography/Display/Display';
 import {Spacer16} from '../../../../../../client/src/lib/components/Spacers/Spacer';
-import Gutters from '../../../../../../client/src/lib/components/Gutters/Gutters';
 import {COLORS} from '../../../../../../shared/src/constants/colors';
 
 const Wrapper = styled.View({

@@ -21,6 +21,7 @@ const Spinner = styled.ActivityIndicator({
 const TopBar = styled(Gutters)({
   justifyContent: 'flex-end',
   flexDirection: 'row',
+  zIndex: 1,
 });
 
 type OutroPortalProps = {
