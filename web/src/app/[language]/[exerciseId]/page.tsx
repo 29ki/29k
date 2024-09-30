@@ -29,6 +29,46 @@ import Wrapper from './components/Wrapper';
 
 import Title from './components/Title';
 import ProgressBar from '../../../../../client/src/lib/session/components/ProgressBar/ProgressBar';
+import styled from 'styled-components';
+import {COLORS} from '../../../../../shared/src/constants/colors';
+import hexToRgba from 'hex-to-rgba';
+
+const DesktopOnly = styled.div({
+  display: 'none',
+  '@media(min-width: 720px)': {
+    display: 'block',
+  },
+});
+
+const LeftGradient = styled.div<{color?: string}>(({color}) => ({
+  position: 'absolute',
+  left: 0,
+  top: 0,
+  bottom: 0,
+  width: 200,
+  background: `linear-gradient(90deg, ${hexToRgba(
+    color || COLORS.WHITE,
+    1,
+  )} 0%, ${hexToRgba(color || COLORS.WHITE, 0.25)} 50%, ${hexToRgba(
+    color || COLORS.WHITE,
+    0,
+  )} 100%)`,
+}));
+
+const RightGradient = styled.div<{color?: string}>(({color}) => ({
+  position: 'absolute',
+  right: 0,
+  top: 0,
+  bottom: 0,
+  width: 200,
+  background: `linear-gradient(-90deg, ${hexToRgba(
+    color || COLORS.WHITE,
+    1,
+  )} 0%, ${hexToRgba(color || COLORS.WHITE, 0.25)} 50%, ${hexToRgba(
+    color || COLORS.WHITE,
+    0,
+  )} 100%)`,
+}));
 
 export default function ExercisePage({
   params: {language, exerciseId},
@@ -77,10 +117,9 @@ export default function ExercisePage({
         content: sessionSlideState.slides,
       });
     } else {
-      endSession();
       router.push('../');
     }
-  }, [sessionSlideState, navigateToIndex, endSession, router]);
+  }, [sessionSlideState, navigateToIndex, router]);
 
   const onNextPress = useCallback(() => {
     if (sessionSlideState && sessionSlideState.next) {
@@ -99,6 +138,10 @@ export default function ExercisePage({
         <Wrapper backgroundColor={exercise?.theme?.backgroundColor}>
           <Spacer32 />
           <OutroPortal exercise={exercise} onLeaveSession={onLeaveSession} />
+          <DesktopOnly>
+            <LeftGradient color={exercise?.theme?.backgroundColor} />
+            <RightGradient color={exercise?.theme?.backgroundColor} />
+          </DesktopOnly>
         </Wrapper>
       )}
       <Fade
@@ -107,8 +150,10 @@ export default function ExercisePage({
         {sessionSlideState !== null && (
           <Wrapper backgroundColor={exercise?.theme?.backgroundColor}>
             <Gutters>
-              <Spacer40 />
-              <Title exercise={exercise} />
+              <DesktopOnly>
+                <Spacer40 />
+                <Title exercise={exercise} />
+              </DesktopOnly>
               <Spacer24 />
               <ProgressBar
                 index={sessionSlideState?.index}
@@ -152,6 +197,10 @@ export default function ExercisePage({
           onLeaveSession={onLeaveSession}
           onNavigateToSession={onNavigateToSession}
         />
+        <DesktopOnly>
+          <LeftGradient color={exercise?.theme?.backgroundColor} />
+          <RightGradient color={exercise?.theme?.backgroundColor} />
+        </DesktopOnly>
       </Wrapper>
     </>
   );

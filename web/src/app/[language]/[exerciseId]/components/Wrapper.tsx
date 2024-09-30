@@ -11,10 +11,12 @@ const Background = styled.View<{backgroundColor?: string}>(
 );
 
 const Container = styled.View({
+  position: 'relative',
   minHeight: '100%',
   width: '100%',
-  maxWidth: 800,
+  maxWidth: 720,
   marginHorizontal: 'auto',
+  overflow: 'hidden',
 });
 
 const Wrapper = ({
