@@ -14,10 +14,10 @@ import SubHeading from './Blocks/SubHeading';
 import Lottie from './Blocks/Lottie';
 import useAdjustVolume from '../../../hooks/useAdjustVolume';
 
-const Wrapper = styled.View({
+const Wrapper = styled.View<{center: boolean}>(({center}) => ({
   flex: 1,
-  alignItems: 'center',
-});
+  alignItems: center ? 'center' : 'normal',
+}));
 
 const GraphicsWrapper = styled.View({
   flex: 1,
@@ -66,7 +66,7 @@ const Content: React.FC<ContentProps> = ({slide, active, async}) => {
   );
 
   return (
-    <Wrapper>
+    <Wrapper center={!async}>
       <Spacer12 />
       {!content.video && !content.image && !content.lottie && (
         <TextWrapper>

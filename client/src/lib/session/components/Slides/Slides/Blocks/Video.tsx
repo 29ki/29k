@@ -24,7 +24,8 @@ import Gutters from '../../../../../components/Gutters/Gutters';
 import {ProgressTimerContext} from '../../../../context/TimerContext';
 
 const VideoPlayer = styled(VideoLooper)({
-  flex: 1,
+  flexShrink: 1,
+  aspectRatio: '1',
 });
 
 const AudioPlayer = styled(VideoLooper)({
