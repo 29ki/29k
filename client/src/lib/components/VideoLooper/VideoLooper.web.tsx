@@ -83,6 +83,7 @@ const VideoLooper = forwardRef<VideoPlayerHandle, VideoLooperProperties>(
     const onLoadedData = useCallback(() => {
       if (videoRef.current) {
         videoRef.current.muted = false;
+        drawCurrentFrame(); // Firefox needs this to display the first frame
         videoRef.current.requestVideoFrameCallback(drawCurrentFrame);
         if (onLoad) {
           onLoad({duration: videoRef.current.duration});
