@@ -39,7 +39,6 @@ const VideoLooper = forwardRef<VideoPlayerHandle, VideoLooperProperties>(
       sources,
       style,
       paused,
-      repeat,
       volume = 1,
       onProgress,
       onLoad,
@@ -51,28 +50,52 @@ const VideoLooper = forwardRef<VideoPlayerHandle, VideoLooperProperties>(
     const canvasRef = useRef<HTMLCanvasElement>(null);
     const canvasContext = useRef<CanvasRenderingContext2D | null>(null);
 
-    const videoRefs = sources.map(() => useRef<HTMLVideoElement>(null));
+    const videoRefs = useRef<(HTMLVideoElement | null)[]>([]);
     const currentVideoSource = useRef(0);
 
-    const getCurrentVideoEl = () =>
-      videoRefs[currentVideoSource.current].current;
+    const setVideoRef = useCallback(
+      (sourceIndex: number): React.RefCallback<HTMLVideoElement> =>
+        (videoRef: HTMLVideoElement | null) => {
+          videoRefs.current[sourceIndex] = videoRef;
+        },
+      [],
+    );
 
-    const isCurrentVideoSource = (index: number) =>
-      index === currentVideoSource.current;
+    const getCurrentVideoEl = useCallback(
+      () => videoRefs.current[currentVideoSource.current],
+      [],
+    );
 
-    const stopAllVideos = () => videoRefs.forEach(ref => ref.current?.pause());
+    const isCurrentVideoSource = useCallback(
+      (index: number) => index === currentVideoSource.current,
+      [],
+    );
 
-    const playCurrentVideo = () => getCurrentVideoEl()?.play();
+    const stopAllVideos = useCallback(
+      () => videoRefs.current.forEach(videoRef => videoRef?.pause()),
+      [],
+    );
 
-    const stopCurrentVideo = () => getCurrentVideoEl()?.pause();
+    const playCurrentVideo = useCallback(
+      () => getCurrentVideoEl()?.play(),
+      [getCurrentVideoEl],
+    );
 
-    const togglePaused = useCallback((pause?: boolean) => {
-      if (pause) {
-        stopCurrentVideo();
-      } else {
-        playCurrentVideo();
-      }
-    }, []);
+    const stopCurrentVideo = useCallback(
+      () => getCurrentVideoEl()?.pause(),
+      [getCurrentVideoEl],
+    );
+
+    const togglePaused = useCallback(
+      (pause?: boolean) => {
+        if (pause) {
+          stopCurrentVideo();
+        } else {
+          playCurrentVideo();
+        }
+      },
+      [stopCurrentVideo, playCurrentVideo],
+    );
 
     const drawCurrentFrame = useCallback(() => {
       const videoEl = getCurrentVideoEl();
@@ -85,7 +108,7 @@ const VideoLooper = forwardRef<VideoPlayerHandle, VideoLooperProperties>(
           canvasRef.current.height,
         );
       }
-    }, []);
+    }, [getCurrentVideoEl]);
 
     const drawFrames = useCallback(() => {
       const videoEl = getCurrentVideoEl();
@@ -95,14 +118,17 @@ const VideoLooper = forwardRef<VideoPlayerHandle, VideoLooperProperties>(
           drawFrames();
         });
       }
-    }, [drawCurrentFrame]);
+    }, [drawCurrentFrame, getCurrentVideoEl]);
 
-    const seek = useCallback((seconds: number) => {
-      const videoEl = getCurrentVideoEl();
-      if (videoEl) {
-        videoEl.currentTime = seconds;
-      }
-    }, []);
+    const seek = useCallback(
+      (seconds: number) => {
+        const videoEl = getCurrentVideoEl();
+        if (videoEl) {
+          videoEl.currentTime = seconds;
+        }
+      },
+      [getCurrentVideoEl],
+    );
 
     useImperativeHandle(ref, () => ({seek}), [seek]);
 
@@ -119,7 +145,7 @@ const VideoLooper = forwardRef<VideoPlayerHandle, VideoLooperProperties>(
           canvasRef.current.height = videoEl.videoHeight;
         }
       },
-      [],
+      [getCurrentVideoEl, isCurrentVideoSource],
     );
 
     const onLoadedData = useCallback(
@@ -134,7 +160,7 @@ const VideoLooper = forwardRef<VideoPlayerHandle, VideoLooperProperties>(
           }
         }
       },
-      [onLoad, drawCurrentFrame],
+      [onLoad, drawCurrentFrame, getCurrentVideoEl, isCurrentVideoSource],
     );
 
     const onTimeUpdate = useCallback(
@@ -144,7 +170,7 @@ const VideoLooper = forwardRef<VideoPlayerHandle, VideoLooperProperties>(
           onProgress({time: videoEl.currentTime});
         }
       },
-      [onProgress],
+      [onProgress, getCurrentVideoEl, isCurrentVideoSource],
     );
 
     const onEnded = useCallback(
@@ -164,7 +190,14 @@ const VideoLooper = forwardRef<VideoPlayerHandle, VideoLooperProperties>(
           onEnd();
         }
       },
-      [onEnd, onTransition],
+      [
+        sources,
+        isCurrentVideoSource,
+        stopAllVideos,
+        playCurrentVideo,
+        onTransition,
+        onEnd,
+      ],
     );
 
     const onPlay = useCallback(
@@ -173,7 +206,7 @@ const VideoLooper = forwardRef<VideoPlayerHandle, VideoLooperProperties>(
           drawFrames();
         }
       },
-      [drawFrames],
+      [drawFrames, isCurrentVideoSource],
     );
 
     useEffect(() => {
@@ -181,7 +214,7 @@ const VideoLooper = forwardRef<VideoPlayerHandle, VideoLooperProperties>(
       if (videoEl) {
         videoEl.volume = volume;
       }
-    }, [volume]);
+    }, [volume, getCurrentVideoEl]);
 
     useEffect(() => {
       togglePaused(paused);
@@ -193,7 +226,7 @@ const VideoLooper = forwardRef<VideoPlayerHandle, VideoLooperProperties>(
         {sources.map(({source, repeat: sourceRepeat}, sourceIndex) => (
           <Video
             key={source}
-            ref={videoRefs[sourceIndex]}
+            ref={setVideoRef(sourceIndex)}
             src={source}
             onLoadedMetadata={onLoadedMetadata(sourceIndex)}
             onLoadedData={onLoadedData(sourceIndex)}
