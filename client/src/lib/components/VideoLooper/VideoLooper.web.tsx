@@ -34,9 +34,13 @@ export type VideoPlayerHandle = {
 };
 
 const VideoLooper = forwardRef<VideoPlayerHandle, VideoLooperProperties>(
-  ({sources, style, paused, repeat, volume = 1, onProgress, onLoad}, ref) => {
+  (
+    {sources, style, paused, repeat, volume = 1, onProgress, onLoad, onEnd},
+    ref,
+  ) => {
     const canvasRef = useRef<HTMLCanvasElement>(null);
     const videoRef = useRef<HTMLVideoElement>(null);
+    const canvasContext = useRef<CanvasRenderingContext2D | null>(null);
 
     const togglePaused = useCallback((pause?: boolean) => {
       if (pause) {
@@ -47,8 +51,8 @@ const VideoLooper = forwardRef<VideoPlayerHandle, VideoLooperProperties>(
     }, []);
 
     const drawCurrentFrame = useCallback(() => {
-      if (canvasRef.current && videoRef.current) {
-        canvasRef.current.getContext('2d')?.drawImage(videoRef.current, 0, 0);
+      if (canvasContext.current && videoRef.current) {
+        canvasContext.current.drawImage(videoRef.current, 0, 0);
       }
     }, []);
 
@@ -75,6 +79,11 @@ const VideoLooper = forwardRef<VideoPlayerHandle, VideoLooperProperties>(
 
     const onLoadedMetadata = useCallback(() => {
       if (canvasRef.current && videoRef.current) {
+        canvasContext.current = canvasRef.current.getContext('2d', {
+          alpha: true,
+          desynchronized: true,
+          willReadFrequently: true,
+        });
         canvasRef.current.width = videoRef.current.videoWidth;
         canvasRef.current.height = videoRef.current.videoHeight;
       }
@@ -83,7 +92,7 @@ const VideoLooper = forwardRef<VideoPlayerHandle, VideoLooperProperties>(
     const onLoadedData = useCallback(() => {
       if (videoRef.current) {
         videoRef.current.muted = false;
-        drawCurrentFrame(); // Firefox needs this to display the first frame
+        drawCurrentFrame();
         videoRef.current.requestVideoFrameCallback(drawCurrentFrame);
         if (onLoad) {
           onLoad({duration: videoRef.current.duration});
@@ -119,9 +128,11 @@ const VideoLooper = forwardRef<VideoPlayerHandle, VideoLooperProperties>(
           onLoadedMetadata={onLoadedMetadata}
           onLoadedData={onLoadedData}
           onTimeUpdate={onTimeUpdate}
+          onEnded={onEnd}
           onPlay={onPlay}
           loop={repeat || sources[0].repeat}
           autoPlay={!paused}
+          playsInline
           muted>
           {sources.map(({source}) => (
             <source src={source} />
