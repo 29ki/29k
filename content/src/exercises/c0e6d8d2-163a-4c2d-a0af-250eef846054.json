@@ -162,10 +162,10 @@
         "type": "host",
         "hostNotes": [
           {
-            "text": "Welcome. I am X and today we will work for around 30 minutes on eco emotions and what effect they have on our motivation.\n\nWe’ll be doing an audio exercise, followed by time for reflection and sharing with each other."
+            "text": "Bem-vindos. Eu sou X e, hoje, vamos trabalhar durante cerca de 30 minutos sobre as ecoemoções e o efeito que elas têm na nossa motivação.\n\nVamos fazer um exercício de áudio, seguido de um tempo para reflexão e partilha entre nós."
           },
           {
-            "text": "Let’s start with a mini check-in. How are you feeling right now? Please answer in two-three words. X, would you like to start?\n\n> Let everyone in the session, including yourself, check in one by one.\n\nThank you all for checking in. Let’s get started."
+            "text": "Vamos começar com um pequeno check-in. Como te estás a sentir? Por favor, responde em duas ou três palavras. X, queres começar?\n\n> Deixa que todos na sessão, incluindo-te a ti, façam o check-in individualmente.\n\nObrigada/o a todos por fazerem o check-in. Vamos começar."
           }
         ]
       },
@@ -173,13 +173,13 @@
         "type": "content",
         "hostNotes": [
           {
-            "text": "Find a comfortable position. I will start the audio exercise and we'll meet back here afterwards. \n\n> Push play to start the audio exercise"
+            "text": "Encontra uma posição confortável. Vou iniciar o exercício de áudio e voltamos aqui depois.\n\n> Carrega em play para iniciar o exercício"
           }
         ],
         "content": {
           "lottie": {
-            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1701434593/Audio/3_EN_eco_emotions_and_motivation_cqd4qs.mp3",
-            "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1701434607/SRT%20(captions)%20files/3_EN_eco_emotions_and_motivation_gtbwi9.srt",
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1728289977/FJN/Meditations/Cristina/AGE_DE_ACORDO_COM_AS_TUAS_EMOCOES_EM_RELACAO_AO_AMBIENTE_ur092r.mp3",
+            "subtitles": "",
             "durationTimer": true,
             "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto/v1676977421/Lottie/audio_meditation_default_white_default_mqfcuo.json"
           }
@@ -189,14 +189,14 @@
         "type": "reflection",
         "hostNotes": [
           {
-            "text": "Now we’ll take 1 minute to reflect on our own.\n\nWhat eco emotion motivates you? \n\nHow is it motivating? What does it inspire you to do?"
+            "text": "Agora vamos tirar 1 minuto para refletir individualmente.\n\nQual é a ecoemoção que te motiva?\n\nComo te motiva? O que te inspira a fazer?"
           },
           {
             "text": "You can take notes on a piece of paper or just mental notes in your head. And there is no right or wrong here, our answers are our own. 1 minute starting now.\n\n> Press play to start the timer.\n\nThat’s 1 minute and it’s time to move on."
           }
         ],
         "content": {
-          "heading": "What eco emotion motivates you?",
+          "heading": "Qual é a ecoemoção que te motiva?",
           "text": "How?",
           "lottie": {
             "durationTimer": true,
@@ -221,7 +221,7 @@
         ],
         "id": "Sharing 1",
         "content": {
-          "heading": "What eco emotion motivates you?",
+          "heading": "Qual é a ecoemoção que te motiva?",
           "text": "How?",
           "lottie": {
             "durationTimer": true,
@@ -293,7 +293,7 @@
     "introPortal": {
       "hostNotes": [
         {
-          "text": "> Start the session when you're ready to go"
+          "text": "> Inicia a sessão quando estiveres pronta/o para começar"
         }
       ],
       "videoLoop": {
