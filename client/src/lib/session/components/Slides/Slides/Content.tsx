@@ -13,7 +13,6 @@ import {Spacer12, Spacer8} from '../../../../components/Spacers/Spacer';
 import SubHeading from './Blocks/SubHeading';
 import Lottie from './Blocks/Lottie';
 import useAdjustVolume from '../../../hooks/useAdjustVolume';
-import {Platform} from 'react-native';
 
 const Wrapper = styled.View<{center: boolean}>(({center}) => ({
   flex: 1,
@@ -37,8 +36,9 @@ type ContentProps = {
     | ExerciseSlideReflectionSlideLiveOnly;
   active: boolean;
   async?: boolean;
+  web?: boolean;
 };
-const Content: React.FC<ContentProps> = ({slide, active, async}) => {
+const Content: React.FC<ContentProps> = ({slide, active, async, web}) => {
   const adjustVolume = useAdjustVolume();
 
   const content = useMemo(() => {
@@ -65,8 +65,6 @@ const Content: React.FC<ContentProps> = ({slide, active, async}) => {
     () => content.lottie?.duration ?? 60,
     [content.lottie?.duration],
   );
-
-  const web = Platform.OS === 'web';
 
   return (
     <Wrapper center={!async}>

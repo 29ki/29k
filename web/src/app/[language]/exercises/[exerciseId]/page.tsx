@@ -181,6 +181,7 @@ export default function ExercisePage({
               previous={sessionSlideState.previous}
               next={sessionSlideState.next}
               async
+              web
             />
             <Spacer32 />
           </Wrapper>
