@@ -1,14 +1,14 @@
 'use client';
 
 import styled from 'styled-components';
-import Card from '../../../../client/src/lib/components/Cards/Card';
-import Gutters from '../../../../client/src/lib/components/Gutters/Gutters';
+import Card from '../../../../../client/src/lib/components/Cards/Card';
+import Gutters from '../../../../../client/src/lib/components/Gutters/Gutters';
 import {
   Spacer16,
   Spacer32,
-} from '../../../../client/src/lib/components/Spacers/Spacer';
-import useExercises from '../../../../client/src/lib/content/hooks/useExercises';
-import ExerciseCard from '../../../../client/src/lib/components/Cards/SessionCard/ExerciseCard';
+} from '../../../../../client/src/lib/components/Spacers/Spacer';
+import useExercises from '../../../../../client/src/lib/content/hooks/useExercises';
+import ExerciseCard from '../../../../../client/src/lib/components/Cards/SessionCard/ExerciseCard';
 import Link from 'next/link';
 
 const Wrapper = styled.div({
