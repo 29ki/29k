@@ -6,6 +6,15 @@ body {
   flex-direction: column;
 }
 
+/* mini reset css */
+*, *::before, *::after{
+  box-sizing: border-box;
+}
+*{
+  margin: 0;
+  padding: 0;
+}
+
 /* cyrillic-ext */
 @font-face {
   font-family: 'HKGrotesk-Italic';

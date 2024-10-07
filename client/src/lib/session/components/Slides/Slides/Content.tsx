@@ -36,8 +36,9 @@ type ContentProps = {
     | ExerciseSlideReflectionSlideLiveOnly;
   active: boolean;
   async?: boolean;
+  web?: boolean;
 };
-const Content: React.FC<ContentProps> = ({slide, active, async}) => {
+const Content: React.FC<ContentProps> = ({slide, active, async, web}) => {
   const adjustVolume = useAdjustVolume();
 
   const content = useMemo(() => {
@@ -74,10 +75,10 @@ const Content: React.FC<ContentProps> = ({slide, active, async}) => {
           {content.text && <SubHeading>{content.text}</SubHeading>}
         </TextWrapper>
       )}
-      {!async &&
+      {(!async || web) &&
         (content.video || content.image || content.lottie) &&
         content.heading && <Heading>{content.heading}</Heading>}
-      {!async &&
+      {(!async || web) &&
         (content.video || content.image || content.lottie) &&
         content.text && <SubHeading>{content.text}</SubHeading>}
 
@@ -92,6 +93,7 @@ const Content: React.FC<ContentProps> = ({slide, active, async}) => {
             subtitles={content.lottie.subtitles}
             autoPlayLoop={content.lottie.autoPlayLoop}
             isLive={!async}
+            isTimer={slide.type === 'reflection' || slide.type === 'sharing'}
           />
           <Spacer8 />
         </GraphicsWrapper>
@@ -106,6 +108,7 @@ const Content: React.FC<ContentProps> = ({slide, active, async}) => {
             preview={content.video.preview}
             autoPlayLoop={content.video.autoPlayLoop}
             isLive={!async}
+            isTimer={slide.type === 'reflection' || slide.type === 'sharing'}
           />
         </GraphicsWrapper>
       ) : content.image ? (

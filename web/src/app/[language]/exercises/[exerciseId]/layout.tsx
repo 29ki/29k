@@ -1,5 +1,5 @@
-import {LANGUAGE_TAG} from '../../../../../shared/src/i18n/constants';
-import content from '../../../../../content/content.json';
+import {LANGUAGE_TAG} from '../../../../../../shared/src/i18n/constants';
+import content from '../../../../../../content/content.json';
 
 export async function generateStaticParams({
   params,

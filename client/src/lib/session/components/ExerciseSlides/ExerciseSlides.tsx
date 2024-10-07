@@ -15,6 +15,7 @@ type ExerciseSlidesProps = {
   previous?: ExerciseSlide;
   next?: ExerciseSlide;
   async?: boolean;
+  web?: boolean;
 };
 
 const ExerciseSlides: React.FC<ExerciseSlidesProps> = ({
@@ -23,20 +24,39 @@ const ExerciseSlides: React.FC<ExerciseSlidesProps> = ({
   previous,
   next,
   async,
+  web,
 }) => (
   // "Pre load" previous and next slide
   <Wrapper>
     {previous && (
       <Fade visible={false} key={index - 1}>
-        <Slide async={async} slide={previous} active={false} key="slide" />
+        <Slide
+          async={async}
+          web={web}
+          slide={previous}
+          active={false}
+          key="slide"
+        />
       </Fade>
     )}
     <Fade visible={true} key={index}>
-      <Slide async={async} slide={current} active={true} key="slide" />
+      <Slide
+        async={async}
+        web={web}
+        slide={current}
+        active={true}
+        key="slide"
+      />
     </Fade>
     {next && (
       <Fade visible={false} key={index + 1}>
-        <Slide async={async} slide={next} active={false} key="slide" />
+        <Slide
+          async={async}
+          web={web}
+          slide={next}
+          active={false}
+          key="slide"
+        />
       </Fade>
     )}
   </Wrapper>

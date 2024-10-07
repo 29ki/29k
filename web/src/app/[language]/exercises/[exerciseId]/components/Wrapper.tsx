@@ -1,5 +1,5 @@
 import styled from 'styled-components/native';
-import {COLORS} from '../../../../../../shared/src/constants/colors';
+import {COLORS} from '../../../../../../../shared/src/constants/colors';
 
 const Background = styled.View<{backgroundColor?: string}>(
   ({backgroundColor}) => ({
