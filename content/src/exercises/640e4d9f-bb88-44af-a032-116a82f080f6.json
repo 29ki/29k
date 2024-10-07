@@ -164,26 +164,50 @@
         "type": "host",
         "hostNotes": [
           {
-            "text": "Welcome. I am X and today we will work for around 30 minutes on xx\n\nWe’ll be doing xx ex. meditation followed by time for reflection and sharing with each other."
+            "text": "Welcome. I am X and today we will work for around 30 minutes on exploring purpose.\\\nWe’ll be doing an audio exercise together, and then sharing what we experienced.\\\nHeads up that you’ll need pen and paper."
           },
           {
             "text": "Let’s start with a mini check-in. How are you feeling right now? Please answer in two-three words. X, would you like to start?\n\n> Let everyone in the session, including yourself, check in one by one.\n\nThank you all for checking in. Let’s get started."
           }
-        ]
+        ],
+        "video": {
+          "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1682676013/Images/Feeling_purpose_thumb_uxkka7.png",
+          "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1682676567/Video/Intro_Feeling_purpose_r61bwd.mp4"
+        }
       },
       {
-        "type": "content"
+        "type": "content",
+        "hostNotes": [
+          {
+            "text": "Great. It's time to explore what purpose feels like.\n\n> Press play to start the audio exercise."
+          }
+        ],
+        "content": {
+          "lottie": {
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1676977421/Lottie/audio_meditation_default_white_default_mqfcuo.json",
+            "durationTimer": true,
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1700222910/Audio/Feeling_purpose_better_audio_fmpw8j.mp3",
+            "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1700222856/SRT%20%28captions%29%20files/Feeling_purpose_better_audio_ysviup.srt"
+          }
+        }
       },
       {
         "type": "reflection",
         "hostNotes": [
           {
-            "text": "Now we’ll take 1 minute to reflect on our own.\n\nxxMain question\n\nxxFurther explanations of main question if needed"
+            "text": "Now we’ll take 1 minute to reflect on our own.\n\nExplore the differences between that time feeling purpose, and today. What can you learn from it?"
           },
           {
-            "text": "You can take notes on a piece of paper or just mental notes in your head. And there is no right or wrong here, our answers are our own. 1 minute starting now.\n\n> Press play to start the timer.\n\nThat’s 1 minute and it’s time to move on."
+            "text": "Take notes on a piece of paper or in your head. And there is no right or wrong here, our answers are our own. 1 minute starting now.\n\n> Press play to start the timer.\n\nThat’s 1 minute and it’s time to move on."
           }
-        ]
+        ],
+        "content": {
+          "heading": "",
+          "text": "What can you learn from any differences from today and that other time?",
+          "lottie": {
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1676642915/Lottie/default_1min_white_wvgwma.json"
+          }
+        }
       },
       {
         "type": "sharing",
@@ -192,18 +216,29 @@
             "text": "Now we are getting into the sharing part. We have three rules for sharing:\n\n1. **What is said in here, stays in here.**\n2. **All you need to do is listen.** There is no fixing, helping or advice-giving needed. We are just showing up and exploring what ourselves and others are going through."
           },
           {
-            "text": "3. **Everything on the inside is okay.** Anger, love, hatred, sadness. Whatever shows up. No wrongs, no rights. It is what it is.\n\nThere will be a timer set for 2 minutes as an indicator. If you don’t want to share you can always say ‘pass’."
+            "text": "3. **Everything on the inside is okay.** Anger, love, hatred, sadness. Whatever shows up. No wrongs, no rights. It is what it is.\n\nThere will be a timer set for 2 minutes as an indicator. If you don’t want to share you can always say ‘pass’.\\\nThe sharing question is what you can learn from any difference from that time feeling purpose and today."
           },
           {
             "text": "Who would like to start?\n\n> Let everyone (or as many as you got time for) share one by one. Press play to start the timer. Re-start for each new sharing.\n\nThank you so much everyone."
           }
-        ]
+        ],
+        "content": {
+          "heading": "What can you learn from any differences between the two time points?",
+          "text": "",
+          "lottie": {
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1676639253/Lottie/default_2min_white_arvrf2.json"
+          }
+        },
+        "id": "1"
       },
       {
         "type": "host",
         "hostNotes": [
           {
-            "text": "Well done. if you’re up for it, you can continue what we started here today with a mission to bring this into your everyday life.\n\nxx mission description"
+            "text": "Our emotions can be a window into what matters to us in life.\\\nWhen we connect to what gives us a sense of meaning and purpose, we experience life differently than when we are on autopilot."
+          },
+          {
+            "text": "This helps us to show up for and act on what truly matters.\n\nWell done. If you’re up for a mission, take a moment each day for three days to notice where you are, how you feel, think and act, and see how it connects to your sense of purpose."
           },
           {
             "text": "Before we leave this space let’s do a mini check-out. \n\nHow are you feeling right now? Has anything shifted? Please answer in two-three words."
@@ -211,15 +246,53 @@
           {
             "text": "Who would like to start?\n\n> Let everyone in the session check out one by one.\n\nThank you all for checking out and for joining this session today.\n\n> Finish session to send everyone off to the exit experience."
           }
-        ]
+        ],
+        "video": {
+          "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1682676013/Images/Feeling_purpose_thumb_uxkka7.png",
+          "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1682676566/Video/Outro_Feeling_purpose_kf5es3.mp4"
+        }
+      },
+      {
+        "type": "instruction",
+        "content": {
+          "image": {
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1692964887/Images/asynk_image_feeling_purpose_ufgojw.png"
+          },
+          "text": "Our emotions can be a window into what matters to us in life.\n\nConnecting to what gives us a sense of purpose, helps us to show up for and act on what truly matters.\n\nWell done. If you’re up for a mission, take a moment each day for three days to notice where you are, how you feel, think and act, and see how it connects to your sense of purpose."
+        }
       }
     ],
     "theme": {
-      "textColor": "#2AE2D7"
+      "textColor": "#F9F8F4",
+      "backgroundColor": "#1f5b9e"
     },
     "hidden": false,
-    "published": false,
-    "card": {},
+    "name": "Sentir propósito",
+    "live": true,
+    "published": true,
+    "card": {
+      "image": {
+        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1692793639/Images/card_image_feeling_purpose_ju8iea.png"
+      }
+    },
+    "socialMeta": {
+      "image": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1692793639/Images/card_image_feeling_purpose_ju8iea.png"
+    },
+    "coCreators": [
+      {
+        "name": "Jenny Rickardsson, voice and editor",
+        "url": "https://www.linkedin.com/in/jenny-rickardson-6770a959/",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413228/Contributors/Jenny%20Rickardsson.jpg"
+      },
+      {
+        "name": "Ints Ivanovskis, art works",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413436/Contributors/Ints%20Ivanovskis.jpg",
+        "url": "https://www.linkedin.com/in/ints-ivanovskis-46ab0311a/"
+      },
+      {
+        "name": "Cristina Alves, voz em Português"
+      }
+    ],
     "duration": 30,
     "introPortal": {
       "hostNotes": [
@@ -228,9 +301,14 @@
         }
       ],
       "videoLoop": {
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1692793604/Video/portal1_feeling_purpose_vo3ws9.mp4",
+        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1692793663/Audio/portal_audio_feeling_purpose_gzijae.mp3",
         "p5JsScript": {
           "lang": "javascript"
         }
+      },
+      "videoEnd": {
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1692793619/Video/portal2_feeling_purpose_gbk6tc.mp4"
       }
     },
     "tags": [
@@ -239,7 +317,8 @@
     ],
     "link": "https://aware.29k.org/feeling-purpose",
     "id": "640e4d9f-bb88-44af-a032-116a82f080f6",
-    "async": false
+    "async": true,
+    "description": "Neste exercício, iremos explorar o que significa sentir propósito na vida. Ter um sentido de propósito está relacionado com a felicidade e a satisfação com a vida.\n\nEncontra uma posição confortável e prepara-te para tomar algumas notas durante o exercício."
   },
   "sv": {
     "slides": [
