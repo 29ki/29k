@@ -91,9 +91,9 @@ const Video: React.FC<VideoProps> = ({
     if (!active) {
       setPaused(true);
     } else if (sessionState) {
-      setPaused(!sessionState.playing);
+      setPaused(!autoPlayLoop && !sessionState.playing);
     }
-  }, [active, setPaused, sessionState]);
+  }, [active, setPaused, autoPlayLoop, sessionState]);
 
   useEffect(() => {
     if (active && !autoPlayLoop && duration && sessionState) {
