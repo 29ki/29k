@@ -13,6 +13,7 @@ import {Spacer12, Spacer8} from '../../../../components/Spacers/Spacer';
 import SubHeading from './Blocks/SubHeading';
 import Lottie from './Blocks/Lottie';
 import useAdjustVolume from '../../../hooks/useAdjustVolume';
+import {Platform} from 'react-native';
 
 const Wrapper = styled.View<{center: boolean}>(({center}) => ({
   flex: 1,
@@ -65,6 +66,8 @@ const Content: React.FC<ContentProps> = ({slide, active, async}) => {
     [content.lottie?.duration],
   );
 
+  const web = Platform.OS === 'web';
+
   return (
     <Wrapper center={!async}>
       <Spacer12 />
@@ -74,10 +77,10 @@ const Content: React.FC<ContentProps> = ({slide, active, async}) => {
           {content.text && <SubHeading>{content.text}</SubHeading>}
         </TextWrapper>
       )}
-      {!async &&
+      {(!async || web) &&
         (content.video || content.image || content.lottie) &&
         content.heading && <Heading>{content.heading}</Heading>}
-      {!async &&
+      {(!async || web) &&
         (content.video || content.image || content.lottie) &&
         content.text && <SubHeading>{content.text}</SubHeading>}
 
@@ -92,6 +95,7 @@ const Content: React.FC<ContentProps> = ({slide, active, async}) => {
             subtitles={content.lottie.subtitles}
             autoPlayLoop={content.lottie.autoPlayLoop}
             isLive={!async}
+            isTimer={slide.type === 'reflection' || slide.type === 'sharing'}
           />
           <Spacer8 />
         </GraphicsWrapper>
@@ -106,6 +110,7 @@ const Content: React.FC<ContentProps> = ({slide, active, async}) => {
             preview={content.video.preview}
             autoPlayLoop={content.video.autoPlayLoop}
             isLive={!async}
+            isTimer={slide.type === 'reflection' || slide.type === 'sharing'}
           />
         </GraphicsWrapper>
       ) : content.image ? (

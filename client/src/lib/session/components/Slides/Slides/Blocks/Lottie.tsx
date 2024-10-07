@@ -21,9 +21,12 @@ import Subtitles from '../../../../../components/Subtitles/Subtitles';
 import Gutters from '../../../../../components/Gutters/Gutters';
 import {ProgressTimerContext} from '../../../../context/TimerContext';
 import useIdleTimerManager from '../../../../hooks/useIdleTimerManager';
+import TimerControls from '../../../../../components/TimerControls/TimerControls';
 
 const LottiePlayer = styled(LPlayer)({
-  flex: 1,
+  flexShrink: 1,
+  height: '100%',
+  aspectRatio: '1',
 });
 
 const AudioPlayer = styled(VideoLooper)({
@@ -47,6 +50,7 @@ type LottieProps = {
   preview?: string;
   autoPlayLoop?: boolean;
   isLive?: boolean;
+  isTimer?: boolean;
   subtitles?: string;
 };
 const Lottie: React.FC<LottieProps> = ({
@@ -56,6 +60,7 @@ const Lottie: React.FC<LottieProps> = ({
   duration,
   autoPlayLoop = false,
   isLive,
+  isTimer,
   subtitles,
 }) => {
   const lottieRef = useRef<LottiePlayerHandle>(null);
@@ -189,6 +194,10 @@ const Lottie: React.FC<LottieProps> = ({
     setPaused(state => !state);
   }, [setPaused]);
 
+  const onReset = useCallback(() => {
+    seek(0);
+  }, [seek]);
+
   const onProgress = useCallback(
     (data: {time: number}) => {
       const currentTime = Math.min(audioDuration, data.time);
@@ -224,28 +233,38 @@ const Lottie: React.FC<LottieProps> = ({
             repeat
           />
         </MediaWrapperResolver>
-        {!isLive && (
-          <View>
-            {showSubtitels && subtitles && (
-              <SubtitleContainer>
-                <Subtitles src={subtitles} time={progress} />
-              </SubtitleContainer>
-            )}
-            <Spacer16 />
-            <Gutters big>
-              <MediaControls
-                time={progress}
-                duration={audioDuration}
+        {!isLive &&
+          (isTimer ? (
+            <>
+              <Spacer16 />
+              <TimerControls
                 playing={!paused}
-                onSkipBack={onSkipBack}
+                onReset={onReset}
                 onTogglePlay={onTogglePlay}
-                onSkipForward={onSkipForward}
-                onToggleSubtitles={onToggleSubtitles}
-                subtitles={subtitles ? showSubtitels : undefined}
               />
-            </Gutters>
-          </View>
-        )}
+            </>
+          ) : (
+            <View>
+              {showSubtitels && subtitles && (
+                <SubtitleContainer>
+                  <Subtitles src={subtitles} time={progress} />
+                </SubtitleContainer>
+              )}
+              <Spacer16 />
+              <Gutters big>
+                <MediaControls
+                  time={progress}
+                  duration={audioDuration}
+                  playing={!paused}
+                  onSkipBack={onSkipBack}
+                  onTogglePlay={onTogglePlay}
+                  onSkipForward={onSkipForward}
+                  onToggleSubtitles={onToggleSubtitles}
+                  subtitles={subtitles ? showSubtitels : undefined}
+                />
+              </Gutters>
+            </View>
+          ))}
       </>
     );
   }
@@ -261,6 +280,16 @@ const Lottie: React.FC<LottieProps> = ({
           repeat={autoPlayLoop}
         />
       </MediaWrapperResolver>
+      {!isLive && isTimer && (
+        <>
+          <Spacer16 />
+          <TimerControls
+            playing={!paused}
+            onReset={onReset}
+            onTogglePlay={onTogglePlay}
+          />
+        </>
+      )}
     </>
   );
 };

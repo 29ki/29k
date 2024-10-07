@@ -5,38 +5,20 @@ import {useTranslation} from 'react-i18next';
 
 import {SessionSlideState} from '../../hooks/useLiveSessionSlideState';
 
-import {
-  ChevronRight,
-  ChevronLeftIcon,
-  PlayIcon,
-  PauseIcon,
-  RewindIcon,
-} from '../../../components/Icons';
+import {ChevronRight, ChevronLeftIcon} from '../../../components/Icons';
 
-import {Spacer8} from '../../../components/Spacers/Spacer';
 import Button from '../../../components/Buttons/Button';
-import IconButton from '../../../components/Buttons/IconButton/IconButton';
 import {SessionStateType} from '../../../../../../shared/src/schemas/Session';
 import SETTINGS from '../../../constants/settings';
 import {ExerciseWithLanguage} from '../../../content/types';
+import TimerControls from '../../../components/TimerControls/TimerControls';
 
 const Wrapper = styled.View({
   flexDirection: 'row',
   justifyContent: 'space-between',
 });
 
-const MediaControls = styled.View({
-  flex: 1,
-  flexDirection: 'row',
-  justifyContent: 'center',
-});
-
 const SlideButton = styled(Button)<{hidden?: boolean}>(({hidden}) => ({
-  opacity: hidden ? 0 : 1,
-  ...SETTINGS.BOXSHADOW_SMALL,
-}));
-
-const IconSlideButton = styled(IconButton)<{hidden?: boolean}>(({hidden}) => ({
   opacity: hidden ? 0 : 1,
   ...SETTINGS.BOXSHADOW_SMALL,
 }));
@@ -83,7 +65,11 @@ const ContentControls: React.FC<ContentControlsProps> = ({
     !slideState?.current.content?.video &&
     !slideState?.current.content?.lottie;
 
-  const shouldRenderMediaControls = useMemo(() => {
+  const shouldRenderTimerControls = useMemo(() => {
+    if (isHidden) {
+      return true;
+    }
+
     if (slideType === 'host' && async) {
       return true;
     }
@@ -101,7 +87,7 @@ const ContentControls: React.FC<ContentControlsProps> = ({
     }
 
     return false;
-  }, [async, slideType, hasAutoPlayLoop]);
+  }, [async, slideType, hasAutoPlayLoop, isHidden]);
 
   if (!isHost || !sessionState || !slideState) {
     return null;
@@ -118,32 +104,15 @@ const ContentControls: React.FC<ContentControlsProps> = ({
         onPress={onPrevPress}>
         {t('controls.prev')}
       </SlideButton>
-      {shouldRenderMediaControls &&
+      {shouldRenderTimerControls &&
         onResetPlayingPress &&
         onTogglePlayingPress && (
-          <MediaControls>
-            <IconSlideButton
-              size="small"
-              hidden={isHidden}
-              disabled={!isConnected}
-              variant="tertiary"
-              Icon={RewindIcon}
-              onPress={onResetPlayingPress}
-            />
-            <Spacer8 />
-            <IconSlideButton
-              size="small"
-              hidden={isHidden}
-              disabled={!isConnected}
-              variant="tertiary"
-              Icon={
-                sessionState.playing && !currentContentReachedEnd
-                  ? PauseIcon
-                  : PlayIcon
-              }
-              onPress={onTogglePlayingPress}
-            />
-          </MediaControls>
+          <TimerControls
+            playing={sessionState.playing && !currentContentReachedEnd}
+            disabled={!isConnected}
+            onReset={onResetPlayingPress}
+            onTogglePlay={onTogglePlayingPress}
+          />
         )}
       {async ? (
         <SlideButton

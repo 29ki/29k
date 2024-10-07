@@ -55,8 +55,11 @@ const LottiePlayer = forwardRef<LottiePlayerHandle, LottiePlayerProps>(
 
     const onAnimationFinish = useCallback(
       (isCancelled: boolean) => {
-        if (!isCancelled && onEnd) {
-          onEnd();
+        if (!isCancelled) {
+          lottieRef.current?.reset();
+          if (onEnd) {
+            onEnd();
+          }
         }
       },
       [onEnd],
