@@ -164,10 +164,10 @@
         "type": "host",
         "hostNotes": [
           {
-            "text": "Welcome. I am X and today we will work for around 30 minutes on exploring purpose.\\\nWe’ll be doing an audio exercise together, and then sharing what we experienced.\\\nHeads up that you’ll need pen and paper."
+            "text": "Bem-vindos. Eu sou X e hoje iremos trabalhar durante cerca de 30 minutos na exploração do propósito.\\\nVamos fazer um exercício de áudio, seguido de um tempo para reflexão e partilha entre nós.\\\nPrepara-te para tomar algumas notas durante o exercício."
           },
           {
-            "text": "Let’s start with a mini check-in. How are you feeling right now? Please answer in two-three words. X, would you like to start?\n\n> Let everyone in the session, including yourself, check in one by one.\n\nThank you all for checking in. Let’s get started."
+            "text": "Vamos começar com um pequeno check-in. Como te estás a sentir? Por favor, responde em duas ou três palavras. X, queres começar?\n\n> Deixa que todos na sessão, incluindo-te a ti, façam o check-in individualmente.\n\nObrigada/o a todos por fazerem o check-in. Vamos começar."
           }
         ],
         "video": {
@@ -179,7 +179,7 @@
         "type": "content",
         "hostNotes": [
           {
-            "text": "Great. It's time to explore what purpose feels like.\n\n> Press play to start the audio exercise."
+            "text": "Ótimo. Chegou o momento de explorar como é sentir o propósito. Encontra uma posição confortável e prepara-te para tomar algumas notas durante o exercício. Vou iniciar o exercício de áudio e voltamos aqui depois.\n\n> Carrega em play para iniciar o exercício."
           }
         ],
         "content": {
@@ -297,7 +297,7 @@
     "introPortal": {
       "hostNotes": [
         {
-          "text": "> Start the session when you're ready to go"
+          "text": "> Inicia a sessão quando estiveres pronta/o para começar"
         }
       ],
       "videoLoop": {
