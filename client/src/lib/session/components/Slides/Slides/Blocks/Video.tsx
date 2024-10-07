@@ -216,7 +216,7 @@ const Video: React.FC<VideoProps> = ({
           />
         </MediaWrapperResolver>
 
-        {!isLive && (
+        {!isLive && !autoPlayLoop && (
           <View>
             {showSubtitels && subtitles && (
               <SubtitleContainer>
@@ -259,6 +259,7 @@ const Video: React.FC<VideoProps> = ({
         />
       </MediaWrapperResolver>
       {!isLive &&
+        !autoPlayLoop &&
         (isTimer ? (
           <>
             <Spacer16 />

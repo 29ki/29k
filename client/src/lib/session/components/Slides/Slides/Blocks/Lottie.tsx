@@ -280,7 +280,7 @@ const Lottie: React.FC<LottieProps> = ({
           repeat={autoPlayLoop}
         />
       </MediaWrapperResolver>
-      {!isLive && isTimer && (
+      {!isLive && !autoPlayLoop && isTimer && (
         <>
           <Spacer16 />
           <TimerControls
