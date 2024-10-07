@@ -30,7 +30,8 @@ export default function ExercisePage({params}: {params: {exerciseId: string}}) {
           .filter(({hidden, locked}) => !hidden && !locked)
           .map(exercise => (
             <div key={exercise.id}>
-              <StyledLink href={`/${exercise.language}/${exercise.id}`}>
+              <StyledLink
+                href={`/${exercise.language}/exercises/${exercise.id}`}>
                 <ExerciseCard exercise={exercise} />
               </StyledLink>
               <Spacer32 />
