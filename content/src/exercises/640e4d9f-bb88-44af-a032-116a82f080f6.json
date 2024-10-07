@@ -186,8 +186,8 @@
           "lottie": {
             "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1676977421/Lottie/audio_meditation_default_white_default_mqfcuo.json",
             "durationTimer": true,
-            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1700222910/Audio/Feeling_purpose_better_audio_fmpw8j.mp3",
-            "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1700222856/SRT%20%28captions%29%20files/Feeling_purpose_better_audio_ysviup.srt"
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1728289952/FJN/Meditations/Cristina/SENTIR_PROPOSITO_o2clxp.mp3",
+            "subtitles": ""
           }
         }
       },
@@ -195,15 +195,15 @@
         "type": "reflection",
         "hostNotes": [
           {
-            "text": "Now we’ll take 1 minute to reflect on our own.\n\nExplore the differences between that time feeling purpose, and today. What can you learn from it?"
+            "text": "Agora vamos tirar 1 minuto para refletir individualmente.\n\nExplora as diferenças entre aquele momento em que sentiste propósito e o presente. O que podes aprender com isso?"
           },
           {
-            "text": "Take notes on a piece of paper or in your head. And there is no right or wrong here, our answers are our own. 1 minute starting now.\n\n> Press play to start the timer.\n\nThat’s 1 minute and it’s time to move on."
+            "text": "Podes tomar notas num pedaço de papel ou mentalmente. Não há certo ou errado, as nossas respostas são só nossas. 1 minuto a partir de agora.\n\n> Carrega em play para iniciar o cronómetro.\n\nPassou 1 minuto e é hora de avançar."
           }
         ],
         "content": {
           "heading": "",
-          "text": "What can you learn from any differences from today and that other time?",
+          "text": "O que podes aprender com as diferenças entre hoje e aquele outro momento?",
           "lottie": {
             "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1676642915/Lottie/default_1min_white_wvgwma.json"
           }
@@ -213,17 +213,17 @@
         "type": "sharing",
         "hostNotes": [
           {
-            "text": "Now we are getting into the sharing part. We have three rules for sharing:\n\n1. **What is said in here, stays in here.**\n2. **All you need to do is listen.** There is no fixing, helping or advice-giving needed. We are just showing up and exploring what ourselves and others are going through."
+            "text": "Agora passamos para a parte da partilha. Temos três regras para partilhar:\n\n1. **O que é dito aqui, fica aqui.**\n2. **Só precisas de ouvir.** Não é necessário corrigir, ajudar ou dar conselhos. Estamos apenas a explorar o que nós e os outros estão a passar."
           },
           {
-            "text": "3. **Everything on the inside is okay.** Anger, love, hatred, sadness. Whatever shows up. No wrongs, no rights. It is what it is.\n\nThere will be a timer set for 2 minutes as an indicator. If you don’t want to share you can always say ‘pass’.\\\nThe sharing question is what you can learn from any difference from that time feeling purpose and today."
+            "text": "3. **Tudo o que sentires é válido.** Raiva, amor, ódio, tristeza. O que quer que surja. Não há certo ou errado. É o que é.\n\nHaverá um cronómetro de 2 minutos como indicador. Se não quiseres partilhar, podes sempre dizer 'passo'.\\\nA pergunta de partilha é: o que podes aprender com a diferença entre aquele momento em que sentiste propósito e o presente?"
           },
           {
-            "text": "Who would like to start?\n\n> Let everyone (or as many as you got time for) share one by one. Press play to start the timer. Re-start for each new sharing.\n\nThank you so much everyone."
+            "text": "Quem gostaria de começar?\n\n> Deixa que todos (ou os que houver tempo) partilhem individualmente. Carrega em play para iniciar o cronómetro. Reinicia para cada nova partilha.\n\nMuito obrigada/o a todos."
           }
         ],
         "content": {
-          "heading": "What can you learn from any differences between the two time points?",
+          "heading": "O que podes aprender com as diferenças entre hoje e aquele outro momento?",
           "text": "",
           "lottie": {
             "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1676639253/Lottie/default_2min_white_arvrf2.json"
@@ -235,16 +235,16 @@
         "type": "host",
         "hostNotes": [
           {
-            "text": "Our emotions can be a window into what matters to us in life.\\\nWhen we connect to what gives us a sense of meaning and purpose, we experience life differently than when we are on autopilot."
+            "text": "As nossas emoções podem ser uma janela para o que realmente é importante para nós na vida.\n\nQuando nos conectamos com o que nos dá sentido e propósito, experimentamos a vida de forma diferente do que quando estamos em piloto automático."
           },
           {
-            "text": "This helps us to show up for and act on what truly matters.\n\nWell done. If you’re up for a mission, take a moment each day for three days to notice where you are, how you feel, think and act, and see how it connects to your sense of purpose."
+            "text": "Isso ajuda-nos a aparecer e a agir em função do que realmente importa.\n\nMuito bem. Se estiveres com disposição a aceitar uma missão, tira um momento todos os dias, durante três dias, para notares onde estás, como te sentes, pensas e ages, e vê como isso te conecta ao teu sentido de propósito."
           },
           {
-            "text": "Before we leave this space let’s do a mini check-out. \n\nHow are you feeling right now? Has anything shifted? Please answer in two-three words."
+            "text": "Antes de deixarmos este espaço, vamos fazer um pequeno check-out.\n\nComo te sentes agora? Alguma coisa mudou? Responde por favor em duas ou três palavras."
           },
           {
-            "text": "Who would like to start?\n\n> Let everyone in the session check out one by one.\n\nThank you all for checking out and for joining this session today.\n\n> Finish session to send everyone off to the exit experience."
+            "text": "Quem gostaria de começar?\n\n> Deixa que todos na sessão façam o check-out individualmente.\n\nObrigada/o a todos por fazerem o check-out final e por participarem nesta sessão de hoje.\n\n> Termina a sessão e envia todos para a experiência de saída."
           }
         ],
         "video": {
@@ -258,7 +258,8 @@
           "image": {
             "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1692964887/Images/asynk_image_feeling_purpose_ufgojw.png"
           },
-          "text": "Our emotions can be a window into what matters to us in life.\n\nConnecting to what gives us a sense of purpose, helps us to show up for and act on what truly matters.\n\nWell done. If you’re up for a mission, take a moment each day for three days to notice where you are, how you feel, think and act, and see how it connects to your sense of purpose."
+          "text": "As nossas emoções podem ser uma janela para o que realmente é importante para nós na vida.\n\nConectar-nos com o que nos dá um sentido de propósito ajuda-nos a estar presentes e a agir em função do que realmente importa.\n\nMuito bem. Se estiveres com disposição a aceitar uma missão, tira um momento todos os dias, durante três dias, para notares onde estás, como te sentes, pensas e ages, e vê como isso te conecta ao teu sentido de propósito.",
+          "heading": "Parabéns"
         }
       }
     ],
