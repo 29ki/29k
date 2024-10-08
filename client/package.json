@@ -84,7 +84,7 @@
     "react-native-volume-manager": "^1.10.0",
     "react-native-web": "^0.19.12",
     "react-native-web-linear-gradient": "^1.1.2",
-    "react-native-webview": "^13.10.5",
+    "react-native-webview": "^13.12.3",
     "rvfc-polyfill": "^1.0.7",
     "srt-parser-2": "^1.2.3",
     "styled-components": "^6.1.12",
