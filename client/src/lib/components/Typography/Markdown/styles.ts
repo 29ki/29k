@@ -3,7 +3,7 @@ import {COLORS} from '../../../../../../shared/src/constants/colors';
 import {SPACINGS} from '../../../constants/spacings';
 import baseStyles from '../styles';
 
-const styles = StyleSheet.create({
+const styles: {[key: string]: {}} = StyleSheet.create({
   heading1: baseStyles.Display36,
   heading2: baseStyles.Display28,
   heading3: baseStyles.Display22,

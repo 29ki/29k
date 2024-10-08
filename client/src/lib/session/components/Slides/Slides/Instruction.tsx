@@ -13,9 +13,7 @@ const GraphicsWrapper = styled.View({
   flex: 1,
 });
 
-const TextWrapper = styled.View({
-  justifyContent: 'center',
-});
+const TextWrapper = styled.View({});
 
 type InstructionProps = {
   slide: ExerciseSlideInstructionSlide;
@@ -34,8 +32,12 @@ const Instruction: React.FC<InstructionProps> = ({slide: {content = {}}}) => {
       </GraphicsWrapper>
       <Spacer16 />
       <TextWrapper>
-        {content.heading && <Heading>{content.heading}</Heading>}
-        <Spacer16 />
+        {content.heading && (
+          <>
+            <Heading>{content.heading}</Heading>
+            <Spacer16 />
+          </>
+        )}
         {content.text && <Body>{content.text}</Body>}
       </TextWrapper>
     </ContentWrapper>

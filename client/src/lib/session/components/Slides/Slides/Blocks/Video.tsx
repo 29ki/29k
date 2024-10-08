@@ -22,9 +22,12 @@ import MediaWrapperResolver from './MediaWrapperResolver';
 import Subtitles from '../../../../../components/Subtitles/Subtitles';
 import Gutters from '../../../../../components/Gutters/Gutters';
 import {ProgressTimerContext} from '../../../../context/TimerContext';
+import TimerControls from '../../../../../components/TimerControls/TimerControls';
 
 const VideoPlayer = styled(VideoLooper)({
-  flex: 1,
+  flexShrink: 1,
+  height: '100%',
+  aspectRatio: '1',
 });
 
 const AudioPlayer = styled(VideoLooper)({
@@ -47,6 +50,7 @@ type VideoProps = {
   preview?: string;
   autoPlayLoop?: boolean;
   isLive?: boolean;
+  isTimer?: boolean;
   subtitles?: string;
 };
 const Video: React.FC<VideoProps> = ({
@@ -54,6 +58,7 @@ const Video: React.FC<VideoProps> = ({
   source,
   audioSource,
   isLive,
+  isTimer,
   subtitles,
   autoPlayLoop = false,
 }) => {
@@ -86,9 +91,9 @@ const Video: React.FC<VideoProps> = ({
     if (!active) {
       setPaused(true);
     } else if (sessionState) {
-      setPaused(!sessionState.playing);
+      setPaused(!autoPlayLoop && !sessionState.playing);
     }
-  }, [active, setPaused, sessionState]);
+  }, [active, setPaused, autoPlayLoop, sessionState]);
 
   useEffect(() => {
     if (active && !autoPlayLoop && duration && sessionState) {
@@ -173,6 +178,10 @@ const Video: React.FC<VideoProps> = ({
     setPaused(state => !state);
   }, [setPaused]);
 
+  const onReset = useCallback(() => {
+    seek(0);
+  }, [seek]);
+
   const onProgress = useCallback(
     (data: {time: number}) => {
       const currentTime = Math.min(Math.round(duration), Math.round(data.time));
@@ -207,7 +216,7 @@ const Video: React.FC<VideoProps> = ({
           />
         </MediaWrapperResolver>
 
-        {!isLive && (
+        {!isLive && !autoPlayLoop && (
           <View>
             {showSubtitels && subtitles && (
               <SubtitleContainer>
@@ -249,30 +258,41 @@ const Video: React.FC<VideoProps> = ({
           mixWithOthers={isLive}
         />
       </MediaWrapperResolver>
-      {!isLive && (
-        <View>
-          {showSubtitels && subtitles && (
-            <SubtitleContainer>
-              <Subtitles src={subtitles} time={progress} />
-            </SubtitleContainer>
-          )}
-          <Spacer16 />
-          <Gutters big>
-            <MediaControls
-              time={progress}
-              duration={duration}
+      {!isLive &&
+        !autoPlayLoop &&
+        (isTimer ? (
+          <>
+            <Spacer16 />
+            <TimerControls
               playing={!paused}
-              onSkipBack={onSkipBack}
+              onReset={onReset}
               onTogglePlay={onTogglePlay}
-              onSkipForward={onSkipForward}
-              onToggleSubtitles={onToggleSubtitles}
-              subtitles={subtitles ? showSubtitels : undefined}
             />
-          </Gutters>
-          <Spacer28 />
-          <BottomSafeArea />
-        </View>
-      )}
+          </>
+        ) : (
+          <View>
+            {showSubtitels && subtitles && (
+              <SubtitleContainer>
+                <Subtitles src={subtitles} time={progress} />
+              </SubtitleContainer>
+            )}
+            <Spacer16 />
+            <Gutters big>
+              <MediaControls
+                time={progress}
+                duration={duration}
+                playing={!paused}
+                onSkipBack={onSkipBack}
+                onTogglePlay={onTogglePlay}
+                onSkipForward={onSkipForward}
+                onToggleSubtitles={onToggleSubtitles}
+                subtitles={subtitles ? showSubtitels : undefined}
+              />
+            </Gutters>
+            <Spacer28 />
+            <BottomSafeArea />
+          </View>
+        ))}
     </>
   );
 };

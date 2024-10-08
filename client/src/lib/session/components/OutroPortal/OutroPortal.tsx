@@ -1,5 +1,5 @@
 import React, {useCallback, useState} from 'react';
-import {StatusBar, StyleSheet} from 'react-native';
+import {StyleSheet} from 'react-native';
 import styled from 'styled-components/native';
 import {useTranslation} from 'react-i18next';
 import ReactNativeHapticFeedback from 'react-native-haptic-feedback';
@@ -8,9 +8,6 @@ import usePreventGoingBack from '../../../navigation/hooks/usePreventGoingBack';
 import useNavigateWithFade from '../../../navigation/hooks/useNavigateWithFade';
 
 import Gutters from '../../../components/Gutters/Gutters';
-import Screen from '../../../components/Screen/Screen';
-import {BottomSafeArea, TopSafeArea} from '../../../components/Spacers/Spacer';
-import {SPACINGS} from '../../../constants/spacings';
 import VideoTransition from '../VideoTransition/VideoTransition';
 import AudioFader from '../AudioFader/AudioFader';
 import Button from '../../../components/Buttons/Button';
@@ -24,6 +21,7 @@ const Spinner = styled.ActivityIndicator({
 const TopBar = styled(Gutters)({
   justifyContent: 'flex-end',
   flexDirection: 'row',
+  zIndex: 1,
 });
 
 type OutroPortalProps = {
@@ -63,10 +61,7 @@ const OutroPortal: React.FC<OutroPortalProps> = ({
   }, []);
 
   return (
-    <Screen backgroundColor={exercise?.theme?.backgroundColor}>
-      <TopSafeArea minSize={SPACINGS.SIXTEEN} />
-      <StatusBar hidden />
-
+    <>
       {outroPortal?.video?.source ? (
         <VideoTransition
           endSource={outroPortal.video.source}
@@ -108,9 +103,7 @@ const OutroPortal: React.FC<OutroPortalProps> = ({
           {t('leavePortal')}
         </Button>
       </TopBar>
-
-      <BottomSafeArea minSize={SPACINGS.SIXTEEN} />
-    </Screen>
+    </>
   );
 };
 

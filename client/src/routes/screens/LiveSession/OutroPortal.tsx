@@ -7,6 +7,13 @@ import useSessionState from '../../../lib/session/state/state';
 
 import OutroPortalComponent from '../../../lib/session/components/OutroPortal/OutroPortal';
 import {LiveSessionStackProps} from '../../../lib/navigation/constants/routes';
+import Screen from '../../../lib/components/Screen/Screen';
+import {
+  BottomSafeArea,
+  TopSafeArea,
+} from '../../../lib/components/Spacers/Spacer';
+import {StatusBar} from 'react-native';
+import {SPACINGS} from '../../../lib/constants/spacings';
 
 const OutroPortal: React.FC = () => {
   const {
@@ -43,7 +50,15 @@ const OutroPortal: React.FC = () => {
   }, [leaveSession]);
 
   return (
-    <OutroPortalComponent onLeaveSession={onLeaveSession} exercise={exercise} />
+    <Screen backgroundColor={exercise?.theme?.backgroundColor}>
+      <StatusBar hidden />
+      <TopSafeArea minSize={SPACINGS.SIXTEEN} />
+      <OutroPortalComponent
+        onLeaveSession={onLeaveSession}
+        exercise={exercise}
+      />
+      <BottomSafeArea minSize={SPACINGS.SIXTEEN} />
+    </Screen>
   );
 };
 
