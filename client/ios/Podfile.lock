@@ -2093,7 +2093,7 @@ PODS:
     - React-Core
   - react-native-background-timer (2.4.1):
     - React-Core
-  - react-native-daily-js (0.66.0):
+  - react-native-daily-js (0.68.0):
     - React-Core
     - ReactNativeDailyJSScreenShareExtension (= 0.0.1)
   - react-native-get-random-values (1.11.0):
@@ -2102,7 +2102,7 @@ PODS:
     - React-Core
   - react-native-netinfo (11.3.2):
     - React-Core
-  - react-native-safe-area-context (4.10.8):
+  - react-native-safe-area-context (4.10.9):
     - React-Core
   - react-native-volume-manager (1.10.0):
     - Mute
@@ -2110,7 +2110,7 @@ PODS:
   - react-native-webrtc (118.0.3-daily.1):
     - JitsiWebRTC (~> 118.0.0)
     - React-Core
-  - react-native-webview (13.10.5):
+  - react-native-webview (13.12.3):
     - DoubleConversion
     - glog
     - hermes-engine
@@ -2391,7 +2391,7 @@ PODS:
     - Firebase/Storage (= 10.29.0)
     - React-Core
     - RNFBApp
-  - RNGestureHandler (2.17.1):
+  - RNGestureHandler (2.20.0):
     - DoubleConversion
     - glog
     - hermes-engine
@@ -2421,7 +2421,7 @@ PODS:
     - React-Core
     - React-RCTImage
     - TOCropViewController (~> 2.7.4)
-  - RNLocalize (3.2.0):
+  - RNLocalize (3.2.1):
     - React-Core
   - RNNotifee (7.8.2):
     - React-Core
@@ -2434,7 +2434,30 @@ PODS:
     - React-Core
   - RNReactNativeHapticFeedback (2.2.0):
     - React-Core
-  - RNReanimated (3.14.0):
+  - RNReanimated (3.15.4):
+    - DoubleConversion
+    - glog
+    - hermes-engine
+    - RCT-Folly (= 2024.01.01.00)
+    - RCTRequired
+    - RCTTypeSafety
+    - React-Codegen
+    - React-Core
+    - React-debug
+    - React-Fabric
+    - React-featureflags
+    - React-graphics
+    - React-ImageManager
+    - React-NativeModulesApple
+    - React-RCTFabric
+    - React-rendererdebug
+    - React-utils
+    - ReactCommon/turbomodule/bridging
+    - ReactCommon/turbomodule/core
+    - RNReanimated/reanimated (= 3.15.4)
+    - RNReanimated/worklets (= 3.15.4)
+    - Yoga
+  - RNReanimated/reanimated (3.15.4):
     - DoubleConversion
     - glog
     - hermes-engine
@@ -2455,7 +2478,28 @@ PODS:
     - ReactCommon/turbomodule/bridging
     - ReactCommon/turbomodule/core
     - Yoga
-  - RNScreens (3.32.0):
+  - RNReanimated/worklets (3.15.4):
+    - DoubleConversion
+    - glog
+    - hermes-engine
+    - RCT-Folly (= 2024.01.01.00)
+    - RCTRequired
+    - RCTTypeSafety
+    - React-Codegen
+    - React-Core
+    - React-debug
+    - React-Fabric
+    - React-featureflags
+    - React-graphics
+    - React-ImageManager
+    - React-NativeModulesApple
+    - React-RCTFabric
+    - React-rendererdebug
+    - React-utils
+    - ReactCommon/turbomodule/bridging
+    - ReactCommon/turbomodule/core
+    - Yoga
+  - RNScreens (3.34.0):
     - DoubleConversion
     - glog
     - hermes-engine
@@ -2477,14 +2521,32 @@ PODS:
     - ReactCommon/turbomodule/bridging
     - ReactCommon/turbomodule/core
     - Yoga
-  - RNSentry (5.26.0):
+  - RNSentry (5.33.1):
+    - DoubleConversion
+    - glog
     - hermes-engine
+    - RCT-Folly (= 2024.01.01.00)
+    - RCTRequired
+    - RCTTypeSafety
+    - React-Codegen
     - React-Core
+    - React-debug
+    - React-Fabric
+    - React-featureflags
+    - React-graphics
     - React-hermes
-    - Sentry/HybridSDK (= 8.31.1)
+    - React-ImageManager
+    - React-NativeModulesApple
+    - React-RCTFabric
+    - React-rendererdebug
+    - React-utils
+    - ReactCommon/turbomodule/bridging
+    - ReactCommon/turbomodule/core
+    - Sentry/HybridSDK (= 8.36.0)
+    - Yoga
   - RNSVG (15.4.0):
     - React-Core
-  - Sentry/HybridSDK (8.31.1)
+  - Sentry/HybridSDK (8.36.0)
   - SocketRocket (0.7.0)
   - SSZipArchive (2.2.3)
   - Stripe (23.28.1):
@@ -2852,7 +2914,7 @@ SPEC CHECKSUMS:
   BoringSSL-GRPC: 1e2348957acdbcad360b80a264a90799984b2ba6
   BVLinearGradient: 880f91a7854faff2df62518f0281afb1c60d49a3
   CodePush: 8c28cdffd7fe685351cce700c8a86d672d433161
-  DoubleConversion: 76ab83afb40bddeeee456813d9c04f67f78771b5
+  DoubleConversion: fea03f2699887d960129cc54bba7e52542b6f953
   FBLazyVector: 7e977dd099937dc5458851233141583abba49ff2
   Firebase: cec914dab6fd7b1bd8ab56ea07ce4e03dd251c2d
   FirebaseAppCheckInterop: 6a1757cfd4067d8e00fccd14fcc1b8fd78cfac07
@@ -2867,7 +2929,7 @@ SPEC CHECKSUMS:
   FirebaseSharedSwift: 20530f495084b8d840f78a100d8c5ee613375f6e
   FirebaseStorage: 436c30aa46f2177ba152f268fe4452118b8a4856
   fmt: 4c2741a687cc09f0634a2e2c72a838b99f1ff120
-  glog: fdfdfe5479092de0c4bdbebedd9056951f092c4f
+  glog: c5d68082e772fa1c511173d6b30a9de2c05a69a2
   GoogleUtilities: 0759d1a57ebb953965c2dfe0ba4c82e95ccc2e34
   "gRPC-C++": e725ef63c4475d7cdb7e2cf16eb0fde84bd9ee51
   gRPC-Core: eee4be35df218649fe66d721a05a7f27a28f069b
@@ -2909,14 +2971,14 @@ SPEC CHECKSUMS:
   React-Mapbuffer: 70da5955150a58732e9336a0c7e71cd49e909f25
   react-native-add-calendar-event: b9802a8be8ad4beb0dcb3efb28969c077558fb29
   react-native-background-timer: 17ea5e06803401a379ebf1f20505b793ac44d0fe
-  react-native-daily-js: e64a94d0275406d047794698ea7f2db84fca87d7
+  react-native-daily-js: dd1759fa38701e2afa08c48589f9bc5c0577c26f
   react-native-get-random-values: 21325b2244dfa6b58878f51f9aa42821e7ba3d06
   react-native-idle-timer: b4e9ff189950bcd3ba03257d9f033f3432341db8
   react-native-netinfo: 076df4f9b07f6670acf4ce9a75aac8d34c2e2ccc
-  react-native-safe-area-context: b7daa1a8df36095a032dff095a1ea8963cb48371
+  react-native-safe-area-context: ab8f4a3d8180913bd78ae75dd599c94cce3d5e9a
   react-native-volume-manager: 3c7d8047841b6831730dea7bf25250522388b4f4
   react-native-webrtc: f0863a670c08895cebfd74d7790e499397d5be1a
-  react-native-webview: 04168cbda528df7154fdef3086b4644b9e6dd683
+  react-native-webview: 91800ab1c604389120f4abe895328ff7736513fb
   React-nativeconfig: 84806b820491db30175afbf027e99e8415dc63f0
   React-NativeModulesApple: 7b79212f8cf496ab554e0b7b09acbd4aa4690260
   React-perflogger: 7bb9ba49435ff66b666e7966ee10082508a203e8
@@ -2951,18 +3013,18 @@ SPEC CHECKSUMS:
   RNFBDynamicLinks: 6e5d52576c079e65040110c8a9b895c6e1f02edc
   RNFBFirestore: 9b5e7d645787f02d5d16c4e060e778e9da762e02
   RNFBStorage: a86f59a4adae00b3061e55257d6c3d70851a1810
-  RNGestureHandler: 5538c370587d7e757667b9283ca867dd7635f154
+  RNGestureHandler: 83fd202dbc0b8971414c5c7c56ddd9f5cde05911
   RNImageCropPicker: 771e2ca319d2cf92e04ebf334ece892ee9a6728f
-  RNLocalize: b77875884750cb6a58cd6865863fe2ba2729b72b
+  RNLocalize: 4f22418187ecd5ca693231093ff1d912d1b3c9bc
   RNNotifee: 8e2d3df3f0e9ce8f5d1fe4c967431138190b6175
   RNPermissions: a58e61bd4e6bd417adcf8ef8ca094b93d772e492
   RNRate: ef3bcff84f39bb1d1e41c5593d3eea4aab2bd73a
   RNReactNativeHapticFeedback: ec56a5f81c3941206fd85625fa669ffc7b4545f9
-  RNReanimated: f6b214732ff303cb815ac81b26bbfd2070b69f43
-  RNScreens: fd2722bcc59f36a629205af8cc7b48e4bc0d09f5
-  RNSentry: 85fe1023bf60ead12d059d9c845de19de0ed6f0d
+  RNReanimated: 4e3738c07d997c502b5fa407524700dfa8712777
+  RNScreens: db442e7b8c7bc8befec2ce057927305ff8598cc8
+  RNSentry: d2f4b8dc672fb4e26b50b99e006e52d547e36b3f
   RNSVG: cb24fb322de8c1ebf59904e7aca0447bb8dbed5a
-  Sentry: 9c1188876ea1291d1a9db4b38c3f17ebd8e6985e
+  Sentry: f8374b5415bc38dfb5645941b3ae31230fbeae57
   SocketRocket: abac6f5de4d4d62d24e11868d7a2f427e0ef940d
   SSZipArchive: 62d4947b08730e4cda640473b0066d209ff033c9
   Stripe: 20e24971647daa5750e7764faa1e8aefe4917243
@@ -2975,7 +3037,7 @@ SPEC CHECKSUMS:
   StripePaymentsUI: 4c35e12ebcd4bd9bd21e379f03f730bee097250d
   StripeUICore: 22b314dc9f7ea8814d0f9eeba0ddb5e4b77f34f3
   TOCropViewController: 80b8985ad794298fb69d3341de183f33d1853654
-  Yoga: eed50599a85bd9f6882a9938d118aed6a397db9c
+  Yoga: bd92064a0d558be92786820514d74fc4dddd1233
 
 PODFILE CHECKSUM: d3b70e6d42003752efcb1b7a4cbb7e8c97f2ad67
 
