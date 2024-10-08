@@ -32,9 +32,12 @@ const Progress: React.FC<{percentage: number; color?: string}> = ({
 }) => {
   const width = useSharedValue(percentage);
 
-  const style = useAnimatedStyle(() => ({
-    width: `${width.value * 100}%`,
-  }));
+  const style = useAnimatedStyle(
+    () => ({
+      width: `${width.value * 100}%`,
+    }),
+    [width],
+  );
 
   useEffect(() => {
     width.value = withTiming(percentage, {

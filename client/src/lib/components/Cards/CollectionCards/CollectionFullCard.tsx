@@ -73,7 +73,6 @@ const LeftColumn = styled.View({
 const TitleWrapper = styled.View({
   flexDirection: 'row',
   alignItems: 'center',
-  flex: 1,
 });
 
 const Graphic = styled(CardGraphic)({

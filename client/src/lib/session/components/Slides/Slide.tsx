@@ -22,25 +22,26 @@ type SlideProps = {
   slide: ExerciseSlide;
   active: boolean;
   async?: boolean;
+  web?: boolean;
 };
 
-const Slide = ({slide, active, async}: SlideProps) => {
+const Slide = ({slide, active, async, web}: SlideProps) => {
   const theme = useSessionState(state => state.exercise?.theme);
 
   return (
     <Wrapper backgroundColor={theme?.backgroundColor}>
       {slide.type === 'host' && <Host active={active} />}
       {slide.type === 'content' && (
-        <Content async={async} slide={slide} active={active} />
+        <Content async={async} web={web} slide={slide} active={active} />
       )}
       {slide.type === 'reflection' && (
-        <Content async={async} slide={slide} active={active} />
+        <Content async={async} web={web} slide={slide} active={active} />
       )}
       {slide.type === 'sharing' &&
-        (async ? (
+        (async && !web ? (
           <Sharing slide={slide} />
         ) : (
-          <Content async={async} slide={slide} active={active} />
+          <Content async={async} web={web} slide={slide} active={active} />
         ))}
       {slide.type === 'instruction' && (
         <Instruction slide={slide as ExerciseSlideInstructionSlide} />

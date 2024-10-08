@@ -1,7 +1,7 @@
 import {useTranslation} from 'react-i18next';
-import {DEFAULT_LANGUAGE_TAG} from '../../i18n';
 import {useMemo} from 'react';
 import {ExerciseWithLanguage} from '../types';
+import {DEFAULT_LANGUAGE_TAG} from '../../../../../shared/src/i18n/constants';
 
 const getExerciseIds = (
   content: Record<string, Record<string, string>> | undefined,

@@ -12,8 +12,14 @@ const Text = styled(Markdown).attrs<TextProps>(({textColor}) => ({
     body: {
       alignItems: 'center',
     },
+    bullet_list: {
+      color: textColor ?? COLORS.BLACK,
+    },
     bullet_list_content: {
       flex: 0,
+    },
+    ordered_list: {
+      color: textColor ?? COLORS.BLACK,
     },
     ordered_list_content: {
       flex: 0,
@@ -31,16 +37,20 @@ const Text = styled(Markdown).attrs<TextProps>(({textColor}) => ({
   },
 }))<TextProps>({alignItems: 'center'});
 
+const Wrapper = styled(Gutters)({
+  alignItems: 'center',
+});
+
 const Body: React.FC<{
   children: React.ReactNode;
 }> = ({children}) => {
   const theme = useSessionState(state => state.exercise?.theme);
 
   return (
-    <Gutters>
+    <Wrapper>
       <Spacer4 />
       <Text textColor={theme?.textColor}>{children}</Text>
-    </Gutters>
+    </Wrapper>
   );
 };
 

@@ -17,6 +17,7 @@ import content from '../../../../content/content.json';
 import {
   CLIENT_LANGUAGE_TAGS,
   DEFAULT_LANGUAGE_TAG,
+  LANGUAGE_TAG,
   LANGUAGE_TAGS,
 } from '../../../../shared/src/i18n/constants';
 import filterContent from './plugins/filterContent';
@@ -32,12 +33,12 @@ dayjs.extend(utc);
 
 const DEFAULT_24HOUR_LANGUAGE_TAG = 'en-gb';
 
-export const init = () =>
+export const init = (language?: LANGUAGE_TAG) =>
   i18next
     .use(filterContent)
     .use(initReactI18next)
     .init({
-      lng: findBestLanguageTag(CLIENT_LANGUAGE_TAGS)?.languageTag,
+      lng: language || findBestLanguageTag(CLIENT_LANGUAGE_TAGS)?.languageTag,
       supportedLngs: LANGUAGE_TAGS,
       preload: LANGUAGE_TAGS,
       fallbackLng: DEFAULT_LANGUAGE_TAG,

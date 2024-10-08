@@ -14,6 +14,14 @@ import useLiveSessionMetricEvents from '../../../lib/session/hooks/useLiveSessio
 import useSessionState from '../../../lib/session/state/state';
 import useHandleLeaveLiveSession from '../../../lib/session/hooks/useHandleLeaveLiveSession';
 import useConfirmLogMindfulMinutes from '../../../lib/mindfulMinutes/hooks/useConfirmLogMindfulMinutes';
+import Screen from '../../../lib/components/Screen/Screen';
+import {StatusBar} from 'react-native';
+import {
+  BottomSafeArea,
+  TopSafeArea,
+} from '../../../lib/components/Spacers/Spacer';
+import {SPACINGS} from '../../../lib/constants/spacings';
+import {COLORS} from '../../../../../shared/src/constants/colors';
 
 const IntroPortal: React.FC = () => {
   const {
@@ -56,17 +64,36 @@ const IntroPortal: React.FC = () => {
     [navigation, session],
   );
 
+  const textColor =
+    exercise?.introPortal?.textColor || exercise?.theme?.textColor;
+
   return (
-    <IntroPortalComponent
-      exercise={exercise}
-      isVisible={isVisible}
-      isHost={isHost}
-      isLive
-      onStartSession={onStartSession}
-      onLeaveSession={leaveSessionWithConfirm}
-      onNavigateToSession={navigateToSession}
-      statusComponent={<PortalStatus />}
-    />
+    <Screen backgroundColor={exercise?.theme?.backgroundColor}>
+      <StatusBar
+        barStyle={textColor === COLORS.WHITE ? 'light-content' : 'dark-content'}
+      />
+      {!isHost && (
+        <>
+          <StatusBar
+            barStyle={
+              textColor === COLORS.WHITE ? 'light-content' : 'dark-content'
+            }
+          />
+          <TopSafeArea minSize={SPACINGS.SIXTEEN} />
+        </>
+      )}
+      <IntroPortalComponent
+        exercise={exercise}
+        isVisible={isVisible}
+        isHost={isHost}
+        isLive
+        onStartSession={onStartSession}
+        onLeaveSession={leaveSessionWithConfirm}
+        onNavigateToSession={navigateToSession}
+        statusComponent={<PortalStatus />}
+      />
+      <BottomSafeArea minSize={SPACINGS.SIXTEEN} />
+    </Screen>
   );
 };
 

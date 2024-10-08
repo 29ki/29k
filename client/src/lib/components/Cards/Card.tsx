@@ -145,7 +145,7 @@ type CardProps = {
   language?: LANGUAGE_TAG;
   tags?: Array<string>;
   cardStyle?: ExerciseCard;
-  onPress: () => void;
+  onPress?: () => void;
   children?: React.ReactNode;
   hostProfile?: UserType | null;
   isPinned?: boolean;

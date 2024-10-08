@@ -1,23 +1,23 @@
-import React from 'react';
-import {View} from 'react-native';
-import RMarkdown, {Components} from 'react-markdown';
-import {Spacer16} from '../../Spacers/Spacer';
-import styles from './styles';
+import {mergeDeepRight} from 'ramda';
+import React, {useMemo} from 'react';
 
-const components: Components = {
-  p: ({children}) => (
-    <>
-      <View style={styles.paragraph}>{children}</View>
-      <Spacer16 />
-    </>
-  ),
-};
+import RMarkdown from 'react-markdown';
+import baseStyles from './styles';
+import components from './components.web';
 
 type Props = {
+  styles?: typeof baseStyles;
   children: string;
 };
-const Markdown = ({children}: Props) => (
-  <RMarkdown components={components}>{children}</RMarkdown>
-);
+const Markdown = ({styles = {}, children}: Props) => {
+  const mergedStyles = useMemo(
+    () => mergeDeepRight(baseStyles, styles),
+    [styles],
+  );
+
+  return (
+    <RMarkdown components={components(mergedStyles)}>{children}</RMarkdown>
+  );
+};
 
 export default Markdown;
