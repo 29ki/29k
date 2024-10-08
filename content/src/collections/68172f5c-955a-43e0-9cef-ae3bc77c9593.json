@@ -20,13 +20,13 @@
     "description": "We are creatures of habit – we tend to do what we're used to doing. That's a smart thing because it saves energy. And sometimes it can make us feel trapped. \\\nThis collection can give new perspectives and practices to change or challenge the way we usually go about life."
   },
   "pt": {
-    "hidden": true,
+    "hidden": false,
     "name": "Novas perspetivas",
     "published": true,
     "sortOrder": 3,
     "card": {
       "image": {
-        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1682398823/Images/new_perspective_collection_guflka.png"
+        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1702310278/Images/set_your_values_compas_lamtbm.png"
       }
     },
     "link": "https://aware.29k.org/new-perspectives",
@@ -37,7 +37,7 @@
       "5b0dea9f-c665-41ce-a779-601d0cfa433d",
       "9ac0c561-ff26-45fc-b6d5-0a983432394e"
     ],
-    "description": "Somos criaturas de hábitos – temos tendência a fazer aquilo a que estamos habituados. Isso pode parecer inteligente porque nos ajudar a economizar energia e tempo. E às vezes pode fazer-nos sentir presos em velhos padrões. Esta coleção de meditações e exercícios pretendem dar-nos novas perspetivas e práticas que nos permitam mudar ou desafiar a forma repetitiva como normalmente levamos a vida."
+    "description": "Somos criaturas de hábitos – tendemos a fazer aquilo a que estamos habituados. Isso é inteligente, pois poupa energia. Mas, por vezes, pode fazer-nos sentir presos.\n\nEsta coleção pode oferecer novas perspetivas e práticas para mudar ou desafiar a forma como geralmente vivemos a vida."
   },
   "sv": {
     "id": "68172f5c-955a-43e0-9cef-ae3bc77c9593",
@@ -49,7 +49,8 @@
     ],
     "published": false,
     "link": "https://aware.29k.org/new-perspectives",
-    "sortOrder": 3
+    "sortOrder": 3,
+    "card": {}
   },
   "ja": {
     "id": "68172f5c-955a-43e0-9cef-ae3bc77c9593",
@@ -61,6 +62,7 @@
     ],
     "published": false,
     "link": "https://aware.29k.org/new-perspectives",
-    "sortOrder": 3
+    "sortOrder": 3,
+    "card": {}
   }
 }
