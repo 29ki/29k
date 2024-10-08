@@ -1571,10 +1571,10 @@
   dependencies:
     "@sentry/types" "8.33.1"
 
-"@shopify/jest-koa-mocks@^5.3.0":
-  version "5.3.0"
-  resolved "https://registry.yarnpkg.com/@shopify/jest-koa-mocks/-/jest-koa-mocks-5.3.0.tgz#0b9b6ce01a7ef945df7272aa08cda559c11b39f5"
-  integrity sha512-Yy9uS298/aWhT/bjfhUAcFRaq7pq7j0ybaI6U/vWQ5IcdWD3E73iqptkw+FNC+Z9cdV9QT8osFd0r0frFNb9Nw==
+"@shopify/jest-koa-mocks@^5.3.1":
+  version "5.3.1"
+  resolved "https://registry.yarnpkg.com/@shopify/jest-koa-mocks/-/jest-koa-mocks-5.3.1.tgz#2526ce7612797c460533c4033b0ce9ce074237af"
+  integrity sha512-BRxgfXmV1jMYXGhiGJamta22YoEJxL94qrxyZ/aXg2gWHjDjF6zpNapTfCUNbHJwOW7/tzylkHs53ac8xTZBBw==
   dependencies:
     koa "^2.13.4"
     node-mocks-http "^1.11.0"
