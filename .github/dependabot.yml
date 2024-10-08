@@ -1,31 +1,37 @@
 version: 2
 updates:
-  - package-ecosystem: "npm"
-    directory: "/"
+  - package-ecosystem: 'npm'
+    directory: '/'
     schedule:
-      interval: "weekly"
+      interval: 'weekly'
     open-pull-requests-limit: 10
-      
-  - package-ecosystem: "npm"
-    directory: "/client"
+
+  - package-ecosystem: 'npm'
+    directory: '/client'
     schedule:
-      interval: "weekly"
+      interval: 'weekly'
     open-pull-requests-limit: 10
-      
-  - package-ecosystem: "npm"
-    directory: "/functions"
+
+  - package-ecosystem: 'npm'
+    directory: '/functions'
     schedule:
-      interval: "weekly"
+      interval: 'weekly'
     open-pull-requests-limit: 10
-      
-  - package-ecosystem: "npm"
-    directory: "/cms"
+
+  - package-ecosystem: 'npm'
+    directory: '/cms'
     schedule:
-      interval: "weekly"
+      interval: 'weekly'
     open-pull-requests-limit: 10
-      
-  - package-ecosystem: "npm"
-    directory: "/content"
+
+  - package-ecosystem: 'npm'
+    directory: '/web'
     schedule:
-      interval: "weekly"
+      interval: 'weekly'
+    open-pull-requests-limit: 10
+
+  - package-ecosystem: 'npm'
+    directory: '/content'
+    schedule:
+      interval: 'weekly'
     open-pull-requests-limit: 10
