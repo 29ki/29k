@@ -157,10 +157,10 @@
         "type": "host",
         "hostNotes": [
           {
-            "text": "Welcome. I am X and today we will work for around 30 minutes on xx\n\nWe’ll be doing xx ex. meditation followed by time for reflection and sharing with each other."
+            "text": "Bem-vindos. Eu sou X e hoje iremos trabalhar durante cerca de 30 minutos para transformar valores em ações diárias.\n\nVamos fazer um exercício de áudio, seguido de um tempo para reflexão e partilha entre nós."
           },
           {
-            "text": "Let’s start with a mini check-in. How are you feeling right now? Please answer in two-three words. X, would you like to start?\n\n> Let everyone in the session, including yourself, check in one by one.\n\nThank you all for checking in. Let’s get started."
+            "text": "Vamos começar com um pequeno check-in. Como te estás a sentir? Por favor, responde em duas ou três palavras. X, queres começar?\n\n> Deixa que todos na sessão, incluindo-te a ti, façam o check-in individualmente.\n\nObrigada/o a todos por fazerem o check-in. Vamos começar."
           }
         ]
       },
@@ -168,76 +168,137 @@
         "type": "content",
         "hostNotes": [
           {
-            "text": "Find a comfortable position. I will start the audio exercise and we'll meet back here afterwards. \n\n> Push play to start the audio exercise"
+            "text": "Encontra uma posição confortável. Vou iniciar o exercício de áudio e voltamos aqui depois. \n\n> Carrega em play para iniciar o exercício"
           }
-        ]
+        ],
+        "content": {
+          "lottie": {
+            "subtitles": "",
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1728289958/FJN/Meditations/Cristina/ACOES_DIARIAS_jsylzs.mp3",
+            "durationTimer": true,
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1676977421/Lottie/audio_meditation_default_white_default_mqfcuo.json"
+          }
+        }
       },
       {
         "type": "reflection",
         "hostNotes": [
           {
-            "text": "Now we’ll take 1 minute to reflect on our own.\n\nxxMain question\n\nxxFurther explanations of main question if needed"
+            "text": "Agora vamos tirar 1 minuto para refletir individualmente.\n\nO que vais fazer? Quando? \n\nE porque é importante para ti?"
           },
           {
-            "text": "You can take notes on a piece of paper or just mental notes in your head. And there is no right or wrong here, our answers are our own. 1 minute starting now.\n\n> Press play to start the timer.\n\nThat’s 1 minute and it’s time to move on."
+            "text": "Podes tomar notas num pedaço de papel ou mentalmente. Não há certo ou errado, as nossas respostas são só nossas. 1 minuto a partir de agora.\n\n> Carrega em play para iniciar o cronómetro.\n\nPassou 1 minuto e é hora de avançar."
           }
-        ]
+        ],
+        "content": {
+          "heading": "O que vais fazer?",
+          "lottie": {
+            "durationTimer": true,
+            "duration": 60,
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1676642915/Lottie/default_1min_white_wvgwma.json",
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1707994703/Audio/portal_audio-Daily_action_gznm91.mp3"
+          },
+          "text": "Quando? Porquê?"
+        }
       },
       {
         "type": "sharing",
         "hostNotes": [
           {
-            "text": "Now we are getting into the sharing part. We have three rules for sharing:\n\n1. **What is said in here, stays in here.**\n2. **All you need to do is listen.** There is no fixing, helping or advice-giving needed. We are just showing up and exploring what ourselves and others are going through."
+            "text": "Agora passamos para a parte da partilha. Temos três regras para partilhar:\n\n1. **O que é dito aqui, fica aqui.**\n2. **Só precisas de ouvir.** Não é necessário corrigir, ajudar ou dar conselhos. Estamos apenas a explorar o que nós e os outros estão a passar."
           },
           {
-            "text": "3. **Everything on the inside is okay.** Anger, love, hatred, sadness. Whatever shows up. No wrongs, no rights. It is what it is.\n\nThere will be a timer set for 2 minutes as an indicator. If you don’t want to share you can always say ‘pass’."
+            "text": "3. **Tudo o que sentires é válido.** Raiva, amor, ódio, tristeza. O que quer que surja. Não há certo ou errado. É o que é.\n\nHaverá um cronómetro de 2 minutos como indicador. Se não quiseres partilhar, podes sempre dizer 'passo'."
           },
           {
-            "text": "Who would like to start?\n\n> Let everyone (or as many as you got time for) share one by one. Press play to start the timer. Re-start for each new sharing.\n\nThank you so much everyone."
+            "text": "Quem gostaria de começar?\n\n> Deixa que todos (ou os que houver tempo) partilhem individualmente. Carrega em play para iniciar o cronómetro. Reinicia para cada nova partilha.\n\nMuito obrigada/o a todos."
           }
         ],
-        "id": "Sharing 1"
+        "id": "Sharing 1",
+        "content": {
+          "heading": "O que vais fazer? ",
+          "lottie": {
+            "durationTimer": true,
+            "duration": 120,
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1676639253/Lottie/default_2min_white_arvrf2.json"
+          },
+          "text": "Quando? Porquê?"
+        }
       },
       {
         "type": "host",
         "hostNotes": [
           {
-            "text": "Well done. If you’re up for it, you can continue what we started here today with a mission to bring this into your everyday life.\n\nxx mission description"
+            "text": "Muito bem por expandires o teu leque de cartas de valores, tornando mais fácil fazer o que é importante para ti todos os dias. Certifica-te que vais honrar o teu compromisso com as ações diárias que escolheste. Avalia e ajusta quando necessário."
           },
           {
-            "text": "Before we leave this space let’s do a mini check-out. \n\nHow are you feeling right now? Has anything shifted? Please answer in two-three words."
+            "text": "Antes de deixarmos este espaço, vamos fazer um pequeno check-out. \n\nComo te sentes agora? Alguma coisa mudou? Responde por favor em duas ou três palavras."
           },
           {
-            "text": "Who would like to start?\n\n> Let everyone in the session check out one by one.\n\nThank you all for checking out and for joining this session today.\n\n> Finish session to send everyone off to the exit experience."
+            "text": "Quem gostaria de começar?\n\n> Deixa que todos na sessão façam o check-out individualmente.\n\nObrigada/o a todos por fazerem o check-out final e por participarem nesta sessão de hoje.\n\n> Termina a sessão e envia todos para a experiência de saída."
           }
         ]
       },
       {
         "type": "instruction",
         "content": {
-          "text": "Well done.\n\nSummary.\n\nIf you’re up for it, you can continue with this mission.\n\nmission description"
+          "text": "Muito bem por expandires o teu leque de cartas de valores, tornando mais fácil fazer o que é importante para ti todos os dias.\n\nCertifica-te que vais honrar o teu compromisso com as ações diárias que escolheste. Avalia e ajusta quando necessário.",
+          "image": {
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1707994006/Contributors/card_daily_action_xpus8c.png"
+          },
+          "heading": "Parabéns"
         }
       }
     ],
     "theme": {
-      "textColor": "#2AE2D7"
+      "textColor": "#F9F8F4",
+      "backgroundColor": "#e25735"
     },
     "hidden": false,
+    "name": "Ações diárias",
     "live": true,
-    "published": false,
-    "card": {},
+    "published": true,
+    "card": {
+      "image": {
+        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1707994006/Contributors/card_daily_action_xpus8c.png"
+      }
+    },
+    "coCreators": [
+      {
+        "name": "Jenny Rickardsson, editor",
+        "url": "https://www.linkedin.com/in/jenny-rickardson-6770a959/",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/v1665413228/Contributors/Jenny%20Rickardsson.jpg"
+      },
+      {
+        "name": "Samuel Yan, art works",
+        "url": "https://openprocessing.org/user/293890?view=sketches&o=48",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1707993748/Contributors/SamuelYAN_vtyjjx.jpg"
+      },
+      {
+        "name": "Tabitha, AI-generated voice",
+        "url": "https://www.descript.com/ai-voices",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1710239861/Contributors/descript_ps0olu.webp"
+      },
+      {
+        "name": "Cristina Alves, voz em Português",
+        "url": "https://www.instagram.com/meditar.com.cristina/profilecard/?igsh=cTg5dDNjZ2Y5aTU0",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1728375093/FJN/People/Cristina_Alves_zt1btx.png"
+      }
+    ],
     "duration": 30,
     "introPortal": {
-      "textColor": "#2AE2D7",
+      "textColor": "#F9F8F4",
       "hostNotes": [
         {
-          "text": "> Start the session when you're ready to go"
+          "text": "> Inicia a sessão quando estiveres pronta/o para começar"
         }
       ],
       "videoLoop": {
         "p5JsScript": {
-          "lang": "javascript"
-        }
+          "lang": "javascript",
+          "code": "// by SamuelYAN\n// more works //\n   // https://twitter.com/SamuelAnn0924\n   // https://www.instagram.com/samuel_yan_1990/\n// Lissajous figure(Lissajous curve)\n\nvar seed = Math.random() * 1000;\nvar a = 2,\n  b = 3;\nvar th = 0,\n  seg = 0.01;\nvar r;\nvar mySize;\nlet colors1 = \"f8f9fbBF-f9f6e040-45454cBF-ef9643b3-f0654380\"\n  .split(\"-\")\n  .map((a) => \"#\" + a);\nlet colors2 = \"f8f9fb-f9f6e0-45454c-ef9643-f06543\"\n  .split(\"-\")\n  .map((a) => \"#\" + a + \"00\");\nlet colorbg = \"f06543\".split(\"-\").map((a) => \"#\" + a);\nlet colorbg2 = \"e9ebfb80\".split(\"-\").map((a) => \"#\" + a);\n\nfunction setup() {\n  // frameRate(25);\n  mySize = min(windowWidth, windowHeight);\n  createCanvas(windowWidth, windowHeight);\n  colorMode(HSB, 360, 100, 100, 100);\n  // pixelDensity(5);\n  r = mySize / 2;\n  background(colorbg);\n  let filter = new makeFilter();\n}\n\nfunction draw() {\n  randomSeed(seed);\n  // background(colorbg2);\n  noFill();\n  strokeCap(SQUARE);\n  push();\n  translate(width / 2, height / 2);\n  for (let i = 0; i < 120; i += random(1)) {\n    a = random(1);\n    b = random(1);\n    strokeWeight(random(50));\n    rotate(random(TAU));\n    stroke(random(colors1));\n    ellipse(\n      random(-i * 50,i*50) + r * cos(a * th),\n      random(-i * 50,i*50) + r * sin(b * th),\n      r*cos(a * (th + seg)),\n      r*sin(b * (th + seg))\n    );\n  }\n  pop();\n  th += seg;\n  image(overAllTexture, 0, 0);\n}\n\n// by SamuelYAN\n// more works //\n// https://twitter.com/SamuelAnn0924\n// https://www.instagram.com/samuel_yan_1990/\n\nfunction makeFilter() {\n  randomSeed(seed);\n  // noiseのフィルターをつくる\n  colorMode(HSB, 360, 100, 100, 100);\n  drawingContext.shadowColor = color(0, 0, 5, 10);\n  overAllTexture = createGraphics(windowWidth, windowHeight);\n  overAllTexture.loadPixels();\n  for (var i = 0; i < width; i++) { // noprotect\n    for (var j = 0; j < height; j++) {\n      overAllTexture.set(\n        i,\n        j,\n        color(10, 90, 70, noise(i / 3, j / 3, (i * j) / 50) * random(1, 15))\n      );\n    }\n  }\n  overAllTexture.updatePixels();\n}\n\nfunction keyTyped() {\n  if (key === \"s\" || key === \"S\") {\n    //noLoop();\n    saveCanvas(\"DancingShapes_Tubes\", \"png\");\n  }\n}"
+        },
+        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1707994703/Audio/portal_audio-Daily_action_gznm91.mp3"
       }
     },
     "tags": [
@@ -245,7 +306,8 @@
       "8da0534a-5da9-430a-bdf3-242ace6460fb"
     ],
     "id": "f59b7f66-43b0-4b50-9afe-91092d7dc469",
-    "async": false
+    "async": true,
+    "description": "Transforma valores em ações com o “leque de cartas”. Ações guiadas por valores podem fazer-nos sentir melhor, inclusive em relação às escolhas difíceis que todos enfrentamos na vida."
   },
   "sv": {
     "slides": [
