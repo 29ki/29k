@@ -11,7 +11,7 @@
   "pt": {
     "description": "A sessão que estás a procurar já não está disponível.",
     "image__image": "https://res.cloudinary.com/cupcake-29k/image/upload/v1683807355/Images/flowers_slijjk.png",
-    "descriptionEjected": "Foste removido desta sessão pelo moderador.",
+    "descriptionEjected": "Foste removido desta sessão pelo/a moderador/a.",
     "infoEjected": "Não poderás voltar a entrar na sessão.",
     "codeOfConductInfo": "Lê o nosso código de conduta",
     "codeOfConductHere": "aqui",
