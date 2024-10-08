@@ -135,7 +135,7 @@
       "backgroundColor": "#378d88"
     },
     "hidden": false,
-    "name": "Mergulhar",
+    "name": "Começa aqui",
     "published": true,
     "card": {
       "lottie": {
@@ -143,6 +143,17 @@
       },
       "imageBackgroundColor": ""
     },
+    "coCreators": [
+      {
+        "name": "Jenny Rickardsson, script and voice",
+        "url": "https://www.linkedin.com/in/jenny-rickardson-6770a959/",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413228/Contributors/Jenny%20Rickardsson.jpg"
+      },
+      {
+        "name": "Ints Ivanovskis, art works",
+        "url": "https://www.linkedin.com/in/ints-ivanovskis-46ab0311a/"
+      }
+    ],
     "duration": 5,
     "outroPortal": {
       "video": {
@@ -156,7 +167,10 @@
       "videoLoop": {
         "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1683646038/Video/get_started_portal_q8xuck.mp4",
         "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1683646074/Audio/get_started_portal_audio_d9u6dy.mp3",
-        "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1683646986/Images/dive_in_thumb_v5iugn.png"
+        "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1683646986/Images/dive_in_thumb_v5iugn.png",
+        "p5JsScript": {
+          "lang": "javascript"
+        }
       }
     },
     "tags": [
