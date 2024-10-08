@@ -13,7 +13,14 @@
     },
     {
       "site": "cupcake-web",
-      "public": "./web/dist"
+      "public": "./web/dist",
+      "rewrites": [
+        {
+          "source": "/",
+          "destination": "https://29k.org",
+          "type": 301
+        }
+      ]
     }
   ],
   "emulators": {

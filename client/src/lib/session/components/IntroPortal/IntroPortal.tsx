@@ -21,14 +21,10 @@ const Spinner = styled.ActivityIndicator({
   ...StyleSheet.absoluteFillObject,
 });
 
-const Wrapper = styled.View({
-  flex: 1,
-  justifyContent: 'space-between',
-  zIndex: 1,
-});
 const Content = styled.View({
   flex: 1,
   justifyContent: 'space-between',
+  zIndex: 1,
 });
 
 const TopBar = styled(Gutters)({
@@ -101,7 +97,10 @@ const IntroPortal: React.FC<IntroPortalProps> = ({
   ]);
 
   useEffect(() => {
-    if (!isVisible) {
+    if (isVisible) {
+      setIsHidden(false);
+      setIsTransitioning(false);
+    } else {
       setIsTransitioning(true);
       const timeout = setTimeout(() => {
         setIsHidden(true);
@@ -175,34 +174,32 @@ const IntroPortal: React.FC<IntroPortalProps> = ({
       )}
       {isLoading && <Spinner color={textColor} size="large" />}
       {isVisible && (
-        <Wrapper>
-          <Content>
-            <TopBar>
-              <BackButton
-                onPress={onLeaveSession}
-                fill={textColor}
-                Icon={ArrowLeftIcon}
-                noBackground
-              />
-              {__DEV__ && sessionState?.started && (
-                <Button size="small" onPress={onNavigateToSession}>
-                  {t('skipPortal')}
-                </Button>
-              )}
-              {isHost && (
-                <Button
-                  size="small"
-                  disabled={sessionState?.started}
-                  onPress={onStartSession}>
-                  {sessionState?.started
-                    ? t('sessionStarted')
-                    : t('startSession')}
-                </Button>
-              )}
-            </TopBar>
-            {statusComponent}
-          </Content>
-        </Wrapper>
+        <Content>
+          <TopBar>
+            <BackButton
+              onPress={onLeaveSession}
+              fill={textColor}
+              Icon={ArrowLeftIcon}
+              noBackground
+            />
+            {__DEV__ && sessionState?.started && (
+              <Button size="small" onPress={onNavigateToSession}>
+                {t('skipPortal')}
+              </Button>
+            )}
+            {isHost && (
+              <Button
+                size="small"
+                disabled={sessionState?.started}
+                onPress={onStartSession}>
+                {sessionState?.started
+                  ? t('sessionStarted')
+                  : t('startSession')}
+              </Button>
+            )}
+          </TopBar>
+          {statusComponent}
+        </Content>
       )}
     </>
   );

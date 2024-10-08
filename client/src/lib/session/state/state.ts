@@ -69,8 +69,10 @@ const useSessionState = create<State & Actions>()((set, get) => ({
     }
   },
   setSessionState: sessionState => set({sessionState}),
-  setLiveSession: liveSession => set({liveSession, asyncSession: null}),
-  setAsyncSession: asyncSession => set({asyncSession, liveSession: null}),
+  setLiveSession: liveSession =>
+    set({liveSession, asyncSession: null, sessionState: null}),
+  setAsyncSession: asyncSession =>
+    set({asyncSession, liveSession: null, sessionState: null}),
   setExercise: exercise => set({exercise}),
   setCurrentContentReachedEnd: currentContentReachedEnd =>
     set({currentContentReachedEnd}),

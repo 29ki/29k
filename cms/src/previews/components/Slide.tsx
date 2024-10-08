@@ -20,7 +20,7 @@ const Slide: React.FC<Props> = ({slide}) => (
     </Heading16>
     <Spacer4 />
     <MobileView>
-      <ContentSlide slide={slide} active async />
+      <ContentSlide slide={slide} active async web />
     </MobileView>
     <Spacer16 />
     {'hostNotes' in slide &&
