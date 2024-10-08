@@ -14,7 +14,7 @@
   "dependencies": {
     "dayjs": "^1.11.13",
     "hex-to-rgba": "^2.0.1",
-    "i18next": "^23.14.0",
+    "i18next": "^23.15.2",
     "next": "14.2.10",
     "react": "^18",
     "react-dom": "^18",
