@@ -132,10 +132,10 @@
         "type": "host",
         "hostNotes": [
           {
-            "text": "Welcome. I am X and today we will work for around 30 minutes on gratitude and self-compassion.\n\nWe’ll be doing an audio exercise, followed by time for reflection and sharing with each other. Heads up that pen and paper is needed to do the exercise."
+            "text": "Bem-vindos. Eu sou X e hoje iremos trabalhar durante cerca de 30 minutos sobre gratidão e autocompaixão.\n\nVamos fazer um exercício de áudio, seguido de um tempo para reflexão e partilha entre nós.\n\nPrepara-te para tomar algumas notas durante o exercício."
           },
           {
-            "text": "Let’s start with a mini check-in. How are you feeling right now? Please answer in two-three words. X, would you like to start?\n\n> Let everyone in the session, including yourself, check in one by one.\n\nThank you all for checking in. Let’s get started."
+            "text": "Vamos começar com um pequeno check-in. Como te estás a sentir? Por favor, responde em duas ou três palavras. X, queres começar?\n\n> Deixa que todos na sessão, incluindo-te a ti, façam o check-in individualmente.\n\nObrigada/o a todos por fazerem o check-in. Vamos começar."
           }
         ]
       },
@@ -143,13 +143,13 @@
         "type": "content",
         "hostNotes": [
           {
-            "text": "Find a comfortable position. I will start the audio exercise and we'll meet back here afterwards. \n\n> Push play to start the audio exercise"
+            "text": "Encontra uma posição confortável e prepara-te para tomar algumas notas durante o exercício. Vou iniciar o exercício de áudio e voltamos aqui depois.\n\n> Carrega em play para iniciar o exercício"
           }
         ],
         "content": {
           "lottie": {
-            "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1716890320/SRT%20(captions)%20files/Gratitude_letters_c9sb5u.srt",
-            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1716890277/Audio/Gratitude_letters_mqysdg.mp3"
+            "subtitles": "",
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1728289985/FJN/Meditations/Cristina/CARTAS_DE_GRATIDAO_qv92nl.mp3"
           }
         }
       },
@@ -157,14 +157,14 @@
         "type": "reflection",
         "hostNotes": [
           {
-            "text": "Now we’ll take 1 minute to reflect on our own."
+            "text": "Agora vamos tirar 1 minuto para refletir individualmente.\n\nComo te sentiste ao expressar gratidão a outra pessoa? E a ti mesma/o?"
           },
           {
-            "text": "You can take notes on a piece of paper or just mental notes in your head. And there is no right or wrong here, our answers are our own. 1 minute starting now.\n\n> Press play to start the timer.\n\nThat’s 1 minute and it’s time to move on."
+            "text": "Podes tomar notas num pedaço de papel ou mentalmente. Não há certo ou errado, as nossas respostas são só nossas. 1 minuto a partir de agora.\n\n> Press play to start the timer.\n\nThat’s 1 minute and it’s time to move on."
           }
         ],
         "content": {
-          "heading": "How did it feel to express gratitude to someone else? And to yourself?"
+          "heading": "Como te sentiste ao expressar gratidão a outra pessoa? E a ti mesma/o?"
         }
       },
       {
@@ -182,7 +182,7 @@
         ],
         "id": "Sharing 1",
         "content": {
-          "heading": "How did it feel to express gratitude to someone else? And to yourself?"
+          "heading": "Como te sentiste ao expressar gratidão a outra pessoa? E a ti mesma/o?"
         }
       },
       {
@@ -241,7 +241,7 @@
       "textColor": "#2AE2D7",
       "hostNotes": [
         {
-          "text": "> Start the session when you're ready to go"
+          "text": "> Inicia a sessão quando estiveres pronta/o para começar"
         }
       ],
       "videoLoop": {
