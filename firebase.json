@@ -14,7 +14,7 @@
     {
       "site": "cupcake-web",
       "public": "./web/dist",
-      "rewrites": [
+      "redirects": [
         {
           "source": "/",
           "destination": "https://29k.org",
