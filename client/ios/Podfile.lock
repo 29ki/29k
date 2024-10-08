@@ -1126,7 +1126,7 @@ PODS:
   - JitsiWebRTC (118.0.0)
   - JWT (3.0.0-beta.14):
     - Base64 (~> 1.1.2)
-  - kingstinct-react-native-healthkit (8.1.1):
+  - kingstinct-react-native-healthkit (8.2.0):
     - React
   - leveldb-library (1.22.5)
   - lottie-ios (4.4.1)
@@ -2093,7 +2093,7 @@ PODS:
     - React-Core
   - react-native-background-timer (2.4.1):
     - React-Core
-  - react-native-daily-js (0.68.0):
+  - react-native-daily-js (0.69.0):
     - React-Core
     - ReactNativeDailyJSScreenShareExtension (= 0.0.1)
   - react-native-get-random-values (1.11.0):
@@ -2423,10 +2423,10 @@ PODS:
     - TOCropViewController (~> 2.7.4)
   - RNLocalize (3.2.1):
     - React-Core
-  - RNNotifee (7.8.2):
+  - RNNotifee (9.1.1):
     - React-Core
-    - RNNotifee/NotifeeCore (= 7.8.2)
-  - RNNotifee/NotifeeCore (7.8.2):
+    - RNNotifee/NotifeeCore (= 9.1.1)
+  - RNNotifee/NotifeeCore (9.1.1):
     - React-Core
   - RNPermissions (4.1.5):
     - React-Core
@@ -2937,7 +2937,7 @@ SPEC CHECKSUMS:
   hermes-engine: 1f547997900dd0752dc0cc0ae6dd16173c49e09b
   JitsiWebRTC: 3a41671ef65a51d7204323814b055a2690b921c7
   JWT: ef71dfb03e1f842081e64dc42eef0e164f35d251
-  kingstinct-react-native-healthkit: f94de2c6d88830ce96e46f6dd85e966f9ca32f66
+  kingstinct-react-native-healthkit: d25569576d9fd5084500f3ec83f5102a7de2692b
   leveldb-library: e8eadf9008a61f9e1dde3978c086d2b6d9b9dc28
   lottie-ios: e047b1d2e6239b787cc5e9755b988869cf190494
   lottie-react-native: 445dc3d3c964a4365ec39131d8b991556dc55b01
@@ -2971,7 +2971,7 @@ SPEC CHECKSUMS:
   React-Mapbuffer: 70da5955150a58732e9336a0c7e71cd49e909f25
   react-native-add-calendar-event: b9802a8be8ad4beb0dcb3efb28969c077558fb29
   react-native-background-timer: 17ea5e06803401a379ebf1f20505b793ac44d0fe
-  react-native-daily-js: dd1759fa38701e2afa08c48589f9bc5c0577c26f
+  react-native-daily-js: 6f3b0930d5fd7fc94648eb334a35d3efe538c93c
   react-native-get-random-values: 21325b2244dfa6b58878f51f9aa42821e7ba3d06
   react-native-idle-timer: b4e9ff189950bcd3ba03257d9f033f3432341db8
   react-native-netinfo: 076df4f9b07f6670acf4ce9a75aac8d34c2e2ccc
@@ -3016,7 +3016,7 @@ SPEC CHECKSUMS:
   RNGestureHandler: 83fd202dbc0b8971414c5c7c56ddd9f5cde05911
   RNImageCropPicker: 771e2ca319d2cf92e04ebf334ece892ee9a6728f
   RNLocalize: 4f22418187ecd5ca693231093ff1d912d1b3c9bc
-  RNNotifee: 8e2d3df3f0e9ce8f5d1fe4c967431138190b6175
+  RNNotifee: 35b5f984d11083b02d7f2990b3408cd99a0aeeac
   RNPermissions: a58e61bd4e6bd417adcf8ef8ca094b93d772e492
   RNRate: ef3bcff84f39bb1d1e41c5593d3eea4aab2bd73a
   RNReactNativeHapticFeedback: ec56a5f81c3941206fd85625fa669ffc7b4545f9
