@@ -963,14 +963,14 @@
   resolved "https://registry.yarnpkg.com/@jsdevtools/ono/-/ono-7.1.3.tgz#9df03bbd7c696a5c58885c34aa06da41c8543796"
   integrity sha512-4JQNk+3mVzK3xh2rqd6RB4J46qUR19azEHBneZyTZM+c456qOrbbM/5xcR8huNCCcbVt7+UmizG6GuUvPvKUYg==
 
-"@koa/router@^13.0.0":
-  version "13.0.0"
-  resolved "https://registry.yarnpkg.com/@koa/router/-/router-13.0.0.tgz#66abdb6df583fb10e057ab27443c669078d49dc2"
-  integrity sha512-P278xb5IoLtDn2inRsCzJVKGxt5RkjOivwxGbniMO1sI8bft1/Dr93UsRP5aByT8C74x8zqxDYyPXrQwRKIhjg==
+"@koa/router@^13.1.0":
+  version "13.1.0"
+  resolved "https://registry.yarnpkg.com/@koa/router/-/router-13.1.0.tgz#43f4c554444ea4f4a148a5735a9525c6d16fd1b5"
+  integrity sha512-mNVu1nvkpSd8Q8gMebGbCkDWJ51ODetrFvLKYusej+V0ByD4btqHYnPIzTBLXnQMVUlm/oxVwqmWBY3zQfZilw==
   dependencies:
     http-errors "^2.0.0"
     koa-compose "^4.1.0"
-    path-to-regexp "^6.2.2"
+    path-to-regexp "^6.3.0"
 
 "@nodelib/fs.scandir@2.1.5":
   version "2.1.5"
@@ -8005,10 +8005,10 @@ path-to-regexp@^1.8.0:
   dependencies:
     isarray "0.0.1"
 
-path-to-regexp@^6.2.2:
-  version "6.2.2"
-  resolved "https://registry.yarnpkg.com/path-to-regexp/-/path-to-regexp-6.2.2.tgz#324377a83e5049cbecadc5554d6a63a9a4866b36"
-  integrity sha512-GQX3SSMokngb36+whdpRXE+3f9V8UzyAorlYvOGx87ufGHehNTn5lCxrKtLyZ4Yl/wEKnNnr98ZzOwwDZV5ogw==
+path-to-regexp@^6.3.0:
+  version "6.3.0"
+  resolved "https://registry.yarnpkg.com/path-to-regexp/-/path-to-regexp-6.3.0.tgz#2b6a26a337737a8e1416f9272ed0766b1c0389f4"
+  integrity sha512-Yhpw4T9C6hPpgPeA28us07OJeqZ5EzQTkbfwuhsUg0c237RomFoETJgmp2sa3F/41gfLE6G5cqcYwznmeEeOlQ==
 
 path-to-regexp@^8.1.0:
   version "8.2.0"
