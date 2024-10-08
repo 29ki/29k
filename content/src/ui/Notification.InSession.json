@@ -3,10 +3,13 @@
     "title": "In a live session",
     "subtitle": "You're in a session with {{host}}. Tap to open it."
   },
+  "pt": {
+    "title": "Numa sessão ao vivo",
+    "subtitle": "Estás numa sessão com {{host}}. Clica para abrir."
+  },
   "sv": {
     "title": "I en pågående session",
     "subtitle": "Du är i en session med {{host}}. Tryck för att öppna den."
   },
-  "pt": {},
   "ja": {}
 }
