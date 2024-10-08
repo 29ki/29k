@@ -22,8 +22,8 @@
     "sortOrder": 5
   },
   "pt": {
-    "hidden": true,
-    "name": "Alivia o stress",
+    "hidden": false,
+    "name": "Encontra a calma",
     "published": true,
     "sortOrder": 5,
     "card": {
@@ -42,7 +42,7 @@
       "2fdb95f0-d18d-444d-9935-2c71b9b413d4",
       "9ac0c561-ff26-45fc-b6d5-0a983432394e"
     ],
-    "description": "Durante os períodos de stress, garantir que conseguimos recuperar é fundamental. Os exercícios e meditações desta coleção podem ajudar-nos a cuidar de nós mesmos em momentos de stress, a fazer pausas merecidas e a estabelecer limites saudáveis."
+    "description": "Em tempos de stress, a recuperação é fundamental. Esta coleção pode ajudar-nos a cuidar de nós mesmos e a obter algumas pausas merecidas."
   },
   "sv": {
     "id": "af1c4ac9-1bae-4cb1-8c98-e1f98a8aea66",
