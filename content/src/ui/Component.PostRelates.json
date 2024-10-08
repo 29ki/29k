@@ -2,7 +2,9 @@
   "en": {
     "relate": "Can you relate?"
   },
-  "pt": {},
+  "pt": {
+    "relate": "Identificas-te com isto?"
+  },
   "sv": {
     "relate": "Kan du relatera?"
   },
