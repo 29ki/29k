@@ -136,7 +136,10 @@
       ],
       "videoLoop": {
         "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1701788655/Video/portal1_climateP_ab1nv1.mp4",
-        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1701788616/Audio/portal_audio_climatP_jthdg8.mp3"
+        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1701788616/Audio/portal_audio_climatP_jthdg8.mp3",
+        "p5JsScript": {
+          "lang": "javascript"
+        }
       },
       "videoEnd": {
         "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1701788649/Video/portal2_climateP_u8wilo.mp4"
@@ -157,75 +160,150 @@
         "type": "host",
         "hostNotes": [
           {
-            "text": "Welcome. I am X and today we will work for around 30 minutes on xx\n\nWe’ll be doing xx ex. meditation followed by time for reflection and sharing with each other."
+            "text": "Bem-vindos. Eu sou X e hoje iremos trabalhar durante cerca de 30 minutos a imaginar como pode ser o envolvimento com os outros.\n\nVamos fazer um exercício de áudio, seguido de um tempo para reflexão e partilha entre nós."
           },
           {
-            "text": "Let’s start with a mini check-in. How are you feeling right now? Please answer in two-three words. X, would you like to start?\n\n> Let everyone in the session, including yourself, check in one by one.\n\nThank you all for checking in. Let’s get started."
+            "text": "Vamos começar com um pequeno check-in. Como te estás a sentir? Por favor, responde em duas ou três palavras. X, queres começar?\n\n> Deixa que todos na sessão, incluindo-te a ti, façam o check-in individualmente.\n\nObrigada/o a todos por fazerem o check-in. Vamos começar."
           }
         ]
       },
       {
-        "type": "content"
+        "type": "content",
+        "content": {
+          "lottie": {
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1728289955/FJN/Meditations/Cristina/ENGAJAR-SE_PELA_SUSTENTABILIDADE_dnu7fq.mp3",
+            "subtitles": "",
+            "durationTimer": true,
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto/v1676977421/Lottie/audio_meditation_default_white_default_mqfcuo.json"
+          }
+        },
+        "hostNotes": [
+          {
+            "text": "Encontra uma posição confortável. Vou iniciar o exercício de áudio e voltamos aqui depois.\n\n> Carrega em play para iniciar o exercício"
+          }
+        ]
       },
       {
         "type": "reflection",
         "hostNotes": [
           {
-            "text": "Now we’ll take 1 minute to reflect on our own.\n\nxxMain question\n\nxxFurther explanations of main question if needed"
+            "text": "Agora vamos tirar 1 minuto para refletir individualmente.\n\nComo foi para ti imaginar a comunidade e a colaboração desta forma?\n\nO que levas contigo deste exercício?"
           },
           {
-            "text": "You can take notes on a piece of paper or just mental notes in your head. And there is no right or wrong here, our answers are our own. 1 minute starting now.\n\n> Press play to start the timer.\n\nThat’s 1 minute and it’s time to move on."
+            "text": "Podes tomar notas num pedaço de papel ou mentalmente. Não há certo ou errado, as nossas respostas são só nossas. 1 minuto a partir de agora.\n\n> Carrega em play para iniciar o cronómetro.\n\nPassou 1 minuto e é hora de avançar."
           }
-        ]
+        ],
+        "content": {
+          "heading": "O que levas contigo deste exercício?",
+          "lottie": {
+            "durationTimer": true,
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto/v1676642915/Lottie/default_1min_white_wvgwma.json",
+            "duration": 60,
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1701788617/Audio/60sec_audio_climatP_jun6yl.mp3"
+          }
+        }
       },
       {
         "type": "sharing",
         "hostNotes": [
           {
-            "text": "Now we are getting into the sharing part. We have three rules for sharing:\n\n1. **What is said in here, stays in here.**\n2. **All you need to do is listen.** There is no fixing, helping or advice-giving needed. We are just showing up and exploring what ourselves and others are going through."
+            "text": "Agora passamos para a parte da partilha. Temos três regras para partilhar:\n\n1. **O que é dito aqui, fica aqui.**\n2. **Só precisas de ouvir.** Não é necessário corrigir, ajudar ou dar conselhos. Estamos apenas a explorar o que nós e os outros estão a passar."
           },
           {
-            "text": "3. **Everything on the inside is okay.** Anger, love, hatred, sadness. Whatever shows up. No wrongs, no rights. It is what it is.\n\nThere will be a timer set for 2 minutes as an indicator. If you don’t want to share you can always say ‘pass’."
+            "text": "3. **Tudo o que sentires é válido.** Raiva, amor, ódio, tristeza. O que quer que surja. Não há certo ou errado. É o que é.\n\nHaverá um cronómetro de 2 minutos como indicador. Se não quiseres partilhar, podes sempre dizer 'passo'."
           },
           {
-            "text": "Who would like to start?\n\n> Let everyone (or as many as you got time for) share one by one. Press play to start the timer. Re-start for each new sharing.\n\nThank you so much everyone."
+            "text": "Quem gostaria de começar?\n\n> Deixa que todos (ou os que houver tempo) partilhem individualmente. Carrega em play para iniciar o cronómetro. Reinicia para cada nova partilha.\n\nMuito obrigada/o a todos."
           }
-        ]
+        ],
+        "id": "Sharing 1",
+        "content": {
+          "heading": "O que levas contigo deste exercício?",
+          "lottie": {
+            "durationTimer": true,
+            "duration": 120,
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1676639253/Lottie/default_2min_white_arvrf2.json"
+          }
+        }
       },
       {
         "type": "host",
         "hostNotes": [
           {
-            "text": "Well done. If you’re up for it, you can continue what we started here today with a mission to bring this into your everyday life.\n\nxx mission description"
+            "text": "Muito bem. Se estiveres com disposição, podes continuar o que começámos aqui hoje com a missão de trazer isso para o seu dia-a-dia.\n\nPensa em alguém, ou num grupo, com quem gostarias de te conectar ou colaborar. Entra em contacto e deixa-os saber do teu interesse."
           },
           {
-            "text": "Before we leave this space let’s do a mini check-out. \n\nHow are you feeling right now? Has anything shifted? Please answer in two-three words."
+            "text": "Antes de deixarmos este espaço, vamos fazer um pequeno check-out.\n\nComo te sentes agora? Alguma coisa mudou? Responde por favor em duas ou três palavras."
           },
           {
-            "text": "Who would like to start?\n\n> Let everyone in the session check out one by one.\n\nThank you all for checking out and for joining this session today.\n\n> Finish session to send everyone off to the exit experience."
+            "text": "Quem gostaria de começar?\n\n> Deixa que todos na sessão façam o check-out individualmente.\n\nObrigada/o a todos por fazerem o check-out final e por participarem nesta sessão de hoje.\n\n> Termina a sessão e envia todos para a experiência de saída."
           }
         ]
       },
       {
         "type": "instruction",
         "content": {
-          "text": "Well done.\n\nSummary.\n\nIf you’re up for it, you can continue with this mission.\n\nmission description"
+          "text": "Se estiveres com disposição, podes continuar com esta missão.\n\nPensa em alguém, ou num grupo, com quem gostarias de te conectar ou colaborar. Entra em contacto e deixa-os saber do teu interesse.",
+          "heading": "Parabéns",
+          "image": {
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1701788567/Images/Join_engagement_part1_card_image_climatP_vtdfnn.png"
+          }
         }
       }
     ],
     "theme": {
-      "textColor": "#2AE2D7"
+      "textColor": "#F9F8F4",
+      "backgroundColor": "#007961"
     },
     "hidden": false,
+    "name": "Envolve-te para a sustentabilidade",
     "live": true,
-    "published": false,
+    "published": true,
+    "card": {
+      "imageBackgroundColor": "#ebf4f3",
+      "image": {
+        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1701788567/Images/Join_engagement_part1_card_image_climatP_vtdfnn.png"
+      }
+    },
+    "coCreators": [
+      {
+        "name": "Kali Andersson, voice",
+        "url": "https://www.terrapi.se/",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1702029676/Images/Kali_Andersson_1_Klimatpsy_FotografJoakimAndre%CC%81n_zvvczk.jpg"
+      },
+      {
+        "name": "Terra-pi, script",
+        "url": "https://www.terrapi.se/",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1702029819/Images/terra-pi_zhwybj.png"
+      },
+      {
+        "name": "Ints Ivanovskis, artwork",
+        "url": "https://www.linkedin.com/in/ints-ivanovskis-46ab0311a/",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413436/Contributors/Ints%20Ivanovskis.jpg"
+      },
+      {
+        "name": "Cristina Alves, voz em Português",
+        "url": "https://www.instagram.com/meditar.com.cristina/profilecard/?igsh=cTg5dDNjZ2Y5aTU0",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1728375093/FJN/People/Cristina_Alves_zt1btx.png"
+      }
+    ],
     "duration": 30,
     "introPortal": {
       "hostNotes": [
         {
-          "text": "> Start the session when you're ready to go"
+          "text": "> Inicia a sessão quando estiveres pronta/o para começar"
         }
-      ]
+      ],
+      "videoLoop": {
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1701788655/Video/portal1_climateP_ab1nv1.mp4",
+        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1701788616/Audio/portal_audio_climatP_jthdg8.mp3",
+        "p5JsScript": {
+          "lang": "javascript"
+        }
+      },
+      "videoEnd": {
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1701788649/Video/portal2_climateP_u8wilo.mp4"
+      }
     },
     "tags": [
       "566aeb1b-1649-4f5a-96a2-0c80be27efc0",
@@ -233,7 +311,8 @@
     ],
     "link": "https://aware.29k.org/engage-for-sustainability",
     "id": "654551b4-1226-485e-9424-4d86d93240ff",
-    "async": false
+    "async": true,
+    "description": "Envolver-se com os outros pode proporcionar um espaço de apoio, inspiração e maior impacto, porque a maioria das pessoas tende a ouvir mais um grupo do que um indivíduo isolado. Neste exercício, vamos imaginar como poderia ser esse envolvimento com os outros."
   },
   "sv": {
     "slides": [
@@ -455,6 +534,9 @@
     "hidden": false,
     "live": true,
     "published": false,
+    "card": {
+      "imageBackgroundColor": "#ebf4f3"
+    },
     "duration": 30,
     "introPortal": {
       "hostNotes": [
