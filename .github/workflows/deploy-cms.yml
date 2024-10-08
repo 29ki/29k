@@ -83,6 +83,10 @@ jobs:
         working-directory: ./content
         run: yarn build
 
+      - name: Build CMS
+        working-directory: ./cms
+        run: yarn build
+
       - name: Deploy CMS
         run: >
           yarn firebase deploy

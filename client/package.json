@@ -50,7 +50,7 @@
     "debug": "^4.3.6",
     "eslint": "^8.57.0",
     "hex-to-rgba": "^2.0.1",
-    "i18next": "^23.11.4",
+    "i18next": "^23.15.2",
     "intl-pluralrules": "^2.0.1",
     "lodash.throttle": "^4.1.1",
     "lottie-react-native": "^6.7.2",
@@ -85,28 +85,30 @@
     "react-native-web": "^0.19.12",
     "react-native-web-linear-gradient": "^1.1.2",
     "react-native-webview": "^13.10.5",
+    "rvfc-polyfill": "^1.0.7",
     "srt-parser-2": "^1.2.3",
-    "styled-components": "^6.1.8",
+    "styled-components": "^6.1.12",
     "uuid": "^10.0.0",
     "vtt-to-json": "^0.1.1",
     "yup": "^1.4.0",
-    "zustand": "^4.5.4"
+    "zustand": "^4.5.5"
   },
   "devDependencies": {
     "@babel/core": "^7.24.6",
-    "@babel/preset-env": "^7.24.8",
-    "@babel/runtime": "^7.25.0",
+    "@babel/preset-env": "^7.25.4",
+    "@babel/runtime": "^7.25.6",
     "@react-native/babel-preset": "0.74.85",
     "@react-native/eslint-config": "0.74.85",
     "@react-native/metro-config": "0.74.85",
     "@react-native/typescript-config": "0.74.85",
-    "@sentry/cli": "^2.31.2",
+    "@sentry/cli": "^2.33.1",
     "@testing-library/react-hooks": "^8.0.1",
     "@types/debug": "^4.1.12",
     "@types/i18next": "^13.0.0",
     "@types/jest": "^29.5.12",
     "@types/ramda": "^0.30.1",
-    "@types/react": "^18.2.58",
+    "@types/react": "^18.3.3",
+    "@types/react-native-web": "^0.0.0",
     "@types/react-test-renderer": "^18.0.0",
     "@types/uuid": "^10.0.0",
     "appcenter-cli": "^3.0.1",
@@ -126,7 +128,6 @@
     "typescript": "^5.5.4"
   },
   "resolutions": {
-    "@types/react": "^18.2.43",
     "markdown-it": "^13"
   }
 }

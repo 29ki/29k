@@ -1,10 +1,10 @@
 import {useCallback} from 'react';
 import {useTranslation} from 'react-i18next';
 import {Exercise} from '../../../../../shared/src/types/generated/Exercise';
-import {LANGUAGE_TAG} from '../../i18n';
 import useUnlockedExerciseIds from '../../user/hooks/useUnlockedExerciseIds';
 import useAppState from '../../appState/state/state';
 import {ExerciseWithLanguage} from '../types';
+import {LANGUAGE_TAG} from '../../../../../shared/src/i18n/constants';
 
 const useGetExerciseById = () => {
   const {t} = useTranslation('exercises');

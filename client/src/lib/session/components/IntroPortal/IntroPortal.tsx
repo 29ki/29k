@@ -1,17 +1,12 @@
 import React, {useCallback, useEffect, useState} from 'react';
-import {StatusBar, StyleSheet} from 'react-native';
+import {StyleSheet} from 'react-native';
 import {useTranslation} from 'react-i18next';
 import styled from 'styled-components/native';
 import ReactNativeHapticFeedback from 'react-native-haptic-feedback';
 
 import {SPACINGS} from '../../../constants/spacings';
 import useSessionState from '../../state/state';
-import Screen from '../../../components/Screen/Screen';
-import {
-  BottomSafeArea,
-  Spacer16,
-  TopSafeArea,
-} from '../../../components/Spacers/Spacer';
+import {Spacer16} from '../../../components/Spacers/Spacer';
 import Gutters from '../../../components/Gutters/Gutters';
 import IconButton from '../../../components/Buttons/IconButton/IconButton';
 import AudioFader from '../AudioFader/AudioFader';
@@ -20,21 +15,16 @@ import {ArrowLeftIcon} from '../../../components/Icons';
 import Button from '../../../components/Buttons/Button';
 import VideoTransition from '../VideoTransition/VideoTransition';
 import P5Animation from '../P5Animation/P5Animation';
-import {COLORS} from '../../../../../../shared/src/constants/colors';
 import {ExerciseWithLanguage} from '../../../content/types';
 
 const Spinner = styled.ActivityIndicator({
   ...StyleSheet.absoluteFillObject,
 });
 
-const Wrapper = styled.View({
-  flex: 1,
-  justifyContent: 'space-between',
-  zIndex: 1,
-});
 const Content = styled.View({
   flex: 1,
   justifyContent: 'space-between',
+  zIndex: 1,
 });
 
 const TopBar = styled(Gutters)({
@@ -78,9 +68,10 @@ const IntroPortal: React.FC<IntroPortalProps> = ({
     !introPortal?.videoLoop?.p5JsScript?.code &&
     Boolean(introPortal?.videoLoop?.source);
 
-  const [isReadyForAudio, setIsReadyForAudio] = useState(!isVideo);
+  const [isReadyForAudio, setIsReadyForAudio] = useState(!isVideo || !isLive);
   const [isTransitioning, setIsTransitioning] = useState(false);
   const [isLoading, setIsLoading] = useState(isVideo);
+  const [isHidden, setIsHidden] = useState(!isVisible);
   const [hasError, setHasError] = useState(false);
 
   const sessionState = useSessionState(state => state.sessionState);
@@ -105,15 +96,31 @@ const IntroPortal: React.FC<IntroPortalProps> = ({
     onNavigateToSession,
   ]);
 
+  useEffect(() => {
+    if (isVisible) {
+      setIsHidden(false);
+      setIsTransitioning(false);
+    } else {
+      setIsTransitioning(true);
+      const timeout = setTimeout(() => {
+        setIsHidden(true);
+      }, 5000);
+
+      return () => clearTimeout(timeout);
+    }
+  }, [isVisible]);
+
   const onVideoLoad = useCallback(() => {
     setIsLoading(false);
-    // TODO remove this timeout when daily is not joined
-    // until after the portal is done
-    // https://www.notion.so/29k/Early-Access-2794500652b34c64b0aff0dbbc53e0ab?pvs=4#2f566fc8ac87402aa92eb6798b469918
-    setTimeout(() => {
-      setIsReadyForAudio(true);
-    }, 2000);
-  }, [setIsReadyForAudio, setIsLoading]);
+    if (isLive) {
+      // TODO remove this timeout when daily is not joined
+      // until after the portal is done
+      // https://www.notion.so/29k/Early-Access-2794500652b34c64b0aff0dbbc53e0ab?pvs=4#2f566fc8ac87402aa92eb6798b469918
+      setTimeout(() => {
+        setIsReadyForAudio(true);
+      }, 2000);
+    }
+  }, [isLive, setIsReadyForAudio, setIsLoading]);
 
   const onVideoTransition = useCallback(() => {
     setIsTransitioning(true);
@@ -129,21 +136,10 @@ const IntroPortal: React.FC<IntroPortalProps> = ({
     setIsLoading(false);
   }, [setHasError]);
 
-  if (!isVisible) return null;
+  if (isHidden) return null;
 
   return (
-    <Screen backgroundColor={exercise?.theme?.backgroundColor}>
-      {(!isHost || hideHostNotes) && (
-        <>
-          <StatusBar
-            barStyle={
-              textColor === COLORS.WHITE ? 'light-content' : 'dark-content'
-            }
-          />
-          <TopSafeArea minSize={SPACINGS.SIXTEEN} />
-        </>
-      )}
-
+    <>
       {introPortal?.videoLoop?.audio ? (
         <AudioFader
           source={introPortal.videoLoop.audio}
@@ -177,7 +173,7 @@ const IntroPortal: React.FC<IntroPortalProps> = ({
         </>
       )}
       {isLoading && <Spinner color={textColor} size="large" />}
-      <Wrapper>
+      {isVisible && (
         <Content>
           <TopBar>
             <BackButton
@@ -204,9 +200,8 @@ const IntroPortal: React.FC<IntroPortalProps> = ({
           </TopBar>
           {statusComponent}
         </Content>
-      </Wrapper>
-      <BottomSafeArea minSize={SPACINGS.SIXTEEN} />
-    </Screen>
+      )}
+    </>
   );
 };
 

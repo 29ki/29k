@@ -11,3 +11,8 @@ export const HIDEABLE_NAMESPACES: I18nNamespace[] = [
   'collections',
   'exercises',
 ];
+
+export const LOCKABLE_NAMESPACES: I18nNamespace[] = [
+  'collections',
+  'exercises',
+];

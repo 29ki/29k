@@ -111,6 +111,10 @@ jobs:
         working-directory: ./content
         run: yarn build
 
+      - name: Build Functions
+        working-directory: ./functions
+        run: yarn build
+
       - name: Deploy Functions
         run: >
           yarn firebase deploy
