@@ -40,9 +40,26 @@
   "pt": {
     "hidden": false,
     "locked": false,
-    "published": false,
+    "name": "Autocompaixão I: O trabalho interior",
+    "published": true,
     "sortOrder": 1,
-    "card": {},
+    "card": {
+      "image": {
+        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1718696733/Images/self-compassion_1_escrww.png"
+      }
+    },
+    "coCreators": [
+      {
+        "name": "Kristin Neff, Chris Germer, original research",
+        "url": "https://centerformsc.org/",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1697723039/Images/Germer%2C%20Neff.png"
+      },
+      {
+        "name": "Jenny Rickardsson, editor",
+        "url": "https://www.linkedin.com/in/jenny-rickardson-6770a959/",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413228/Contributors/Jenny%20Rickardsson.jpg"
+      }
+    ],
     "tags": [
       "db34d82a-4c48-4ddd-9de5-f562d8aa1bc9"
     ],
@@ -55,7 +72,8 @@
       "e4bf8d17-a774-4702-abfe-c7452c3fee0f",
       "2ea0d73d-4bfe-4e23-9124-2998acc9743f",
       "b4307d0b-512d-46d6-a500-7fb372bfe057"
-    ]
+    ],
+    "description": "Ser gentis e encontrarmo-nos com compaixão não é algo natural para muitos de nós. Neste programa, praticamos adotar uma postura interior, tratando-nos com bondade e cuidado. Práticas de autocompaixão podem melhorar o nosso bem-estar e a relação connosco mesmos e com os outros."
   },
   "sv": {
     "hidden": false,
