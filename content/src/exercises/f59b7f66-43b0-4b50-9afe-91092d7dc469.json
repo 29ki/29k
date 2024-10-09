@@ -168,7 +168,7 @@
         "type": "content",
         "hostNotes": [
           {
-            "text": "Encontra uma posição confortável. Vou iniciar o exercício de áudio e voltamos aqui depois. \n\n> Carrega em play para iniciar o exercício"
+            "text": "Encontra uma posição confortável e prepara-te para tomar algumas notas durante o exercício. Vou iniciar o exercício de áudio e voltamos aqui depois. \n\n> Carrega em play para iniciar o exercício"
           }
         ],
         "content": {
@@ -307,7 +307,7 @@
     ],
     "id": "f59b7f66-43b0-4b50-9afe-91092d7dc469",
     "async": true,
-    "description": "Transforma valores em ações com o “leque de cartas”. Ações guiadas por valores podem fazer-nos sentir melhor, inclusive em relação às escolhas difíceis que todos enfrentamos na vida."
+    "description": "Transforma valores em ações com o “leque de cartas”. Ações guiadas por valores podem fazer-nos sentir melhor, inclusive em relação às escolhas difíceis que todos enfrentamos na vida.\n\nEncontra uma posição confortável e prepara-te para tomar algumas notas durante o exercício."
   },
   "sv": {
     "slides": [
