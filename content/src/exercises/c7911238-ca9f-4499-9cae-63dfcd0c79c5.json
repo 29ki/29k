@@ -245,7 +245,7 @@
       {
         "type": "instruction",
         "content": {
-          "text": "Se estiveres com disposição, podes continuar com uma missão.\n\nDepois desta sessão, aplica um dos recursos que identificaste à tua situação atual e vê onde isso te leva.\n\n1. Suporte\n2. Estratégia\n3. Inteligência\n4. Soluções",
+          "text": "Se estiveres com disposição, podes continuar com uma missão.\n\nDepois desta sessão, aplica um dos recursos que identificaste à tua situação atual e vê onde isso te leva.\n\n1. Suporte\n2. Estratégia\n3. Inspiração\n4. Soluções",
           "image": {
             "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1698917836/Images/card_image_bounce_back_m6yyaj.png"
           },
