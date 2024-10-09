@@ -1041,7 +1041,7 @@
 				CODE_SIGN_ENTITLEMENTS = production.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 187;
+				CURRENT_PROJECT_VERSION = 188;
 				DEVELOPMENT_TEAM = 68Y57ZGKLJ;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = ./Supporting/Info.plist;
@@ -1049,7 +1049,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.56.0;
+				MARKETING_VERSION = 2.57.0;
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
@@ -1075,14 +1075,14 @@
 				CODE_SIGN_ENTITLEMENTS = production.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 187;
+				CURRENT_PROJECT_VERSION = 188;
 				DEVELOPMENT_TEAM = 68Y57ZGKLJ;
 				INFOPLIST_FILE = ./Supporting/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.56.0;
+				MARKETING_VERSION = 2.57.0;
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
@@ -1107,7 +1107,7 @@
 				CODE_SIGN_ENTITLEMENTS = dev.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 187;
+				CURRENT_PROJECT_VERSION = 188;
 				DEVELOPMENT_TEAM = 68Y57ZGKLJ;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = ./Supporting/Info.plist;
@@ -1115,7 +1115,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.56.0;
+				MARKETING_VERSION = 2.57.0;
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
@@ -1141,14 +1141,14 @@
 				CODE_SIGN_ENTITLEMENTS = dev.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 187;
+				CURRENT_PROJECT_VERSION = 188;
 				DEVELOPMENT_TEAM = 68Y57ZGKLJ;
 				INFOPLIST_FILE = ./Supporting/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.56.0;
+				MARKETING_VERSION = 2.57.0;
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
@@ -1174,7 +1174,7 @@
 				CODE_SIGN_ENTITLEMENTS = staging.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 187;
+				CURRENT_PROJECT_VERSION = 188;
 				DEVELOPMENT_TEAM = 68Y57ZGKLJ;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = ./Supporting/Info.plist;
@@ -1182,7 +1182,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.56.0;
+				MARKETING_VERSION = 2.57.0;
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
@@ -1208,14 +1208,14 @@
 				CODE_SIGN_ENTITLEMENTS = staging.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 187;
+				CURRENT_PROJECT_VERSION = 188;
 				DEVELOPMENT_TEAM = 68Y57ZGKLJ;
 				INFOPLIST_FILE = ./Supporting/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.56.0;
+				MARKETING_VERSION = 2.57.0;
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
