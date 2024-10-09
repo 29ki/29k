@@ -25,6 +25,7 @@
     "tags": [
       "db34d82a-4c48-4ddd-9de5-f562d8aa1bc9"
     ],
+    "link": "https://aware.29k.org/SelfCompassionTheInsideJob",
     "id": "7bb77b5d-7a97-4fd1-9102-21eb0c4a70af",
     "exercises": [
       "a0600ebe-748d-481c-81af-dab25fa32b76",
@@ -37,14 +38,16 @@
     "description": "Being gentle and meeting ourselves with compassion does not come naturally for many of us. In this program we practice taking an inner stance, treating ourselves with kindness and care. Self-compassionate practices can improve our wellbeing and the relationship to ourselves and others."
   },
   "pt": {
-    "published": false,
     "hidden": false,
     "locked": false,
-    "id": "7bb77b5d-7a97-4fd1-9102-21eb0c4a70af",
+    "published": false,
+    "sortOrder": 1,
+    "card": {},
     "tags": [
       "db34d82a-4c48-4ddd-9de5-f562d8aa1bc9"
     ],
-    "sortOrder": 1,
+    "link": "https://aware.29k.org/SelfCompassionTheInsideJob",
+    "id": "7bb77b5d-7a97-4fd1-9102-21eb0c4a70af",
     "exercises": [
       "a0600ebe-748d-481c-81af-dab25fa32b76",
       "2fdb95f0-d18d-444d-9935-2c71b9b413d4",
@@ -52,18 +55,19 @@
       "e4bf8d17-a774-4702-abfe-c7452c3fee0f",
       "2ea0d73d-4bfe-4e23-9124-2998acc9743f",
       "b4307d0b-512d-46d6-a500-7fb372bfe057"
-    ],
-    "card": {}
+    ]
   },
   "sv": {
-    "published": false,
     "hidden": false,
     "locked": false,
-    "id": "7bb77b5d-7a97-4fd1-9102-21eb0c4a70af",
+    "published": false,
+    "sortOrder": 1,
+    "card": {},
     "tags": [
       "db34d82a-4c48-4ddd-9de5-f562d8aa1bc9"
     ],
-    "sortOrder": 1,
+    "link": "https://aware.29k.org/SelfCompassionTheInsideJob",
+    "id": "7bb77b5d-7a97-4fd1-9102-21eb0c4a70af",
     "exercises": [
       "a0600ebe-748d-481c-81af-dab25fa32b76",
       "2fdb95f0-d18d-444d-9935-2c71b9b413d4",
@@ -71,18 +75,19 @@
       "e4bf8d17-a774-4702-abfe-c7452c3fee0f",
       "2ea0d73d-4bfe-4e23-9124-2998acc9743f",
       "b4307d0b-512d-46d6-a500-7fb372bfe057"
-    ],
-    "card": {}
+    ]
   },
   "ja": {
-    "published": false,
     "hidden": false,
     "locked": false,
-    "id": "7bb77b5d-7a97-4fd1-9102-21eb0c4a70af",
+    "published": false,
+    "sortOrder": 1,
+    "card": {},
     "tags": [
       "db34d82a-4c48-4ddd-9de5-f562d8aa1bc9"
     ],
-    "sortOrder": 1,
+    "link": "https://aware.29k.org/SelfCompassionTheInsideJob",
+    "id": "7bb77b5d-7a97-4fd1-9102-21eb0c4a70af",
     "exercises": [
       "a0600ebe-748d-481c-81af-dab25fa32b76",
       "2fdb95f0-d18d-444d-9935-2c71b9b413d4",
@@ -90,7 +95,6 @@
       "e4bf8d17-a774-4702-abfe-c7452c3fee0f",
       "2ea0d73d-4bfe-4e23-9124-2998acc9743f",
       "b4307d0b-512d-46d6-a500-7fb372bfe057"
-    ],
-    "card": {}
+    ]
   }
 }
