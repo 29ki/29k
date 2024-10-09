@@ -28,7 +28,7 @@ const LottiePlayer = forwardRef<LottiePlayerHandle, LottiePlayerProps>(
   ({style, source, paused, onEnd, duration = 60, repeat = false}, ref) => {
     const lottieRef = useRef<AnimatedLottieView>(null);
     const lottieSource = useFetchLottie(source);
-    const [progress, setProgress] = useState(0);
+    const [progress, setProgress] = useState<number | undefined>(undefined);
 
     const togglePaused = useCallback((pause: boolean) => {
       if (pause) {
@@ -55,11 +55,8 @@ const LottiePlayer = forwardRef<LottiePlayerHandle, LottiePlayerProps>(
 
     const onAnimationFinish = useCallback(
       (isCancelled: boolean) => {
-        if (!isCancelled) {
-          lottieRef.current?.reset();
-          if (onEnd) {
-            onEnd();
-          }
+        if (!isCancelled && onEnd) {
+          onEnd();
         }
       },
       [onEnd],
@@ -80,7 +77,7 @@ const LottiePlayer = forwardRef<LottiePlayerHandle, LottiePlayerProps>(
         style={style}
         onAnimationFinish={onAnimationFinish}
         source={lottieSource}
-        speed={paused ? 0 : duration > 0 ? 60 / duration : 1}
+        speed={duration > 0 ? 60 / duration : 1}
         loop={repeat}
         autoPlay={!paused}
         progress={progress}
