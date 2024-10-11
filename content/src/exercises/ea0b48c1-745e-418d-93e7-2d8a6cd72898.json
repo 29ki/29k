@@ -319,11 +319,26 @@
         "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1675416485/Images/card_bring_your_fee..PT_vf9to7.png"
       }
     },
+    "coCreators": [
+      {
+        "name": "Jenny Rickardsson, script and voice",
+        "url": "https://www.linkedin.com/in/jenny-rickardson-6770a959/",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413228/Contributors/Jenny%20Rickardsson.jpg"
+      },
+      {
+        "name": "Ints Ivanovskis, art works",
+        "url": "https://www.linkedin.com/in/ints-ivanovskis-46ab0311a/",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413436/Contributors/Ints%20Ivanovskis.jpg"
+      }
+    ],
     "duration": 30,
     "introPortal": {
       "videoLoop": {
         "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1675257549/Video/Videos%20PT/portal_PT_bring_your_fee.._w8ogim.mp4",
-        "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1674554597/Images/thumb_portal_bring_your_feel..._dthhdh.png"
+        "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1674554597/Images/thumb_portal_bring_your_feel..._dthhdh.png",
+        "p5JsScript": {
+          "lang": "javascript"
+        }
       },
       "videoEnd": {
         "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1676618149/Video/Videos%20PT/portal2_PT_bring_your_fee.._xkbpse.mp4"
