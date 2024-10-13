@@ -20,6 +20,7 @@ import {
   Spacer24,
   Spacer32,
   Spacer40,
+  Spacer60,
 } from '../../../../../../client/src/lib/components/Spacers/Spacer';
 import Gutters from '../../../../../../client/src/lib/components/Gutters/Gutters';
 import IntroPortal from '../../../../../../client/src/lib/session/components/IntroPortal/IntroPortal';
@@ -183,7 +184,7 @@ export default function ExercisePage({
               async
               web
             />
-            <Spacer32 />
+            <Spacer60 />
           </Wrapper>
         )}
       </Fade>
