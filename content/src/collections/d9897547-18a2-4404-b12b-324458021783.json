@@ -10,9 +10,7 @@
       },
       "imageBackgroundColor": "#ffdeac"
     },
-    "tags": [
-      "9c2c08a9-7dc6-4058-bc78-016d0eb00614"
-    ],
+    "tags": ["9c2c08a9-7dc6-4058-bc78-016d0eb00614"],
     "link": "https://aware.29k.org/set-your-values-compass",
     "id": "d9897547-18a2-4404-b12b-324458021783",
     "exercises": [
@@ -35,9 +33,7 @@
       "32a6f3ce-a220-43fb-a1cb-50989ba8abe0",
       "df2c5312-c869-4ab7-8ac1-1875a04e2229"
     ],
-    "tags": [
-      "9c2c08a9-7dc6-4058-bc78-016d0eb00614"
-    ],
+    "tags": ["9c2c08a9-7dc6-4058-bc78-016d0eb00614"],
     "link": "https://aware.29k.org/set-your-values-compass",
     "card": {
       "imageBackgroundColor": "#ffdeac"
@@ -55,9 +51,7 @@
       "32a6f3ce-a220-43fb-a1cb-50989ba8abe0",
       "df2c5312-c869-4ab7-8ac1-1875a04e2229"
     ],
-    "tags": [
-      "9c2c08a9-7dc6-4058-bc78-016d0eb00614"
-    ],
+    "tags": ["9c2c08a9-7dc6-4058-bc78-016d0eb00614"],
     "link": "https://aware.29k.org/set-your-values-compass",
     "card": {
       "imageBackgroundColor": "#ffdeac"
@@ -75,13 +69,14 @@
       "32a6f3ce-a220-43fb-a1cb-50989ba8abe0",
       "df2c5312-c869-4ab7-8ac1-1875a04e2229"
     ],
-    "tags": [
-      "9c2c08a9-7dc6-4058-bc78-016d0eb00614"
-    ],
+    "tags": ["9c2c08a9-7dc6-4058-bc78-016d0eb00614"],
     "link": "https://aware.29k.org/set-your-values-compass",
     "card": {
       "imageBackgroundColor": "#ffdeac"
     },
     "sortOrder": 2
-  }
+  },
+  "da": {},
+  "cs": {},
+  "nl": {}
 }

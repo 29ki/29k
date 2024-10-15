@@ -147,9 +147,7 @@
         "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1712905234/Audio/portal_audio_compassionate_intention_uniaec.mp3"
       }
     },
-    "tags": [
-      "db34d82a-4c48-4ddd-9de5-f562d8aa1bc9"
-    ],
+    "tags": ["db34d82a-4c48-4ddd-9de5-f562d8aa1bc9"],
     "id": "13dfd5b5-f0af-4783-9fe1-3ba7773bcb89",
     "async": true,
     "description": "Learn about self-compassion, and how it can be useful in your life."
@@ -305,9 +303,7 @@
         "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1712905234/Audio/portal_audio_compassionate_intention_uniaec.mp3"
       }
     },
-    "tags": [
-      "db34d82a-4c48-4ddd-9de5-f562d8aa1bc9"
-    ],
+    "tags": ["db34d82a-4c48-4ddd-9de5-f562d8aa1bc9"],
     "id": "13dfd5b5-f0af-4783-9fe1-3ba7773bcb89",
     "async": true,
     "description": "Aprende sobre a autocompaixão e como pode ser útil na tua vida.\n\nEncontra uma posição confortável e prepara-te para tomar algumas notas durante o exercício."
@@ -460,9 +456,7 @@
         "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1712905234/Audio/portal_audio_compassionate_intention_uniaec.mp3"
       }
     },
-    "tags": [
-      "db34d82a-4c48-4ddd-9de5-f562d8aa1bc9"
-    ],
+    "tags": ["db34d82a-4c48-4ddd-9de5-f562d8aa1bc9"],
     "id": "13dfd5b5-f0af-4783-9fe1-3ba7773bcb89",
     "async": true,
     "description": "Lär dig om självmedkänsla och hur du kan använda det i ditt liv och din vardag. "
@@ -552,10 +546,11 @@
         }
       ]
     },
-    "tags": [
-      "db34d82a-4c48-4ddd-9de5-f562d8aa1bc9"
-    ],
+    "tags": ["db34d82a-4c48-4ddd-9de5-f562d8aa1bc9"],
     "id": "13dfd5b5-f0af-4783-9fe1-3ba7773bcb89",
     "async": false
-  }
+  },
+  "da": {},
+  "cs": {},
+  "nl": {}
 }

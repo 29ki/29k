@@ -231,9 +231,7 @@
         "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1717469190/SEE/Video/SEELearning_AwareApp_IntroVideo_2024_V3_1_giheh7.mp4"
       }
     },
-    "tags": [
-      "cfc00217-f65b-4a4d-8b82-8ccc8f852dd6"
-    ],
+    "tags": ["cfc00217-f65b-4a4d-8b82-8ccc8f852dd6"],
     "id": "881edc87-02f4-4543-9f32-7c4b5ef34c94",
     "async": true,
     "description": "Developing an ability to watch thought processes in the mind is a great way to catch thinking traps. We can pause to remember: “I do not have to act on each emotional impulse or thought. I can navigate emotional experiences in healthy ways, to the benefit of myself and others.\""
@@ -323,9 +321,7 @@
         }
       ]
     },
-    "tags": [
-      "cfc00217-f65b-4a4d-8b82-8ccc8f852dd6"
-    ],
+    "tags": ["cfc00217-f65b-4a4d-8b82-8ccc8f852dd6"],
     "id": "881edc87-02f4-4543-9f32-7c4b5ef34c94",
     "async": false
   },
@@ -414,9 +410,7 @@
         }
       ]
     },
-    "tags": [
-      "cfc00217-f65b-4a4d-8b82-8ccc8f852dd6"
-    ],
+    "tags": ["cfc00217-f65b-4a4d-8b82-8ccc8f852dd6"],
     "id": "881edc87-02f4-4543-9f32-7c4b5ef34c94",
     "async": false
   },
@@ -505,10 +499,11 @@
         }
       ]
     },
-    "tags": [
-      "cfc00217-f65b-4a4d-8b82-8ccc8f852dd6"
-    ],
+    "tags": ["cfc00217-f65b-4a4d-8b82-8ccc8f852dd6"],
     "id": "881edc87-02f4-4543-9f32-7c4b5ef34c94",
     "async": false
-  }
+  },
+  "da": {},
+  "cs": {},
+  "nl": {}
 }

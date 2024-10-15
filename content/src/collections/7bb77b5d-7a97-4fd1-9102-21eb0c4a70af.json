@@ -22,9 +22,7 @@
         "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413228/Contributors/Jenny%20Rickardsson.jpg"
       }
     ],
-    "tags": [
-      "db34d82a-4c48-4ddd-9de5-f562d8aa1bc9"
-    ],
+    "tags": ["db34d82a-4c48-4ddd-9de5-f562d8aa1bc9"],
     "id": "7bb77b5d-7a97-4fd1-9102-21eb0c4a70af",
     "exercises": [
       "a0600ebe-748d-481c-81af-dab25fa32b76",
@@ -41,9 +39,7 @@
     "hidden": false,
     "locked": false,
     "id": "7bb77b5d-7a97-4fd1-9102-21eb0c4a70af",
-    "tags": [
-      "db34d82a-4c48-4ddd-9de5-f562d8aa1bc9"
-    ],
+    "tags": ["db34d82a-4c48-4ddd-9de5-f562d8aa1bc9"],
     "sortOrder": 1,
     "exercises": [
       "a0600ebe-748d-481c-81af-dab25fa32b76",
@@ -60,9 +56,7 @@
     "hidden": false,
     "locked": false,
     "id": "7bb77b5d-7a97-4fd1-9102-21eb0c4a70af",
-    "tags": [
-      "db34d82a-4c48-4ddd-9de5-f562d8aa1bc9"
-    ],
+    "tags": ["db34d82a-4c48-4ddd-9de5-f562d8aa1bc9"],
     "sortOrder": 1,
     "exercises": [
       "a0600ebe-748d-481c-81af-dab25fa32b76",
@@ -79,9 +73,7 @@
     "hidden": false,
     "locked": false,
     "id": "7bb77b5d-7a97-4fd1-9102-21eb0c4a70af",
-    "tags": [
-      "db34d82a-4c48-4ddd-9de5-f562d8aa1bc9"
-    ],
+    "tags": ["db34d82a-4c48-4ddd-9de5-f562d8aa1bc9"],
     "sortOrder": 1,
     "exercises": [
       "a0600ebe-748d-481c-81af-dab25fa32b76",
@@ -92,5 +84,8 @@
       "b4307d0b-512d-46d6-a500-7fb372bfe057"
     ],
     "card": {}
-  }
+  },
+  "da": {},
+  "cs": {},
+  "nl": {}
 }
