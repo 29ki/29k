@@ -34,19 +34,38 @@
     "description": "In self-compassion part II we focus on self-care and gratitude, to lead a more compassionate and full life. Practice navigating through difficulties, being gentle and kind to yourself."
   },
   "pt": {
-    "published": false,
-    "hidden": false,
+    "hidden": true,
     "locked": false,
-    "id": "36603867-7f45-4f66-8065-2d9b6eb26d0e",
-    "tags": ["db34d82a-4c48-4ddd-9de5-f562d8aa1bc9"],
+    "name": "Autocompaixão II: autocuidado",
+    "published": true,
     "sortOrder": 1,
+    "coCreators": [
+      {
+        "name": "Kristin Neff & Chris Germer, original research",
+        "url": "https://centerformsc.org/",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1697723039/Images/Germer%2C%20Neff.png"
+      },
+      {
+        "name": "Agnes Branny, writing and editing",
+        "url": "https://www.agnesbranny.com/",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665414181/Contributors/Agnes%20Branny.png"
+      },
+      {
+        "name": "Jenny Rickardsson, editor",
+        "url": "https://www.linkedin.com/in/jenny-rickardson-6770a959/",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413228/Contributors/Jenny%20Rickardsson.jpg"
+      }
+    ],
+    "tags": ["db34d82a-4c48-4ddd-9de5-f562d8aa1bc9"],
+    "id": "36603867-7f45-4f66-8065-2d9b6eb26d0e",
     "exercises": [
       "a925c45b-40cc-46d2-ad03-c51ec723a5c5",
       "19135d2e-0e8d-418c-939d-18b0e62215ff",
       "1e96f73b-8193-4aa6-a52c-31355eac3c08",
       "742b9b7e-1d2b-43bb-a58b-dd71c5eb5d7a",
       "769a6baf-6969-4612-8e32-2ffdd63cf0be"
-    ]
+    ],
+    "description": "Na segunda parte da autocompaixão, focamo-nos no autocuidado e na gratidão, para levar uma vida mais compassiva e plena. Pratica navegar pelas dificuldades, sendo gentil e amável contigo mesmo."
   },
   "sv": {
     "published": false,

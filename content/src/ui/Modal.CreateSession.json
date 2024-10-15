@@ -38,9 +38,9 @@
   "pt": {
     "or": "ou",
     "joinByInviteCta": "Junta-te por código de convite",
-    "typeHeading": "Criar sessão com...",
+    "typeHeading": "Fazer sessão com...",
     "profile": {
-      "text": "Para poderes ser um moderador autorizado tens de colocar o teu nome e a tua fotografia de perfil."
+      "text": "Para poderes ser um/a moderador/a autorizada/o tens de colocar o teu nome e a tua fotografia de perfil."
     },
     "orJoinUpcoming": "Ou junta-te a uma sessão futura",
     "moreLikeThis": "Semelhantes",
@@ -66,6 +66,7 @@
         "public": "Sessão pública"
       }
     },
+    "feedbackHeading": "Comentários",
     "selectContent": {
       "title": "Escolhe um exercício"
     }

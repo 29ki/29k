@@ -18,11 +18,11 @@ import {
   Spacer16,
   Spacer28,
 } from '../../../../../components/Spacers/Spacer';
-import MediaWrapperResolver from './MediaWrapperResolver';
+import MediaWrapperResolver from './components/MediaWrapperResolver';
 import Subtitles from '../../../../../components/Subtitles/Subtitles';
 import Gutters from '../../../../../components/Gutters/Gutters';
 import {ProgressTimerContext} from '../../../../context/TimerContext';
-import TimerControls from '../../../../../components/TimerControls/TimerControls';
+import TimerControls from './components/TimerControls';
 
 const VideoPlayer = styled(VideoLooper)({
   flexShrink: 1,
@@ -261,14 +261,11 @@ const Video: React.FC<VideoProps> = ({
       {!isLive &&
         !autoPlayLoop &&
         (isTimer ? (
-          <>
-            <Spacer16 />
-            <TimerControls
-              playing={!paused}
-              onReset={onReset}
-              onTogglePlay={onTogglePlay}
-            />
-          </>
+          <TimerControls
+            paused={paused}
+            onReset={onReset}
+            onTogglePlay={onTogglePlay}
+          />
         ) : (
           <View>
             {showSubtitels && subtitles && (

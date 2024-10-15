@@ -164,73 +164,154 @@
         "type": "host",
         "hostNotes": [
           {
-            "text": "Welcome. I am X and today we will work for around 30 minutes on xx\n\nWe’ll be doing xx ex. meditation followed by time for reflection and sharing with each other."
+            "text": "Bem-vindos. Eu sou X e hoje iremos trabalhar durante cerca de 30 minutos na exploração do propósito.\\\nVamos fazer um exercício de áudio, seguido de um tempo para reflexão e partilha entre nós.\\\nPrepara-te para tomar algumas notas durante o exercício."
           },
           {
-            "text": "Let’s start with a mini check-in. How are you feeling right now? Please answer in two-three words. X, would you like to start?\n\n> Let everyone in the session, including yourself, check in one by one.\n\nThank you all for checking in. Let’s get started."
+            "text": "Vamos começar com um pequeno check-in. Como te estás a sentir? Por favor, responde em duas ou três palavras. X, queres começar?\n\n> Deixa que todos na sessão, incluindo-te a ti, façam o check-in individualmente.\n\nObrigada/o a todos por fazerem o check-in. Vamos começar."
           }
-        ]
+        ],
+        "video": {
+          "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1682676013/Images/Feeling_purpose_thumb_uxkka7.png",
+          "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1682676567/Video/Intro_Feeling_purpose_r61bwd.mp4"
+        }
       },
       {
-        "type": "content"
+        "type": "content",
+        "hostNotes": [
+          {
+            "text": "Ótimo. Chegou o momento de explorar como é sentir o propósito. Encontra uma posição confortável e prepara-te para tomar algumas notas durante o exercício. Vou iniciar o exercício de áudio e voltamos aqui depois.\n\n> Carrega em play para iniciar o exercício."
+          }
+        ],
+        "content": {
+          "lottie": {
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1676977421/Lottie/audio_meditation_default_white_default_mqfcuo.json",
+            "durationTimer": true,
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1728289952/FJN/Meditations/Cristina/SENTIR_PROPOSITO_o2clxp.mp3",
+            "subtitles": ""
+          }
+        }
       },
       {
         "type": "reflection",
         "hostNotes": [
           {
-            "text": "Now we’ll take 1 minute to reflect on our own.\n\nxxMain question\n\nxxFurther explanations of main question if needed"
+            "text": "Agora vamos tirar 1 minuto para refletir individualmente.\n\nExplora as diferenças entre aquele momento em que sentiste propósito e o presente. O que podes aprender com isso?"
           },
           {
-            "text": "You can take notes on a piece of paper or just mental notes in your head. And there is no right or wrong here, our answers are our own. 1 minute starting now.\n\n> Press play to start the timer.\n\nThat’s 1 minute and it’s time to move on."
+            "text": "Podes tomar notas num pedaço de papel ou mentalmente. Não há certo ou errado, as nossas respostas são só nossas. 1 minuto a partir de agora.\n\n> Carrega em play para iniciar o cronómetro.\n\nPassou 1 minuto e é hora de avançar."
           }
-        ]
+        ],
+        "content": {
+          "heading": "",
+          "text": "O que podes aprender com as diferenças entre hoje e aquele outro momento?",
+          "lottie": {
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1676642915/Lottie/default_1min_white_wvgwma.json"
+          }
+        }
       },
       {
         "type": "sharing",
         "hostNotes": [
           {
-            "text": "Now we are getting into the sharing part. We have three rules for sharing:\n\n1. **What is said in here, stays in here.**\n2. **All you need to do is listen.** There is no fixing, helping or advice-giving needed. We are just showing up and exploring what ourselves and others are going through."
+            "text": "Agora passamos para a parte da partilha. Temos três regras para partilhar:\n\n1. **O que é dito aqui, fica aqui.**\n2. **Só precisas de ouvir.** Não é necessário corrigir, ajudar ou dar conselhos. Estamos apenas a explorar o que nós e os outros estão a passar."
           },
           {
-            "text": "3. **Everything on the inside is okay.** Anger, love, hatred, sadness. Whatever shows up. No wrongs, no rights. It is what it is.\n\nThere will be a timer set for 2 minutes as an indicator. If you don’t want to share you can always say ‘pass’."
+            "text": "3. **Tudo o que sentires é válido.** Raiva, amor, ódio, tristeza. O que quer que surja. Não há certo ou errado. É o que é.\n\nHaverá um cronómetro de 2 minutos como indicador. Se não quiseres partilhar, podes sempre dizer 'passo'.\\\nA pergunta de partilha é: o que podes aprender com a diferença entre aquele momento em que sentiste propósito e o presente?"
           },
           {
-            "text": "Who would like to start?\n\n> Let everyone (or as many as you got time for) share one by one. Press play to start the timer. Re-start for each new sharing.\n\nThank you so much everyone."
+            "text": "Quem gostaria de começar?\n\n> Deixa que todos (ou os que houver tempo) partilhem individualmente. Carrega em play para iniciar o cronómetro. Reinicia para cada nova partilha.\n\nMuito obrigada/o a todos."
           }
-        ]
+        ],
+        "content": {
+          "heading": "O que podes aprender com as diferenças entre hoje e aquele outro momento?",
+          "text": "",
+          "lottie": {
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1676639253/Lottie/default_2min_white_arvrf2.json"
+          }
+        },
+        "id": "1"
       },
       {
         "type": "host",
         "hostNotes": [
           {
-            "text": "Well done. if you’re up for it, you can continue what we started here today with a mission to bring this into your everyday life.\n\nxx mission description"
+            "text": "As nossas emoções podem ser uma janela para o que realmente é importante para nós na vida.\n\nQuando nos conectamos com o que nos dá sentido e propósito, experimentamos a vida de forma diferente do que quando estamos em piloto automático."
           },
           {
-            "text": "Before we leave this space let’s do a mini check-out. \n\nHow are you feeling right now? Has anything shifted? Please answer in two-three words."
+            "text": "Isso ajuda-nos a aparecer e a agir em função do que realmente importa.\n\nMuito bem. Se estiveres com disposição a aceitar uma missão, tira um momento todos os dias, durante três dias, para notares onde estás, como te sentes, pensas e ages, e vê como isso te conecta ao teu sentido de propósito."
           },
           {
-            "text": "Who would like to start?\n\n> Let everyone in the session check out one by one.\n\nThank you all for checking out and for joining this session today.\n\n> Finish session to send everyone off to the exit experience."
+            "text": "Antes de deixarmos este espaço, vamos fazer um pequeno check-out.\n\nComo te sentes agora? Alguma coisa mudou? Responde por favor em duas ou três palavras."
+          },
+          {
+            "text": "Quem gostaria de começar?\n\n> Deixa que todos na sessão façam o check-out individualmente.\n\nObrigada/o a todos por fazerem o check-out final e por participarem nesta sessão de hoje.\n\n> Termina a sessão e envia todos para a experiência de saída."
           }
-        ]
+        ],
+        "video": {
+          "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1682676013/Images/Feeling_purpose_thumb_uxkka7.png",
+          "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1682676566/Video/Outro_Feeling_purpose_kf5es3.mp4"
+        }
+      },
+      {
+        "type": "instruction",
+        "content": {
+          "image": {
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1692964887/Images/asynk_image_feeling_purpose_ufgojw.png"
+          },
+          "text": "As nossas emoções podem ser uma janela para o que realmente é importante para nós na vida.\n\nConectar-nos com o que nos dá um sentido de propósito ajuda-nos a estar presentes e a agir em função do que realmente importa.\n\nMuito bem. Se estiveres com disposição a aceitar uma missão, tira um momento todos os dias, durante três dias, para notares onde estás, como te sentes, pensas e ages, e vê como isso te conecta ao teu sentido de propósito.",
+          "heading": "Parabéns"
+        }
       }
     ],
     "theme": {
-      "textColor": "#2AE2D7"
+      "textColor": "#F9F8F4",
+      "backgroundColor": "#1f5b9e"
     },
     "hidden": false,
-    "published": false,
-    "card": {},
+    "name": "Sentir propósito",
+    "live": true,
+    "published": true,
+    "card": {
+      "image": {
+        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1692793639/Images/card_image_feeling_purpose_ju8iea.png"
+      }
+    },
+    "socialMeta": {
+      "image": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1692793639/Images/card_image_feeling_purpose_ju8iea.png"
+    },
+    "coCreators": [
+      {
+        "name": "Jenny Rickardsson, voice and editor",
+        "url": "https://www.linkedin.com/in/jenny-rickardson-6770a959/",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413228/Contributors/Jenny%20Rickardsson.jpg"
+      },
+      {
+        "name": "Ints Ivanovskis, art works",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413436/Contributors/Ints%20Ivanovskis.jpg",
+        "url": "https://www.linkedin.com/in/ints-ivanovskis-46ab0311a/"
+      },
+      {
+        "name": "Cristina Alves, voz em Português",
+        "url": "https://www.instagram.com/meditar.com.cristina/profilecard/?igsh=cTg5dDNjZ2Y5aTU0",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1728375093/FJN/People/Cristina_Alves_zt1btx.png"
+      }
+    ],
     "duration": 30,
     "introPortal": {
       "hostNotes": [
         {
-          "text": "> Start the session when you're ready to go"
+          "text": "> Inicia a sessão quando estiveres pronta/o para começar"
         }
       ],
       "videoLoop": {
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1692793604/Video/portal1_feeling_purpose_vo3ws9.mp4",
+        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1692793663/Audio/portal_audio_feeling_purpose_gzijae.mp3",
         "p5JsScript": {
           "lang": "javascript"
         }
+      },
+      "videoEnd": {
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1692793619/Video/portal2_feeling_purpose_gbk6tc.mp4"
       }
     },
     "tags": [
@@ -239,7 +320,8 @@
     ],
     "link": "https://aware.29k.org/feeling-purpose",
     "id": "640e4d9f-bb88-44af-a032-116a82f080f6",
-    "async": false
+    "async": true,
+    "description": "Neste exercício, iremos explorar o que significa sentir propósito na vida. Ter um sentido de propósito está relacionado com a felicidade e a satisfação com a vida.\n\nEncontra uma posição confortável e prepara-te para tomar algumas notas durante o exercício."
   },
   "sv": {
     "slides": [

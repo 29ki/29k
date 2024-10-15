@@ -125,7 +125,10 @@
       ],
       "videoLoop": {
         "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1697630712/Video/portal1_sky_gazing_nzvbyk.mp4",
-        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1697630682/Audio/portal_audio__sky_gazing_zjwzsc.mp3"
+        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1697630682/Audio/portal_audio__sky_gazing_zjwzsc.mp3",
+        "p5JsScript": {
+          "lang": "javascript"
+        }
       },
       "videoEnd": {
         "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1697630707/Video/portal2_sky_gazing_nlgcbd.mp4"
@@ -146,75 +149,135 @@
         "type": "host",
         "hostNotes": [
           {
-            "text": "Welcome. I am X and today we will work for around 30 minutes on xx\n\nWe’ll be doing xx ex. meditation followed by time for reflection and sharing with each other."
+            "text": "Bem-vindos. Eu sou X e hoje iremos trabalhar durante cerca de 30 minutos sobre presença, atenção e admiração.\n\nFaremos um exercício de atenção plena, seguido de um momento de reflexão e partilha entre todos."
           },
           {
-            "text": "Let’s start with a mini check-in. How are you feeling right now? Please answer in two-three words. X, would you like to start?\n\n> Let everyone in the session, including yourself, check in one by one.\n\nThank you all for checking in. Let’s get started."
-          }
-        ]
-      },
-      {
-        "type": "content"
-      },
-      {
-        "type": "reflection",
-        "hostNotes": [
-          {
-            "text": "Now we’ll take 1 minute to reflect on our own.\n\nxxMain question\n\nxxFurther explanations of main question if needed"
-          },
-          {
-            "text": "You can take notes on a piece of paper or just mental notes in your head. And there is no right or wrong here, our answers are our own. 1 minute starting now.\n\n> Press play to start the timer.\n\nThat’s 1 minute and it’s time to move on."
-          }
-        ]
-      },
-      {
-        "type": "sharing",
-        "hostNotes": [
-          {
-            "text": "Now we are getting into the sharing part. We have three rules for sharing:\n\n1. **What is said in here, stays in here.**\n2. **All you need to do is listen.** There is no fixing, helping or advice-giving needed. We are just showing up and exploring what ourselves and others are going through."
-          },
-          {
-            "text": "3. **Everything on the inside is okay.** Anger, love, hatred, sadness. Whatever shows up. No wrongs, no rights. It is what it is.\n\nThere will be a timer set for 2 minutes as an indicator. If you don’t want to share you can always say ‘pass’."
-          },
-          {
-            "text": "Who would like to start?\n\n> Let everyone (or as many as you got time for) share one by one. Press play to start the timer. Re-start for each new sharing.\n\nThank you so much everyone."
-          }
-        ]
-      },
-      {
-        "type": "host",
-        "hostNotes": [
-          {
-            "text": "Well done. If you’re up for it, you can continue what we started here today with a mission to bring this into your everyday life.\n\nxx mission description"
-          },
-          {
-            "text": "Before we leave this space let’s do a mini check-out. \n\nHow are you feeling right now? Has anything shifted? Please answer in two-three words."
-          },
-          {
-            "text": "Who would like to start?\n\n> Let everyone in the session check out one by one.\n\nThank you all for checking out and for joining this session today.\n\n> Finish session to send everyone off to the exit experience."
+            "text": "Vamos começar com um pequeno check-in. Como te estás a sentir? Por favor, responde em duas ou três palavras. X, queres começar?\n\n> Deixa que todos na sessão, incluindo-te a ti, façam o check-in individualmente.\n\nObrigada/o a todos por fazerem o check-in. Vamos começar."
           }
         ]
       },
       {
         "type": "instruction",
         "content": {
-          "text": "Well done.\n\nSummary.\n\nIf you’re up for it, you can continue with this mission.\n\nmission description"
+          "text": "A prática de observação do céu exercita o estar presente, aqui e agora, olhando para o céu. Começa o exercício quando estiveres ao ar livre, preparado para olhar para cima durante cerca de seis minutos.",
+          "image": {
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1697630657/Images/card_image_sky_gazing_wloxhk.png"
+          }
+        }
+      },
+      {
+        "type": "content",
+        "content": {
+          "lottie": {
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1728289965/FJN/Meditations/Cristina/CONTEMPLAR_O_CE%CC%81U_flsezq.mp3",
+            "subtitles": "",
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1676642915/Lottie/default_audio_white_sufmbz.json",
+            "durationTimer": true
+          }
+        },
+        "hostNotes": [
+          {
+            "text": "> Carrega em play para iniciar o exercício"
+          }
+        ]
+      },
+      {
+        "type": "reflection",
+        "hostNotes": [
+          {
+            "text": "Agora vamos tirar 1 minuto para refletir individualmente.\n\nO que descobriste durante o exercício?"
+          },
+          {
+            "text": "Podes tomar notas num pedaço de papel ou mentalmente. Não há certo ou errado, as nossas respostas são só nossas. 1 minuto a partir de agora.\n\n> Carrega em play para iniciar o cronómetro.\n\nPassou 1 minuto e é hora de avançar."
+          }
+        ],
+        "content": {
+          "heading": "O que descobriste durante o exercício?",
+          "lottie": {
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1676642915/Lottie/default_1min_white_wvgwma.json",
+            "durationTimer": false
+          }
+        }
+      },
+      {
+        "type": "sharing",
+        "hostNotes": [
+          {
+            "text": "Agora passamos para a parte da partilha. Temos três regras para partilhar:\n\n1. **O que é dito aqui, fica aqui.**\n2. **Só precisas de ouvir.** Não é necessário corrigir, ajudar ou dar conselhos. Estamos apenas a explorar o que nós e os outros estão a passar."
+          },
+          {
+            "text": "3. **Tudo o que sentires é válido.** Raiva, amor, ódio, tristeza. O que quer que surja. Não há certo ou errado. É o que é.\n\nHaverá um cronómetro de 2 minutos como indicador. Se não quiseres partilhar, podes sempre dizer 'passo'."
+          },
+          {
+            "text": "Quem gostaria de começar?\n\n> Deixa que todos (ou os que houver tempo) partilhem individualmente. Carrega em play para iniciar o cronómetro. Reinicia para cada nova partilha.\n\nMuito obrigada/o a todos."
+          }
+        ],
+        "id": "1",
+        "content": {
+          "heading": "O que descobriste durante o exercício?",
+          "lottie": {
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1676639253/Lottie/default_2min_white_arvrf2.json",
+            "durationTimer": true,
+            "duration": 120
+          }
+        }
+      },
+      {
+        "type": "host",
+        "hostNotes": [
+          {
+            "text": "Muito bem. Notar o que está acima de nós, aqui e agora, pode melhorar o nosso sentido de conexão e presença. Se estiveres com disposição, podes continuar com a missão de trazer isto para o teu dia-a-dia:\n\nNos próximos dois dias, dedica alguns minutos por dia a olhar para o céu. Presta atenção ao que vês, deixando que as coisas venham e vão tal como são."
+          },
+          {
+            "text": "Antes de deixarmos este espaço, vamos fazer um pequeno check-out. \n\nComo te sentes agora? Alguma coisa mudou? Responde por favor em duas ou três palavras."
+          },
+          {
+            "text": "Quem gostaria de começar?\n\n> Deixa que todos na sessão façam o check-out individualmente.\n\nObrigada/o a todos por fazerem o check-out final e por participarem nesta sessão de hoje.\n\n> Termina a sessão e envia todos para a experiência de saída."
+          }
+        ]
+      },
+      {
+        "type": "instruction",
+        "content": {
+          "text": "Notar o que está acima de nós, aqui e agora, pode melhorar o nosso sentido de conexão e presença.\n\nSe estiveres com disposição, podes continuar com a missão de trazer isto para o teu dia-a-dia:\n\nNos próximos dois dias, dedica alguns minutos por dia a olhar para o céu. Presta atenção ao que vês, deixando que as coisas venham e vão tal como são.",
+          "image": {
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1697630657/Images/card_image_sky_gazing_wloxhk.png"
+          },
+          "heading": "Parabéns"
         }
       }
     ],
     "theme": {
-      "textColor": "#2AE2D7"
+      "textColor": "#F9F8F4",
+      "backgroundColor": "#0e529c"
     },
     "hidden": false,
+    "name": "Contemplar o céu",
     "live": true,
-    "published": false,
+    "published": true,
+    "card": {
+      "image": {
+        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1697630657/Images/card_image_sky_gazing_wloxhk.png"
+      }
+    },
+    "coCreators": [],
     "duration": 30,
     "introPortal": {
       "hostNotes": [
         {
-          "text": "> Start the session when you're ready to go"
+          "text": "> Inicia a sessão quando estiveres pronta/o para começar"
         }
-      ]
+      ],
+      "videoLoop": {
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1697630712/Video/portal1_sky_gazing_nzvbyk.mp4",
+        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1697630682/Audio/portal_audio__sky_gazing_zjwzsc.mp3",
+        "p5JsScript": {
+          "lang": "javascript"
+        }
+      },
+      "videoEnd": {
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1697630707/Video/portal2_sky_gazing_nlgcbd.mp4"
+      }
     },
     "tags": [
       "cfc00217-f65b-4a4d-8b82-8ccc8f852dd6",
@@ -222,7 +285,8 @@
     ],
     "link": "https://aware.29k.org/sky-gazing",
     "id": "12f448d2-39bc-4232-b8cf-b6cb570c7e00",
-    "async": false
+    "async": true,
+    "description": "Contemplar o que está acima de nós pode melhorar o nosso sentido de conexão e presença, além de inspirar admiração. A pesquisa mostra que praticar estas habilidades pode ajudar-nos a sentirmo-nos mais realizados e satisfeitos com a vida. Nota que este exercício é melhor realizado ao ar livre."
   },
   "sv": {
     "slides": [
@@ -439,6 +503,7 @@
     "hidden": false,
     "live": true,
     "published": false,
+    "card": {},
     "duration": 30,
     "introPortal": {
       "hostNotes": [

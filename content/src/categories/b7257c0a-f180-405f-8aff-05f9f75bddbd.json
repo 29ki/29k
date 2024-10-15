@@ -52,7 +52,12 @@
       "c1c4da35-87af-4e10-a8d9-e6c58571f724",
       "c4b1c360-88b8-4e05-915a-407e00aef898",
       "e4bf8d17-a774-4702-abfe-c7452c3fee0f"
-    ]
+    ],
+    "name": "Compreende-te",
+    "lottie": {
+      "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1702302654/Lottie/understand_myself_qeibfi.json"
+    },
+    "published": true
   },
   "sv": {
     "id": "b7257c0a-f180-405f-8aff-05f9f75bddbd",

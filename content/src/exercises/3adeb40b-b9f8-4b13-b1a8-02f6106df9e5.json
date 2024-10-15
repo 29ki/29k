@@ -15,7 +15,7 @@
       {
         "type": "instruction",
         "content": {
-          "text": "Values are our innermost desires. The things are really important for us - no matter what. In this exercise you will practice making your personal values explicit, so that you can let them guide you in your everyday life.\n\nYou’ll need:\n\n* Pen and paper\n* 15 minutes on your own"
+          "text": "Values are our innermost desires. The things are really important for us - no matter what. In this exercise you will practice making your personal values explicit, so that you can let them guide you in your everyday life."
         }
       },
       {
@@ -24,13 +24,19 @@
           {
             "text": "Find a comfortable position. I will start the audio exercise and we'll meet back here afterwards. \n\n> Push play to start the audio exercise"
           }
-        ]
+        ],
+        "content": {
+          "lottie": {
+            "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1728993027/SRT%20(captions)%20files/PsyPal_My_values_ksdsjk.srt",
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1728993100/Audio/PsyPal_My_values_vnrjyr.mp3"
+          }
+        }
       },
       {
         "type": "reflection",
         "hostNotes": [
           {
-            "text": "Now we’ll take 1 minute to reflect on our own.\n\nxxMain question\n\nxxFurther explanations of main question if needed"
+            "text": "Now we’ll take 1 minute to reflect on our own.\n\nWhat was your experience reflecting upon your values like this?"
           },
           {
             "text": "You can take notes on a piece of paper or just mental notes in your head. And there is no right or wrong here, our answers are our own. 1 minute starting now.\n\n> Press play to start the timer.\n\nThat’s 1 minute and it’s time to move on."
@@ -53,7 +59,10 @@
             "text": "Who would like to start?\n\n> Let everyone (or as many as you got time for) share one by one. Press play to start the timer. Re-start for each new sharing.\n\nThank you so much everyone."
           }
         ],
-        "id": "Sharing 1"
+        "id": "Sharing 1",
+        "content": {
+          "heading": "What was your experience reflecting upon your values like this?"
+        }
       },
       {
         "type": "host",
@@ -72,7 +81,7 @@
       {
         "type": "instruction",
         "content": {
-          "text": "Well done. Now, you’ve calibrated your personal compass. \n\nIs there something you want to change in life after doing this? Do any of your chosen words or phrases need more attention from you?\n\nBring your notes to your therapist at your next appointment"
+          "text": "Well done. \n\nNow, you’ve calibrated your personal compass. \n\nIs there something you want to change in life after doing this? Do any of your chosen words or phrases need more attention from you? Plan one behavior you can do right now in line with your value."
         }
       }
     ],
@@ -81,7 +90,7 @@
     },
     "hidden": true,
     "locked": false,
-    "name": "PsyPal Values",
+    "name": "PsyPal My values",
     "live": false,
     "published": true,
     "duration": 30,

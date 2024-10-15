@@ -34,8 +34,27 @@
     "description": "This is an entry point to an adventure into your inner and outer nature."
   },
   "pt": {
-    "published": false,
     "hidden": false,
+    "name": "Avançar para a natureza",
+    "published": true,
+    "sortOrder": 20,
+    "card": {
+      "image": {
+        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1702310278/Images/forward_to_nature_wbpa1o.png"
+      }
+    },
+    "coCreators": [
+      {
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1697717486/Images/Houdini_co-creator_v2bbwc.png",
+        "name": "Houdini, initiator",
+        "url": "https://houdinisportswear.com/"
+      }
+    ],
+    "tags": [
+      "cfc00217-f65b-4a4d-8b82-8ccc8f852dd6",
+      "9c2c08a9-7dc6-4058-bc78-016d0eb00614"
+    ],
+    "link": "https://aware.29k.org/forward-to-nature",
     "id": "0eda04e3-4b45-44d6-b779-7b40f43f966c",
     "exercises": [
       "1a53e633-6916-4fea-a072-977c4b215288",
@@ -46,12 +65,7 @@
       "1e96f73b-8193-4aa6-a52c-31355eac3c08",
       "12f448d2-39bc-4232-b8cf-b6cb570c7e00"
     ],
-    "tags": [
-      "cfc00217-f65b-4a4d-8b82-8ccc8f852dd6",
-      "9c2c08a9-7dc6-4058-bc78-016d0eb00614"
-    ],
-    "link": "https://aware.29k.org/forward-to-nature",
-    "sortOrder": 20
+    "description": "Este é o ponto de partida para uma aventura na sua natureza interior e exterior."
   },
   "sv": {
     "published": false,
@@ -71,7 +85,8 @@
       "9c2c08a9-7dc6-4058-bc78-016d0eb00614"
     ],
     "link": "https://aware.29k.org/forward-to-nature",
-    "sortOrder": 20
+    "sortOrder": 20,
+    "card": {}
   },
   "ja": {
     "published": false,
