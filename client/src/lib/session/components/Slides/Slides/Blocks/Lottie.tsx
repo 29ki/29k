@@ -14,14 +14,14 @@ import useSessionState from '../../../../state/state';
 import LPlayer, {
   LottiePlayerHandle,
 } from '../../../../../components/LottiePlayer/LottiePlayer';
-import MediaWrapperResolver from './MediaWrapperResolver';
+import MediaWrapperResolver from './components/MediaWrapperResolver';
 import {Spacer16} from '../../../../../components/Spacers/Spacer';
 import MediaControls from '../../../../../components/MediaControls/MediaControls';
 import Subtitles from '../../../../../components/Subtitles/Subtitles';
 import Gutters from '../../../../../components/Gutters/Gutters';
 import {ProgressTimerContext} from '../../../../context/TimerContext';
 import useIdleTimerManager from '../../../../hooks/useIdleTimerManager';
-import TimerControls from '../../../../../components/TimerControls/TimerControls';
+import TimerControls from './components/TimerControls';
 
 const LottiePlayer = styled(LPlayer)({
   flexShrink: 1,
@@ -235,14 +235,11 @@ const Lottie: React.FC<LottieProps> = ({
         </MediaWrapperResolver>
         {!isLive &&
           (isTimer ? (
-            <>
-              <Spacer16 />
-              <TimerControls
-                playing={!paused}
-                onReset={onReset}
-                onTogglePlay={onTogglePlay}
-              />
-            </>
+            <TimerControls
+              paused={paused}
+              onReset={onReset}
+              onTogglePlay={onTogglePlay}
+            />
           ) : (
             <View>
               {showSubtitels && subtitles && (
@@ -281,14 +278,11 @@ const Lottie: React.FC<LottieProps> = ({
         />
       </MediaWrapperResolver>
       {!isLive && !autoPlayLoop && isTimer && (
-        <>
-          <Spacer16 />
-          <TimerControls
-            playing={!paused}
-            onReset={onReset}
-            onTogglePlay={onTogglePlay}
-          />
-        </>
+        <TimerControls
+          paused={paused}
+          onReset={onReset}
+          onTogglePlay={onTogglePlay}
+        />
       )}
     </>
   );
