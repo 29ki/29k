@@ -15,7 +15,7 @@
       {
         "type": "instruction",
         "content": {
-          "text": "Take a close look at your life as it has evolved up until now. This exercise can bring up strong emotions. That is alright and all part of the exercise. If you need to take a break, just click pause. \n\nYou'll need:\n\n* Pen and paper\n* 15 minutes for yourself"
+          "text": "Take a close look at your life as it has evolved up until now. This exercise can bring up strong emotions. That is alright and all part of the exercise. If you need to, you can take a break at any time."
         }
       },
       {
@@ -24,13 +24,19 @@
           {
             "text": "Find a comfortable position. I will start the audio exercise and we'll meet back here afterwards. \n\n> Push play to start the audio exercise"
           }
-        ]
+        ],
+        "content": {
+          "lottie": {
+            "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1728986423/SRT%20(captions)%20files/PsyPal_Life_exploration_d370hk.srt",
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1728986355/Audio/PsyPal_Life_exploration_tsbxhj.mp3"
+          }
+        }
       },
       {
         "type": "reflection",
         "hostNotes": [
           {
-            "text": "Now we’ll take 1 minute to reflect on our own.\n\nxxMain question\n\nxxFurther explanations of main question if needed"
+            "text": "Now we’ll take 1 minute to reflect on our own.\n\nWhat was it like to reflect upon your life in this way?"
           },
           {
             "text": "You can take notes on a piece of paper or just mental notes in your head. And there is no right or wrong here, our answers are our own. 1 minute starting now.\n\n> Press play to start the timer.\n\nThat’s 1 minute and it’s time to move on."
@@ -53,7 +59,10 @@
             "text": "Who would like to start?\n\n> Let everyone (or as many as you got time for) share one by one. Press play to start the timer. Re-start for each new sharing.\n\nThank you so much everyone."
           }
         ],
-        "id": "Sharing 1"
+        "id": "Sharing 1",
+        "content": {
+          "heading": "What was it like to reflect upon your life in this way?"
+        }
       },
       {
         "type": "host",
@@ -72,18 +81,18 @@
       {
         "type": "instruction",
         "content": {
-          "text": "Well done for completing the life exploration. To actively reflect on past events sometimes help us look at the current circumstances in a different light. \n\nTake a photo of your chart and notes to show your therapist. You'll talk about them at your next meeting. You might keep thinking about this after the exercise. If you have new thoughts, write them down."
+          "text": "Well done for completing the life exploration. To actively reflect on past events sometimes help us look at the current circumstances in a different light. \n\nSometimes the darker periods are the ones where we have learned the most. And sometimes the toughest challenges are followed by a time of deep connection and meaning. Whatever is true for you, we encourage you to continue the conversation with someone close to you."
         }
       }
     ],
     "theme": {
       "textColor": "#2AE2D7"
     },
-    "hidden": false,
+    "hidden": true,
     "locked": false,
     "name": "PsyPal Life exploration",
-    "live": true,
-    "published": false,
+    "live": false,
+    "published": true,
     "duration": 30,
     "introPortal": {
       "textColor": "#2AE2D7",
@@ -99,7 +108,8 @@
       }
     },
     "id": "b9001702-8502-46de-bc7b-3ebf2b812c0e",
-    "async": false
+    "async": true,
+    "description": "Create an overview of your life so far, and learn from your own past experiences. You'll need pen and paper to complete this exercise."
   },
   "pt": {
     "slides": [
