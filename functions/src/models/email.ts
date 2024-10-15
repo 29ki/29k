@@ -20,13 +20,19 @@ const TO_HELP = {
   sv: 'help+sv@29k.org',
   en: 'help@29k.org',
   ja: 'help@29k.org',
+  da: 'help@29k.org',
+  cs: 'help@29k.org',
+  nl: 'help@29k.org',
 };
 
 const FROM_APP = {
   en: 'app@29k.org',
   sv: 'app@29k.org',
   pt: 'app@29k.org',
-  ja: 'app@29k-org',
+  ja: 'app@29k.org',
+  da: 'app@29k.org',
+  cs: 'app@29k.org',
+  nl: 'app@29k.org',
 };
 
 const createReportEmail = (

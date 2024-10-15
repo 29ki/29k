@@ -11,5 +11,8 @@
     "title": "Aware session: {{title}}",
     "description": "Med {{host}} - {{description}}"
   },
-  "ja": {}
+  "ja": {},
+  "da": {},
+  "cs": {},
+  "nl": {}
 }

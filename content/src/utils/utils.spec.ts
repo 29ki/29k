@@ -17,6 +17,15 @@ describe('utils', () => {
           ja: {
             translationKey: 'some other translation',
           },
+          da: {
+            translationKey: 'some other translation',
+          },
+          cs: {
+            translationKey: 'some other translation',
+          },
+          nl: {
+            translationKey: 'some other translation',
+          },
         },
       };
       expect(generateI18NResources(content)).toEqual({
@@ -40,6 +49,21 @@ describe('utils', () => {
             translationKey: 'some other translation',
           },
         },
+        da: {
+          Component: {
+            translationKey: 'some other translation',
+          },
+        },
+        cs: {
+          Component: {
+            translationKey: 'some other translation',
+          },
+        },
+        nl: {
+          Component: {
+            translationKey: 'some other translation',
+          },
+        },
       });
     });
 
@@ -59,6 +83,9 @@ describe('utils', () => {
           sv: {published: false},
           pt: {published: false},
           ja: {published: false},
+          da: {published: false},
+          cs: {published: false},
+          nl: {published: false},
         },
         'some-other-exercise-id': {
           en: {
@@ -74,6 +101,9 @@ describe('utils', () => {
           sv: {published: false},
           pt: {published: false},
           ja: {published: false},
+          da: {published: false},
+          cs: {published: false},
+          nl: {published: false},
         },
       };
       expect(generateI18NResources(content, 'exercises')).toEqual({
@@ -96,6 +126,24 @@ describe('utils', () => {
           },
         },
         ja: {
+          exercises: {
+            'some-exercise-id': {published: false},
+            'some-other-exercise-id': {published: false},
+          },
+        },
+        da: {
+          exercises: {
+            'some-exercise-id': {published: false},
+            'some-other-exercise-id': {published: false},
+          },
+        },
+        cs: {
+          exercises: {
+            'some-exercise-id': {published: false},
+            'some-other-exercise-id': {published: false},
+          },
+        },
+        nl: {
           exercises: {
             'some-exercise-id': {published: false},
             'some-other-exercise-id': {published: false},

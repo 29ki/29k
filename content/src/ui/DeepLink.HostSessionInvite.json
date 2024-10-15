@@ -11,5 +11,8 @@
     "title": "{{hostName}} vill att du ska vara värd {{sessionName}}.",
     "description": "Klicka på länken för att se mer information och bestämma om du vill acceptera värdskapet eller inte"
   },
-  "ja": {}
+  "ja": {},
+  "da": {},
+  "cs": {},
+  "nl": {}
 }

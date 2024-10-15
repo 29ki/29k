@@ -22,9 +22,7 @@
         "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413228/Contributors/Jenny%20Rickardsson.jpg"
       }
     ],
-    "tags": [
-      "db34d82a-4c48-4ddd-9de5-f562d8aa1bc9"
-    ],
+    "tags": ["db34d82a-4c48-4ddd-9de5-f562d8aa1bc9"],
     "link": "https://aware.29k.org/SelfCompassionTheInsideJob",
     "id": "7bb77b5d-7a97-4fd1-9102-21eb0c4a70af",
     "exercises": [
@@ -60,9 +58,7 @@
         "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413228/Contributors/Jenny%20Rickardsson.jpg"
       }
     ],
-    "tags": [
-      "db34d82a-4c48-4ddd-9de5-f562d8aa1bc9"
-    ],
+    "tags": ["db34d82a-4c48-4ddd-9de5-f562d8aa1bc9"],
     "link": "https://aware.29k.org/SelfCompassionTheInsideJob",
     "id": "7bb77b5d-7a97-4fd1-9102-21eb0c4a70af",
     "exercises": [
@@ -81,9 +77,7 @@
     "published": false,
     "sortOrder": 1,
     "card": {},
-    "tags": [
-      "db34d82a-4c48-4ddd-9de5-f562d8aa1bc9"
-    ],
+    "tags": ["db34d82a-4c48-4ddd-9de5-f562d8aa1bc9"],
     "link": "https://aware.29k.org/SelfCompassionTheInsideJob",
     "id": "7bb77b5d-7a97-4fd1-9102-21eb0c4a70af",
     "exercises": [
@@ -101,9 +95,7 @@
     "published": false,
     "sortOrder": 1,
     "card": {},
-    "tags": [
-      "db34d82a-4c48-4ddd-9de5-f562d8aa1bc9"
-    ],
+    "tags": ["db34d82a-4c48-4ddd-9de5-f562d8aa1bc9"],
     "link": "https://aware.29k.org/SelfCompassionTheInsideJob",
     "id": "7bb77b5d-7a97-4fd1-9102-21eb0c4a70af",
     "exercises": [
@@ -114,5 +106,8 @@
       "2ea0d73d-4bfe-4e23-9124-2998acc9743f",
       "b4307d0b-512d-46d6-a500-7fb372bfe057"
     ]
-  }
+  },
+  "da": {},
+  "cs": {},
+  "nl": {}
 }

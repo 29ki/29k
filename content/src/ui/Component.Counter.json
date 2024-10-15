@@ -8,5 +8,8 @@
   "sv": {
     "inMinutes": "{{minutes}}m {{seconds}}s"
   },
-  "ja": {}
+  "ja": {},
+  "da": {},
+  "cs": {},
+  "nl": {}
 }
