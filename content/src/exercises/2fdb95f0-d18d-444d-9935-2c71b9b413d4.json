@@ -261,6 +261,11 @@
     },
     "coCreators": [
       {
+        "name": "Rachel Brathen, yoga girl, voice",
+        "url": "https://www.yogagirl.com/rachels-corner/bio",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1709567296/Contributors/Yoga_Girl_016895_color_oju3wq_-_Square_Post_mbemkp.png"
+      },
+      {
         "name": "Erik Fernholm, editor",
         "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665412608/Contributors/Erik%20Fernholm.png",
         "url": "https://www.linkedin.com/in/lyckoaktivist/?originalSubdomain=se"
@@ -269,6 +274,11 @@
         "name": "mattywillo_",
         "url": "https://openprocessing.org/user/278169?view=sketches&o=7",
         "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1713964290/Images/anonymous_xns0zu.png"
+      },
+      {
+        "name": "Cristina Alves, voz em Português",
+        "url": "https://www.instagram.com/meditar.com.cristina/profilecard/?igsh=cTg5dDNjZ2Y5aTU0",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1728375093/FJN/People/Cristina_Alves_zt1btx.png"
       }
     ],
     "duration": 30,
@@ -532,7 +542,22 @@
     "id": "2fdb95f0-d18d-444d-9935-2c71b9b413d4",
     "async": false
   },
-  "da": {},
-  "cs": {},
-  "nl": {}
+  "da": {
+    "tags": [
+      "db34d82a-4c48-4ddd-9de5-f562d8aa1bc9",
+      "34100e43-2eb8-4d35-8eb0-9fa9f78e4935"
+    ]
+  },
+  "cs": {
+    "tags": [
+      "db34d82a-4c48-4ddd-9de5-f562d8aa1bc9",
+      "34100e43-2eb8-4d35-8eb0-9fa9f78e4935"
+    ]
+  },
+  "nl": {
+    "tags": [
+      "db34d82a-4c48-4ddd-9de5-f562d8aa1bc9",
+      "34100e43-2eb8-4d35-8eb0-9fa9f78e4935"
+    ]
+  }
 }
