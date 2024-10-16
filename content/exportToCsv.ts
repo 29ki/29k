@@ -14,6 +14,11 @@ if (!TO_LANGUAGE_TAG) {
   throw new Error('Missing language argument');
 }
 
+const onlyFiles = {
+  ui: [],
+  exercises: [],
+};
+
 const skipKeys = {
   categories: ['id', 'exercises', 'collections', 'lottie'],
   collections: ['id', 'coCreators', 'card', 'tags', 'exercises'],
@@ -57,24 +62,28 @@ const main = async () => {
       TO_LANGUAGE_TAG,
     ]);
 
-    Object.entries(content).forEach(([file, translations]) => {
-      const fromTranslations = flatten(translations[FROM_LANGUAGE_TAG]);
-      const toTranslations = flatten(translations[TO_LANGUAGE_TAG]);
-      Object.entries(fromTranslations)
-        .sort(([a], [b]) => (a < b ? -1 : a > b ? 1 : 0))
-        .forEach(([key, value]) => {
-          if (
-            value &&
-            typeof value === 'string' &&
-            !value.startsWith('http') &&
-            !skipKeys[type]?.some(
-              skip => key.startsWith(skip) || key.endsWith(skip),
-            )
-          ) {
-            csvStream.write([type, file, key, value, toTranslations[key]]);
-          }
-        });
-    });
+    Object.entries(content)
+      .filter(
+        ([file]) => !onlyFiles[type]?.length || onlyFiles[type].includes(file),
+      )
+      .forEach(([file, translations]) => {
+        const fromTranslations = flatten(translations[FROM_LANGUAGE_TAG]);
+        const toTranslations = flatten(translations[TO_LANGUAGE_TAG]);
+        Object.entries(fromTranslations)
+          .sort(([a], [b]) => (a < b ? -1 : a > b ? 1 : 0))
+          .forEach(([key, value]) => {
+            if (
+              value &&
+              typeof value === 'string' &&
+              !value.startsWith('http') &&
+              !skipKeys[type]?.some(
+                skip => key.startsWith(skip) || key.endsWith(skip),
+              )
+            ) {
+              csvStream.write([type, file, key, value, toTranslations[key]]);
+            }
+          });
+      });
 
     csvStream.end();
   });
