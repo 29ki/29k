@@ -305,6 +305,23 @@
         "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1698256076/Images/pure-simple-love_vi9ura.png"
       }
     },
+    "coCreators": [
+      {
+        "name": "Ints Ivanovskis, art works",
+        "url": "https://www.linkedin.com/in/ints-ivanovskis-46ab0311a/",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413436/Contributors/Ints%20Ivanovskis.jpg"
+      },
+      {
+        "name": "Heidi Andersen, voice",
+        "url": "https://www.linkedin.com/in/heidi-andersen-mindfuel/",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1698414650/Contributors/heidi_andersen_cutguw.jpg"
+      },
+      {
+        "name": "Cristina Alves, voz em Português",
+        "url": "https://www.instagram.com/meditar.com.cristina/profilecard/?igsh=cTg5dDNjZ2Y5aTU0",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1728375093/FJN/People/Cristina_Alves_zt1btx.png"
+      }
+    ],
     "duration": 30,
     "outroPortal": {
       "video": {
@@ -647,7 +664,22 @@
     "async": true,
     "description": "貴重な瞬間を脚光を浴びる誘導瞑想。うまくいっていることに気づく練習をすることで、より幸せで充実した気分になり、ネガティブなことに集中する脳の自然な傾向を打ち消すことができます。"
   },
-  "da": {},
-  "cs": {},
-  "nl": {}
+  "da": {
+    "tags": [
+      "cfc00217-f65b-4a4d-8b82-8ccc8f852dd6",
+      "43a6dc0d-d866-4b79-9453-13c44e906128"
+    ]
+  },
+  "cs": {
+    "tags": [
+      "cfc00217-f65b-4a4d-8b82-8ccc8f852dd6",
+      "43a6dc0d-d866-4b79-9453-13c44e906128"
+    ]
+  },
+  "nl": {
+    "tags": [
+      "cfc00217-f65b-4a4d-8b82-8ccc8f852dd6",
+      "43a6dc0d-d866-4b79-9453-13c44e906128"
+    ]
+  }
 }
