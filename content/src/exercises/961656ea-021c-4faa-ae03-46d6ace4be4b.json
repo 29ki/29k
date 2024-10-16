@@ -264,6 +264,11 @@
         "name": "Ints Ivanovskis, art works",
         "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413436/Contributors/Ints%20Ivanovskis.jpg",
         "url": "https://www.linkedin.com/in/ints-ivanovskis-46ab0311a/"
+      },
+      {
+        "name": "Cristina Alves, voz em Português",
+        "url": "https://www.instagram.com/meditar.com.cristina/profilecard/?igsh=cTg5dDNjZ2Y5aTU0",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1728375093/FJN/People/Cristina_Alves_zt1btx.png"
       }
     ],
     "duration": 30,
@@ -510,7 +515,22 @@
     "id": "961656ea-021c-4faa-ae03-46d6ace4be4b",
     "async": false
   },
-  "da": {},
-  "cs": {},
-  "nl": {}
+  "da": {
+    "tags": [
+      "cfc00217-f65b-4a4d-8b82-8ccc8f852dd6",
+      "8da0534a-5da9-430a-bdf3-242ace6460fb"
+    ]
+  },
+  "cs": {
+    "tags": [
+      "cfc00217-f65b-4a4d-8b82-8ccc8f852dd6",
+      "8da0534a-5da9-430a-bdf3-242ace6460fb"
+    ]
+  },
+  "nl": {
+    "tags": [
+      "cfc00217-f65b-4a4d-8b82-8ccc8f852dd6",
+      "8da0534a-5da9-430a-bdf3-242ace6460fb"
+    ]
+  }
 }
