@@ -237,26 +237,6 @@
         ]
       },
       {
-        "type": "reflection",
-        "content": {
-          "heading": "Muda para E. O que acontece?",
-          "video": {
-            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1675088658/Video/Videos%20PT/timer_and_1min_PT_xy7jly.mp4",
-            "autoPlayLoop": false,
-            "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1676619281/Images/Images%20PT/thumb_PT_timer_and_1min_bring_your_feel..._ph0hnt.png",
-            "durationTimer": true
-          }
-        },
-        "hostNotes": [
-          {
-            "text": "O próximo passo é substituíres o **MAS** por um **E** nas tuas frases. De seguida, lê-os em voz alta para ti.\n\nO que acontece com eles, e contigo, quando fazes isso?"
-          },
-          {
-            "text": "1 minuto a começar agora.\n\n> Carrega play para iniciar o cronômetro.\n\nPassou um minuto. Vamos continuar."
-          }
-        ]
-      },
-      {
         "type": "sharing",
         "content": {
           "heading": "O que aconteceu quando mudaste para E?",
