@@ -262,7 +262,16 @@
         "type": "host",
         "hostNotes": [
           {
-            "text": "Antes de sairmos deste nosso espaço vamos fazer um mini check-out.Como te estás a sentir agora? Mudou alguma coisa? Responde por favor em duas ou três palavras.\n\nQuem gostaria de começar?"
+            "text": "Muito bem. Quando esperamos que os sentimentos indesejados desapareçam para fazermos o que queremos, tendemos a pôr a nossa vida em pausa. Às vezes, durante muito tempo. Uma estratégia mais útil pode ser abrir-nos aos nossos sentimentos com aceitação e escolher as nossas ações de forma intencional."
+          },
+          {
+            "text": "Isto pode permitir-nos dedicar tempo e energia às coisas que são importantes para nós – mesmo quando vêm acompanhadas de emoções difíceis. Se estiveres com disposição gostava assumir a missão de tentar aplicar isto no teu dia a dia."
+          },
+          {
+            "text": "Nos próximos três dias, tenta reparar quando falas contigo própria/o usando frases como \"Quero fazer isto, MAS estou tão que...\". Quando isso acontecer, substitui os teus MAS por E e vê se notas alguma diferença na forma como te comportas."
+          },
+          {
+            "text": "Antes de sairmos deste espaço vamos fazer um pequeno check-out. Como te estás a sentir? Mudou alguma coisa? Responde com duas ou três palavras.\n\nQuem gostaria de começar?"
           },
           {
             "text": "> Permite que todos na sessão façam um check-out individual.\n\nObrigado a todos por este check-out e por participarem nesta sessão hoje.\n\n> Termina a sessão enviando todos os participantes para a experiência de saída."
@@ -270,23 +279,7 @@
         ]
       },
       {
-        "type": "content",
-        "hostNotes": [
-          {
-            "text": "Parabéns. Quando esperamos que os sentimentos indesejados desapareçam para podermos fazer as coisas que queremos, colocamos as nossas vidas em espera. Às vezes, por muito tempo. Uma estratégia mais útil pode ser aceitar os nossos sentimentos e escolher intencionalmente nossas ações."
-          },
-          {
-            "text": "Isto pode permitir-nos gastar tempo e energia nas coisas que são importantes para nós – mesmo quando vêm com emoções difíceis. Se quiseres, podes continuar o que começamos aqui hoje com a missão de trazeres isto naturalmente para o teu dia a dia."
-          },
-          {
-            "text": "Nos próximos três dias, vê se consegues perceber quando falas contigo usando frases do tipo “Quero fazer x, MAS há este y que”. Nesses momentos, substitui os teus MAS por E’s e tenta perceber se há diferenças no teu comportamento."
-          }
-        ],
-        "content": {
-          "image": {
-            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1665471249/Temp/BUT_AND-13_pdbsvr.png"
-          }
-        }
+        "type": "instruction"
       }
     ],
     "theme": {
