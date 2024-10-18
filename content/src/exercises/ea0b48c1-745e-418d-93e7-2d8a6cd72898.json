@@ -185,6 +185,9 @@
             "text": "Bem-vindos.\n\nO meu nome é X e hoje vamos estar juntos durante 30 minutos para aceitarmos os nossos sentimentos de forma aberta e escolher as nossas ações de forma intencional. Faremos uma breve introdução, depois vamos refletir individualmente e por fim partilhar a nossa experiência uns com os outros.\n\nUm alerta. Vão precisar de papel e caneta durante o exercício."
           },
           {
+            "text": "Antes de passarmos para o exercício, vamos focar-nos no momento presente fazendo 3 ciclos de respiração.\n\n> Inspirem e expirem lentamente 3 vezes"
+          },
+          {
             "text": "Vamos começar com um mini check-in. Como te estás a sentir agora? Por favor, responde com duas ou três palavras. X, gostarias de começar?\n\n> Permite que todos na sessão, inclusive tu, façam check-in individual.\n\nObrigada/o a todos pelo check-in. Vamos começar."
           }
         ]
@@ -211,7 +214,8 @@
           },
           {
             "text": "Uma das coisas que afetam a maneira como lidamos com os nossos obstáculos interiores é a linguagem. A forma como falamos connosco pode afetar a forma como nos comportamos. E uma palavra que costumamos usar como condição é a palavra, **MAS**."
-          }
+          },
+          {}
         ]
       },
       {
@@ -360,6 +364,7 @@
     ],
     "link": "https://aware.29k.org/but-and",
     "id": "ea0b48c1-745e-418d-93e7-2d8a6cd72898",
+    "async": true,
     "description": "A forma como falamos connosco afeta as nossas ações. Neste exercício, praticamos a consciência da nossa conversa interior e experimentamos trocar palavras que podem abrir novas possibilidades para agirmos com significado.\n\nEncontra uma posição confortável e prepara-te para tomar algumas notas durante o exercício."
   },
   "sv": {
