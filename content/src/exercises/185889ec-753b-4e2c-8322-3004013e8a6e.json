@@ -266,7 +266,10 @@
         "type": "instruction",
         "content": {
           "heading": "Parabéns",
-          "text": "Se estiveres com disposição, podes tornar o que começamos aqui hoje um hábito positivo no teu dia a dia.\n\nNos próximos dias, sê gentil contigo, especialmente em situações difíceis. Experimenta usar a ideia das molas da roupa para te tornares consciente da tua voz interior.\n\nDepois, escolhe falar e reagir contigo da mesma forma que falarias com um amigo. Repara em como isso te faz sentir."
+          "text": "Se estiveres com disposição, podes tornar o que começamos aqui hoje um hábito positivo no teu dia a dia.\n\nNos próximos dias, sê gentil contigo, especialmente em situações difíceis. Experimenta usar a ideia das molas da roupa para te tornares consciente da tua voz interior.\n\nDepois, escolhe falar e reagir contigo da mesma forma que falarias com um amigo. Repara em como isso te faz sentir.",
+          "image": {
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1669043690/Images/cover1_Be_kind_to_yourself_iqereg.png"
+          }
         }
       }
     ],
