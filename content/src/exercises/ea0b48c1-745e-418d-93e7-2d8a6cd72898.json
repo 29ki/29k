@@ -259,6 +259,17 @@
         ]
       },
       {
+        "type": "host",
+        "hostNotes": [
+          {
+            "text": "Antes de sairmos deste nosso espaço vamos fazer um mini check-out.Como te estás a sentir agora? Mudou alguma coisa? Responde por favor em duas ou três palavras.\n\nQuem gostaria de começar?"
+          },
+          {
+            "text": "> Permite que todos na sessão façam um check-out individual.\n\nObrigado a todos por este check-out e por participarem nesta sessão hoje.\n\n> Termina a sessão enviando todos os participantes para a experiência de saída."
+          }
+        ]
+      },
+      {
         "type": "content",
         "hostNotes": [
           {
@@ -276,17 +287,6 @@
             "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1665471249/Temp/BUT_AND-13_pdbsvr.png"
           }
         }
-      },
-      {
-        "type": "host",
-        "hostNotes": [
-          {
-            "text": "Antes de sairmos deste nosso espaço vamos fazer um mini check-out.Como te estás a sentir agora? Mudou alguma coisa? Responde por favor em duas ou três palavras.\n\nQuem gostaria de começar?"
-          },
-          {
-            "text": "> Permite que todos na sessão façam um check-out individual.\n\nObrigado a todos por este check-out e por participarem nesta sessão hoje.\n\n> Termina a sessão enviando todos os participantes para a experiência de saída."
-          }
-        ]
       }
     ],
     "theme": {
