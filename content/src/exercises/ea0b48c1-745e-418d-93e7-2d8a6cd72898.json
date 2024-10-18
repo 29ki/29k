@@ -185,6 +185,9 @@
             "text": "Bem-vindos.\n\nO meu nome é X e hoje vamos estar juntos durante 30 minutos para aceitarmos os nossos sentimentos de forma aberta e escolher as nossas ações de forma intencional. Faremos uma breve introdução, depois vamos refletir individualmente e por fim partilhar a nossa experiência uns com os outros.\n\nUm alerta. Vão precisar de papel e caneta durante o exercício."
           },
           {
+            "text": "Antes de passarmos para o exercício, vamos focar-nos no momento presente fazendo 3 ciclos de respiração.\n\n> Inspirem e expirem lentamente 3 vezes"
+          },
+          {
             "text": "Vamos começar com um mini check-in. Como te estás a sentir agora? Por favor, responde com duas ou três palavras. X, gostarias de começar?\n\n> Permite que todos na sessão, inclusive tu, façam check-in individual.\n\nObrigada/o a todos pelo check-in. Vamos começar."
           }
         ]
@@ -196,8 +199,9 @@
             "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1675088653/Video/Videos%20PT/content_PT_lqccsc.mp4",
             "description": "",
             "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1676619281/Images/Images%20PT/thumb_PT_content_bring_your_feel..._p1gxny.png",
-            "autoPlayLoop": true,
-            "durationTimer": true
+            "autoPlayLoop": false,
+            "durationTimer": true,
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1729252523/FJN/Meditations/Florbela/MaseE_ufi3if.mp3"
           },
           "image": {
             "source": "https://res.cloudinary.com/twentyninek/image/upload/q_auto,t_global/v1646061249/Illustrations_Tests/take-test_c4qa3u.png",
@@ -207,50 +211,28 @@
         },
         "hostNotes": [
           {
-            "text": "Quando temos coisas difíceis a acontecer dentro de nós, é comum colocarmos as nossas vidas em espera. Esperamos que essas coisas difíceis desapareçam para então podermos recomeçar as nossas vidas. Isto pode colocar-nos num ciclo de espera sem fim.\n\n*Vou para o ginásio outro dia quando não estiver tão cansada.*\n\n*Visitarei um amigo noutro momento, quando não estiver tão stressada/o.*"
-          },
-          {
-            "text": "Uma das coisas que afetam a maneira como lidamos com os nossos obstáculos interiores é a linguagem. A forma como falamos connosco pode afetar a forma como nos comportamos. E uma palavra que costumamos usar como condição é a palavra, **MAS**."
+            "text": "Vamos ouvir o exercício juntos.\n\n> Carrega em play para iniciar o audio"
           }
         ]
       },
       {
         "type": "reflection",
         "content": {
-          "heading": "Eu quero fazer X, mas há um Y que",
+          "heading": "",
           "video": {
             "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1675088658/Video/Videos%20PT/timer_but_1min_PT_xhuwxr.mp4",
             "autoPlayLoop": false,
             "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1676619281/Images/Images%20PT/thumb_PT_timer_but_1min_bring_your_feel..._u9cozb.png",
             "durationTimer": true
-          }
+          },
+          "text": "O que aconteceu quando mudaste de \"MAS\" para \"E\"?"
         },
         "hostNotes": [
           {
-            "text": "Agora vamos reservar um minuto para refletir individualmente. Vais precisar de um pedaço de papel.\n\nA maioria de nós tem pensamentos recorrentes como *eu quero fazer x, **MAS** há um y que*. Isso pode nos fazer-nos sentir que precisamos de nos livrar de y, antes de fazermos x."
+            "text": "Agora vamos reservar um minuto para refletir individualmente. \n\nO que acontece às tuas frases, e a ti, quando substituis o MAS por E? Podes fazer anotações no teu papel, se quiseres, ou apenas notas mentais."
           },
           {
-            "text": "Vê se consegues encontrar um ou dois pensamentos recentes com uma coisa que desejas, mas que não o executas por um motivo interior. Escreve-os. Tens 1 minuto a partir de agora.\n\n> Carrega play para iniciar o cronômetro.\n\nPassou um minuto. Vamos continuar."
-          }
-        ]
-      },
-      {
-        "type": "reflection",
-        "content": {
-          "heading": "Muda para E. O que acontece?",
-          "video": {
-            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1675088658/Video/Videos%20PT/timer_and_1min_PT_xy7jly.mp4",
-            "autoPlayLoop": false,
-            "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1676619281/Images/Images%20PT/thumb_PT_timer_and_1min_bring_your_feel..._ph0hnt.png",
-            "durationTimer": true
-          }
-        },
-        "hostNotes": [
-          {
-            "text": "O próximo passo é substituíres o **MAS** por um **E** nas tuas frases. De seguida, lê-os em voz alta para ti.\n\nO que acontece com eles, e contigo, quando fazes isso?"
-          },
-          {
-            "text": "1 minuto a começar agora.\n\n> Carrega play para iniciar o cronômetro.\n\nPassou um minuto. Vamos continuar."
+            "text": "Tens 1 minuto a partir de agora.\n\n> Carrega play para iniciar o cronômetro.\n\nPassou um minuto. Vamos continuar."
           }
         ]
       },
@@ -277,41 +259,38 @@
         ]
       },
       {
-        "type": "content",
-        "hostNotes": [
-          {
-            "text": "Parabéns. Quando esperamos que os sentimentos indesejados desapareçam para podermos fazer as coisas que queremos, colocamos as nossas vidas em espera. Às vezes, por muito tempo. Uma estratégia mais útil pode ser aceitar os nossos sentimentos e escolher intencionalmente nossas ações."
-          },
-          {
-            "text": "Isto pode permitir-nos gastar tempo e energia nas coisas que são importantes para nós – mesmo quando vêm com emoções difíceis. Se quiseres, podes continuar o que começamos aqui hoje com a missão de trazeres isto naturalmente para o teu dia a dia."
-          },
-          {
-            "text": "Nos próximos três dias, vê se consegues perceber quando falas contigo usando frases do tipo “Quero fazer x, MAS há este y que”. Nesses momentos, substitui os teus MAS por E’s e tenta perceber se há diferenças no teu comportamento."
-          }
-        ],
-        "content": {
-          "image": {
-            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1665471249/Temp/BUT_AND-13_pdbsvr.png"
-          }
-        }
-      },
-      {
         "type": "host",
         "hostNotes": [
           {
-            "text": "Antes de sairmos deste nosso espaço vamos fazer um mini check-out.Como te estás a sentir agora? Mudou alguma coisa? Responde por favor em duas ou três palavras.\n\nQuem gostaria de começar?"
+            "text": "Muito bem. Quando esperamos que os sentimentos indesejados desapareçam para fazermos o que queremos, tendemos a pôr a nossa vida em pausa. Às vezes, durante muito tempo. Uma estratégia mais útil pode ser abrir-nos aos nossos sentimentos com aceitação e escolher as nossas ações de forma intencional."
+          },
+          {
+            "text": "Isto pode permitir-nos dedicar tempo e energia às coisas que são importantes para nós – mesmo quando vêm acompanhadas de emoções difíceis. Se estiveres com disposição gostava assumir a missão de tentar aplicar isto no teu dia a dia."
+          },
+          {
+            "text": "Nos próximos três dias, tenta reparar quando falas contigo própria/o usando frases como \"Quero fazer isto, MAS estou tão que...\". Quando isso acontecer, substitui os teus MAS por E e vê se notas alguma diferença na forma como te comportas."
+          },
+          {
+            "text": "Antes de sairmos deste espaço vamos fazer um pequeno check-out. Como te estás a sentir? Mudou alguma coisa? Responde com duas ou três palavras.\n\nQuem gostaria de começar?"
           },
           {
             "text": "> Permite que todos na sessão façam um check-out individual.\n\nObrigado a todos por este check-out e por participarem nesta sessão hoje.\n\n> Termina a sessão enviando todos os participantes para a experiência de saída."
           }
         ]
+      },
+      {
+        "type": "instruction",
+        "content": {
+          "heading": "Parabéns",
+          "text": "Se estiveres com disposição, podes continuar com esta missão:\n\nNos próximos três dias, tenta reparar quando falas contigo própria/o usando frases como \"Quero fazer isto, MAS estou tão... que...\". Quando isso acontecer, substitui os teus MAS por E e observa se notas alguma diferença no teu comportamento."
+        }
       }
     ],
     "theme": {
       "backgroundColor": "#f1d0b0",
       "textColor": "#2E2E2E"
     },
-    "name": "Age independentemente do sentimento",
+    "name": "Age independentemente do sentimento (MAS / E)",
     "live": true,
     "published": true,
     "card": {
@@ -319,11 +298,31 @@
         "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1675416485/Images/card_bring_your_fee..PT_vf9to7.png"
       }
     },
+    "coCreators": [
+      {
+        "name": "Jenny Rickardsson, script and voice",
+        "url": "https://www.linkedin.com/in/jenny-rickardson-6770a959/",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413228/Contributors/Jenny%20Rickardsson.jpg"
+      },
+      {
+        "name": "Ints Ivanovskis, art works",
+        "url": "https://www.linkedin.com/in/ints-ivanovskis-46ab0311a/",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413436/Contributors/Ints%20Ivanovskis.jpg"
+      },
+      {
+        "name": "Florbela Silva, voz em Português",
+        "url": "https://www.estudiodaalma.com",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1727943392/FJN/People/Florbela_Silva_bd0qx9.jpg"
+      }
+    ],
     "duration": 30,
     "introPortal": {
       "videoLoop": {
         "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1675257549/Video/Videos%20PT/portal_PT_bring_your_fee.._w8ogim.mp4",
-        "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1674554597/Images/thumb_portal_bring_your_feel..._dthhdh.png"
+        "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1674554597/Images/thumb_portal_bring_your_feel..._dthhdh.png",
+        "p5JsScript": {
+          "lang": "javascript"
+        }
       },
       "videoEnd": {
         "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1676618149/Video/Videos%20PT/portal2_PT_bring_your_fee.._xkbpse.mp4"
@@ -340,7 +339,8 @@
     ],
     "link": "https://aware.29k.org/but-and",
     "id": "ea0b48c1-745e-418d-93e7-2d8a6cd72898",
-    "description": "A forma como falamos connosco afeta as nossas ações. Neste exercício, praticamos a consciência da nossa conversa interior e experimentamos trocar palavras que podem abrir novas possibilidades para agirmos com significado."
+    "async": true,
+    "description": "A forma como falamos connosco afeta as nossas ações. Neste exercício, praticamos a consciência da nossa conversa interior e experimentamos trocar palavras que podem abrir novas possibilidades para agirmos com significado.\n\nEncontra uma posição confortável e prepara-te para tomar algumas notas durante o exercício."
   },
   "sv": {
     "slides": [
@@ -528,7 +528,22 @@
     ],
     "link": "https://aware.29k.org/but-and"
   },
-  "da": {},
-  "cs": {},
-  "nl": {}
+  "da": {
+    "tags": [
+      "34100e43-2eb8-4d35-8eb0-9fa9f78e4935",
+      "566aeb1b-1649-4f5a-96a2-0c80be27efc0"
+    ]
+  },
+  "cs": {
+    "tags": [
+      "34100e43-2eb8-4d35-8eb0-9fa9f78e4935",
+      "566aeb1b-1649-4f5a-96a2-0c80be27efc0"
+    ]
+  },
+  "nl": {
+    "tags": [
+      "34100e43-2eb8-4d35-8eb0-9fa9f78e4935",
+      "566aeb1b-1649-4f5a-96a2-0c80be27efc0"
+    ]
+  }
 }
