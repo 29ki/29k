@@ -171,7 +171,7 @@
         "type": "host",
         "hostNotes": [
           {
-            "text": "Bem-vindos. Eu sou X e hoje vamos estar juntos durante 40 minutos para nos conectarmos e sermos gentis connosco.\n\nFaremos alguns exercícios de reflexão e teremos oportunidades para partilhar essas reflexões uns com os outros."
+            "text": "Bem-vindos. Eu sou X e hoje vamos trabalhar durante cerca de 30 minutos na conexão e na prática de gentileza para connosco.\n\nVamos ouvir um exercício áudio, haverá tempo para refletirmos individualmente e, no final, para um momento de partilha entre todos.\n\nNota que pode ser útil ter papel e caneta por perto."
           },
           {
             "text": "Vamos começar com um mini check-in. Como te estás a sentir agora? Por favor, responde com duas ou três palavras. X, gostarias de começar?\n\n> Permite que todos na sessão, inclusive tu, façam o check-in individual.\n\nObrigada/o a todos pelo check-in. Vamos começar."
@@ -186,21 +186,16 @@
         "type": "content",
         "hostNotes": [
           {
-            "text": "Imagina que pegaste em duas molas da roupa. De seguida, pegas e penduras a tua voz interior, de modo que haja agora uma pessoa à tua frente. Esta pessoa está a dizer todas as coisas que costumas dizer a ti mesma/o quando alguma coisa dá errada ou quando falhas."
-          },
-          {
-            "text": "Pensa nisso: quanto tempo aguentarias conversar com essa pessoa? Há uma grande probabilidade de quereres sair de lá o mais rápido possível. Como é que nós, humanos, geralmente somos muito mais duros connosco do que com os outros?"
-          },
-          {
-            "text": "Neste exercício vamos praticar a autocompaixão. Vamos aprender tornar-nos menos autocríticos e, em vez disso, ser mais gentis connosco. A investigação mostrou que podes aumentar a tua felicidade e a tua motivação e reduzir a ansiedade e os sintomas depressivos."
+            "text": "Encontra uma posição confortável. Vou iniciar o exercício de áudio e voltamos aqui depois.\n\nCarrega em play para iniciar o exercício."
           }
         ],
         "content": {
           "video": {
             "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1669043753/Video/content_Be_kind_to_yourself_qfhuch.mp4",
-            "autoPlayLoop": true,
+            "autoPlayLoop": false,
             "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1674554605/Images/thumb_content_be_kind_to_yourself_hn38hz.png",
-            "durationTimer": true
+            "durationTimer": true,
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1729252523/FJN/Meditations/Florbela/A_mola_de_roupa_xiak9n.mp3"
           }
         }
       },
@@ -208,14 +203,14 @@
         "type": "reflection",
         "hostNotes": [
           {
-            "text": "Agora vamos ficar 2 minutos a refletir individualmente.\n\nPensa numa situação em que te sentiste em baixo. Quando falhaste e duvidaste de ti. Como costumas reagir e como te tratas nessas situações? O que dizes a ti mesma/o? Que tom usas?"
+            "text": "Agora vamos ficar 1 minuto a refletir individualmente.\n\nO que retiras deste exercício? O que notaste ou aprendeste sobre ti?"
           },
           {
-            "text": "Podes tomar notas num papel ou apenas anotações mentais na tua cabeça. E não há certo ou errado aqui, as nossas respostas são só nossas. Vamos começar agora durante 2 minutos.\n\n> Carrega no play para iniciar o cronômetro.\n\nSão 2 minutos e é hora de continuar em frente."
+            "text": "Podes tomar notas num papel ou apenas anotações mentais na tua cabeça. E não há certo ou errado aqui, as nossas respostas são só nossas. Vamos começar agora durante 1 minuto.\n\n> Carrega no play para iniciar o cronômetro.\n\nPassou 1 minuto e é hora de continuarmos."
           }
         ],
         "content": {
-          "heading": "O que dirias a ti próprio/a?",
+          "heading": "O que retiras deste exercício?",
           "video": {
             "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1669043760/Video/saring1_Be_kind_to_yourself_hokenn.mp4",
             "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1674554605/Images/thumb_timer2min_2_be_kind_to_yourself_pii45p.png",
@@ -226,7 +221,7 @@
       {
         "type": "sharing",
         "content": {
-          "heading": "O que dirias a ti próprio/a?",
+          "heading": "O que retiras deste exercício?",
           "video": {
             "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1669043755/Video/sharing_timer_Be_kind_to_yourself_kwtwln.mp4",
             "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1674554605/Images/thumb_timer2min_3_be_kind_to_yourself_orn39r.png",
@@ -238,49 +233,13 @@
             "text": "Agora estamos a entrar na parte de partilha deste exercício. Temos três regras para essa partilha:\n\n1. **O que é dito aqui, fica aqui.**\n2. **A única coisa que precisas de fazer como participante é ouvir**. Não há necessidade de ajudar ou dar conselhos neste espaço. Estamos apenas a partilhar e a tentar entender o que nós mesmos e os outros estão a passar."
           },
           {
-            "text": "3. **Tudo no nosso interior está bem.** Raiva, amor, ódio, tristeza. O que quer que apareça. Não há certos ou errados.\n\nTeremos um temporizador de 2 minutos como indicador, mas terás o tempo que quiseres. Se não quiseres partilhar, podes dizer 'passar'."
+            "text": "3. **Tudo no nosso interior está bem.** Raiva, amor, ódio, tristeza. O que quer que apareça. Não há certos ou errados.\n\nTeremos um temporizador de 2 minutos como indicador, mas terás o tempo que quiseres. Se não quiseres partilhar, podes dizer 'passo'."
           },
           {
             "text": "Quem gostaria de começar?\n\n> Deixa que todos (ou para os que houver tempo) compartilhem individualmente. Carrega play para iniciar a contagem de tempo. Reinicia para cada nova partilha.\n\nMuito obrigada/o a todos."
           }
         ],
         "id": "sharing-1"
-      },
-      {
-        "type": "reflection",
-        "content": {
-          "heading": "O que dirias a uma amiga ou a um amigo?",
-          "video": {
-            "durationTimer": true,
-            "autoPlayLoop": false,
-            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/v1669898289/Video/reflection2_Be_kind_to_yourself_zlyxgi.mp4"
-          }
-        },
-        "hostNotes": [
-          {
-            "text": "Uma forma de praticar a autocompaixão é adotando uma perspetiva diferente. Pensa como reages quando um amigo ou uma amiga se está a sentir em baixo, se está a rebaixar ou a duvidar das suas capacidades.\n\nComo costumas reagir? O que dizes ou fazes? Que tom usas?"
-          },
-          {
-            "text": "Podes tomar notas num papel ou apenas anotações mentais na tua cabeça. E não há certo ou errado aqui, as nossas respostas são só nossas. Vamos começar agora durante 2 minutos.\n\n> Carrega no play para iniciar o cronômetro.\n\nSão 2 minutos e é hora de continuar em frente."
-          }
-        ]
-      },
-      {
-        "type": "sharing",
-        "content": {
-          "heading": "O que dirias a uma amiga ou a um amigo?",
-          "video": {
-            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1669043755/Video/sharing_timer_Be_kind_to_yourself_kwtwln.mp4",
-            "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1674554605/Images/thumb_timer2min_3_be_kind_to_yourself_orn39r.png",
-            "durationTimer": true
-          }
-        },
-        "hostNotes": [
-          {
-            "text": "Hora de partilhar de novo. Quem gostaria de começar?\n\n> Deixa que todos (ou para os que houver tempo) compartilhem individualmente. Carrega play para iniciar a contagem de tempo. Reinicia para cada nova partilha.\n\nMuito obrigada/o a todos."
-          }
-        ],
-        "id": "sharing-2"
       },
       {
         "type": "host",
