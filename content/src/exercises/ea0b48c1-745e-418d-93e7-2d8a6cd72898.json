@@ -282,7 +282,10 @@
         "type": "instruction",
         "content": {
           "heading": "Parabéns",
-          "text": "Se estiveres com disposição, podes continuar com esta missão:\n\nNos próximos três dias, tenta reparar quando falas contigo própria/o usando frases como \"Quero fazer isto, MAS estou tão... que...\". Quando isso acontecer, substitui os teus MAS por E e observa se notas alguma diferença no teu comportamento."
+          "text": "Se estiveres com disposição, podes continuar com esta missão:\n\nNos próximos três dias, tenta reparar quando falas contigo própria/o usando frases como \"Quero fazer isto, MAS estou tão... que...\". Quando isso acontecer, substitui os teus MAS por E e observa se notas alguma diferença no teu comportamento.",
+          "image": {
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1675416485/Images/card_bring_your_fee..PT_vf9to7.png"
+          }
         }
       }
     ],
