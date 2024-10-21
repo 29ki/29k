@@ -7996,10 +7996,10 @@ open@^6.3.0:
   dependencies:
     is-wsl "^1.1.0"
 
-openai@^4.67.2:
-  version "4.67.2"
-  resolved "https://registry.yarnpkg.com/openai/-/openai-4.67.2.tgz#91f894fede549df26ad4ae3a228bd6d301d16756"
-  integrity sha512-u4FJFGXgqEHrCYcD5jAD4nHj6JCiicH+/dskQY7qka9R6hOw29R0kOz7GwcA9k2JKcLf86lzAWPtPagPbO8KnQ==
+openai@^4.68.1:
+  version "4.68.1"
+  resolved "https://registry.yarnpkg.com/openai/-/openai-4.68.1.tgz#a2bd0df5d6c1c0f53b296b690acce88b44c56624"
+  integrity sha512-C9XmYRHgra1U1G4GGFNqRHQEjxhoOWbQYR85IibfJ0jpHUhOm4/lARiKaC/h3zThvikwH9Dx/XOKWPNVygIS3g==
   dependencies:
     "@types/node" "^18.11.18"
     "@types/node-fetch" "^2.6.4"
