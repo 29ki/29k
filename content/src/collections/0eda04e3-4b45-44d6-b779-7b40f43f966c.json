@@ -35,7 +35,7 @@
   },
   "pt": {
     "hidden": false,
-    "name": "Avançar para a natureza",
+    "name": "Abraçar para a natureza",
     "published": true,
     "sortOrder": 20,
     "card": {
@@ -108,7 +108,49 @@
     "link": "https://aware.29k.org/forward-to-nature",
     "sortOrder": 20
   },
-  "da": {},
-  "cs": {},
-  "nl": {}
+  "da": {
+    "tags": [
+      "cfc00217-f65b-4a4d-8b82-8ccc8f852dd6",
+      "9c2c08a9-7dc6-4058-bc78-016d0eb00614"
+    ],
+    "exercises": [
+      "1a53e633-6916-4fea-a072-977c4b215288",
+      "0bcb6eb0-fdfe-466d-8603-ae6de15fcbc5",
+      "095f9642-73b6-4c9a-ae9a-ea7dea7363f5",
+      "ea0b48c1-745e-418d-93e7-2d8a6cd72898",
+      "b7f8731c-64d7-4c0f-9bc8-a3e50ec2eaf7",
+      "1e96f73b-8193-4aa6-a52c-31355eac3c08",
+      "12f448d2-39bc-4232-b8cf-b6cb570c7e00"
+    ]
+  },
+  "cs": {
+    "tags": [
+      "cfc00217-f65b-4a4d-8b82-8ccc8f852dd6",
+      "9c2c08a9-7dc6-4058-bc78-016d0eb00614"
+    ],
+    "exercises": [
+      "1a53e633-6916-4fea-a072-977c4b215288",
+      "0bcb6eb0-fdfe-466d-8603-ae6de15fcbc5",
+      "095f9642-73b6-4c9a-ae9a-ea7dea7363f5",
+      "ea0b48c1-745e-418d-93e7-2d8a6cd72898",
+      "b7f8731c-64d7-4c0f-9bc8-a3e50ec2eaf7",
+      "1e96f73b-8193-4aa6-a52c-31355eac3c08",
+      "12f448d2-39bc-4232-b8cf-b6cb570c7e00"
+    ]
+  },
+  "nl": {
+    "tags": [
+      "cfc00217-f65b-4a4d-8b82-8ccc8f852dd6",
+      "9c2c08a9-7dc6-4058-bc78-016d0eb00614"
+    ],
+    "exercises": [
+      "1a53e633-6916-4fea-a072-977c4b215288",
+      "0bcb6eb0-fdfe-466d-8603-ae6de15fcbc5",
+      "095f9642-73b6-4c9a-ae9a-ea7dea7363f5",
+      "ea0b48c1-745e-418d-93e7-2d8a6cd72898",
+      "b7f8731c-64d7-4c0f-9bc8-a3e50ec2eaf7",
+      "1e96f73b-8193-4aa6-a52c-31355eac3c08",
+      "12f448d2-39bc-4232-b8cf-b6cb570c7e00"
+    ]
+  }
 }
