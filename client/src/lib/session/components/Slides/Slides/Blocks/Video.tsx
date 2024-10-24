@@ -208,6 +208,7 @@ const Video: React.FC<VideoProps> = ({
             onEnd={onEnd}
             paused={paused}
             mixWithOthers={isLive}
+            audioOnly
           />
           <VideoPlayer
             sources={videoSource}

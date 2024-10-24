@@ -10,7 +10,9 @@ type AudioFaderProps = {
   paused?: boolean;
   repeat?: boolean;
   source: string;
+  muted?: boolean;
   isLive?: boolean;
+  onAutoPlayFailed?: () => void;
 };
 
 const AudioFader: React.FC<AudioFaderProps> = ({
@@ -19,7 +21,9 @@ const AudioFader: React.FC<AudioFaderProps> = ({
   paused,
   repeat,
   source,
+  muted,
   isLive,
+  onAutoPlayFailed,
 }) => {
   const [currentVolume, setVolume] = useState(0);
   const [loaded, setLoaded] = useState(false);
@@ -59,8 +63,11 @@ const AudioFader: React.FC<AudioFaderProps> = ({
       sources={sources}
       paused={paused}
       volume={currentVolume}
+      muted={muted}
       onLoad={onLoad}
       mixWithOthers={isLive}
+      onAutoPlayFailed={onAutoPlayFailed}
+      audioOnly
     />
   );
 };
