@@ -29,8 +29,13 @@ const Video = styled.video({
   display: 'none',
 });
 
+const Audio = styled.audio({
+  display: 'none',
+});
+
 export type VideoPlayerHandle = {
   seek: (seconds: number) => void;
+  play: () => void;
 };
 
 const VideoLooper = forwardRef<VideoPlayerHandle, VideoLooperProperties>(
@@ -40,61 +45,70 @@ const VideoLooper = forwardRef<VideoPlayerHandle, VideoLooperProperties>(
       style,
       paused,
       volume = 1,
+      muted,
       onProgress,
       onLoad,
       onTransition,
       onEnd,
+      onAutoPlayFailed = () => {},
+      audioOnly,
     },
     ref,
   ) => {
     const canvasRef = useRef<HTMLCanvasElement>(null);
     const canvasContext = useRef<CanvasRenderingContext2D | null>(null);
 
-    const videoRefs = useRef<(HTMLVideoElement | null)[]>([]);
-    const currentVideoSource = useRef(0);
+    const playerEls = useRef<(HTMLVideoElement | HTMLAudioElement | null)[]>(
+      [],
+    );
+    const currentSource = useRef(0);
 
     const setVideoRef = useCallback(
       (sourceIndex: number): React.RefCallback<HTMLVideoElement> =>
         (videoRef: HTMLVideoElement | null) => {
-          videoRefs.current[sourceIndex] = videoRef;
+          playerEls.current[sourceIndex] = videoRef;
         },
       [],
     );
 
+    const getCurrentPlayerEl = useCallback(
+      () => playerEls.current[currentSource.current],
+      [],
+    );
+
     const getCurrentVideoEl = useCallback(
-      () => videoRefs.current[currentVideoSource.current],
+      () => !audioOnly && (getCurrentPlayerEl() as HTMLVideoElement),
+      [audioOnly, getCurrentPlayerEl],
+    );
+
+    const isCurrentSource = useCallback(
+      (index: number) => index === currentSource.current,
       [],
     );
 
-    const isCurrentVideoSource = useCallback(
-      (index: number) => index === currentVideoSource.current,
+    const stopAllPlayers = useCallback(
+      () => playerEls.current.forEach(videoRef => videoRef?.pause()),
       [],
     );
 
-    const stopAllVideos = useCallback(
-      () => videoRefs.current.forEach(videoRef => videoRef?.pause()),
-      [],
-    );
+    const playCurrentSource = useCallback(() => {
+      getCurrentPlayerEl()?.play();
+    }, [getCurrentPlayerEl]);
 
-    const playCurrentVideo = useCallback(
-      () => getCurrentVideoEl()?.play(),
-      [getCurrentVideoEl],
-    );
-
-    const stopCurrentVideo = useCallback(
-      () => getCurrentVideoEl()?.pause(),
-      [getCurrentVideoEl],
+    const stopCurrentSource = useCallback(
+      () => getCurrentPlayerEl()?.pause(),
+      [getCurrentPlayerEl],
     );
 
     const togglePaused = useCallback(
       (pause?: boolean) => {
         if (pause) {
-          stopCurrentVideo();
+          stopCurrentSource();
         } else {
-          playCurrentVideo();
+          playCurrentSource();
         }
       },
-      [stopCurrentVideo, playCurrentVideo],
+      [stopCurrentSource, playCurrentSource],
     );
 
     const drawCurrentFrame = useCallback(() => {
@@ -122,20 +136,23 @@ const VideoLooper = forwardRef<VideoPlayerHandle, VideoLooperProperties>(
 
     const seek = useCallback(
       (seconds: number) => {
-        const videoEl = getCurrentVideoEl();
-        if (videoEl) {
-          videoEl.currentTime = seconds;
+        const playerEl = getCurrentPlayerEl();
+        if (playerEl) {
+          playerEl.currentTime = seconds;
         }
       },
-      [getCurrentVideoEl],
+      [getCurrentPlayerEl],
     );
 
-    useImperativeHandle(ref, () => ({seek}), [seek]);
+    useImperativeHandle(ref, () => ({seek, play: playCurrentSource}), [
+      seek,
+      playCurrentSource,
+    ]);
 
     const onLoadedMetadata = useCallback(
       (sourceIndex: number) => () => {
         const videoEl = getCurrentVideoEl();
-        if (isCurrentVideoSource(sourceIndex) && canvasRef.current && videoEl) {
+        if (isCurrentSource(sourceIndex) && canvasRef.current && videoEl) {
           canvasContext.current = canvasRef.current.getContext('2d', {
             alpha: true,
             desynchronized: true,
@@ -145,43 +162,48 @@ const VideoLooper = forwardRef<VideoPlayerHandle, VideoLooperProperties>(
           canvasRef.current.height = videoEl.videoHeight;
         }
       },
-      [getCurrentVideoEl, isCurrentVideoSource],
+      [getCurrentVideoEl, isCurrentSource],
     );
 
     const onLoadedData = useCallback(
       (sourceIndex: number) => () => {
+        const playerEl = getCurrentPlayerEl();
         const videoEl = getCurrentVideoEl();
-        if (isCurrentVideoSource(sourceIndex) && videoEl) {
-          videoEl.muted = false;
-          drawCurrentFrame();
-          videoEl.requestVideoFrameCallback(drawCurrentFrame);
+        if (isCurrentSource(sourceIndex) && playerEl) {
+          if (videoEl) {
+            drawCurrentFrame();
+            videoEl.requestVideoFrameCallback(drawCurrentFrame);
+          }
           if (onLoad) {
-            onLoad({duration: videoEl.duration});
+            onLoad({duration: playerEl.duration});
           }
         }
       },
-      [onLoad, drawCurrentFrame, getCurrentVideoEl, isCurrentVideoSource],
+      [
+        onLoad,
+        drawCurrentFrame,
+        getCurrentPlayerEl,
+        getCurrentVideoEl,
+        isCurrentSource,
+      ],
     );
 
     const onTimeUpdate = useCallback(
       (sourceIndex: number) => () => {
-        const videoEl = getCurrentVideoEl();
-        if (isCurrentVideoSource(sourceIndex) && onProgress && videoEl) {
+        const videoEl = getCurrentPlayerEl();
+        if (isCurrentSource(sourceIndex) && onProgress && videoEl) {
           onProgress({time: videoEl.currentTime});
         }
       },
-      [onProgress, getCurrentVideoEl, isCurrentVideoSource],
+      [onProgress, getCurrentPlayerEl, isCurrentSource],
     );
 
     const onEnded = useCallback(
       (sourceIndex: number) => () => {
-        if (
-          isCurrentVideoSource(sourceIndex) &&
-          sourceIndex < sources.length - 1
-        ) {
-          currentVideoSource.current = sourceIndex + 1;
-          stopAllVideos();
-          playCurrentVideo();
+        if (isCurrentSource(sourceIndex) && sourceIndex < sources.length - 1) {
+          currentSource.current = sourceIndex + 1;
+          stopAllPlayers();
+          playCurrentSource();
 
           if (onTransition) {
             onTransition();
@@ -192,9 +214,9 @@ const VideoLooper = forwardRef<VideoPlayerHandle, VideoLooperProperties>(
       },
       [
         sources,
-        isCurrentVideoSource,
-        stopAllVideos,
-        playCurrentVideo,
+        isCurrentSource,
+        stopAllPlayers,
+        playCurrentSource,
         onTransition,
         onEnd,
       ],
@@ -202,29 +224,57 @@ const VideoLooper = forwardRef<VideoPlayerHandle, VideoLooperProperties>(
 
     const onPlay = useCallback(
       (sourceIndex: number) => () => {
-        if (isCurrentVideoSource(sourceIndex)) {
+        if (isCurrentSource(sourceIndex)) {
           drawFrames();
         }
       },
-      [drawFrames, isCurrentVideoSource],
+      [drawFrames, isCurrentSource],
     );
 
-    useEffect(() => {
-      const videoEl = getCurrentVideoEl();
-      if (videoEl) {
-        videoEl.volume = volume;
+    const checkAutoPlayFailed = useCallback(() => {
+      /*
+        This function deals with autoplay policy errors
+        https://goo.gl/xX8pDD
+        https://developer.mozilla.org/en-US/docs/Web/Media/Autoplay_guide
+      */
+      const playerEl = getCurrentPlayerEl();
+      if (
+        playerEl &&
+        !paused &&
+        (playerEl.paused ||
+          (navigator.getAutoplayPolicy &&
+            navigator.getAutoplayPolicy(playerEl) !== 'allowed'))
+      ) {
+        onAutoPlayFailed();
       }
-    }, [volume, getCurrentVideoEl]);
+    }, [paused, getCurrentPlayerEl, onAutoPlayFailed]);
+
+    useEffect(() => {
+      const playerEl = getCurrentPlayerEl();
+      if (playerEl) {
+        playerEl.volume = volume;
+      }
+    }, [volume, getCurrentPlayerEl, paused]);
 
     useEffect(() => {
       togglePaused(paused);
-    }, [paused, togglePaused]);
+      checkAutoPlayFailed();
+    }, [paused, togglePaused, checkAutoPlayFailed]);
+
+    useEffect(() => {
+      if (!muted && !paused) {
+        // This makes sure that the audio gets played again when the user unmutes the video after an onAutoPlayFailed event
+        playCurrentSource();
+      }
+    }, [muted, paused, playCurrentSource]);
+
+    const Component = audioOnly ? Audio : Video;
 
     return (
       <Wrapper style={style}>
-        <Canvas ref={canvasRef} />
+        {!audioOnly && <Canvas ref={canvasRef} />}
         {sources.map(({source, repeat: sourceRepeat}, sourceIndex) => (
-          <Video
+          <Component
             key={source}
             ref={setVideoRef(sourceIndex)}
             src={source}
@@ -234,9 +284,9 @@ const VideoLooper = forwardRef<VideoPlayerHandle, VideoLooperProperties>(
             onEnded={onEnded(sourceIndex)}
             onPlay={onPlay(sourceIndex)}
             loop={sourceRepeat}
-            autoPlay={!paused && isCurrentVideoSource(sourceIndex)}
+            autoPlay={!paused && isCurrentSource(sourceIndex)}
+            muted={muted}
             playsInline
-            muted
           />
         ))}
       </Wrapper>
@@ -244,4 +294,4 @@ const VideoLooper = forwardRef<VideoPlayerHandle, VideoLooperProperties>(
   },
 );
 
-export default VideoLooper;
+export default React.memo(VideoLooper);

@@ -16,6 +16,7 @@ export interface VideoLooperProperties extends ViewProps {
   onProgress?: ({time: number}) => void;
   onTransition?: () => void;
   onError?: ({cause: string}) => void;
+  onAutoPlayFailed?: () => void;
 }
 
 export default class VideoLooper extends React.Component<VideoLooperProperties> {

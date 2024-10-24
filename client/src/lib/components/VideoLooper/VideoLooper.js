@@ -61,7 +61,8 @@ class VideoLooper extends React.Component {
   }
 
   render() {
-    const {onLoad, onProgress, onError, style, ...rest} = this.props;
+    // Do not use audioOnly prop in the native component as it doesn't work correctly
+    const {onLoad, onProgress, onError, style, audioOnly, ...rest} = this.props;
     return (
       <Container style={style}>
         <StyledRNVideoLooper
