@@ -358,15 +358,15 @@
         "type": "sharing",
         "hostNotes": [
           {
-            "text": "E agora mais uma partilha. E a questão é: Como podias beneficiar por estabelecer limites saudáveis?\n\n1. Onde seria útil para ti estabelecer limites e em relação a quem?\n2. Como poderias comunicar os teus limites de uma forma calma mas assertiva?\n\nMais uma vez teremos 2 minutos cada. Se não quiseres partilhar podes simplesmente dizer “passo”."
+            "text": "E agora mais uma partilha.\n\n1. Onde seria útil para ti estabelecer limites e em relação a quem?\n2. Como poderias comunicar os teus limites de uma forma calma mas assertiva?\n\nMais uma vez teremos 2 minutos. Se não quiseres partilhar podes simplesmente dizer “passo”."
           },
           {
             "text": "Quem quer começar?\n\n> Deixa todos (tantos quantos possível dentro do tempo estipulado) partilharem de forma individual. Reinicia o cronómetro para cada nova partilha.\n\nMuito obrigada/o a todos."
           }
         ],
         "content": {
-          "heading": "Que limites, para quem?",
-          "text": "Como vou comunicar?",
+          "heading": "Que limites precisas de estabelecer?",
+          "text": "A quem? Como vais comunicar esses limites?",
           "video": {
             "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1672743559/Video/sharing_setting_boundaries_re9uln.mp4",
             "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1674554569/Images/thumb_timer2min_2_boundaries_sazbko.png",
@@ -379,21 +379,39 @@
         "type": "reflection",
         "content": {
           "video": {
-            "durationTimer": true
+            "durationTimer": false
           },
           "lottie": {
-            "durationTimer": true
+            "durationTimer": false,
+            "autoPlayLoop": true,
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1672843496/Lottie/mission_setting_boundaries_cwycbr.json"
+          },
+          "heading": "Momento de entrar em contacto."
+        },
+        "hostNotes": [
+          {
+            "text": "Parabéns pela tua abertura em explorar as tuas necessidades e pela tua disposição em estabelecer limites saudáveis para as satisfazer."
+          },
+          {
+            "text": "A tua missão para continuar o que começámos aqui hoje é avançar e falar com as pessoas que identificaste sobre as tuas intenções. Se isso não for possível agora, marca um momento esta semana para o fazer."
           }
-        }
+        ]
       },
       {
-        "type": "instruction"
+        "type": "instruction",
+        "content": {
+          "heading": "Momento de entrar em contacto.",
+          "image": {
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1674395860/Images/card_setting_boundaries_yrv35w.png"
+          },
+          "text": "Parabéns pela tua abertura em explorar as tuas necessidades e pela tua disposição em estabelecer limites saudáveis para as satisfazer.\n\nA tua missão para continuar o que começámos aqui hoje é falar com as pessoas que identificaste sobre as tuas intenções. Se isso não for possível agora, marca um momento esta semana para o fazer."
+        }
       },
       {
         "type": "host",
         "hostNotes": [
           {
-            "text": "Antes de sairmos deste espaço, vamos fazer um mini check-out.\\\nComo te sentes agora? Mudou alguma coisa? Responde em duas ou três palavras."
+            "text": "Antes de sairmos deste espaço, vamos fazer um mini check-out.\\\nO que significaria para ti estabelecer limites saudáveis? Responde em duas ou três palavras."
           },
           {
             "text": "Quem quer começar?\n\n> Deixa todos os presentes fazerem o check-out individualmente.\n\nObrigada/o a todos por fazerem o check-out e estarem presentes hoje nesta sessão.\n\n> Conclui a sessão para encaminhar os presentes para a experiência de saída."
