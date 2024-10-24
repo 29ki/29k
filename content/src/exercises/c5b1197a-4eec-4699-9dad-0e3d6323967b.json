@@ -376,22 +376,18 @@
         "id": "sharing-2"
       },
       {
-        "type": "content",
-        "hostNotes": [
-          {
-            "text": "Parabéns pela abertura em explorares as tuas necessidades e vontade de estabelecer limites saudáveis."
-          },
-          {
-            "text": "Para continuares a missão que começaste aqui hoje deves ir falar com as pessoas que indentificaste nas tuas intenções. Se isso não for possível agora, agenda algum tempo ainda esta semana para o fazeres."
-          }
-        ],
+        "type": "reflection",
         "content": {
-          "heading": "Está na altura de implementar",
+          "video": {
+            "durationTimer": true
+          },
           "lottie": {
-            "autoPlayLoop": true,
-            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1672843496/Lottie/mission_setting_boundaries_cwycbr.json"
+            "durationTimer": true
           }
         }
+      },
+      {
+        "type": "instruction"
       },
       {
         "type": "host",
