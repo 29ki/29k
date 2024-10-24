@@ -1,7 +1,6 @@
 'use client';
 
 import styled from 'styled-components';
-import Card from '../../../../../client/src/lib/components/Cards/Card';
 import Gutters from '../../../../../client/src/lib/components/Gutters/Gutters';
 import {
   Spacer16,
