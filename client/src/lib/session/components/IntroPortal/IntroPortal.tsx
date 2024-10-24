@@ -6,16 +6,21 @@ import ReactNativeHapticFeedback from 'react-native-haptic-feedback';
 
 import {SPACINGS} from '../../../constants/spacings';
 import useSessionState from '../../state/state';
-import {Spacer16} from '../../../components/Spacers/Spacer';
+import {Spacer16, Spacer8} from '../../../components/Spacers/Spacer';
 import Gutters from '../../../components/Gutters/Gutters';
 import IconButton from '../../../components/Buttons/IconButton/IconButton';
 import AudioFader from '../AudioFader/AudioFader';
 import HostNotes from '../HostNotes/HostNotes';
-import {ArrowLeftIcon} from '../../../components/Icons';
+import {
+  ArrowLeftIcon,
+  SpeakerIcon,
+  SpeakerOffIcon,
+} from '../../../components/Icons';
 import Button from '../../../components/Buttons/Button';
 import VideoTransition from '../VideoTransition/VideoTransition';
 import P5Animation from '../P5Animation/P5Animation';
 import {ExerciseWithLanguage} from '../../../content/types';
+import Toggler from '../../../components/Toggler/Toggler';
 
 const Spinner = styled.ActivityIndicator({
   ...StyleSheet.absoluteFillObject,
@@ -28,8 +33,15 @@ const Content = styled.View({
 });
 
 const TopBar = styled(Gutters)({
-  justifyContent: 'space-between',
   flexDirection: 'row',
+  justifyContent: 'space-between',
+  alignItems: 'center',
+});
+
+const TopButtons = styled.View({
+  flexDirection: 'row',
+  justifyContent: 'space-between',
+  alignItems: 'center',
 });
 
 const BackButton = styled(IconButton)({
@@ -42,6 +54,7 @@ type IntroPortalProps = {
   isVisible: boolean;
   isLive?: boolean;
   hideHostNotes?: boolean;
+  showMuteToggle?: boolean;
   onStartSession: () => void;
   onLeaveSession: () => void;
   onNavigateToSession: () => void;
@@ -54,6 +67,7 @@ const IntroPortal: React.FC<IntroPortalProps> = ({
   isVisible,
   isLive,
   hideHostNotes = false,
+  showMuteToggle,
   onStartSession,
   onLeaveSession,
   onNavigateToSession,
@@ -73,6 +87,7 @@ const IntroPortal: React.FC<IntroPortalProps> = ({
   const [isLoading, setIsLoading] = useState(isVideo);
   const [isHidden, setIsHidden] = useState(!isVisible);
   const [hasError, setHasError] = useState(false);
+  const [muted, setMuted] = useState(false);
 
   const sessionState = useSessionState(state => state.sessionState);
 
@@ -136,6 +151,14 @@ const IntroPortal: React.FC<IntroPortalProps> = ({
     setIsLoading(false);
   }, [setHasError]);
 
+  const onAutoPlayFailed = useCallback(() => {
+    setMuted(true);
+  }, []);
+
+  const onMuteChange = useCallback((toggled: boolean) => {
+    setMuted(toggled);
+  }, []);
+
   if (isHidden) return null;
 
   return (
@@ -145,8 +168,10 @@ const IntroPortal: React.FC<IntroPortalProps> = ({
           source={introPortal.videoLoop.audio}
           paused={!isReadyForAudio}
           volume={isTransitioning ? 0 : 1}
+          muted={muted}
           duration={isTransitioning ? 5000 : 10000}
           isLive={isLive}
+          onAutoPlayFailed={onAutoPlayFailed}
           repeat
         />
       ) : null}
@@ -182,21 +207,33 @@ const IntroPortal: React.FC<IntroPortalProps> = ({
               Icon={ArrowLeftIcon}
               noBackground
             />
-            {__DEV__ && sessionState?.started && (
-              <Button size="small" onPress={onNavigateToSession}>
-                {t('skipPortal')}
-              </Button>
-            )}
-            {isHost && (
-              <Button
-                size="small"
-                disabled={sessionState?.started}
-                onPress={onStartSession}>
-                {sessionState?.started
-                  ? t('sessionStarted')
-                  : t('startSession')}
-              </Button>
-            )}
+            <TopButtons>
+              {showMuteToggle && (
+                <Toggler
+                  toggled={muted}
+                  onToggle={onMuteChange}
+                  ToggledIcon={SpeakerIcon}
+                  UntoggledIcon={SpeakerOffIcon}
+                />
+              )}
+              <Spacer8 />
+              {__DEV__ && sessionState?.started && (
+                <Button size="small" onPress={onNavigateToSession}>
+                  {t('skipPortal')}
+                </Button>
+              )}
+              <Spacer8 />
+              {isHost && (
+                <Button
+                  size="small"
+                  disabled={sessionState?.started}
+                  onPress={onStartSession}>
+                  {sessionState?.started
+                    ? t('sessionStarted')
+                    : t('startSession')}
+                </Button>
+              )}
+            </TopButtons>
           </TopBar>
           {statusComponent}
         </Content>

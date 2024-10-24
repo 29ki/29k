@@ -225,6 +225,7 @@ const Lottie: React.FC<LottieProps> = ({
             onEnd={onEnd}
             paused={paused}
             mixWithOthers={isLive}
+            audioOnly
           />
           <LottiePlayer
             paused={paused}

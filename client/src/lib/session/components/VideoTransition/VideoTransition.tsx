@@ -41,7 +41,6 @@ type VideoTransitionProps = {
   isLive?: boolean;
   paused?: boolean;
   repeat?: boolean;
-  muted?: boolean;
   onLoad?: () => void;
   onTransition?: () => void;
   onEnd?: () => void;
@@ -56,7 +55,6 @@ const VideoTransition: React.FC<VideoTransitionProps> = ({
   reverse = false,
   paused = false,
   repeat = false,
-  muted = false,
   onLoad = () => {},
   onTransition = () => {},
   onEnd = () => {},
@@ -87,10 +85,10 @@ const VideoTransition: React.FC<VideoTransitionProps> = ({
       onTransition={onTransition}
       onEnd={onEnd}
       onError={onError}
-      volume={muted ? 0 : 1}
       paused={paused}
       repeat={repeat}
       mixWithOthers={isLive}
+      muted
     />
   );
 };

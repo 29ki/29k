@@ -169,10 +169,9 @@ export default function ExercisePage({
                 sessionState={sessionState}
                 slideState={sessionSlideState}
                 isConnected // No need to disable buttons for async sessions
-                currentContentReachedEnd={true}
+                currentContentReachedEnd
                 onPrevPress={onPrevPress}
                 onNextPress={onNextPress}
-                style={{zIndex: 1}}
               />
               <Spacer32 />
             </Gutters>
@@ -198,6 +197,7 @@ export default function ExercisePage({
           onStartSession={startSession}
           onLeaveSession={onLeaveSession}
           onNavigateToSession={onNavigateToSession}
+          showMuteToggle
         />
         <DesktopOnly>
           <LeftGradient color={exercise?.theme?.backgroundColor} />
