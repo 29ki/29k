@@ -70,6 +70,8 @@ export * from './Safety/Safety';
 export * from './Share/Share';
 export * from './Slack/Slack';
 export * from './Sparkles/Sparkles';
+export * from './Speaker/Speaker';
+export * from './SpeakerOff/SpeakerOff';
 export * from './Star/Star';
 export * from './StarFill/StarFill';
 export * from './Subtitles/Subtitles';
