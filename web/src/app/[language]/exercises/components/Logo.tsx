@@ -24,13 +24,17 @@ const SpinningLogo = styled.div`
   animation: ${rotate} 30s linear infinite;
 `;
 
+const Name = styled(LogoAware)({
+  flex: 1,
+});
+
 const Logo = ({className}: {className?: string}) => (
   <Wrapper className={className}>
     <SpinningLogo>
       <LogoIcon />
     </SpinningLogo>
     <Spacer8 />
-    <LogoAware />
+    <Name />
   </Wrapper>
 );
 
