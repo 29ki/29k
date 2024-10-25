@@ -91,9 +91,10 @@ const VideoLooper = forwardRef<VideoPlayerHandle, VideoLooperProperties>(
       [],
     );
 
-    const playCurrentSource = useCallback(() => {
-      getCurrentPlayerEl()?.play();
-    }, [getCurrentPlayerEl]);
+    const playCurrentSource = useCallback(
+      () => getCurrentPlayerEl()?.play(),
+      [getCurrentPlayerEl],
+    );
 
     const stopCurrentSource = useCallback(
       () => getCurrentPlayerEl()?.pause(),
@@ -101,11 +102,11 @@ const VideoLooper = forwardRef<VideoPlayerHandle, VideoLooperProperties>(
     );
 
     const togglePaused = useCallback(
-      (pause?: boolean) => {
+      async (pause?: boolean) => {
         if (pause) {
-          stopCurrentSource();
+          await stopCurrentSource();
         } else {
-          playCurrentSource();
+          await playCurrentSource();
         }
       },
       [stopCurrentSource, playCurrentSource],
@@ -231,23 +232,42 @@ const VideoLooper = forwardRef<VideoPlayerHandle, VideoLooperProperties>(
       [drawFrames, isCurrentSource],
     );
 
-    const checkAutoPlayFailed = useCallback(() => {
-      /*
+    const checkAutoPlayError = useCallback(
+      (e: any) => {
+        /*
         This function deals with autoplay policy errors
         https://goo.gl/xX8pDD
+        https://webkit.org/blog/7734/auto-play-policy-changes-for-macos/
+      */
+        if (e.name === 'NotAllowedError') {
+          onAutoPlayFailed();
+          return;
+        }
+
+        throw e;
+      },
+      [onAutoPlayFailed],
+    );
+
+    const checkAutoPlayPolicy = useCallback(() => {
+      /*
+        This function checks the autoplay policy
         https://developer.mozilla.org/en-US/docs/Web/Media/Autoplay_guide
       */
       const playerEl = getCurrentPlayerEl();
       if (
         playerEl &&
-        !paused &&
-        (playerEl.paused ||
-          (navigator.getAutoplayPolicy &&
-            navigator.getAutoplayPolicy(playerEl) !== 'allowed'))
+        navigator.getAutoplayPolicy &&
+        navigator.getAutoplayPolicy(playerEl) !== 'allowed'
       ) {
         onAutoPlayFailed();
       }
-    }, [paused, getCurrentPlayerEl, onAutoPlayFailed]);
+    }, [getCurrentPlayerEl, onAutoPlayFailed]);
+
+    useEffect(() => {
+      checkAutoPlayPolicy();
+      togglePaused(paused).catch(checkAutoPlayError);
+    }, [paused, togglePaused, checkAutoPlayError, checkAutoPlayPolicy]);
 
     useEffect(() => {
       const playerEl = getCurrentPlayerEl();
@@ -255,11 +275,6 @@ const VideoLooper = forwardRef<VideoPlayerHandle, VideoLooperProperties>(
         playerEl.volume = volume;
       }
     }, [volume, getCurrentPlayerEl, paused]);
-
-    useEffect(() => {
-      togglePaused(paused);
-      checkAutoPlayFailed();
-    }, [paused, togglePaused, checkAutoPlayFailed]);
 
     useEffect(() => {
       if (!muted && !paused) {

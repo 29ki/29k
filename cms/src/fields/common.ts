@@ -47,6 +47,16 @@ export const ASYNC_FIELD: CmsField = {
   hint: 'This will make the exercise available as async',
 };
 
+export const EXCLUDE_WEB_FIELD: CmsField = {
+  label: '🕸️ Exclude From Web',
+  name: 'excludeFromWeb',
+  widget: 'boolean',
+  required: false,
+  default: false,
+  i18n: false,
+  hint: 'This will exclude the exercise from the web',
+};
+
 export const LIVE_FIELD: CmsField = {
   label: '🏙 Live',
   name: 'live',

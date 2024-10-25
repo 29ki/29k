@@ -277,6 +277,7 @@ export interface Exercise {
   locked?: boolean;
   live?: boolean;
   async?: boolean;
+  excludeFromWeb?: boolean;
   socialMeta?: ExerciseSocialMediaMetaTags;
   card: ExerciseCard;
   theme?: ExerciseTheme;

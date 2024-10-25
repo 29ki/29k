@@ -26,6 +26,7 @@ import {
   IMAGE_BACKGROUND_COLOR_FIELD,
   AUDIO_FIELD,
   LOCKED_FIELD,
+  EXCLUDE_WEB_FIELD,
 } from './common';
 import {TAGS_FIELD} from './relations';
 import {
@@ -188,6 +189,7 @@ const EXERCISE_FIELDS: Array<CmsField> = applyDefaults(
     LOCKED_FIELD,
     LIVE_FIELD,
     ASYNC_FIELD,
+    EXCLUDE_WEB_FIELD,
     SOCIAL_MEDIA,
     CARD_FIELD,
     THEME,
