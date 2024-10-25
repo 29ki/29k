@@ -44,6 +44,7 @@
     "hidden": false,
     "name": "Get started",
     "published": true,
+    "excludeFromWeb": true,
     "card": {
       "lottie": {
         "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1701357016/Lottie/aware_logo_2023_teal_margin_brpfnh.json"
@@ -333,7 +334,22 @@
     "async": true,
     "description": "アプリを使い始める前に 〜 マインドフルネスと感謝の瞑想"
   },
-  "da": {},
-  "cs": {},
-  "nl": {}
+  "da": {
+    "tags": [
+      "43a6dc0d-d866-4b79-9453-13c44e906128",
+      "cfc00217-f65b-4a4d-8b82-8ccc8f852dd6"
+    ]
+  },
+  "cs": {
+    "tags": [
+      "43a6dc0d-d866-4b79-9453-13c44e906128",
+      "cfc00217-f65b-4a4d-8b82-8ccc8f852dd6"
+    ]
+  },
+  "nl": {
+    "tags": [
+      "43a6dc0d-d866-4b79-9453-13c44e906128",
+      "cfc00217-f65b-4a4d-8b82-8ccc8f852dd6"
+    ]
+  }
 }
