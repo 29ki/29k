@@ -13,13 +13,7 @@ import Link from 'next/link';
 import {Heading18} from '../../../../../client/src/lib/components/Typography/Heading/Heading';
 import {useTranslation} from 'react-i18next';
 import Logo from './components/Logo';
-import {
-  CLIENT_LANGUAGE_TAGS,
-  LANGUAGE_TAG,
-  LANGUAGES,
-} from '../../../../../shared/src/i18n/constants';
-import {ChangeEvent, use, useCallback} from 'react';
-import {useRouter} from 'next/navigation';
+import LanguageSelect from './components/LanguageSelect';
 
 const Gutters = styled.div({
   padding: '0 16px',
@@ -44,6 +38,7 @@ const StyledLogo = styled(Logo)({
 const Header = styled.header({
   display: 'flex',
   justifyContent: 'space-between',
+  alignItems: 'center',
 });
 
 const StyledLink = styled(Link)({
@@ -51,34 +46,16 @@ const StyledLink = styled(Link)({
   textDecoration: 'none',
 });
 
-export default function ExercisePage({
-  params: {language},
-}: {
-  params: {language: LANGUAGE_TAG};
-}) {
+export default function ExercisePage() {
   const {t} = useTranslation('Screen.Explore');
-  const router = useRouter();
   const exercises = useExercises();
-
-  const onLanguageChange = useCallback(
-    (e: ChangeEvent<HTMLSelectElement>) => {
-      router.push(`/${e.target.value}/exercises`);
-    },
-    [router],
-  );
 
   return (
     <Gutters>
       <Spacer32 />
       <Header>
         <StyledLogo />
-        <select onChange={onLanguageChange} value={language}>
-          {CLIENT_LANGUAGE_TAGS.map(languageTag => (
-            <option key={languageTag} value={languageTag}>
-              {LANGUAGES[languageTag]}
-            </option>
-          ))}
-        </select>
+        <LanguageSelect />
       </Header>
       <Spacer24 />
       <Heading18>{t('sessionsHeading')}</Heading18>
