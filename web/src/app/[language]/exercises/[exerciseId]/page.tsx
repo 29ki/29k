@@ -1,6 +1,7 @@
 'use client';
 
 import {useCallback, useEffect, useMemo} from 'react';
+import {SafeAreaProvider} from 'react-native-safe-area-context';
 import useSessionState from '../../../../../../client/src/lib/session/state/state';
 import useExerciseById from '../../../../../../client/src/lib/content/hooks/useExerciseById';
 import {
@@ -134,7 +135,7 @@ export default function ExercisePage({
   }, [sessionSlideState, navigateToIndex, endSession]);
 
   return (
-    <>
+    <SafeAreaProvider>
       {Boolean(sessionState?.ended) && (
         <Wrapper backgroundColor={exercise?.theme?.backgroundColor}>
           <Spacer32 />
@@ -204,6 +205,6 @@ export default function ExercisePage({
           <RightGradient color={exercise?.theme?.backgroundColor} />
         </DesktopOnly>
       </Wrapper>
-    </>
+    </SafeAreaProvider>
   );
 }

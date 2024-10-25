@@ -1,6 +1,6 @@
 'use client';
 
-import styled, {css, keyframes} from 'styled-components';
+import styled from 'styled-components';
 import {
   Spacer16,
   Spacer24,
@@ -10,11 +10,10 @@ import {
 import useExercises from '../../../../../client/src/lib/content/hooks/useExercises';
 import ExerciseCard from '../../../../../client/src/lib/components/Cards/SessionCard/ExerciseCard';
 import Link from 'next/link';
-import {LogoIcon} from '../../../../../client/src/lib/components/Icons';
-import LogoAware from './components/LogoAware';
 import {Heading18} from '../../../../../client/src/lib/components/Typography/Heading/Heading';
 import {useTranslation} from 'react-i18next';
 import Logo from './components/Logo';
+import LanguageSelect from './components/LanguageSelect';
 
 const Gutters = styled.div({
   padding: '0 16px',
@@ -36,7 +35,11 @@ const StyledLogo = styled(Logo)({
   width: 160,
 });
 
-const Header = styled.header({});
+const Header = styled.header({
+  display: 'flex',
+  justifyContent: 'space-between',
+  alignItems: 'center',
+});
 
 const StyledLink = styled(Link)({
   display: 'block',
@@ -46,11 +49,13 @@ const StyledLink = styled(Link)({
 export default function ExercisePage() {
   const {t} = useTranslation('Screen.Explore');
   const exercises = useExercises();
+
   return (
     <Gutters>
       <Spacer32 />
       <Header>
         <StyledLogo />
+        <LanguageSelect />
       </Header>
       <Spacer24 />
       <Heading18>{t('sessionsHeading')}</Heading18>
