@@ -6,7 +6,6 @@ import {
   LANGUAGE_TAG,
 } from '../../../../shared/src/i18n/constants';
 import I18nProvider from '@/lib/I18nProvider';
-import {SafeAreaProvider} from 'react-native-safe-area-context';
 
 export const metadata: Metadata = {
   title: 'Aware',
@@ -27,14 +26,12 @@ export default async function RootLayout({
   params: {language: LANGUAGE_TAG};
 }>) {
   return (
-    <I18nProvider language={params.language}>
-      <html lang={params.language}>
-        <body>
-          <StyleSheetRegistry>
-            <SafeAreaProvider>{children}</SafeAreaProvider>
-          </StyleSheetRegistry>
-        </body>
-      </html>
-    </I18nProvider>
+    <html lang={params.language}>
+      <body>
+        <I18nProvider language={params.language}>
+          <StyleSheetRegistry>{children}</StyleSheetRegistry>
+        </I18nProvider>
+      </body>
+    </html>
   );
 }
