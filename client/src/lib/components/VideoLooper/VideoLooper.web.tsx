@@ -10,7 +10,8 @@ import {VideoLooperProperties} from './VideoLooper';
 import styled from 'styled-components';
 
 const useCanvasColorCorrection = !(
-  navigator && /^((?!chrome|android).)*safari/i.test(navigator.userAgent)
+  typeof window !== 'undefined' &&
+  /^((?!chrome|android).)*safari/i.test(navigator.userAgent)
 ); // Not Safari
 
 const Wrapper = styled.div({
