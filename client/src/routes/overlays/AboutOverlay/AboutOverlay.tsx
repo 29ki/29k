@@ -34,8 +34,9 @@ import TopBar from '../../../lib/components/TopBar/TopBar';
 import {COLORS} from '../../../../../shared/src/constants/colors';
 import AppVersionActionButton from './components/AppVersionActionButton';
 import {SPACINGS} from '../../../lib/constants/spacings';
+import Image from '../../../lib/components/Image/Image';
 
-const BlurbImage = styled.Image({
+const BlurbImage = styled(Image)({
   aspectRatio: '1.7',
   borderTopLeftRadius: SETTINGS.BORDER_RADIUS.ACTION_LISTS,
   borderTopRightRadius: SETTINGS.BORDER_RADIUS.ACTION_LISTS,
