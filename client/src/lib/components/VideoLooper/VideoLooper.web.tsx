@@ -9,6 +9,10 @@ import React, {
 import {VideoLooperProperties} from './VideoLooper';
 import styled from 'styled-components';
 
+const useCanvasColorCorrection = !/^((?!chrome|android).)*safari/i.test(
+  navigator.userAgent,
+); // Not Safari
+
 const Wrapper = styled.div({
   position: 'relative',
   overflow: 'hidden',
@@ -23,11 +27,20 @@ const Canvas = styled.canvas({
   width: '100%',
   overflow: 'hidden',
   transform: 'translateY(-50%)',
+  display: useCanvasColorCorrection ? 'block' : 'none',
 });
 
-const Video = styled.video({
-  display: 'none',
-});
+const Video = styled.video<{active: boolean}>(({active}) => ({
+  position: 'absolute',
+  left: 0,
+  right: 0,
+  top: '50%',
+  bottom: 0,
+  width: '100%',
+  overflow: 'hidden',
+  transform: 'translateY(-50%)',
+  display: !active || useCanvasColorCorrection ? 'none' : 'block',
+}));
 
 const Audio = styled.audio({
   display: 'none',
@@ -114,7 +127,12 @@ const VideoLooper = forwardRef<VideoPlayerHandle, VideoLooperProperties>(
 
     const drawCurrentFrame = useCallback(() => {
       const videoEl = getCurrentVideoEl();
-      if (canvasContext.current && canvasRef.current && videoEl) {
+      if (
+        useCanvasColorCorrection &&
+        canvasContext.current &&
+        canvasRef.current &&
+        videoEl
+      ) {
         canvasContext.current.drawImage(
           videoEl,
           0,
@@ -127,7 +145,12 @@ const VideoLooper = forwardRef<VideoPlayerHandle, VideoLooperProperties>(
 
     const drawFrames = useCallback(() => {
       const videoEl = getCurrentVideoEl();
-      if (videoEl && !videoEl.paused && !videoEl.ended) {
+      if (
+        useCanvasColorCorrection &&
+        videoEl &&
+        !videoEl.paused &&
+        !videoEl.ended
+      ) {
         videoEl.requestVideoFrameCallback(() => {
           drawCurrentFrame();
           drawFrames();
@@ -153,7 +176,12 @@ const VideoLooper = forwardRef<VideoPlayerHandle, VideoLooperProperties>(
     const onLoadedMetadata = useCallback(
       (sourceIndex: number) => () => {
         const videoEl = getCurrentVideoEl();
-        if (isCurrentSource(sourceIndex) && canvasRef.current && videoEl) {
+        if (
+          useCanvasColorCorrection &&
+          isCurrentSource(sourceIndex) &&
+          canvasRef.current &&
+          videoEl
+        ) {
           canvasContext.current = canvasRef.current.getContext('2d', {
             alpha: true,
             desynchronized: true,
@@ -301,6 +329,7 @@ const VideoLooper = forwardRef<VideoPlayerHandle, VideoLooperProperties>(
             loop={sourceRepeat}
             autoPlay={!paused && isCurrentSource(sourceIndex)}
             muted={muted}
+            active={isCurrentSource(sourceIndex)}
             playsInline
           />
         ))}

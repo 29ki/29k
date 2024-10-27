@@ -1,7 +1,7 @@
 'use client';
 
 import {useCallback, useEffect, useMemo} from 'react';
-import {SafeAreaProvider} from 'react-native-safe-area-context';
+import {Metrics, SafeAreaProvider} from 'react-native-safe-area-context';
 import useSessionState from '../../../../../../client/src/lib/session/state/state';
 import useExerciseById from '../../../../../../client/src/lib/content/hooks/useExerciseById';
 import {
@@ -24,9 +24,7 @@ import {
   Spacer60,
 } from '../../../../../../client/src/lib/components/Spacers/Spacer';
 import Gutters from '../../../../../../client/src/lib/components/Gutters/Gutters';
-import IntroPortal from '../../../../../../client/src/lib/session/components/IntroPortal/IntroPortal';
 import {useRouter} from 'next/navigation';
-import OutroPortal from '../../../../../../client/src/lib/session/components/OutroPortal/OutroPortal';
 import Wrapper from './components/Wrapper';
 
 import Title from './components/Title';
@@ -34,6 +32,30 @@ import ProgressBar from '../../../../../../client/src/lib/session/components/Pro
 import styled from 'styled-components';
 import {COLORS} from '../../../../../../shared/src/constants/colors';
 import hexToRgba from 'hex-to-rgba';
+import dynamic from 'next/dynamic';
+
+/*
+Video and SSR works quite bad in combination
+https://stackoverflow.com/questions/65868582/next-js-loadeddata-event-on-audio-not-firing/66490267#66490267
+https://nextjs.org/docs/pages/building-your-application/optimizing/lazy-loading#nextdynamic
+*/
+const IntroPortal = dynamic(
+  () =>
+    import(
+      '../../../../../../client/src/lib/session/components/IntroPortal/IntroPortal'
+    ),
+);
+const OutroPortal = dynamic(
+  () =>
+    import(
+      '../../../../../../client/src/lib/session/components/OutroPortal/OutroPortal'
+    ),
+);
+
+export const initialWindowMetrics: Metrics | null = {
+  frame: {x: 0, y: 0, width: 0, height: 0},
+  insets: {top: 0, left: 0, right: 0, bottom: 0},
+};
 
 const DesktopOnly = styled.div({
   display: 'none',
@@ -135,7 +157,7 @@ export default function ExercisePage({
   }, [sessionSlideState, navigateToIndex, endSession]);
 
   return (
-    <SafeAreaProvider>
+    <SafeAreaProvider initialMetrics={initialWindowMetrics}>
       {Boolean(sessionState?.ended) && (
         <Wrapper backgroundColor={exercise?.theme?.backgroundColor}>
           <Spacer32 />
