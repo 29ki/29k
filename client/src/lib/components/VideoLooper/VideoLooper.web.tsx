@@ -9,8 +9,8 @@ import React, {
 import {VideoLooperProperties} from './VideoLooper';
 import styled from 'styled-components';
 
-const useCanvasColorCorrection = !/^((?!chrome|android).)*safari/i.test(
-  navigator.userAgent,
+const useCanvasColorCorrection = !(
+  navigator && /^((?!chrome|android).)*safari/i.test(navigator.userAgent)
 ); // Not Safari
 
 const Wrapper = styled.div({
