@@ -9,6 +9,9 @@ import I18nProvider from '@/lib/I18nProvider';
 
 export const metadata: Metadata = {
   title: 'Aware',
+  itunes: {
+    appId: '1631342681',
+  },
 };
 
 export function generateStaticParams() {
