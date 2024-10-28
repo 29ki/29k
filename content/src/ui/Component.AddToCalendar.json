@@ -5,9 +5,9 @@
     "location": "Aware app"
   },
   "pt": {
-    "title": "Aware FJN - {{name}}",
+    "title": "Aware - {{name}}",
     "notes": "{{name}}\nCom {{host}}\n{{url}}",
-    "location": "Aware FJN app"
+    "location": "Aware app"
   },
   "sv": {
     "title": "Aware-session: {{name}}",

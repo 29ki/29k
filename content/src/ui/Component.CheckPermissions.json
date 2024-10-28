@@ -30,13 +30,13 @@
     },
     "camera": {
       "title": "Autorização de acesso à câmara recusada",
-      "message": "Permitir que as sessões Aware FJN tenham acesso à câmara para participares na sessão. Isto vai reiniciar a app Aware FJN.",
+      "message": "Permitir que as sessões Aware tenham acesso à câmara para participares na sessão. Isto vai reiniciar a app Aware.",
       "dismiss": "Cancelar",
       "confirm": "Abrir configurações"
     },
     "microphone": {
       "title": "Autorização de acesso ao microfone recusada",
-      "message": "Permitir que as sessões Aware FJN tenham acesso ao microfone para participares na sessão. Isto vai reiniciar a app Aware FJN..",
+      "message": "Permitir que as sessões Aware tenham acesso ao microfone para participares na sessão. Isto vai reiniciar a app Aware.",
       "dismiss": "Cancelar",
       "confirm": "Abrir configurações"
     }

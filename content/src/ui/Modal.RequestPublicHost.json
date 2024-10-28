@@ -21,7 +21,7 @@
   "pt": {
     "success": {
       "header": "Sucesso!",
-      "text": "Já podes criar e moderar sessões para todos os utilizadores da Aware FJN!"
+      "text": "Já podes criar e moderar sessões para todos os utilizadores da Aware!"
     },
     "or": "ou",
     "enterCode": "Introduz o código",
@@ -34,7 +34,7 @@
       "verificationAlreadyClaimed": "O código já foi utilizado.",
       "verificationFailed": "Validação falhou."
     },
-    "text": "Como moderador oficial da Aware FJN pode registar-te aqui para criar sessões públicas.",
+    "text": "Como moderador oficial da Aware pode registar-te aqui para criar sessões públicas.",
     "requestCodeButton": "Pedir um código"
   },
   "sv": {

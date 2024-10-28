@@ -14,11 +14,11 @@
     "body": "Det här meddelandet skickades från Aware-appen:"
   },
   "pt": {
-    "subject": "Os teus comentários para a Aware FJN",
-    "subject_feedback": "Os teus comentários para a Aware FJN",
-    "subject_misbehaviour": "O teu relatório de mau comportamento para a Aware FJN",
-    "subject_tech_issue": "O teu relatório de problemas técnicos para a Aware FJN",
-    "body": "Esta mensagem foi enviada da aplicação Aware FJN:"
+    "subject": "Os teus comentários para a Aware",
+    "subject_feedback": "Os teus comentários para a Aware",
+    "subject_misbehaviour": "O teu relatório de mau comportamento para a Aware",
+    "subject_tech_issue": "O teu relatório de problemas técnicos para a Aware",
+    "body": "Esta mensagem foi enviada da aplicação Aware:"
   },
   "ja": {
     "body": "このメッセージはAwareアプリから送信されました",

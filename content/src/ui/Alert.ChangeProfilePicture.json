@@ -12,8 +12,8 @@
   },
   "pt": {
     "removeButtonTitle": "Remover",
-    "alertCameraSettings": "Por favor, vai às configurações do sistema e dá acesso à Aware FJN para utilizar a tua câmara.",
-    "alertCameraWhy": "A Aware FJN precisa de utilizar a tua câmara para tirar a foto de perfil.",
+    "alertCameraSettings": "Por favor, vai às configurações do sistema e dá acesso à Aware para utilizar a tua câmara.",
+    "alertCameraWhy": "A Aware precisa de utilizar a tua câmara para tirar a foto de perfil.",
     "chooseFromLibraryButtonTitle": "Selecionar da biblioteca",
     "cancelButtonTitle": "Cancelar",
     "alertCameraTitle": "Necessária permissão de acesso à câmara",
