@@ -14,7 +14,7 @@
     "test": "yarn test:lint && yarn test:jest"
   },
   "dependencies": {
-    "@fast-csv/parse": "^5.0.0",
+    "@fast-csv/parse": "^5.0.2",
     "nodemon": "^3.1.7",
     "ramda": "^0.30.1"
   },
