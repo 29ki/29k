@@ -26,6 +26,10 @@ export async function generateMetadata({
   return {
     title: `${exercise.name} | Aware`,
     description: exercise.description,
+    itunes: {
+      appId: '1631342681',
+      appArgument: `https://29k.org/sessions/${params.exerciseId}?language=${params.language}`,
+    },
     openGraph: {
       title: exercise.socialMeta?.title || exercise.name,
       images: exercise.socialMeta?.image || exercise.card?.image?.source,
