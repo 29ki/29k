@@ -12,7 +12,6 @@ import {
 import dayjs from 'dayjs';
 import {LANGUAGE_TAG} from '../../../../../../shared/src/i18n/constants';
 import useAsyncSessionSlideState from '../../../../../../client/src/lib/session/hooks/useAsyncSessionSlideState';
-import ExerciseSlides from '../../../../../../client/src/lib/session/components/ExerciseSlides/ExerciseSlides';
 import ContentControls from '../../../../../../client/src/lib/session/components/ContentControls/ContentControls';
 import useUpdateAsyncSessionState from '../../../../../../client/src/lib/session/hooks/useUpdateAsyncSessionState';
 import Fade from '../../../../../../client/src/lib/components/Fade/Fade';
@@ -49,6 +48,12 @@ const OutroPortal = dynamic(
   () =>
     import(
       '../../../../../../client/src/lib/session/components/OutroPortal/OutroPortal'
+    ),
+);
+const ExerciseSlides = dynamic(
+  () =>
+    import(
+      '../../../../../../client/src/lib/session/components/ExerciseSlides/ExerciseSlides'
     ),
 );
 
