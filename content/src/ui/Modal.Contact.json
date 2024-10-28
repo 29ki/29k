@@ -57,11 +57,11 @@
       "message": "Queres copiar o nosso email para a área de transferência?"
     },
     "contactInformation": {
-      "heading": "29k FJN",
+      "heading": "29k Foundation",
       "email": {
         "label": "hello+fjn@29k.org",
         "email": "hello+fjn@29k.org",
-        "subject": "Um olá da Aware FJN"
+        "subject": "Um olá da Aware"
       },
       "www": {
         "label": "29k.org",
@@ -89,7 +89,7 @@
       "email": {
         "label": "hello@joseneves.org",
         "email": "hello@joseneves.org",
-        "subject": "Um olá da Aware FJN"
+        "subject": "Um olá da Aware"
       },
       "facebook": {
         "label": "FJN Facebook",
