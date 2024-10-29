@@ -41,7 +41,6 @@ import {BottomSheetScrollView} from '@gorhom/bottom-sheet';
 import {ModalStackProps} from '../../../../../lib/navigation/constants/routes';
 import useStartAsyncSession from '../../../../../lib/session/hooks/useStartAsyncSession';
 import Markdown from '../../../../../lib/components/Typography/Markdown/Markdown';
-import useTags from '../../../../../lib/content/hooks/useTags';
 import Tag from '../../../../../lib/components/Tag/Tag';
 import IconButton from '../../../../../lib/components/Buttons/IconButton/IconButton';
 import {
