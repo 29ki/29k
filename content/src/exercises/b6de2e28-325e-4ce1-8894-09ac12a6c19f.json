@@ -68,7 +68,8 @@
     "name": "PsyPal music exercise I",
     "live": false,
     "published": true,
-    "duration": 25,
+    "asyncDuration": 10,
+    "liveDuration": 25,
     "introPortal": {
       "textColor": "#2AE2D7",
       "hostNotes": [
@@ -161,7 +162,8 @@
     "locked": true,
     "live": true,
     "published": false,
-    "duration": 25,
+    "asyncDuration": 10,
+    "liveDuration": 25,
     "introPortal": {
       "textColor": "#2AE2D7",
       "hostNotes": [
@@ -248,7 +250,8 @@
     "locked": true,
     "live": true,
     "published": false,
-    "duration": 25,
+    "asyncDuration": 10,
+    "liveDuration": 25,
     "introPortal": {
       "textColor": "#2AE2D7",
       "hostNotes": [
@@ -335,7 +338,8 @@
     "locked": true,
     "live": true,
     "published": false,
-    "duration": 25,
+    "asyncDuration": 10,
+    "liveDuration": 25,
     "introPortal": {
       "textColor": "#2AE2D7",
       "hostNotes": [

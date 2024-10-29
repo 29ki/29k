@@ -216,7 +216,8 @@
         "name": "SEE Learning"
       }
     ],
-    "duration": 20,
+    "asyncDuration": 10,
+    "liveDuration": 20,
     "outroPortal": {
       "video": {
         "source": ""
@@ -322,7 +323,8 @@
     "card": {
       "imageBackgroundColor": ""
     },
-    "duration": 20,
+    "asyncDuration": 10,
+    "liveDuration": 20,
     "introPortal": {
       "textColor": "#2AE2D7",
       "hostNotes": [
@@ -413,7 +415,8 @@
     "card": {
       "imageBackgroundColor": ""
     },
-    "duration": 20,
+    "asyncDuration": 10,
+    "liveDuration": 20,
     "introPortal": {
       "textColor": "#2AE2D7",
       "hostNotes": [
@@ -504,7 +507,8 @@
     "card": {
       "imageBackgroundColor": ""
     },
-    "duration": 20,
+    "asyncDuration": 10,
+    "liveDuration": 20,
     "introPortal": {
       "textColor": "#2AE2D7",
       "hostNotes": [

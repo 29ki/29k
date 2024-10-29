@@ -149,7 +149,8 @@
         "url": "https://www.linkedin.com/in/ints-ivanovskis-46ab0311a/"
       }
     ],
-    "duration": 30,
+    "asyncDuration": 10,
+    "liveDuration": 30,
     "introPortal": {
       "videoLoop": {
         "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1665480650/Temp/portal_no_sound_o7okas.mp4",
@@ -318,7 +319,8 @@
         "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1727943392/FJN/People/Florbela_Silva_bd0qx9.jpg"
       }
     ],
-    "duration": 30,
+    "asyncDuration": 10,
+    "liveDuration": 30,
     "introPortal": {
       "videoLoop": {
         "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1675257549/Video/Videos%20PT/portal_PT_bring_your_fee.._w8ogim.mp4",
@@ -495,7 +497,8 @@
         "url": "https://www.linkedin.com/in/ints-ivanovskis-46ab0311a/"
       }
     ],
-    "duration": 30,
+    "asyncDuration": 10,
+    "liveDuration": 30,
     "introPortal": {
       "videoLoop": {
         "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1665480650/Temp/portal_no_sound_o7okas.mp4",
@@ -524,7 +527,8 @@
   },
   "ja": {
     "id": "ea0b48c1-745e-418d-93e7-2d8a6cd72898",
-    "duration": 30,
+    "asyncDuration": 10,
+    "liveDuration": 30,
     "tags": [
       "34100e43-2eb8-4d35-8eb0-9fa9f78e4935",
       "566aeb1b-1649-4f5a-96a2-0c80be27efc0"

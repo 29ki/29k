@@ -104,7 +104,8 @@
         "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1716903776/Contributors/UPenn_logo-2_pzybf7.webp"
       }
     ],
-    "duration": 29,
+    "asyncDuration": 10,
+    "liveDuration": 29,
     "introPortal": {
       "textColor": "#2AE2D7",
       "hostNotes": [
@@ -237,7 +238,8 @@
         "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1728375093/FJN/People/Cristina_Alves_zt1btx.png"
       }
     ],
-    "duration": 29,
+    "asyncDuration": 10,
+    "liveDuration": 29,
     "introPortal": {
       "textColor": "#2AE2D7",
       "hostNotes": [
@@ -334,7 +336,8 @@
     "locked": false,
     "live": true,
     "published": false,
-    "duration": 29,
+    "asyncDuration": 10,
+    "liveDuration": 29,
     "introPortal": {
       "textColor": "#2AE2D7",
       "hostNotes": [
@@ -425,7 +428,8 @@
     "locked": false,
     "live": true,
     "published": false,
-    "duration": 29,
+    "asyncDuration": 10,
+    "liveDuration": 29,
     "introPortal": {
       "textColor": "#2AE2D7",
       "hostNotes": [

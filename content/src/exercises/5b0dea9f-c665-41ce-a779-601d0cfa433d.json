@@ -213,7 +213,8 @@
         "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413228/Contributors/Jenny%20Rickardsson.jpg"
       }
     ],
-    "duration": 30,
+    "asyncDuration": 10,
+    "liveDuration": 30,
     "outroPortal": {
       "video": {
         "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1671527730/Video/mission_letting_go_of_control.mp4_t6zweg.mp4"
@@ -400,7 +401,8 @@
         "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1668092579/Images/cover_letting_go_of_control_t5fi5i.png"
       }
     },
-    "duration": 30,
+    "asyncDuration": 10,
+    "liveDuration": 30,
     "outroPortal": {
       "video": {
         "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1671527730/Video/mission_letting_go_of_control.mp4_t6zweg.mp4"
@@ -647,7 +649,8 @@
         "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413228/Contributors/Jenny%20Rickardsson.jpg"
       }
     ],
-    "duration": 30,
+    "asyncDuration": 10,
+    "liveDuration": 30,
     "outroPortal": {
       "video": {
         "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1671527730/Video/mission_letting_go_of_control.mp4_t6zweg.mp4"
@@ -682,7 +685,8 @@
   },
   "ja": {
     "id": "5b0dea9f-c665-41ce-a779-601d0cfa433d",
-    "duration": 30,
+    "asyncDuration": 10,
+    "liveDuration": 30,
     "tags": [
       "34100e43-2eb8-4d35-8eb0-9fa9f78e4935",
       "566aeb1b-1649-4f5a-96a2-0c80be27efc0"

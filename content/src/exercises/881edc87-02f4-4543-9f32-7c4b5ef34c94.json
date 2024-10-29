@@ -211,7 +211,8 @@
         "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1713881366/SEE/see-logo_1_kewtlt.png"
       }
     ],
-    "duration": 15,
+    "asyncDuration": 10,
+    "liveDuration": 15,
     "outroPortal": {
       "video": {
         "source": ""
@@ -312,7 +313,8 @@
     "live": true,
     "published": false,
     "card": {},
-    "duration": 15,
+    "asyncDuration": 10,
+    "liveDuration": 15,
     "introPortal": {
       "textColor": "#2AE2D7",
       "hostNotes": [
@@ -401,7 +403,8 @@
     "live": true,
     "published": false,
     "card": {},
-    "duration": 15,
+    "asyncDuration": 10,
+    "liveDuration": 15,
     "introPortal": {
       "textColor": "#2AE2D7",
       "hostNotes": [
@@ -490,7 +493,8 @@
     "live": true,
     "published": false,
     "card": {},
-    "duration": 15,
+    "asyncDuration": 10,
+    "liveDuration": 15,
     "introPortal": {
       "textColor": "#2AE2D7",
       "hostNotes": [

@@ -129,7 +129,8 @@
         "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1684329936/Images/card_image_the_willingnes_stance_1_bcwhxk.png"
       }
     },
-    "duration": 30,
+    "asyncDuration": 10,
+    "liveDuration": 30,
     "introPortal": {
       "hostNotes": [
         {
@@ -276,7 +277,8 @@
         "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1676992253/Images/card_image_the_willingnes_stance_e2yekr.png"
       }
     },
-    "duration": 30,
+    "asyncDuration": 10,
+    "liveDuration": 30,
     "introPortal": {
       "hostNotes": [
         {
@@ -434,7 +436,8 @@
         "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1684329936/Images/card_image_the_willingnes_stance_1_bcwhxk.png"
       }
     },
-    "duration": 30,
+    "asyncDuration": 10,
+    "liveDuration": 30,
     "introPortal": {
       "hostNotes": [
         {
@@ -517,7 +520,8 @@
     },
     "hidden": false,
     "published": false,
-    "duration": 30,
+    "asyncDuration": 10,
+    "liveDuration": 30,
     "introPortal": {
       "hostNotes": [
         {

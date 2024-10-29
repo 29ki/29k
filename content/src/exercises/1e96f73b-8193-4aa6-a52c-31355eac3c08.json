@@ -137,7 +137,8 @@
         "url": "https://centerformsc.org/"
       }
     ],
-    "duration": 30,
+    "asyncDuration": 10,
+    "liveDuration": 30,
     "outroPortal": {
       "video": {
         "source": "",
@@ -293,7 +294,8 @@
       }
     },
     "coCreators": [],
-    "duration": 30,
+    "asyncDuration": 10,
+    "liveDuration": 30,
     "outroPortal": {
       "video": {
         "source": "",
@@ -455,7 +457,8 @@
         "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413198/Contributors/Fredrik%20Livheim.png"
       }
     ],
-    "duration": 30,
+    "asyncDuration": 10,
+    "liveDuration": 30,
     "outroPortal": {
       "video": {
         "source": "",
@@ -550,7 +553,8 @@
     "hidden": false,
     "published": false,
     "card": {},
-    "duration": 30,
+    "asyncDuration": 10,
+    "liveDuration": 30,
     "introPortal": {
       "hostNotes": [
         {

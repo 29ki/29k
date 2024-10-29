@@ -136,7 +136,8 @@
         "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1700730663/Contributors/transitionmakerstoolbox.logo.png"
       }
     ],
-    "duration": 40,
+    "asyncDuration": 10,
+    "liveDuration": 40,
     "introPortal": {
       "hostNotes": [
         {

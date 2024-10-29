@@ -159,7 +159,8 @@
         "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413436/Contributors/Ints%20Ivanovskis.jpg"
       }
     ],
-    "duration": 40,
+    "asyncDuration": 10,
+    "liveDuration": 40,
     "outroPortal": {
       "video": {
         "source": ""

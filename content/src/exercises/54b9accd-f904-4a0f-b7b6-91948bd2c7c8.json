@@ -75,7 +75,8 @@
     "name": "New one with a nice title to come",
     "live": true,
     "published": true,
-    "duration": 30,
+    "asyncDuration": 10,
+    "liveDuration": 30,
     "introPortal": {
       "textColor": "#2AE2D7",
       "hostNotes": [
@@ -167,7 +168,8 @@
     "locked": false,
     "live": true,
     "published": false,
-    "duration": 30,
+    "asyncDuration": 10,
+    "liveDuration": 30,
     "introPortal": {
       "textColor": "#2AE2D7",
       "hostNotes": [
@@ -254,7 +256,8 @@
     "locked": false,
     "live": true,
     "published": false,
-    "duration": 30,
+    "asyncDuration": 10,
+    "liveDuration": 30,
     "introPortal": {
       "textColor": "#2AE2D7",
       "hostNotes": [
@@ -341,7 +344,8 @@
     "locked": false,
     "live": true,
     "published": false,
-    "duration": 30,
+    "asyncDuration": 10,
+    "liveDuration": 30,
     "introPortal": {
       "textColor": "#2AE2D7",
       "hostNotes": [

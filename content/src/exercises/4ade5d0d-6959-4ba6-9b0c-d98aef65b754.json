@@ -210,7 +210,8 @@
         "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1717533458/SEE/SEELearning_Logo_Apple_2022_fe9mjc.png"
       }
     ],
-    "duration": 19,
+    "asyncDuration": 10,
+    "liveDuration": 19,
     "outroPortal": {
       "video": {
         "source": ""
@@ -317,7 +318,8 @@
     "card": {
       "imageBackgroundColor": ""
     },
-    "duration": 19,
+    "asyncDuration": 10,
+    "liveDuration": 19,
     "introPortal": {
       "textColor": "#2AE2D7",
       "hostNotes": [
@@ -408,7 +410,8 @@
     "card": {
       "imageBackgroundColor": ""
     },
-    "duration": 19,
+    "asyncDuration": 10,
+    "liveDuration": 19,
     "introPortal": {
       "textColor": "#2AE2D7",
       "hostNotes": [
@@ -499,7 +502,8 @@
     "card": {
       "imageBackgroundColor": ""
     },
-    "duration": 19,
+    "asyncDuration": 10,
+    "liveDuration": 19,
     "introPortal": {
       "textColor": "#2AE2D7",
       "hostNotes": [

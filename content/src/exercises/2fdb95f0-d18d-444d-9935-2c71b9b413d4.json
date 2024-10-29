@@ -125,7 +125,8 @@
         "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1713964290/Images/anonymous_xns0zu.png"
       }
     ],
-    "duration": 30,
+    "asyncDuration": 10,
+    "liveDuration": 30,
     "introPortal": {
       "textColor": "#F9F8F4",
       "hostNotes": [
@@ -281,7 +282,8 @@
         "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1728375093/FJN/People/Cristina_Alves_zt1btx.png"
       }
     ],
-    "duration": 30,
+    "asyncDuration": 10,
+    "liveDuration": 30,
     "introPortal": {
       "textColor": "#F9F8F4",
       "hostNotes": [
@@ -426,7 +428,8 @@
         "url": "https://www.linkedin.com/in/lyckoaktivist/?originalSubdomain=se"
       }
     ],
-    "duration": 30,
+    "asyncDuration": 10,
+    "liveDuration": 30,
     "introPortal": {
       "textColor": "#F9F8F4",
       "hostNotes": [
@@ -526,7 +529,8 @@
     "live": true,
     "published": false,
     "card": {},
-    "duration": 30,
+    "asyncDuration": 10,
+    "liveDuration": 30,
     "introPortal": {
       "textColor": "#2AE2D7",
       "hostNotes": [
