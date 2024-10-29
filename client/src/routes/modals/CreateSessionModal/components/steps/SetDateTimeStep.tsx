@@ -114,7 +114,7 @@ const SetDateTimeStep: React.FC<StepProps> = ({
             <Byline
               pictureURL={userProfile?.photoURL}
               name={userProfile?.displayName}
-              duration={exercise?.duration}
+              duration={exercise?.liveDuration}
             />
           </TextWrapper>
           <Spacer16 />

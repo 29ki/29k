@@ -4,7 +4,10 @@ import React, {useCallback} from 'react';
 import {useTranslation} from 'react-i18next';
 import dayjs from 'dayjs';
 
-import {LiveSessionType} from '../../../../../../shared/src/schemas/Session';
+import {
+  LiveSessionType,
+  SessionMode,
+} from '../../../../../../shared/src/schemas/Session';
 
 import {formatContentName} from '../../../utils/string';
 
@@ -78,7 +81,7 @@ const SessionCard: React.FC<SessionCardProps> = ({
 
   const isHost = user?.uid === session.hostId;
   const interestedCount = isHost ? session.interestedCount : undefined;
-  const tags = useGetSessionCardTags(exercise);
+  const tags = useGetSessionCardTags(exercise, SessionMode.live);
 
   const collection = getActiveCollectionByExerciseId(exerciseId);
 
