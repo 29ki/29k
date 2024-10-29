@@ -6,6 +6,7 @@ import {
 } from 'decap-cms-core';
 
 import {
+  ASYNC_DURATION_FIELD,
   DURATION_FIELD,
   IMAGE_FIELD,
   LOTTIE_FIELD_WITH_AUDIO,
