@@ -122,6 +122,20 @@ export const DURATION_FIELD: CmsField = {
   value_type: 'int',
 };
 
+export const ASYNC_DURATION_FIELD: CmsField = {
+  ...DURATION_FIELD,
+  label: '⏱ Async Duration',
+  name: 'asyncDuration',
+  default: 10,
+};
+
+export const LIVE_DURATION_FIELD: CmsField = {
+  ...DURATION_FIELD,
+  label: '⏱ Live Duration',
+  name: 'liveDuration',
+  default: 30,
+};
+
 export const TEXT_COLOR_FIELD: CmsField = {
   label: '🎨 Text color',
   name: 'textColor',

@@ -65,7 +65,7 @@ const ExercisePreview = (props: PreviewTemplateComponentProps) => {
         <Spacer24 />
         <Card
           title={entry.name}
-          tags={[`${entry.duration ?? 0} min`, ...tags]}
+          tags={[`${entry.asyncDuration ?? 10} min`, ...tags]}
           description={entry.description}
           cardStyle={entry.card}
           onPress={() => null}

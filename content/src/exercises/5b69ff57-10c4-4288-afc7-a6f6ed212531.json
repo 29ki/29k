@@ -125,7 +125,8 @@
         "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1700730663/Contributors/transitionmakerstoolbox.logo.png"
       }
     ],
-    "duration": 40,
+    "asyncDuration": 10,
+    "liveDuration": 40,
     "introPortal": {
       "hostNotes": [
         {
@@ -283,7 +284,8 @@
         "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1728375093/FJN/People/Cristina_Alves_zt1btx.png"
       }
     ],
-    "duration": 40,
+    "asyncDuration": 10,
+    "liveDuration": 40,
     "introPortal": {
       "hostNotes": [
         {
@@ -436,7 +438,8 @@
         "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1700730663/Contributors/transitionmakerstoolbox.logo.png"
       }
     ],
-    "duration": 40,
+    "asyncDuration": 10,
+    "liveDuration": 40,
     "introPortal": {
       "hostNotes": [
         {
@@ -529,7 +532,8 @@
     "live": true,
     "published": false,
     "card": {},
-    "duration": 40,
+    "asyncDuration": 10,
+    "liveDuration": 40,
     "introPortal": {
       "hostNotes": [
         {

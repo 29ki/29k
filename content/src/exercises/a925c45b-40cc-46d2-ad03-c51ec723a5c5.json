@@ -104,7 +104,8 @@
         "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1697723039/Images/Germer%2C%20Neff.png"
       }
     ],
-    "duration": 30,
+    "asyncDuration": 10,
+    "liveDuration": 30,
     "introPortal": {
       "textColor": "#2AE2D7",
       "hostNotes": [
@@ -201,7 +202,8 @@
     "locked": false,
     "live": true,
     "published": false,
-    "duration": 30,
+    "asyncDuration": 10,
+    "liveDuration": 30,
     "introPortal": {
       "textColor": "#2AE2D7",
       "hostNotes": [
@@ -292,7 +294,8 @@
     "locked": false,
     "live": true,
     "published": false,
-    "duration": 30,
+    "asyncDuration": 10,
+    "liveDuration": 30,
     "introPortal": {
       "textColor": "#2AE2D7",
       "hostNotes": [
@@ -383,7 +386,8 @@
     "locked": false,
     "live": true,
     "published": false,
-    "duration": 30,
+    "asyncDuration": 10,
+    "liveDuration": 30,
     "introPortal": {
       "textColor": "#2AE2D7",
       "hostNotes": [

@@ -127,7 +127,8 @@
         "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413436/Contributors/Ints%20Ivanovskis.jpg"
       }
     ],
-    "duration": 30,
+    "asyncDuration": 10,
+    "liveDuration": 30,
     "introPortal": {
       "hostNotes": [
         {
@@ -287,7 +288,8 @@
         "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1728375093/FJN/People/Cristina_Alves_zt1btx.png"
       }
     ],
-    "duration": 30,
+    "asyncDuration": 10,
+    "liveDuration": 30,
     "introPortal": {
       "hostNotes": [
         {
@@ -442,7 +444,8 @@
         "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413436/Contributors/Ints%20Ivanovskis.jpg"
       }
     ],
-    "duration": 30,
+    "asyncDuration": 10,
+    "liveDuration": 30,
     "introPortal": {
       "hostNotes": [
         {
@@ -537,7 +540,8 @@
     "card": {
       "imageBackgroundColor": "#ebf4f3"
     },
-    "duration": 30,
+    "asyncDuration": 10,
+    "liveDuration": 30,
     "introPortal": {
       "hostNotes": [
         {

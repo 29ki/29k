@@ -23,7 +23,7 @@ export const sessionsRouter = router.get('/', async ctx => {
     calendar.createEvent({
       start,
       end: dayjs(start)
-        .add(exercise?.duration || 30, 'minutes')
+        .add(exercise?.liveDuration || 30, 'minutes')
         .toDate(),
       summary: t('title', {name: exercise?.name}),
       description: t('notes', {

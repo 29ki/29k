@@ -145,7 +145,8 @@
         "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413436/Contributors/Ints%20Ivanovskis.jpg"
       }
     ],
-    "duration": 40,
+    "asyncDuration": 10,
+    "liveDuration": 40,
     "outroPortal": {
       "video": {
         "source": ""
@@ -328,7 +329,8 @@
         "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1728375093/FJN/People/Cristina_Alves_zt1btx.png"
       }
     ],
-    "duration": 40,
+    "asyncDuration": 10,
+    "liveDuration": 40,
     "outroPortal": {
       "video": {
         "source": ""
@@ -363,7 +365,8 @@
   },
   "sv": {
     "id": "b7f8731c-64d7-4c0f-9bc8-a3e50ec2eaf7",
-    "duration": 40,
+    "asyncDuration": 10,
+    "liveDuration": 40,
     "tags": [
       "43a6dc0d-d866-4b79-9453-13c44e906128",
       "cfc00217-f65b-4a4d-8b82-8ccc8f852dd6"
@@ -373,7 +376,8 @@
   },
   "ja": {
     "id": "b7f8731c-64d7-4c0f-9bc8-a3e50ec2eaf7",
-    "duration": 40,
+    "asyncDuration": 10,
+    "liveDuration": 40,
     "tags": [
       "43a6dc0d-d866-4b79-9453-13c44e906128",
       "cfc00217-f65b-4a4d-8b82-8ccc8f852dd6"

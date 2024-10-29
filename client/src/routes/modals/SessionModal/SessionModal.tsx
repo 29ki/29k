@@ -77,6 +77,7 @@ import CardGraphic from '../../../lib/components/CardGraphic/CardGraphic';
 import BackgroundBlock from '../../../lib/components/BackgroundBlock/BackgroundBlock';
 import SheetModal from '../../../lib/components/Modals/SheetModal';
 import {BottomSheetScrollView} from '@gorhom/bottom-sheet';
+import {SessionMode} from '../../../../../shared/src/schemas/Session';
 
 const Content = styled(Gutters)({
   justifyContent: 'space-between',
@@ -156,7 +157,7 @@ const SessionModal = () => {
 
   const addToCalendar = useAddSessionToCalendar();
   const exercise = useExerciseById(session.exerciseId, session.language);
-  const tags = useGetSessionCardTags(exercise);
+  const tags = useGetSessionCardTags(exercise, SessionMode.live);
   const {rating} = useExerciseRating(session.exerciseId);
   const {feedback} = useExerciseFeedback(session.exerciseId);
   const {reminderEnabled, toggleReminder} = useSessionReminder(session);
@@ -187,7 +188,7 @@ const SessionModal = () => {
         session.hostProfile?.displayName,
         session.link,
         dayjs(session.startTime),
-        dayjs(session.startTime).add(exercise.duration, 'minutes'),
+        dayjs(session.startTime).add(exercise.liveDuration, 'minutes'),
       );
       logSessionMetricEvent('Add Sharing Session To Calendar', session);
     }

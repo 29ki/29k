@@ -129,7 +129,8 @@
         "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413436/Contributors/Ints%20Ivanovskis.jpg"
       }
     ],
-    "duration": 30,
+    "asyncDuration": 10,
+    "liveDuration": 30,
     "introPortal": {
       "hostNotes": [
         {
@@ -291,7 +292,8 @@
         "url": "https://www.instagram.com/meditar.com.cristina/profilecard/?igsh=cTg5dDNjZ2Y5aTU0"
       }
     ],
-    "duration": 30,
+    "asyncDuration": 10,
+    "liveDuration": 30,
     "introPortal": {
       "hostNotes": [
         {
@@ -448,7 +450,8 @@
         "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413436/Contributors/Ints%20Ivanovskis.jpg"
       }
     ],
-    "duration": 30,
+    "asyncDuration": 10,
+    "liveDuration": 30,
     "introPortal": {
       "hostNotes": [
         {
@@ -543,7 +546,8 @@
     "card": {
       "imageBackgroundColor": "#ebf4f3"
     },
-    "duration": 30,
+    "asyncDuration": 10,
+    "liveDuration": 30,
     "introPortal": {
       "hostNotes": [
         {

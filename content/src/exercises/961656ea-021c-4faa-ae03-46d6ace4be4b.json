@@ -119,7 +119,8 @@
         "url": "https://www.linkedin.com/in/ints-ivanovskis-46ab0311a/"
       }
     ],
-    "duration": 30,
+    "asyncDuration": 10,
+    "liveDuration": 30,
     "introPortal": {
       "hostNotes": [
         {
@@ -271,7 +272,8 @@
         "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1728375093/FJN/People/Cristina_Alves_zt1btx.png"
       }
     ],
-    "duration": 30,
+    "asyncDuration": 10,
+    "liveDuration": 30,
     "introPortal": {
       "hostNotes": [
         {
@@ -412,7 +414,8 @@
     "socialMeta": {
       "image": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1692897989/Images/card_become_present_s5b47y.png"
     },
-    "duration": 30,
+    "asyncDuration": 10,
+    "liveDuration": 30,
     "introPortal": {
       "hostNotes": [
         {
@@ -499,7 +502,8 @@
     "live": true,
     "published": false,
     "card": {},
-    "duration": 30,
+    "asyncDuration": 10,
+    "liveDuration": 30,
     "introPortal": {
       "hostNotes": [
         {

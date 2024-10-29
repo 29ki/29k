@@ -136,7 +136,8 @@
         "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1700736672/Contributors/Greatergoodsciencelogo.png"
       }
     ],
-    "duration": 30,
+    "asyncDuration": 10,
+    "liveDuration": 30,
     "introPortal": {
       "hostNotes": [
         {

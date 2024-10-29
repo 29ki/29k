@@ -41,7 +41,6 @@ import {BottomSheetScrollView} from '@gorhom/bottom-sheet';
 import {ModalStackProps} from '../../../../../lib/navigation/constants/routes';
 import useStartAsyncSession from '../../../../../lib/session/hooks/useStartAsyncSession';
 import Markdown from '../../../../../lib/components/Typography/Markdown/Markdown';
-import useTags from '../../../../../lib/content/hooks/useTags';
 import Tag from '../../../../../lib/components/Tag/Tag';
 import IconButton from '../../../../../lib/components/Buttons/IconButton/IconButton';
 import {
@@ -57,6 +56,7 @@ import useExercisesByTags from '../../../../../lib/content/hooks/useExercisesByT
 import CoCreators from '../../../../../lib/components/CoCreators/CoCreators';
 import CardGraphic from '../../../../../lib/components/CardGraphic/CardGraphic';
 import BackgroundBlock from '../../../../../lib/components/BackgroundBlock/BackgroundBlock';
+import useGetSessionCardTags from '../../../../../lib/components/Cards/SessionCard/hooks/useGetSessionCardTags';
 
 const TypeItemWrapper = styled.View<{isLast?: boolean}>(({isLast}) => ({
   flexDirection: 'row',
@@ -172,7 +172,7 @@ const SelectTypeStep: React.FC<StepProps> = ({
   const relatedExercises = useExercisesByTags(exercise?.tags, exercise?.id, 5);
 
   const {sessions} = useLiveSessionsByExercise(exercise?.id && exercise, 5);
-  const tags = useTags(exercise?.tags);
+  const tags = useGetSessionCardTags(exercise);
 
   const onJoinByInvite = useCallback(() => {
     goBack();
@@ -274,9 +274,9 @@ const SelectTypeStep: React.FC<StepProps> = ({
           )}
           {tags && (
             <Tags>
-              {tags.map(({id, name}) => (
-                <Fragment key={id}>
-                  <Tag>{name}</Tag>
+              {tags.map(tag => (
+                <Fragment key={tag}>
+                  <Tag>{tag}</Tag>
                   <Spacer4 />
                 </Fragment>
               ))}

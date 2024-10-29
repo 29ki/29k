@@ -116,7 +116,8 @@
     "socialMeta": {
       "image": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1693313695/Images/card_image_your_recovery_routine_ol7r0k.png"
     },
-    "duration": 30,
+    "asyncDuration": 10,
+    "liveDuration": 30,
     "introPortal": {
       "hostNotes": [
         {
@@ -261,7 +262,8 @@
     "socialMeta": {
       "image": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1693313695/Images/card_image_your_recovery_routine_ol7r0k.png"
     },
-    "duration": 30,
+    "asyncDuration": 10,
+    "liveDuration": 30,
     "introPortal": {
       "hostNotes": [
         {
@@ -405,7 +407,8 @@
     "socialMeta": {
       "image": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1693313695/Images/card_image_your_recovery_routine_ol7r0k.png"
     },
-    "duration": 30,
+    "asyncDuration": 10,
+    "liveDuration": 30,
     "introPortal": {
       "hostNotes": [
         {
@@ -498,7 +501,8 @@
     "live": true,
     "published": false,
     "card": {},
-    "duration": 30,
+    "asyncDuration": 10,
+    "liveDuration": 30,
     "introPortal": {
       "hostNotes": [
         {

@@ -130,7 +130,8 @@
         "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413154/Contributors/Lisa%20L%C3%B6%C3%B6f.jpg"
       }
     ],
-    "duration": 30,
+    "asyncDuration": 10,
+    "liveDuration": 30,
     "introPortal": {
       "hostNotes": [
         {
@@ -228,7 +229,8 @@
     "live": true,
     "published": false,
     "card": {},
-    "duration": 30,
+    "asyncDuration": 10,
+    "liveDuration": 30,
     "introPortal": {
       "hostNotes": [
         {
@@ -318,7 +320,8 @@
     "live": true,
     "published": false,
     "card": {},
-    "duration": 30,
+    "asyncDuration": 10,
+    "liveDuration": 30,
     "introPortal": {
       "hostNotes": [
         {
@@ -408,7 +411,8 @@
     "live": true,
     "published": false,
     "card": {},
-    "duration": 30,
+    "asyncDuration": 10,
+    "liveDuration": 30,
     "introPortal": {
       "hostNotes": [
         {
