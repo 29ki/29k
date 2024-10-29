@@ -268,7 +268,8 @@ export interface Exercise {
   id: any;
   name: string;
   description?: string;
-  duration: number;
+  asyncDuration: number;
+  liveDuration: number;
   coCreators?: ExerciseCoCreator[];
   tags?: any[];
   link?: string;
