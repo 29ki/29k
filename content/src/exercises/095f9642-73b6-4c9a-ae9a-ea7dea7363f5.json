@@ -1,5 +1,6 @@
 {
   "en": {
+    "liveDuration": 30,
     "slides": [
       {
         "type": "host",
@@ -125,6 +126,7 @@
     "name": "Pure simple love",
     "live": true,
     "published": true,
+    "asyncDuration": 4,
     "card": {
       "image": {
         "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1698256076/Images/pure-simple-love_vi9ura.png"
@@ -142,8 +144,6 @@
         "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1698414650/Contributors/heidi_andersen_cutguw.jpg"
       }
     ],
-    "asyncDuration": 10,
-    "liveDuration": 30,
     "outroPortal": {
       "video": {
         "source": "https://res.cloudinary.com/twentyninek/video/upload/q_auto/v1664798564/temp/portal_outro_lpm80e.mp4"
@@ -178,6 +178,7 @@
     "description": "A guided meditation that brings a precious moment into the limelight. Practicing noticing what's working can help us feel happier and more fulfilled, and counteract our brains natural tendency to focus on the negative."
   },
   "pt": {
+    "liveDuration": 30,
     "slides": [
       {
         "type": "host",
@@ -301,6 +302,7 @@
     "name": "O amor puro e simples",
     "live": true,
     "published": true,
+    "asyncDuration": 4,
     "card": {
       "image": {
         "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1698256076/Images/pure-simple-love_vi9ura.png"
@@ -323,8 +325,6 @@
         "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1728375093/FJN/People/Cristina_Alves_zt1btx.png"
       }
     ],
-    "asyncDuration": 10,
-    "liveDuration": 30,
     "outroPortal": {
       "video": {
         "source": "https://res.cloudinary.com/twentyninek/video/upload/q_auto/v1664798564/temp/portal_outro_lpm80e.mp4"
@@ -359,6 +359,7 @@
     "description": "Uma meditação guiada que traz um momento especial para o centro da nossa atenção. Praticar a perceção do que está a funcionar bem pode ajudar-nos a sentirmo-nos mais felizes e realizados, e a neutralizar a tendência natural do nosso cérebro para focar no negativo."
   },
   "sv": {
+    "liveDuration": 30,
     "slides": [
       {
         "type": "host",
@@ -482,6 +483,7 @@
     "name": "Enkel kärlek",
     "live": true,
     "published": true,
+    "asyncDuration": 4,
     "card": {
       "image": {
         "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1698256076/Images/pure-simple-love_vi9ura.png"
@@ -499,8 +501,6 @@
         "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665414232/Contributors/Jacqueline%20Levi.png"
       }
     ],
-    "asyncDuration": 10,
-    "liveDuration": 30,
     "outroPortal": {
       "video": {
         "source": "https://res.cloudinary.com/twentyninek/video/upload/q_auto/v1664798564/temp/portal_outro_lpm80e.mp4"
@@ -535,6 +535,7 @@
     "description": "En guidad meditation där vi plockar fram ett fint minne. Att aktivt lägga märke till saker i livet som fungerar bra kan hjälpa oss att känna lycka och mening. Det kan också balansera upp våra hjärnors inbyggda tendens att fokusera på det negativa."
   },
   "ja": {
+    "liveDuration": 30,
     "slides": [
       {
         "hostNotes": [
@@ -619,6 +620,7 @@
     "name": "純粋でシンプルな愛",
     "live": true,
     "published": true,
+    "asyncDuration": 4,
     "card": {
       "image": {
         "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1698256076/Images/pure-simple-love_vi9ura.png"
@@ -636,8 +638,6 @@
         "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1698414650/Contributors/heidi_andersen_cutguw.jpg"
       }
     ],
-    "asyncDuration": 10,
-    "liveDuration": 30,
     "outroPortal": {
       "video": {
         "source": "https://res.cloudinary.com/twentyninek/video/upload/q_auto/v1664798564/temp/portal_outro_lpm80e.mp4"
@@ -672,18 +672,21 @@
     "tags": [
       "cfc00217-f65b-4a4d-8b82-8ccc8f852dd6",
       "43a6dc0d-d866-4b79-9453-13c44e906128"
-    ]
+    ],
+    "asyncDuration": 4
   },
   "cs": {
     "tags": [
       "cfc00217-f65b-4a4d-8b82-8ccc8f852dd6",
       "43a6dc0d-d866-4b79-9453-13c44e906128"
-    ]
+    ],
+    "asyncDuration": 4
   },
   "nl": {
     "tags": [
       "cfc00217-f65b-4a4d-8b82-8ccc8f852dd6",
       "43a6dc0d-d866-4b79-9453-13c44e906128"
-    ]
+    ],
+    "asyncDuration": 4
   }
 }
