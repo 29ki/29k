@@ -1,5 +1,6 @@
 {
   "en": {
+    "liveDuration": 30,
     "slides": [
       {
         "type": "host",
@@ -108,6 +109,7 @@
     "name": "Find eco support",
     "live": true,
     "published": true,
+    "asyncDuration": 5,
     "card": {
       "imageBackgroundColor": "#ebf4f3",
       "image": {
@@ -131,8 +133,6 @@
         "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413436/Contributors/Ints%20Ivanovskis.jpg"
       }
     ],
-    "asyncDuration": 10,
-    "liveDuration": 30,
     "introPortal": {
       "hostNotes": [
         {
@@ -160,6 +160,7 @@
     "description": "One of the most important factors for coping well in a crisis is social support. Of course, this also applies to our reactions to the ecological crises. In this exercise, we explore what it feels like to receive support in a difficult situation."
   },
   "pt": {
+    "liveDuration": 30,
     "slides": [
       {
         "type": "host",
@@ -268,6 +269,7 @@
     "name": "Encontra eco suporte",
     "live": true,
     "published": true,
+    "asyncDuration": 5,
     "card": {
       "imageBackgroundColor": "#ebf4f3",
       "image": {
@@ -296,8 +298,6 @@
         "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1728375093/FJN/People/Cristina_Alves_zt1btx.png"
       }
     ],
-    "asyncDuration": 10,
-    "liveDuration": 30,
     "introPortal": {
       "hostNotes": [
         {
@@ -325,6 +325,7 @@
     "description": "Um dos fatores mais importantes para lidar bem com uma crise é o apoio social. Claro que isso também se aplica às nossas reações às crises ecológicas. Neste exercício, vamos explorar como é receber apoio numa situação difícil."
   },
   "sv": {
+    "liveDuration": 30,
     "slides": [
       {
         "type": "host",
@@ -433,6 +434,7 @@
     "name": "Hitta eko-support",
     "live": true,
     "published": true,
+    "asyncDuration": 5,
     "card": {
       "imageBackgroundColor": "#ebf4f3",
       "image": {
@@ -456,8 +458,6 @@
         "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413436/Contributors/Ints%20Ivanovskis.jpg"
       }
     ],
-    "asyncDuration": 10,
-    "liveDuration": 30,
     "introPortal": {
       "hostNotes": [
         {
@@ -482,6 +482,7 @@
     "description": "Den viktigaste faktorn för att klara sig bra i en kris är socialt stöd. Det gäller förstås även den kris som klimat och överkonsumtion skapar i planetens ekosystem, och i oss. I den här övningen utforskar vi hur det känns att få stöd i en svår situation."
   },
   "ja": {
+    "liveDuration": 30,
     "slides": [
       {
         "type": "host",
@@ -549,11 +550,10 @@
     "hidden": false,
     "live": true,
     "published": false,
+    "asyncDuration": 5,
     "card": {
       "imageBackgroundColor": "#ebf4f3"
     },
-    "asyncDuration": 10,
-    "liveDuration": 30,
     "introPortal": {
       "hostNotes": [
         {
@@ -569,7 +569,25 @@
     "id": "db239a42-135a-4941-bdf2-92d58107094a",
     "async": false
   },
-  "da": {},
-  "cs": {},
-  "nl": {}
+  "da": {
+    "tags": [
+      "43a6dc0d-d866-4b79-9453-13c44e906128",
+      "9c2c08a9-7dc6-4058-bc78-016d0eb00614"
+    ],
+    "asyncDuration": 5
+  },
+  "cs": {
+    "tags": [
+      "43a6dc0d-d866-4b79-9453-13c44e906128",
+      "9c2c08a9-7dc6-4058-bc78-016d0eb00614"
+    ],
+    "asyncDuration": 5
+  },
+  "nl": {
+    "tags": [
+      "43a6dc0d-d866-4b79-9453-13c44e906128",
+      "9c2c08a9-7dc6-4058-bc78-016d0eb00614"
+    ],
+    "asyncDuration": 5
+  }
 }
