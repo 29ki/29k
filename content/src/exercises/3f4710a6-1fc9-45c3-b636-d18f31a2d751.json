@@ -1,5 +1,6 @@
 {
   "en": {
+    "liveDuration": 40,
     "slides": [
       {
         "type": "host",
@@ -137,6 +138,7 @@
     "name": "Relating",
     "live": true,
     "published": true,
+    "asyncDuration": 23,
     "card": {
       "image": {
         "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1709126730/Images/Relaiting_card_image_ultfss.png"
@@ -159,8 +161,6 @@
         "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413436/Contributors/Ints%20Ivanovskis.jpg"
       }
     ],
-    "asyncDuration": 10,
-    "liveDuration": 40,
     "outroPortal": {
       "video": {
         "source": ""
@@ -200,7 +200,15 @@
       "cfc00217-f65b-4a4d-8b82-8ccc8f852dd6"
     ],
     "card": {},
-    "locked": true
+    "locked": true,
+    "introPortal": {
+      "videoLoop": {
+        "p5JsScript": {
+          "lang": "javascript"
+        }
+      }
+    },
+    "asyncDuration": 23
   },
   "sv": {
     "id": "3f4710a6-1fc9-45c3-b636-d18f31a2d751",
@@ -209,7 +217,8 @@
       "cfc00217-f65b-4a4d-8b82-8ccc8f852dd6"
     ],
     "card": {},
-    "locked": true
+    "locked": true,
+    "asyncDuration": 23
   },
   "ja": {
     "id": "3f4710a6-1fc9-45c3-b636-d18f31a2d751",
@@ -218,9 +227,28 @@
       "cfc00217-f65b-4a4d-8b82-8ccc8f852dd6"
     ],
     "card": {},
-    "locked": true
+    "locked": true,
+    "asyncDuration": 23
   },
-  "da": {},
-  "cs": {},
-  "nl": {}
+  "da": {
+    "tags": [
+      "43a6dc0d-d866-4b79-9453-13c44e906128",
+      "cfc00217-f65b-4a4d-8b82-8ccc8f852dd6"
+    ],
+    "asyncDuration": 23
+  },
+  "cs": {
+    "tags": [
+      "43a6dc0d-d866-4b79-9453-13c44e906128",
+      "cfc00217-f65b-4a4d-8b82-8ccc8f852dd6"
+    ],
+    "asyncDuration": 23
+  },
+  "nl": {
+    "tags": [
+      "43a6dc0d-d866-4b79-9453-13c44e906128",
+      "cfc00217-f65b-4a4d-8b82-8ccc8f852dd6"
+    ],
+    "asyncDuration": 23
+  }
 }
