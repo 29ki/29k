@@ -1,5 +1,6 @@
 {
   "en": {
+    "liveDuration": 30,
     "slides": [
       {
         "type": "host",
@@ -103,6 +104,7 @@
     "name": "Personal values",
     "live": true,
     "published": true,
+    "asyncDuration": 6,
     "card": {
       "image": {
         "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1692872012/Images/card_personal_values_xpcp9x.png"
@@ -123,8 +125,6 @@
         "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413436/Contributors/Ints%20Ivanovskis.jpg"
       }
     ],
-    "asyncDuration": 10,
-    "liveDuration": 30,
     "introPortal": {
       "hostNotes": [
         {
@@ -152,6 +152,7 @@
     "description": "Your personal values can help you navigate life in both ups and downs. Also, living a value-based life has been proven to increase sense of purpose and long term happiness.\n\nThis session will guide you to define your personal values."
   },
   "pt": {
+    "liveDuration": 30,
     "slides": [
       {
         "type": "host",
@@ -255,6 +256,7 @@
     "name": "Valores pessoais",
     "live": true,
     "published": true,
+    "asyncDuration": 6,
     "card": {
       "image": {
         "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1692872012/Images/card_personal_values_xpcp9x.png"
@@ -280,8 +282,6 @@
         "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1727943392/FJN/People/Florbela_Silva_bd0qx9.jpg"
       }
     ],
-    "asyncDuration": 10,
-    "liveDuration": 30,
     "introPortal": {
       "hostNotes": [
         {
@@ -309,6 +309,7 @@
     "description": "Os teus valores pessoais podem ajudar-te a navegar pela vida, tanto nos momentos altos como nos baixos. Além disso, viver uma vida baseada em valores tem demonstrado aumentar o sentido de propósito e a felicidade a longo prazo.\n\nEsta sessão vai guiar-te na definição dos teus valores pessoais.\n\nEncontra uma posição confortável e prepara-te para tomar algumas notas durante o exercício."
   },
   "sv": {
+    "liveDuration": 30,
     "slides": [
       {
         "type": "host",
@@ -412,6 +413,7 @@
     "name": "Personliga värderingar",
     "live": true,
     "published": true,
+    "asyncDuration": 6,
     "card": {
       "image": {
         "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1692872012/Images/card_personal_values_xpcp9x.png"
@@ -437,8 +439,6 @@
         "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413154/Contributors/Lisa%20L%C3%B6%C3%B6f.jpg"
       }
     ],
-    "asyncDuration": 10,
-    "liveDuration": 30,
     "introPortal": {
       "hostNotes": [
         {
@@ -466,6 +466,7 @@
     "description": "Dina personliga värderingar kan hjälpa dig navigera livets med- och motgångar. Att leva i linje med sina värderingar har har visat sig ge en ökning av både upplevd mening och lycka.\n\nI den här sessionen kommer du få möjlighet att hitta fram till just dina personliga värderingar."
   },
   "ja": {
+    "liveDuration": 30,
     "slides": [
       {
         "type": "host",
@@ -527,9 +528,8 @@
     "hidden": false,
     "live": true,
     "published": false,
+    "asyncDuration": 6,
     "card": {},
-    "asyncDuration": 10,
-    "liveDuration": 30,
     "introPortal": {
       "hostNotes": [
         {
@@ -545,7 +545,25 @@
     "id": "61adeaf2-70ab-4c6c-854c-2c16f762a3c5",
     "async": false
   },
-  "da": {},
-  "cs": {},
-  "nl": {}
+  "da": {
+    "tags": [
+      "9c2c08a9-7dc6-4058-bc78-016d0eb00614",
+      "8da0534a-5da9-430a-bdf3-242ace6460fb"
+    ],
+    "asyncDuration": 6
+  },
+  "cs": {
+    "tags": [
+      "9c2c08a9-7dc6-4058-bc78-016d0eb00614",
+      "8da0534a-5da9-430a-bdf3-242ace6460fb"
+    ],
+    "asyncDuration": 6
+  },
+  "nl": {
+    "tags": [
+      "9c2c08a9-7dc6-4058-bc78-016d0eb00614",
+      "8da0534a-5da9-430a-bdf3-242ace6460fb"
+    ],
+    "asyncDuration": 6
+  }
 }
