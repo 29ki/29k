@@ -1,5 +1,6 @@
 {
   "en": {
+    "liveDuration": 30,
     "slides": [
       {
         "type": "host",
@@ -99,6 +100,7 @@
     "name": "The future you",
     "live": true,
     "published": true,
+    "asyncDuration": 6,
     "card": {
       "image": {
         "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1698390535/Images/card_image_the_future_you_mo0fgx.png"
@@ -116,8 +118,6 @@
         "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413436/Contributors/Ints%20Ivanovskis.jpg"
       }
     ],
-    "asyncDuration": 10,
-    "liveDuration": 30,
     "introPortal": {
       "hostNotes": [
         {
@@ -145,6 +145,7 @@
     "description": "To dare to dream and find direction in life can be tricky. In this exercise, we'll visualize ourselves in the future to find guidance. Having a sense of long-term direction can improve our well-being, goal fulfillment, and life satisfaction."
   },
   "pt": {
+    "liveDuration": 30,
     "slides": [
       {
         "type": "host",
@@ -245,6 +246,7 @@
     "name": "O teu EU futuro",
     "live": true,
     "published": true,
+    "asyncDuration": 6,
     "card": {
       "image": {
         "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1698390535/Images/card_image_the_future_you_mo0fgx.png"
@@ -267,8 +269,6 @@
         "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1727943392/FJN/People/Florbela_Silva_bd0qx9.jpg"
       }
     ],
-    "asyncDuration": 10,
-    "liveDuration": 30,
     "introPortal": {
       "hostNotes": [
         {
@@ -296,6 +296,7 @@
     "description": "Ousar sonhar e encontrar uma direção na vida pode ser desafiante. Neste exercício, vamos visualizar-nos no futuro para encontrar orientação. Ter um sentido de direção a longo prazo pode melhorar o nosso bem-estar, o cumprimento de objetivos e a satisfação com a vida."
   },
   "sv": {
+    "liveDuration": 30,
     "slides": [
       {
         "type": "host",
@@ -395,6 +396,7 @@
     "name": "Ditt framtida jag",
     "live": true,
     "published": true,
+    "asyncDuration": 6,
     "card": {
       "image": {
         "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1698390535/Images/card_image_the_future_you_mo0fgx.png"
@@ -412,8 +414,6 @@
         "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413436/Contributors/Ints%20Ivanovskis.jpg"
       }
     ],
-    "asyncDuration": 10,
-    "liveDuration": 30,
     "introPortal": {
       "hostNotes": [
         {
@@ -441,6 +441,7 @@
     "description": "Att våga drömma och hitta riktning i livet kan vara svårt. I den här övningen föreställer vi oss oss själva i framtiden för att få vägledning. En känsla av vad som är viktigt i längden kan hjälpa oss att må bättre, nå våra mål och ge ökad livstillfredsställelse."
   },
   "ja": {
+    "liveDuration": 30,
     "slides": [
       {
         "type": "host",
@@ -508,9 +509,8 @@
     "hidden": false,
     "live": true,
     "published": false,
+    "asyncDuration": 6,
     "card": {},
-    "asyncDuration": 10,
-    "liveDuration": 30,
     "introPortal": {
       "hostNotes": [
         {
@@ -526,7 +526,25 @@
     "id": "fff6f8da-f69c-458f-8905-acee04bd1a1d",
     "async": false
   },
-  "da": {},
-  "cs": {},
-  "nl": {}
+  "da": {
+    "tags": [
+      "9c2c08a9-7dc6-4058-bc78-016d0eb00614",
+      "43a6dc0d-d866-4b79-9453-13c44e906128"
+    ],
+    "asyncDuration": 6
+  },
+  "cs": {
+    "tags": [
+      "9c2c08a9-7dc6-4058-bc78-016d0eb00614",
+      "43a6dc0d-d866-4b79-9453-13c44e906128"
+    ],
+    "asyncDuration": 6
+  },
+  "nl": {
+    "tags": [
+      "9c2c08a9-7dc6-4058-bc78-016d0eb00614",
+      "43a6dc0d-d866-4b79-9453-13c44e906128"
+    ],
+    "asyncDuration": 6
+  }
 }
