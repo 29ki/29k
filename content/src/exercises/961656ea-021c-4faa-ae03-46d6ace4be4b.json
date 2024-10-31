@@ -1,5 +1,6 @@
 {
   "en": {
+    "liveDuration": 30,
     "slides": [
       {
         "type": "host",
@@ -104,6 +105,7 @@
     "name": "Three things",
     "live": true,
     "published": true,
+    "asyncDuration": 6,
     "card": {
       "image": {
         "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1692965918/Images/2card_become_present_zhuz9j.png"
@@ -119,8 +121,6 @@
         "url": "https://www.linkedin.com/in/ints-ivanovskis-46ab0311a/"
       }
     ],
-    "asyncDuration": 10,
-    "liveDuration": 30,
     "introPortal": {
       "hostNotes": [
         {
@@ -148,6 +148,7 @@
     "description": "When we're stressed our minds easily wanders off into the future or dwell on past experiences. A more helpful strategy is to be present with what’s right here, right now. This exercise let’s us practice presence using three of our senses."
   },
   "pt": {
+    "liveDuration": 30,
     "slides": [
       {
         "type": "host",
@@ -252,6 +253,7 @@
     "name": "Torna-te presente",
     "live": true,
     "published": true,
+    "asyncDuration": 6,
     "card": {
       "image": {
         "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1692965918/Images/2card_become_present_zhuz9j.png"
@@ -272,8 +274,6 @@
         "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1728375093/FJN/People/Cristina_Alves_zt1btx.png"
       }
     ],
-    "asyncDuration": 10,
-    "liveDuration": 30,
     "introPortal": {
       "hostNotes": [
         {
@@ -301,6 +301,7 @@
     "description": "Quando estamos stressados, a nossa mente facilmente vagueia para o futuro ou fixa-se nas experiências passadas. Uma estratégia mais eficaz para combater o stress é estar presente no aqui e agora. Este exercício permite-nos praticar essa presença usando três dos nossos sentidos."
   },
   "sv": {
+    "liveDuration": 30,
     "slides": [
       {
         "type": "host",
@@ -406,6 +407,7 @@
     "name": "Tre saker",
     "live": true,
     "published": true,
+    "asyncDuration": 6,
     "card": {
       "image": {
         "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1692965918/Images/2card_become_present_zhuz9j.png"
@@ -414,8 +416,6 @@
     "socialMeta": {
       "image": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1692897989/Images/card_become_present_s5b47y.png"
     },
-    "asyncDuration": 10,
-    "liveDuration": 30,
     "introPortal": {
       "hostNotes": [
         {
@@ -440,6 +440,7 @@
     "description": "När vi är stressade är det lätt att vi blir oroliga för framtiden och att vi ältar sånt som redan har hänt. En mer hjälpsam strategi är att vara närvarande i nuet. I den här övningen tränar vi på medveten närvaro med tre olika sinnen."
   },
   "ja": {
+    "liveDuration": 30,
     "slides": [
       {
         "type": "host",
@@ -501,9 +502,8 @@
     "hidden": false,
     "live": true,
     "published": false,
+    "asyncDuration": 6,
     "card": {},
-    "asyncDuration": 10,
-    "liveDuration": 30,
     "introPortal": {
       "hostNotes": [
         {
@@ -523,18 +523,21 @@
     "tags": [
       "cfc00217-f65b-4a4d-8b82-8ccc8f852dd6",
       "8da0534a-5da9-430a-bdf3-242ace6460fb"
-    ]
+    ],
+    "asyncDuration": 6
   },
   "cs": {
     "tags": [
       "cfc00217-f65b-4a4d-8b82-8ccc8f852dd6",
       "8da0534a-5da9-430a-bdf3-242ace6460fb"
-    ]
+    ],
+    "asyncDuration": 6
   },
   "nl": {
     "tags": [
       "cfc00217-f65b-4a4d-8b82-8ccc8f852dd6",
       "8da0534a-5da9-430a-bdf3-242ace6460fb"
-    ]
+    ],
+    "asyncDuration": 6
   }
 }
