@@ -1,5 +1,6 @@
 {
   "en": {
+    "liveDuration": 30,
     "slides": [
       {
         "type": "host",
@@ -115,6 +116,7 @@
     "name": "The clothespins",
     "live": true,
     "published": true,
+    "asyncDuration": 4,
     "card": {
       "image": {
         "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1669043690/Images/cover1_Be_kind_to_yourself_iqereg.png"
@@ -137,8 +139,6 @@
         "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413228/Contributors/Jenny%20Rickardsson.jpg"
       }
     ],
-    "asyncDuration": 10,
-    "liveDuration": 30,
     "introPortal": {
       "hostNotes": [
         {
@@ -167,6 +167,7 @@
     "description": "We are often harsh on ourselves, and more compassionate with others. In this exercise we'll practice finding a compassionate inner ally to accompany us in difficult situations. Self compassion can help us feel happier and more satisfied with ourselves."
   },
   "pt": {
+    "liveDuration": 30,
     "slides": [
       {
         "type": "host",
@@ -281,6 +282,7 @@
     "name": "Sê gentil contigo (A mola da roupa)",
     "live": true,
     "published": true,
+    "asyncDuration": 4,
     "card": {
       "image": {
         "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1669043689/Images/cover2_Be_kind_to_yourself_af04b8.png"
@@ -308,8 +310,6 @@
         "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1727943392/FJN/People/Florbela_Silva_bd0qx9.jpg"
       }
     ],
-    "asyncDuration": 10,
-    "liveDuration": 30,
     "introPortal": {
       "hostNotes": [
         {
@@ -338,6 +338,7 @@
     "description": "Muitas vezes somos duros connosco e mais compassivos com os outros. Neste exercício vamos aprender a encontrar um aliado interior compassivo que nos acompanhe em situações difíceis. A autocompaixão pode ajudar-nos a sentir mais felizes e satisfeitos com nós mesmos.\n\nEncontra uma posição confortável e prepara-te para tomar algumas notas durante o exercício."
   },
   "sv": {
+    "liveDuration": 30,
     "slides": [
       {
         "type": "host",
@@ -454,6 +455,7 @@
     "name": "Klädnyporna",
     "live": true,
     "published": true,
+    "asyncDuration": 4,
     "card": {
       "image": {
         "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1669043690/Images/cover1_Be_kind_to_yourself_iqereg.png"
@@ -476,8 +478,6 @@
         "url": "https://www.linkedin.com/in/jacquelinelevi/"
       }
     ],
-    "asyncDuration": 10,
-    "liveDuration": 30,
     "introPortal": {
       "hostNotes": [
         {
@@ -504,7 +504,7 @@
   },
   "ja": {
     "id": "185889ec-753b-4e2c-8322-3004013e8a6e",
-    "asyncDuration": 10,
+    "asyncDuration": 4,
     "liveDuration": 30,
     "tags": [
       "db34d82a-4c48-4ddd-9de5-f562d8aa1bc9",
@@ -516,18 +516,21 @@
     "tags": [
       "db34d82a-4c48-4ddd-9de5-f562d8aa1bc9",
       "566aeb1b-1649-4f5a-96a2-0c80be27efc0"
-    ]
+    ],
+    "asyncDuration": 4
   },
   "cs": {
     "tags": [
       "db34d82a-4c48-4ddd-9de5-f562d8aa1bc9",
       "566aeb1b-1649-4f5a-96a2-0c80be27efc0"
-    ]
+    ],
+    "asyncDuration": 4
   },
   "nl": {
     "tags": [
       "db34d82a-4c48-4ddd-9de5-f562d8aa1bc9",
       "566aeb1b-1649-4f5a-96a2-0c80be27efc0"
-    ]
+    ],
+    "asyncDuration": 4
   }
 }
