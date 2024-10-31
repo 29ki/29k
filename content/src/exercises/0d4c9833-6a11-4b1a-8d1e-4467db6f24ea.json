@@ -1,5 +1,6 @@
 {
   "en": {
+    "liveDuration": 30,
     "slides": [
       {
         "type": "host",
@@ -104,6 +105,7 @@
     "name": "Explore eco emotions",
     "live": true,
     "published": true,
+    "asyncDuration": 6,
     "card": {
       "imageBackgroundColor": "#ebf4f3",
       "image": {
@@ -127,8 +129,6 @@
         "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413436/Contributors/Ints%20Ivanovskis.jpg"
       }
     ],
-    "asyncDuration": 10,
-    "liveDuration": 30,
     "introPortal": {
       "hostNotes": [
         {
@@ -156,6 +156,7 @@
     "description": "Our emotions contain much wisdom, as they give us information of what's important and things we care about. Climate is mostly often associated with anxiety, but in this exercise we try to recognize and appreciate a wider spectrum of eco emotions."
   },
   "pt": {
+    "liveDuration": 30,
     "slides": [
       {
         "type": "host",
@@ -260,6 +261,7 @@
     "name": "Explorar as eco emoções",
     "live": true,
     "published": true,
+    "asyncDuration": 6,
     "card": {
       "imageBackgroundColor": "#ebf4f3",
       "image": {
@@ -288,8 +290,6 @@
         "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1727943392/FJN/People/Florbela_Silva_bd0qx9.jpg"
       }
     ],
-    "asyncDuration": 10,
-    "liveDuration": 30,
     "introPortal": {
       "hostNotes": [
         {
@@ -317,6 +317,7 @@
     "description": "As nossas emoções contêm muita sabedoria, pois dão-nos informações sobre o que é importante e sobre aquilo de que nos importamos. O clima está muitas vezes associado à ansiedade, mas neste exercício vamos tentar reconhecer e apreciar um espectro mais amplo de eco emoções."
   },
   "sv": {
+    "liveDuration": 30,
     "slides": [
       {
         "type": "host",
@@ -421,6 +422,7 @@
     "name": "Utforska eko-känslor",
     "live": true,
     "published": true,
+    "asyncDuration": 6,
     "card": {
       "imageBackgroundColor": "#ebf4f3",
       "image": {
@@ -444,8 +446,6 @@
         "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413436/Contributors/Ints%20Ivanovskis.jpg"
       }
     ],
-    "asyncDuration": 10,
-    "liveDuration": 30,
     "introPortal": {
       "hostNotes": [
         {
@@ -470,6 +470,7 @@
     "description": "Våra känslor innehåller mycket visdom och kan guida dig i vad som är viktigt för just dig. Många förknippar klimatet med ångest, men i den här övningen provar vi att känna igen och uppskatta ett vidare spektrum av eko-känslor."
   },
   "ja": {
+    "liveDuration": 30,
     "slides": [
       {
         "hostNotes": [
@@ -515,6 +516,7 @@
     "name": "エコ感情を探求する",
     "live": true,
     "published": true,
+    "asyncDuration": 6,
     "card": {
       "imageBackgroundColor": "#ebf4f3",
       "image": {
@@ -538,8 +540,6 @@
         "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413436/Contributors/Ints%20Ivanovskis.jpg"
       }
     ],
-    "asyncDuration": 10,
-    "liveDuration": 30,
     "introPortal": {
       "hostNotes": [
         {
@@ -563,7 +563,25 @@
     "async": true,
     "description": "私たちの感情には多くの知恵が含まれている。風土はたいてい不安と結びつけられることが多いのですが、このエクササイズでは、エコ感情のより広いスペクトルを認識し、評価することを試みます。"
   },
-  "da": {},
-  "cs": {},
-  "nl": {}
+  "da": {
+    "tags": [
+      "34100e43-2eb8-4d35-8eb0-9fa9f78e4935",
+      "566aeb1b-1649-4f5a-96a2-0c80be27efc0"
+    ],
+    "asyncDuration": 6
+  },
+  "cs": {
+    "tags": [
+      "34100e43-2eb8-4d35-8eb0-9fa9f78e4935",
+      "566aeb1b-1649-4f5a-96a2-0c80be27efc0"
+    ],
+    "asyncDuration": 6
+  },
+  "nl": {
+    "tags": [
+      "34100e43-2eb8-4d35-8eb0-9fa9f78e4935",
+      "566aeb1b-1649-4f5a-96a2-0c80be27efc0"
+    ],
+    "asyncDuration": 6
+  }
 }
