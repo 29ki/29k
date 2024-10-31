@@ -1,5 +1,6 @@
 {
   "en": {
+    "liveDuration": 40,
     "slides": [
       {
         "type": "host",
@@ -123,6 +124,7 @@
     "name": "Nature sensing",
     "live": true,
     "published": true,
+    "asyncDuration": 23,
     "card": {
       "image": {
         "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1684313656/Images/outdoor_sensing_thumb_q68hl4.png"
@@ -145,8 +147,6 @@
         "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413436/Contributors/Ints%20Ivanovskis.jpg"
       }
     ],
-    "asyncDuration": 10,
-    "liveDuration": 40,
     "outroPortal": {
       "video": {
         "source": ""
@@ -180,6 +180,7 @@
     "description": "In this meditation, we use all our senses to connect with ourselves and the surrounding nature **–** no matter if nature is a street, a balcony, or deep in the forest. Practising nature awareness can help us feel happier and more connected to ourselves and others."
   },
   "pt": {
+    "liveDuration": 40,
     "slides": [
       {
         "type": "host",
@@ -302,6 +303,7 @@
     "name": "Sentir a natureza",
     "live": true,
     "published": true,
+    "asyncDuration": 23,
     "card": {
       "image": {
         "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1684313656/Images/outdoor_sensing_thumb_q68hl4.png"
@@ -329,8 +331,6 @@
         "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1728375093/FJN/People/Cristina_Alves_zt1btx.png"
       }
     ],
-    "asyncDuration": 10,
-    "liveDuration": 40,
     "outroPortal": {
       "video": {
         "source": ""
@@ -365,7 +365,7 @@
   },
   "sv": {
     "id": "b7f8731c-64d7-4c0f-9bc8-a3e50ec2eaf7",
-    "asyncDuration": 10,
+    "asyncDuration": 23,
     "liveDuration": 40,
     "tags": [
       "43a6dc0d-d866-4b79-9453-13c44e906128",
@@ -376,7 +376,7 @@
   },
   "ja": {
     "id": "b7f8731c-64d7-4c0f-9bc8-a3e50ec2eaf7",
-    "asyncDuration": 10,
+    "asyncDuration": 23,
     "liveDuration": 40,
     "tags": [
       "43a6dc0d-d866-4b79-9453-13c44e906128",
@@ -384,7 +384,25 @@
     ],
     "link": "https://aware.29k.org/outdoor-sensing"
   },
-  "da": {},
-  "cs": {},
-  "nl": {}
+  "da": {
+    "tags": [
+      "43a6dc0d-d866-4b79-9453-13c44e906128",
+      "cfc00217-f65b-4a4d-8b82-8ccc8f852dd6"
+    ],
+    "asyncDuration": 23
+  },
+  "cs": {
+    "tags": [
+      "43a6dc0d-d866-4b79-9453-13c44e906128",
+      "cfc00217-f65b-4a4d-8b82-8ccc8f852dd6"
+    ],
+    "asyncDuration": 23
+  },
+  "nl": {
+    "tags": [
+      "43a6dc0d-d866-4b79-9453-13c44e906128",
+      "cfc00217-f65b-4a4d-8b82-8ccc8f852dd6"
+    ],
+    "asyncDuration": 23
+  }
 }
