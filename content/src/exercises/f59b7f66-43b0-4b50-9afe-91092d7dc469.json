@@ -1,5 +1,6 @@
 {
   "en": {
+    "liveDuration": 30,
     "slides": [
       {
         "type": "host",
@@ -105,6 +106,7 @@
     "name": "Daily actions",
     "live": true,
     "published": true,
+    "asyncDuration": 7,
     "card": {
       "image": {
         "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1707994006/Contributors/card_daily_action_xpus8c.png"
@@ -127,8 +129,6 @@
         "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1710239861/Contributors/descript_ps0olu.webp"
       }
     ],
-    "asyncDuration": 10,
-    "liveDuration": 30,
     "introPortal": {
       "textColor": "#F9F8F4",
       "hostNotes": [
@@ -153,6 +153,7 @@
     "description": "Move values into actions with the “fan of cards”. Actions that are backed by values can make us feel better, also about the difficult choices we all face in life."
   },
   "pt": {
+    "liveDuration": 30,
     "slides": [
       {
         "type": "host",
@@ -259,6 +260,7 @@
     "name": "Ações diárias",
     "live": true,
     "published": true,
+    "asyncDuration": 7,
     "card": {
       "image": {
         "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1707994006/Contributors/card_daily_action_xpus8c.png"
@@ -286,8 +288,6 @@
         "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1728375093/FJN/People/Cristina_Alves_zt1btx.png"
       }
     ],
-    "asyncDuration": 10,
-    "liveDuration": 30,
     "introPortal": {
       "textColor": "#F9F8F4",
       "hostNotes": [
@@ -312,6 +312,7 @@
     "description": "Transforma valores em ações com o “leque de cartas”. Ações guiadas por valores podem fazer-nos sentir melhor, inclusive em relação às escolhas difíceis que todos enfrentamos na vida.\n\nEncontra uma posição confortável e prepara-te para tomar algumas notas durante o exercício."
   },
   "sv": {
+    "liveDuration": 30,
     "slides": [
       {
         "type": "host",
@@ -418,6 +419,7 @@
     "name": "Kortleken",
     "live": true,
     "published": true,
+    "asyncDuration": 7,
     "card": {
       "image": {
         "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1707994006/Contributors/card_daily_action_xpus8c.png"
@@ -440,8 +442,6 @@
         "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413154/Contributors/Lisa%20L%C3%B6%C3%B6f.jpg"
       }
     ],
-    "asyncDuration": 10,
-    "liveDuration": 30,
     "introPortal": {
       "textColor": "#F9F8F4",
       "hostNotes": [
@@ -466,6 +466,7 @@
     "description": "Med hjälp av en kortlek kan du omvandla dina värderingar till vardagliga beteenden. När vi agerar i linje med våra värderingar mår vi bättre, även när vi stöter på problem eller går igenom tuffare perioder. "
   },
   "ja": {
+    "liveDuration": 30,
     "slides": [
       {
         "type": "host",
@@ -539,9 +540,8 @@
     "hidden": false,
     "live": true,
     "published": false,
+    "asyncDuration": 7,
     "card": {},
-    "asyncDuration": 10,
-    "liveDuration": 30,
     "introPortal": {
       "textColor": "#2AE2D7",
       "hostNotes": [
@@ -557,7 +557,25 @@
     "id": "f59b7f66-43b0-4b50-9afe-91092d7dc469",
     "async": false
   },
-  "da": {},
-  "cs": {},
-  "nl": {}
+  "da": {
+    "tags": [
+      "9c2c08a9-7dc6-4058-bc78-016d0eb00614",
+      "8da0534a-5da9-430a-bdf3-242ace6460fb"
+    ],
+    "asyncDuration": 7
+  },
+  "cs": {
+    "tags": [
+      "9c2c08a9-7dc6-4058-bc78-016d0eb00614",
+      "8da0534a-5da9-430a-bdf3-242ace6460fb"
+    ],
+    "asyncDuration": 7
+  },
+  "nl": {
+    "tags": [
+      "9c2c08a9-7dc6-4058-bc78-016d0eb00614",
+      "8da0534a-5da9-430a-bdf3-242ace6460fb"
+    ],
+    "asyncDuration": 7
+  }
 }
