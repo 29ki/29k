@@ -1,5 +1,6 @@
 {
   "en": {
+    "liveDuration": 30,
     "slides": [
       {
         "type": "host",
@@ -128,6 +129,7 @@
     "name": "But / And",
     "live": true,
     "published": true,
+    "asyncDuration": 4,
     "card": {
       "image": {
         "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1675416302/Images/card_bring_your_fee.._cs3oph.png"
@@ -149,8 +151,6 @@
         "url": "https://www.linkedin.com/in/ints-ivanovskis-46ab0311a/"
       }
     ],
-    "asyncDuration": 10,
-    "liveDuration": 30,
     "introPortal": {
       "videoLoop": {
         "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1665480650/Temp/portal_no_sound_o7okas.mp4",
@@ -178,6 +178,7 @@
     "description": "How we talk to ourselves affect how we act. In this exercise we practice awareness of our self-talk, and try out how word-switching can be used to open new possibilities to act in meaningful ways."
   },
   "pt": {
+    "liveDuration": 30,
     "slides": [
       {
         "type": "host",
@@ -297,6 +298,7 @@
     "name": "Age independentemente do sentimento (MAS / E)",
     "live": true,
     "published": true,
+    "asyncDuration": 4,
     "card": {
       "image": {
         "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1675416485/Images/card_bring_your_fee..PT_vf9to7.png"
@@ -319,8 +321,6 @@
         "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1727943392/FJN/People/Florbela_Silva_bd0qx9.jpg"
       }
     ],
-    "asyncDuration": 10,
-    "liveDuration": 30,
     "introPortal": {
       "videoLoop": {
         "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1675257549/Video/Videos%20PT/portal_PT_bring_your_fee.._w8ogim.mp4",
@@ -348,6 +348,7 @@
     "description": "A forma como falamos connosco afeta as nossas ações. Neste exercício, praticamos a consciência da nossa conversa interior e experimentamos trocar palavras que podem abrir novas possibilidades para agirmos com significado.\n\nEncontra uma posição confortável e prepara-te para tomar algumas notas durante o exercício."
   },
   "sv": {
+    "liveDuration": 30,
     "slides": [
       {
         "type": "host",
@@ -476,6 +477,7 @@
     "name": "But / And",
     "live": true,
     "published": false,
+    "asyncDuration": 4,
     "card": {
       "image": {
         "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1675416302/Images/card_bring_your_fee.._cs3oph.png"
@@ -497,8 +499,6 @@
         "url": "https://www.linkedin.com/in/ints-ivanovskis-46ab0311a/"
       }
     ],
-    "asyncDuration": 10,
-    "liveDuration": 30,
     "introPortal": {
       "videoLoop": {
         "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1665480650/Temp/portal_no_sound_o7okas.mp4",
@@ -527,7 +527,7 @@
   },
   "ja": {
     "id": "ea0b48c1-745e-418d-93e7-2d8a6cd72898",
-    "asyncDuration": 10,
+    "asyncDuration": 4,
     "liveDuration": 30,
     "tags": [
       "34100e43-2eb8-4d35-8eb0-9fa9f78e4935",
@@ -539,18 +539,21 @@
     "tags": [
       "34100e43-2eb8-4d35-8eb0-9fa9f78e4935",
       "566aeb1b-1649-4f5a-96a2-0c80be27efc0"
-    ]
+    ],
+    "asyncDuration": 4
   },
   "cs": {
     "tags": [
       "34100e43-2eb8-4d35-8eb0-9fa9f78e4935",
       "566aeb1b-1649-4f5a-96a2-0c80be27efc0"
-    ]
+    ],
+    "asyncDuration": 4
   },
   "nl": {
     "tags": [
       "34100e43-2eb8-4d35-8eb0-9fa9f78e4935",
       "566aeb1b-1649-4f5a-96a2-0c80be27efc0"
-    ]
+    ],
+    "asyncDuration": 4
   }
 }
