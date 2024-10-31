@@ -1,5 +1,6 @@
 {
   "en": {
+    "liveDuration": 30,
     "slides": [
       {
         "type": "host",
@@ -139,6 +140,7 @@
     "name": "Allow and accept",
     "live": true,
     "published": true,
+    "asyncDuration": 5,
     "card": {
       "image": {
         "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1667318313/Images/cover_Accepting_thoughts_and_feelings_w323ui.png"
@@ -161,8 +163,6 @@
         "url": "https://www.linkedin.com/in/jenny-rickardson-6770a959/"
       }
     ],
-    "asyncDuration": 10,
-    "liveDuration": 30,
     "outroPortal": {
       "video": {
         "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1667376603/Video/portal1_Accepting_thoughts_and_feelings_upvkxb.mp4"
@@ -196,6 +196,7 @@
     "description": "A guided meditation exercise on accepting what's going on inside. Practicing acceptance can help us do more of what matters, and has proven to be an effective way of dealing with inner experiences."
   },
   "pt": {
+    "liveDuration": 30,
     "slides": [
       {
         "type": "host",
@@ -311,6 +312,7 @@
     "name": "Aceitar pensamentos e sentimentos",
     "live": true,
     "published": true,
+    "asyncDuration": 5,
     "card": {
       "image": {
         "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1667318313/Images/cover_Accepting_thoughts_and_feelings_w323ui.png"
@@ -338,8 +340,6 @@
         "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1728375093/FJN/People/Cristina_Alves_zt1btx.png"
       }
     ],
-    "asyncDuration": 10,
-    "liveDuration": 30,
     "outroPortal": {
       "video": {
         "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1667376603/Video/portal1_Accepting_thoughts_and_feelings_upvkxb.mp4"
@@ -373,6 +373,7 @@
     "description": "Um exercício de meditação guiada para aceitar o que está a acontecer dentro de nós. Praticar a aceitação pode ajudar-nos a fazer mais o que é importante para nós e provou ser uma forma eficaz de lidar com as experiências interiores."
   },
   "sv": {
+    "liveDuration": 30,
     "slides": [
       {
         "type": "host",
@@ -490,6 +491,7 @@
     "name": "Tilllåt och acceptera",
     "live": true,
     "published": true,
+    "asyncDuration": 5,
     "card": {
       "image": {
         "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1667318313/Images/cover_Accepting_thoughts_and_feelings_w323ui.png"
@@ -512,8 +514,6 @@
         "url": "https://www.linkedin.com/in/jenny-rickardson-6770a959/"
       }
     ],
-    "asyncDuration": 10,
-    "liveDuration": 30,
     "outroPortal": {
       "video": {
         "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1667376603/Video/portal1_Accepting_thoughts_and_feelings_upvkxb.mp4"
@@ -545,7 +545,7 @@
   },
   "ja": {
     "id": "94575e97-fe03-4bfd-94a6-50aaf721d47e",
-    "asyncDuration": 10,
+    "asyncDuration": 5,
     "liveDuration": 30,
     "tags": [
       "34100e43-2eb8-4d35-8eb0-9fa9f78e4935",
@@ -557,18 +557,21 @@
     "tags": [
       "34100e43-2eb8-4d35-8eb0-9fa9f78e4935",
       "cfc00217-f65b-4a4d-8b82-8ccc8f852dd6"
-    ]
+    ],
+    "asyncDuration": 5
   },
   "cs": {
     "tags": [
       "34100e43-2eb8-4d35-8eb0-9fa9f78e4935",
       "cfc00217-f65b-4a4d-8b82-8ccc8f852dd6"
-    ]
+    ],
+    "asyncDuration": 5
   },
   "nl": {
     "tags": [
       "34100e43-2eb8-4d35-8eb0-9fa9f78e4935",
       "cfc00217-f65b-4a4d-8b82-8ccc8f852dd6"
-    ]
+    ],
+    "asyncDuration": 5
   }
 }
