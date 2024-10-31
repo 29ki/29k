@@ -1,5 +1,6 @@
 {
   "en": {
+    "liveDuration": 30,
     "slides": [
       {
         "type": "host",
@@ -104,6 +105,7 @@
     "name": "Exploring shame",
     "live": true,
     "published": true,
+    "asyncDuration": 11,
     "card": {
       "image": {
         "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1716468139/Images/card_exploring_shame_tmsztr.png"
@@ -131,8 +133,6 @@
         "url": "https://www.linkedin.com/in/ints-ivanovskis-46ab0311a/"
       }
     ],
-    "asyncDuration": 10,
-    "liveDuration": 30,
     "introPortal": {
       "textColor": "#2E2E2E",
       "hostNotes": [
@@ -160,6 +160,7 @@
     "description": "Shame is a powerful emotion. In this session we'll explore different perspectives on shame, investigating our own relationship to it. It can help us gain perspective and be kinder to ourselves."
   },
   "pt": {
+    "liveDuration": 30,
     "slides": [
       {
         "type": "host",
@@ -265,6 +266,7 @@
     "name": "Explorar a vergonha",
     "live": true,
     "published": true,
+    "asyncDuration": 11,
     "card": {
       "image": {
         "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1716468139/Images/card_exploring_shame_tmsztr.png"
@@ -297,8 +299,6 @@
         "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1727943392/FJN/People/Florbela_Silva_bd0qx9.jpg"
       }
     ],
-    "asyncDuration": 10,
-    "liveDuration": 30,
     "introPortal": {
       "textColor": "#2E2E2E",
       "hostNotes": [
@@ -326,6 +326,7 @@
     "description": "A vergonha é uma emoção poderosa. Nesta sessão, vamos explorar diferentes perspetivas sobre a vergonha, investigando a nossa própria relação com ela. Isso pode ajudar-nos a ganhar perspetiva e a sermos mais gentis connosco mesmos.\n\nEncontra uma posição confortável e prepara-te para tomar notas durante o exercício."
   },
   "sv": {
+    "liveDuration": 30,
     "slides": [
       {
         "type": "host",
@@ -400,9 +401,8 @@
     "locked": false,
     "live": true,
     "published": false,
+    "asyncDuration": 11,
     "card": {},
-    "asyncDuration": 10,
-    "liveDuration": 30,
     "introPortal": {
       "textColor": "#2AE2D7",
       "hostNotes": [
@@ -419,6 +419,7 @@
     "async": false
   },
   "ja": {
+    "liveDuration": 30,
     "slides": [
       {
         "type": "host",
@@ -493,9 +494,8 @@
     "locked": false,
     "live": true,
     "published": false,
+    "asyncDuration": 11,
     "card": {},
-    "asyncDuration": 10,
-    "liveDuration": 30,
     "introPortal": {
       "textColor": "#2AE2D7",
       "hostNotes": [
@@ -511,7 +511,25 @@
     "id": "e4bf8d17-a774-4702-abfe-c7452c3fee0f",
     "async": false
   },
-  "da": {},
-  "cs": {},
-  "nl": {}
+  "da": {
+    "tags": [
+      "db34d82a-4c48-4ddd-9de5-f562d8aa1bc9",
+      "566aeb1b-1649-4f5a-96a2-0c80be27efc0"
+    ],
+    "asyncDuration": 11
+  },
+  "cs": {
+    "tags": [
+      "db34d82a-4c48-4ddd-9de5-f562d8aa1bc9",
+      "566aeb1b-1649-4f5a-96a2-0c80be27efc0"
+    ],
+    "asyncDuration": 11
+  },
+  "nl": {
+    "tags": [
+      "db34d82a-4c48-4ddd-9de5-f562d8aa1bc9",
+      "566aeb1b-1649-4f5a-96a2-0c80be27efc0"
+    ],
+    "asyncDuration": 11
+  }
 }
