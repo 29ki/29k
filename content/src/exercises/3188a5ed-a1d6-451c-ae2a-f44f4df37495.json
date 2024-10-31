@@ -1,5 +1,6 @@
 {
   "en": {
+    "liveDuration": 30,
     "slides": [
       {
         "type": "host",
@@ -118,6 +119,7 @@
     "name": "The todo list",
     "live": true,
     "published": true,
+    "asyncDuration": 4,
     "card": {
       "image": {
         "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1674395876/Images/card2_Drop_all_requirements_vd3gwl.png"
@@ -140,8 +142,6 @@
         "url": "https://www.linkedin.com/in/jenny-rickardson-6770a959/"
       }
     ],
-    "asyncDuration": 10,
-    "liveDuration": 30,
     "introPortal": {
       "hostNotes": [
         {
@@ -170,6 +170,7 @@
     "description": "Guided meditation for a mindful break during busy days. Re-focusing and grounding ourselves can help reduce stress, reprioritize and give our minds a refreshing break."
   },
   "pt": {
+    "liveDuration": 30,
     "slides": [
       {
         "type": "host",
@@ -287,6 +288,7 @@
     "name": "Deixa cair todas as exigências",
     "live": true,
     "published": true,
+    "asyncDuration": 4,
     "card": {
       "image": {
         "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1674395876/Images/card2_Drop_all_requirements_vd3gwl.png"
@@ -314,8 +316,6 @@
         "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1728375093/FJN/People/Cristina_Alves_zt1btx.png"
       }
     ],
-    "asyncDuration": 10,
-    "liveDuration": 30,
     "introPortal": {
       "hostNotes": [
         {
@@ -344,6 +344,7 @@
     "description": "Uma meditação guiada para uma pausa consciente nos dias mais atarefados. Re-focar a nossa atenção e ancorarmo-nos no presente pode ajudar-nos a reduzir o stress, compreender as prioridades e refrescar a mente."
   },
   "sv": {
+    "liveDuration": 30,
     "slides": [
       {
         "type": "host",
@@ -459,13 +460,12 @@
     "name": "Att göra-listan",
     "live": true,
     "published": true,
+    "asyncDuration": 4,
     "card": {
       "image": {
         "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1674395876/Images/card2_Drop_all_requirements_vd3gwl.png"
       }
     },
-    "asyncDuration": 10,
-    "liveDuration": 30,
     "introPortal": {
       "hostNotes": [
         {
@@ -491,6 +491,7 @@
     "description": "När vi är stressade snurrar tankar och känslor ofta snabbt inuti huvudet och kroppen. I den här övningen tränar vi på att få en paus i vardagsstressen. Det kan hjälpa oss att minska stress, omvärdera och fylla på reserverna igen."
   },
   "ja": {
+    "liveDuration": 30,
     "slides": [
       {
         "type": "host",
@@ -548,8 +549,7 @@
     },
     "hidden": false,
     "published": false,
-    "asyncDuration": 10,
-    "liveDuration": 30,
+    "asyncDuration": 4,
     "introPortal": {
       "hostNotes": [
         {
@@ -568,18 +568,21 @@
     "tags": [
       "cfc00217-f65b-4a4d-8b82-8ccc8f852dd6",
       "566aeb1b-1649-4f5a-96a2-0c80be27efc0"
-    ]
+    ],
+    "asyncDuration": 4
   },
   "cs": {
     "tags": [
       "cfc00217-f65b-4a4d-8b82-8ccc8f852dd6",
       "566aeb1b-1649-4f5a-96a2-0c80be27efc0"
-    ]
+    ],
+    "asyncDuration": 4
   },
   "nl": {
     "tags": [
       "cfc00217-f65b-4a4d-8b82-8ccc8f852dd6",
       "566aeb1b-1649-4f5a-96a2-0c80be27efc0"
-    ]
+    ],
+    "asyncDuration": 4
   }
 }
