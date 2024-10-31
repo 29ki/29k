@@ -1,5 +1,6 @@
 {
   "en": {
+    "liveDuration": 30,
     "slides": [
       {
         "type": "host",
@@ -104,6 +105,7 @@
     "name": "You on stress",
     "live": true,
     "published": true,
+    "asyncDuration": 7,
     "card": {
       "image": {
         "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1693313331/Images/card_image_new_on_stress_zzmmvx.png"
@@ -112,8 +114,6 @@
     "socialMeta": {
       "image": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1693313331/Images/card_image_new_on_stress_zzmmvx.png"
     },
-    "asyncDuration": 10,
-    "liveDuration": 30,
     "introPortal": {
       "hostNotes": [
         {
@@ -141,6 +141,7 @@
     "description": "Learn how stress works for you, and take the first steps towards a less stressful life."
   },
   "pt": {
+    "liveDuration": 30,
     "slides": [
       {
         "type": "host",
@@ -246,6 +247,7 @@
     "name": "Tu em stress",
     "live": true,
     "published": true,
+    "asyncDuration": 7,
     "card": {
       "image": {
         "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1693313331/Images/card_image_new_on_stress_zzmmvx.png"
@@ -254,8 +256,6 @@
     "socialMeta": {
       "image": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1693313331/Images/card_image_new_on_stress_zzmmvx.png"
     },
-    "asyncDuration": 10,
-    "liveDuration": 30,
     "introPortal": {
       "hostNotes": [
         {
@@ -283,6 +283,7 @@
     "description": "Aprende como o stress funciona para ti e dá os primeiros passos em direção a uma vida menos stressante."
   },
   "sv": {
+    "liveDuration": 30,
     "slides": [
       {
         "type": "host",
@@ -387,6 +388,7 @@
     "name": "Du och stress",
     "live": true,
     "published": true,
+    "asyncDuration": 7,
     "card": {
       "image": {
         "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1693313331/Images/card_image_new_on_stress_zzmmvx.png"
@@ -395,8 +397,6 @@
     "socialMeta": {
       "image": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1693313331/Images/card_image_new_on_stress_zzmmvx.png"
     },
-    "asyncDuration": 10,
-    "liveDuration": 30,
     "introPortal": {
       "hostNotes": [
         {
@@ -421,6 +421,7 @@
     "description": "Lär dig hur stress fungerar för dig och ta steg mot en mindre stressig tillvaro."
   },
   "ja": {
+    "liveDuration": 30,
     "slides": [
       {
         "type": "host",
@@ -482,9 +483,8 @@
     "hidden": false,
     "live": true,
     "published": false,
+    "asyncDuration": 7,
     "card": {},
-    "asyncDuration": 10,
-    "liveDuration": 30,
     "introPortal": {
       "hostNotes": [
         {
@@ -500,7 +500,25 @@
     "id": "f4f8a536-5683-40a3-a139-5e3031687cec",
     "async": false
   },
-  "da": {},
-  "cs": {},
-  "nl": {}
+  "da": {
+    "tags": [
+      "cfc00217-f65b-4a4d-8b82-8ccc8f852dd6",
+      "566aeb1b-1649-4f5a-96a2-0c80be27efc0"
+    ],
+    "asyncDuration": 7
+  },
+  "cs": {
+    "tags": [
+      "cfc00217-f65b-4a4d-8b82-8ccc8f852dd6",
+      "566aeb1b-1649-4f5a-96a2-0c80be27efc0"
+    ],
+    "asyncDuration": 7
+  },
+  "nl": {
+    "tags": [
+      "cfc00217-f65b-4a4d-8b82-8ccc8f852dd6",
+      "566aeb1b-1649-4f5a-96a2-0c80be27efc0"
+    ],
+    "asyncDuration": 7
+  }
 }
