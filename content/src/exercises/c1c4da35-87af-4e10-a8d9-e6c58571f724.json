@@ -1,5 +1,6 @@
 {
   "en": {
+    "liveDuration": 30,
     "slides": [
       {
         "type": "host",
@@ -113,6 +114,7 @@
     "name": "Your story",
     "live": true,
     "published": true,
+    "asyncDuration": 12,
     "card": {
       "image": {
         "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1707994027/Contributors/card_your_story_mrv7jq.png"
@@ -135,8 +137,6 @@
         "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1710239861/Contributors/descript_ps0olu.webp"
       }
     ],
-    "asyncDuration": 10,
-    "liveDuration": 30,
     "introPortal": {
       "hostNotes": [
         {
@@ -161,6 +161,7 @@
     "description": "Our past can sometimes dictate the future. Practise telling our stories from different perspectives can help us discover possibilities, make wiser decisions and live in line with our values."
   },
   "pt": {
+    "liveDuration": 30,
     "slides": [
       {
         "type": "host",
@@ -274,6 +275,7 @@
     "name": "A tua história",
     "live": true,
     "published": true,
+    "asyncDuration": 12,
     "card": {
       "image": {
         "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1707994027/Contributors/card_your_story_mrv7jq.png"
@@ -301,8 +303,6 @@
         "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1727943392/FJN/People/Florbela_Silva_bd0qx9.jpg"
       }
     ],
-    "asyncDuration": 10,
-    "liveDuration": 30,
     "introPortal": {
       "hostNotes": [
         {
@@ -327,6 +327,7 @@
     "description": "O nosso passado pode, por vezes, ditar o futuro. Praticar contar as nossas histórias a partir de diferentes perspetivas pode ajudar-nos a descobrir novas possibilidades, tomar decisões mais sábias e viver de acordo com os nossos valores.\n\nEncontra uma posição confortável e prepara-te para tomar algumas notas durante o exercício"
   },
   "sv": {
+    "liveDuration": 30,
     "slides": [
       {
         "type": "host",
@@ -440,6 +441,7 @@
     "name": "Din berättelse",
     "live": true,
     "published": true,
+    "asyncDuration": 12,
     "card": {
       "image": {
         "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1707994027/Contributors/card_your_story_mrv7jq.png"
@@ -462,8 +464,6 @@
         "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413154/Contributors/Lisa%20L%C3%B6%C3%B6f.jpg"
       }
     ],
-    "asyncDuration": 10,
-    "liveDuration": 30,
     "introPortal": {
       "hostNotes": [
         {
@@ -488,6 +488,7 @@
     "description": "Ibland känns det som vårt förflutna även styr över vår framtid. Att titta på vår historia ur olika perspektiv kan hjälpa oss se möjligheter och fatta klokare beslut i linje med våra värderingar. "
   },
   "ja": {
+    "liveDuration": 30,
     "slides": [
       {
         "type": "host",
@@ -561,9 +562,8 @@
     "hidden": false,
     "live": true,
     "published": false,
+    "asyncDuration": 12,
     "card": {},
-    "asyncDuration": 10,
-    "liveDuration": 30,
     "introPortal": {
       "hostNotes": [
         {
@@ -578,7 +578,25 @@
     "id": "c1c4da35-87af-4e10-a8d9-e6c58571f724",
     "async": false
   },
-  "da": {},
-  "cs": {},
-  "nl": {}
+  "da": {
+    "tags": [
+      "566aeb1b-1649-4f5a-96a2-0c80be27efc0",
+      "9c2c08a9-7dc6-4058-bc78-016d0eb00614"
+    ],
+    "asyncDuration": 12
+  },
+  "cs": {
+    "tags": [
+      "566aeb1b-1649-4f5a-96a2-0c80be27efc0",
+      "9c2c08a9-7dc6-4058-bc78-016d0eb00614"
+    ],
+    "asyncDuration": 12
+  },
+  "nl": {
+    "tags": [
+      "566aeb1b-1649-4f5a-96a2-0c80be27efc0",
+      "9c2c08a9-7dc6-4058-bc78-016d0eb00614"
+    ],
+    "asyncDuration": 12
+  }
 }
