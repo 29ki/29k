@@ -1,5 +1,6 @@
 {
   "en": {
+    "liveDuration": 30,
     "slides": [
       {
         "type": "host",
@@ -141,6 +142,7 @@
     "name": "Your 90th birthday",
     "live": true,
     "published": true,
+    "asyncDuration": 8,
     "card": {
       "image": {
         "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1692855592/Images/card_image_90th_birthday_noi09y.png"
@@ -150,8 +152,6 @@
       "image": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1692855592/Images/card_image_90th_birthday_noi09y.png"
     },
     "coCreators": [],
-    "asyncDuration": 10,
-    "liveDuration": 30,
     "introPortal": {
       "hostNotes": [
         {
@@ -180,6 +180,7 @@
     "description": "Dreaming about our future can guide us in the present moment by shining a light on what’s important in the long run.\n\nThis can be extra helpful when we’re under pressure, when we tend to be short-sighted and out of touch with what truly matters."
   },
   "pt": {
+    "liveDuration": 30,
     "slides": [
       {
         "type": "host",
@@ -298,6 +299,7 @@
     "name": "O teu 90º aniversário",
     "live": true,
     "published": true,
+    "asyncDuration": 8,
     "card": {
       "image": {
         "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1692855592/Images/card_image_90th_birthday_noi09y.png"
@@ -307,8 +309,6 @@
       "image": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1692855592/Images/card_image_90th_birthday_noi09y.png"
     },
     "coCreators": [],
-    "asyncDuration": 10,
-    "liveDuration": 30,
     "introPortal": {
       "hostNotes": [
         {
@@ -337,6 +337,7 @@
     "description": "Sonhar com o nosso futuro pode orientar-nos no momento presente, iluminando o que é importante a longo prazo.\n\nIsso pode ser especialmente útil quando estamos sob pressão, momentos em que tendemos a ser mais imediatistas e a perder de vista o que realmente importa,"
   },
   "sv": {
+    "liveDuration": 30,
     "slides": [
       {
         "type": "host",
@@ -465,6 +466,7 @@
     "name": "90-årsdagen",
     "live": true,
     "published": true,
+    "asyncDuration": 8,
     "card": {
       "image": {
         "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1692855592/Images/card_image_90th_birthday_noi09y.png"
@@ -474,8 +476,6 @@
       "image": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1692855592/Images/card_image_90th_birthday_noi09y.png"
     },
     "coCreators": [],
-    "asyncDuration": 10,
-    "liveDuration": 30,
     "introPortal": {
       "hostNotes": [
         {
@@ -504,6 +504,7 @@
     "description": "Att drömma om framtiden kan hjälpa oss att få syn på vad som är viktigt både i nuet – och på längre sikt.\n\nDet kan vara extra hjälpsamt när vi är pressade, agerar kortsiktigt eller ägnar alltför lite tid åt sådant som är betydelsefullt för oss på riktigt."
   },
   "ja": {
+    "liveDuration": 30,
     "slides": [
       {
         "hostNotes": [
@@ -594,6 +595,7 @@
     "name": "90歳の誕生日",
     "live": true,
     "published": true,
+    "asyncDuration": 8,
     "card": {
       "image": {
         "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1692855592/Images/card_image_90th_birthday_noi09y.png"
@@ -603,8 +605,6 @@
       "image": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1692855592/Images/card_image_90th_birthday_noi09y.png"
     },
     "coCreators": [],
-    "asyncDuration": 10,
-    "liveDuration": 30,
     "introPortal": {
       "hostNotes": [
         {
@@ -628,7 +628,25 @@
     "async": true,
     "description": "将来を見える化することは、長い目で見て何が大切かを明らかにすることで、今この瞬間の私たちに指針を与えてくれる。\n\nこれは、プレッシャーにさらされている時や、物事に対して近視眼的になりがちな時に、特に役立つ。"
   },
-  "da": {},
-  "cs": {},
-  "nl": {}
+  "da": {
+    "tags": [
+      "9c2c08a9-7dc6-4058-bc78-016d0eb00614",
+      "cfc00217-f65b-4a4d-8b82-8ccc8f852dd6"
+    ],
+    "asyncDuration": 8
+  },
+  "cs": {
+    "tags": [
+      "9c2c08a9-7dc6-4058-bc78-016d0eb00614",
+      "cfc00217-f65b-4a4d-8b82-8ccc8f852dd6"
+    ],
+    "asyncDuration": 8
+  },
+  "nl": {
+    "tags": [
+      "9c2c08a9-7dc6-4058-bc78-016d0eb00614",
+      "cfc00217-f65b-4a4d-8b82-8ccc8f852dd6"
+    ],
+    "asyncDuration": 8
+  }
 }
