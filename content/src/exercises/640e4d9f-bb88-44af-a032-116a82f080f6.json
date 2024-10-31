@@ -1,5 +1,6 @@
 {
   "en": {
+    "liveDuration": 30,
     "slides": [
       {
         "type": "host",
@@ -111,6 +112,7 @@
     "name": "Feeling purpose",
     "live": true,
     "published": true,
+    "asyncDuration": 5,
     "card": {
       "image": {
         "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1692793639/Images/card_image_feeling_purpose_ju8iea.png"
@@ -131,8 +133,6 @@
         "url": "https://www.linkedin.com/in/ints-ivanovskis-46ab0311a/"
       }
     ],
-    "asyncDuration": 10,
-    "liveDuration": 30,
     "introPortal": {
       "hostNotes": [
         {
@@ -160,6 +160,7 @@
     "description": "In this exercise we’ll explore what it means to feel purpose in life. Having a sense of purpose is related to happiness and life satisfaction."
   },
   "pt": {
+    "liveDuration": 30,
     "slides": [
       {
         "type": "host",
@@ -272,6 +273,7 @@
     "name": "Sentir propósito",
     "live": true,
     "published": true,
+    "asyncDuration": 5,
     "card": {
       "image": {
         "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1692793639/Images/card_image_feeling_purpose_ju8iea.png"
@@ -297,8 +299,6 @@
         "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1728375093/FJN/People/Cristina_Alves_zt1btx.png"
       }
     ],
-    "asyncDuration": 10,
-    "liveDuration": 30,
     "introPortal": {
       "hostNotes": [
         {
@@ -326,6 +326,7 @@
     "description": "Neste exercício, iremos explorar o que significa sentir propósito na vida. Ter um sentido de propósito está relacionado com a felicidade e a satisfação com a vida.\n\nEncontra uma posição confortável e prepara-te para tomar algumas notas durante o exercício."
   },
   "sv": {
+    "liveDuration": 30,
     "slides": [
       {
         "type": "host",
@@ -437,6 +438,7 @@
     "name": "Känna mening",
     "live": true,
     "published": true,
+    "asyncDuration": 5,
     "card": {
       "image": {
         "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1692793639/Images/card_image_feeling_purpose_ju8iea.png"
@@ -457,8 +459,6 @@
         "url": "https://www.linkedin.com/in/ints-ivanovskis-46ab0311a/"
       }
     ],
-    "asyncDuration": 10,
-    "liveDuration": 30,
     "introPortal": {
       "hostNotes": [
         {
@@ -486,6 +486,7 @@
     "description": "I den här övningen får du utforska vad det betyder att känna mening eller syfte. En känsla av mening eller syfte är kopplat till lycka och livstillfredsställelse."
   },
   "ja": {
+    "liveDuration": 30,
     "slides": [
       {
         "type": "host",
@@ -546,9 +547,8 @@
     },
     "hidden": false,
     "published": false,
+    "asyncDuration": 5,
     "card": {},
-    "asyncDuration": 10,
-    "liveDuration": 30,
     "introPortal": {
       "hostNotes": [
         {
@@ -564,7 +564,25 @@
     "id": "640e4d9f-bb88-44af-a032-116a82f080f6",
     "async": false
   },
-  "da": {},
-  "cs": {},
-  "nl": {}
+  "da": {
+    "tags": [
+      "9c2c08a9-7dc6-4058-bc78-016d0eb00614",
+      "43a6dc0d-d866-4b79-9453-13c44e906128"
+    ],
+    "asyncDuration": 5
+  },
+  "cs": {
+    "tags": [
+      "9c2c08a9-7dc6-4058-bc78-016d0eb00614",
+      "43a6dc0d-d866-4b79-9453-13c44e906128"
+    ],
+    "asyncDuration": 5
+  },
+  "nl": {
+    "tags": [
+      "9c2c08a9-7dc6-4058-bc78-016d0eb00614",
+      "43a6dc0d-d866-4b79-9453-13c44e906128"
+    ],
+    "asyncDuration": 5
+  }
 }
