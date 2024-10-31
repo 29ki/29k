@@ -1,5 +1,6 @@
 {
   "en": {
+    "liveDuration": 30,
     "slides": [
       {
         "type": "host",
@@ -104,6 +105,7 @@
     "name": "Open up to compassion",
     "live": true,
     "published": true,
+    "asyncDuration": 7,
     "card": {
       "imageBackgroundColor": "",
       "image": {
@@ -132,8 +134,6 @@
         "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1713964400/Images/user183691_i74pfh.jpg"
       }
     ],
-    "asyncDuration": 10,
-    "liveDuration": 30,
     "introPortal": {
       "textColor": "#2E2E2E",
       "hostNotes": [
@@ -158,6 +158,7 @@
     "description": "Investigate where emotions are felt in your body, to practice self-compassion when we face difficult emotions and self-critical thoughts."
   },
   "pt": {
+    "liveDuration": 30,
     "slides": [
       {
         "type": "host",
@@ -262,6 +263,7 @@
     "name": "Dá espaço à compaixão",
     "live": true,
     "published": true,
+    "asyncDuration": 7,
     "card": {
       "imageBackgroundColor": "",
       "image": {
@@ -285,8 +287,6 @@
         "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1713964400/Images/user183691_i74pfh.jpg"
       }
     ],
-    "asyncDuration": 10,
-    "liveDuration": 30,
     "introPortal": {
       "textColor": "#2E2E2E",
       "hostNotes": [
@@ -311,6 +311,7 @@
     "description": "Investiga onde sentes as emoções no teu corpo, para praticares a autocompaixão quando enfrentares emoções difíceis e pensamentos autocríticos."
   },
   "sv": {
+    "liveDuration": 30,
     "slides": [
       {
         "type": "host",
@@ -415,6 +416,7 @@
     "name": "Öppna upp för medkänsla",
     "live": true,
     "published": true,
+    "asyncDuration": 7,
     "card": {
       "imageBackgroundColor": "",
       "image": {
@@ -438,8 +440,6 @@
         "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665412608/Contributors/Erik%20Fernholm.png"
       }
     ],
-    "asyncDuration": 10,
-    "liveDuration": 30,
     "introPortal": {
       "textColor": "#2AE2D7",
       "hostNotes": [
@@ -463,6 +463,7 @@
     "description": "Undersök var i kroppen dina känslor känns och träna upp din självmedkänsla för att hantera jobbiga känslor och självkritiska tankar."
   },
   "ja": {
+    "liveDuration": 30,
     "slides": [
       {
         "type": "host",
@@ -537,11 +538,10 @@
     "locked": false,
     "live": true,
     "published": false,
+    "asyncDuration": 7,
     "card": {
       "imageBackgroundColor": ""
     },
-    "asyncDuration": 10,
-    "liveDuration": 30,
     "introPortal": {
       "textColor": "#2AE2D7",
       "hostNotes": [
@@ -557,7 +557,25 @@
     "id": "19135d2e-0e8d-418c-939d-18b0e62215ff",
     "async": false
   },
-  "da": {},
-  "cs": {},
-  "nl": {}
+  "da": {
+    "tags": [
+      "db34d82a-4c48-4ddd-9de5-f562d8aa1bc9",
+      "34100e43-2eb8-4d35-8eb0-9fa9f78e4935"
+    ],
+    "asyncDuration": 7
+  },
+  "cs": {
+    "tags": [
+      "db34d82a-4c48-4ddd-9de5-f562d8aa1bc9",
+      "34100e43-2eb8-4d35-8eb0-9fa9f78e4935"
+    ],
+    "asyncDuration": 7
+  },
+  "nl": {
+    "tags": [
+      "db34d82a-4c48-4ddd-9de5-f562d8aa1bc9",
+      "34100e43-2eb8-4d35-8eb0-9fa9f78e4935"
+    ],
+    "asyncDuration": 7
+  }
 }
