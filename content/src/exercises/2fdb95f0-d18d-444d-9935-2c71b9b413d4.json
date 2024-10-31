@@ -1,5 +1,6 @@
 {
   "en": {
+    "liveDuration": 30,
     "slides": [
       {
         "type": "host",
@@ -103,6 +104,7 @@
     "name": "Hear your inner voice",
     "live": true,
     "published": true,
+    "asyncDuration": 5,
     "card": {
       "image": {
         "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1711547461/Images/card_Hear_your_inner_voice_qpvkza.png"
@@ -125,8 +127,6 @@
         "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1713964290/Images/anonymous_xns0zu.png"
       }
     ],
-    "asyncDuration": 10,
-    "liveDuration": 30,
     "introPortal": {
       "textColor": "#F9F8F4",
       "hostNotes": [
@@ -151,6 +151,7 @@
     "description": "Listen inwards and let whatever you find just be there. Practicing being with what is present right here and now is a super skill that can help us be more compassionate with ourselves and others."
   },
   "pt": {
+    "liveDuration": 30,
     "slides": [
       {
         "type": "host",
@@ -255,6 +256,7 @@
     "name": "Ouve a voz interior",
     "live": true,
     "published": true,
+    "asyncDuration": 5,
     "card": {
       "image": {
         "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1711547461/Images/card_Hear_your_inner_voice_qpvkza.png"
@@ -282,8 +284,6 @@
         "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1728375093/FJN/People/Cristina_Alves_zt1btx.png"
       }
     ],
-    "asyncDuration": 10,
-    "liveDuration": 30,
     "introPortal": {
       "textColor": "#F9F8F4",
       "hostNotes": [
@@ -308,6 +308,7 @@
     "description": "Escuta o teu interior e aceita o que encontrares. Praticares estar com o que está presente aqui e agora é uma habilidade que pode ajudar-nos a ser mais compassivos connosco e com os outros."
   },
   "sv": {
+    "liveDuration": 30,
     "slides": [
       {
         "type": "host",
@@ -411,6 +412,7 @@
     "name": "Lyssna inåt",
     "live": true,
     "published": true,
+    "asyncDuration": 5,
     "card": {
       "image": {
         "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1711547461/Images/card_Hear_your_inner_voice_qpvkza.png"
@@ -428,8 +430,6 @@
         "url": "https://www.linkedin.com/in/lyckoaktivist/?originalSubdomain=se"
       }
     ],
-    "asyncDuration": 10,
-    "liveDuration": 30,
     "introPortal": {
       "textColor": "#F9F8F4",
       "hostNotes": [
@@ -454,6 +454,7 @@
     "description": "Lyssna inåt och låt det du hittar bara vara. Träning i att vara i nuet med alla sina upplevelser är en super-skill som kan öka medkänsla med andra – och oss själva."
   },
   "ja": {
+    "liveDuration": 30,
     "slides": [
       {
         "type": "host",
@@ -528,9 +529,8 @@
     "locked": false,
     "live": true,
     "published": false,
+    "asyncDuration": 5,
     "card": {},
-    "asyncDuration": 10,
-    "liveDuration": 30,
     "introPortal": {
       "textColor": "#2AE2D7",
       "hostNotes": [
@@ -550,18 +550,21 @@
     "tags": [
       "db34d82a-4c48-4ddd-9de5-f562d8aa1bc9",
       "34100e43-2eb8-4d35-8eb0-9fa9f78e4935"
-    ]
+    ],
+    "asyncDuration": 5
   },
   "cs": {
     "tags": [
       "db34d82a-4c48-4ddd-9de5-f562d8aa1bc9",
       "34100e43-2eb8-4d35-8eb0-9fa9f78e4935"
-    ]
+    ],
+    "asyncDuration": 5
   },
   "nl": {
     "tags": [
       "db34d82a-4c48-4ddd-9de5-f562d8aa1bc9",
       "34100e43-2eb8-4d35-8eb0-9fa9f78e4935"
-    ]
+    ],
+    "asyncDuration": 5
   }
 }
