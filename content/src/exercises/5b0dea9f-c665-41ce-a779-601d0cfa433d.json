@@ -1,5 +1,6 @@
 {
   "en": {
+    "liveDuration": 30,
     "slides": [
       {
         "type": "host",
@@ -191,6 +192,7 @@
     "name": "The beachball",
     "live": true,
     "published": true,
+    "asyncDuration": 3,
     "card": {
       "image": {
         "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1668092579/Images/cover_letting_go_of_control_t5fi5i.png"
@@ -213,8 +215,6 @@
         "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413228/Contributors/Jenny%20Rickardsson.jpg"
       }
     ],
-    "asyncDuration": 10,
-    "liveDuration": 30,
     "outroPortal": {
       "video": {
         "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1671527730/Video/mission_letting_go_of_control.mp4_t6zweg.mp4"
@@ -248,6 +248,7 @@
     "description": "Trying to control what we feel or think tends to backfire. In this exercise we practice letting go of a futile struggle, and instead use our energy for what matters."
   },
   "pt": {
+    "liveDuration": 30,
     "slides": [
       {
         "type": "host",
@@ -396,13 +397,12 @@
     "name": "Desiste do controlo",
     "live": true,
     "published": true,
+    "asyncDuration": 3,
     "card": {
       "image": {
         "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1668092579/Images/cover_letting_go_of_control_t5fi5i.png"
       }
     },
-    "asyncDuration": 10,
-    "liveDuration": 30,
     "outroPortal": {
       "video": {
         "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1671527730/Video/mission_letting_go_of_control.mp4_t6zweg.mp4"
@@ -436,6 +436,7 @@
     "description": "Tentar controlar o que sentimos ou pensamos tende a ser contraproducente. Neste exercício vamos aprender a renunciar a essa luta inútil e em vez disso usarmos a nossa energia para o que interessa."
   },
   "sv": {
+    "liveDuration": 30,
     "slides": [
       {
         "type": "host",
@@ -627,6 +628,7 @@
     "name": "Badbollen",
     "live": true,
     "published": true,
+    "asyncDuration": 3,
     "card": {
       "image": {
         "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1668092579/Images/cover_letting_go_of_control_t5fi5i.png"
@@ -649,8 +651,6 @@
         "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413228/Contributors/Jenny%20Rickardsson.jpg"
       }
     ],
-    "asyncDuration": 10,
-    "liveDuration": 30,
     "outroPortal": {
       "video": {
         "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1671527730/Video/mission_letting_go_of_control.mp4_t6zweg.mp4"
@@ -685,7 +685,7 @@
   },
   "ja": {
     "id": "5b0dea9f-c665-41ce-a779-601d0cfa433d",
-    "asyncDuration": 10,
+    "asyncDuration": 3,
     "liveDuration": 30,
     "tags": [
       "34100e43-2eb8-4d35-8eb0-9fa9f78e4935",
@@ -694,7 +694,25 @@
     "link": "https://aware.29k.org/letting-go-of-control",
     "card": {}
   },
-  "da": {},
-  "cs": {},
-  "nl": {}
+  "da": {
+    "tags": [
+      "34100e43-2eb8-4d35-8eb0-9fa9f78e4935",
+      "566aeb1b-1649-4f5a-96a2-0c80be27efc0"
+    ],
+    "asyncDuration": 3
+  },
+  "cs": {
+    "tags": [
+      "34100e43-2eb8-4d35-8eb0-9fa9f78e4935",
+      "566aeb1b-1649-4f5a-96a2-0c80be27efc0"
+    ],
+    "asyncDuration": 3
+  },
+  "nl": {
+    "tags": [
+      "34100e43-2eb8-4d35-8eb0-9fa9f78e4935",
+      "566aeb1b-1649-4f5a-96a2-0c80be27efc0"
+    ],
+    "asyncDuration": 3
+  }
 }
