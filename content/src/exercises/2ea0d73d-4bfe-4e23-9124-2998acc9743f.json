@@ -1,5 +1,6 @@
 {
   "en": {
+    "liveDuration": 30,
     "slides": [
       {
         "type": "host",
@@ -105,6 +106,7 @@
     "name": "Lead from a place of love",
     "live": true,
     "published": true,
+    "asyncDuration": 6,
     "card": {
       "image": {
         "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1711547532/Images/card_Lead_from_a_place_of_love_fesnei.png"
@@ -127,8 +129,6 @@
         "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1713964400/Images/user183691_i74pfh.jpg"
       }
     ],
-    "asyncDuration": 10,
-    "liveDuration": 30,
     "introPortal": {
       "textColor": "#2E2E2E",
       "hostNotes": [
@@ -153,6 +153,7 @@
     "description": "Explore your values in this body-focused meditation. Leading a value-led life can make us happier and more fulfilled."
   },
   "pt": {
+    "liveDuration": 30,
     "slides": [
       {
         "type": "host",
@@ -258,6 +259,7 @@
     "name": "Guia-te a partir de um lugar de amor",
     "live": true,
     "published": true,
+    "asyncDuration": 6,
     "card": {
       "image": {
         "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1711547532/Images/card_Lead_from_a_place_of_love_fesnei.png"
@@ -275,8 +277,6 @@
         "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1713964400/Images/user183691_i74pfh.jpg"
       }
     ],
-    "asyncDuration": 10,
-    "liveDuration": 30,
     "introPortal": {
       "textColor": "#2E2E2E",
       "hostNotes": [
@@ -301,6 +301,7 @@
     "description": "Explora os teus valores nesta meditação focada no corpo. Viver uma vida guiada por valores pode tornar-nos mais felizes e realizados."
   },
   "sv": {
+    "liveDuration": 30,
     "slides": [
       {
         "type": "host",
@@ -406,6 +407,7 @@
     "name": "Låt kärlek visa vägen",
     "live": true,
     "published": true,
+    "asyncDuration": 6,
     "card": {
       "image": {
         "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1711547532/Images/card_Lead_from_a_place_of_love_fesnei.png"
@@ -423,8 +425,6 @@
         "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665412608/Contributors/Erik%20Fernholm.png"
       }
     ],
-    "asyncDuration": 10,
-    "liveDuration": 30,
     "introPortal": {
       "textColor": "#2E2E2E",
       "hostNotes": [
@@ -449,6 +449,7 @@
     "description": "I den här meditationen får du utforska dina värderingar och vad det innebär att försöka låta kärleken leda oss i livet. Att leva efter sina värderingar kan göra oss både lyckligare och mer nöjda med livet."
   },
   "ja": {
+    "liveDuration": 30,
     "slides": [
       {
         "type": "host",
@@ -523,9 +524,8 @@
     "locked": false,
     "live": true,
     "published": false,
+    "asyncDuration": 6,
     "card": {},
-    "asyncDuration": 10,
-    "liveDuration": 30,
     "introPortal": {
       "textColor": "#2AE2D7",
       "hostNotes": [
@@ -541,7 +541,25 @@
     "id": "2ea0d73d-4bfe-4e23-9124-2998acc9743f",
     "async": false
   },
-  "da": {},
-  "cs": {},
-  "nl": {}
+  "da": {
+    "tags": [
+      "db34d82a-4c48-4ddd-9de5-f562d8aa1bc9",
+      "9c2c08a9-7dc6-4058-bc78-016d0eb00614"
+    ],
+    "asyncDuration": 6
+  },
+  "cs": {
+    "tags": [
+      "db34d82a-4c48-4ddd-9de5-f562d8aa1bc9",
+      "9c2c08a9-7dc6-4058-bc78-016d0eb00614"
+    ],
+    "asyncDuration": 6
+  },
+  "nl": {
+    "tags": [
+      "db34d82a-4c48-4ddd-9de5-f562d8aa1bc9",
+      "9c2c08a9-7dc6-4058-bc78-016d0eb00614"
+    ],
+    "asyncDuration": 6
+  }
 }
