@@ -1,5 +1,6 @@
 {
   "en": {
+    "liveDuration": 30,
     "slides": [
       {
         "type": "host",
@@ -124,13 +125,12 @@
     "name": "The willingness stance",
     "live": true,
     "published": true,
+    "asyncDuration": 5,
     "card": {
       "image": {
         "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1684329936/Images/card_image_the_willingnes_stance_1_bcwhxk.png"
       }
     },
-    "asyncDuration": 10,
-    "liveDuration": 30,
     "introPortal": {
       "hostNotes": [
         {
@@ -159,6 +159,7 @@
     "description": "Guided meditation to stop fighting unwanted inner experiences, and instead use our energy where it matters. Accepting inner hardships can help us redirect our focus, and propel us into meaningful action."
   },
   "pt": {
+    "liveDuration": 30,
     "slides": [
       {
         "type": "host",
@@ -272,13 +273,12 @@
     "name": "Estar Predisposta/o",
     "live": true,
     "published": true,
+    "asyncDuration": 5,
     "card": {
       "image": {
         "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1676992253/Images/card_image_the_willingnes_stance_e2yekr.png"
       }
     },
-    "asyncDuration": 10,
-    "liveDuration": 30,
     "introPortal": {
       "hostNotes": [
         {
@@ -307,6 +307,7 @@
     "description": "Uma meditação guiada para parar a luta interior e canalizar a nossa energia para o que realmente importa. Aceitar os desafios internos pode ajudar-nos a redirecionar o nosso foco e impulsionar-nos para ações com significado."
   },
   "sv": {
+    "liveDuration": 30,
     "slides": [
       {
         "type": "host",
@@ -431,13 +432,12 @@
     "name": "En öppen strategi",
     "live": true,
     "published": true,
+    "asyncDuration": 5,
     "card": {
       "image": {
         "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1684329936/Images/card_image_the_willingnes_stance_1_bcwhxk.png"
       }
     },
-    "asyncDuration": 10,
-    "liveDuration": 30,
     "introPortal": {
       "hostNotes": [
         {
@@ -463,6 +463,7 @@
     "description": "En guidad meditationsövning för att sluta kämpa mot oönskade inre upplevelser och istället använda energin där det verkligen spelar roll. Att acceptera inre svårigheter kan hjälpa oss att omfördela vårt fokus och hjälpa oss till meningsfulla handlingar."
   },
   "ja": {
+    "liveDuration": 30,
     "slides": [
       {
         "type": "host",
@@ -520,8 +521,7 @@
     },
     "hidden": false,
     "published": false,
-    "asyncDuration": 10,
-    "liveDuration": 30,
+    "asyncDuration": 5,
     "introPortal": {
       "hostNotes": [
         {
@@ -536,7 +536,25 @@
     "link": "https://aware.29k.org/the-willingness-stance",
     "id": "9ac0c561-ff26-45fc-b6d5-0a983432394e"
   },
-  "da": {},
-  "cs": {},
-  "nl": {}
+  "da": {
+    "tags": [
+      "db34d82a-4c48-4ddd-9de5-f562d8aa1bc9",
+      "34100e43-2eb8-4d35-8eb0-9fa9f78e4935"
+    ],
+    "asyncDuration": 5
+  },
+  "cs": {
+    "tags": [
+      "db34d82a-4c48-4ddd-9de5-f562d8aa1bc9",
+      "34100e43-2eb8-4d35-8eb0-9fa9f78e4935"
+    ],
+    "asyncDuration": 5
+  },
+  "nl": {
+    "tags": [
+      "db34d82a-4c48-4ddd-9de5-f562d8aa1bc9",
+      "34100e43-2eb8-4d35-8eb0-9fa9f78e4935"
+    ],
+    "asyncDuration": 5
+  }
 }
