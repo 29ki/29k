@@ -1,5 +1,6 @@
 {
   "en": {
+    "liveDuration": 30,
     "slides": [
       {
         "type": "host",
@@ -104,6 +105,7 @@
     "name": "Compassionate intention",
     "live": true,
     "published": true,
+    "asyncDuration": 9,
     "card": {
       "image": {
         "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1711547457/Images/card_Compassionate_intention_ub0tzl.png"
@@ -131,8 +133,6 @@
         "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1713964400/Images/user332136_oyt2dt.jpg"
       }
     ],
-    "asyncDuration": 10,
-    "liveDuration": 30,
     "introPortal": {
       "textColor": "#F9F8F4",
       "hostNotes": [
@@ -148,12 +148,15 @@
         "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1712905234/Audio/portal_audio_compassionate_intention_uniaec.mp3"
       }
     },
-    "tags": ["db34d82a-4c48-4ddd-9de5-f562d8aa1bc9"],
+    "tags": [
+      "db34d82a-4c48-4ddd-9de5-f562d8aa1bc9"
+    ],
     "id": "13dfd5b5-f0af-4783-9fe1-3ba7773bcb89",
     "async": true,
     "description": "Learn about self-compassion, and how it can be useful in your life."
   },
   "pt": {
+    "liveDuration": 30,
     "slides": [
       {
         "type": "host",
@@ -258,6 +261,7 @@
     "name": "Intenção Compassiva",
     "live": true,
     "published": true,
+    "asyncDuration": 9,
     "card": {
       "image": {
         "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1711547457/Images/card_Compassionate_intention_ub0tzl.png"
@@ -290,8 +294,6 @@
         "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1727943392/FJN/People/Florbela_Silva_bd0qx9.jpg"
       }
     ],
-    "asyncDuration": 10,
-    "liveDuration": 30,
     "introPortal": {
       "textColor": "#F9F8F4",
       "hostNotes": [
@@ -307,12 +309,15 @@
         "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1712905234/Audio/portal_audio_compassionate_intention_uniaec.mp3"
       }
     },
-    "tags": ["db34d82a-4c48-4ddd-9de5-f562d8aa1bc9"],
+    "tags": [
+      "db34d82a-4c48-4ddd-9de5-f562d8aa1bc9"
+    ],
     "id": "13dfd5b5-f0af-4783-9fe1-3ba7773bcb89",
     "async": true,
     "description": "Aprende sobre a autocompaixão e como pode ser útil na tua vida.\n\nEncontra uma posição confortável e prepara-te para tomar algumas notas durante o exercício."
   },
   "sv": {
+    "liveDuration": 30,
     "slides": [
       {
         "type": "host",
@@ -417,6 +422,7 @@
     "name": "Omtänksam intention",
     "live": true,
     "published": true,
+    "asyncDuration": 9,
     "card": {
       "image": {
         "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1711547457/Images/card_Compassionate_intention_ub0tzl.png"
@@ -444,8 +450,6 @@
         "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1713964400/Images/user332136_oyt2dt.jpg"
       }
     ],
-    "asyncDuration": 10,
-    "liveDuration": 30,
     "introPortal": {
       "textColor": "#F9F8F4",
       "hostNotes": [
@@ -461,12 +465,15 @@
         "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1712905234/Audio/portal_audio_compassionate_intention_uniaec.mp3"
       }
     },
-    "tags": ["db34d82a-4c48-4ddd-9de5-f562d8aa1bc9"],
+    "tags": [
+      "db34d82a-4c48-4ddd-9de5-f562d8aa1bc9"
+    ],
     "id": "13dfd5b5-f0af-4783-9fe1-3ba7773bcb89",
     "async": true,
     "description": "Lär dig om självmedkänsla och hur du kan använda det i ditt liv och din vardag. "
   },
   "ja": {
+    "liveDuration": 30,
     "slides": [
       {
         "type": "host",
@@ -541,9 +548,8 @@
     "locked": false,
     "live": true,
     "published": false,
+    "asyncDuration": 9,
     "card": {},
-    "asyncDuration": 10,
-    "liveDuration": 30,
     "introPortal": {
       "textColor": "#2AE2D7",
       "hostNotes": [
@@ -552,11 +558,28 @@
         }
       ]
     },
-    "tags": ["db34d82a-4c48-4ddd-9de5-f562d8aa1bc9"],
+    "tags": [
+      "db34d82a-4c48-4ddd-9de5-f562d8aa1bc9"
+    ],
     "id": "13dfd5b5-f0af-4783-9fe1-3ba7773bcb89",
     "async": false
   },
-  "da": {},
-  "cs": {},
-  "nl": {}
+  "da": {
+    "tags": [
+      "db34d82a-4c48-4ddd-9de5-f562d8aa1bc9"
+    ],
+    "asyncDuration": 9
+  },
+  "cs": {
+    "tags": [
+      "db34d82a-4c48-4ddd-9de5-f562d8aa1bc9"
+    ],
+    "asyncDuration": 9
+  },
+  "nl": {
+    "tags": [
+      "db34d82a-4c48-4ddd-9de5-f562d8aa1bc9"
+    ],
+    "asyncDuration": 9
+  }
 }
