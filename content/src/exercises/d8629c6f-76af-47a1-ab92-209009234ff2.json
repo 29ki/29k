@@ -1,5 +1,6 @@
 {
   "en": {
+    "liveDuration": 30,
     "slides": [
       {
         "type": "host",
@@ -114,6 +115,7 @@
     "name": "Being",
     "live": true,
     "published": true,
+    "asyncDuration": 6,
     "card": {
       "image": {
         "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1709127077/Images/Being_card_image_vl36fq.png"
@@ -136,8 +138,6 @@
         "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1710157008/Contributors/Steven_Hayes_axpenl.jpg"
       }
     ],
-    "asyncDuration": 10,
-    "liveDuration": 30,
     "introPortal": {
       "hostNotes": [
         {
@@ -171,7 +171,15 @@
       "43a6dc0d-d866-4b79-9453-13c44e906128"
     ],
     "locked": true,
-    "card": {}
+    "card": {},
+    "introPortal": {
+      "videoLoop": {
+        "p5JsScript": {
+          "lang": "javascript"
+        }
+      }
+    },
+    "asyncDuration": 6
   },
   "sv": {
     "id": "d8629c6f-76af-47a1-ab92-209009234ff2",
@@ -180,7 +188,8 @@
       "43a6dc0d-d866-4b79-9453-13c44e906128"
     ],
     "locked": true,
-    "card": {}
+    "card": {},
+    "asyncDuration": 6
   },
   "ja": {
     "id": "d8629c6f-76af-47a1-ab92-209009234ff2",
@@ -189,9 +198,28 @@
       "43a6dc0d-d866-4b79-9453-13c44e906128"
     ],
     "locked": true,
-    "card": {}
+    "card": {},
+    "asyncDuration": 6
   },
-  "da": {},
-  "cs": {},
-  "nl": {}
+  "da": {
+    "tags": [
+      "9c2c08a9-7dc6-4058-bc78-016d0eb00614",
+      "43a6dc0d-d866-4b79-9453-13c44e906128"
+    ],
+    "asyncDuration": 6
+  },
+  "cs": {
+    "tags": [
+      "9c2c08a9-7dc6-4058-bc78-016d0eb00614",
+      "43a6dc0d-d866-4b79-9453-13c44e906128"
+    ],
+    "asyncDuration": 6
+  },
+  "nl": {
+    "tags": [
+      "9c2c08a9-7dc6-4058-bc78-016d0eb00614",
+      "43a6dc0d-d866-4b79-9453-13c44e906128"
+    ],
+    "asyncDuration": 6
+  }
 }
