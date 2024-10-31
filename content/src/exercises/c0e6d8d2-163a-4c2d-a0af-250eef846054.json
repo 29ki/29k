@@ -1,5 +1,6 @@
 {
   "en": {
+    "liveDuration": 30,
     "slides": [
       {
         "type": "host",
@@ -106,6 +107,7 @@
     "name": "Act on eco emotions",
     "live": true,
     "published": true,
+    "asyncDuration": 7,
     "card": {
       "imageBackgroundColor": "#ebf4f3",
       "image": {
@@ -129,8 +131,6 @@
         "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413436/Contributors/Ints%20Ivanovskis.jpg"
       }
     ],
-    "asyncDuration": 10,
-    "liveDuration": 30,
     "introPortal": {
       "hostNotes": [
         {
@@ -158,6 +158,7 @@
     "description": "Allowing and labelling emotions is important for our general wellbeing. In this exercise we'll put words on and make room for all kinds of eco emotions to see how they motivate us."
   },
   "pt": {
+    "liveDuration": 30,
     "slides": [
       {
         "type": "host",
@@ -264,6 +265,7 @@
     "name": "Atua nas eco emoções",
     "live": true,
     "published": true,
+    "asyncDuration": 7,
     "card": {
       "imageBackgroundColor": "#ebf4f3",
       "image": {
@@ -292,8 +294,6 @@
         "url": "https://www.instagram.com/meditar.com.cristina/profilecard/?igsh=cTg5dDNjZ2Y5aTU0"
       }
     ],
-    "asyncDuration": 10,
-    "liveDuration": 30,
     "introPortal": {
       "hostNotes": [
         {
@@ -321,6 +321,7 @@
     "description": "Permitir e nomear as emoções é fundamental para o nosso bem-estar geral. Neste exercício, vamos dar nome e espaço a todos os tipos de ecoemoções para perceber como elas nos motivam."
   },
   "sv": {
+    "liveDuration": 30,
     "slides": [
       {
         "type": "host",
@@ -427,6 +428,7 @@
     "name": "Agera på eko-känslor",
     "live": true,
     "published": true,
+    "asyncDuration": 7,
     "card": {
       "imageBackgroundColor": "#ebf4f3",
       "image": {
@@ -450,8 +452,6 @@
         "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413436/Contributors/Ints%20Ivanovskis.jpg"
       }
     ],
-    "asyncDuration": 10,
-    "liveDuration": 30,
     "introPortal": {
       "hostNotes": [
         {
@@ -476,6 +476,7 @@
     "description": "Om vi förstår och kan prata om våra olika känslor, blir det mycket lättare att hantera dem. Den här övningen ger dig chans att göra plats för olika ekokänslor och utforska vad de har för effekt på din motivation."
   },
   "ja": {
+    "liveDuration": 30,
     "slides": [
       {
         "type": "host",
@@ -543,11 +544,10 @@
     "hidden": false,
     "live": true,
     "published": false,
+    "asyncDuration": 7,
     "card": {
       "imageBackgroundColor": "#ebf4f3"
     },
-    "asyncDuration": 10,
-    "liveDuration": 30,
     "introPortal": {
       "hostNotes": [
         {
@@ -563,7 +563,25 @@
     "id": "c0e6d8d2-163a-4c2d-a0af-250eef846054",
     "async": false
   },
-  "da": {},
-  "cs": {},
-  "nl": {}
+  "da": {
+    "tags": [
+      "566aeb1b-1649-4f5a-96a2-0c80be27efc0",
+      "9c2c08a9-7dc6-4058-bc78-016d0eb00614"
+    ],
+    "asyncDuration": 7
+  },
+  "cs": {
+    "tags": [
+      "566aeb1b-1649-4f5a-96a2-0c80be27efc0",
+      "9c2c08a9-7dc6-4058-bc78-016d0eb00614"
+    ],
+    "asyncDuration": 7
+  },
+  "nl": {
+    "tags": [
+      "566aeb1b-1649-4f5a-96a2-0c80be27efc0",
+      "9c2c08a9-7dc6-4058-bc78-016d0eb00614"
+    ],
+    "asyncDuration": 7
+  }
 }
