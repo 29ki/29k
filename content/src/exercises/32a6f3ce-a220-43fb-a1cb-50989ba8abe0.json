@@ -1,5 +1,6 @@
 {
   "en": {
+    "liveDuration": 30,
     "slides": [
       {
         "type": "host",
@@ -111,6 +112,7 @@
     "name": "Work-life values",
     "live": true,
     "published": true,
+    "asyncDuration": 6,
     "card": {
       "image": {
         "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1705652134/Images/card_Work-life_values_yqn9n8.png"
@@ -128,8 +130,6 @@
         "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413436/Contributors/Ints%20Ivanovskis.jpg"
       }
     ],
-    "asyncDuration": 10,
-    "liveDuration": 30,
     "introPortal": {
       "hostNotes": [
         {
@@ -156,6 +156,7 @@
     "description": "Explore what work life values mean to you, to help guide you in an important area of life. Basing our behavior on values can help us feel a sense of purpose and promote long-term happiness."
   },
   "pt": {
+    "liveDuration": 30,
     "slides": [
       {
         "type": "host",
@@ -268,6 +269,7 @@
     "name": "Valores no trabalho",
     "live": true,
     "published": true,
+    "asyncDuration": 6,
     "card": {
       "image": {
         "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1705652134/Images/card_Work-life_values_yqn9n8.png"
@@ -290,8 +292,6 @@
         "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1728375093/FJN/People/Cristina_Alves_zt1btx.png"
       }
     ],
-    "asyncDuration": 10,
-    "liveDuration": 30,
     "introPortal": {
       "hostNotes": [
         {
@@ -318,6 +318,7 @@
     "description": "Explora o que os valores no trabalho significam para ti. Isto vai ajudar-te a orientar melhor esta área importante da tua vida. Basear o nosso comportamento em valores pode trazer-nos um sentido de propósito e promover a felicidade a longo prazo.\n\nEncontra uma posição confortável e prepara-te para tomar algumas notas durante o exercício."
   },
   "sv": {
+    "liveDuration": 30,
     "slides": [
       {
         "type": "host",
@@ -430,6 +431,7 @@
     "name": "Värderingar på jobbet",
     "live": true,
     "published": true,
+    "asyncDuration": 6,
     "card": {
       "image": {
         "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1705652134/Images/card_Work-life_values_yqn9n8.png"
@@ -452,8 +454,6 @@
         "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413154/Contributors/Lisa%20L%C3%B6%C3%B6f.jpg"
       }
     ],
-    "asyncDuration": 10,
-    "liveDuration": 30,
     "introPortal": {
       "hostNotes": [
         {
@@ -480,6 +480,7 @@
     "description": "Utforska vad det innebär att leva i linje med dina värderingar på jobbet eller i skolan. När vi agerar utifrån våra värderingar känner vi mening och främjar vår långsiktiga lycka."
   },
   "ja": {
+    "liveDuration": 30,
     "slides": [
       {
         "type": "host",
@@ -553,9 +554,8 @@
     "hidden": false,
     "live": true,
     "published": false,
+    "asyncDuration": 6,
     "card": {},
-    "asyncDuration": 10,
-    "liveDuration": 30,
     "introPortal": {
       "hostNotes": [
         {
@@ -570,7 +570,25 @@
     "id": "32a6f3ce-a220-43fb-a1cb-50989ba8abe0",
     "async": false
   },
-  "da": {},
-  "cs": {},
-  "nl": {}
+  "da": {
+    "tags": [
+      "9c2c08a9-7dc6-4058-bc78-016d0eb00614",
+      "8da0534a-5da9-430a-bdf3-242ace6460fb"
+    ],
+    "asyncDuration": 6
+  },
+  "cs": {
+    "tags": [
+      "9c2c08a9-7dc6-4058-bc78-016d0eb00614",
+      "8da0534a-5da9-430a-bdf3-242ace6460fb"
+    ],
+    "asyncDuration": 6
+  },
+  "nl": {
+    "tags": [
+      "9c2c08a9-7dc6-4058-bc78-016d0eb00614",
+      "8da0534a-5da9-430a-bdf3-242ace6460fb"
+    ],
+    "asyncDuration": 6
+  }
 }
