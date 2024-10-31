@@ -1,5 +1,6 @@
 {
   "en": {
+    "liveDuration": 30,
     "slides": [
       {
         "type": "host",
@@ -104,6 +105,7 @@
     "name": "Contribute to sustainability",
     "live": true,
     "published": true,
+    "asyncDuration": 7,
     "card": {
       "imageBackgroundColor": "#ebf4f3",
       "lottie": {
@@ -130,8 +132,6 @@
         "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413436/Contributors/Ints%20Ivanovskis.jpg"
       }
     ],
-    "asyncDuration": 10,
-    "liveDuration": 30,
     "introPortal": {
       "hostNotes": [
         {
@@ -159,6 +159,7 @@
     "description": "Acting for change can be difficult and frustrating, especially when there is a feeling of emergency. Doing it with others is often necessary, but it is sometimes hard to know where to start. In this exercise, we get to imagine different types of joint engagement to explore what fits our needs."
   },
   "pt": {
+    "liveDuration": 30,
     "slides": [
       {
         "type": "host",
@@ -263,6 +264,7 @@
     "name": "Contributo para a Sustentabilidade",
     "live": true,
     "published": true,
+    "asyncDuration": 7,
     "card": {
       "imageBackgroundColor": "#ebf4f3",
       "lottie": {
@@ -294,8 +296,6 @@
         "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1727943392/FJN/People/Florbela_Silva_bd0qx9.jpg"
       }
     ],
-    "asyncDuration": 10,
-    "liveDuration": 30,
     "introPortal": {
       "hostNotes": [
         {
@@ -323,6 +323,7 @@
     "description": "Agir para mudar pode ser difícil e frustrante, especialmente quando há uma sensação de urgência. Fazer isso com outras pessoas é muitas vezes necessário, mas às vezes é difícil saber por onde começar. Neste exercício, vamos imaginar diferentes tipos de envolvimento conjunto para explorar o que melhor se adequa às nossas necessidades."
   },
   "sv": {
+    "liveDuration": 30,
     "slides": [
       {
         "type": "host",
@@ -427,6 +428,7 @@
     "name": "Bidra till hållbarhet",
     "live": true,
     "published": true,
+    "asyncDuration": 7,
     "card": {
       "imageBackgroundColor": "#ebf4f3",
       "lottie": {
@@ -450,8 +452,6 @@
         "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413436/Contributors/Ints%20Ivanovskis.jpg"
       }
     ],
-    "asyncDuration": 10,
-    "liveDuration": 30,
     "introPortal": {
       "hostNotes": [
         {
@@ -476,6 +476,7 @@
     "description": "Att skapa stora förändringar kan kännas otroligt svårt och frustrerande när det är bråttom. Att göra det tillsammans med andra är nödvändigt, men det är inte alltid så lätt att veta var man ska börja. I den här övningen får du föreställa dig olika typer av engagemang och fundera över vad som passar dig."
   },
   "ja": {
+    "liveDuration": 30,
     "slides": [
       {
         "type": "host",
@@ -543,11 +544,10 @@
     "hidden": false,
     "live": true,
     "published": false,
+    "asyncDuration": 7,
     "card": {
       "imageBackgroundColor": "#ebf4f3"
     },
-    "asyncDuration": 10,
-    "liveDuration": 30,
     "introPortal": {
       "hostNotes": [
         {
@@ -563,7 +563,25 @@
     "id": "9a4834e6-8d3f-420b-88e3-dd3df9a98001",
     "async": false
   },
-  "da": {},
-  "cs": {},
-  "nl": {}
+  "da": {
+    "tags": [
+      "9c2c08a9-7dc6-4058-bc78-016d0eb00614",
+      "566aeb1b-1649-4f5a-96a2-0c80be27efc0"
+    ],
+    "asyncDuration": 7
+  },
+  "cs": {
+    "tags": [
+      "9c2c08a9-7dc6-4058-bc78-016d0eb00614",
+      "566aeb1b-1649-4f5a-96a2-0c80be27efc0"
+    ],
+    "asyncDuration": 7
+  },
+  "nl": {
+    "tags": [
+      "9c2c08a9-7dc6-4058-bc78-016d0eb00614",
+      "566aeb1b-1649-4f5a-96a2-0c80be27efc0"
+    ],
+    "asyncDuration": 7
+  }
 }
