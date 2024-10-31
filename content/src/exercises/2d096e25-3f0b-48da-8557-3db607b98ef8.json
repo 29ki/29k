@@ -1,5 +1,6 @@
 {
   "en": {
+    "liveDuration": 30,
     "slides": [
       {
         "type": "host",
@@ -108,6 +109,7 @@
     "name": "Your recovery routine",
     "live": true,
     "published": true,
+    "asyncDuration": 6,
     "card": {
       "image": {
         "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1693313695/Images/card_image_your_recovery_routine_ol7r0k.png"
@@ -116,8 +118,6 @@
     "socialMeta": {
       "image": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1693313695/Images/card_image_your_recovery_routine_ol7r0k.png"
     },
-    "asyncDuration": 10,
-    "liveDuration": 30,
     "introPortal": {
       "hostNotes": [
         {
@@ -145,6 +145,7 @@
     "description": "Stress in itself is not dangerous – but lack of recovery can be. In stressful times we often need to help ourselves to make room for recovery, to build our own resources and feel good."
   },
   "pt": {
+    "liveDuration": 30,
     "slides": [
       {
         "type": "host",
@@ -254,6 +255,7 @@
     "name": "A tua rotina de recuperação",
     "live": true,
     "published": true,
+    "asyncDuration": 6,
     "card": {
       "image": {
         "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1693313695/Images/card_image_your_recovery_routine_ol7r0k.png"
@@ -262,8 +264,6 @@
     "socialMeta": {
       "image": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1693313695/Images/card_image_your_recovery_routine_ol7r0k.png"
     },
-    "asyncDuration": 10,
-    "liveDuration": 30,
     "introPortal": {
       "hostNotes": [
         {
@@ -291,6 +291,7 @@
     "description": "O stress em si não é perigoso – mas a falta de recuperação pode ser. Em momentos de stress, muitas vezes precisamos de nos ajudar a criar espaço para a recuperação, construir os nossos próprios recursos e sentirmo-nos bem.\n\nEncontra uma posição confortável e prepara-te para tomar algumas notas durante o exercício."
   },
   "sv": {
+    "liveDuration": 30,
     "slides": [
       {
         "type": "host",
@@ -399,6 +400,7 @@
     "name": "Din återhämtningrutin",
     "live": true,
     "published": true,
+    "asyncDuration": 6,
     "card": {
       "image": {
         "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1693313695/Images/card_image_your_recovery_routine_ol7r0k.png"
@@ -407,8 +409,6 @@
     "socialMeta": {
       "image": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1693313695/Images/card_image_your_recovery_routine_ol7r0k.png"
     },
-    "asyncDuration": 10,
-    "liveDuration": 30,
     "introPortal": {
       "hostNotes": [
         {
@@ -433,6 +433,7 @@
     "description": "Stress i sig självt är inte farligt – men brist på återhämtning kan vara det.\n\nI stressiga perioder behöver vi ofta hjälpa oss själva göra plats för återhämtning."
   },
   "ja": {
+    "liveDuration": 30,
     "slides": [
       {
         "type": "host",
@@ -500,9 +501,8 @@
     "hidden": false,
     "live": true,
     "published": false,
+    "asyncDuration": 6,
     "card": {},
-    "asyncDuration": 10,
-    "liveDuration": 30,
     "introPortal": {
       "hostNotes": [
         {
@@ -518,7 +518,25 @@
     "id": "2d096e25-3f0b-48da-8557-3db607b98ef8",
     "async": false
   },
-  "da": {},
-  "cs": {},
-  "nl": {}
+  "da": {
+    "tags": [
+      "cfc00217-f65b-4a4d-8b82-8ccc8f852dd6",
+      "db34d82a-4c48-4ddd-9de5-f562d8aa1bc9"
+    ],
+    "asyncDuration": 6
+  },
+  "cs": {
+    "tags": [
+      "cfc00217-f65b-4a4d-8b82-8ccc8f852dd6",
+      "db34d82a-4c48-4ddd-9de5-f562d8aa1bc9"
+    ],
+    "asyncDuration": 6
+  },
+  "nl": {
+    "tags": [
+      "cfc00217-f65b-4a4d-8b82-8ccc8f852dd6",
+      "db34d82a-4c48-4ddd-9de5-f562d8aa1bc9"
+    ],
+    "asyncDuration": 6
+  }
 }
