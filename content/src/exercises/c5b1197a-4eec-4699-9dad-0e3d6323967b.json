@@ -1,5 +1,6 @@
 {
   "en": {
+    "liveDuration": 30,
     "slides": [
       {
         "type": "host",
@@ -203,6 +204,7 @@
     "name": "Setting boundaries",
     "live": true,
     "published": true,
+    "asyncDuration": 2,
     "card": {
       "image": {
         "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1674395860/Images/card_setting_boundaries_yrv35w.png"
@@ -225,8 +227,6 @@
         "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413228/Contributors/Jenny%20Rickardsson.jpg"
       }
     ],
-    "asyncDuration": 10,
-    "liveDuration": 30,
     "introPortal": {
       "hostNotes": [
         {
@@ -256,6 +256,7 @@
     "description": "Relationships are essential for our wellbeing, and sometimes it's hard to set healthy boundaries. In this exercise we practice communicating our needs in an assertive way. Setting boundaries can help us feel better about ourselves, create sustainable relationships and make us more resilient to relationship challenges."
   },
   "pt": {
+    "liveDuration": 30,
     "slides": [
       {
         "type": "host",
@@ -432,6 +433,7 @@
     "name": "Estabelecer Limites",
     "live": true,
     "published": true,
+    "asyncDuration": 2,
     "card": {
       "image": {
         "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1674395860/Images/card_setting_boundaries_yrv35w.png"
@@ -459,8 +461,6 @@
         "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1728375093/FJN/People/Cristina_Alves_zt1btx.png"
       }
     ],
-    "asyncDuration": 10,
-    "liveDuration": 30,
     "introPortal": {
       "hostNotes": [
         {
@@ -489,6 +489,7 @@
     "description": "As relações pessoais são essenciais para o nosso bem-estar, e às vezes é difícil definir limites saudáveis. Neste exercício vamos praticar a comunicação das nossas necessidades de uma forma assertiva. Estabelecermos limites faz-nos sentir melhor connosco, ajuda-nos a criar relações sustentáveis e torna-nos mais resilientes perante os desafios dessas relações."
   },
   "sv": {
+    "liveDuration": 30,
     "slides": [
       {
         "type": "host",
@@ -546,8 +547,7 @@
     },
     "hidden": false,
     "published": false,
-    "asyncDuration": 10,
-    "liveDuration": 30,
+    "asyncDuration": 2,
     "introPortal": {
       "hostNotes": [
         {
@@ -563,6 +563,7 @@
     "id": "c5b1197a-4eec-4699-9dad-0e3d6323967b"
   },
   "ja": {
+    "liveDuration": 30,
     "slides": [
       {
         "type": "host",
@@ -620,8 +621,7 @@
     },
     "hidden": false,
     "published": false,
-    "asyncDuration": 10,
-    "liveDuration": 30,
+    "asyncDuration": 2,
     "introPortal": {
       "hostNotes": [
         {
@@ -640,18 +640,21 @@
     "tags": [
       "8da0534a-5da9-430a-bdf3-242ace6460fb",
       "cfc00217-f65b-4a4d-8b82-8ccc8f852dd6"
-    ]
+    ],
+    "asyncDuration": 2
   },
   "cs": {
     "tags": [
       "8da0534a-5da9-430a-bdf3-242ace6460fb",
       "cfc00217-f65b-4a4d-8b82-8ccc8f852dd6"
-    ]
+    ],
+    "asyncDuration": 2
   },
   "nl": {
     "tags": [
       "8da0534a-5da9-430a-bdf3-242ace6460fb",
       "cfc00217-f65b-4a4d-8b82-8ccc8f852dd6"
-    ]
+    ],
+    "asyncDuration": 2
   }
 }
