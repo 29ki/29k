@@ -1,5 +1,6 @@
 {
   "en": {
+    "liveDuration": 30,
     "slides": [
       {
         "type": "host",
@@ -110,14 +111,13 @@
     "name": "Sky gazing",
     "live": true,
     "published": true,
+    "asyncDuration": 8,
     "card": {
       "image": {
         "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1697630657/Images/card_image_sky_gazing_wloxhk.png"
       }
     },
     "coCreators": [],
-    "asyncDuration": 10,
-    "liveDuration": 30,
     "introPortal": {
       "hostNotes": [
         {
@@ -145,6 +145,7 @@
     "description": "Noticing what’s above us, can improve our sense of being connected and present as well as inspire awe. Research has it that practising these skills can help us feel more fulfilled and satisfied with life. Please note that this exercise is best done outside."
   },
   "pt": {
+    "liveDuration": 30,
     "slides": [
       {
         "type": "host",
@@ -256,14 +257,13 @@
     "name": "Contemplar o céu",
     "live": true,
     "published": true,
+    "asyncDuration": 8,
     "card": {
       "image": {
         "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1697630657/Images/card_image_sky_gazing_wloxhk.png"
       }
     },
     "coCreators": [],
-    "asyncDuration": 10,
-    "liveDuration": 30,
     "introPortal": {
       "hostNotes": [
         {
@@ -291,6 +291,7 @@
     "description": "Contemplar o que está acima de nós pode melhorar o nosso sentido de conexão e presença, além de inspirar admiração. A pesquisa mostra que praticar estas habilidades pode ajudar-nos a sentirmo-nos mais realizados e satisfeitos com a vida. Nota que este exercício é melhor realizado ao ar livre."
   },
   "sv": {
+    "liveDuration": 30,
     "slides": [
       {
         "type": "host",
@@ -401,6 +402,7 @@
     "name": "Sky gazing",
     "live": true,
     "published": true,
+    "asyncDuration": 8,
     "card": {
       "image": {
         "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1697630657/Images/card_image_sky_gazing_wloxhk.png"
@@ -413,8 +415,6 @@
         "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413228/Contributors/Jenny%20Rickardsson.jpg"
       }
     ],
-    "asyncDuration": 10,
-    "liveDuration": 30,
     "introPortal": {
       "hostNotes": [
         {
@@ -439,6 +439,7 @@
     "description": "Att aktivt lägga märke till det som är ovanför oss kan få oss att känna oss närvarande och som en del av något större. Det kan i sin tur skapa en känsla av mening och göra oss mer nöjda med livet. Den här sessionen görs bäst utomhus."
   },
   "ja": {
+    "liveDuration": 30,
     "slides": [
       {
         "type": "host",
@@ -506,9 +507,8 @@
     "hidden": false,
     "live": true,
     "published": false,
+    "asyncDuration": 8,
     "card": {},
-    "asyncDuration": 10,
-    "liveDuration": 30,
     "introPortal": {
       "hostNotes": [
         {
@@ -524,7 +524,25 @@
     "id": "12f448d2-39bc-4232-b8cf-b6cb570c7e00",
     "async": false
   },
-  "da": {},
-  "cs": {},
-  "nl": {}
+  "da": {
+    "tags": [
+      "cfc00217-f65b-4a4d-8b82-8ccc8f852dd6",
+      "43a6dc0d-d866-4b79-9453-13c44e906128"
+    ],
+    "asyncDuration": 8
+  },
+  "cs": {
+    "tags": [
+      "cfc00217-f65b-4a4d-8b82-8ccc8f852dd6",
+      "43a6dc0d-d866-4b79-9453-13c44e906128"
+    ],
+    "asyncDuration": 8
+  },
+  "nl": {
+    "tags": [
+      "cfc00217-f65b-4a4d-8b82-8ccc8f852dd6",
+      "43a6dc0d-d866-4b79-9453-13c44e906128"
+    ],
+    "asyncDuration": 8
+  }
 }
