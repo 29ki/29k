@@ -1,5 +1,6 @@
 {
   "en": {
+    "liveDuration": 30,
     "slides": [
       {
         "type": "host",
@@ -113,6 +114,7 @@
     "name": "Collaborating",
     "live": true,
     "published": true,
+    "asyncDuration": 4,
     "card": {
       "backgroundColor": "",
       "image": {
@@ -136,8 +138,6 @@
         "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1700736672/Contributors/Greatergoodsciencelogo.png"
       }
     ],
-    "asyncDuration": 10,
-    "liveDuration": 30,
     "introPortal": {
       "hostNotes": [
         {
@@ -155,7 +155,9 @@
         "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1709210918/Collaborating_portal_2_ngkwja.mp4"
       }
     },
-    "tags": ["43a6dc0d-d866-4b79-9453-13c44e906128"],
+    "tags": [
+      "43a6dc0d-d866-4b79-9453-13c44e906128"
+    ],
     "link": "https://aware.29k.org/seeing-kindness",
     "id": "ab3c3bc4-5586-4554-aa93-ebe7d6910741",
     "async": true,
@@ -163,23 +165,54 @@
   },
   "pt": {
     "id": "ab3c3bc4-5586-4554-aa93-ebe7d6910741",
-    "tags": ["43a6dc0d-d866-4b79-9453-13c44e906128"],
+    "tags": [
+      "43a6dc0d-d866-4b79-9453-13c44e906128"
+    ],
     "locked": true,
-    "card": {}
+    "card": {},
+    "introPortal": {
+      "videoLoop": {
+        "p5JsScript": {
+          "lang": "javascript"
+        }
+      }
+    },
+    "asyncDuration": 4
   },
   "sv": {
     "id": "ab3c3bc4-5586-4554-aa93-ebe7d6910741",
-    "tags": ["43a6dc0d-d866-4b79-9453-13c44e906128"],
+    "tags": [
+      "43a6dc0d-d866-4b79-9453-13c44e906128"
+    ],
     "locked": true,
-    "card": {}
+    "card": {},
+    "asyncDuration": 4
   },
   "ja": {
     "id": "ab3c3bc4-5586-4554-aa93-ebe7d6910741",
-    "tags": ["43a6dc0d-d866-4b79-9453-13c44e906128"],
+    "tags": [
+      "43a6dc0d-d866-4b79-9453-13c44e906128"
+    ],
     "locked": true,
-    "card": {}
+    "card": {},
+    "asyncDuration": 4
   },
-  "da": {},
-  "cs": {},
-  "nl": {}
+  "da": {
+    "tags": [
+      "43a6dc0d-d866-4b79-9453-13c44e906128"
+    ],
+    "asyncDuration": 4
+  },
+  "cs": {
+    "tags": [
+      "43a6dc0d-d866-4b79-9453-13c44e906128"
+    ],
+    "asyncDuration": 4
+  },
+  "nl": {
+    "tags": [
+      "43a6dc0d-d866-4b79-9453-13c44e906128"
+    ],
+    "asyncDuration": 4
+  }
 }
