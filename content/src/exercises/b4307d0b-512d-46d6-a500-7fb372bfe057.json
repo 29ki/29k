@@ -1,5 +1,6 @@
 {
   "en": {
+    "liveDuration": 30,
     "slides": [
       {
         "type": "host",
@@ -104,6 +105,7 @@
     "name": "Self-soothing",
     "live": true,
     "published": true,
+    "asyncDuration": 8,
     "card": {
       "image": {
         "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1718693341/Images/card_self_soothing_eekh1t.png"
@@ -126,8 +128,6 @@
         "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1697723039/Images/Germer%2C%20Neff.png"
       }
     ],
-    "asyncDuration": 10,
-    "liveDuration": 30,
     "introPortal": {
       "textColor": "#2E2E2E",
       "hostNotes": [
@@ -152,6 +152,7 @@
     "description": "Body and mind are closely connected. Practice using a physical gesture to soothe your own systems."
   },
   "pt": {
+    "liveDuration": 30,
     "slides": [
       {
         "type": "host",
@@ -256,6 +257,7 @@
     "name": "Auto Apaziguamento",
     "live": true,
     "published": true,
+    "asyncDuration": 8,
     "card": {
       "image": {
         "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1718693341/Images/card_self_soothing_eekh1t.png"
@@ -283,8 +285,6 @@
         "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1727943392/FJN/People/Florbela_Silva_bd0qx9.jpg"
       }
     ],
-    "asyncDuration": 10,
-    "liveDuration": 30,
     "introPortal": {
       "textColor": "#2E2E2E",
       "hostNotes": [
@@ -309,6 +309,7 @@
     "description": "Corpo e mente estão intimamente ligados. Pratica usar um gesto físico para acalmar o teu próprio sistema."
   },
   "sv": {
+    "liveDuration": 30,
     "slides": [
       {
         "type": "host",
@@ -413,6 +414,7 @@
     "name": "Skapa lugn",
     "live": true,
     "published": true,
+    "asyncDuration": 8,
     "card": {
       "image": {
         "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1718693341/Images/card_self_soothing_eekh1t.png"
@@ -435,8 +437,6 @@
         "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1697723039/Images/Germer%2C%20Neff.png"
       }
     ],
-    "asyncDuration": 10,
-    "liveDuration": 30,
     "introPortal": {
       "textColor": "#2E2E2E",
       "hostNotes": [
@@ -461,6 +461,7 @@
     "description": "Kroppen kan fungera som ett verktyg för att skapa lugn. Den kan hjälpa oss vara närvarande i stunden, lära känna oss själva bättre och träna på självmedkänsla."
   },
   "ja": {
+    "liveDuration": 30,
     "slides": [
       {
         "type": "host",
@@ -535,9 +536,8 @@
     "locked": false,
     "live": true,
     "published": false,
+    "asyncDuration": 8,
     "card": {},
-    "asyncDuration": 10,
-    "liveDuration": 30,
     "introPortal": {
       "textColor": "#2AE2D7",
       "hostNotes": [
@@ -553,7 +553,25 @@
     "id": "b4307d0b-512d-46d6-a500-7fb372bfe057",
     "async": false
   },
-  "da": {},
-  "cs": {},
-  "nl": {}
+  "da": {
+    "tags": [
+      "db34d82a-4c48-4ddd-9de5-f562d8aa1bc9",
+      "8da0534a-5da9-430a-bdf3-242ace6460fb"
+    ],
+    "asyncDuration": 8
+  },
+  "cs": {
+    "tags": [
+      "db34d82a-4c48-4ddd-9de5-f562d8aa1bc9",
+      "8da0534a-5da9-430a-bdf3-242ace6460fb"
+    ],
+    "asyncDuration": 8
+  },
+  "nl": {
+    "tags": [
+      "db34d82a-4c48-4ddd-9de5-f562d8aa1bc9",
+      "8da0534a-5da9-430a-bdf3-242ace6460fb"
+    ],
+    "asyncDuration": 8
+  }
 }
