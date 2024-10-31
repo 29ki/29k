@@ -1,5 +1,6 @@
 {
   "en": {
+    "liveDuration": 30,
     "slides": [
       {
         "type": "host",
@@ -103,6 +104,7 @@
     "name": "Seeing kindness",
     "live": true,
     "published": true,
+    "asyncDuration": 4,
     "card": {
       "backgroundColor": "",
       "image": {
@@ -126,8 +128,6 @@
         "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1700736672/Contributors/Greatergoodsciencelogo.png"
       }
     ],
-    "asyncDuration": 10,
-    "liveDuration": 30,
     "introPortal": {
       "hostNotes": [
         {
@@ -145,13 +145,16 @@
         "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1699611475/Video/portal2_seeing_kindness_bu6lfb.mp4"
       }
     },
-    "tags": ["43a6dc0d-d866-4b79-9453-13c44e906128"],
+    "tags": [
+      "43a6dc0d-d866-4b79-9453-13c44e906128"
+    ],
     "link": "https://aware.29k.org/seeing-kindness",
     "id": "648e1802-eb45-47b0-a42e-dd986669a4eb",
     "async": true,
     "description": "Recall a moment of kindness and use it to inspire. Seeing acts of kindness can elicit positive emotional responses, and potentially bring a sense of awe. Acts of kindness can foster hope and connectedness, as well as spread to others."
   },
   "pt": {
+    "liveDuration": 30,
     "slides": [
       {
         "type": "host",
@@ -256,6 +259,7 @@
     "name": "Observando gentileza",
     "live": true,
     "published": true,
+    "asyncDuration": 4,
     "card": {
       "backgroundColor": "",
       "image": {
@@ -284,8 +288,6 @@
         "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1727943392/FJN/People/Florbela_Silva_bd0qx9.jpg"
       }
     ],
-    "asyncDuration": 10,
-    "liveDuration": 30,
     "introPortal": {
       "hostNotes": [
         {
@@ -303,13 +305,16 @@
         "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1699611475/Video/portal2_seeing_kindness_bu6lfb.mp4"
       }
     },
-    "tags": ["43a6dc0d-d866-4b79-9453-13c44e906128"],
+    "tags": [
+      "43a6dc0d-d866-4b79-9453-13c44e906128"
+    ],
     "link": "https://aware.29k.org/seeing-kindness",
     "id": "648e1802-eb45-47b0-a42e-dd986669a4eb",
     "async": true,
     "description": "Recorda um momento de gentileza e usa-o como inspiração. Ver atos de gentileza pode gerar respostas emocionais positivas e até trazer um sentimento de admiração. Esses atos podem fomentar esperança e conexão, além de se espalharem para os outros"
   },
   "sv": {
+    "liveDuration": 30,
     "slides": [
       {
         "type": "host",
@@ -413,6 +418,7 @@
     "name": "Se det snälla",
     "live": true,
     "published": true,
+    "asyncDuration": 4,
     "card": {
       "backgroundColor": "",
       "image": {
@@ -436,8 +442,6 @@
         "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1700736672/Contributors/Greatergoodsciencelogo.png"
       }
     ],
-    "asyncDuration": 10,
-    "liveDuration": 30,
     "introPortal": {
       "hostNotes": [
         {
@@ -452,13 +456,16 @@
         "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1699611475/Video/portal2_seeing_kindness_bu6lfb.mp4"
       }
     },
-    "tags": ["43a6dc0d-d866-4b79-9453-13c44e906128"],
+    "tags": [
+      "43a6dc0d-d866-4b79-9453-13c44e906128"
+    ],
     "link": "https://aware.29k.org/seeing-kindness",
     "id": "648e1802-eb45-47b0-a42e-dd986669a4eb",
     "async": true,
     "description": "Uppmärksamma och hitta inspiration i andras vänlighet. Att aktivt lägga märke till när andra göra fina saker kan väcka positiva känslor och skapa en känsla av tacksamhet och sammanhang. Vänliga handlingar kan främja hopp och samhörighet samt sprida sig som ringar på vattnet."
   },
   "ja": {
+    "liveDuration": 30,
     "slides": [
       {
         "type": "host",
@@ -526,9 +533,8 @@
     "hidden": false,
     "live": true,
     "published": false,
+    "asyncDuration": 4,
     "card": {},
-    "asyncDuration": 10,
-    "liveDuration": 30,
     "introPortal": {
       "hostNotes": [
         {
@@ -536,12 +542,29 @@
         }
       ]
     },
-    "tags": ["43a6dc0d-d866-4b79-9453-13c44e906128"],
+    "tags": [
+      "43a6dc0d-d866-4b79-9453-13c44e906128"
+    ],
     "link": "https://aware.29k.org/seeing-kindness",
     "id": "648e1802-eb45-47b0-a42e-dd986669a4eb",
     "async": false
   },
-  "da": {},
-  "cs": {},
-  "nl": {}
+  "da": {
+    "tags": [
+      "43a6dc0d-d866-4b79-9453-13c44e906128"
+    ],
+    "asyncDuration": 4
+  },
+  "cs": {
+    "tags": [
+      "43a6dc0d-d866-4b79-9453-13c44e906128"
+    ],
+    "asyncDuration": 4
+  },
+  "nl": {
+    "tags": [
+      "43a6dc0d-d866-4b79-9453-13c44e906128"
+    ],
+    "asyncDuration": 4
+  }
 }
