@@ -1,5 +1,6 @@
 {
   "en": {
+    "liveDuration": 30,
     "slides": [
       {
         "type": "host",
@@ -103,6 +104,7 @@
     "name": "Open up",
     "live": true,
     "published": true,
+    "asyncDuration": 7,
     "card": {
       "image": {
         "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1707994012/Contributors/card_open_up_fy1wm5.png"
@@ -120,8 +122,6 @@
         "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1707993843/Contributors/takawo_brtiex.jpg"
       }
     ],
-    "asyncDuration": 10,
-    "liveDuration": 30,
     "introPortal": {
       "hostNotes": [
         {
@@ -146,6 +146,7 @@
     "description": "Some emotions are easy to enjoy while others are more difficult. Living a value-based life requires us to be open to all emotions. Without the risk of rejection, it is not possible create meaningful relationships. Without the risk of failure, we cannot take on exciting challenges. In this session we practice opening up to all colors of life."
   },
   "pt": {
+    "liveDuration": 30,
     "slides": [
       {
         "type": "host",
@@ -250,6 +251,7 @@
     "name": "Abre-te",
     "live": true,
     "published": true,
+    "asyncDuration": 7,
     "card": {
       "image": {
         "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1707994012/Contributors/card_open_up_fy1wm5.png"
@@ -272,8 +274,6 @@
         "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1727943392/FJN/People/Florbela_Silva_bd0qx9.jpg"
       }
     ],
-    "asyncDuration": 10,
-    "liveDuration": 30,
     "introPortal": {
       "hostNotes": [
         {
@@ -298,6 +298,7 @@
     "description": "Algumas emoções são fáceis de desfrutar, enquanto outras são mais difíceis. Viver uma vida baseada em valores exige que estejamos abertos a todas as emoções. Sem o risco de rejeição, não é possível criar relações com significado. Sem o risco de falhar, não podemos enfrentar desafios emocionantes. Nesta sessão, vamos praticar a abertura a todas as cores da vida."
   },
   "sv": {
+    "liveDuration": 30,
     "slides": [
       {
         "type": "host",
@@ -402,6 +403,7 @@
     "name": "Öppna upp",
     "live": true,
     "published": true,
+    "asyncDuration": 7,
     "card": {
       "image": {
         "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1707994012/Contributors/card_open_up_fy1wm5.png"
@@ -424,8 +426,6 @@
         "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413154/Contributors/Lisa%20L%C3%B6%C3%B6f.jpg"
       }
     ],
-    "asyncDuration": 10,
-    "liveDuration": 30,
     "introPortal": {
       "hostNotes": [
         {
@@ -450,6 +450,7 @@
     "description": "Vissa känslor är lätta att njuta av medan andra är lite knepigare. Ett värderingsstyrt liv kräver att vi är öppna för alla typer av känslor. Vågar vi inte riskera att bli avvisade är det omöjligt att skapa meningsfulla relationer. Vågar vi inte riskera misslyckanden kan vi inte ta oss an spännande utmaningar. I den här sessionen övar vi på att öppna upp för livets alla färger."
   },
   "ja": {
+    "liveDuration": 30,
     "slides": [
       {
         "type": "host",
@@ -523,9 +524,8 @@
     "hidden": false,
     "live": true,
     "published": false,
+    "asyncDuration": 7,
     "card": {},
-    "asyncDuration": 10,
-    "liveDuration": 30,
     "introPortal": {
       "hostNotes": [
         {
@@ -540,7 +540,25 @@
     "id": "b1e6cc8e-03a4-4f74-8884-2896c391ab07",
     "async": false
   },
-  "da": {},
-  "cs": {},
-  "nl": {}
+  "da": {
+    "tags": [
+      "9c2c08a9-7dc6-4058-bc78-016d0eb00614",
+      "566aeb1b-1649-4f5a-96a2-0c80be27efc0"
+    ],
+    "asyncDuration": 7
+  },
+  "cs": {
+    "tags": [
+      "9c2c08a9-7dc6-4058-bc78-016d0eb00614",
+      "566aeb1b-1649-4f5a-96a2-0c80be27efc0"
+    ],
+    "asyncDuration": 7
+  },
+  "nl": {
+    "tags": [
+      "9c2c08a9-7dc6-4058-bc78-016d0eb00614",
+      "566aeb1b-1649-4f5a-96a2-0c80be27efc0"
+    ],
+    "asyncDuration": 7
+  }
 }
