@@ -20,7 +20,7 @@
   },
   "devDependencies": {
     "@babel/plugin-transform-modules-commonjs": "^7.25.9",
-    "@fast-csv/format": "^5.0.0",
+    "@fast-csv/format": "^5.0.2",
     "@types/jest": "^29.5.14",
     "@types/node": "^22.7.5",
     "@types/ramda": "^0.30.2",
