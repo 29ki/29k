@@ -23,7 +23,7 @@
     "decap-cms-media-library-cloudinary": "^3.0.3",
     "i18next": "^23.16.4",
     "react-native-safe-area-context": "^4.14.0",
-    "react-native-web": "^0.19.12",
+    "react-native-web": "^0.19.13",
     "styled-components": "^6.1.13"
   },
   "devDependencies": {
@@ -46,7 +46,7 @@
     "prettier": "^3.3.3",
     "ts-jest": "^29.2.5",
     "ts-node": "^10.9.2",
-    "typescript": "^5.6.2",
+    "typescript": "^5.6.3",
     "vite": "^5.4.10"
   }
 }
