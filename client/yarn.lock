@@ -10494,10 +10494,10 @@ react-native-clean-project@^4.0.3:
   resolved "https://registry.yarnpkg.com/react-native-clean-project/-/react-native-clean-project-4.0.3.tgz#7ea174d2cb789e0c1d24defbeba561fcbf1beb9e"
   integrity sha512-tWNhac5R4BetY7sZSRgaWUDSMpT207nJRuUwMZInmYJR3HucMZGIIUaiDH/pbFxXSDq4GMj4P7FnHxGLDobJ8w==
 
-react-native-code-push@^8.3.0:
-  version "8.3.0"
-  resolved "https://registry.yarnpkg.com/react-native-code-push/-/react-native-code-push-8.3.0.tgz#e63b698460bf6e8036228b2a06cba4949da91642"
-  integrity sha512-TQ2XaZyGIKqZxcnC9CBOm5hNYEPKqEYxpnAgN8FRRn0ZA4K+CZnjKOC0qFoIFg2DIXZzwdRddt+6UxXhfKq78w==
+react-native-code-push@^9.0.0:
+  version "9.0.0"
+  resolved "https://registry.yarnpkg.com/react-native-code-push/-/react-native-code-push-9.0.0.tgz#956013db9404370bd9a951f3369cc478254441ea"
+  integrity sha512-9Tf5t1xixIRi23fsCI5EODB20TpOs9BONCm57yDEAWO9+TQuw5VoF0eJXYBFjyK2ZAxhTxxPvxzkrHcZKItKUQ==
   dependencies:
     code-push "^4.2.2"
     glob "^7.1.7"
