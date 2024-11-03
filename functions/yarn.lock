@@ -1684,10 +1684,10 @@
     p-queue "^6.6.1"
     p-retry "^4.0.0"
 
-"@slack/web-api@^7.5.0":
-  version "7.5.0"
-  resolved "https://registry.yarnpkg.com/@slack/web-api/-/web-api-7.5.0.tgz#e5a87f3a5062ce35447c95c60a193705cd040673"
-  integrity sha512-e1aRwbdnTVz0uQownF8UoyrQFdSs3uXtkPYWCpcb3fW3KuTEGvmEtVzAvj9gqNSlgpWj0o6is7AdptQCELd/rQ==
+"@slack/web-api@^7.7.0":
+  version "7.7.0"
+  resolved "https://registry.yarnpkg.com/@slack/web-api/-/web-api-7.7.0.tgz#a2f4014dcfada8027049c3cb4835999c1fb8cef0"
+  integrity sha512-DtRyjgQi0mObA2uC6H8nL2OhAISKDhvtOXgRjGRBnBhiaWb6df5vPmKHsOHjpweYALBMHtiqE5ajZFkDW/ag8Q==
   dependencies:
     "@slack/logger" "^4.0.0"
     "@slack/types" "^2.9.0"
