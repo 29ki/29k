@@ -3,14 +3,14 @@ import {
   CLIENT_LANGUAGE_TAGS,
   LANGUAGE_TAG,
   LANGUAGES,
-} from '../../../../../../shared/src/i18n/constants';
+} from '../../../../shared/src/i18n/constants';
 import {ChangeEvent, useCallback} from 'react';
 import {useParams, useRouter} from 'next/navigation';
 import {
   LanguagesIcon,
   ChevronDownIcon,
-} from '../../../../../../client/src/lib/components/Icons';
-import {COLORS} from '../../../../../../shared/src/constants/colors';
+} from '../../../../client/src/lib/components/Icons';
+import {COLORS} from '../../../../shared/src/constants/colors';
 
 const Wrapper = styled.div({
   position: 'relative',
