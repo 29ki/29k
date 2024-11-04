@@ -8,7 +8,6 @@ import dayjs from 'dayjs';
 import React, {Fragment, useCallback, useEffect} from 'react';
 import {useTranslation} from 'react-i18next';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
-import {Share} from 'react-native';
 import styled from 'styled-components/native';
 
 import {
@@ -78,6 +77,7 @@ import BackgroundBlock from '../../../lib/components/BackgroundBlock/BackgroundB
 import SheetModal from '../../../lib/components/Modals/SheetModal';
 import {BottomSheetScrollView} from '@gorhom/bottom-sheet';
 import {SessionMode} from '../../../../../shared/src/schemas/Session';
+import useShareFromModal from '../../../lib/navigation/hooks/useShareFromModal';
 
 const Content = styled(Gutters)({
   justifyContent: 'space-between',
@@ -155,6 +155,7 @@ const SessionModal = () => {
   const navigation =
     useNavigation<NativeStackNavigationProp<AppStackProps & ModalStackProps>>();
 
+  const share = useShareFromModal();
   const addToCalendar = useAddSessionToCalendar();
   const exercise = useExerciseById(session.exerciseId, session.language);
   const tags = useGetSessionCardTags(exercise, SessionMode.live);
@@ -203,11 +204,11 @@ const SessionModal = () => {
 
   const onShare = useCallback(() => {
     if (session.link) {
-      Share.share({
+      share({
         message: session.link,
       });
     }
-  }, [session.link]);
+  }, [session.link, share]);
 
   const onHostPress = useCallback(() => {
     navigation.popToTop();
