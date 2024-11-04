@@ -12,23 +12,10 @@ import ExerciseCard from '../../../../../client/src/lib/components/Cards/Session
 import Link from 'next/link';
 import {Heading18} from '../../../../../client/src/lib/components/Typography/Heading/Heading';
 import {useTranslation} from 'react-i18next';
-import Logo from './components/Logo';
-import LanguageSelect from './components/LanguageSelect';
-
-const Gutters = styled.div({
-  padding: '0 16px',
-  '@media(min-width: 720px)': {
-    padding: '0 32px',
-  },
-});
-
-const Columns = styled.div({
-  display: 'grid',
-  '@media(min-width: 720px)': {
-    gridTemplateColumns: '1fr 1fr',
-    columnGap: 16,
-  },
-});
+import Logo from '@/lib/components/Logo';
+import LanguageSelect from '@/lib/components/LanguageSelect';
+import Columns from '@/lib/components/Columns';
+import Gutters from '@/lib/components/Gutters';
 
 const StyledLogo = styled(Logo)({
   height: 46,

@@ -1,6 +1,6 @@
 import styled, {keyframes} from 'styled-components';
 import LogoAware from './LogoAware';
-import {Spacer8} from '../../../../../../client/src/lib/components/Spacers/Spacer';
+import {Spacer8} from '../../../../client/src/lib/components/Spacers/Spacer';
 import LogoIcon from './LogoIcon';
 
 const Wrapper = styled.div({
