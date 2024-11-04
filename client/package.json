@@ -125,7 +125,7 @@
     "react-native-clean-project": "^4.0.3",
     "react-native-dotenv": "^3.4.11",
     "react-test-renderer": "18.2.0",
-    "typescript": "^5.5.4"
+    "typescript": "^5.6.3"
   },
   "resolutions": {
     "markdown-it": "^13"
