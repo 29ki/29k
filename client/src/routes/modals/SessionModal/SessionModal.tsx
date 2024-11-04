@@ -8,7 +8,6 @@ import dayjs from 'dayjs';
 import React, {Fragment, useCallback, useEffect} from 'react';
 import {useTranslation} from 'react-i18next';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
-import {Share} from 'react-native';
 import styled from 'styled-components/native';
 
 import {
