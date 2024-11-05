@@ -46,7 +46,7 @@
     "@stripe/stripe-react-native": "^0.39.0",
     "@th3rdwave/react-navigation-bottom-sheet": "^0.3.2",
     "@types/lodash.throttle": "^4.1.9",
-    "dayjs": "^1.11.12",
+    "dayjs": "^1.11.13",
     "debug": "^4.3.6",
     "eslint": "^8.57.0",
     "hex-to-rgba": "^2.0.1",
@@ -64,7 +64,7 @@
     "react-native-add-calendar-event": "^5.0.0",
     "react-native-awesome-slider": "^2.5.3",
     "react-native-background-timer": "^2.3.1",
-    "react-native-circular-progress": "^1.4.0",
+    "react-native-circular-progress": "^1.4.1",
     "react-native-code-push": "^9.0.0",
     "react-native-device-info": "^11.1.0",
     "react-native-gesture-handler": "^2.20.0",
@@ -95,7 +95,7 @@
   },
   "devDependencies": {
     "@babel/core": "^7.24.6",
-    "@babel/preset-env": "^7.25.4",
+    "@babel/preset-env": "^7.26.0",
     "@babel/runtime": "^7.26.0",
     "@react-native/babel-preset": "0.74.85",
     "@react-native/eslint-config": "0.74.85",
@@ -105,7 +105,7 @@
     "@testing-library/react-hooks": "^8.0.1",
     "@types/debug": "^4.1.12",
     "@types/i18next": "^13.0.0",
-    "@types/jest": "^29.5.13",
+    "@types/jest": "^29.5.14",
     "@types/ramda": "^0.30.1",
     "@types/react": "^18.3.3",
     "@types/react-native-web": "^0.19.0",
@@ -113,7 +113,7 @@
     "@types/uuid": "^10.0.0",
     "appcenter-cli": "^3.0.1",
     "babel-jest": "^29.6.3",
-    "eslint-plugin-i18next": "^6.0.9",
+    "eslint-plugin-i18next": "^6.1.0",
     "eslint-plugin-prettier": "^5.2.1",
     "jest": "^29.6.3",
     "jest-fetch-mock": "^3.0.3",
@@ -125,7 +125,7 @@
     "react-native-clean-project": "^4.0.3",
     "react-native-dotenv": "^3.4.11",
     "react-test-renderer": "18.2.0",
-    "typescript": "^5.5.4"
+    "typescript": "^5.6.3"
   },
   "resolutions": {
     "markdown-it": "^13"

@@ -3,14 +3,14 @@ import {
   CLIENT_LANGUAGE_TAGS,
   LANGUAGE_TAG,
   LANGUAGES,
-} from '../../../../../../shared/src/i18n/constants';
+} from '../../../../shared/src/i18n/constants';
 import {ChangeEvent, useCallback} from 'react';
-import {useParams, useRouter} from 'next/navigation';
+import {useParams, usePathname, useRouter} from 'next/navigation';
 import {
   LanguagesIcon,
   ChevronDownIcon,
-} from '../../../../../../client/src/lib/components/Icons';
-import {COLORS} from '../../../../../../shared/src/constants/colors';
+} from '../../../../client/src/lib/components/Icons';
+import {COLORS} from '../../../../shared/src/constants/colors';
 
 const Wrapper = styled.div({
   position: 'relative',
@@ -47,13 +47,16 @@ const Select = styled.select({
 
 const LanguageSelect = () => {
   const router = useRouter();
+  const pathname = usePathname();
   const params = useParams<{language: LANGUAGE_TAG}>();
+
+  const pathWithoutLanguage = pathname.replace(`/${params.language}`, '');
 
   const onLanguageChange = useCallback(
     (e: ChangeEvent<HTMLSelectElement>) => {
-      router.push(`/${e.target.value}/exercises`);
+      router.push(`/${e.target.value}/${pathWithoutLanguage}`);
     },
-    [router],
+    [router, pathWithoutLanguage],
   );
   return (
     <Wrapper>
