@@ -67,6 +67,7 @@ export default defineConfig({
       'i18next',
       'react-native-safe-area-context',
       'react-native-web',
+      'react-native-svg',
       'react-native',
       'react',
       'styled-components',
