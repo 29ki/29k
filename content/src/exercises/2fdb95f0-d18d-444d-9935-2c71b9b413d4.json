@@ -146,6 +146,7 @@
       "db34d82a-4c48-4ddd-9de5-f562d8aa1bc9",
       "34100e43-2eb8-4d35-8eb0-9fa9f78e4935"
     ],
+    "link": "https://aware.29k.org/hearyourinnervoice",
     "id": "2fdb95f0-d18d-444d-9935-2c71b9b413d4",
     "async": true,
     "description": "Listen inwards and let whatever you find just be there. Practicing being with what is present right here and now is a super skill that can help us be more compassionate with ourselves and others."
@@ -303,6 +304,7 @@
       "db34d82a-4c48-4ddd-9de5-f562d8aa1bc9",
       "34100e43-2eb8-4d35-8eb0-9fa9f78e4935"
     ],
+    "link": "https://aware.29k.org/hearyourinnervoice",
     "id": "2fdb95f0-d18d-444d-9935-2c71b9b413d4",
     "async": true,
     "description": "Escuta o teu interior e aceita o que encontrares. Praticares estar com o que está presente aqui e agora é uma habilidade que pode ajudar-nos a ser mais compassivos connosco e com os outros."
@@ -449,6 +451,7 @@
       "db34d82a-4c48-4ddd-9de5-f562d8aa1bc9",
       "34100e43-2eb8-4d35-8eb0-9fa9f78e4935"
     ],
+    "link": "https://aware.29k.org/hearyourinnervoice",
     "id": "2fdb95f0-d18d-444d-9935-2c71b9b413d4",
     "async": true,
     "description": "Lyssna inåt och låt det du hittar bara vara. Träning i att vara i nuet med alla sina upplevelser är en super-skill som kan öka medkänsla med andra – och oss själva."
@@ -543,6 +546,7 @@
       "db34d82a-4c48-4ddd-9de5-f562d8aa1bc9",
       "34100e43-2eb8-4d35-8eb0-9fa9f78e4935"
     ],
+    "link": "https://aware.29k.org/hearyourinnervoice",
     "id": "2fdb95f0-d18d-444d-9935-2c71b9b413d4",
     "async": false
   },
@@ -551,20 +555,23 @@
       "db34d82a-4c48-4ddd-9de5-f562d8aa1bc9",
       "34100e43-2eb8-4d35-8eb0-9fa9f78e4935"
     ],
-    "asyncDuration": 5
+    "asyncDuration": 5,
+    "link": "https://aware.29k.org/hearyourinnervoice"
   },
   "cs": {
     "tags": [
       "db34d82a-4c48-4ddd-9de5-f562d8aa1bc9",
       "34100e43-2eb8-4d35-8eb0-9fa9f78e4935"
     ],
-    "asyncDuration": 5
+    "asyncDuration": 5,
+    "link": "https://aware.29k.org/hearyourinnervoice"
   },
   "nl": {
     "tags": [
       "db34d82a-4c48-4ddd-9de5-f562d8aa1bc9",
       "34100e43-2eb8-4d35-8eb0-9fa9f78e4935"
     ],
-    "asyncDuration": 5
+    "asyncDuration": 5,
+    "link": "https://aware.29k.org/hearyourinnervoice"
   }
 }
