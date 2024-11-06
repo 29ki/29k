@@ -151,6 +151,7 @@
     "tags": [
       "db34d82a-4c48-4ddd-9de5-f562d8aa1bc9"
     ],
+    "link": "https://aware.29k.org/compassionateintention",
     "id": "13dfd5b5-f0af-4783-9fe1-3ba7773bcb89",
     "async": true,
     "description": "Learn about self-compassion, and how it can be useful in your life."
@@ -312,6 +313,7 @@
     "tags": [
       "db34d82a-4c48-4ddd-9de5-f562d8aa1bc9"
     ],
+    "link": "https://aware.29k.org/compassionateintention",
     "id": "13dfd5b5-f0af-4783-9fe1-3ba7773bcb89",
     "async": true,
     "description": "Aprende sobre a autocompaixão e como pode ser útil na tua vida.\n\nEncontra uma posição confortável e prepara-te para tomar algumas notas durante o exercício."
@@ -468,6 +470,7 @@
     "tags": [
       "db34d82a-4c48-4ddd-9de5-f562d8aa1bc9"
     ],
+    "link": "https://aware.29k.org/compassionateintention",
     "id": "13dfd5b5-f0af-4783-9fe1-3ba7773bcb89",
     "async": true,
     "description": "Lär dig om självmedkänsla och hur du kan använda det i ditt liv och din vardag. "
@@ -561,6 +564,7 @@
     "tags": [
       "db34d82a-4c48-4ddd-9de5-f562d8aa1bc9"
     ],
+    "link": "https://aware.29k.org/compassionateintention",
     "id": "13dfd5b5-f0af-4783-9fe1-3ba7773bcb89",
     "async": false
   },
@@ -568,18 +572,21 @@
     "tags": [
       "db34d82a-4c48-4ddd-9de5-f562d8aa1bc9"
     ],
-    "asyncDuration": 9
+    "asyncDuration": 9,
+    "link": "https://aware.29k.org/compassionateintention"
   },
   "cs": {
     "tags": [
       "db34d82a-4c48-4ddd-9de5-f562d8aa1bc9"
     ],
-    "asyncDuration": 9
+    "asyncDuration": 9,
+    "link": "https://aware.29k.org/compassionateintention"
   },
   "nl": {
     "tags": [
       "db34d82a-4c48-4ddd-9de5-f562d8aa1bc9"
     ],
-    "asyncDuration": 9
+    "asyncDuration": 9,
+    "link": "https://aware.29k.org/compassionateintention"
   }
 }
