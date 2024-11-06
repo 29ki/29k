@@ -156,6 +156,7 @@
       "db34d82a-4c48-4ddd-9de5-f562d8aa1bc9",
       "566aeb1b-1649-4f5a-96a2-0c80be27efc0"
     ],
+    "link": "https://aware.29k.org/innerfriend",
     "id": "a0600ebe-748d-481c-81af-dab25fa32b76",
     "async": true,
     "description": "Find a self-compassionate inner friend that you can have by your side when in pain."
@@ -322,6 +323,7 @@
       "db34d82a-4c48-4ddd-9de5-f562d8aa1bc9",
       "566aeb1b-1649-4f5a-96a2-0c80be27efc0"
     ],
+    "link": "https://aware.29k.org/innerfriend",
     "id": "a0600ebe-748d-481c-81af-dab25fa32b76",
     "async": true,
     "description": "Encontra um amigo interior autocompassivo que possa estar ao teu lado quando estiveres em sofrimento. \n\nEncontra uma posição confortável e prepara-te para tomar algumas notas durante o exercício."
@@ -483,6 +485,7 @@
       "db34d82a-4c48-4ddd-9de5-f562d8aa1bc9",
       "566aeb1b-1649-4f5a-96a2-0c80be27efc0"
     ],
+    "link": "https://aware.29k.org/innerfriend",
     "id": "a0600ebe-748d-481c-81af-dab25fa32b76",
     "async": true,
     "description": "Hitta en omtänksam inre vän som du kan ha vid din sida när livet känns tufft."
@@ -577,6 +580,7 @@
       "db34d82a-4c48-4ddd-9de5-f562d8aa1bc9",
       "566aeb1b-1649-4f5a-96a2-0c80be27efc0"
     ],
+    "link": "https://aware.29k.org/innerfriend",
     "id": "a0600ebe-748d-481c-81af-dab25fa32b76",
     "async": false
   },
@@ -585,20 +589,23 @@
       "db34d82a-4c48-4ddd-9de5-f562d8aa1bc9",
       "566aeb1b-1649-4f5a-96a2-0c80be27efc0"
     ],
-    "asyncDuration": 6
+    "asyncDuration": 6,
+    "link": "https://aware.29k.org/innerfriend"
   },
   "cs": {
     "tags": [
       "db34d82a-4c48-4ddd-9de5-f562d8aa1bc9",
       "566aeb1b-1649-4f5a-96a2-0c80be27efc0"
     ],
-    "asyncDuration": 6
+    "asyncDuration": 6,
+    "link": "https://aware.29k.org/innerfriend"
   },
   "nl": {
     "tags": [
       "db34d82a-4c48-4ddd-9de5-f562d8aa1bc9",
       "566aeb1b-1649-4f5a-96a2-0c80be27efc0"
     ],
-    "asyncDuration": 6
+    "asyncDuration": 6,
+    "link": "https://aware.29k.org/innerfriend"
   }
 }
