@@ -151,6 +151,7 @@
       "9c2c08a9-7dc6-4058-bc78-016d0eb00614",
       "8da0534a-5da9-430a-bdf3-242ace6460fb"
     ],
+    "link": "https://aware.29k.org/work-life-values",
     "id": "32a6f3ce-a220-43fb-a1cb-50989ba8abe0",
     "async": true,
     "description": "Explore what work life values mean to you, to help guide you in an important area of life. Basing our behavior on values can help us feel a sense of purpose and promote long-term happiness."
@@ -313,6 +314,7 @@
       "9c2c08a9-7dc6-4058-bc78-016d0eb00614",
       "8da0534a-5da9-430a-bdf3-242ace6460fb"
     ],
+    "link": "https://aware.29k.org/work-life-values",
     "id": "32a6f3ce-a220-43fb-a1cb-50989ba8abe0",
     "async": true,
     "description": "Explora o que os valores no trabalho significam para ti. Isto vai ajudar-te a orientar melhor esta área importante da tua vida. Basear o nosso comportamento em valores pode trazer-nos um sentido de propósito e promover a felicidade a longo prazo.\n\nEncontra uma posição confortável e prepara-te para tomar algumas notas durante o exercício."
@@ -475,6 +477,7 @@
       "9c2c08a9-7dc6-4058-bc78-016d0eb00614",
       "8da0534a-5da9-430a-bdf3-242ace6460fb"
     ],
+    "link": "https://aware.29k.org/work-life-values",
     "id": "32a6f3ce-a220-43fb-a1cb-50989ba8abe0",
     "async": true,
     "description": "Utforska vad det innebär att leva i linje med dina värderingar på jobbet eller i skolan. När vi agerar utifrån våra värderingar känner vi mening och främjar vår långsiktiga lycka."
@@ -567,6 +570,7 @@
       "9c2c08a9-7dc6-4058-bc78-016d0eb00614",
       "8da0534a-5da9-430a-bdf3-242ace6460fb"
     ],
+    "link": "https://aware.29k.org/work-life-values",
     "id": "32a6f3ce-a220-43fb-a1cb-50989ba8abe0",
     "async": false
   },
@@ -575,20 +579,23 @@
       "9c2c08a9-7dc6-4058-bc78-016d0eb00614",
       "8da0534a-5da9-430a-bdf3-242ace6460fb"
     ],
-    "asyncDuration": 6
+    "asyncDuration": 6,
+    "link": "https://aware.29k.org/work-life-values"
   },
   "cs": {
     "tags": [
       "9c2c08a9-7dc6-4058-bc78-016d0eb00614",
       "8da0534a-5da9-430a-bdf3-242ace6460fb"
     ],
-    "asyncDuration": 6
+    "asyncDuration": 6,
+    "link": "https://aware.29k.org/work-life-values"
   },
   "nl": {
     "tags": [
       "9c2c08a9-7dc6-4058-bc78-016d0eb00614",
       "8da0534a-5da9-430a-bdf3-242ace6460fb"
     ],
-    "asyncDuration": 6
+    "asyncDuration": 6,
+    "link": "https://aware.29k.org/work-life-values"
   }
 }
