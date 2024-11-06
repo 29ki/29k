@@ -155,6 +155,7 @@
       "db34d82a-4c48-4ddd-9de5-f562d8aa1bc9",
       "566aeb1b-1649-4f5a-96a2-0c80be27efc0"
     ],
+    "link": "https://aware.29k.org/exploringshame",
     "id": "e4bf8d17-a774-4702-abfe-c7452c3fee0f",
     "async": true,
     "description": "Shame is a powerful emotion. In this session we'll explore different perspectives on shame, investigating our own relationship to it. It can help us gain perspective and be kinder to ourselves."
@@ -321,6 +322,7 @@
       "db34d82a-4c48-4ddd-9de5-f562d8aa1bc9",
       "566aeb1b-1649-4f5a-96a2-0c80be27efc0"
     ],
+    "link": "https://aware.29k.org/exploringshame",
     "id": "e4bf8d17-a774-4702-abfe-c7452c3fee0f",
     "async": true,
     "description": "A vergonha é uma emoção poderosa. Nesta sessão, vamos explorar diferentes perspetivas sobre a vergonha, investigando a nossa própria relação com ela. Isso pode ajudar-nos a ganhar perspetiva e a sermos mais gentis connosco mesmos.\n\nEncontra uma posição confortável e prepara-te para tomar notas durante o exercício."
@@ -415,6 +417,7 @@
       "db34d82a-4c48-4ddd-9de5-f562d8aa1bc9",
       "566aeb1b-1649-4f5a-96a2-0c80be27efc0"
     ],
+    "link": "https://aware.29k.org/exploringshame",
     "id": "e4bf8d17-a774-4702-abfe-c7452c3fee0f",
     "async": false
   },
@@ -508,6 +511,7 @@
       "db34d82a-4c48-4ddd-9de5-f562d8aa1bc9",
       "566aeb1b-1649-4f5a-96a2-0c80be27efc0"
     ],
+    "link": "https://aware.29k.org/exploringshame",
     "id": "e4bf8d17-a774-4702-abfe-c7452c3fee0f",
     "async": false
   },
@@ -516,20 +520,23 @@
       "db34d82a-4c48-4ddd-9de5-f562d8aa1bc9",
       "566aeb1b-1649-4f5a-96a2-0c80be27efc0"
     ],
-    "asyncDuration": 11
+    "asyncDuration": 11,
+    "link": "https://aware.29k.org/exploringshame"
   },
   "cs": {
     "tags": [
       "db34d82a-4c48-4ddd-9de5-f562d8aa1bc9",
       "566aeb1b-1649-4f5a-96a2-0c80be27efc0"
     ],
-    "asyncDuration": 11
+    "asyncDuration": 11,
+    "link": "https://aware.29k.org/exploringshame"
   },
   "nl": {
     "tags": [
       "db34d82a-4c48-4ddd-9de5-f562d8aa1bc9",
       "566aeb1b-1649-4f5a-96a2-0c80be27efc0"
     ],
-    "asyncDuration": 11
+    "asyncDuration": 11,
+    "link": "https://aware.29k.org/exploringshame"
   }
 }
