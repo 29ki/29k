@@ -156,6 +156,7 @@
       "9c2c08a9-7dc6-4058-bc78-016d0eb00614",
       "8da0534a-5da9-430a-bdf3-242ace6460fb"
     ],
+    "link": "https://aware.29k.org/relationship-values",
     "id": "df2c5312-c869-4ab7-8ac1-1875a04e2229",
     "async": true,
     "description": "Defining your relationship values can help you navigate how to relate to the people in your life. Living a value-based life has been proven to increase sense of purpose and long-term happiness.\n\nFor this exercise you will need something to take notes on."
@@ -322,6 +323,7 @@
       "9c2c08a9-7dc6-4058-bc78-016d0eb00614",
       "8da0534a-5da9-430a-bdf3-242ace6460fb"
     ],
+    "link": "https://aware.29k.org/relationship-values",
     "id": "df2c5312-c869-4ab7-8ac1-1875a04e2229",
     "async": true,
     "description": "Definir os teus valores em relação às tuas relações pode ajudar-te a orientar a forma como te conectas com as pessoas na tua vida. Viver de acordo com os valores tem mostrado aumentar o sentido de propósito e a felicidade a longo prazo.\n\nEncontra uma posição confortável e prepara-te para tomar algumas notas durante o exercício."
@@ -483,6 +485,7 @@
       "9c2c08a9-7dc6-4058-bc78-016d0eb00614",
       "8da0534a-5da9-430a-bdf3-242ace6460fb"
     ],
+    "link": "https://aware.29k.org/relationship-values",
     "id": "df2c5312-c869-4ab7-8ac1-1875a04e2229",
     "async": true,
     "description": "Dina relationsvärderingar kan guida dig i hur du relaterar till människorna i ditt liv. Att leva i linje med sina värderingar har visat effekt på både upplevd mening och lycka. \n\nFör den här övningen är det bra att ha penna och papper nära till hands."
@@ -575,6 +578,7 @@
       "9c2c08a9-7dc6-4058-bc78-016d0eb00614",
       "8da0534a-5da9-430a-bdf3-242ace6460fb"
     ],
+    "link": "https://aware.29k.org/relationship-values",
     "id": "df2c5312-c869-4ab7-8ac1-1875a04e2229",
     "async": false
   },
@@ -583,20 +587,23 @@
       "9c2c08a9-7dc6-4058-bc78-016d0eb00614",
       "8da0534a-5da9-430a-bdf3-242ace6460fb"
     ],
-    "asyncDuration": 8
+    "asyncDuration": 8,
+    "link": "https://aware.29k.org/relationship-values"
   },
   "cs": {
     "tags": [
       "9c2c08a9-7dc6-4058-bc78-016d0eb00614",
       "8da0534a-5da9-430a-bdf3-242ace6460fb"
     ],
-    "asyncDuration": 8
+    "asyncDuration": 8,
+    "link": "https://aware.29k.org/relationship-values"
   },
   "nl": {
     "tags": [
       "9c2c08a9-7dc6-4058-bc78-016d0eb00614",
       "8da0534a-5da9-430a-bdf3-242ace6460fb"
     ],
-    "asyncDuration": 8
+    "asyncDuration": 8,
+    "link": "https://aware.29k.org/relationship-values"
   }
 }
