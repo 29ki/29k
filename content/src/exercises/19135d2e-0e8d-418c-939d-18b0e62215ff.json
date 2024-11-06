@@ -153,6 +153,7 @@
       "db34d82a-4c48-4ddd-9de5-f562d8aa1bc9",
       "34100e43-2eb8-4d35-8eb0-9fa9f78e4935"
     ],
+    "link": "https://aware.29k.org/open-up-to-compassion",
     "id": "19135d2e-0e8d-418c-939d-18b0e62215ff",
     "async": true,
     "description": "Investigate where emotions are felt in your body, to practice self-compassion when we face difficult emotions and self-critical thoughts."
@@ -306,6 +307,7 @@
       "db34d82a-4c48-4ddd-9de5-f562d8aa1bc9",
       "34100e43-2eb8-4d35-8eb0-9fa9f78e4935"
     ],
+    "link": "https://aware.29k.org/open-up-to-compassion",
     "id": "19135d2e-0e8d-418c-939d-18b0e62215ff",
     "async": true,
     "description": "Investiga onde sentes as emoções no teu corpo, para praticares a autocompaixão quando enfrentares emoções difíceis e pensamentos autocríticos."
@@ -458,6 +460,7 @@
       "db34d82a-4c48-4ddd-9de5-f562d8aa1bc9",
       "34100e43-2eb8-4d35-8eb0-9fa9f78e4935"
     ],
+    "link": "https://aware.29k.org/open-up-to-compassion",
     "id": "19135d2e-0e8d-418c-939d-18b0e62215ff",
     "async": true,
     "description": "Undersök var i kroppen dina känslor känns och träna upp din självmedkänsla för att hantera jobbiga känslor och självkritiska tankar."
@@ -554,6 +557,7 @@
       "db34d82a-4c48-4ddd-9de5-f562d8aa1bc9",
       "34100e43-2eb8-4d35-8eb0-9fa9f78e4935"
     ],
+    "link": "https://aware.29k.org/open-up-to-compassion",
     "id": "19135d2e-0e8d-418c-939d-18b0e62215ff",
     "async": false
   },
@@ -562,20 +566,23 @@
       "db34d82a-4c48-4ddd-9de5-f562d8aa1bc9",
       "34100e43-2eb8-4d35-8eb0-9fa9f78e4935"
     ],
-    "asyncDuration": 7
+    "asyncDuration": 7,
+    "link": "https://aware.29k.org/open-up-to-compassion"
   },
   "cs": {
     "tags": [
       "db34d82a-4c48-4ddd-9de5-f562d8aa1bc9",
       "34100e43-2eb8-4d35-8eb0-9fa9f78e4935"
     ],
-    "asyncDuration": 7
+    "asyncDuration": 7,
+    "link": "https://aware.29k.org/open-up-to-compassion"
   },
   "nl": {
     "tags": [
       "db34d82a-4c48-4ddd-9de5-f562d8aa1bc9",
       "34100e43-2eb8-4d35-8eb0-9fa9f78e4935"
     ],
-    "asyncDuration": 7
+    "asyncDuration": 7,
+    "link": "https://aware.29k.org/open-up-to-compassion"
   }
 }
