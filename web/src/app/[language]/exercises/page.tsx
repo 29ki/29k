@@ -17,6 +17,9 @@ import LanguageSelect from '@/lib/components/LanguageSelect';
 import Columns from '@/lib/components/Columns';
 import Gutters from '@/lib/components/Gutters';
 import Footer from '@/lib/components/Footer';
+import ExerciseModal from '@/lib/components/ExerciseModal';
+import {MouseEventHandler, useCallback, useState} from 'react';
+import {ExerciseWithLanguage} from '../../../../../client/src/lib/content/types';
 
 const StyledLogo = styled(Logo)({
   height: 46,
@@ -37,6 +40,21 @@ const StyledLink = styled(Link)({
 export default function ExercisesPage() {
   const {t} = useTranslation('Screen.Explore');
   const exercises = useExercises();
+  const [exerciseModal, setExerciseModal] =
+    useState<ExerciseWithLanguage | null>(null);
+
+  const onExerciseClick = useCallback(
+    (exercise: ExerciseWithLanguage): MouseEventHandler<HTMLAnchorElement> =>
+      e => {
+        e.preventDefault();
+        setExerciseModal(exercise);
+      },
+    [],
+  );
+
+  const onCloseModal = useCallback(() => {
+    setExerciseModal(null);
+  }, []);
 
   return (
     <>
@@ -55,7 +73,8 @@ export default function ExercisesPage() {
             .map(exercise => (
               <div key={exercise.id}>
                 <StyledLink
-                  href={`/${exercise.language}/exercises/${exercise.id}`}>
+                  href={`/${exercise.language}/exercises/${exercise.id}`}
+                  onClick={onExerciseClick(exercise)}>
                   <ExerciseCard exercise={exercise} />
                 </StyledLink>
                 <Spacer16 />
@@ -63,6 +82,10 @@ export default function ExercisesPage() {
             ))}
         </Columns>
       </Gutters>
+      {exerciseModal && (
+        <ExerciseModal exercise={exerciseModal} onClose={onCloseModal} />
+      )}
+      <Spacer16 />
       <Footer />
     </>
   );
