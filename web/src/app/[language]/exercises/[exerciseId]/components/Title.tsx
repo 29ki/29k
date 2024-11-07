@@ -19,7 +19,7 @@ const Heading = styled(Display28)<{textColor?: string}>(({textColor}) => ({
   color: textColor ?? COLORS.BLACK,
 }));
 
-const Title = ({exercise}: {exercise: ExerciseWithLanguage | null}) => {
+const Title = ({exercise}: {exercise?: ExerciseWithLanguage | null}) => {
   return (
     <Wrapper>
       <Logo fill={exercise?.theme?.textColor} />

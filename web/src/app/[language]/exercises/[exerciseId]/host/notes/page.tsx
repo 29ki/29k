@@ -108,7 +108,7 @@ export default function ExerciseHostNotes() {
     <Wrapper>
       <Gutters>
         <Spacer16 />
-        <Title exercise={state.exercise} />
+        <Title />
       </Gutters>
       <Notes>
         <Scrollable>
