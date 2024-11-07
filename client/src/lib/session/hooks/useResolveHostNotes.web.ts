@@ -15,13 +15,26 @@ const useResolveHostNotes = (
 ) => {
   return useMemo(() => {
     if (introPortal) {
+      return resolveNotes(
+        exercise?.slides.find(slide => slide.type === 'host')?.hostNotes,
+      );
+    }
+
+    if (outroPortal) {
+      return resolveNotes(
+        exercise?.slides.reverse().find(slide => slide.type === 'host')
+          ?.hostNotes,
+      );
+    }
+
+    if (outroPortal) {
       return resolveNotes(exercise?.introPortal?.hostNotes);
     }
 
     if (slideState?.current && 'hostNotes' in slideState?.current) {
       return resolveNotes(slideState?.current.hostNotes);
     }
-  }, [exercise, introPortal, slideState]);
+  }, [exercise, introPortal, outroPortal, slideState]);
 };
 
 export default useResolveHostNotes;

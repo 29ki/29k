@@ -25,7 +25,6 @@ import {
 import Gutters from '../../../../../../client/src/lib/components/Gutters/Gutters';
 import {useRouter} from 'next/navigation';
 import Wrapper from './components/Wrapper';
-
 import Title from './components/Title';
 import ProgressBar from '../../../../../../client/src/lib/session/components/ProgressBar/ProgressBar';
 import styled from 'styled-components';

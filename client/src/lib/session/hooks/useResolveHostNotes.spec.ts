@@ -17,7 +17,7 @@ describe('useResolveHostNotes', () => {
     } as unknown as SessionSlideState;
 
     const {result} = renderHook(() =>
-      useResolveHostNotes(true, exercise, slideState),
+      useResolveHostNotes(true, false, exercise, slideState),
     );
 
     expect(result.current).toEqual([
@@ -35,7 +35,7 @@ describe('useResolveHostNotes', () => {
     } as SessionSlideState;
 
     const {result} = renderHook(() =>
-      useResolveHostNotes(false, exercise, slideState),
+      useResolveHostNotes(false, false, exercise, slideState),
     );
 
     expect(result.current).toEqual([

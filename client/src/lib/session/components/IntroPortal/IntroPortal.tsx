@@ -55,8 +55,8 @@ type IntroPortalProps = {
   isLive?: boolean;
   hideHostNotes?: boolean;
   showMuteToggle?: boolean;
-  onStartSession: () => void;
-  onLeaveSession: () => void;
+  onStartSession?: () => void;
+  onLeaveSession?: () => void;
   onNavigateToSession: () => void;
   statusComponent?: React.ReactNode;
 };
@@ -201,12 +201,14 @@ const IntroPortal: React.FC<IntroPortalProps> = ({
       {isVisible && (
         <Content>
           <TopBar>
-            <BackButton
-              onPress={onLeaveSession}
-              fill={textColor}
-              Icon={ArrowLeftIcon}
-              noBackground
-            />
+            {onLeaveSession && (
+              <BackButton
+                onPress={onLeaveSession}
+                fill={textColor}
+                Icon={ArrowLeftIcon}
+                noBackground
+              />
+            )}
             <TopButtons>
               {showMuteToggle && (
                 <Toggler
@@ -223,7 +225,7 @@ const IntroPortal: React.FC<IntroPortalProps> = ({
                 </Button>
               )}
               <Spacer8 />
-              {isHost && (
+              {isHost && onStartSession && (
                 <Button
                   size="small"
                   disabled={sessionState?.started}
