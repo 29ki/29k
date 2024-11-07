@@ -39,18 +39,21 @@ const IntroPortal = dynamic(
     import(
       '../../../../../../../client/src/lib/session/components/IntroPortal/IntroPortal'
     ),
+  {ssr: false},
 );
 const OutroPortal = dynamic(
   () =>
     import(
       '../../../../../../../client/src/lib/session/components/OutroPortal/OutroPortal'
     ),
+  {ssr: false},
 );
 const ExerciseSlides = dynamic(
   () =>
     import(
       '../../../../../../../client/src/lib/session/components/ExerciseSlides/ExerciseSlides'
     ),
+  {ssr: false},
 );
 
 export type SessionControlsState = {

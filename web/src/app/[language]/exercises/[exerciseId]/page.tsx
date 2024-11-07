@@ -42,18 +42,21 @@ const IntroPortal = dynamic(
     import(
       '../../../../../../client/src/lib/session/components/IntroPortal/IntroPortal'
     ),
+  {ssr: false},
 );
 const OutroPortal = dynamic(
   () =>
     import(
       '../../../../../../client/src/lib/session/components/OutroPortal/OutroPortal'
     ),
+  {ssr: false},
 );
 const ExerciseSlides = dynamic(
   () =>
     import(
       '../../../../../../client/src/lib/session/components/ExerciseSlides/ExerciseSlides'
     ),
+  {ssr: false},
 );
 
 const initialWindowMetrics: Metrics | null = {
@@ -109,6 +112,9 @@ export default function ExercisePage({
   const setExercise = useSessionState(state => state.setExercise);
   const sessionState = useSessionState(state => state.sessionState);
   const exercise = useExerciseById(exerciseId);
+  const currentContentReachedEnd = useSessionState(
+    state => state.currentContentReachedEnd,
+  );
   const session = useMemo(
     () =>
       ({
@@ -196,7 +202,7 @@ export default function ExercisePage({
                 sessionState={sessionState}
                 slideState={sessionSlideState}
                 isConnected // No need to disable buttons for async sessions
-                currentContentReachedEnd
+                currentContentReachedEnd={currentContentReachedEnd}
                 onPrevPress={onPrevPress}
                 onNextPress={onNextPress}
               />
