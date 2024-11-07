@@ -15,7 +15,6 @@ import {
   Spacer8,
 } from '../../../../client/src/lib/components/Spacers/Spacer';
 import CardGraphic from '../../../../client/src/lib/components/CardGraphic/CardGraphic';
-import useTags from '../../../../client/src/lib/content/hooks/useTags';
 import useGetSessionCardTags from '../../../../client/src/lib/components/Cards/SessionCard/hooks/useGetSessionCardTags';
 import {SessionMode} from '../../../../shared/src/schemas/Session';
 import Tag from '../../../../client/src/lib/components/Tag/Tag';
@@ -87,6 +86,7 @@ const Graphic = styled.div({
 const Tags = styled.div({
   display: 'flex',
   flexDirection: 'row',
+  flexWrap: 'wrap',
   alignItems: 'center',
 });
 
@@ -114,6 +114,7 @@ const ModeIcon = styled.div({
 const CoCreators = styled.div({
   display: 'flex',
   flexDirection: 'row',
+  flexWrap: 'wrap',
 });
 
 const CoCreator = styled(Link)({
@@ -123,6 +124,9 @@ const CoCreator = styled(Link)({
   alignItems: 'center',
   textDecoration: 'none',
   textAlign: 'center',
+  marginRight: 16,
+  marginTop: 8,
+  marginBottom: 8,
 });
 
 const CoCreatorImage = styled.img({
@@ -157,20 +161,20 @@ const ExerciseModal = ({
             <Display24>{exercise.name}</Display24>
             <Spacer24 />
             <Markdown>{exercise.description}</Markdown>
-            <Tags>
-              {tags.map((tag, i) => (
-                <Fragment key={i}>
-                  <Tag>{tag}</Tag>
-                  <Spacer4 />
-                </Fragment>
-              ))}
-            </Tags>
           </div>
           <Spacer16 />
           <Graphic>
             <CardGraphic graphic={exercise.card} />
           </Graphic>
         </About>
+        <Tags>
+          {tags.map((tag, i) => (
+            <Fragment key={i}>
+              <Tag>{tag}</Tag>
+              <Spacer4 />
+            </Fragment>
+          ))}
+        </Tags>
         <Spacer16 />
         <Heading16>{t('startHeading')}</Heading16>
         <Spacer8 />
@@ -193,7 +197,6 @@ const ExerciseModal = ({
           <>
             <Spacer32 />
             <Heading16>{t('coCreatorsHeading')}</Heading16>
-            <Spacer8 />
             <CoCreators>
               {exercise.coCreators.map(coCreator => (
                 <Fragment key={coCreator.url}>
@@ -202,7 +205,6 @@ const ExerciseModal = ({
                     <Spacer4 />
                     <CoCreatorName>{coCreator.name}</CoCreatorName>
                   </CoCreator>
-                  <Spacer16 />
                 </Fragment>
               ))}
             </CoCreators>
