@@ -28,6 +28,7 @@ import LanguageSelect from '@/lib/components/LanguageSelect';
 import {MouseEventHandler, useCallback, useState} from 'react';
 import {ExerciseWithLanguage} from '../../../../../../client/src/lib/content/types';
 import ExerciseModal from '@/lib/components/ExerciseModal';
+import Footer from '@/lib/components/Footer';
 
 const StyledLogo = styled(Logo)({
   height: 46,
@@ -145,6 +146,8 @@ export default function ExercisePage({
       {exerciseModal && (
         <ExerciseModal exercise={exerciseModal} onClose={onCloseModal} />
       )}
+      <Spacer16 />
+      <Footer />
     </>
   );
 }
