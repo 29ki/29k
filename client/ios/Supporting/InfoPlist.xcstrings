@@ -11,6 +11,12 @@
             "value" : "Aware"
           }
         },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Aware"
+          }
+        },
         "sv" : {
           "stringUnit" : {
             "state" : "translated",
@@ -26,6 +32,12 @@
         "en" : {
           "stringUnit" : {
             "state" : "new",
+            "value" : "Aware"
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
             "value" : "Aware"
           }
         },
@@ -46,6 +58,12 @@
             "value" : "This allows us to add sessions to your calendar."
           }
         },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Isto permite-nos adicionar sessões ao teu calendário."
+          }
+        },
         "sv" : {
           "stringUnit" : {
             "state" : "translated",
@@ -62,6 +80,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "This allows us to add sessions to your calendar."
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Isto permite-nos adicionar sessões ao teu calendário."
           }
         },
         "sv" : {
@@ -81,6 +105,12 @@
             "value" : "This allows us to take a profile picture of you. It also allows us to stream your video during video sharing."
           }
         },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Isto permite-nos tirar uma foto de perfil tua. Também nos permite transmitir o teu vídeo durante a partilha de vídeo."
+          }
+        },
         "sv" : {
           "stringUnit" : {
             "state" : "translated",
@@ -96,6 +126,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "This allows us to add sessions to your calendar."
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Isto permite-nos adicionar sessões ao teu calendário."
           }
         },
         "sv" : {
@@ -115,6 +151,12 @@
             "value" : "You should not see this message as Aware does not read your health data."
           }
         },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Não deves ver esta mensagem, porque a Aware não lê os teus dados de saúde."
+          }
+        },
         "sv" : {
           "stringUnit" : {
             "state" : "translated",
@@ -130,6 +172,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "This allows us to log Health mindful minutes when you complete Aware sessions"
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Isto permite-nos registar os teus minutos de atenção plena na app Saúde quando completas sessões do Aware."
           }
         },
         "sv" : {
@@ -149,6 +197,12 @@
             "value" : "This allows us to stream your audio during video sharing."
           }
         },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Isto permite-nos transmitir o teu áudio durante a partilha de vídeo."
+          }
+        },
         "sv" : {
           "stringUnit" : {
             "state" : "translated",
@@ -164,6 +218,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "This allows you to upload a profile picture of you from your library"
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Isto permite-te carregar uma foto de perfil a partir da tua biblioteca."
           }
         },
         "sv" : {

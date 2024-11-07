@@ -148,6 +148,7 @@
       "9c2c08a9-7dc6-4058-bc78-016d0eb00614",
       "8da0534a-5da9-430a-bdf3-242ace6460fb"
     ],
+    "link": "https://aware.29k.org/dailyactions",
     "id": "f59b7f66-43b0-4b50-9afe-91092d7dc469",
     "async": true,
     "description": "Move values into actions with the “fan of cards”. Actions that are backed by values can make us feel better, also about the difficult choices we all face in life."
@@ -307,6 +308,7 @@
       "9c2c08a9-7dc6-4058-bc78-016d0eb00614",
       "8da0534a-5da9-430a-bdf3-242ace6460fb"
     ],
+    "link": "https://aware.29k.org/dailyactions",
     "id": "f59b7f66-43b0-4b50-9afe-91092d7dc469",
     "async": true,
     "description": "Transforma valores em ações com o “leque de cartas”. Ações guiadas por valores podem fazer-nos sentir melhor, inclusive em relação às escolhas difíceis que todos enfrentamos na vida.\n\nEncontra uma posição confortável e prepara-te para tomar algumas notas durante o exercício."
@@ -461,6 +463,7 @@
       "9c2c08a9-7dc6-4058-bc78-016d0eb00614",
       "8da0534a-5da9-430a-bdf3-242ace6460fb"
     ],
+    "link": "https://aware.29k.org/dailyactions",
     "id": "f59b7f66-43b0-4b50-9afe-91092d7dc469",
     "async": true,
     "description": "Med hjälp av en kortlek kan du omvandla dina värderingar till vardagliga beteenden. När vi agerar i linje med våra värderingar mår vi bättre, även när vi stöter på problem eller går igenom tuffare perioder. "
@@ -554,6 +557,7 @@
       "9c2c08a9-7dc6-4058-bc78-016d0eb00614",
       "8da0534a-5da9-430a-bdf3-242ace6460fb"
     ],
+    "link": "https://aware.29k.org/dailyactions",
     "id": "f59b7f66-43b0-4b50-9afe-91092d7dc469",
     "async": false
   },
@@ -562,20 +566,23 @@
       "9c2c08a9-7dc6-4058-bc78-016d0eb00614",
       "8da0534a-5da9-430a-bdf3-242ace6460fb"
     ],
-    "asyncDuration": 7
+    "asyncDuration": 7,
+    "link": "https://aware.29k.org/dailyactions"
   },
   "cs": {
     "tags": [
       "9c2c08a9-7dc6-4058-bc78-016d0eb00614",
       "8da0534a-5da9-430a-bdf3-242ace6460fb"
     ],
-    "asyncDuration": 7
+    "asyncDuration": 7,
+    "link": "https://aware.29k.org/dailyactions"
   },
   "nl": {
     "tags": [
       "9c2c08a9-7dc6-4058-bc78-016d0eb00614",
       "8da0534a-5da9-430a-bdf3-242ace6460fb"
     ],
-    "asyncDuration": 7
+    "asyncDuration": 7,
+    "link": "https://aware.29k.org/dailyactions"
   }
 }

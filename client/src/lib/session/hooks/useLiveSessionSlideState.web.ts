@@ -8,7 +8,6 @@ export type SessionSlideState = {
   previous?: ExerciseSlide;
   current: ExerciseSlide;
   next?: ExerciseSlide;
-  slides: Array<ExerciseSlide>;
 };
 
 const useLiveSessionSlideState = (): SessionSlideState | null => {
@@ -20,12 +19,14 @@ const useLiveSessionSlideState = (): SessionSlideState | null => {
       return null;
     }
 
-    const slides = exercise.slides;
+    const slides = exercise.slides.filter(
+      slide => slide.type !== 'host' && slide.type !== 'instruction',
+    );
 
     const index = sessionState?.index;
-    const previous = exercise.slides[index - 1];
-    const current = exercise.slides[index];
-    const next = exercise.slides[index + 1];
+    const previous = slides[index - 1];
+    const current = slides[index];
+    const next = slides[index + 1];
 
     return {
       index,

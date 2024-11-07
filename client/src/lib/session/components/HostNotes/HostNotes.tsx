@@ -83,7 +83,12 @@ const HostNotes: React.FC<HostNotesProps> = ({
   const [scroll, setScroll] = useState({index: 0, animated: false});
   const sessionSlideState = useLiveSessionSlideState();
   const {t} = useTranslation('Component.HostNotes');
-  const notes = useResolveHostNotes(introPortal, exercise, sessionSlideState);
+  const notes = useResolveHostNotes(
+    introPortal,
+    false,
+    exercise,
+    sessionSlideState,
+  );
 
   const containerWidth = Dimensions.get('screen').width;
   const listItemWidth = containerWidth - SPACINGS.THIRTYTWO;

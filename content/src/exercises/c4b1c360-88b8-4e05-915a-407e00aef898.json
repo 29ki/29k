@@ -1,5 +1,6 @@
 {
   "en": {
+    "liveDuration": 30,
     "slides": [
       {
         "type": "host",
@@ -103,6 +104,7 @@
     "name": "Angry mob",
     "live": true,
     "published": true,
+    "asyncDuration": 10,
     "card": {
       "image": {
         "source": "https://res.cloudinary.com/cupcake-29k/image/upload/v1705652115/Images/card_angry_mob_txuwiw.png"
@@ -125,8 +127,6 @@
         "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1710157008/Contributors/Steven_Hayes_axpenl.jpg"
       }
     ],
-    "asyncDuration": 10,
-    "liveDuration": 30,
     "introPortal": {
       "hostNotes": [
         {
@@ -148,11 +148,13 @@
       "566aeb1b-1649-4f5a-96a2-0c80be27efc0",
       "34100e43-2eb8-4d35-8eb0-9fa9f78e4935"
     ],
+    "link": "https://aware.29k.org/Angrymob",
     "id": "c4b1c360-88b8-4e05-915a-407e00aef898",
     "async": true,
     "description": "We all run into trouble in life – a lot of them are on the inside. Meeting inner obstacles with acceptance and willingness can open new possibilities, without the need to get rid of hindering thoughts and feelings before we move."
   },
   "pt": {
+    "liveDuration": 30,
     "slides": [
       {
         "type": "host",
@@ -256,6 +258,7 @@
     "name": "Multidão irritada",
     "live": true,
     "published": true,
+    "asyncDuration": 10,
     "card": {
       "image": {
         "source": "https://res.cloudinary.com/cupcake-29k/image/upload/v1705652115/Images/card_angry_mob_txuwiw.png"
@@ -283,8 +286,6 @@
         "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1727943392/FJN/People/Florbela_Silva_bd0qx9.jpg"
       }
     ],
-    "asyncDuration": 10,
-    "liveDuration": 30,
     "introPortal": {
       "hostNotes": [
         {
@@ -306,11 +307,13 @@
       "566aeb1b-1649-4f5a-96a2-0c80be27efc0",
       "34100e43-2eb8-4d35-8eb0-9fa9f78e4935"
     ],
+    "link": "https://aware.29k.org/Angrymob",
     "id": "c4b1c360-88b8-4e05-915a-407e00aef898",
     "async": true,
     "description": "Todos nós enfrentamos dificuldades na vida – muitas delas estão no nosso interior. Encarar os obstáculos internos com aceitação e abertura pode abrir novas possibilidades, sem a necessidade de nos livrarmos dos pensamentos e sentimentos que nos limitam antes de agirmos."
   },
   "sv": {
+    "liveDuration": 30,
     "slides": [
       {
         "type": "host",
@@ -414,6 +417,7 @@
     "name": "Dina arga gubbar",
     "live": true,
     "published": true,
+    "asyncDuration": 10,
     "card": {
       "image": {
         "source": "https://res.cloudinary.com/cupcake-29k/image/upload/v1705652115/Images/card_angry_mob_txuwiw.png"
@@ -436,8 +440,6 @@
         "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1710157008/Contributors/Steven_Hayes_axpenl.jpg"
       }
     ],
-    "asyncDuration": 10,
-    "liveDuration": 30,
     "introPortal": {
       "hostNotes": [
         {
@@ -459,11 +461,13 @@
       "566aeb1b-1649-4f5a-96a2-0c80be27efc0",
       "34100e43-2eb8-4d35-8eb0-9fa9f78e4935"
     ],
+    "link": "https://aware.29k.org/Angrymob",
     "id": "c4b1c360-88b8-4e05-915a-407e00aef898",
     "async": true,
     "description": "Vi möter alla hinder i livet – och en hel del av dem befinner sig innanför skinnet. Att möta inre hinder med acceptans och öppenhet kan ge oss möjlighet att ta steg mot sånt vi tycker är viktigt, utan att behöva bli av med dem."
   },
   "ja": {
+    "liveDuration": 30,
     "slides": [
       {
         "type": "host",
@@ -537,9 +541,8 @@
     "hidden": false,
     "live": true,
     "published": false,
-    "card": {},
     "asyncDuration": 10,
-    "liveDuration": 30,
+    "card": {},
     "introPortal": {
       "hostNotes": [
         {
@@ -551,10 +554,29 @@
       "566aeb1b-1649-4f5a-96a2-0c80be27efc0",
       "34100e43-2eb8-4d35-8eb0-9fa9f78e4935"
     ],
+    "link": "https://aware.29k.org/Angrymob",
     "id": "c4b1c360-88b8-4e05-915a-407e00aef898",
     "async": false
   },
-  "da": {},
-  "cs": {},
-  "nl": {}
+  "da": {
+    "tags": [
+      "566aeb1b-1649-4f5a-96a2-0c80be27efc0",
+      "34100e43-2eb8-4d35-8eb0-9fa9f78e4935"
+    ],
+    "link": "https://aware.29k.org/Angrymob"
+  },
+  "cs": {
+    "tags": [
+      "566aeb1b-1649-4f5a-96a2-0c80be27efc0",
+      "34100e43-2eb8-4d35-8eb0-9fa9f78e4935"
+    ],
+    "link": "https://aware.29k.org/Angrymob"
+  },
+  "nl": {
+    "tags": [
+      "566aeb1b-1649-4f5a-96a2-0c80be27efc0",
+      "34100e43-2eb8-4d35-8eb0-9fa9f78e4935"
+    ],
+    "link": "https://aware.29k.org/Angrymob"
+  }
 }

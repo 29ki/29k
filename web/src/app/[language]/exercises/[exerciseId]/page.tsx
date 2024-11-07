@@ -25,37 +25,15 @@ import {
 import Gutters from '../../../../../../client/src/lib/components/Gutters/Gutters';
 import {useRouter} from 'next/navigation';
 import Wrapper from './components/Wrapper';
-
 import Title from './components/Title';
 import ProgressBar from '../../../../../../client/src/lib/session/components/ProgressBar/ProgressBar';
 import styled from 'styled-components';
 import {COLORS} from '../../../../../../shared/src/constants/colors';
 import hexToRgba from 'hex-to-rgba';
-import dynamic from 'next/dynamic';
-
-/*
-Video and SSR works quite bad in combination
-https://stackoverflow.com/questions/65868582/next-js-loadeddata-event-on-audio-not-firing/66490267#66490267
-https://nextjs.org/docs/pages/building-your-application/optimizing/lazy-loading#nextdynamic
-*/
-const IntroPortal = dynamic(
-  () =>
-    import(
-      '../../../../../../client/src/lib/session/components/IntroPortal/IntroPortal'
-    ),
-);
-const OutroPortal = dynamic(
-  () =>
-    import(
-      '../../../../../../client/src/lib/session/components/OutroPortal/OutroPortal'
-    ),
-);
-const ExerciseSlides = dynamic(
-  () =>
-    import(
-      '../../../../../../client/src/lib/session/components/ExerciseSlides/ExerciseSlides'
-    ),
-);
+import NoSsr from '@/lib/components/NoSsr';
+import OutroPortal from '../../../../../../client/src/lib/session/components/OutroPortal/OutroPortal';
+import ExerciseSlides from '../../../../../../client/src/lib/session/components/ExerciseSlides/ExerciseSlides';
+import IntroPortal from '../../../../../../client/src/lib/session/components/IntroPortal/IntroPortal';
 
 const initialWindowMetrics: Metrics | null = {
   frame: {x: 0, y: 0, width: 0, height: 0},
@@ -110,6 +88,9 @@ export default function ExercisePage({
   const setExercise = useSessionState(state => state.setExercise);
   const sessionState = useSessionState(state => state.sessionState);
   const exercise = useExerciseById(exerciseId);
+  const currentContentReachedEnd = useSessionState(
+    state => state.currentContentReachedEnd,
+  );
   const session = useMemo(
     () =>
       ({
@@ -134,7 +115,11 @@ export default function ExercisePage({
   }, [exercise, session, setAsyncSession, setExercise, resetSession]);
 
   const onLeaveSession = useCallback(() => {
-    router.push('../');
+    if (window.history.length > 2) {
+      router.back();
+    } else {
+      router.push('../');
+    }
   }, [router]);
 
   const onNavigateToSession = useCallback(() => {}, []);
@@ -163,75 +148,77 @@ export default function ExercisePage({
 
   return (
     <SafeAreaProvider initialMetrics={initialWindowMetrics}>
-      {Boolean(sessionState?.ended) && (
+      <NoSsr>
+        {Boolean(sessionState?.ended) && (
+          <Wrapper backgroundColor={exercise?.theme?.backgroundColor}>
+            <Spacer32 />
+            <OutroPortal exercise={exercise} onLeaveSession={onLeaveSession} />
+            <DesktopOnly>
+              <LeftGradient color={exercise?.theme?.backgroundColor} />
+              <RightGradient color={exercise?.theme?.backgroundColor} />
+            </DesktopOnly>
+          </Wrapper>
+        )}
+        <Fade
+          visible={Boolean(sessionState?.started && !sessionState?.ended)}
+          duration={2000}>
+          {sessionSlideState !== null && (
+            <Wrapper backgroundColor={exercise?.theme?.backgroundColor}>
+              <Gutters>
+                <DesktopOnly>
+                  <Spacer40 />
+                  <Title exercise={exercise} />
+                </DesktopOnly>
+                <Spacer24 />
+                <ProgressBar
+                  index={sessionSlideState?.index}
+                  length={sessionSlideState?.slides.length}
+                  color={exercise?.theme?.textColor}
+                />
+                <Spacer16 />
+                <ContentControls
+                  async
+                  exercise={exercise}
+                  isHost
+                  sessionState={sessionState}
+                  slideState={sessionSlideState}
+                  isConnected // No need to disable buttons for async sessions
+                  currentContentReachedEnd={currentContentReachedEnd}
+                  onPrevPress={onPrevPress}
+                  onNextPress={onNextPress}
+                />
+                <Spacer32 />
+              </Gutters>
+              <ExerciseSlides
+                index={sessionSlideState.index}
+                current={sessionSlideState.current}
+                previous={sessionSlideState.previous}
+                next={sessionSlideState.next}
+                async
+                web
+              />
+              <Spacer60 />
+            </Wrapper>
+          )}
+        </Fade>
         <Wrapper backgroundColor={exercise?.theme?.backgroundColor}>
           <Spacer32 />
-          <OutroPortal exercise={exercise} onLeaveSession={onLeaveSession} />
+          <IntroPortal
+            exercise={exercise}
+            isVisible={!sessionState?.started}
+            isHost={true}
+            hideHostNotes={true}
+            onStartSession={startSession}
+            onLeaveSession={onLeaveSession}
+            onNavigateToSession={onNavigateToSession}
+            showMuteToggle
+          />
           <DesktopOnly>
             <LeftGradient color={exercise?.theme?.backgroundColor} />
             <RightGradient color={exercise?.theme?.backgroundColor} />
           </DesktopOnly>
         </Wrapper>
-      )}
-      <Fade
-        visible={Boolean(sessionState?.started && !sessionState?.ended)}
-        duration={2000}>
-        {sessionSlideState !== null && (
-          <Wrapper backgroundColor={exercise?.theme?.backgroundColor}>
-            <Gutters>
-              <DesktopOnly>
-                <Spacer40 />
-                <Title exercise={exercise} />
-              </DesktopOnly>
-              <Spacer24 />
-              <ProgressBar
-                index={sessionSlideState?.index}
-                length={sessionSlideState?.slides.length}
-                color={exercise?.theme?.textColor}
-              />
-              <Spacer16 />
-              <ContentControls
-                async
-                exercise={exercise}
-                isHost
-                sessionState={sessionState}
-                slideState={sessionSlideState}
-                isConnected // No need to disable buttons for async sessions
-                currentContentReachedEnd
-                onPrevPress={onPrevPress}
-                onNextPress={onNextPress}
-              />
-              <Spacer32 />
-            </Gutters>
-            <ExerciseSlides
-              index={sessionSlideState.index}
-              current={sessionSlideState.current}
-              previous={sessionSlideState.previous}
-              next={sessionSlideState.next}
-              async
-              web
-            />
-            <Spacer60 />
-          </Wrapper>
-        )}
-      </Fade>
-      <Wrapper backgroundColor={exercise?.theme?.backgroundColor}>
-        <Spacer32 />
-        <IntroPortal
-          exercise={exercise}
-          isVisible={!sessionState?.started}
-          isHost={true}
-          hideHostNotes={true}
-          onStartSession={startSession}
-          onLeaveSession={onLeaveSession}
-          onNavigateToSession={onNavigateToSession}
-          showMuteToggle
-        />
-        <DesktopOnly>
-          <LeftGradient color={exercise?.theme?.backgroundColor} />
-          <RightGradient color={exercise?.theme?.backgroundColor} />
-        </DesktopOnly>
-      </Wrapper>
+      </NoSsr>
     </SafeAreaProvider>
   );
 }

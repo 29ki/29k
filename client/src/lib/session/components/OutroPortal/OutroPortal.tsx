@@ -26,7 +26,7 @@ const TopBar = styled(Gutters)({
 
 type OutroPortalProps = {
   exercise: ExerciseWithLanguage | null;
-  onLeaveSession: () => void;
+  onLeaveSession?: () => void;
 };
 
 const OutroPortal: React.FC<OutroPortalProps> = ({
@@ -98,9 +98,11 @@ const OutroPortal: React.FC<OutroPortalProps> = ({
       {isLoading && <Spinner size="large" color={exercise?.theme?.textColor} />}
 
       <TopBar>
-        <Button variant="secondary" size="small" onPress={onLeaveSession}>
-          {t('leavePortal')}
-        </Button>
+        {onLeaveSession && (
+          <Button variant="secondary" size="small" onPress={onLeaveSession}>
+            {t('leavePortal')}
+          </Button>
+        )}
       </TopBar>
     </>
   );

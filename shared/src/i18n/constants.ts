@@ -15,7 +15,7 @@ export type LANGUAGE_TAG = keyof typeof LANGUAGES;
 export const LANGUAGE_TAGS = Object.keys(LANGUAGES) as LANGUAGE_TAG[];
 
 // CLIENT_LANGUAGE_TAGS defines the fully supported client language tags
-export const CLIENT_LANGUAGE_TAGS: LANGUAGE_TAG[] = ['en', 'sv'];
+export const CLIENT_LANGUAGE_TAGS: LANGUAGE_TAG[] = ['en', 'sv', 'pt'];
 
 // DEFAULT_LANGUAGE defines the default language is used when a translation for
 // a specific language is missing and will also be the default for all users,

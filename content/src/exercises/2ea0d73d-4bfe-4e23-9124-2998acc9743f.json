@@ -148,6 +148,7 @@
       "db34d82a-4c48-4ddd-9de5-f562d8aa1bc9",
       "9c2c08a9-7dc6-4058-bc78-016d0eb00614"
     ],
+    "link": "https://aware.29k.org/leadfromaplaceoflove",
     "id": "2ea0d73d-4bfe-4e23-9124-2998acc9743f",
     "async": true,
     "description": "Explore your values in this body-focused meditation. Leading a value-led life can make us happier and more fulfilled."
@@ -296,6 +297,7 @@
       "db34d82a-4c48-4ddd-9de5-f562d8aa1bc9",
       "9c2c08a9-7dc6-4058-bc78-016d0eb00614"
     ],
+    "link": "https://aware.29k.org/leadfromaplaceoflove",
     "id": "2ea0d73d-4bfe-4e23-9124-2998acc9743f",
     "async": true,
     "description": "Explora os teus valores nesta meditação focada no corpo. Viver uma vida guiada por valores pode tornar-nos mais felizes e realizados."
@@ -444,6 +446,7 @@
       "db34d82a-4c48-4ddd-9de5-f562d8aa1bc9",
       "9c2c08a9-7dc6-4058-bc78-016d0eb00614"
     ],
+    "link": "https://aware.29k.org/leadfromaplaceoflove",
     "id": "2ea0d73d-4bfe-4e23-9124-2998acc9743f",
     "async": true,
     "description": "I den här meditationen får du utforska dina värderingar och vad det innebär att försöka låta kärleken leda oss i livet. Att leva efter sina värderingar kan göra oss både lyckligare och mer nöjda med livet."
@@ -538,6 +541,7 @@
       "db34d82a-4c48-4ddd-9de5-f562d8aa1bc9",
       "9c2c08a9-7dc6-4058-bc78-016d0eb00614"
     ],
+    "link": "https://aware.29k.org/leadfromaplaceoflove",
     "id": "2ea0d73d-4bfe-4e23-9124-2998acc9743f",
     "async": false
   },
@@ -546,20 +550,23 @@
       "db34d82a-4c48-4ddd-9de5-f562d8aa1bc9",
       "9c2c08a9-7dc6-4058-bc78-016d0eb00614"
     ],
-    "asyncDuration": 6
+    "asyncDuration": 6,
+    "link": "https://aware.29k.org/leadfromaplaceoflove"
   },
   "cs": {
     "tags": [
       "db34d82a-4c48-4ddd-9de5-f562d8aa1bc9",
       "9c2c08a9-7dc6-4058-bc78-016d0eb00614"
     ],
-    "asyncDuration": 6
+    "asyncDuration": 6,
+    "link": "https://aware.29k.org/leadfromaplaceoflove"
   },
   "nl": {
     "tags": [
       "db34d82a-4c48-4ddd-9de5-f562d8aa1bc9",
       "9c2c08a9-7dc6-4058-bc78-016d0eb00614"
     ],
-    "asyncDuration": 6
+    "asyncDuration": 6,
+    "link": "https://aware.29k.org/leadfromaplaceoflove"
   }
 }

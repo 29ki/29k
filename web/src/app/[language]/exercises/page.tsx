@@ -34,7 +34,7 @@ const StyledLink = styled(Link)({
   textDecoration: 'none',
 });
 
-export default function ExercisePage() {
+export default function ExercisesPage() {
   const {t} = useTranslation('Screen.Explore');
   const exercises = useExercises();
 

@@ -23,6 +23,7 @@ const nextConfig = {
       ),
       'react-i18next': path.resolve('../client/node_modules/react-i18next'),
       'react-native-linear-gradient': 'react-native-web-linear-gradient',
+      'react-native-svg': path.resolve('node_modules/react-native-svg'),
     };
     config.resolve.extensions = [
       '.web.js',

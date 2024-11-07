@@ -147,6 +147,7 @@
       "db34d82a-4c48-4ddd-9de5-f562d8aa1bc9",
       "8da0534a-5da9-430a-bdf3-242ace6460fb"
     ],
+    "link": "https://aware.29k.org/self-soothing",
     "id": "b4307d0b-512d-46d6-a500-7fb372bfe057",
     "async": true,
     "description": "Body and mind are closely connected. Practice using a physical gesture to soothe your own systems."
@@ -304,6 +305,7 @@
       "db34d82a-4c48-4ddd-9de5-f562d8aa1bc9",
       "8da0534a-5da9-430a-bdf3-242ace6460fb"
     ],
+    "link": "https://aware.29k.org/self-soothing",
     "id": "b4307d0b-512d-46d6-a500-7fb372bfe057",
     "async": true,
     "description": "Corpo e mente estão intimamente ligados. Pratica usar um gesto físico para acalmar o teu próprio sistema."
@@ -456,6 +458,7 @@
       "db34d82a-4c48-4ddd-9de5-f562d8aa1bc9",
       "8da0534a-5da9-430a-bdf3-242ace6460fb"
     ],
+    "link": "https://aware.29k.org/self-soothing",
     "id": "b4307d0b-512d-46d6-a500-7fb372bfe057",
     "async": true,
     "description": "Kroppen kan fungera som ett verktyg för att skapa lugn. Den kan hjälpa oss vara närvarande i stunden, lära känna oss själva bättre och träna på självmedkänsla."
@@ -550,6 +553,7 @@
       "db34d82a-4c48-4ddd-9de5-f562d8aa1bc9",
       "8da0534a-5da9-430a-bdf3-242ace6460fb"
     ],
+    "link": "https://aware.29k.org/self-soothing",
     "id": "b4307d0b-512d-46d6-a500-7fb372bfe057",
     "async": false
   },
@@ -558,20 +562,23 @@
       "db34d82a-4c48-4ddd-9de5-f562d8aa1bc9",
       "8da0534a-5da9-430a-bdf3-242ace6460fb"
     ],
-    "asyncDuration": 8
+    "asyncDuration": 8,
+    "link": "https://aware.29k.org/self-soothing"
   },
   "cs": {
     "tags": [
       "db34d82a-4c48-4ddd-9de5-f562d8aa1bc9",
       "8da0534a-5da9-430a-bdf3-242ace6460fb"
     ],
-    "asyncDuration": 8
+    "asyncDuration": 8,
+    "link": "https://aware.29k.org/self-soothing"
   },
   "nl": {
     "tags": [
       "db34d82a-4c48-4ddd-9de5-f562d8aa1bc9",
       "8da0534a-5da9-430a-bdf3-242ace6460fb"
     ],
-    "asyncDuration": 8
+    "asyncDuration": 8,
+    "link": "https://aware.29k.org/self-soothing"
   }
 }

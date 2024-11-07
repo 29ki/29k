@@ -55,9 +55,10 @@ type IntroPortalProps = {
   isLive?: boolean;
   hideHostNotes?: boolean;
   showMuteToggle?: boolean;
-  onStartSession: () => void;
-  onLeaveSession: () => void;
+  onStartSession?: () => void;
+  onLeaveSession?: () => void;
   onNavigateToSession: () => void;
+  startButtonText?: string;
   statusComponent?: React.ReactNode;
 };
 
@@ -71,6 +72,7 @@ const IntroPortal: React.FC<IntroPortalProps> = ({
   onStartSession,
   onLeaveSession,
   onNavigateToSession,
+  startButtonText,
   statusComponent,
 }) => {
   const {t} = useTranslation('Screen.Portal');
@@ -201,12 +203,14 @@ const IntroPortal: React.FC<IntroPortalProps> = ({
       {isVisible && (
         <Content>
           <TopBar>
-            <BackButton
-              onPress={onLeaveSession}
-              fill={textColor}
-              Icon={ArrowLeftIcon}
-              noBackground
-            />
+            {onLeaveSession && (
+              <BackButton
+                onPress={onLeaveSession}
+                fill={textColor}
+                Icon={ArrowLeftIcon}
+                noBackground
+              />
+            )}
             <TopButtons>
               {showMuteToggle && (
                 <Toggler
@@ -223,14 +227,16 @@ const IntroPortal: React.FC<IntroPortalProps> = ({
                 </Button>
               )}
               <Spacer8 />
-              {isHost && (
+              {isHost && onStartSession && (
                 <Button
                   size="small"
                   disabled={sessionState?.started}
                   onPress={onStartSession}>
-                  {sessionState?.started
-                    ? t('sessionStarted')
-                    : t('startSession')}
+                  {startButtonText
+                    ? startButtonText
+                    : sessionState?.started
+                      ? t('sessionStarted')
+                      : t('startSession')}
                 </Button>
               )}
             </TopButtons>
