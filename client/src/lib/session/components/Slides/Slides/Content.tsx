@@ -67,7 +67,7 @@ const Content: React.FC<ContentProps> = ({slide, active, async, web}) => {
   );
 
   return (
-    <Wrapper center={!async}>
+    <Wrapper center={!async && !web}>
       <Spacer12 />
       {!content.video && !content.image && !content.lottie && (
         <TextWrapper>

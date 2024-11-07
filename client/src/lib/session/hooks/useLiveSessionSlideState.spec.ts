@@ -47,6 +47,7 @@ describe('useLiveSessionSlideState', () => {
       current: {type: 'host'},
       next: {type: 'reflection'},
       previous: {type: 'content'},
+      slides: [{type: 'content'}, {type: 'host'}, {type: 'reflection'}],
     });
   });
 
@@ -84,6 +85,7 @@ describe('useLiveSessionSlideState', () => {
       current: {type: 'content'},
       next: undefined,
       previous: undefined,
+      slides: [{type: 'content'}],
     });
   });
 });
