@@ -25,6 +25,9 @@ import Link from 'next/link';
 import ExerciseCard from '../../../../../../client/src/lib/components/Cards/SessionCard/ExerciseCard';
 import CardGraphic from '../../../../../../client/src/lib/components/CardGraphic/CardGraphic';
 import LanguageSelect from '@/lib/components/LanguageSelect';
+import {MouseEventHandler, useCallback, useState} from 'react';
+import {ExerciseWithLanguage} from '../../../../../../client/src/lib/content/types';
+import ExerciseModal from '@/lib/components/ExerciseModal';
 
 const StyledLogo = styled(Logo)({
   height: 46,
@@ -82,44 +85,66 @@ export default function ExercisePage({
   const collection = useCollectionById(collectionId, undefined, true);
   const exercises = useExercisesByCollectionId(collectionId, undefined, true);
 
+  const [exerciseModal, setExerciseModal] =
+    useState<ExerciseWithLanguage | null>(null);
+
+  const onExerciseClick = useCallback(
+    (exercise: ExerciseWithLanguage): MouseEventHandler<HTMLAnchorElement> =>
+      e => {
+        e.preventDefault();
+        setExerciseModal(exercise);
+      },
+    [],
+  );
+
+  const onCloseModal = useCallback(() => {
+    setExerciseModal(null);
+  }, []);
+
   if (!collection) return null;
 
   return (
-    <Gutters>
-      <Spacer32 />
-      <Header>
-        <StyledLogo />
-      </Header>
-      <Spacer24 />
-      <Description>
-        <Heading>
-          <Display36>{collection.name}</Display36>
+    <>
+      <Gutters>
+        <Spacer32 />
+        <Header>
+          <StyledLogo />
+        </Header>
+        <Spacer24 />
+        <Description>
+          <Heading>
+            <Display36>{collection.name}</Display36>
+            <Spacer16 />
+          </Heading>
+          <Graphic>
+            <CardGraphic graphic={collection.card} />
+          </Graphic>
+          <Text>
+            <Markdown>{collection.description}</Markdown>
+          </Text>
           <Spacer16 />
-        </Heading>
-        <Graphic>
-          <CardGraphic graphic={collection.card} />
-        </Graphic>
-        <Text>
-          <Markdown>{collection.description}</Markdown>
-        </Text>
-        <Spacer16 />
-      </Description>
-      <Spacer24 />
-      <Heading18>{t('sessionsHeading')}</Heading18>
-      <Spacer8 />
-      <Columns>
-        {exercises
-          .filter(({hidden}) => !hidden)
-          .map(exercise => (
-            <div key={exercise.id}>
-              <StyledLink
-                href={`/${exercise.language}/exercises/${exercise.id}`}>
-                <ExerciseCard exercise={exercise} />
-              </StyledLink>
-              <Spacer16 />
-            </div>
-          ))}
-      </Columns>
-    </Gutters>
+        </Description>
+        <Spacer24 />
+        <Heading18>{t('sessionsHeading')}</Heading18>
+        <Spacer8 />
+        <Columns>
+          {exercises
+            .filter(({hidden}) => !hidden)
+            .map(exercise => (
+              <div key={exercise.id}>
+                <StyledLink
+                  href={`/${exercise.language}/exercises/${exercise.id}`}
+                  onClick={onExerciseClick(exercise)}>
+                  <ExerciseCard exercise={exercise} />
+                </StyledLink>
+                <Spacer16 />
+              </div>
+            ))}
+        </Columns>
+      </Gutters>
+      {exerciseModal && (
+        <ExerciseModal exercise={exerciseModal} onClose={onCloseModal} />
+      )}
+    </>
   );
 }

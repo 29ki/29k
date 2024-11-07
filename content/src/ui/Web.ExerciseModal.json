@@ -1,0 +1,23 @@
+{
+  "en": {
+    "startHeading": "Do session...",
+    "coCreatorsHeading": "Co-created with",
+    "mode": {
+      "async": "On my own",
+      "live": "As host"
+    }
+  },
+  "pt": {},
+  "sv": {
+    "startHeading": "Starta session...",
+    "coCreatorsHeading": "Skapad tillsammans med",
+    "mode": {
+      "async": "Själv",
+      "live": "Som värd"
+    }
+  },
+  "ja": {},
+  "da": {},
+  "cs": {},
+  "nl": {}
+}
