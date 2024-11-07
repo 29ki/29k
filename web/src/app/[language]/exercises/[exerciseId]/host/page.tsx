@@ -28,33 +28,10 @@ import useLiveSessionSlideState, {
   SessionSlideState,
 } from '../../../../../../../client/src/lib/session/hooks/useLiveSessionSlideState';
 import {ExerciseWithLanguage} from '../../../../../../../client/src/lib/content/types';
-
-/*
-Video and SSR works quite bad in combination
-https://stackoverflow.com/questions/65868582/next-js-loadeddata-event-on-audio-not-firing/66490267#66490267
-https://nextjs.org/docs/pages/building-your-application/optimizing/lazy-loading#nextdynamic
-*/
-const IntroPortal = dynamic(
-  () =>
-    import(
-      '../../../../../../../client/src/lib/session/components/IntroPortal/IntroPortal'
-    ),
-  {ssr: false},
-);
-const OutroPortal = dynamic(
-  () =>
-    import(
-      '../../../../../../../client/src/lib/session/components/OutroPortal/OutroPortal'
-    ),
-  {ssr: false},
-);
-const ExerciseSlides = dynamic(
-  () =>
-    import(
-      '../../../../../../../client/src/lib/session/components/ExerciseSlides/ExerciseSlides'
-    ),
-  {ssr: false},
-);
+import NoSsr from '@/lib/components/NoSsr';
+import OutroPortal from '../../../../../../../client/src/lib/session/components/OutroPortal/OutroPortal';
+import ExerciseSlides from '../../../../../../../client/src/lib/session/components/ExerciseSlides/ExerciseSlides';
+import IntroPortal from '../../../../../../../client/src/lib/session/components/IntroPortal/IntroPortal';
 
 export type SessionControlsState = {
   sessionState: SessionStateType | null;
@@ -264,52 +241,54 @@ export default function ExerciseHostPage({
 
   return (
     <SafeAreaProvider initialMetrics={initialWindowMetrics}>
-      {Boolean(sessionState?.ended) && (
+      <NoSsr>
+        {Boolean(sessionState?.ended) && (
+          <Wrapper backgroundColor={exercise?.theme?.backgroundColor}>
+            <Spacer32 />
+            <OutroPortal exercise={exercise} />
+            <DesktopOnly>
+              <LeftGradient color={exercise?.theme?.backgroundColor} />
+              <RightGradient color={exercise?.theme?.backgroundColor} />
+            </DesktopOnly>
+          </Wrapper>
+        )}
+        <Fade
+          visible={Boolean(sessionState?.started && !sessionState?.ended)}
+          duration={2000}>
+          {slideState !== null && (
+            <Wrapper backgroundColor={exercise?.theme?.backgroundColor}>
+              <Spacer60 />
+              <ExerciseSlides
+                index={slideState.index}
+                current={slideState.current}
+                previous={slideState.previous}
+                next={slideState.next}
+                web
+              />
+              <Spacer60 />
+            </Wrapper>
+          )}
+        </Fade>
         <Wrapper backgroundColor={exercise?.theme?.backgroundColor}>
           <Spacer32 />
-          <OutroPortal exercise={exercise} />
+          <IntroPortal
+            exercise={exercise}
+            isVisible={!sessionState?.started}
+            isHost={true}
+            hideHostNotes={true}
+            onStartSession={
+              !sessionControlsOpen ? onOpenSessionControls : undefined
+            }
+            onLeaveSession={!sessionControlsOpen ? onLeaveSession : undefined}
+            onNavigateToSession={onNavigateToSession}
+            showMuteToggle={!sessionControlsOpen}
+          />
           <DesktopOnly>
             <LeftGradient color={exercise?.theme?.backgroundColor} />
             <RightGradient color={exercise?.theme?.backgroundColor} />
           </DesktopOnly>
         </Wrapper>
-      )}
-      <Fade
-        visible={Boolean(sessionState?.started && !sessionState?.ended)}
-        duration={2000}>
-        {slideState !== null && (
-          <Wrapper backgroundColor={exercise?.theme?.backgroundColor}>
-            <Spacer60 />
-            <ExerciseSlides
-              index={slideState.index}
-              current={slideState.current}
-              previous={slideState.previous}
-              next={slideState.next}
-              web
-            />
-            <Spacer60 />
-          </Wrapper>
-        )}
-      </Fade>
-      <Wrapper backgroundColor={exercise?.theme?.backgroundColor}>
-        <Spacer32 />
-        <IntroPortal
-          exercise={exercise}
-          isVisible={!sessionState?.started}
-          isHost={true}
-          hideHostNotes={true}
-          onStartSession={
-            !sessionControlsOpen ? onOpenSessionControls : undefined
-          }
-          onLeaveSession={!sessionControlsOpen ? onLeaveSession : undefined}
-          onNavigateToSession={onNavigateToSession}
-          showMuteToggle={!sessionControlsOpen}
-        />
-        <DesktopOnly>
-          <LeftGradient color={exercise?.theme?.backgroundColor} />
-          <RightGradient color={exercise?.theme?.backgroundColor} />
-        </DesktopOnly>
-      </Wrapper>
+      </NoSsr>
     </SafeAreaProvider>
   );
 }
