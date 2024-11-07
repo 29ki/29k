@@ -16,6 +16,8 @@ import Markdown from '../../../../../../../../client/src/lib/components/Typograp
 import styled from 'styled-components';
 import BottomFade from '../../../../../../../../client/src/lib/components/BottomFade/BottomFade';
 import {COLORS} from '../../../../../../../../shared/src/constants/colors';
+import {useTranslation} from 'react-i18next';
+import {Heading16} from '../../../../../../../../client/src/lib/components/Typography/Heading/Heading';
 
 const Wrapper = styled.div({
   display: 'flex',
@@ -37,6 +39,8 @@ const Scrollable = styled(Gutters)({
 });
 
 export default function ExerciseHostNotes() {
+  const {t} = useTranslation('Component.HostNotes');
+
   const [state, setState] = useState<SessionControlsState>({
     sessionState: null,
     slideState: null,
@@ -113,6 +117,8 @@ export default function ExerciseHostNotes() {
       <Notes>
         <Scrollable>
           <Spacer32 />
+          <Heading16>{t('notes')}</Heading16>
+          <Spacer16 />
           {hostNotes?.map(({text}, i) => (
             <Markdown key={i}>{text}</Markdown>
           ))}
