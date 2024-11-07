@@ -93,15 +93,16 @@ export default function ExerciseHostNotes() {
   }, []);
 
   useEffect(() => {
-    window.opener?.addEventListener('message', receiveMessage);
-    window.opener?.postMessage({
+    window?.opener?.addEventListener('message', receiveMessage);
+    window?.opener?.postMessage({
       type: 'sessionControls',
       payload: {type: 'init'},
     });
     return () => window.opener?.removeEventListener('message', receiveMessage);
   }, [receiveMessage]);
 
-  if (!window.opener || !state.exercise) return null;
+  if (typeof window == 'undefined' || !window.opener || !state.exercise)
+    return null;
 
   return (
     <Wrapper>
