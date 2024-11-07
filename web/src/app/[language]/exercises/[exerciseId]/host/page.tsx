@@ -121,7 +121,8 @@ export default function ExerciseHostPage({
     useUpdateAsyncSessionState(session);
   const slideState = useLiveSessionSlideState();
 
-  useEffect(() => {
+  const reset = useCallback(() => {
+    setSessionControlsOpen(false);
     resetSession();
     setAsyncSession(session);
     setExercise(exercise);
@@ -208,6 +209,9 @@ export default function ExerciseHostPage({
           case 'init':
             publishSessionState();
             break;
+          case 'reset':
+            reset();
+            break;
           case 'startSession':
             startSession();
             break;
@@ -228,6 +232,7 @@ export default function ExerciseHostPage({
     },
     [
       publishSessionState,
+      reset,
       startSession,
       onNextPress,
       onPrevPress,
@@ -244,6 +249,10 @@ export default function ExerciseHostPage({
   useEffect(() => {
     publishSessionState();
   }, [publishSessionState]);
+
+  useEffect(() => {
+    reset();
+  }, [reset]);
 
   return (
     <SafeAreaProvider initialMetrics={initialWindowMetrics}>

@@ -96,14 +96,31 @@ export default function ExerciseHostNotes() {
     }
   }, []);
 
+  const onWindowUnload = useCallback(() => {
+    window?.opener?.postMessage({
+      type: 'sessionControls',
+      payload: {type: 'reset'},
+    });
+  }, []);
+
+  const onParentWindowUnload = useCallback(() => {
+    window.close();
+  }, []);
+
   useEffect(() => {
     window?.opener?.addEventListener('message', receiveMessage);
     window?.opener?.postMessage({
       type: 'sessionControls',
       payload: {type: 'init'},
     });
-    return () => window.opener?.removeEventListener('message', receiveMessage);
-  }, [receiveMessage]);
+    window.addEventListener('beforeunload', onWindowUnload);
+    window.opener?.addEventListener('beforeunload', onParentWindowUnload);
+    return () => {
+      window.opener?.removeEventListener('message', receiveMessage);
+      window.removeEventListener('beforeunload', onWindowUnload);
+      window.opener?.removeEventListener('beforeunload', onParentWindowUnload);
+    };
+  }, [receiveMessage, onWindowUnload, onParentWindowUnload]);
 
   if (typeof window == 'undefined' || !window.opener || !state.exercise)
     return null;
