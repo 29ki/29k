@@ -181,8 +181,8 @@ export default function ExerciseHostPage({
 
   const onOpenSessionControls = useCallback(() => {
     sessionControlsWindowRef.current = window.open(
-      './notes',
-      'hostNotes',
+      './controls',
+      'sessionControls',
       'popup,width=400,height=600',
     );
     setSessionControlsOpen(true);
