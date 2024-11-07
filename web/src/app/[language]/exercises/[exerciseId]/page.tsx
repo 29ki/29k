@@ -115,7 +115,11 @@ export default function ExercisePage({
   }, [exercise, session, setAsyncSession, setExercise, resetSession]);
 
   const onLeaveSession = useCallback(() => {
-    router.push('../');
+    if (window.history.length > 2) {
+      router.back();
+    } else {
+      router.push('../');
+    }
   }, [router]);
 
   const onNavigateToSession = useCallback(() => {}, []);

@@ -32,6 +32,7 @@ import NoSsr from '@/lib/components/NoSsr';
 import OutroPortal from '../../../../../../../client/src/lib/session/components/OutroPortal/OutroPortal';
 import ExerciseSlides from '../../../../../../../client/src/lib/session/components/ExerciseSlides/ExerciseSlides';
 import IntroPortal from '../../../../../../../client/src/lib/session/components/IntroPortal/IntroPortal';
+import {useTranslation} from 'react-i18next';
 
 export type SessionControlsState = {
   sessionState: SessionStateType | null;
@@ -88,6 +89,7 @@ export default function ExerciseHostPage({
   params: {language: LANGUAGE_TAG; exerciseId: string};
 }) {
   const router = useRouter();
+  const {t} = useTranslation('Web.HostExercise');
   const sessionControlsWindowRef = useRef<Window | null>(null);
   const [sessionControlsOpen, setSessionControlsOpen] = useState(false);
 
@@ -126,7 +128,11 @@ export default function ExerciseHostPage({
   }, [exercise, session, setAsyncSession, setExercise, resetSession]);
 
   const onLeaveSession = useCallback(() => {
-    router.push('../');
+    if (window.history.length > 2) {
+      router.back();
+    } else {
+      router.push('../../');
+    }
   }, [router]);
 
   const onNavigateToSession = useCallback(() => {}, []);
@@ -282,6 +288,7 @@ export default function ExerciseHostPage({
             onLeaveSession={!sessionControlsOpen ? onLeaveSession : undefined}
             onNavigateToSession={onNavigateToSession}
             showMuteToggle={!sessionControlsOpen}
+            startButtonText={t('openHostControls')}
           />
           <DesktopOnly>
             <LeftGradient color={exercise?.theme?.backgroundColor} />
