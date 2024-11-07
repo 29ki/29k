@@ -19,12 +19,20 @@ const Heading = styled(Display28)<{textColor?: string}>(({textColor}) => ({
   color: textColor ?? COLORS.BLACK,
 }));
 
-const Title = ({exercise}: {exercise: ExerciseWithLanguage | null}) => {
+const Title = ({
+  exercise,
+  color,
+}: {
+  exercise?: ExerciseWithLanguage | null;
+  color?: string;
+}) => {
   return (
     <Wrapper>
-      <Logo fill={exercise?.theme?.textColor} />
+      <Logo fill={color || exercise?.theme?.textColor} />
       <Spacer16 />
-      <Heading textColor={exercise?.theme?.textColor}>{exercise?.name}</Heading>
+      <Heading textColor={color || exercise?.theme?.textColor}>
+        {exercise?.name}
+      </Heading>
     </Wrapper>
   );
 };

@@ -58,6 +58,7 @@ type IntroPortalProps = {
   onStartSession?: () => void;
   onLeaveSession?: () => void;
   onNavigateToSession: () => void;
+  startButtonText?: string;
   statusComponent?: React.ReactNode;
 };
 
@@ -71,6 +72,7 @@ const IntroPortal: React.FC<IntroPortalProps> = ({
   onStartSession,
   onLeaveSession,
   onNavigateToSession,
+  startButtonText,
   statusComponent,
 }) => {
   const {t} = useTranslation('Screen.Portal');
@@ -230,9 +232,11 @@ const IntroPortal: React.FC<IntroPortalProps> = ({
                   size="small"
                   disabled={sessionState?.started}
                   onPress={onStartSession}>
-                  {sessionState?.started
-                    ? t('sessionStarted')
-                    : t('startSession')}
+                  {startButtonText
+                    ? startButtonText
+                    : sessionState?.started
+                      ? t('sessionStarted')
+                      : t('startSession')}
                 </Button>
               )}
             </TopButtons>

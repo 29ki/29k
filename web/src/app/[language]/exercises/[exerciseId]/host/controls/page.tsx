@@ -16,6 +16,8 @@ import Markdown from '../../../../../../../../client/src/lib/components/Typograp
 import styled from 'styled-components';
 import BottomFade from '../../../../../../../../client/src/lib/components/BottomFade/BottomFade';
 import {COLORS} from '../../../../../../../../shared/src/constants/colors';
+import {useTranslation} from 'react-i18next';
+import {Heading16} from '../../../../../../../../client/src/lib/components/Typography/Heading/Heading';
 
 const Wrapper = styled.div({
   display: 'flex',
@@ -37,6 +39,8 @@ const Scrollable = styled(Gutters)({
 });
 
 export default function ExerciseHostNotes() {
+  const {t} = useTranslation('Component.HostNotes');
+
   const [state, setState] = useState<SessionControlsState>({
     sessionState: null,
     slideState: null,
@@ -92,14 +96,31 @@ export default function ExerciseHostNotes() {
     }
   }, []);
 
+  const onWindowUnload = useCallback(() => {
+    window?.opener?.postMessage({
+      type: 'sessionControls',
+      payload: {type: 'reset'},
+    });
+  }, []);
+
+  const onParentWindowUnload = useCallback(() => {
+    window.close();
+  }, []);
+
   useEffect(() => {
     window?.opener?.addEventListener('message', receiveMessage);
     window?.opener?.postMessage({
       type: 'sessionControls',
       payload: {type: 'init'},
     });
-    return () => window.opener?.removeEventListener('message', receiveMessage);
-  }, [receiveMessage]);
+    window.addEventListener('beforeunload', onWindowUnload);
+    window.opener?.addEventListener('beforeunload', onParentWindowUnload);
+    return () => {
+      window.opener?.removeEventListener('message', receiveMessage);
+      window.removeEventListener('beforeunload', onWindowUnload);
+      window.opener?.removeEventListener('beforeunload', onParentWindowUnload);
+    };
+  }, [receiveMessage, onWindowUnload, onParentWindowUnload]);
 
   if (typeof window == 'undefined' || !window.opener || !state.exercise)
     return null;
@@ -108,11 +129,13 @@ export default function ExerciseHostNotes() {
     <Wrapper>
       <Gutters>
         <Spacer16 />
-        <Title exercise={state.exercise} />
+        <Title exercise={state.exercise} color={COLORS.BLACK} />
       </Gutters>
       <Notes>
         <Scrollable>
           <Spacer32 />
+          <Heading16>{t('notes')}</Heading16>
+          <Spacer16 />
           {hostNotes?.map(({text}, i) => (
             <Markdown key={i}>{text}</Markdown>
           ))}
