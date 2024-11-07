@@ -16,6 +16,7 @@ import Logo from '@/lib/components/Logo';
 import LanguageSelect from '@/lib/components/LanguageSelect';
 import Columns from '@/lib/components/Columns';
 import Gutters from '@/lib/components/Gutters';
+import Footer from '@/lib/components/Footer';
 import ExerciseModal from '@/lib/components/ExerciseModal';
 import {MouseEventHandler, useCallback, useState} from 'react';
 import {ExerciseWithLanguage} from '../../../../../client/src/lib/content/types';
@@ -84,6 +85,8 @@ export default function ExercisesPage() {
       {exerciseModal && (
         <ExerciseModal exercise={exerciseModal} onClose={onCloseModal} />
       )}
+      <Spacer16 />
+      <Footer />
     </>
   );
 }

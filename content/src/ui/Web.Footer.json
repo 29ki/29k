@@ -1,0 +1,21 @@
+{
+  "en": {
+    "madeBy": "Made by",
+    "about__markdown": "Aware is a non-profit organization and community on a mission to make personal growth available for everyone, for free.",
+    "moreInfo__markdown": "For more information visit: [www.awareapp.org](https://www.awareapp.org)",
+    "downloadAppStore": "Download on the App Store",
+    "downloadGooglePlay": "Get it on Google Play"
+  },
+  "pt": {},
+  "sv": {
+    "madeBy": "Skapad av",
+    "about__markdown": "Aware är en ideell organisation och community på uppdrag att göra personlig utveckling tillgänglig för alla, gratis.",
+    "moreInfo__markdown": "För mer information besök: [www.awareapp.org](https://www.awareapp.org)",
+    "downloadAppStore": "Ladda ner från App Store",
+    "downloadGooglePlay": "Hämta från Google Play"
+  },
+  "ja": {},
+  "da": {},
+  "cs": {},
+  "nl": {}
+}

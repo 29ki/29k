@@ -76,6 +76,11 @@ const components = (styles: typeof baseStyles): Components => ({
       {children}
     </View>
   ),
+  a: ({children, href}) => (
+    <a href={href} style={styles.link}>
+      {children}
+    </a>
+  ),
 });
 
 export default components;
