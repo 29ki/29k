@@ -1,17 +1,7 @@
 {
   "en": {
+    "liveDuration": 0,
     "slides": [
-      {
-        "type": "host",
-        "hostNotes": [
-          {
-            "text": "Welcome. I am xx and today we will work for around 20 minutes on attention and awareness.\n\nWe’ll be exploring the how to cultivate greater attention and awareness by paying attention to our breath."
-          },
-          {
-            "text": "Let’s start with a mini check-in. How are you feeling right now? Please answer in two-three words. Now, would you like to start?\n\n> Let everyone in the session, including yourself, check in one by one.\n\nThank you all for checking in. Let’s get started."
-          }
-        ]
-      },
       {
         "type": "content",
         "hostNotes": [
@@ -187,8 +177,9 @@
     "hidden": false,
     "locked": true,
     "name": "Attention to Breath",
-    "live": true,
+    "live": false,
     "published": true,
+    "asyncDuration": 10,
     "card": {
       "image": {
         "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1715194844/SEE/Icons/Awareness/AttentiontoBreathing_CardImage_otoh1t.png"
@@ -201,8 +192,6 @@
         "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1713881366/SEE/see-logo_1_kewtlt.png"
       }
     ],
-    "asyncDuration": 10,
-    "liveDuration": 10,
     "outroPortal": {
       "video": {
         "source": ""
@@ -222,12 +211,15 @@
         "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1717469190/SEE/Video/SEELearning_AwareApp_IntroVideo_2024_V3_1_giheh7.mp4"
       }
     },
-    "tags": ["cfc00217-f65b-4a4d-8b82-8ccc8f852dd6"],
+    "tags": [
+      "cfc00217-f65b-4a4d-8b82-8ccc8f852dd6"
+    ],
     "id": "4ffe2765-995a-4afc-ae86-65d08088915b",
     "async": true,
     "description": "As we become skillful in focused attention, it can help to bring about greater calm and well-being in our bodies and minds, and help strengthen our ability to pay attention the same way we can build muscle."
   },
   "pt": {
+    "liveDuration": 0,
     "slides": [
       {
         "type": "host",
@@ -300,24 +292,31 @@
     },
     "hidden": false,
     "locked": true,
-    "live": true,
+    "live": false,
     "published": false,
-    "card": {},
     "asyncDuration": 10,
-    "liveDuration": 10,
+    "card": {},
     "introPortal": {
       "textColor": "#2AE2D7",
       "hostNotes": [
         {
           "text": "> Start the session when you're ready to go"
         }
-      ]
+      ],
+      "videoLoop": {
+        "p5JsScript": {
+          "lang": "javascript"
+        }
+      }
     },
-    "tags": ["cfc00217-f65b-4a4d-8b82-8ccc8f852dd6"],
+    "tags": [
+      "cfc00217-f65b-4a4d-8b82-8ccc8f852dd6"
+    ],
     "id": "4ffe2765-995a-4afc-ae86-65d08088915b",
-    "async": false
+    "async": true
   },
   "sv": {
+    "liveDuration": 0,
     "slides": [
       {
         "type": "host",
@@ -392,9 +391,8 @@
     "locked": true,
     "live": true,
     "published": false,
-    "card": {},
     "asyncDuration": 10,
-    "liveDuration": 10,
+    "card": {},
     "introPortal": {
       "textColor": "#2AE2D7",
       "hostNotes": [
@@ -403,11 +401,14 @@
         }
       ]
     },
-    "tags": ["cfc00217-f65b-4a4d-8b82-8ccc8f852dd6"],
+    "tags": [
+      "cfc00217-f65b-4a4d-8b82-8ccc8f852dd6"
+    ],
     "id": "4ffe2765-995a-4afc-ae86-65d08088915b",
     "async": false
   },
   "ja": {
+    "liveDuration": 0,
     "slides": [
       {
         "type": "host",
@@ -482,9 +483,8 @@
     "locked": true,
     "live": true,
     "published": false,
-    "card": {},
     "asyncDuration": 10,
-    "liveDuration": 10,
+    "card": {},
     "introPortal": {
       "textColor": "#2AE2D7",
       "hostNotes": [
@@ -493,11 +493,28 @@
         }
       ]
     },
-    "tags": ["cfc00217-f65b-4a4d-8b82-8ccc8f852dd6"],
+    "tags": [
+      "cfc00217-f65b-4a4d-8b82-8ccc8f852dd6"
+    ],
     "id": "4ffe2765-995a-4afc-ae86-65d08088915b",
     "async": false
   },
-  "da": {},
-  "cs": {},
-  "nl": {}
+  "da": {
+    "tags": [
+      "cfc00217-f65b-4a4d-8b82-8ccc8f852dd6"
+    ],
+    "liveDuration": 0
+  },
+  "cs": {
+    "tags": [
+      "cfc00217-f65b-4a4d-8b82-8ccc8f852dd6"
+    ],
+    "liveDuration": 0
+  },
+  "nl": {
+    "tags": [
+      "cfc00217-f65b-4a4d-8b82-8ccc8f852dd6"
+    ],
+    "liveDuration": 0
+  }
 }
