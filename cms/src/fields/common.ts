@@ -53,7 +53,7 @@ export const EXCLUDE_WEB_FIELD: CmsField = {
   widget: 'boolean',
   required: false,
   default: false,
-  i18n: false,
+  i18n: 'duplicate',
   hint: 'This will exclude the exercise from the web',
 };
 
