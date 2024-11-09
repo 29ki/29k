@@ -96,6 +96,7 @@
     "description": "An introduction to practicing mindfulness, gratitude and start using the Aware app."
   },
   "pt": {
+    "excludeFromWeb": true,
     "liveDuration": 5,
     "slides": [
       {
@@ -192,6 +193,7 @@
     "description": "Uma introdução à prática de atenção plena, gratidão e como começar a utilizar a Aware"
   },
   "sv": {
+    "excludeFromWeb": true,
     "liveDuration": 5,
     "slides": [
       {
