@@ -32,12 +32,19 @@ export const getPosts = async (
     sharingId,
   );
   return Promise.all(
-    posts.map(async post => ({
-      ...post,
-      userProfile: post.userId
-        ? await safeGetPublicHostInfo(post.userId)
-        : null,
-    })),
+    posts
+      .sort((postA, postB) =>
+        languages
+          ? languages.findIndex(language => language === postA.language) -
+            languages.findIndex(language => language === postB.language)
+          : 0,
+      )
+      .map(async post => ({
+        ...post,
+        userProfile: post.userId
+          ? await safeGetPublicHostInfo(post.userId)
+          : null,
+      })),
   );
 };
 

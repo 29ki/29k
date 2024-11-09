@@ -17,7 +17,7 @@ import {LanguageSchema} from '../../../../shared/src/schemas/Language';
 
 const postsRouter = createApiAuthRouter();
 
-const POSTS_LIMIT = 20;
+const POSTS_LIMIT = 50;
 
 const GetPostsQuerySchema = yup.object({
   language: LanguageSchema.default(DEFAULT_LANGUAGE_TAG),

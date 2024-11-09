@@ -3,7 +3,7 @@ import {AddFeedbackBody} from '../../../shared/src/types/Feedback';
 import * as slack from '../models/slack';
 import {getExerciseById} from '../lib/exercise';
 import {SessionMode} from '../../../shared/src/schemas/Session';
-import {DEFAULT_LANGUAGE_TAG} from '../lib/i18n';
+import {DEFAULT_LANGUAGE_TAG, LANGUAGE_TAG} from '../lib/i18n';
 
 export const addFeedback = async (feedback: AddFeedbackBody) => {
   const savedData = await metricsModel.addFeedback(feedback);
@@ -46,4 +46,27 @@ export const getFeedbackCountByExercise = async (
     }),
     {positive: 0, negative: 0},
   );
+};
+
+export const getApprovedFeedbackByExercise = async (
+  exerciseId: string,
+  languages?: LANGUAGE_TAG[],
+  mode?: SessionMode,
+  limit?: number,
+) => {
+  const feedback = await metricsModel.getFeedbackByExercise(
+    exerciseId,
+    languages,
+    mode,
+    true,
+    limit,
+  );
+  const sortedFeedback = feedback.sort((feedbackA, postB) =>
+    languages
+      ? languages.findIndex(language => language === feedbackA.language) -
+        languages.findIndex(language => language === postB.language)
+      : 0,
+  );
+
+  return sortedFeedback;
 };
