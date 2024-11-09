@@ -15,6 +15,7 @@ import {
 import {SessionMode, SessionType} from '../../../../shared/src/schemas/Session';
 import {LiveSessionModel} from '../../controllers/types/types';
 import {Timestamp} from 'firebase-admin/firestore';
+import {FeedbackInput} from '../../../../shared/src/types/Feedback';
 
 jest.mock('../../controllers/sessions');
 jest.mock('../../controllers/feedback');
@@ -38,6 +39,8 @@ const mockCreateSessionHostingLink =
 const mockUpdateSessionHost = sessionsController.updateSessionHost as jest.Mock;
 const mockGetFeedbackCountByExercise =
   feedbackController.getFeedbackCountByExercise as jest.Mock;
+const mockGetApprovedFeedbackByExercise =
+  feedbackController.getApprovedFeedbackByExercise as jest.Mock;
 
 jest.mock('../../models/session');
 
@@ -774,6 +777,80 @@ describe('/api/sessions', () => {
       );
       expect(response.status).toBe(200);
       expect(response.body).toEqual({positive: 2, negative: 0});
+    });
+  });
+
+  describe('GET /exercises/:exerciseId/feedback', () => {
+    it('should return latest feedback', async () => {
+      mockGetApprovedFeedbackByExercise.mockResolvedValueOnce([
+        {
+          id: 'some-id',
+          exerciseId: 'some-exercise-id',
+          sessionId: 'some-session-id',
+          sessionMode: 'live',
+          sessionType: 'public',
+          host: false,
+          completed: true,
+          approved: true,
+          question: 'some question',
+          answer: true,
+          createdAt: Timestamp.fromDate(new Date('2021-03-08T07:24:00')),
+        } as FeedbackInput,
+        {
+          id: 'some-other-id',
+          exerciseId: 'some-exercise-id',
+          sessionId: 'some-session-id',
+          sessionMode: 'live',
+          sessionType: 'public',
+          host: false,
+          completed: true,
+          approved: true,
+          question: 'some question',
+          answer: true,
+          createdAt: Timestamp.fromDate(new Date('2022-03-08T07:24:00')),
+        } as FeedbackInput,
+      ]);
+
+      const response = await request(mockServer).get(
+        '/sessions/exercises/1234/feedback?mode=live&limit=5',
+      );
+
+      expect(mockGetApprovedFeedbackByExercise).toHaveBeenCalledTimes(1);
+      expect(mockGetApprovedFeedbackByExercise).toHaveBeenCalledWith(
+        '1234',
+        ['en'],
+        'live',
+        5,
+      );
+      expect(response.status).toBe(200);
+      expect(response.body).toEqual([
+        {
+          id: 'some-id',
+          exerciseId: 'some-exercise-id',
+          sessionId: 'some-session-id',
+          sessionMode: 'live',
+          sessionType: 'public',
+          host: false,
+          completed: true,
+          approved: true,
+          question: 'some question',
+          answer: true,
+          createdAt: '2021-03-08T07:24:00.000Z',
+        },
+        {
+          id: 'some-other-id',
+          exerciseId: 'some-exercise-id',
+          sessionId: 'some-session-id',
+          sessionMode: 'live',
+          sessionType: 'public',
+          host: false,
+          completed: true,
+          approved: true,
+          question: 'some question',
+          answer: true,
+          createdAt: '2022-03-08T07:24:00.000Z',
+        },
+      ]);
     });
   });
 });

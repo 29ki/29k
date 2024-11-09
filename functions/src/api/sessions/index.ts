@@ -26,8 +26,10 @@ import {
 import {RequestError} from '../../controllers/errors/RequestError';
 import {ROLE} from '../../../../shared/src/schemas/User';
 import validation from '../lib/validation';
-import {getFeedbackCountByExercise} from '../../controllers/feedback';
-import {getFeedbackByExercise} from '../../models/metrics';
+import {
+  getApprovedFeedbackByExercise,
+  getFeedbackCountByExercise,
+} from '../../controllers/feedback';
 import {FeedbackSchema} from '../../../../shared/src/schemas/Feedback';
 import {DEFAULT_LANGUAGE_TAG} from '../../lib/i18n';
 import {uniq} from 'ramda';
@@ -120,11 +122,10 @@ sessionsRouter.get(
 
     const languages = uniq([language, DEFAULT_LANGUAGE_TAG]);
 
-    const feedback = await getFeedbackByExercise(
+    const feedback = await getApprovedFeedbackByExercise(
       exerciseId,
       languages,
       mode,
-      true,
       limit,
     );
     ctx.set('Cache-Control', 'max-age=1800');

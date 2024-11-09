@@ -136,4 +136,92 @@ describe('feedback - controller', () => {
       expect(res).toEqual({negative: 2, positive: 3});
     });
   });
+
+  describe('getApprovedFeedbackByExercise', () => {
+    it('returns approved feedback', async () => {
+      jest.mocked(metricsModel.getFeedbackByExercise).mockResolvedValue([
+        {
+          id: 'some-id',
+          approved: true,
+        },
+        {
+          id: 'some-other-id',
+          approved: true,
+        },
+      ] as Feedback[]);
+      const res = await feedbackController.getApprovedFeedbackByExercise(
+        'exercise-id',
+        undefined,
+        SessionMode.live,
+      );
+      expect(metricsModel.getFeedbackByExercise).toHaveBeenCalledTimes(1);
+      expect(metricsModel.getFeedbackByExercise).toHaveBeenCalledWith(
+        'exercise-id',
+        undefined,
+        'live',
+        true,
+        undefined,
+      );
+      expect(res).toEqual([
+        {
+          id: 'some-id',
+          approved: true,
+        },
+        {
+          id: 'some-other-id',
+          approved: true,
+        },
+      ]);
+    });
+
+    it('should optionally filter and sort by languages', async () => {
+      jest.mocked(metricsModel.getFeedbackByExercise).mockResolvedValue([
+        {
+          id: 'some-id',
+          approved: true,
+          language: 'en',
+        },
+        {
+          id: 'some-other-id',
+          approved: true,
+          language: 'sv',
+        },
+        {
+          id: 'some-third-id',
+          approved: true,
+          language: 'sv',
+        },
+      ] as Feedback[]);
+      const res = await feedbackController.getApprovedFeedbackByExercise(
+        'exercise-id',
+        ['sv', 'en'],
+        SessionMode.live,
+      );
+      expect(metricsModel.getFeedbackByExercise).toHaveBeenCalledTimes(1);
+      expect(metricsModel.getFeedbackByExercise).toHaveBeenCalledWith(
+        'exercise-id',
+        ['sv', 'en'],
+        'live',
+        true,
+        undefined,
+      );
+      expect(res).toEqual([
+        {
+          id: 'some-other-id',
+          approved: true,
+          language: 'sv',
+        },
+        {
+          id: 'some-third-id',
+          approved: true,
+          language: 'sv',
+        },
+        {
+          id: 'some-id',
+          approved: true,
+          language: 'en',
+        },
+      ]);
+    });
+  });
 });

@@ -367,28 +367,70 @@ describe('posts - controller', () => {
       ]);
     });
 
-    it('should optionally filter by languages', async () => {
+    it('should optionally filter and sort by languages', async () => {
       mockGetPosts.mockResolvedValueOnce([
         {
           id: 'some-post-id',
           userId: 'some-user-id',
+          language: 'en',
+        } as PostRecord,
+        {
+          id: 'some-other-post-id',
+          userId: 'some-user-id',
+          language: 'sv',
+        } as PostRecord,
+        {
+          id: 'some-third-post-id',
+          userId: 'some-user-id',
+          language: 'sv',
         } as PostRecord,
       ]);
-      mockGetPublicUserInfo.mockResolvedValueOnce({
-        uid: 'some-user-id',
-        displayName: 'some name',
-        photoURL: 'some-url',
-      });
+      mockGetPublicUserInfo
+        .mockResolvedValueOnce({
+          uid: 'some-user-id',
+          displayName: 'some name',
+          photoURL: 'some-url',
+        })
+        .mockResolvedValueOnce({
+          uid: 'some-user-id',
+          displayName: 'some name',
+          photoURL: 'some-url',
+        })
+        .mockResolvedValueOnce({
+          uid: 'some-user-id',
+          displayName: 'some name',
+          photoURL: 'some-url',
+        });
 
-      const posts = await postsController.getPosts(10, ['sv']);
+      const posts = await postsController.getPosts(10, ['sv', 'en']);
 
       expect(mockGetPosts).toHaveBeenCalledWith(
         10,
-        ['sv'],
+        ['sv', 'en'],
         undefined,
         undefined,
       );
       expect(posts).toEqual([
+        {
+          id: 'some-other-post-id',
+          userId: 'some-user-id',
+          userProfile: {
+            uid: 'some-user-id',
+            displayName: 'some name',
+            photoURL: 'some-url',
+          },
+          language: 'sv',
+        },
+        {
+          id: 'some-third-post-id',
+          userId: 'some-user-id',
+          userProfile: {
+            uid: 'some-user-id',
+            displayName: 'some name',
+            photoURL: 'some-url',
+          },
+          language: 'sv',
+        },
         {
           id: 'some-post-id',
           userId: 'some-user-id',
@@ -397,6 +439,7 @@ describe('posts - controller', () => {
             displayName: 'some name',
             photoURL: 'some-url',
           },
+          language: 'en',
         },
       ]);
     });
