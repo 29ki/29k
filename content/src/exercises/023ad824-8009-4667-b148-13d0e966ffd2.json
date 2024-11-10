@@ -165,7 +165,7 @@
     "hidden": false,
     "locked": true,
     "name": "Mind Jar",
-    "live": true,
+    "live": false,
     "published": true,
     "asyncDuration": 10,
     "card": {
