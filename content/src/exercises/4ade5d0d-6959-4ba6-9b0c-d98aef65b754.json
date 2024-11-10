@@ -1,24 +1,24 @@
 {
   "en": {
+    "liveDuration": 0,
     "slides": [
       {
-        "type": "host",
-        "hostNotes": [
-          {
-            "text": "Welcome. I am X and today we will work for around 20 minutes on resilience.\n\nWe’ll be exploring the concept of our resilient zone followed by time for reflection and sharing with each other."
-          },
-          {
-            "text": "Let’s start with a mini check-in. How are you feeling right now? Please answer in two-three words. Now, would you like to start?\n\n> Let everyone in the session, including yourself, check in one by one.\n\nThank you all for checking in. Let’s get started."
-          }
-        ]
+        "type": "instruction",
+        "content": {
+          "heading": "Welcome",
+          "text": "This session explores the concept of our resilient zone."
+        }
+      },
+      {
+        "type": "instruction",
+        "content": {
+          "text": "Find a comfortable position. Begin the exercise when you are ready.",
+          "heading": "Getting started"
+        }
       },
       {
         "type": "content",
-        "hostNotes": [
-          {
-            "text": "Find a comfortable position. I will start the audio exercise and we'll meet back here afterwards. \n\n> Tap play to start the audio exercise"
-          }
-        ],
+        "hostNotes": [],
         "content": {
           "lottie": {
             "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1713881009/SEE/Audio/Resilience/Resllient_Zone_mpz5wo.mp3",
@@ -55,28 +55,6 @@
             "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1716951212/SEE/Icons/Reflection/Reflection_Awareness_CardImage_wgzwcf.png"
           }
         }
-      },
-      {
-        "type": "reflection",
-        "content": {
-          "video": {
-            "durationTimer": false,
-            "source": ""
-          },
-          "lottie": {
-            "durationTimer": false,
-            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1718146076/SEE/Lottie/Timer/1min_timer_ag9fyg.json"
-          },
-          "heading": "How did you find the idea of the resilient zone?"
-        },
-        "hostNotes": [
-          {
-            "text": "Now we’ll take 1 minute to reflect on our own.\n\nHow did you find the idea of the resilient zone? How do you experience the high and low zones? How would you describe being in the OK zone?"
-          },
-          {
-            "text": "You can take notes on a piece of paper or just mental notes in your head. And there is no right or wrong here, our answers are our own. 1 minute starting now.\n\n> Press play to start the timer.\n\nThat’s 1 minute and it’s time to move on."
-          }
-        ]
       },
       {
         "type": "sharing",
@@ -151,23 +129,6 @@
         }
       },
       {
-        "type": "host",
-        "hostNotes": [
-          {
-            "text": "Good job. We've explored the idea of the resilient zone. Each of us will experience a challenging situation differently. We’re all human. We’re all in this together. We can build the skills to return to our Resilient Zone, even in challenging situations."
-          },
-          {
-            "text": "If we're up for it, we can continue with a mission: Practice growing our awareness by noticing when we might be in the resilient zone over the next few days. Plan the step you will take by considering how the resilient zone concept could be useful in your day."
-          },
-          {
-            "text": "Before we leave this space, let’s do a mini check-out: How are you feeling right now? Has anything shifted? Please answer in two to three words. Who would like to start?"
-          },
-          {
-            "text": "> Let everyone in the session check out one by one. \n\nThank you all for checking out and for joining this session today. \n\n> Finish session to send everyone off to the exit experience."
-          }
-        ]
-      },
-      {
         "type": "instruction",
         "content": {
           "text": "Well done. We've explored the idea of the resilient zone. Each of us will experience a challenging situation differently. We’re all human. We’re all in this together. We can build the skills needed to return ourselves to our Resilient Zone, even in very challenging situations.",
@@ -195,8 +156,9 @@
     "hidden": false,
     "locked": true,
     "name": "The Resilient Zone",
-    "live": true,
+    "live": false,
     "published": true,
+    "asyncDuration": 10,
     "card": {
       "imageBackgroundColor": "",
       "image": {
@@ -210,8 +172,6 @@
         "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1717533458/SEE/SEELearning_Logo_Apple_2022_fe9mjc.png"
       }
     ],
-    "asyncDuration": 10,
-    "liveDuration": 19,
     "outroPortal": {
       "video": {
         "source": ""
@@ -235,12 +195,15 @@
         "source": ""
       }
     },
-    "tags": ["8da0534a-5da9-430a-bdf3-242ace6460fb"],
+    "tags": [
+      "8da0534a-5da9-430a-bdf3-242ace6460fb"
+    ],
     "id": "4ade5d0d-6959-4ba6-9b0c-d98aef65b754",
     "async": true,
     "description": "The Resilient Zone introduces a way of understanding how our body (specifically our autonomic nervous system) operates by dividing our current state of body and mind into three zones. The three zones are the high zone, the low zone, and the resilient zone (or zone of well-being)."
   },
   "pt": {
+    "liveDuration": 0,
     "slides": [
       {
         "type": "host",
@@ -315,11 +278,10 @@
     "locked": true,
     "live": true,
     "published": false,
+    "asyncDuration": 10,
     "card": {
       "imageBackgroundColor": ""
     },
-    "asyncDuration": 10,
-    "liveDuration": 19,
     "introPortal": {
       "textColor": "#2AE2D7",
       "hostNotes": [
@@ -328,11 +290,14 @@
         }
       ]
     },
-    "tags": ["8da0534a-5da9-430a-bdf3-242ace6460fb"],
+    "tags": [
+      "8da0534a-5da9-430a-bdf3-242ace6460fb"
+    ],
     "id": "4ade5d0d-6959-4ba6-9b0c-d98aef65b754",
     "async": false
   },
   "sv": {
+    "liveDuration": 0,
     "slides": [
       {
         "type": "host",
@@ -407,11 +372,10 @@
     "locked": true,
     "live": true,
     "published": false,
+    "asyncDuration": 10,
     "card": {
       "imageBackgroundColor": ""
     },
-    "asyncDuration": 10,
-    "liveDuration": 19,
     "introPortal": {
       "textColor": "#2AE2D7",
       "hostNotes": [
@@ -420,11 +384,14 @@
         }
       ]
     },
-    "tags": ["8da0534a-5da9-430a-bdf3-242ace6460fb"],
+    "tags": [
+      "8da0534a-5da9-430a-bdf3-242ace6460fb"
+    ],
     "id": "4ade5d0d-6959-4ba6-9b0c-d98aef65b754",
     "async": false
   },
   "ja": {
+    "liveDuration": 0,
     "slides": [
       {
         "type": "host",
@@ -499,11 +466,10 @@
     "locked": true,
     "live": true,
     "published": false,
+    "asyncDuration": 10,
     "card": {
       "imageBackgroundColor": ""
     },
-    "asyncDuration": 10,
-    "liveDuration": 19,
     "introPortal": {
       "textColor": "#2AE2D7",
       "hostNotes": [
@@ -512,11 +478,28 @@
         }
       ]
     },
-    "tags": ["8da0534a-5da9-430a-bdf3-242ace6460fb"],
+    "tags": [
+      "8da0534a-5da9-430a-bdf3-242ace6460fb"
+    ],
     "id": "4ade5d0d-6959-4ba6-9b0c-d98aef65b754",
     "async": false
   },
-  "da": {},
-  "cs": {},
-  "nl": {}
+  "da": {
+    "tags": [
+      "8da0534a-5da9-430a-bdf3-242ace6460fb"
+    ],
+    "liveDuration": 0
+  },
+  "cs": {
+    "tags": [
+      "8da0534a-5da9-430a-bdf3-242ace6460fb"
+    ],
+    "liveDuration": 0
+  },
+  "nl": {
+    "tags": [
+      "8da0534a-5da9-430a-bdf3-242ace6460fb"
+    ],
+    "liveDuration": 0
+  }
 }
