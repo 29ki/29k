@@ -6,14 +6,7 @@
         "type": "instruction",
         "content": {
           "heading": "Welcome",
-          "text": "This session explores the concept of our resilient zone."
-        }
-      },
-      {
-        "type": "instruction",
-        "content": {
-          "text": "Find a comfortable position. Begin the exercise when you are ready.",
-          "heading": "Getting started"
+          "text": "This session explores the concept of our resilient zone.\n\nFind a comfortable position and begin the exercise when you are ready."
         }
       },
       {
