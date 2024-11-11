@@ -91,7 +91,7 @@
     "uuid": "^10.0.0",
     "vtt-to-json": "^0.1.1",
     "yup": "^1.4.0",
-    "zustand": "^4.5.5"
+    "zustand": "^5.0.1"
   },
   "devDependencies": {
     "@babel/core": "^7.24.6",
