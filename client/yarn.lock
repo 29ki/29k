@@ -10118,10 +10118,10 @@ react-native-idle-timer@^2.2.3:
   resolved "https://registry.yarnpkg.com/react-native-idle-timer/-/react-native-idle-timer-2.2.3.tgz#88304ea562b06e730048dc6b84910e900247294a"
   integrity sha512-psqoUJDHmFkl5o3ublqLI6eiYFiM/o1O7TLeHjW8Fmx/wVXKESoVaWKIP01QqkoUnHqqch3GmBThkDx8plBnVA==
 
-react-native-image-crop-picker@^0.41.2:
-  version "0.41.2"
-  resolved "https://registry.yarnpkg.com/react-native-image-crop-picker/-/react-native-image-crop-picker-0.41.2.tgz#824fa8fee8391fbb3e0b5ae2973221a2dff0cafb"
-  integrity sha512-GcDu/adXU/1y/MrxsbOfqcGRGWC2pTttt5VGy/jyRJ6GXfoC29fTQf8SG5kGtc5schSR6K+mKYO4uW6eJPljlQ==
+react-native-image-crop-picker@^0.41.4:
+  version "0.41.4"
+  resolved "https://registry.yarnpkg.com/react-native-image-crop-picker/-/react-native-image-crop-picker-0.41.4.tgz#0d4bc05f97767286b23ce661d2d6b7208da4325f"
+  integrity sha512-busd3bjSf3afMF3V30+4bN6V92jBTp22zEamPj0QtAQz8MQT4zmXLeZ9m2KRIXylFeJM94We9AEAgg/TvWQUvw==
 
 react-native-linear-gradient@^2.8.3:
   version "2.8.3"
