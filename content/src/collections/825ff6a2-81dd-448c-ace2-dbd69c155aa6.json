@@ -5,7 +5,7 @@
     "locked": true,
     "id": "825ff6a2-81dd-448c-ace2-dbd69c155aa6",
     "name": "SEE Awareness",
-    "description": "SEE learning awareness placeholder",
+    "description": "Awareness is being aware of what is going on in the mind, in the body, and in one’s surroundings in the present moment. Without being aware of what is going on in one’s mind, one cannot notice that one is about to react in a harmful way, and therefore one cannot retain mindfulness or practice heedfulness.",
     "card": {
       "image": {
         "source": "https://res.cloudinary.com/cupcake-29k/image/upload/v1715194051/SEE/SEELearning_Logo_Apple_2022_iyrrnd.png"
@@ -57,7 +57,28 @@
       "881edc87-02f4-4543-9f32-7c4b5ef34c94"
     ]
   },
-  "da": {},
-  "cs": {},
-  "nl": {}
+  "da": {
+    "exercises": [
+      "023ad824-8009-4667-b148-13d0e966ffd2",
+      "4ffe2765-995a-4afc-ae86-65d08088915b",
+      "85b2fb9a-68ca-4094-8645-c4bd17e43229",
+      "881edc87-02f4-4543-9f32-7c4b5ef34c94"
+    ]
+  },
+  "cs": {
+    "exercises": [
+      "023ad824-8009-4667-b148-13d0e966ffd2",
+      "4ffe2765-995a-4afc-ae86-65d08088915b",
+      "85b2fb9a-68ca-4094-8645-c4bd17e43229",
+      "881edc87-02f4-4543-9f32-7c4b5ef34c94"
+    ]
+  },
+  "nl": {
+    "exercises": [
+      "023ad824-8009-4667-b148-13d0e966ffd2",
+      "4ffe2765-995a-4afc-ae86-65d08088915b",
+      "85b2fb9a-68ca-4094-8645-c4bd17e43229",
+      "881edc87-02f4-4543-9f32-7c4b5ef34c94"
+    ]
+  }
 }
