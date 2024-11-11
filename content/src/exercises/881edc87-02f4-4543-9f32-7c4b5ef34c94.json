@@ -1,6 +1,14 @@
 {
   "en": {
+    "liveDuration": -1,
     "slides": [
+      {
+        "type": "instruction",
+        "content": {
+          "heading": "Welcome",
+          "text": "This session explores"
+        }
+      },
       {
         "type": "host",
         "hostNotes": [
@@ -197,8 +205,9 @@
     "hidden": false,
     "locked": true,
     "name": "Observing the Mind",
-    "live": true,
+    "live": false,
     "published": true,
+    "asyncDuration": 10,
     "card": {
       "image": {
         "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1718152376/SEE/Icons/Awareness/ObservingTheMind_CardImage_crvfoi.png"
@@ -211,8 +220,6 @@
         "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1713881366/SEE/see-logo_1_kewtlt.png"
       }
     ],
-    "asyncDuration": 10,
-    "liveDuration": 15,
     "outroPortal": {
       "video": {
         "source": ""
@@ -232,12 +239,15 @@
         "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1717469190/SEE/Video/SEELearning_AwareApp_IntroVideo_2024_V3_1_giheh7.mp4"
       }
     },
-    "tags": ["cfc00217-f65b-4a4d-8b82-8ccc8f852dd6"],
+    "tags": [
+      "cfc00217-f65b-4a4d-8b82-8ccc8f852dd6"
+    ],
     "id": "881edc87-02f4-4543-9f32-7c4b5ef34c94",
     "async": true,
     "description": "Developing an ability to watch thought processes in the mind is a great way to catch thinking traps. We can pause to remember: “I do not have to act on each emotional impulse or thought. I can navigate emotional experiences in healthy ways, to the benefit of myself and others.\""
   },
   "pt": {
+    "liveDuration": -1,
     "slides": [
       {
         "type": "host",
@@ -312,9 +322,8 @@
     "locked": true,
     "live": true,
     "published": false,
-    "card": {},
     "asyncDuration": 10,
-    "liveDuration": 15,
+    "card": {},
     "introPortal": {
       "textColor": "#2AE2D7",
       "hostNotes": [
@@ -323,11 +332,14 @@
         }
       ]
     },
-    "tags": ["cfc00217-f65b-4a4d-8b82-8ccc8f852dd6"],
+    "tags": [
+      "cfc00217-f65b-4a4d-8b82-8ccc8f852dd6"
+    ],
     "id": "881edc87-02f4-4543-9f32-7c4b5ef34c94",
     "async": false
   },
   "sv": {
+    "liveDuration": -1,
     "slides": [
       {
         "type": "host",
@@ -402,9 +414,8 @@
     "locked": true,
     "live": true,
     "published": false,
-    "card": {},
     "asyncDuration": 10,
-    "liveDuration": 15,
+    "card": {},
     "introPortal": {
       "textColor": "#2AE2D7",
       "hostNotes": [
@@ -413,11 +424,14 @@
         }
       ]
     },
-    "tags": ["cfc00217-f65b-4a4d-8b82-8ccc8f852dd6"],
+    "tags": [
+      "cfc00217-f65b-4a4d-8b82-8ccc8f852dd6"
+    ],
     "id": "881edc87-02f4-4543-9f32-7c4b5ef34c94",
     "async": false
   },
   "ja": {
+    "liveDuration": -1,
     "slides": [
       {
         "type": "host",
@@ -492,9 +506,8 @@
     "locked": true,
     "live": true,
     "published": false,
-    "card": {},
     "asyncDuration": 10,
-    "liveDuration": 15,
+    "card": {},
     "introPortal": {
       "textColor": "#2AE2D7",
       "hostNotes": [
@@ -503,11 +516,28 @@
         }
       ]
     },
-    "tags": ["cfc00217-f65b-4a4d-8b82-8ccc8f852dd6"],
+    "tags": [
+      "cfc00217-f65b-4a4d-8b82-8ccc8f852dd6"
+    ],
     "id": "881edc87-02f4-4543-9f32-7c4b5ef34c94",
     "async": false
   },
-  "da": {},
-  "cs": {},
-  "nl": {}
+  "da": {
+    "tags": [
+      "cfc00217-f65b-4a4d-8b82-8ccc8f852dd6"
+    ],
+    "liveDuration": -1
+  },
+  "cs": {
+    "tags": [
+      "cfc00217-f65b-4a4d-8b82-8ccc8f852dd6"
+    ],
+    "liveDuration": -1
+  },
+  "nl": {
+    "tags": [
+      "cfc00217-f65b-4a4d-8b82-8ccc8f852dd6"
+    ],
+    "liveDuration": -1
+  }
 }
