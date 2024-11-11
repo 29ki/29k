@@ -1,6 +1,6 @@
 {
   "en": {
-    "liveDuration": 20,
+    "liveDuration": 0,
     "slides": [
       {
         "type": "instruction",
@@ -191,7 +191,7 @@
     "description": "Personal resources are internal, external, or imagined things, unique to each person, that bring about a sense of well-being, safety, or happiness when brought to present moment awareness."
   },
   "pt": {
-    "liveDuration": 20,
+    "liveDuration": 0,
     "slides": [
       {
         "type": "host",
@@ -285,7 +285,7 @@
     "async": false
   },
   "sv": {
-    "liveDuration": 20,
+    "liveDuration": 0,
     "slides": [
       {
         "type": "host",
@@ -379,7 +379,7 @@
     "async": false
   },
   "ja": {
-    "liveDuration": 20,
+    "liveDuration": 0,
     "slides": [
       {
         "type": "host",
@@ -475,16 +475,19 @@
   "da": {
     "tags": [
       "8da0534a-5da9-430a-bdf3-242ace6460fb"
-    ]
+    ],
+    "liveDuration": 0
   },
   "cs": {
     "tags": [
       "8da0534a-5da9-430a-bdf3-242ace6460fb"
-    ]
+    ],
+    "liveDuration": 0
   },
   "nl": {
     "tags": [
       "8da0534a-5da9-430a-bdf3-242ace6460fb"
-    ]
+    ],
+    "liveDuration": 0
   }
 }
