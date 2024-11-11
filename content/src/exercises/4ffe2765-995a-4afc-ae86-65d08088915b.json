@@ -3,12 +3,15 @@
     "liveDuration": 0,
     "slides": [
       {
+        "type": "instruction",
+        "content": {
+          "heading": "Welcome",
+          "text": "This session explores how to cultivate greater attention and awareness by paying attention to our breath. \n\nFind a comfortable position and begin the exercise when you are ready."
+        }
+      },
+      {
         "type": "content",
-        "hostNotes": [
-          {
-            "text": "Find a comfortable position. I will start the audio exercise and we'll meet back here afterwards. \n\n> Tap play to start the audio exercise"
-          }
-        ],
+        "hostNotes": [],
         "content": {
           "lottie": {
             "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1715752244/SEE/SRT/Awareness/Breathing_1_z20wcp.srt",
@@ -39,29 +42,6 @@
         }
       },
       {
-        "type": "reflection",
-        "content": {
-          "video": {
-            "durationTimer": true,
-            "source": ""
-          },
-          "lottie": {
-            "durationTimer": true,
-            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto/v1718146076/SEE/Lottie/Timer/1min_timer_ag9fyg.json"
-          },
-          "text": "",
-          "heading": "How was that experience for you? How easy or difficult was it for you to keep your attention on the breath with mindfulness? Were you able to use awareness to bring your mind back when you got distracted or sleepy? What sensations do you notice in your body now?"
-        },
-        "hostNotes": [
-          {
-            "text": "Now we’ll take 1 minutes to reflect on our own. How was that experience for you? How easy or difficult was it for you to keep your attention on the breath with mindfulness? Were you able to use awareness to bring your mind back when you got distracted or sleepy? What sensations do you notice in your body now?"
-          },
-          {
-            "text": "You can take notes on a piece of paper or just mental notes in your head. And there is no right or wrong here, our answers are our own. 1 minute starting now.\n\n> Press play to start the timer. \n\nThat’s 1 minute and it’s time to move on."
-          }
-        ]
-      },
-      {
         "type": "sharing",
         "id": "sharing 1",
         "content": {
@@ -75,17 +55,7 @@
           "text": "",
           "heading": "How was that experience for you?"
         },
-        "hostNotes": [
-          {
-            "text": "Now we are getting into the sharing part. We have three rules for sharing:\n\n1. **What is said in here, stays in here.**\n2. **All you need to do is listen.** There is no fixing, helping or advice-giving needed. We are just showing up and exploring what ourselves and others are going through."
-          },
-          {
-            "text": "3. **Everything on the inside is okay.** Anger, love, hatred, sadness. Whatever shows up. No wrongs, no rights. It is what it is.\n\nThere will be a timer set for 2 minutes as an indicator. If you don’t want to share you can always say ‘pass’."
-          },
-          {
-            "text": "Who would like to start?\n\n> Let everyone (or as many as you got time for) share one by one. Press play to start the timer. Re-start for each new sharing.\n\nThank you so much everyone."
-          }
-        ]
+        "hostNotes": []
       },
       {
         "type": "sharing",
@@ -131,23 +101,6 @@
           "text": "",
           "heading": "What sensations do you notice in your body now?"
         }
-      },
-      {
-        "type": "host",
-        "hostNotes": [
-          {
-            "text": "Well done. Today, we’ve explored building our capacity for attention by focusing on an object, our breath. As we become skillful in focused attention, it can help to bring about greater calm and well-being in our bodies and minds, and help strengthen our ability to pay attention the same way we can build muscle."
-          },
-          {
-            "text": "If we're up for it, we can continue with a mission: Practice using the breath or another object to practice your focusing on three occasions this week."
-          },
-          {
-            "text": "Plan the steps you will take by considering a time in your day when this might be helpful or timely. Before we leave this space, let’s do a mini check-out: How are you feeling right now? Has anything shifted? Please answer in two to three words."
-          },
-          {
-            "text": "Who would like to start? \n\n> Let everyone in the session check out one by one. \n\nThank you all for checking out and for joining this session today. \n\n> Finish session to send everyone off to the exit experience."
-          }
-        ]
       },
       {
         "type": "instruction",
