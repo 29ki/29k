@@ -14,7 +14,10 @@
         ]
       },
       {
-        "type": "instruction"
+        "type": "instruction",
+        "content": {
+          "text": "Music can help guide us to experiences and see things from a different light. This exercise is about letting hope in, and letting it guide us to things we want to change."
+        }
       },
       {
         "type": "content",
@@ -77,7 +80,7 @@
       {
         "type": "instruction",
         "content": {
-          "text": "Well done.\n\nSummary.\n\nIf you’re up for it, you can continue with this mission.\n\nmission description"
+          "text": "Well done.\n\nVisualizing hope and light, even in times of darkness, can help guide our footsteps towards the change we might want to see in ourselves. If you are up for it, here's a mission for you: Remind yourself of the image that you created of light and hope, once a day for the coming three days. Notice how it affects you."
         }
       }
     ],
