@@ -7,7 +7,7 @@
     "sortOrder": 1,
     "card": {
       "image": {
-        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1715194051/SEE/SEELearning_Logo_Apple_2022_iyrrnd.png"
+        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1731443225/SEE/FullCategories_CardImage-03_fqzn6x.png"
       }
     },
     "coCreators": [
@@ -93,7 +93,8 @@
       "3843d06f-1c38-47b9-ad9b-5a780f364186",
       "4ade5d0d-6959-4ba6-9b0c-d98aef65b754",
       "4dd7b844-b54a-4d00-b867-73d19a9b0729"
-    ]
+    ],
+    "card": {}
   },
   "cs": {
     "tags": [
@@ -104,7 +105,8 @@
       "3843d06f-1c38-47b9-ad9b-5a780f364186",
       "4ade5d0d-6959-4ba6-9b0c-d98aef65b754",
       "4dd7b844-b54a-4d00-b867-73d19a9b0729"
-    ]
+    ],
+    "card": {}
   },
   "nl": {
     "tags": [
@@ -115,6 +117,7 @@
       "3843d06f-1c38-47b9-ad9b-5a780f364186",
       "4ade5d0d-6959-4ba6-9b0c-d98aef65b754",
       "4dd7b844-b54a-4d00-b867-73d19a9b0729"
-    ]
+    ],
+    "card": {}
   }
 }
