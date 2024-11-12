@@ -6,7 +6,10 @@
         "type": "instruction",
         "content": {
           "heading": "Welcome",
-          "text": "In this session you will practice compassion for others.\n\nFind a comfortable position and begin the exercise when you are ready."
+          "text": "In this session you will practice compassion for others.\n\nFind a comfortable position and begin the exercise when you are ready.",
+          "image": {
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1731441064/SEE/SEELearning_CompassionTree_Green_2024_hiqhwi.png"
+          }
         }
       },
       {
