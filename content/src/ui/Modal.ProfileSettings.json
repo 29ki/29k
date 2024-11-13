@@ -19,7 +19,7 @@
       "signIn": "Sign in",
       "signOut": "Sign out",
       "reminders": "Reminders",
-      "deleteData": "Delete my data",
+      "deleteData": "Delete your data",
       "language": "Language",
       "mindfulMinutes_ios": "Log Health mindful minutes",
       "mindfulMinutes_android": "Log meditation minutes"
@@ -77,7 +77,7 @@
       "signIn": "Logga in",
       "signOut": "Logga ut",
       "reminders": "Påminnelser",
-      "deleteData": "Radera min data",
+      "deleteData": "Radera din data",
       "language": "Språk",
       "mindfulMinutes_ios": "Logga mindfulness-minuter",
       "mindfulMinutes_android": "Logga meditations-minuter"
