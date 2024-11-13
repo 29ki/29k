@@ -18,7 +18,7 @@
         "title": "Friends"
       },
       "async-public": {
-        "title": "Myself"
+        "title": "Yourself"
       }
     },
     "noUpcomingSessions": "🌱 No planned sessions.",
@@ -90,7 +90,7 @@
         "title": "Vänner"
       },
       "async-public": {
-        "title": "Mig själv"
+        "title": "Dig själv"
       }
     },
     "noUpcomingSessions": "🌱 Inga planerade sessioner.",
