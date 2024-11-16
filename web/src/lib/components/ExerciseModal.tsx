@@ -190,7 +190,7 @@ const ExerciseModal = ({
               <Spacer16 />
             </>
           )}
-          {exercise.async && (
+          {exercise.live && (
             <>
               <Mode
                 href={`/${exercise.language}/exercises/${exercise.id}/host`}>
