@@ -179,19 +179,29 @@ const ExerciseModal = ({
         <Heading16>{t('startHeading')}</Heading16>
         <Spacer8 />
         <Modes>
-          <Mode href={`/${exercise.language}/exercises/${exercise.id}`}>
-            <ModeIcon>
-              <MeIcon />
-            </ModeIcon>
-            <Body16>{t('mode.async')}</Body16>
-          </Mode>
-          <Spacer16 />
-          <Mode href={`/${exercise.language}/exercises/${exercise.id}/host`}>
-            <ModeIcon>
-              <CommunityIcon />
-            </ModeIcon>
-            <Body16>{t('mode.live')}</Body16>
-          </Mode>
+          {exercise.async && (
+            <>
+              <Mode href={`/${exercise.language}/exercises/${exercise.id}`}>
+                <ModeIcon>
+                  <MeIcon />
+                </ModeIcon>
+                <Body16>{t('mode.async')}</Body16>
+              </Mode>
+              <Spacer16 />
+            </>
+          )}
+          {exercise.async && (
+            <>
+              <Mode
+                href={`/${exercise.language}/exercises/${exercise.id}/host`}>
+                <ModeIcon>
+                  <CommunityIcon />
+                </ModeIcon>
+                <Body16>{t('mode.live')}</Body16>
+              </Mode>
+              <Spacer16 />
+            </>
+          )}
         </Modes>
         {!!exercise?.coCreators?.length && (
           <>
