@@ -18,7 +18,7 @@ import {
   Spacer32,
   Spacer60,
 } from '../../../../../../../client/src/lib/components/Spacers/Spacer';
-import {useRouter} from 'next/navigation';
+import {useRouter, useSearchParams} from 'next/navigation';
 import Wrapper from '../components/Wrapper';
 import styled from 'styled-components';
 import {COLORS} from '../../../../../../../shared/src/constants/colors';
@@ -88,6 +88,8 @@ export default function ExerciseHostPage({
 }: {
   params: {language: LANGUAGE_TAG; exerciseId: string};
 }) {
+  const searchParams = useSearchParams();
+  const returnTo = searchParams.get('returnTo');
   const router = useRouter();
   const {t} = useTranslation('Web.HostExercise');
   const sessionControlsWindowRef = useRef<Window | null>(null);
@@ -129,12 +131,14 @@ export default function ExerciseHostPage({
   }, [exercise, session, setAsyncSession, setExercise, resetSession]);
 
   const onLeaveSession = useCallback(() => {
-    if (window.history.length > 2) {
+    if (returnTo) {
+      router.push(returnTo);
+    } else if (window.history.length > 2) {
       router.back();
     } else {
       router.push('../../');
     }
-  }, [router]);
+  }, [router, returnTo]);
 
   const onNavigateToSession = useCallback(() => {}, []);
 
@@ -156,9 +160,13 @@ export default function ExerciseHostPage({
         content: slideState.slides,
       });
     } else {
-      endSession();
+      if (returnTo) {
+        router.push(returnTo);
+      } else {
+        endSession();
+      }
     }
-  }, [slideState, navigateToIndex, endSession]);
+  }, [slideState, navigateToIndex, endSession, router, returnTo]);
 
   const onResetPlayingPress = useCallback(() => {
     setPlaying(Boolean(sessionState?.playing));
