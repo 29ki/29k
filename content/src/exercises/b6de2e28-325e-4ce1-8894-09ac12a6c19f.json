@@ -87,7 +87,7 @@
       "backgroundColor": "#e6cd44"
     },
     "hidden": true,
-    "locked": true,
+    "locked": false,
     "name": "PsyPal Music exercise I",
     "live": false,
     "published": true,
@@ -193,7 +193,7 @@
       "textColor": "#2AE2D7"
     },
     "hidden": false,
-    "locked": true,
+    "locked": false,
     "live": true,
     "published": false,
     "asyncDuration": 10,
@@ -282,7 +282,7 @@
       "textColor": "#2AE2D7"
     },
     "hidden": false,
-    "locked": true,
+    "locked": false,
     "live": true,
     "published": false,
     "asyncDuration": 10,
@@ -371,7 +371,7 @@
       "textColor": "#2AE2D7"
     },
     "hidden": false,
-    "locked": true,
+    "locked": false,
     "live": true,
     "published": false,
     "asyncDuration": 10,
@@ -388,12 +388,15 @@
     "async": false
   },
   "da": {
-    "card": {}
+    "card": {},
+    "locked": false
   },
   "cs": {
-    "card": {}
+    "card": {},
+    "locked": false
   },
   "nl": {
-    "card": {}
+    "card": {},
+    "locked": false
   }
 }
