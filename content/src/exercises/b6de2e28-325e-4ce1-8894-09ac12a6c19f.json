@@ -5,7 +5,10 @@
       {
         "type": "instruction",
         "content": {
-          "text": "In this exercise you will be guided to relax, do a mindful body scan, do a visualization task with music, and finally embark on your own journey, guided by the music alone. \n\nThe intention is to practice being in an altered state of consciousness."
+          "text": "In this exercise you will be guided to relax, do a mindful body scan, do a visualization task with music, and finally embark on your own journey, guided by the music alone. \n\nThe intention is to practice being in an altered state of consciousness.",
+          "image": {
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1731838272/Images/visual_noBG_Music_I_scubak.png"
+          }
         }
       },
       {
@@ -18,7 +21,9 @@
         "content": {
           "lottie": {
             "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1725970559/SRT%20%28captions%29%20files/PsyPal__Music_exercise_1_igejly.srt",
-            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1731069614/Audio/PsyPal__Music_exercise_1_uprkfe.mp3"
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1731069614/Audio/PsyPal__Music_exercise_1_uprkfe.mp3",
+            "durationTimer": true,
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto/v1676642915/Lottie/default_audio_black_zjrmu2.json"
           }
         }
       },
@@ -33,7 +38,15 @@
           }
         ],
         "content": {
-          "heading": "How did you experience this?"
+          "heading": "How did you experience this?",
+          "lottie": {
+            "durationTimer": true,
+            "duration": 60,
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto/v1676642915/Lottie/default_1min_black_rosi2l.json"
+          },
+          "image": {
+            "source": ""
+          }
         }
       },
       {
@@ -51,25 +64,44 @@
         ],
         "id": "Sharing 1",
         "content": {
-          "heading": "How did you experience this?"
+          "heading": "How did you experience this?",
+          "lottie": {
+            "durationTimer": true,
+            "duration": 120,
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto/v1676639253/Lottie/default_2min_black_o6egey.json"
+          }
         }
       },
       {
         "type": "instruction",
         "content": {
-          "text": "Welcome back, and well done. \n\nImmersing oneself into music can help our brains to rest and somewhat reset. It can bring new thoughts as well as give us a break from the everyday buzz."
+          "text": "Welcome back, and well done. \n\nImmersing oneself into music can help our brains to rest and somewhat reset. It can bring new thoughts as well as give us a break from the everyday buzz.",
+          "image": {
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1731838272/Images/visual_noBG_Music_I_scubak.png"
+          }
         }
       }
     ],
     "theme": {
-      "textColor": "#2AE2D7"
+      "textColor": "#2E2E2E",
+      "backgroundColor": "#e6cd44"
     },
     "hidden": true,
-    "locked": true,
+    "locked": false,
     "name": "PsyPal Music exercise I",
     "live": false,
     "published": true,
     "asyncDuration": 10,
+    "card": {
+      "image": {
+        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1731836741/Images/card_Music_I_qt5sxp.png"
+      }
+    },
+    "outroPortal": {
+      "video": {
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1731837714/Video/portal_2_Music_I_qtbjdr.mp4"
+      }
+    },
     "introPortal": {
       "textColor": "#2AE2D7",
       "hostNotes": [
@@ -80,7 +112,8 @@
       "videoLoop": {
         "p5JsScript": {
           "lang": "javascript"
-        }
+        },
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/v1731836473/Video/portal_1_Music_I_v7ozzd.mp4"
       }
     },
     "id": "b6de2e28-325e-4ce1-8894-09ac12a6c19f",
@@ -160,10 +193,11 @@
       "textColor": "#2AE2D7"
     },
     "hidden": false,
-    "locked": true,
+    "locked": false,
     "live": true,
     "published": false,
     "asyncDuration": 10,
+    "card": {},
     "introPortal": {
       "textColor": "#2AE2D7",
       "hostNotes": [
@@ -248,10 +282,11 @@
       "textColor": "#2AE2D7"
     },
     "hidden": false,
-    "locked": true,
+    "locked": false,
     "live": true,
     "published": false,
     "asyncDuration": 10,
+    "card": {},
     "introPortal": {
       "textColor": "#2AE2D7",
       "hostNotes": [
@@ -336,10 +371,11 @@
       "textColor": "#2AE2D7"
     },
     "hidden": false,
-    "locked": true,
+    "locked": false,
     "live": true,
     "published": false,
     "asyncDuration": 10,
+    "card": {},
     "introPortal": {
       "textColor": "#2AE2D7",
       "hostNotes": [
@@ -351,7 +387,16 @@
     "id": "b6de2e28-325e-4ce1-8894-09ac12a6c19f",
     "async": false
   },
-  "da": {},
-  "cs": {},
-  "nl": {}
+  "da": {
+    "card": {},
+    "locked": false
+  },
+  "cs": {
+    "card": {},
+    "locked": false
+  },
+  "nl": {
+    "card": {},
+    "locked": false
+  }
 }
