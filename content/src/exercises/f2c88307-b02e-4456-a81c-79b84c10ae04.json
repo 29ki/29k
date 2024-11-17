@@ -1,10 +1,14 @@
 {
   "en": {
+    "liveDuration": 15,
     "slides": [
       {
         "type": "instruction",
         "content": {
-          "text": "Lean back and let the music guide you, as you embark on an imaginary journey."
+          "text": "Lean back and let the music guide you, as you embark on an imaginary journey.",
+          "image": {
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1731849005/Images/visual_noBG_Music_I_music_only_ou4vlx.png"
+          }
         }
       },
       {
@@ -12,7 +16,8 @@
         "hostNotes": [],
         "content": {
           "lottie": {
-            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1725981351/Audio/PsyPal_Music_exercise_1_music_only_z4hhtb.mp3"
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1725981351/Audio/PsyPal_Music_exercise_1_music_only_z4hhtb.mp3",
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1676642915/Lottie/default_audio_black_zjrmu2.json"
           }
         }
       },
@@ -20,7 +25,13 @@
         "type": "reflection",
         "hostNotes": [],
         "content": {
-          "text": "What did you experience?"
+          "text": "What did you experience?",
+          "lottie": {
+            "durationTimer": true,
+            "duration": 60,
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1676642915/Lottie/default_1min_black_rosi2l.json",
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1731849094/Audio/refelection_audio_Music_I_music_only_xueeah.mp3"
+          }
         }
       },
       {
@@ -44,22 +55,30 @@
       {
         "type": "instruction",
         "content": {
-          "text": "Welcome back, and well done.\n\nMusic can help our brains to evoke emotions and images, less affected by cognitive processes."
+          "text": "Welcome back, and well done.\n\nMusic can help our brains to evoke emotions and images, less affected by cognitive processes.",
+          "image": {
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1731849005/Images/visual_noBG_Music_I_music_only_ou4vlx.png"
+          }
         }
       }
     ],
     "theme": {
-      "textColor": "#2AE2D7"
+      "textColor": "#2E2E2E",
+      "backgroundColor": "#e6cc44"
     },
-    "hidden": true,
-    "locked": true,
+    "hidden": false,
+    "locked": false,
     "name": "PsyPal Music exercise I - music only",
-    "live": false,
+    "live": true,
     "published": true,
     "asyncDuration": 10,
-    "liveDuration": 15,
+    "card": {
+      "image": {
+        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1731849004/Images/card_Music_I_music_only_cgehjn.png"
+      }
+    },
     "introPortal": {
-      "textColor": "#2AE2D7",
+      "textColor": "#2E2E2E",
       "hostNotes": [
         {
           "text": "> Start the session when you're ready to go"
@@ -68,7 +87,12 @@
       "videoLoop": {
         "p5JsScript": {
           "lang": "javascript"
-        }
+        },
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1731849054/Video/portal_1_Music_I_music_only_i3773o.mp4",
+        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1731849092/Audio/portal_audio_Music_I_music_only_m78dak.mp3"
+      },
+      "videoEnd": {
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1731849053/Video/portal_2_Music_I_music_only_mvxv0s.mp4"
       }
     },
     "id": "f2c88307-b02e-4456-a81c-79b84c10ae04",
@@ -76,6 +100,7 @@
     "description": "Let the music accompany you on a journey without guidance."
   },
   "pt": {
+    "liveDuration": 15,
     "slides": [
       {
         "type": "host",
@@ -147,11 +172,11 @@
       "textColor": "#2AE2D7"
     },
     "hidden": false,
-    "locked": true,
+    "locked": false,
     "live": true,
     "published": false,
     "asyncDuration": 10,
-    "liveDuration": 15,
+    "card": {},
     "introPortal": {
       "textColor": "#2AE2D7",
       "hostNotes": [
@@ -164,6 +189,7 @@
     "async": false
   },
   "sv": {
+    "liveDuration": 15,
     "slides": [
       {
         "type": "host",
@@ -235,11 +261,11 @@
       "textColor": "#2AE2D7"
     },
     "hidden": false,
-    "locked": true,
+    "locked": false,
     "live": true,
     "published": false,
     "asyncDuration": 10,
-    "liveDuration": 15,
+    "card": {},
     "introPortal": {
       "textColor": "#2AE2D7",
       "hostNotes": [
@@ -252,6 +278,7 @@
     "async": false
   },
   "ja": {
+    "liveDuration": 15,
     "slides": [
       {
         "type": "host",
@@ -323,11 +350,11 @@
       "textColor": "#2AE2D7"
     },
     "hidden": false,
-    "locked": true,
+    "locked": false,
     "live": true,
     "published": false,
     "asyncDuration": 10,
-    "liveDuration": 15,
+    "card": {},
     "introPortal": {
       "textColor": "#2AE2D7",
       "hostNotes": [
@@ -339,7 +366,16 @@
     "id": "f2c88307-b02e-4456-a81c-79b84c10ae04",
     "async": false
   },
-  "da": {},
-  "cs": {},
-  "nl": {}
+  "da": {
+    "locked": false,
+    "card": {}
+  },
+  "cs": {
+    "locked": false,
+    "card": {}
+  },
+  "nl": {
+    "locked": false,
+    "card": {}
+  }
 }
