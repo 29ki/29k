@@ -23,7 +23,7 @@ import {
   Spacer60,
 } from '../../../../../../client/src/lib/components/Spacers/Spacer';
 import Gutters from '../../../../../../client/src/lib/components/Gutters/Gutters';
-import {useRouter} from 'next/navigation';
+import {useRouter, useSearchParams} from 'next/navigation';
 import Wrapper from './components/Wrapper';
 import Title from './components/Title';
 import ProgressBar from '../../../../../../client/src/lib/session/components/ProgressBar/ProgressBar';
@@ -82,6 +82,8 @@ export default function ExercisePage({
 }: {
   params: {language: LANGUAGE_TAG; exerciseId: string};
 }) {
+  const searchParams = useSearchParams();
+  const returnTo = searchParams.get('returnTo');
   const router = useRouter();
   const setAsyncSession = useSessionState(state => state.setAsyncSession);
   const resetSession = useSessionState(state => state.reset);
@@ -115,12 +117,14 @@ export default function ExercisePage({
   }, [exercise, session, setAsyncSession, setExercise, resetSession]);
 
   const onLeaveSession = useCallback(() => {
-    if (window.history.length > 2) {
+    if (returnTo) {
+      router.push(returnTo);
+    } else if (window.history.length > 2) {
       router.back();
     } else {
       router.push('../');
     }
-  }, [router]);
+  }, [router, returnTo]);
 
   const onNavigateToSession = useCallback(() => {}, []);
 
@@ -131,9 +135,9 @@ export default function ExercisePage({
         content: sessionSlideState.slides,
       });
     } else {
-      router.push('../');
+      onLeaveSession();
     }
-  }, [sessionSlideState, navigateToIndex, router]);
+  }, [sessionSlideState, navigateToIndex, onLeaveSession]);
 
   const onNextPress = useCallback(() => {
     if (sessionSlideState && sessionSlideState.next) {
@@ -142,9 +146,13 @@ export default function ExercisePage({
         content: sessionSlideState.slides,
       });
     } else {
-      endSession();
+      if (returnTo) {
+        router.push(returnTo);
+      } else {
+        endSession();
+      }
     }
-  }, [sessionSlideState, navigateToIndex, endSession]);
+  }, [sessionSlideState, navigateToIndex, endSession, router, returnTo]);
 
   return (
     <SafeAreaProvider initialMetrics={initialWindowMetrics}>
