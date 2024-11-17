@@ -89,7 +89,7 @@
     "hidden": true,
     "locked": false,
     "name": "PsyPal Music exercise I",
-    "live": false,
+    "live": true,
     "published": true,
     "asyncDuration": 10,
     "card": {
