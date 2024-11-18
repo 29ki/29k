@@ -1,6 +1,6 @@
 {
   "en": {
-    "liveDuration": 15,
+    "liveDuration": 30,
     "slides": [
       {
         "type": "instruction",
@@ -55,7 +55,7 @@
       {
         "type": "instruction",
         "content": {
-          "text": "Welcome back, and well done.\n\nMusic can help our brains to evoke emotions and images, less affected by cognitive processes.",
+          "text": "Welcome back, and well done.\n\nMusic can help our brains to evoke emotions and images, less affected by our regular thinking.",
           "image": {
             "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1731849005/Images/visual_noBG_Music_I_music_only_ou4vlx.png"
           }
@@ -69,9 +69,9 @@
     "hidden": true,
     "locked": false,
     "name": "PsyPal Music exercise I - music only",
-    "live": true,
+    "live": false,
     "published": true,
-    "asyncDuration": 10,
+    "asyncDuration": 15,
     "card": {
       "image": {
         "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1731849004/Images/card_Music_I_music_only_cgehjn.png"
@@ -100,7 +100,7 @@
     "description": "Let the music accompany you on a journey without guidance."
   },
   "pt": {
-    "liveDuration": 15,
+    "liveDuration": 30,
     "slides": [
       {
         "type": "host",
@@ -175,7 +175,7 @@
     "locked": false,
     "live": true,
     "published": false,
-    "asyncDuration": 10,
+    "asyncDuration": 15,
     "card": {},
     "introPortal": {
       "textColor": "#2AE2D7",
@@ -189,7 +189,7 @@
     "async": false
   },
   "sv": {
-    "liveDuration": 15,
+    "liveDuration": 30,
     "slides": [
       {
         "type": "host",
@@ -264,7 +264,7 @@
     "locked": false,
     "live": true,
     "published": false,
-    "asyncDuration": 10,
+    "asyncDuration": 15,
     "card": {},
     "introPortal": {
       "textColor": "#2AE2D7",
@@ -278,7 +278,7 @@
     "async": false
   },
   "ja": {
-    "liveDuration": 15,
+    "liveDuration": 30,
     "slides": [
       {
         "type": "host",
@@ -353,7 +353,7 @@
     "locked": false,
     "live": true,
     "published": false,
-    "asyncDuration": 10,
+    "asyncDuration": 15,
     "card": {},
     "introPortal": {
       "textColor": "#2AE2D7",
@@ -368,14 +368,20 @@
   },
   "da": {
     "locked": false,
-    "card": {}
+    "card": {},
+    "asyncDuration": 15,
+    "liveDuration": 30
   },
   "cs": {
     "locked": false,
-    "card": {}
+    "card": {},
+    "asyncDuration": 15,
+    "liveDuration": 30
   },
   "nl": {
     "locked": false,
-    "card": {}
+    "card": {},
+    "asyncDuration": 15,
+    "liveDuration": 30
   }
 }
