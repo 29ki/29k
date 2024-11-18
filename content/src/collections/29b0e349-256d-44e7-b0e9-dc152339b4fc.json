@@ -5,10 +5,10 @@
     "locked": true,
     "id": "29b0e349-256d-44e7-b0e9-dc152339b4fc",
     "name": "SEE Compassion",
-    "description": "SEE compassion placeholder",
+    "description": "Dr. Thupten Jinpa, a noted scholar on compassion, defines compassion as “a sense of concern that arises when we are confronted with another person’s suffering and feel motivated to see that suffering relieved.” Compassion depends on awareness of the other’s situation and an ability to empathize with them, combined with a sense of affection or endearment towards that person, at even the most basic level of human connection.",
     "card": {
       "image": {
-        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1715194051/SEE/SEELearning_Logo_Apple_2022_iyrrnd.png"
+        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1731443189/SEE/FullCategories_CardImage-02_uvnevx.png"
       }
     },
     "exercises": [
@@ -49,7 +49,25 @@
       "9d86dfa5-c0ed-49bb-856d-8185a017785e"
     ]
   },
-  "da": {},
-  "cs": {},
-  "nl": {}
+  "da": {
+    "exercises": [
+      "a1da8d37-0330-4611-ad1b-f65d08f71d2e",
+      "9d86dfa5-c0ed-49bb-856d-8185a017785e"
+    ],
+    "card": {}
+  },
+  "cs": {
+    "exercises": [
+      "a1da8d37-0330-4611-ad1b-f65d08f71d2e",
+      "9d86dfa5-c0ed-49bb-856d-8185a017785e"
+    ],
+    "card": {}
+  },
+  "nl": {
+    "exercises": [
+      "a1da8d37-0330-4611-ad1b-f65d08f71d2e",
+      "9d86dfa5-c0ed-49bb-856d-8185a017785e"
+    ],
+    "card": {}
+  }
 }
