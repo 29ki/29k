@@ -20,7 +20,7 @@
     "react-dom": "^18",
     "react-i18next": "^15.1.0",
     "react-native-safe-area-context": "^4.14.0",
-    "react-native-svg": "15.4.0",
+    "react-native-svg": "15.9.0",
     "react-native-web": "^0.19.13",
     "styled-components": "^6.1.13"
   },
