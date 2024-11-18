@@ -103,7 +103,7 @@
       "textColor": "#2E2E2E",
       "backgroundColor": "#f4deb2"
     },
-    "hidden": false,
+    "hidden": true,
     "locked": false,
     "name": "PsyPal Life exploration",
     "live": true,
