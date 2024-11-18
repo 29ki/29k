@@ -1,24 +1,20 @@
 {
   "en": {
+    "liveDuration": 0,
     "slides": [
       {
-        "type": "host",
-        "hostNotes": [
-          {
-            "text": "Welcome. I am X, and today, we will work on compassion for around 15 minutes.\n\nWe’ll be exploring how to cultivate greater self-compassion for ourselves."
-          },
-          {
-            "text": "Let’s start with a mini check-in. How are you feeling right now? Please answer in two-three words. Now, X would you like to start?\n\n> Let everyone in the session, including yourself, check in one by one.\n\nThank you all for checking in. Let’s get started."
+        "type": "instruction",
+        "content": {
+          "heading": "Welcome",
+          "text": "This session explores how to cultivate greater self-compassion for ourselves.\n\nFind a comfortable position and begin the exercise when you are ready.",
+          "image": {
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1731441064/SEE/SEELearning_CompassionTree_Green_2024_hiqhwi.png"
           }
-        ]
+        }
       },
       {
         "type": "content",
-        "hostNotes": [
-          {
-            "text": "Find a comfortable position. I will start the audio exercise and we'll meet back here afterwards. \n\n> Tap play to start the audio exercise"
-          }
-        ],
+        "hostNotes": [],
         "content": {
           "lottie": {
             "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto/v1715668477/SEE/Lottie/Compassion/Compassion3_p2v806.json",
@@ -48,39 +44,8 @@
         }
       },
       {
-        "type": "reflection",
-        "content": {
-          "video": {
-            "durationTimer": true,
-            "source": ""
-          },
-          "lottie": {
-            "durationTimer": true,
-            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1718146076/SEE/Lottie/Timer/1min_timer_ag9fyg.json"
-          }
-        },
-        "hostNotes": [
-          {
-            "text": "Now we’ll take 1 minutes to reflect on our own. \n\nHow was that experience for you? What would the benefit of practicing self-compassion be for you? How might you take one or more of these reflections and integrate them into your life? How could these practices/reflections be applied to how you relate, think about, and interact with others?"
-          },
-          {
-            "text": "You can take notes on a piece of paper or just mental notes in your head. And there is no right or wrong here, our answers are our own. 1 minute starting now. \n\n> Press play to start the timer. \n\nThat’s 1 minute and it’s time to move on."
-          }
-        ]
-      },
-      {
         "type": "sharing",
-        "hostNotes": [
-          {
-            "text": "Now we are getting into the sharing part. We have three rules for sharing:\n\n1. **What is said in here, stays in here.**\n2. **All you need to do is listen.** There is no fixing, helping or advice-giving needed. We are just showing up and exploring what ourselves and others are going through."
-          },
-          {
-            "text": "3. **Everything on the inside is okay.** Anger, love, hatred, sadness. Whatever shows up. No wrongs, no rights. It is what it is.\n\nThere will be a timer set for 2 minutes as an indicator. If you don’t want to share you can always say ‘pass’."
-          },
-          {
-            "text": "Who would like to start?\n\n> Let everyone (or as many as you got time for) share one by one. Press play to start the timer. Re-start for each new sharing.\n\nThank you so much everyone."
-          }
-        ],
+        "hostNotes": [],
         "id": "Sharing 1",
         "content": {
           "text": "",
@@ -121,26 +86,6 @@
         }
       },
       {
-        "type": "host",
-        "hostNotes": [
-          {
-            "text": "Well done. Today, we’ve explored self-compassion.\n\nA high number of children and adults struggle with anxiety, and self-esteem and self-worth. The expectations of society compound this and can be internalized in unhealthy ways. It is, therefore, especially important to practice self-compassion."
-          },
-          {
-            "text": "Self-compassion can provide us with a route to soften (or alleviate) our internal self-critic, cultivate forgiveness for ourselves and treat ourselves with the tenderness and nurturing kindness we need and deserve."
-          },
-          {
-            "text": "If we're up for it, we can continue with a mission: Practice self-compassion once a day when we fail, or something doesn’t go as planned over the next three days."
-          },
-          {
-            "text": "Plan the steps you will take by considering what you need to practice to implement self-compassion. Before we leave this space, let’s do a mini check-out: How are you feeling right now? Has anything shifted? Please answer in two to three words."
-          },
-          {
-            "text": "Who would like to start? > Let everyone in the session check out one by one. Thank you all for checking out and for joining this session today. > Finish session to send everyone off to the exit experience."
-          }
-        ]
-      },
-      {
         "type": "instruction",
         "content": {
           "text": "Well done. Today, we’ve explored self-compassion.\n\nA high number of children and adults struggle with anxiety, and self-esteem and self-worth. The expectations of society compound this and can be internalized in unhealthy ways. It is, therefore, especially important to practice self-compassion.",
@@ -178,8 +123,9 @@
     "hidden": false,
     "locked": true,
     "name": "Self Compassion",
-    "live": true,
+    "live": false,
     "published": true,
+    "asyncDuration": 10,
     "card": {
       "image": {
         "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1718143927/SEE/Icons/Compassion/SelfCompassion_CardImage_gyeshn.png"
@@ -192,8 +138,6 @@
         "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1713881366/SEE/see-logo_1_kewtlt.png"
       }
     ],
-    "asyncDuration": 10,
-    "liveDuration": 15,
     "introPortal": {
       "textColor": "#2E2E2E",
       "hostNotes": [
@@ -213,6 +157,7 @@
     "description": "Sometimes, it can be challenging at first to offer the same compassionate response to ourselves as we do to our friends. Self-compassion is when we show kindness and compassion to ourselves in the same way we do for others."
   },
   "pt": {
+    "liveDuration": 0,
     "slides": [
       {
         "type": "host",
@@ -287,9 +232,8 @@
     "locked": true,
     "live": true,
     "published": false,
-    "card": {},
     "asyncDuration": 10,
-    "liveDuration": 15,
+    "card": {},
     "introPortal": {
       "textColor": "#2AE2D7",
       "hostNotes": [
@@ -302,6 +246,7 @@
     "async": false
   },
   "sv": {
+    "liveDuration": 0,
     "slides": [
       {
         "type": "host",
@@ -376,9 +321,8 @@
     "locked": true,
     "live": true,
     "published": false,
-    "card": {},
     "asyncDuration": 10,
-    "liveDuration": 15,
+    "card": {},
     "introPortal": {
       "textColor": "#2AE2D7",
       "hostNotes": [
@@ -391,6 +335,7 @@
     "async": false
   },
   "ja": {
+    "liveDuration": 0,
     "slides": [
       {
         "type": "host",
@@ -465,9 +410,8 @@
     "locked": true,
     "live": true,
     "published": false,
-    "card": {},
     "asyncDuration": 10,
-    "liveDuration": 15,
+    "card": {},
     "introPortal": {
       "textColor": "#2AE2D7",
       "hostNotes": [
@@ -479,7 +423,13 @@
     "id": "a1da8d37-0330-4611-ad1b-f65d08f71d2e",
     "async": false
   },
-  "da": {},
-  "cs": {},
-  "nl": {}
+  "da": {
+    "liveDuration": 0
+  },
+  "cs": {
+    "liveDuration": 0
+  },
+  "nl": {
+    "liveDuration": 0
+  }
 }
