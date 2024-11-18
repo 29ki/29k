@@ -1,5 +1,6 @@
 {
   "en": {
+    "liveDuration": 30,
     "slides": [
       {
         "type": "host",
@@ -85,7 +86,6 @@
     "live": false,
     "published": true,
     "asyncDuration": 10,
-    "liveDuration": 30,
     "introPortal": {
       "textColor": "#2AE2D7",
       "hostNotes": [
@@ -99,11 +99,15 @@
         }
       }
     },
+    "tags": [
+      "566aeb1b-1649-4f5a-96a2-0c80be27efc0"
+    ],
     "id": "ba239e50-27f5-4a01-8daf-14b76edb7097",
     "async": true,
     "description": "A mindful exercise where you practice being with what is - in the sky right now. Note that you need to be outside or by a window to do this exercise."
   },
   "pt": {
+    "liveDuration": 30,
     "slides": [
       {
         "type": "host",
@@ -179,7 +183,6 @@
     "live": true,
     "published": false,
     "asyncDuration": 10,
-    "liveDuration": 30,
     "introPortal": {
       "textColor": "#2AE2D7",
       "hostNotes": [
@@ -188,10 +191,14 @@
         }
       ]
     },
+    "tags": [
+      "566aeb1b-1649-4f5a-96a2-0c80be27efc0"
+    ],
     "id": "ba239e50-27f5-4a01-8daf-14b76edb7097",
     "async": false
   },
   "sv": {
+    "liveDuration": 30,
     "slides": [
       {
         "type": "host",
@@ -267,7 +274,6 @@
     "live": true,
     "published": false,
     "asyncDuration": 10,
-    "liveDuration": 30,
     "introPortal": {
       "textColor": "#2AE2D7",
       "hostNotes": [
@@ -276,10 +282,14 @@
         }
       ]
     },
+    "tags": [
+      "566aeb1b-1649-4f5a-96a2-0c80be27efc0"
+    ],
     "id": "ba239e50-27f5-4a01-8daf-14b76edb7097",
     "async": false
   },
   "ja": {
+    "liveDuration": 30,
     "slides": [
       {
         "type": "host",
@@ -355,7 +365,6 @@
     "live": true,
     "published": false,
     "asyncDuration": 10,
-    "liveDuration": 30,
     "introPortal": {
       "textColor": "#2AE2D7",
       "hostNotes": [
@@ -364,10 +373,31 @@
         }
       ]
     },
+    "tags": [
+      "566aeb1b-1649-4f5a-96a2-0c80be27efc0"
+    ],
     "id": "ba239e50-27f5-4a01-8daf-14b76edb7097",
     "async": false
   },
-  "da": {},
-  "cs": {},
-  "nl": {}
+  "da": {
+    "asyncDuration": 10,
+    "liveDuration": 30,
+    "tags": [
+      "566aeb1b-1649-4f5a-96a2-0c80be27efc0"
+    ]
+  },
+  "cs": {
+    "asyncDuration": 10,
+    "liveDuration": 30,
+    "tags": [
+      "566aeb1b-1649-4f5a-96a2-0c80be27efc0"
+    ]
+  },
+  "nl": {
+    "asyncDuration": 10,
+    "liveDuration": 30,
+    "tags": [
+      "566aeb1b-1649-4f5a-96a2-0c80be27efc0"
+    ]
+  }
 }
