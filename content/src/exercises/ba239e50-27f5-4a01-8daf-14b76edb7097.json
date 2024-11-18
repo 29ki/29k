@@ -25,7 +25,13 @@
           {
             "text": "Find a comfortable position. I will start the audio exercise and we'll meet back here afterwards. \n\n> Push play to start the audio exercise"
           }
-        ]
+        ],
+        "content": {
+          "lottie": {
+            "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1731943873/SRT%20%28captions%29%20files/PsyPal_Sky_gazing_vzyxtn.srt",
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1731943961/Audio/PsyPal_Sky_gazing_tksnyo.mp3"
+          }
+        }
       },
       {
         "type": "reflection",
@@ -78,7 +84,7 @@
       }
     ],
     "theme": {
-      "textColor": "#2AE2D7"
+      "textColor": "#2E2E2E"
     },
     "hidden": true,
     "locked": false,
