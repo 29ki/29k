@@ -5,10 +5,10 @@
     "locked": true,
     "id": "6524d27e-2a79-48c0-b4aa-dea830231062",
     "name": "SEE systems thinking",
-    "description": "SEE systems thinking placeholder",
+    "description": "All living beings live in interconnected and interdependent ways. We impact and are impacted by every other living thing within these systems. “Our innate systems intelligence, just like our innate capacities to understand self and others, needs to be cultivated,” writes Peter Senge, one of the world’s leading systems thinkers, in The Triple Focus.",
     "card": {
       "image": {
-        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1715194051/SEE/SEELearning_Logo_Apple_2022_iyrrnd.png"
+        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1731443350/SEE/FullCategories_CardImage-04_btrx7d.png"
       }
     },
     "exercises": [
@@ -49,7 +49,25 @@
       "9451652d-444f-4e96-86cc-dcb774ab6c27"
     ]
   },
-  "da": {},
-  "cs": {},
-  "nl": {}
+  "da": {
+    "exercises": [
+      "c747469a-f690-4a38-bdef-bd1a35b7d4b5",
+      "9451652d-444f-4e96-86cc-dcb774ab6c27"
+    ],
+    "card": {}
+  },
+  "cs": {
+    "exercises": [
+      "c747469a-f690-4a38-bdef-bd1a35b7d4b5",
+      "9451652d-444f-4e96-86cc-dcb774ab6c27"
+    ],
+    "card": {}
+  },
+  "nl": {
+    "exercises": [
+      "c747469a-f690-4a38-bdef-bd1a35b7d4b5",
+      "9451652d-444f-4e96-86cc-dcb774ab6c27"
+    ],
+    "card": {}
+  }
 }
