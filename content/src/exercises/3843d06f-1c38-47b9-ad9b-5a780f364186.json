@@ -1,24 +1,20 @@
 {
   "en": {
+    "liveDuration": 0,
     "slides": [
       {
-        "type": "host",
-        "hostNotes": [
-          {
-            "text": "Welcome. I am X and today we will work for around 20 minutes on resilience.\n\nWe’ll be exploring the concept of Help Now! Strategies followed by time for reflection and sharing with each other."
-          },
-          {
-            "text": "Let’s start with a mini check-in. How are you feeling right now? Please answer in two-three words. Now, would you like to start?\n\n> Let everyone in the session, including yourself, check in one by one.\n\nThank you all for checking in. Let’s get started."
+        "type": "instruction",
+        "content": {
+          "heading": "Welcome",
+          "text": "This session explores the concept of Help Now! Strategies.\n\nFind a comfortable position and begin the exercise when you are ready.",
+          "image": {
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1731441064/SEE/SEELearning_CompassionTree_Green_2024_hiqhwi.png"
           }
-        ]
+        }
       },
       {
         "type": "content",
-        "hostNotes": [
-          {
-            "text": "Find a comfortable position. I will start the audio exercise and we'll meet back here afterwards. \n\n> Tap play to start the audio exercise"
-          }
-        ],
+        "hostNotes": [],
         "content": {
           "lottie": {
             "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1715752046/SEE/SRT/Resilence/HelpNow_l5zftv.srt",
@@ -55,28 +51,6 @@
         }
       },
       {
-        "type": "reflection",
-        "content": {
-          "video": {
-            "durationTimer": true,
-            "source": ""
-          },
-          "lottie": {
-            "durationTimer": true,
-            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1718146076/SEE/Lottie/Timer/1min_timer_ag9fyg.json"
-          },
-          "heading": "How did you experience the strategies?"
-        },
-        "hostNotes": [
-          {
-            "text": "Now we’ll take 1 minute to reflect on our own. How did you experience the Help Now! Strategies? Did you find that some effected you differently to others?"
-          },
-          {
-            "text": "You can take notes on a piece of paper or just mental notes in your head. And there is no right or wrong here, our answers are our own. 1 minute starting now. \n\n> Press play to start the timer. \n\nThat’s 1 minute and it’s time to move on."
-          }
-        ]
-      },
-      {
         "type": "sharing",
         "id": "sharing 1",
         "content": {
@@ -90,17 +64,7 @@
           "text": "",
           "heading": "What are some things you learned today about sensations? "
         },
-        "hostNotes": [
-          {
-            "text": "Now we are getting into the sharing part. We have three rules for sharing:\n\n1. **What is said in here, stays in here.**\n2. **All you need to do is listen.** There is no fixing, helping or advice-giving needed. We are just showing up and exploring what ourselves and others are going through."
-          },
-          {
-            "text": "\n\n3. **Everything on the inside is okay.** Anger, love, hatred, sadness. Whatever shows up. No wrongs, no rights. It is what it is. There will be a timer set for 2 minutes as an indicator. If you don’t want to share you can always say ‘pass’."
-          },
-          {
-            "text": "Who would like to start? \n\n> Let everyone (or as many as you got time for) share one by one. Press play to start the timer. Re-start for each new sharing. \n\nThank you so much, everyone."
-          }
-        ]
+        "hostNotes": []
       },
       {
         "type": "sharing",
@@ -148,31 +112,6 @@
         }
       },
       {
-        "type": "reflection",
-        "content": {
-          "video": {
-            "durationTimer": true
-          },
-          "lottie": {
-            "durationTimer": true
-          }
-        },
-        "hostNotes": [
-          {
-            "text": "Well done. Today, we’ve explored and tried out Help Now! Strategies. These are simple and immediate techniques for helping us return to the resilient zone when we get “bumped out” of that zone."
-          },
-          {
-            "text": "If we're up for it, we can continue with a mission: Practice using three Help Now! Strategies on three different days this week."
-          },
-          {
-            "text": "Plan the steps you will take by considering moments when Help Now! strategies might help you during your week. Before we leave this space, let’s do a mini check-out: How are you feeling right now? Has anything shifted? Please answer in two to three words."
-          },
-          {
-            "text": "Who would like to start? \n\n> Let everyone in the session check out one by one. \n\nThank you all for checking out and for joining this session today. \n\n> Finish session to send everyone off to the exit experience."
-          }
-        ]
-      },
-      {
         "type": "instruction",
         "content": {
           "text": "Well done. Today, we’ve explored and tried out Help Now! Strategies. These are simple and immediate techniques for helping us return to the resilient zone when we get “bumped out” of that zone.",
@@ -200,8 +139,9 @@
     "hidden": false,
     "locked": true,
     "name": "Help Now!",
-    "live": true,
+    "live": false,
     "published": true,
+    "asyncDuration": 10,
     "card": {
       "image": {
         "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1718143970/SEE/Icons/Resilience/HelpNow_CardImage_u4w1ha.png"
@@ -214,8 +154,6 @@
         "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1713881366/SEE/see-logo_1_kewtlt.png"
       }
     ],
-    "asyncDuration": 10,
-    "liveDuration": 20,
     "outroPortal": {
       "video": {
         "source": ""
@@ -238,12 +176,15 @@
         "source": ""
       }
     },
-    "tags": ["8da0534a-5da9-430a-bdf3-242ace6460fb"],
+    "tags": [
+      "8da0534a-5da9-430a-bdf3-242ace6460fb"
+    ],
     "id": "3843d06f-1c38-47b9-ad9b-5a780f364186",
     "async": true,
     "description": "Help Now! Strategies are easy actions that can be practiced to quickly return our bodies and minds to the present moment, and thus function as useful ways to bring our bodies and minds back to a place of balance."
   },
   "pt": {
+    "liveDuration": 0,
     "slides": [
       {
         "type": "host",
@@ -318,9 +259,8 @@
     "locked": true,
     "live": true,
     "published": false,
-    "card": {},
     "asyncDuration": 10,
-    "liveDuration": 20,
+    "card": {},
     "introPortal": {
       "textColor": "#2AE2D7",
       "hostNotes": [
@@ -334,11 +274,14 @@
         }
       }
     },
-    "tags": ["8da0534a-5da9-430a-bdf3-242ace6460fb"],
+    "tags": [
+      "8da0534a-5da9-430a-bdf3-242ace6460fb"
+    ],
     "id": "3843d06f-1c38-47b9-ad9b-5a780f364186",
     "async": false
   },
   "sv": {
+    "liveDuration": 0,
     "slides": [
       {
         "type": "host",
@@ -413,9 +356,8 @@
     "locked": true,
     "live": true,
     "published": false,
-    "card": {},
     "asyncDuration": 10,
-    "liveDuration": 20,
+    "card": {},
     "introPortal": {
       "textColor": "#2AE2D7",
       "hostNotes": [
@@ -424,11 +366,14 @@
         }
       ]
     },
-    "tags": ["8da0534a-5da9-430a-bdf3-242ace6460fb"],
+    "tags": [
+      "8da0534a-5da9-430a-bdf3-242ace6460fb"
+    ],
     "id": "3843d06f-1c38-47b9-ad9b-5a780f364186",
     "async": false
   },
   "ja": {
+    "liveDuration": 0,
     "slides": [
       {
         "type": "host",
@@ -503,9 +448,8 @@
     "locked": true,
     "live": true,
     "published": false,
-    "card": {},
     "asyncDuration": 10,
-    "liveDuration": 20,
+    "card": {},
     "introPortal": {
       "textColor": "#2AE2D7",
       "hostNotes": [
@@ -514,11 +458,28 @@
         }
       ]
     },
-    "tags": ["8da0534a-5da9-430a-bdf3-242ace6460fb"],
+    "tags": [
+      "8da0534a-5da9-430a-bdf3-242ace6460fb"
+    ],
     "id": "3843d06f-1c38-47b9-ad9b-5a780f364186",
     "async": false
   },
-  "da": {},
-  "cs": {},
-  "nl": {}
+  "da": {
+    "tags": [
+      "8da0534a-5da9-430a-bdf3-242ace6460fb"
+    ],
+    "liveDuration": 0
+  },
+  "cs": {
+    "tags": [
+      "8da0534a-5da9-430a-bdf3-242ace6460fb"
+    ],
+    "liveDuration": 0
+  },
+  "nl": {
+    "tags": [
+      "8da0534a-5da9-430a-bdf3-242ace6460fb"
+    ],
+    "liveDuration": 0
+  }
 }
