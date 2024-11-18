@@ -1,6 +1,6 @@
 {
   "en": {
-    "liveDuration": 25,
+    "liveDuration": 40,
     "slides": [
       {
         "type": "instruction",
@@ -90,9 +90,9 @@
     "hidden": true,
     "locked": false,
     "name": "PsyPal Music exercise I",
-    "live": true,
+    "live": false,
     "published": true,
-    "asyncDuration": 10,
+    "asyncDuration": 25,
     "card": {
       "image": {
         "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1731836741/Images/card_Music_I_qt5sxp.png"
@@ -121,12 +121,15 @@
         "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1731837714/Video/portal_2_Music_I_qtbjdr.mp4"
       }
     },
+    "tags": [
+      "566aeb1b-1649-4f5a-96a2-0c80be27efc0"
+    ],
     "id": "b6de2e28-325e-4ce1-8894-09ac12a6c19f",
     "async": true,
     "description": "Mindfulness and visualization guided by music, can help our brains practice being in altered states of consciousness. It may be a way to relax, reset and ground ourselves in our bodies."
   },
   "pt": {
-    "liveDuration": 25,
+    "liveDuration": 40,
     "slides": [
       {
         "type": "host",
@@ -201,7 +204,7 @@
     "locked": false,
     "live": true,
     "published": false,
-    "asyncDuration": 10,
+    "asyncDuration": 25,
     "card": {},
     "introPortal": {
       "textColor": "#2AE2D7",
@@ -211,11 +214,14 @@
         }
       ]
     },
+    "tags": [
+      "566aeb1b-1649-4f5a-96a2-0c80be27efc0"
+    ],
     "id": "b6de2e28-325e-4ce1-8894-09ac12a6c19f",
     "async": false
   },
   "sv": {
-    "liveDuration": 25,
+    "liveDuration": 40,
     "slides": [
       {
         "type": "host",
@@ -290,7 +296,7 @@
     "locked": false,
     "live": true,
     "published": false,
-    "asyncDuration": 10,
+    "asyncDuration": 25,
     "card": {},
     "introPortal": {
       "textColor": "#2AE2D7",
@@ -300,11 +306,14 @@
         }
       ]
     },
+    "tags": [
+      "566aeb1b-1649-4f5a-96a2-0c80be27efc0"
+    ],
     "id": "b6de2e28-325e-4ce1-8894-09ac12a6c19f",
     "async": false
   },
   "ja": {
-    "liveDuration": 25,
+    "liveDuration": 40,
     "slides": [
       {
         "type": "host",
@@ -379,7 +388,7 @@
     "locked": false,
     "live": true,
     "published": false,
-    "asyncDuration": 10,
+    "asyncDuration": 25,
     "card": {},
     "introPortal": {
       "textColor": "#2AE2D7",
@@ -389,19 +398,37 @@
         }
       ]
     },
+    "tags": [
+      "566aeb1b-1649-4f5a-96a2-0c80be27efc0"
+    ],
     "id": "b6de2e28-325e-4ce1-8894-09ac12a6c19f",
     "async": false
   },
   "da": {
     "card": {},
-    "locked": false
+    "locked": false,
+    "asyncDuration": 25,
+    "liveDuration": 40,
+    "tags": [
+      "566aeb1b-1649-4f5a-96a2-0c80be27efc0"
+    ]
   },
   "cs": {
     "card": {},
-    "locked": false
+    "locked": false,
+    "asyncDuration": 25,
+    "liveDuration": 40,
+    "tags": [
+      "566aeb1b-1649-4f5a-96a2-0c80be27efc0"
+    ]
   },
   "nl": {
     "card": {},
-    "locked": false
+    "locked": false,
+    "asyncDuration": 25,
+    "liveDuration": 40,
+    "tags": [
+      "566aeb1b-1649-4f5a-96a2-0c80be27efc0"
+    ]
   }
 }
