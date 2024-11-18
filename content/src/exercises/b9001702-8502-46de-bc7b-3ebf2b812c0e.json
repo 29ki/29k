@@ -1,5 +1,6 @@
 {
   "en": {
+    "liveDuration": 30,
     "slides": [
       {
         "type": "host",
@@ -15,7 +16,10 @@
       {
         "type": "instruction",
         "content": {
-          "text": "Take a close look at your life as it has evolved up until now. This exercise can bring up strong emotions. That is alright and all part of the exercise. If you need to, you can take a break at any time."
+          "text": "Take a close look at your life as it has evolved up until now. This exercise can bring up strong emotions. That is alright and all part of the exercise. If you need to, you can take a break at any time.",
+          "image": {
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1731909575/Images/visual_noBG_Life_exploration_ejdn1o.png"
+          }
         }
       },
       {
@@ -28,7 +32,8 @@
         "content": {
           "lottie": {
             "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1728986423/SRT%20(captions)%20files/PsyPal_Life_exploration_d370hk.srt",
-            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1728986355/Audio/PsyPal_Life_exploration_tsbxhj.mp3"
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1728986355/Audio/PsyPal_Life_exploration_tsbxhj.mp3",
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1676642915/Lottie/default_audio_black_zjrmu2.json"
           }
         }
       },
@@ -43,7 +48,13 @@
           }
         ],
         "content": {
-          "heading": "What can you learn from this?"
+          "heading": "What can you learn from this?",
+          "lottie": {
+            "durationTimer": true,
+            "duration": 60,
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1676642915/Lottie/default_1min_black_rosi2l.json",
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1731909507/Audio/reflection_audio_Life_exploration.png_duevze.mp3"
+          }
         }
       },
       {
@@ -81,22 +92,30 @@
       {
         "type": "instruction",
         "content": {
-          "text": "Well done for completing the life exploration. To actively reflect on past events sometimes help us look at the current circumstances in a different light. \n\nSometimes the darker periods are the ones where we have learned the most. And sometimes the toughest challenges are followed by a time of deep connection and meaning. Whatever is true for you, we encourage you to continue the conversation with someone close to you."
+          "text": "Well done for completing the life exploration. To actively reflect on past events sometimes help us look at the current circumstances in a different light. \n\nSometimes the darker periods are the ones where we have learned the most. And sometimes the toughest challenges are followed by a time of deep connection and meaning. Whatever is true for you, we encourage you to continue the conversation with someone close to you.",
+          "image": {
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1731909575/Images/visual_noBG_Life_exploration_ejdn1o.png"
+          }
         }
       }
     ],
     "theme": {
-      "textColor": "#2AE2D7"
+      "textColor": "#2E2E2E",
+      "backgroundColor": "#f4deb2"
     },
-    "hidden": true,
+    "hidden": false,
     "locked": false,
     "name": "PsyPal Life exploration",
-    "live": false,
+    "live": true,
     "published": true,
     "asyncDuration": 10,
-    "liveDuration": 30,
+    "card": {
+      "image": {
+        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/v1731909576/Images/card_Life_exploration_ey6d45.png"
+      }
+    },
     "introPortal": {
-      "textColor": "#2AE2D7",
+      "textColor": "#2E2E2E",
       "hostNotes": [
         {
           "text": "> Start the session when you're ready to go"
@@ -105,7 +124,12 @@
       "videoLoop": {
         "p5JsScript": {
           "lang": "javascript"
-        }
+        },
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1731909546/Video/portal_1_Life_exploration_t8o0yx.mp4",
+        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1731909507/Audio/portal_audio_Life_exploration.png_hp9f8n.mp3"
+      },
+      "videoEnd": {
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1731909539/Video/portal_2_Life_exploration_ntjptt.mp4"
       }
     },
     "id": "b9001702-8502-46de-bc7b-3ebf2b812c0e",
@@ -113,6 +137,7 @@
     "description": "Create an overview of your life so far, and learn from your own past experiences. You'll need pen and paper to complete this exercise."
   },
   "pt": {
+    "liveDuration": 30,
     "slides": [
       {
         "type": "host",
@@ -188,7 +213,7 @@
     "live": true,
     "published": false,
     "asyncDuration": 10,
-    "liveDuration": 30,
+    "card": {},
     "introPortal": {
       "textColor": "#2AE2D7",
       "hostNotes": [
@@ -201,6 +226,7 @@
     "async": false
   },
   "sv": {
+    "liveDuration": 30,
     "slides": [
       {
         "type": "host",
@@ -276,7 +302,7 @@
     "live": true,
     "published": false,
     "asyncDuration": 10,
-    "liveDuration": 30,
+    "card": {},
     "introPortal": {
       "textColor": "#2AE2D7",
       "hostNotes": [
@@ -289,6 +315,7 @@
     "async": false
   },
   "ja": {
+    "liveDuration": 30,
     "slides": [
       {
         "type": "host",
@@ -364,7 +391,7 @@
     "live": true,
     "published": false,
     "asyncDuration": 10,
-    "liveDuration": 30,
+    "card": {},
     "introPortal": {
       "textColor": "#2AE2D7",
       "hostNotes": [
@@ -376,7 +403,13 @@
     "id": "b9001702-8502-46de-bc7b-3ebf2b812c0e",
     "async": false
   },
-  "da": {},
-  "cs": {},
-  "nl": {}
+  "da": {
+    "card": {}
+  },
+  "cs": {
+    "card": {}
+  },
+  "nl": {
+    "card": {}
+  }
 }
