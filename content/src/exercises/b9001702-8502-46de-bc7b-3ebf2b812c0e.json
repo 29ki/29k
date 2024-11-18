@@ -106,9 +106,9 @@
     "hidden": true,
     "locked": false,
     "name": "PsyPal Life exploration",
-    "live": true,
+    "live": false,
     "published": true,
-    "asyncDuration": 10,
+    "asyncDuration": 15,
     "card": {
       "image": {
         "source": "https://res.cloudinary.com/cupcake-29k/image/upload/v1731909576/Images/card_Life_exploration_ey6d45.png"
@@ -132,6 +132,9 @@
         "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1731909539/Video/portal_2_Life_exploration_ntjptt.mp4"
       }
     },
+    "tags": [
+      "566aeb1b-1649-4f5a-96a2-0c80be27efc0"
+    ],
     "id": "b9001702-8502-46de-bc7b-3ebf2b812c0e",
     "async": true,
     "description": "Create an overview of your life so far, and learn from your own past experiences. You'll need pen and paper to complete this exercise."
@@ -212,7 +215,7 @@
     "locked": false,
     "live": true,
     "published": false,
-    "asyncDuration": 10,
+    "asyncDuration": 15,
     "card": {},
     "introPortal": {
       "textColor": "#2AE2D7",
@@ -222,6 +225,9 @@
         }
       ]
     },
+    "tags": [
+      "566aeb1b-1649-4f5a-96a2-0c80be27efc0"
+    ],
     "id": "b9001702-8502-46de-bc7b-3ebf2b812c0e",
     "async": false
   },
@@ -301,7 +307,7 @@
     "locked": false,
     "live": true,
     "published": false,
-    "asyncDuration": 10,
+    "asyncDuration": 15,
     "card": {},
     "introPortal": {
       "textColor": "#2AE2D7",
@@ -311,6 +317,9 @@
         }
       ]
     },
+    "tags": [
+      "566aeb1b-1649-4f5a-96a2-0c80be27efc0"
+    ],
     "id": "b9001702-8502-46de-bc7b-3ebf2b812c0e",
     "async": false
   },
@@ -390,7 +399,7 @@
     "locked": false,
     "live": true,
     "published": false,
-    "asyncDuration": 10,
+    "asyncDuration": 15,
     "card": {},
     "introPortal": {
       "textColor": "#2AE2D7",
@@ -400,16 +409,34 @@
         }
       ]
     },
+    "tags": [
+      "566aeb1b-1649-4f5a-96a2-0c80be27efc0"
+    ],
     "id": "b9001702-8502-46de-bc7b-3ebf2b812c0e",
     "async": false
   },
   "da": {
-    "card": {}
+    "card": {},
+    "asyncDuration": 15,
+    "liveDuration": 30,
+    "tags": [
+      "566aeb1b-1649-4f5a-96a2-0c80be27efc0"
+    ]
   },
   "cs": {
-    "card": {}
+    "card": {},
+    "asyncDuration": 15,
+    "liveDuration": 30,
+    "tags": [
+      "566aeb1b-1649-4f5a-96a2-0c80be27efc0"
+    ]
   },
   "nl": {
-    "card": {}
+    "card": {},
+    "asyncDuration": 15,
+    "liveDuration": 30,
+    "tags": [
+      "566aeb1b-1649-4f5a-96a2-0c80be27efc0"
+    ]
   }
 }
