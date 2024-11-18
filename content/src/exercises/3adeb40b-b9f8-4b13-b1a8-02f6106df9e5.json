@@ -1,5 +1,6 @@
 {
   "en": {
+    "liveDuration": 30,
     "slides": [
       {
         "type": "host",
@@ -93,8 +94,7 @@
     "name": "PsyPal My values",
     "live": false,
     "published": true,
-    "asyncDuration": 10,
-    "liveDuration": 30,
+    "asyncDuration": 15,
     "introPortal": {
       "textColor": "#2AE2D7",
       "hostNotes": [
@@ -113,6 +113,7 @@
     "description": "Our inner values is about who we want to be in life. Living a value-based life is often more fulfilling and meaningful to people."
   },
   "pt": {
+    "liveDuration": 30,
     "slides": [
       {
         "type": "host",
@@ -187,8 +188,7 @@
     "locked": false,
     "live": true,
     "published": false,
-    "asyncDuration": 10,
-    "liveDuration": 30,
+    "asyncDuration": 15,
     "introPortal": {
       "textColor": "#2AE2D7",
       "hostNotes": [
@@ -201,6 +201,7 @@
     "async": false
   },
   "sv": {
+    "liveDuration": 30,
     "slides": [
       {
         "type": "host",
@@ -275,8 +276,7 @@
     "locked": false,
     "live": true,
     "published": false,
-    "asyncDuration": 10,
-    "liveDuration": 30,
+    "asyncDuration": 15,
     "introPortal": {
       "textColor": "#2AE2D7",
       "hostNotes": [
@@ -289,6 +289,7 @@
     "async": false
   },
   "ja": {
+    "liveDuration": 30,
     "slides": [
       {
         "type": "host",
@@ -363,8 +364,7 @@
     "locked": false,
     "live": true,
     "published": false,
-    "asyncDuration": 10,
-    "liveDuration": 30,
+    "asyncDuration": 15,
     "introPortal": {
       "textColor": "#2AE2D7",
       "hostNotes": [
@@ -376,7 +376,13 @@
     "id": "3adeb40b-b9f8-4b13-b1a8-02f6106df9e5",
     "async": false
   },
-  "da": {},
-  "cs": {},
-  "nl": {}
+  "da": {
+    "asyncDuration": 15
+  },
+  "cs": {
+    "asyncDuration": 15
+  },
+  "nl": {
+    "asyncDuration": 15
+  }
 }
