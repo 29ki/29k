@@ -1,6 +1,7 @@
 import {LANGUAGE_TAG} from '../../../../../../shared/src/i18n/constants';
 import content from '../../../../../../content/content.json';
 import {Exercise} from '../../../../../../shared/src/types/generated/Exercise';
+import {Suspense} from 'react';
 
 const getExercisesByLanguage = (language: LANGUAGE_TAG) =>
   content.i18n[language].exercises as unknown as Record<string, Exercise>;
@@ -45,5 +46,5 @@ export default async function Layout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  return children;
+  return <Suspense>{children}</Suspense>;
 }
