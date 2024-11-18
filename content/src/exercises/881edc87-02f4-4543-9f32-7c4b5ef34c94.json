@@ -1,24 +1,20 @@
 {
   "en": {
+    "liveDuration": 0,
     "slides": [
       {
-        "type": "host",
-        "hostNotes": [
-          {
-            "text": "Welcome. I am X and today we will work for around 15 minutes on attention and awareness.\n\nWe’ll be exploring the how to cultivate greater awareness of our thoughts through observing the mind."
-          },
-          {
-            "text": "Let’s start with a mini check-in. How are you feeling right now? Please answer in two-three words. X, would you like to start?\n\n> Let everyone in the session, including yourself, check in one by one.\n\nThank you all for checking in. Let’s get started."
+        "type": "instruction",
+        "content": {
+          "heading": "Welcome",
+          "text": "This session explores how to cultivate greater awareness of our thoughts through observing the mind.\n\nFind a comfortable position and begin the exercise when you are ready.",
+          "image": {
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1731441064/SEE/SEELearning_CompassionTree_Green_2024_hiqhwi.png"
           }
-        ]
+        }
       },
       {
         "type": "content",
-        "hostNotes": [
-          {
-            "text": "Find a comfortable position. I will start the audio exercise and we'll meet back here afterwards. \n\n>  Tap play to start the audio exercise"
-          }
-        ],
+        "hostNotes": [],
         "content": {
           "lottie": {
             "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1715663484/SEE/Lottie/Awareness/Awareness1_hfm9bc.json",
@@ -62,31 +58,6 @@
         }
       },
       {
-        "type": "reflection",
-        "content": {
-          "video": {
-            "durationTimer": true,
-            "source": ""
-          },
-          "lottie": {
-            "durationTimer": true,
-            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto/v1718146076/SEE/Lottie/Timer/1min_timer_ag9fyg.json"
-          },
-          "heading": "How was that experience for you? Was anyone able to watch some thoughts coming and going? What was that like? Did anyone notice a time when there were no thoughts?"
-        },
-        "hostNotes": [
-          {
-            "text": "Now we’ll take 1 minutes to reflect on our own. How was that experience for you? Was anyone able to watch some thoughts coming and going? What was that like? Did anyone notice a time when there were no thoughts?"
-          },
-          {
-            "text": " Maybe a pause or a break or gap between thoughts? What have you learned about the mind that you find most interesting or most helpful? How might it help us if we learned to watch our minds?"
-          },
-          {
-            "text": "You can take notes on a piece of paper or just mental notes in your head. And there is no right or wrong here, our answers are our own. 1 minute starting now. \n\n> Press play to start the timer. \n\nThat’s 1 minute and it’s time to move on."
-          }
-        ]
-      },
-      {
         "type": "sharing",
         "id": "sharing 1",
         "content": {
@@ -100,17 +71,7 @@
           "text": "",
           "heading": "What have you learned about the mind? "
         },
-        "hostNotes": [
-          {
-            "text": "Now we are getting into the sharing part. We have three rules for sharing"
-          },
-          {
-            "text": "1. \\*\\*What is said in here, stays in here.\\*\\* \n\n2. \\*\\*All you need to do is listen.\\*\\* There is no fixing, helping or advice-giving needed. We are just showing up and exploring what ourselves and others are going through.\n\n3. \\*\\*Everything on the inside is okay.\\*\\* Anger, love, hatred, sadness. Whatever shows up. No wrongs, no rights. It is what it is. There will be a timer set for 2 minutes as an indicator. If you don’t want to share you can always say ‘pass’."
-          },
-          {
-            "text": "Who would like to start? \n\n> Let everyone (or as many as you got time for) share one by one. Press play to start the timer. Re-start for each new sharing. \n\nThank you so much, everyone."
-          }
-        ]
+        "hostNotes": []
       },
       {
         "type": "sharing",
@@ -141,23 +102,6 @@
           "text": "",
           "heading": "Do you think you could spend a moment watching your mind?"
         }
-      },
-      {
-        "type": "host",
-        "hostNotes": [
-          {
-            "text": " Well done. Today, we’ve explored observing the mind. \n\nWe all have personal power over how we react to emotional impulses or challenging thoughts. We do not have to act on each emotional impulse. We can navigate emotional experiences in healthy ways to the benefit of ourselves and others."
-          },
-          {
-            "text": "Observing the mind helps us notice potential thoughts and ideas that could be unhelpful. \n\nIf we're up for it, we can continue with a mission: Practice observing your mind once a day for 4 minutes over the next two days."
-          },
-          {
-            "text": "Plan the steps you will take by considering a time in your day when this might be helpful or timely. \n\nBefore we leave this space, let’s do a mini check-out: How are you feeling right now? Has anything shifted? Please answer in two to three words."
-          },
-          {
-            "text": "Who would like to start? \n\n> Let everyone in the session check out one by one. \n\nThank you all for checking out and for joining this session today. \n\n> Finish session to send everyone off to the exit experience."
-          }
-        ]
       },
       {
         "type": "instruction",
@@ -197,8 +141,9 @@
     "hidden": false,
     "locked": true,
     "name": "Observing the Mind",
-    "live": true,
+    "live": false,
     "published": true,
+    "asyncDuration": 10,
     "card": {
       "image": {
         "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1718152376/SEE/Icons/Awareness/ObservingTheMind_CardImage_crvfoi.png"
@@ -211,8 +156,6 @@
         "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1713881366/SEE/see-logo_1_kewtlt.png"
       }
     ],
-    "asyncDuration": 10,
-    "liveDuration": 15,
     "outroPortal": {
       "video": {
         "source": ""
@@ -232,12 +175,15 @@
         "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1717469190/SEE/Video/SEELearning_AwareApp_IntroVideo_2024_V3_1_giheh7.mp4"
       }
     },
-    "tags": ["cfc00217-f65b-4a4d-8b82-8ccc8f852dd6"],
+    "tags": [
+      "cfc00217-f65b-4a4d-8b82-8ccc8f852dd6"
+    ],
     "id": "881edc87-02f4-4543-9f32-7c4b5ef34c94",
     "async": true,
     "description": "Developing an ability to watch thought processes in the mind is a great way to catch thinking traps. We can pause to remember: “I do not have to act on each emotional impulse or thought. I can navigate emotional experiences in healthy ways, to the benefit of myself and others.\""
   },
   "pt": {
+    "liveDuration": 0,
     "slides": [
       {
         "type": "host",
@@ -312,9 +258,8 @@
     "locked": true,
     "live": true,
     "published": false,
-    "card": {},
     "asyncDuration": 10,
-    "liveDuration": 15,
+    "card": {},
     "introPortal": {
       "textColor": "#2AE2D7",
       "hostNotes": [
@@ -323,11 +268,14 @@
         }
       ]
     },
-    "tags": ["cfc00217-f65b-4a4d-8b82-8ccc8f852dd6"],
+    "tags": [
+      "cfc00217-f65b-4a4d-8b82-8ccc8f852dd6"
+    ],
     "id": "881edc87-02f4-4543-9f32-7c4b5ef34c94",
     "async": false
   },
   "sv": {
+    "liveDuration": 0,
     "slides": [
       {
         "type": "host",
@@ -402,9 +350,8 @@
     "locked": true,
     "live": true,
     "published": false,
-    "card": {},
     "asyncDuration": 10,
-    "liveDuration": 15,
+    "card": {},
     "introPortal": {
       "textColor": "#2AE2D7",
       "hostNotes": [
@@ -413,11 +360,14 @@
         }
       ]
     },
-    "tags": ["cfc00217-f65b-4a4d-8b82-8ccc8f852dd6"],
+    "tags": [
+      "cfc00217-f65b-4a4d-8b82-8ccc8f852dd6"
+    ],
     "id": "881edc87-02f4-4543-9f32-7c4b5ef34c94",
     "async": false
   },
   "ja": {
+    "liveDuration": 0,
     "slides": [
       {
         "type": "host",
@@ -492,9 +442,8 @@
     "locked": true,
     "live": true,
     "published": false,
-    "card": {},
     "asyncDuration": 10,
-    "liveDuration": 15,
+    "card": {},
     "introPortal": {
       "textColor": "#2AE2D7",
       "hostNotes": [
@@ -503,11 +452,28 @@
         }
       ]
     },
-    "tags": ["cfc00217-f65b-4a4d-8b82-8ccc8f852dd6"],
+    "tags": [
+      "cfc00217-f65b-4a4d-8b82-8ccc8f852dd6"
+    ],
     "id": "881edc87-02f4-4543-9f32-7c4b5ef34c94",
     "async": false
   },
-  "da": {},
-  "cs": {},
-  "nl": {}
+  "da": {
+    "tags": [
+      "cfc00217-f65b-4a4d-8b82-8ccc8f852dd6"
+    ],
+    "liveDuration": 0
+  },
+  "cs": {
+    "tags": [
+      "cfc00217-f65b-4a4d-8b82-8ccc8f852dd6"
+    ],
+    "liveDuration": 0
+  },
+  "nl": {
+    "tags": [
+      "cfc00217-f65b-4a4d-8b82-8ccc8f852dd6"
+    ],
+    "liveDuration": 0
+  }
 }
