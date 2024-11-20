@@ -55,7 +55,7 @@
       {
         "type": "instruction",
         "content": {
-          "text": "Welcome back, and well done.\n\nMusic can help our brains to evoke emotions and images, less affected by our regular thinking.",
+          "text": "Well done.\n\nMusic can help our brains to evoke emotions and images, less affected by our regular ways of thinking.",
           "image": {
             "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1731849005/Images/visual_noBG_Music_I_music_only_ou4vlx.png"
           }
