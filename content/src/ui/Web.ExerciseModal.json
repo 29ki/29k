@@ -7,7 +7,14 @@
       "live": "As host"
     }
   },
-  "pt": {},
+  "pt": {
+    "startHeading": "Fazer sessão...",
+    "coCreatorsHeading": "Co-criada com",
+    "mode": {
+      "async": "Contigo",
+      "live": "Como moderador/a"
+    }
+  },
   "sv": {
     "startHeading": "Starta session...",
     "coCreatorsHeading": "Skapad tillsammans med",
