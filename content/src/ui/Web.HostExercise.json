@@ -2,7 +2,9 @@
   "en": {
     "openHostControls": "Open host view"
   },
-  "pt": {},
+  "pt": {
+    "openHostControls": "Abrir vista de moderador/a"
+  },
   "sv": {
     "openHostControls": "Öppna värdvy"
   },
