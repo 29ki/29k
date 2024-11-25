@@ -17,5 +17,10 @@
   "ja": {},
   "da": {},
   "cs": {},
-  "nl": {}
+  "nl": {},
+  "es": {
+    "date": "Día",
+    "done": "Hecho",
+    "time": "Hora"
+  }
 }

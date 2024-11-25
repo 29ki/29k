@@ -38,5 +38,17 @@
   "ja": {},
   "da": {},
   "cs": {},
-  "nl": {}
+  "nl": {},
+  "es": {
+    "addToCalendar": "Añadir al calendario",
+    "counter": {
+      "started": "Ha empezado"
+    },
+    "counterLabel": {
+      "starts": "Empieza",
+      "startsIn": "Empieza en"
+    },
+    "join": "Entra",
+    "minutesAbbreviation": "min"
+  }
 }

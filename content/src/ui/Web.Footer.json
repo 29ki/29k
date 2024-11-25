@@ -23,5 +23,12 @@
   "ja": {},
   "da": {},
   "cs": {},
-  "nl": {}
+  "nl": {},
+  "es": {
+    "about__markdown": "Aware es una organización sin ánimo de lucro a la vez que una comunidad, con la misión de hacer que el crecimiento personal esté disponible para todos y de manera gratuita.",
+    "downloadAppStore": "Descargar en la App Store",
+    "downloadGooglePlay": "Descargar en Google Play",
+    "madeBy": "Creado por",
+    "moreInfo__markdown": "Para más información visita: [www.awareapp.org](https://www.awareapp.org)"
+  }
 }

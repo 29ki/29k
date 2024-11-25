@@ -26,5 +26,13 @@
   "ja": {},
   "da": {},
   "cs": {},
-  "nl": {}
+  "nl": {},
+  "es": {
+    "coCreatorsHeading": "Cocreado con",
+    "completed": "Completado",
+    "doAgainButton": "Hacer este ejercicio de nuevo",
+    "moreLikeThis": "Más como esto",
+    "yourReview": "Revisión de tu sesión",
+    "yourSharingPost": "Lo que dijiste"
+  }
 }

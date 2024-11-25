@@ -155,5 +155,32 @@
   "ja": {},
   "da": {},
   "cs": {},
-  "nl": {}
+  "nl": {},
+  "es": {
+    "contactInformation": {
+      "chat": {
+        "label": "Chat de la comunidad"
+      },
+      "email": {
+        "email": "hello@29k.org",
+        "label": "hello@29k.org",
+        "subject": "Hola desde la app Aware"
+      },
+      "facebook": {
+        "label": "Facebook"
+      },
+      "heading": "29k Foundation",
+      "instagram": {
+        "label": "Instagram"
+      },
+      "www": {
+        "label": "29k.org"
+      }
+    },
+    "noEmailClientAlert": {
+      "message": "¿Quieres copiar nuestro correo electrónico en tu portapapeles?",
+      "title": "No pudimos detectar un cliente de correo electrónico en tu dispositivo"
+    },
+    "title": "Contactar"
+  }
 }

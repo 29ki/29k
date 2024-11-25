@@ -74,5 +74,24 @@
   "ja": {},
   "da": {},
   "cs": {},
-  "nl": {}
+  "nl": {},
+  "es": {
+    "failed": {
+      "text__markdown": "## Algo no está funcionando correctamente...\n\nEstamos teniendo algunos problemas técnicos en este momento. Inténtalo de nuevo en un momento."
+    },
+    "maintenance": {
+      "text__markdown": "## Estamos pasando por un pequeño ~~mantenimiento~~\n\nDisculpa las molestias. Estaremos de vuelta y funcionando lo antes posible."
+    },
+    "retry": "Vuelve a intentarlo",
+    "update": {
+      "android": {
+        "button": "Actualizar",
+        "text__markdown": "## ¡Hemos mejorado la app aún ~~más!~~\n\nPuedes obtener la última versión en ~~[Google PlayStore](https://play.google.com/store/apps/details?id=org.twentyninek.app.cupcake)~~"
+      },
+      "ios": {
+        "button": "Actualizar",
+        "text__markdown": "## ¡Hemos mejorado la app aún ~~más!~~\n\nPuedes obtener la última versión en ~~[Apple AppStore](https://apps.apple.com/us/app/aware-mindfulness-wellbeing/id1631342681)~~"
+      }
+    }
+  }
 }

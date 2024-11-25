@@ -23,5 +23,12 @@
   "ja": {},
   "da": {},
   "cs": {},
-  "nl": {}
+  "nl": {},
+  "es": {
+    "collectionsHeading": "Programas",
+    "featuredHeading": "Nuevos lanzamientos",
+    "liveSessionsHeading": "Sesiones en directo",
+    "sessionsHeading": "Sesiones",
+    "skillsHeading": "Habilidades"
+  }
 }

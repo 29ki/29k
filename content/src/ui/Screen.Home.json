@@ -34,5 +34,16 @@
   "ja": {},
   "da": {},
   "cs": {},
-  "nl": {}
+  "nl": {},
+  "es": {
+    "add": "Sesión",
+    "heading": "Sesiones",
+    "sections": {
+      "community": "Comunidad de Aware",
+      "forYou": "Para ti",
+      "liveSessions": "Sesiones en directo",
+      "sharingPosts": "¿Qué están haciendo otros?"
+    },
+    "seeAll": "Ver todo"
+  }
 }

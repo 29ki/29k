@@ -20,5 +20,11 @@
   "ja": {},
   "da": {},
   "cs": {},
-  "nl": {}
+  "nl": {},
+  "es": {
+    "corePartners": "Socios principales",
+    "partners": "Socios",
+    "text": "Gracias a estas maravillosas organizaciones, ¡muchas gracias!",
+    "title": "Socios"
+  }
 }

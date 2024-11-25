@@ -26,5 +26,13 @@
   "ja": {},
   "da": {},
   "cs": {},
-  "nl": {}
+  "nl": {},
+  "es": {
+    "code": "Código",
+    "email": "Correo electrónico / Email",
+    "header": "Verificación",
+    "password": "Contraseña",
+    "signIn": "Iniciar sesión",
+    "upgrade": "Actualizar"
+  }
 }

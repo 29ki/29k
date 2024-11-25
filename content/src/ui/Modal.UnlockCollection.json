@@ -20,5 +20,11 @@
   "ja": {},
   "da": {},
   "cs": {},
-  "nl": {}
+  "nl": {},
+  "es": {
+    "confirmButton": "OK",
+    "heading1": "¡Felicidades!",
+    "heading2": "Has conseguido",
+    "invalidLink": "¡Ups! Parece que abriste un enlace inválido."
+  }
 }

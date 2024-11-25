@@ -41,5 +41,10 @@
   },
   "da": {},
   "cs": {},
-  "nl": {}
+  "nl": {},
+  "es": {
+    "unsubscribe": {
+      "text": "Darme de baja"
+    }
+  }
 }

@@ -50,5 +50,21 @@
   "ja": {},
   "da": {},
   "cs": {},
-  "nl": {}
+  "nl": {},
+  "es": {
+    "checking": {
+      "status": "Buscando actualizaciones"
+    },
+    "downloading": {
+      "status": "Bajando actualización"
+    },
+    "installed": {
+      "action": "reiniciar la app",
+      "status": "Actualización disponible -"
+    },
+    "upToDate": {
+      "action": "Buscar actualizaciones",
+      "status": "Aware está actualizado -"
+    }
+  }
 }

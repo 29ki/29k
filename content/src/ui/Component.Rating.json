@@ -26,5 +26,13 @@
   "ja": {},
   "da": {},
   "cs": {},
-  "nl": {}
+  "nl": {},
+  "es": {
+    "buttons": {
+      "cancel": "No gracias",
+      "confirm": "¡Sí, claro!"
+    },
+    "header": "Deja una reseña",
+    "text": "¡Gracias! ¿Te importaría puntuar nuestra aplicación en el {{storeType}}?"
+  }
 }

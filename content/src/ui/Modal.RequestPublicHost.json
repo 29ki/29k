@@ -59,5 +59,24 @@
   "ja": {},
   "da": {},
   "cs": {},
-  "nl": {}
+  "nl": {},
+  "es": {
+    "activateButton": "Activar configuraciones",
+    "enterCode": "Introduce tu código",
+    "errors": {
+      "verificationAlreadyClaimed": "Este código ya ha sido utilizado.",
+      "verificationDeclined": "La solicitud no fue aceptada.",
+      "verificationFailed": "Código incorrecto, pruébalo de nuevo.",
+      "verificationNotFound": "No pudimos encontrar ninguna solicitud de sesión abierta para este usuario."
+    },
+    "haveCodeButton": "Tengo un código",
+    "or": "o",
+    "requestCodeButton": "Solicitar un código",
+    "requestComplete": "Hemos registrado tu solicitud. Tan pronto como sea aprobada, te enviaremos un código de verificación por correo electrónico.",
+    "success": {
+      "header": "¡Conseguido!",
+      "text": "¡Ahora puedes crear y organizar sesiones abiertas para que cualquier usuario de Aware se una!"
+    },
+    "text": "Solicita un código para crear sesiones públicas"
+  }
 }

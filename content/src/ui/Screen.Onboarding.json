@@ -95,5 +95,34 @@
   "ja": {},
   "da": {},
   "cs": {},
-  "nl": {}
+  "nl": {},
+  "es": {
+    "continueButton": "Continuar",
+    "getStartedButton": "Empezar",
+    "page1": {
+      "heading__text": "Herramientas psicológicas \nbasadas en la ciencia"
+    },
+    "page2": {
+      "heading__text": "Contactos\nvaliosos",
+      "name1": "Ints",
+      "name2": "Jenny",
+      "name3": "Lisa"
+    },
+    "page3": {
+      "card": {
+        "heading": "Sin ánimo de lucro",
+        "text__markdown": "Somos gratuitos para uso personal.\\\nNo vendemos datos. No mostramos anuncios.\\\nPara que puedas enfocarte en practicar el bienestar, prosperar y contribuir a un futuro mejor para todos."
+      },
+      "heading__text": "Para el \nbien común"
+    },
+    "page4": {
+      "journey__text": "Tu propio camino hacia \nuna vida más plena.",
+      "sessions__text": "Experiencias guiadas para \nnuevas perspectivas sobre la vida.\n\nPor tu cuenta, con amigos/as \no nuevos contactos."
+    },
+    "privacyNotice": "Aviso de privacidad",
+    "skipButton": "Omitir",
+    "start": {
+      "heading2": "Descúbrete a ti mismo, conéctate con los demás."
+    }
+  }
 }

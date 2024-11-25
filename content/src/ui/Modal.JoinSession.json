@@ -32,5 +32,15 @@
   "ja": {},
   "da": {},
   "cs": {},
-  "nl": {}
+  "nl": {},
+  "es": {
+    "create": {
+      "cta": "Añadir nueva sesión",
+      "or": "o"
+    },
+    "errors": {
+      "sessionNotFound": "Código incorrecto, pruébalo de nuevo"
+    },
+    "title": "Unirse con un código de invitación"
+  }
 }

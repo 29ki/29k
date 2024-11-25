@@ -41,5 +41,18 @@
   "ja": {},
   "da": {},
   "cs": {},
-  "nl": {}
+  "nl": {},
+  "es": {
+    "counterLabel": {
+      "shortly": "Pronto",
+      "started": "Ahora",
+      "starts": "Empieza",
+      "startsIn": "Empieza en"
+    },
+    "leavePortal": "Salir",
+    "participants": "Somos",
+    "sessionStarted": "La sesión está en curso",
+    "skipPortal": "Omitir portal",
+    "startSession": "Empezar sesión"
+  }
 }

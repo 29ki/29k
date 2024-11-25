@@ -29,5 +29,12 @@
   },
   "da": {},
   "cs": {},
-  "nl": {}
+  "nl": {},
+  "es": {
+    "body": "Este mensaje fue enviado desde la app Aware:",
+    "subject": "Tu opinión para Aware",
+    "subject_feedback": "Tu opinión para Aware",
+    "subject_misbehaviour": "Tu informe para Aware",
+    "subject_tech_issue": "Tu informe de problemas técnicos para Aware"
+  }
 }

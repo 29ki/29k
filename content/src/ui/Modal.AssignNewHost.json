@@ -17,5 +17,10 @@
   "ja": {},
   "da": {},
   "cs": {},
-  "nl": {}
+  "nl": {},
+  "es": {
+    "button": "Asignar nuevo/a anfitrión/a",
+    "description": "Comparte el enlace con el/la nuevo/a anfitrión/a. \n\nUna vez que lo acepte, ya no podrás editar esta sesión.",
+    "heading": "Cambiar anfitrión/a"
+  }
 }

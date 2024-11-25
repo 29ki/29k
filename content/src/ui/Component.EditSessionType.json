@@ -14,5 +14,9 @@
   "ja": {},
   "da": {},
   "cs": {},
-  "nl": {}
+  "nl": {},
+  "es": {
+    "private": "Sesión con amigos/as",
+    "public": "Sesión abierta a todo el mundo"
+  }
 }

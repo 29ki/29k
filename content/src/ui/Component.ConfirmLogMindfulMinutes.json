@@ -35,5 +35,16 @@
   "ja": {},
   "da": {},
   "cs": {},
-  "nl": {}
+  "nl": {},
+  "es": {
+    "actions": {
+      "cancel": "A lo mejor más tarde",
+      "confirm": "Sí",
+      "dismiss": "No"
+    },
+    "message_android": "¿Quieres registrar tus minutos de meditación en Google Fit?",
+    "message_ios": "¿Quieres registrar tus minutos de mindfulness en Apple Health?",
+    "title_android": "Registrar los minutos de meditación",
+    "title_ios": "Registrar los minutos de mindfulness"
+  }
 }

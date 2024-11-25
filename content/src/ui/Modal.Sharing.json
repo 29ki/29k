@@ -26,5 +26,13 @@
   "ja": {},
   "da": {},
   "cs": {},
-  "nl": {}
+  "nl": {},
+  "es": {
+    "anonymousLabel": "Todo el mundo, de forma anónima",
+    "description": "¿Quién puede ver tu publicación?",
+    "header": "Tu reflexión",
+    "privateLabel": "Solo yo",
+    "publicLabel": "Cualquier persona, como {{displayName}}",
+    "submitCta": "Publicar"
+  }
 }

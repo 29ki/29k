@@ -41,5 +41,16 @@
   },
   "da": {},
   "cs": {},
-  "nl": {}
+  "nl": {},
+  "es": {
+    "alertCameraSettings": "Por favor, abre la configuración de tu sistema y da acceso a la cámara para Aware.",
+    "alertCameraTitle": "Se requiere permiso para la cámara",
+    "alertCameraWhy": "Aware necesita usar tu cámara para hacer tu foto de perfil.",
+    "cancelButtonTitle": "Cancelar",
+    "chooseFromLibraryButtonTitle": "Elegir de la biblioteca",
+    "ok": "OK",
+    "removeButtonTitle": "Eliminar",
+    "takePhotoButtonTitle": "Hacer foto",
+    "title": "Editar foto de perfil"
+  }
 }

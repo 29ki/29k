@@ -14,5 +14,9 @@
   "ja": {},
   "da": {},
   "cs": {},
-  "nl": {}
+  "nl": {},
+  "es": {
+    "interested": "Interesado/a",
+    "myJourneyTag": "Mi viaje"
+  }
 }

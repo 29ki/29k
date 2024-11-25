@@ -14,5 +14,9 @@
   "ja": {},
   "da": {},
   "cs": {},
-  "nl": {}
+  "nl": {},
+  "es": {
+    "everyoneLabel": "Todo el mundo",
+    "onlyMeLabel": "Solamente yo"
+  }
 }

@@ -17,5 +17,10 @@
   "ja": {},
   "da": {},
   "cs": {},
-  "nl": {}
+  "nl": {},
+  "es": {
+    "location": "Aware app",
+    "notes": "{{name}}\nCon {{host}}\n{{url}}",
+    "title": "Aware - {{name}}"
+  }
 }

@@ -29,5 +29,14 @@
   "ja": {},
   "da": {},
   "cs": {},
-  "nl": {}
+  "nl": {},
+  "es": {
+    "answer_1": "¡Gracias por estar aquí! Tu presencia hace que la sesión sea genial.",
+    "answer_2": "Gracias por venir. Si te sientes un poco inseguro/a, estás en el lugar correcto. Te guiaremos a través de la experiencia, para que puedas escuchar o participar de la manera que prefieras.",
+    "answer_3": "Gracias por compartir. En este espacio, eres completamente bienvenido/a. Estamos aquí para apoyarte. Y está bien solo escuchar con la cámara apagada, apreciamos tu presencia en cualquier forma.",
+    "question": "¿Cómo te sientes al unirte a esta sesión en vivo?",
+    "step_1": "Emocionado/a",
+    "step_2": "Neutral",
+    "step_3": "Nervioso/a"
+  }
 }

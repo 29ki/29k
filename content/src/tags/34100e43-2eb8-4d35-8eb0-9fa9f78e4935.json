@@ -21,5 +21,10 @@
   },
   "da": {},
   "cs": {},
-  "nl": {}
+  "nl": {},
+  "es": {
+    "name": "Aceptación",
+    "id": "34100e43-2eb8-4d35-8eb0-9fa9f78e4935",
+    "published": true
+  }
 }

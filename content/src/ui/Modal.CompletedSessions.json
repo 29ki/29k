@@ -23,5 +23,12 @@
   "ja": {},
   "da": {},
   "cs": {},
-  "nl": {}
+  "nl": {},
+  "es": {
+    "async": "Solamente yo",
+    "meaningful": "Sesiones relevantes",
+    "notMeaningful": "Sesiones no relevantes",
+    "private": "Con amigos/as",
+    "public": "Con cualquier persona"
+  }
 }

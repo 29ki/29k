@@ -29,5 +29,14 @@
   "ja": {},
   "da": {},
   "cs": {},
-  "nl": {}
+  "nl": {},
+  "es": {
+    "actions": {
+      "cancel": "A lo mejor más tarde",
+      "confirm": "Sí",
+      "dismiss": "No"
+    },
+    "message": "¿Quieres establecer un recordatorio de práctica que te ayude a mantenerla?",
+    "title": "Hazlo un hábito"
+  }
 }

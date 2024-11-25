@@ -14,5 +14,9 @@
   "ja": {},
   "da": {},
   "cs": {},
-  "nl": {}
+  "nl": {},
+  "es": {
+    "practice-reminders": "Recordatorios de práctica",
+    "session-reminders": "Recordatorios de sesión"
+  }
 }

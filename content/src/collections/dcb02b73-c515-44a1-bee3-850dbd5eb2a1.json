@@ -121,5 +121,38 @@
   },
   "da": {},
   "cs": {},
-  "nl": {}
+  "nl": {},
+  "es": {
+    "description": "Hacer lo que importa para un mañana mejor.",
+    "name": "Susténtate a ti mismo/a",
+    "hidden": false,
+    "published": true,
+    "sortOrder": 6,
+    "card": {
+      "image": {
+        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1697618661/Images/youth_IDG_collection_roejxe.png"
+      },
+      "imageBackgroundColor": "#f6d984"
+    },
+    "coCreators": [
+      {
+        "name": "The Inner Development Goals",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1671191681/Contributors/IDG_lktccb.png",
+        "url": "https://www.innerdevelopmentgoals.org/"
+      }
+    ],
+    "tags": [
+      "9c2c08a9-7dc6-4058-bc78-016d0eb00614",
+      "cfc00217-f65b-4a4d-8b82-8ccc8f852dd6"
+    ],
+    "link": "https://aware.29k.org/sustain-yourself",
+    "id": "dcb02b73-c515-44a1-bee3-850dbd5eb2a1",
+    "exercises": [
+      "5b69ff57-10c4-4288-afc7-a6f6ed212531",
+      "12f448d2-39bc-4232-b8cf-b6cb570c7e00",
+      "648e1802-eb45-47b0-a42e-dd986669a4eb",
+      "c7911238-ca9f-4499-9cae-63dfcd0c79c5",
+      "fff6f8da-f69c-458f-8905-acee04bd1a1d"
+    ]
+  }
 }

@@ -23,5 +23,12 @@
   "ja": {},
   "da": {},
   "cs": {},
-  "nl": {}
+  "nl": {},
+  "es": {
+    "contributors": "Colaboradores",
+    "coreTeam": "Equipo principal",
+    "founders": "Fundadores",
+    "text": "Gracias a estas maravillosas personas, ¡muchas gracias a cada una de ellas!",
+    "title": "Colaboradores"
+  }
 }

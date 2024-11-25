@@ -14,5 +14,9 @@
   "ja": {},
   "da": {},
   "cs": {},
-  "nl": {}
+  "nl": {},
+  "es": {
+    "cta": "Guardar",
+    "displayName": "¿Cómo deberíamos llamarte?"
+  }
 }

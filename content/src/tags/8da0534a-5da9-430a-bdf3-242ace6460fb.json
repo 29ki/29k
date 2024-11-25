@@ -21,5 +21,10 @@
   },
   "da": {},
   "cs": {},
-  "nl": {}
+  "nl": {},
+  "es": {
+    "name": "Resiliencia",
+    "id": "8da0534a-5da9-430a-bdf3-242ace6460fb",
+    "published": true
+  }
 }

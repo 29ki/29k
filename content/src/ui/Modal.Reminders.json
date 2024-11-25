@@ -53,5 +53,22 @@
   "ja": {},
   "da": {},
   "cs": {},
-  "nl": {}
+  "nl": {},
+  "es": {
+    "intervals": {
+      "daily": "Cada día",
+      "friday": "Viernes",
+      "monday": "Lunes",
+      "saturday": "Sábado",
+      "sunday": "Domingo",
+      "thursday": "Jueves",
+      "tuesday": "Martes",
+      "wednesday": "Miércoles"
+    },
+    "sessionRemindersText": "Te recuerda sobre las sesiones próximas 10 minutos antes de que empiecen.",
+    "time": "Hora",
+    "title": "Recordatorios",
+    "updateButton": "Actualizar recordatorios",
+    "weekday": "Día laborable"
+  }
 }

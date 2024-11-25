@@ -26,5 +26,13 @@
   "ja": {},
   "da": {},
   "cs": {},
-  "nl": {}
+  "nl": {},
+  "es": {
+    "actions": {
+      "cancel": "Cancelar",
+      "confirm": "Abrir configuración"
+    },
+    "message": "Abre la configuración para darnos permiso para enviarte notificaciones. Esto reiniciará la aplicación Aware.",
+    "title": "No tienes permiso."
+  }
 }

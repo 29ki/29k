@@ -88,5 +88,33 @@
   "ja": {},
   "da": {},
   "cs": {},
-  "nl": {}
+  "nl": {},
+  "es": {
+    "actions": {
+      "deleteData": "Eliminar mis datos",
+      "language": "Idioma",
+      "mindfulMinutes_android": "Registrar minutos de meditación",
+      "mindfulMinutes_ios": "Registrar minutos de atención plena en Health",
+      "reminders": "Recordatorios",
+      "signIn": "Iniciar sesión",
+      "signOut": "Cerrar sesión"
+    },
+    "changePassword": "Cambiar contraseña",
+    "currentPassword": "Contraseña actual",
+    "description": "Añadir una descripción que se mostrará cuando organices una sesión",
+    "displayName": "¿Cómo deberíamos llamarte?",
+    "email": "Correo electrónico / Email",
+    "errors": {
+      "auth/current-password-missing": "Para actualizar tu perfil, por favor proporciona tu contraseña actual.",
+      "auth/email-already-in-use": "El correo electrónico proporcionado ya está en uso por un usuario existente.",
+      "auth/invalid-display-name": "El valor proporcionado para {{displayName}} no es válido. Debe contener algunos carácteres.",
+      "auth/invalid-email": "El valor proporcionado para email no es válido. Debe ser una dirección de correo electrónico válida.",
+      "auth/password-missing": "Para establecer una dirección de correo electrónico también necesitas proporcionar una contraseña.",
+      "auth/weak-password": "El valor proporcionado para la contraseña no es válido. Debe contener un mínimo de seis carácteres.",
+      "auth/wrong-password": "Contraseña incorrecta, pruébalo de nuevo."
+    },
+    "save": "Guardar cambios",
+    "setPassword": "Establecer una contraseña",
+    "title": "Configuración del perfil"
+  }
 }
