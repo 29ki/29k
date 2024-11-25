@@ -10,6 +10,7 @@ jest.mock('../../../../../content/content.json', () => ({
     da: {categories: {}, collections: {}, tags: {}, exercises: {}, keep: true},
     cs: {categories: {}, collections: {}, tags: {}, exercises: {}, keep: true},
     nl: {categories: {}, collections: {}, tags: {}, exercises: {}, keep: true},
+    es: {categories: {}, collections: {}, tags: {}, exercises: {}, keep: true},
   },
 }));
 
@@ -28,6 +29,7 @@ describe('i18n - utils', () => {
         da: {keep: true},
         cs: {keep: true},
         nl: {keep: true},
+        es: {keep: true},
       });
     });
   });

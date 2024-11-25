@@ -105,9 +105,7 @@
         }
       }
     },
-    "tags": [
-      "566aeb1b-1649-4f5a-96a2-0c80be27efc0"
-    ],
+    "tags": ["566aeb1b-1649-4f5a-96a2-0c80be27efc0"],
     "id": "ba239e50-27f5-4a01-8daf-14b76edb7097",
     "async": true,
     "description": "A mindful exercise where you practice being with what is - in the sky right now. Note that you need to be outside or by a window to do this exercise."
@@ -197,9 +195,7 @@
         }
       ]
     },
-    "tags": [
-      "566aeb1b-1649-4f5a-96a2-0c80be27efc0"
-    ],
+    "tags": ["566aeb1b-1649-4f5a-96a2-0c80be27efc0"],
     "id": "ba239e50-27f5-4a01-8daf-14b76edb7097",
     "async": false
   },
@@ -288,9 +284,7 @@
         }
       ]
     },
-    "tags": [
-      "566aeb1b-1649-4f5a-96a2-0c80be27efc0"
-    ],
+    "tags": ["566aeb1b-1649-4f5a-96a2-0c80be27efc0"],
     "id": "ba239e50-27f5-4a01-8daf-14b76edb7097",
     "async": false
   },
@@ -379,31 +373,24 @@
         }
       ]
     },
-    "tags": [
-      "566aeb1b-1649-4f5a-96a2-0c80be27efc0"
-    ],
+    "tags": ["566aeb1b-1649-4f5a-96a2-0c80be27efc0"],
     "id": "ba239e50-27f5-4a01-8daf-14b76edb7097",
     "async": false
   },
   "da": {
     "asyncDuration": 10,
     "liveDuration": 30,
-    "tags": [
-      "566aeb1b-1649-4f5a-96a2-0c80be27efc0"
-    ]
+    "tags": ["566aeb1b-1649-4f5a-96a2-0c80be27efc0"]
   },
   "cs": {
     "asyncDuration": 10,
     "liveDuration": 30,
-    "tags": [
-      "566aeb1b-1649-4f5a-96a2-0c80be27efc0"
-    ]
+    "tags": ["566aeb1b-1649-4f5a-96a2-0c80be27efc0"]
   },
   "nl": {
     "asyncDuration": 10,
     "liveDuration": 30,
-    "tags": [
-      "566aeb1b-1649-4f5a-96a2-0c80be27efc0"
-    ]
-  }
+    "tags": ["566aeb1b-1649-4f5a-96a2-0c80be27efc0"]
+  },
+  "es": {}
 }

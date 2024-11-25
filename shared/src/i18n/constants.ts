@@ -7,6 +7,7 @@ export enum LANGUAGES {
   da = 'Dansk',
   cs = 'Čeština',
   nl = 'Nederlands',
+  es = 'Español',
 }
 
 export type LANGUAGE_TAG = keyof typeof LANGUAGES;
