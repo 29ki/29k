@@ -126,9 +126,7 @@
         "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1717469190/SEE/Video/SEELearning_AwareApp_IntroVideo_2024_V3_1_giheh7.mp4"
       }
     },
-    "tags": [
-      "db34d82a-4c48-4ddd-9de5-f562d8aa1bc9"
-    ],
+    "tags": ["db34d82a-4c48-4ddd-9de5-f562d8aa1bc9"],
     "id": "9d86dfa5-c0ed-49bb-856d-8185a017785e",
     "async": true,
     "description": "Compassion depends on awareness of the other’s situation and an ability to empathize with them, combined with a sense of affection or endearment towards that person. Compassion goes deeper than just external actions and also refers to a state of mind and heart: one’s intention to bring help and happiness to another person."
@@ -219,9 +217,7 @@
         }
       ]
     },
-    "tags": [
-      "db34d82a-4c48-4ddd-9de5-f562d8aa1bc9"
-    ],
+    "tags": ["db34d82a-4c48-4ddd-9de5-f562d8aa1bc9"],
     "id": "9d86dfa5-c0ed-49bb-856d-8185a017785e",
     "async": false
   },
@@ -311,9 +307,7 @@
         }
       ]
     },
-    "tags": [
-      "db34d82a-4c48-4ddd-9de5-f562d8aa1bc9"
-    ],
+    "tags": ["db34d82a-4c48-4ddd-9de5-f562d8aa1bc9"],
     "id": "9d86dfa5-c0ed-49bb-856d-8185a017785e",
     "async": false
   },
@@ -403,28 +397,21 @@
         }
       ]
     },
-    "tags": [
-      "db34d82a-4c48-4ddd-9de5-f562d8aa1bc9"
-    ],
+    "tags": ["db34d82a-4c48-4ddd-9de5-f562d8aa1bc9"],
     "id": "9d86dfa5-c0ed-49bb-856d-8185a017785e",
     "async": false
   },
   "da": {
-    "tags": [
-      "db34d82a-4c48-4ddd-9de5-f562d8aa1bc9"
-    ],
+    "tags": ["db34d82a-4c48-4ddd-9de5-f562d8aa1bc9"],
     "liveDuration": 0
   },
   "cs": {
-    "tags": [
-      "db34d82a-4c48-4ddd-9de5-f562d8aa1bc9"
-    ],
+    "tags": ["db34d82a-4c48-4ddd-9de5-f562d8aa1bc9"],
     "liveDuration": 0
   },
   "nl": {
-    "tags": [
-      "db34d82a-4c48-4ddd-9de5-f562d8aa1bc9"
-    ],
+    "tags": ["db34d82a-4c48-4ddd-9de5-f562d8aa1bc9"],
     "liveDuration": 0
-  }
+  },
+  "es": {}
 }

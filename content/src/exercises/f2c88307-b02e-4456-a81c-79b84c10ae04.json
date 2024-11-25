@@ -383,5 +383,6 @@
     "card": {},
     "asyncDuration": 15,
     "liveDuration": 30
-  }
+  },
+  "es": {}
 }

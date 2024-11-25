@@ -176,9 +176,7 @@
         "source": ""
       }
     },
-    "tags": [
-      "8da0534a-5da9-430a-bdf3-242ace6460fb"
-    ],
+    "tags": ["8da0534a-5da9-430a-bdf3-242ace6460fb"],
     "id": "3843d06f-1c38-47b9-ad9b-5a780f364186",
     "async": true,
     "description": "Help Now! Strategies are easy actions that can be practiced to quickly return our bodies and minds to the present moment, and thus function as useful ways to bring our bodies and minds back to a place of balance."
@@ -274,9 +272,7 @@
         }
       }
     },
-    "tags": [
-      "8da0534a-5da9-430a-bdf3-242ace6460fb"
-    ],
+    "tags": ["8da0534a-5da9-430a-bdf3-242ace6460fb"],
     "id": "3843d06f-1c38-47b9-ad9b-5a780f364186",
     "async": false
   },
@@ -366,9 +362,7 @@
         }
       ]
     },
-    "tags": [
-      "8da0534a-5da9-430a-bdf3-242ace6460fb"
-    ],
+    "tags": ["8da0534a-5da9-430a-bdf3-242ace6460fb"],
     "id": "3843d06f-1c38-47b9-ad9b-5a780f364186",
     "async": false
   },
@@ -458,28 +452,21 @@
         }
       ]
     },
-    "tags": [
-      "8da0534a-5da9-430a-bdf3-242ace6460fb"
-    ],
+    "tags": ["8da0534a-5da9-430a-bdf3-242ace6460fb"],
     "id": "3843d06f-1c38-47b9-ad9b-5a780f364186",
     "async": false
   },
   "da": {
-    "tags": [
-      "8da0534a-5da9-430a-bdf3-242ace6460fb"
-    ],
+    "tags": ["8da0534a-5da9-430a-bdf3-242ace6460fb"],
     "liveDuration": 0
   },
   "cs": {
-    "tags": [
-      "8da0534a-5da9-430a-bdf3-242ace6460fb"
-    ],
+    "tags": ["8da0534a-5da9-430a-bdf3-242ace6460fb"],
     "liveDuration": 0
   },
   "nl": {
-    "tags": [
-      "8da0534a-5da9-430a-bdf3-242ace6460fb"
-    ],
+    "tags": ["8da0534a-5da9-430a-bdf3-242ace6460fb"],
     "liveDuration": 0
-  }
+  },
+  "es": {}
 }

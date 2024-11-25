@@ -171,9 +171,7 @@
         "source": ""
       }
     },
-    "tags": [
-      "cfc00217-f65b-4a4d-8b82-8ccc8f852dd6"
-    ],
+    "tags": ["cfc00217-f65b-4a4d-8b82-8ccc8f852dd6"],
     "id": "4ffe2765-995a-4afc-ae86-65d08088915b",
     "async": true,
     "description": "As we become skillful in focused attention, it can help to bring about greater calm and well-being in our bodies and minds, and help strengthen our ability to pay attention the same way we can build muscle."
@@ -269,9 +267,7 @@
         }
       }
     },
-    "tags": [
-      "cfc00217-f65b-4a4d-8b82-8ccc8f852dd6"
-    ],
+    "tags": ["cfc00217-f65b-4a4d-8b82-8ccc8f852dd6"],
     "id": "4ffe2765-995a-4afc-ae86-65d08088915b",
     "async": true
   },
@@ -361,9 +357,7 @@
         }
       ]
     },
-    "tags": [
-      "cfc00217-f65b-4a4d-8b82-8ccc8f852dd6"
-    ],
+    "tags": ["cfc00217-f65b-4a4d-8b82-8ccc8f852dd6"],
     "id": "4ffe2765-995a-4afc-ae86-65d08088915b",
     "async": false
   },
@@ -453,28 +447,21 @@
         }
       ]
     },
-    "tags": [
-      "cfc00217-f65b-4a4d-8b82-8ccc8f852dd6"
-    ],
+    "tags": ["cfc00217-f65b-4a4d-8b82-8ccc8f852dd6"],
     "id": "4ffe2765-995a-4afc-ae86-65d08088915b",
     "async": false
   },
   "da": {
-    "tags": [
-      "cfc00217-f65b-4a4d-8b82-8ccc8f852dd6"
-    ],
+    "tags": ["cfc00217-f65b-4a4d-8b82-8ccc8f852dd6"],
     "liveDuration": 0
   },
   "cs": {
-    "tags": [
-      "cfc00217-f65b-4a4d-8b82-8ccc8f852dd6"
-    ],
+    "tags": ["cfc00217-f65b-4a4d-8b82-8ccc8f852dd6"],
     "liveDuration": 0
   },
   "nl": {
-    "tags": [
-      "cfc00217-f65b-4a4d-8b82-8ccc8f852dd6"
-    ],
+    "tags": ["cfc00217-f65b-4a4d-8b82-8ccc8f852dd6"],
     "liveDuration": 0
-  }
+  },
+  "es": {}
 }

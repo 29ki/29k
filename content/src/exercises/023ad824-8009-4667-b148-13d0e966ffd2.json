@@ -189,9 +189,7 @@
         "source": ""
       }
     },
-    "tags": [
-      "cfc00217-f65b-4a4d-8b82-8ccc8f852dd6"
-    ],
+    "tags": ["cfc00217-f65b-4a4d-8b82-8ccc8f852dd6"],
     "id": "023ad824-8009-4667-b148-13d0e966ffd2",
     "async": true,
     "description": "The mind jar represents how our minds take in and process experiences, thoughts, and feelings all day long. By considering the metaphor of the mind jar we can learn that our mind can be relatively clear or cloudy, making it easier or harder to discern what is happening within us and around us; that the way we perceive things is affected by the state of our own mind."
@@ -287,9 +285,7 @@
         }
       }
     },
-    "tags": [
-      "cfc00217-f65b-4a4d-8b82-8ccc8f852dd6"
-    ],
+    "tags": ["cfc00217-f65b-4a4d-8b82-8ccc8f852dd6"],
     "id": "023ad824-8009-4667-b148-13d0e966ffd2",
     "async": false
   },
@@ -379,9 +375,7 @@
         }
       ]
     },
-    "tags": [
-      "cfc00217-f65b-4a4d-8b82-8ccc8f852dd6"
-    ],
+    "tags": ["cfc00217-f65b-4a4d-8b82-8ccc8f852dd6"],
     "id": "023ad824-8009-4667-b148-13d0e966ffd2",
     "async": false
   },
@@ -471,28 +465,21 @@
         }
       ]
     },
-    "tags": [
-      "cfc00217-f65b-4a4d-8b82-8ccc8f852dd6"
-    ],
+    "tags": ["cfc00217-f65b-4a4d-8b82-8ccc8f852dd6"],
     "id": "023ad824-8009-4667-b148-13d0e966ffd2",
     "async": false
   },
   "da": {
-    "tags": [
-      "cfc00217-f65b-4a4d-8b82-8ccc8f852dd6"
-    ],
+    "tags": ["cfc00217-f65b-4a4d-8b82-8ccc8f852dd6"],
     "liveDuration": 0
   },
   "cs": {
-    "tags": [
-      "cfc00217-f65b-4a4d-8b82-8ccc8f852dd6"
-    ],
+    "tags": ["cfc00217-f65b-4a4d-8b82-8ccc8f852dd6"],
     "liveDuration": 0
   },
   "nl": {
-    "tags": [
-      "cfc00217-f65b-4a4d-8b82-8ccc8f852dd6"
-    ],
+    "tags": ["cfc00217-f65b-4a4d-8b82-8ccc8f852dd6"],
     "liveDuration": 0
-  }
+  },
+  "es": {}
 }
