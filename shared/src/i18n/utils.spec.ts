@@ -62,6 +62,7 @@ describe('utils', () => {
           da: {exercises: {}, collections: {}, categories: {}, tags: {}},
           cs: {exercises: {}, collections: {}, categories: {}, tags: {}},
           nl: {exercises: {}, collections: {}, categories: {}, tags: {}},
+          es: {exercises: {}, collections: {}, categories: {}, tags: {}},
         }),
       ).toEqual({
         en: {
@@ -81,6 +82,7 @@ describe('utils', () => {
         da: {exercises: {}, collections: {}, categories: {}, tags: {}},
         cs: {exercises: {}, collections: {}, categories: {}, tags: {}},
         nl: {exercises: {}, collections: {}, categories: {}, tags: {}},
+        es: {exercises: {}, collections: {}, categories: {}, tags: {}},
       });
     });
   });
@@ -114,6 +116,7 @@ describe('utils', () => {
           da: {exercises: {}, collections: {}},
           cs: {exercises: {}, collections: {}},
           nl: {exercises: {}, collections: {}},
+          es: {exercises: {}, collections: {}},
         }),
       ).toEqual({
         en: {
@@ -129,6 +132,7 @@ describe('utils', () => {
         da: {exercises: {}, collections: {}},
         cs: {exercises: {}, collections: {}},
         nl: {exercises: {}, collections: {}},
+        es: {exercises: {}, collections: {}},
       });
     });
   });
