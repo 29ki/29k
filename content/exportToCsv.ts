@@ -37,6 +37,7 @@ const skipKeys = {
     'backgroundColor',
     'published',
     'tags',
+    'p5JsScript',
   ],
 };
 
