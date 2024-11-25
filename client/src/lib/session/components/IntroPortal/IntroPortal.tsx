@@ -1,5 +1,5 @@
 import React, {useCallback, useEffect, useState} from 'react';
-import {StyleSheet} from 'react-native';
+import {StyleSheet, View} from 'react-native';
 import {useTranslation} from 'react-i18next';
 import styled from 'styled-components/native';
 import ReactNativeHapticFeedback from 'react-native-haptic-feedback';
@@ -39,8 +39,9 @@ const TopBar = styled(Gutters)({
 });
 
 const TopButtons = styled.View({
+  flex: 1,
   flexDirection: 'row',
-  justifyContent: 'space-between',
+  justifyContent: 'flex-end',
   alignItems: 'center',
 });
 

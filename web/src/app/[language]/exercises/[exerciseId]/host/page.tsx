@@ -89,7 +89,10 @@ export default function ExerciseHostPage({
   params: {language: LANGUAGE_TAG; exerciseId: string};
 }) {
   const searchParams = useSearchParams();
+  const noBack = searchParams.has('noBack');
   const returnTo = searchParams.get('returnTo');
+  const canGoBack =
+    !noBack && typeof window !== 'undefined' && window.history.length > 2;
   const router = useRouter();
   const {t} = useTranslation('Web.HostExercise');
   const sessionControlsWindowRef = useRef<Window | null>(null);
@@ -302,7 +305,9 @@ export default function ExerciseHostPage({
             onStartSession={
               !sessionControlsOpen ? onOpenSessionControls : undefined
             }
-            onLeaveSession={!sessionControlsOpen ? onLeaveSession : undefined}
+            onLeaveSession={
+              !sessionControlsOpen && canGoBack ? onLeaveSession : undefined
+            }
             onNavigateToSession={onNavigateToSession}
             showMuteToggle={!sessionControlsOpen}
             startButtonText={t('openHostControls')}
