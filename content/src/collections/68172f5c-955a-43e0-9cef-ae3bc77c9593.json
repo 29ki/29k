@@ -66,5 +66,25 @@
   },
   "da": {},
   "cs": {},
-  "nl": {}
+  "nl": {},
+  "es": {
+    "description": "Somos criaturas de hábitos: tendemos a hacer lo que estamos acostumbrados a hacer. Esto es una cosa inteligente, ya que así ahorramos energía. Y, a veces, también puede hacernos sentir atrapados.\nEste programa puede ofrecer nuevas perspectivas y prácticas para cambiar o desafiar la forma en que usualmente vivimos.",
+    "name": "Adquiere nuevas perspectivas",
+    "hidden": false,
+    "published": true,
+    "sortOrder": 3,
+    "card": {
+      "image": {
+        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1702310278/Images/set_your_values_compas_lamtbm.png"
+      }
+    },
+    "link": "https://aware.29k.org/new-perspectives",
+    "id": "68172f5c-955a-43e0-9cef-ae3bc77c9593",
+    "exercises": [
+      "ea0b48c1-745e-418d-93e7-2d8a6cd72898",
+      "095f9642-73b6-4c9a-ae9a-ea7dea7363f5",
+      "5b0dea9f-c665-41ce-a779-601d0cfa433d",
+      "9ac0c561-ff26-45fc-b6d5-0a983432394e"
+    ]
+  }
 }
