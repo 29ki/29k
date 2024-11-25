@@ -29,5 +29,14 @@
   "ja": {},
   "da": {},
   "cs": {},
-  "nl": {}
+  "nl": {},
+  "es": {
+    "counter": {
+      "started": "Ha empezado"
+    },
+    "counterLabel": {
+      "starts": "Empieza",
+      "startsIn": "Empieza en"
+    }
+  }
 }

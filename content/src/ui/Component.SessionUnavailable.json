@@ -11,5 +11,8 @@
   "ja": {},
   "da": {},
   "cs": {},
-  "nl": {}
+  "nl": {},
+  "es": {
+    "description": "La sesión que estás buscando no está disponible en este momento."
+  }
 }

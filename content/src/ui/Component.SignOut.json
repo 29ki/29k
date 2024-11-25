@@ -26,5 +26,13 @@
   "ja": {},
   "da": {},
   "cs": {},
-  "nl": {}
+  "nl": {},
+  "es": {
+    "actions": {
+      "cancel": "No",
+      "confirm": "Sí, cerrar sesión."
+    },
+    "message": "¿Estás seguro/a de que quieres cerrar la sesión?",
+    "title": "Cerrar sesión."
+  }
 }

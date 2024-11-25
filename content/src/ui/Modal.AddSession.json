@@ -17,5 +17,9 @@
   "ja": {},
   "da": {},
   "cs": {},
-  "nl": {}
+  "nl": {},
+  "es": {
+    "create": "Crear sesión",
+    "join": "Entrar a la sesión"
+  }
 }

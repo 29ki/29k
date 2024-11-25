@@ -26,5 +26,13 @@
   "ja": {},
   "da": {},
   "cs": {},
-  "nl": {}
+  "nl": {},
+  "es": {
+    "message": "Parece que no tienes conexión a Internet en este momento.",
+    "requestMessage": "La solicitud de red ha fallado, por favor inténtalo de nuevo.",
+    "requestTitle": "No se pudo actualizar la sesión.",
+    "subscriptionMessage": "Parece que hay un problema para obtener actualizaciones de la sesión.",
+    "subscriptionTitle": "Problema para obtener actualizaciones de progreso.",
+    "title": "Conexión a internet perdida"
+  }
 }

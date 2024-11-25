@@ -64,5 +64,25 @@
   "ja": {},
   "da": {},
   "cs": {},
-  "nl": {}
+  "nl": {},
+  "es": {
+    "camera": {
+      "confirm": "Abrir configuración",
+      "dismiss": "Cancelar",
+      "message": "Permite que Aware acceda a tu cámara para que puedas participar en la sesión. Esto reiniciará la aplicación Aware.",
+      "title": "Se denegó el permiso para la cámara."
+    },
+    "join": {
+      "confirm": "Abrir configuración",
+      "dismiss": "Unirse de todos modos",
+      "message": "No has dado permisos a la aplicación para usar la cámara y/o el micrófono. No pasa nada, está bien, simplemente no podrás participar completamente en la sesión.",
+      "title": "Antes de unirte"
+    },
+    "microphone": {
+      "confirm": "Abrir configuración",
+      "dismiss": "Cancelar",
+      "message": "Permite que Aware acceda a tu micrófono para que puedas participar en la sesión. Esto reiniciará la aplicación Aware.",
+      "title": "Se denegó el permiso para el micrófono."
+    }
+  }
 }

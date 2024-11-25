@@ -20,5 +20,11 @@
   "ja": {},
   "da": {},
   "cs": {},
-  "nl": {}
+  "nl": {},
+  "es": {
+    "addToJourney": "Mi viaje",
+    "coCreatorsHeading": "Cocreado con",
+    "collectionHeading": "Programa",
+    "sessionsHeading": "Sesiones"
+  }
 }

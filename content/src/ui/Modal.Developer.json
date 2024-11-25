@@ -32,5 +32,15 @@
   "ja": {},
   "da": {},
   "cs": {},
-  "nl": {}
+  "nl": {},
+  "es": {
+    "addDevUserEvents": "Agregar eventos de usuario para desarrollo",
+    "checkUpdate": "Buscar actualizaciones",
+    "clearUpdate": "Borrar actualización",
+    "logUserEvents": "Registrar eventos de usuario",
+    "showHiddenContent": "Mostrar contenido oculto",
+    "showLockedContent": "Mostrar contenido bloqueado",
+    "title": "Desarrollador/a",
+    "uiLib": "Biblioteca de UI"
+  }
 }

@@ -110,5 +110,41 @@
   "ja": {},
   "da": {},
   "cs": {},
-  "nl": {}
+  "nl": {},
+  "es": {
+    "coCreatorsHeading": "Cocreado con",
+    "feedbackHeading": "Reseñas",
+    "joinByInviteCta": "Unirse con un código de invitación",
+    "moreLikeThis": "Más como esto",
+    "noUpcomingSessions": "🌱 No hay sesiones planificadas.",
+    "or": "o",
+    "orJoinUpcoming": "O únete a una sesión futura",
+    "profile": {
+      "text": "Para crear y organizar una sesión necesitas un nombre de usuario y una foto de perfil."
+    },
+    "selectContent": {
+      "title": "Elige un ejercicio"
+    },
+    "selectType": {
+      "async-public": {
+        "title": "Tú"
+      },
+      "live-private": {
+        "title": "Amigos/as"
+      },
+      "live-public": {
+        "title": "Cualquier persona"
+      }
+    },
+    "setDateTime": {
+      "cta": "Crear sesión",
+      "sessionType": {
+        "private": "Sesión con amigos/as",
+        "public": "Sesión abierta a todo el mundo"
+      },
+      "title": "Elige una hora"
+    },
+    "startCta": "Empieza",
+    "typeHeading": "Hacer esta sesión con..."
+  }
 }

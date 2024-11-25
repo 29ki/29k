@@ -14,5 +14,9 @@
   "ja": {},
   "da": {},
   "cs": {},
-  "nl": {}
+  "nl": {},
+  "es": {
+    "body": "La sesión está a punto de empezar",
+    "title": "{{exercise}} con {{host}}"
+  }
 }

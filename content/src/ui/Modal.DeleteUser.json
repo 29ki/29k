@@ -38,5 +38,17 @@
   "ja": {},
   "da": {},
   "cs": {},
-  "nl": {}
+  "nl": {},
+  "es": {
+    "confirm": "Confirmar",
+    "email": "Correo electrónico / Email",
+    "errors": {
+      "auth/invalid-email": "Correo electrónico y/o contraseña incorrectos",
+      "auth/user-disabled": "Correo electrónico y/o contraseña incorrectos",
+      "auth/user-not-found": "Correo electrónico y/o contraseña incorrectos",
+      "auth/wrong-password": "Correo electrónico y/o contraseña incorrectos"
+    },
+    "password": "Contraseña",
+    "title": "Verifica tu identidad para eliminar tus datos"
+  }
 }

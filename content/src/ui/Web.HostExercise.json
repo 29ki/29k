@@ -11,5 +11,8 @@
   "ja": {},
   "da": {},
   "cs": {},
-  "nl": {}
+  "nl": {},
+  "es": {
+    "openHostControls": "Abrir vista de anfitrión/a"
+  }
 }

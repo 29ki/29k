@@ -26,5 +26,13 @@
   "ja": {},
   "da": {},
   "cs": {},
-  "nl": {}
+  "nl": {},
+  "es": {
+    "coCreatorsHeading": "Cocreado con",
+    "mode": {
+      "async": "Por mi cuenta",
+      "live": "Como anfitrión/a"
+    },
+    "startHeading": "Hacer sesión..."
+  }
 }

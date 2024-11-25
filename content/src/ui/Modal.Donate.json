@@ -56,5 +56,23 @@
   "ja": {},
   "da": {},
   "cs": {},
-  "nl": {}
+  "nl": {},
+  "es": {
+    "customAmount": "Cantidad personalizada",
+    "donate": "Hacer donación",
+    "emailAddress": "Tu dirección de correo / Email",
+    "errors": {
+      "generic": "Algo salió mal. Por favor, inténtalo de nuevo más tarde.",
+      "invalidEmail": "Dirección de correo electrónico incorrecta"
+    },
+    "merchantDisplayName": "Fundación Stiftelsen 29k",
+    "monthlyAmount": "{{amount}} / mes",
+    "receiptSentTo": "Recibo enviado a {{email}}",
+    "sendReceipt": "Enviar recibo",
+    "thankYou": "¡Muchas gracias por tu donación!",
+    "types": {
+      "one-time": "Una vez",
+      "recurring": "Mensual"
+    }
+  }
 }

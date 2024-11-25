@@ -27,5 +27,13 @@
   "ja": {},
   "da": {},
   "cs": {},
-  "nl": {}
+  "nl": {},
+  "es": {
+    "coCreatorsHeading": "Cocreado con",
+    "feedbackHeading": "Reseñas",
+    "howItWorks": "Cómo funciona",
+    "join": "Unirse",
+    "journeyButton": "Mi viaje",
+    "moreLikeThis": "Más como esto"
+  }
 }

@@ -29,5 +29,14 @@
   "ja": {},
   "da": {},
   "cs": {},
-  "nl": {}
+  "nl": {},
+  "es": {
+    "confirmButton": "Enviar informe",
+    "confirmationText": "Gracias por ponerte en contacto 🌱",
+    "emailHeading": "Contestar a:",
+    "emailPlaceholder": "Escribe el correo electrónico al que deseas que te respondamos.",
+    "reportHeading": "¿Qué deseas informar?",
+    "reportPlaceholder": "Comparte tus pensamientos para que podamos mejorar",
+    "title": "Informar"
+  }
 }

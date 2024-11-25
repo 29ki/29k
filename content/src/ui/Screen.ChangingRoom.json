@@ -53,5 +53,22 @@
   "ja": {},
   "da": {},
   "cs": {},
-  "nl": {}
+  "nl": {},
+  "es": {
+    "cameraOff": "La cámara está apagada",
+    "errorTitle": "No se pudo unir a la sesión.",
+    "errors": {
+      "validateSession/not-found": "No se pudo encontrar la sesión.",
+      "validateSession/user-not-found": "Usuario no encontrado para la sesión."
+    },
+    "join_button": "Unirse",
+    "onboarding": {
+      "about": "Esta sesión es una videollamada en directo. Puedes escuchar o compartir tu experiencia con el grupo.",
+      "button": "Entendido",
+      "headset": "Usa unos auriculares y encuentra un lugar cómodo y tranquilo.",
+      "permissions": "Asegúrate de permitir el acceso a tu cámara y micrófono.",
+      "title": "Prerápate para esta sesión"
+    },
+    "placeholder": "Por favor, escribe tu nombre"
+  }
 }

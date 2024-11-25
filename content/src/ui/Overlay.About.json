@@ -28,5 +28,13 @@
   "ja": {},
   "da": {},
   "cs": {},
-  "nl": {}
+  "nl": {},
+  "es": {
+    "about": "Sobre Aware",
+    "actions": {
+      "developer": "Desarrollador/a"
+    },
+    "community": "Comunidad",
+    "settings": "Configuración"
+  }
 }

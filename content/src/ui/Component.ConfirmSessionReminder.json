@@ -29,5 +29,14 @@
   "ja": {},
   "da": {},
   "cs": {},
-  "nl": {}
+  "nl": {},
+  "es": {
+    "actions": {
+      "cancel": "A lo mejor más tarde",
+      "confirm": "Sí",
+      "dismiss": "No"
+    },
+    "message": "¿Quieres que te recordemos cuándo van a empezar tus próximas sesiones?",
+    "title": "Notificaciones de recordatorio"
+  }
 }

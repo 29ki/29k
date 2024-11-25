@@ -23,5 +23,12 @@
   "ja": {},
   "da": {},
   "cs": {},
-  "nl": {}
+  "nl": {},
+  "es": {
+    "nextWeek": "La próxima semana",
+    "thisWeek": "Esta semana",
+    "today": "Hoy",
+    "tomorrow": "Mañana",
+    "upcoming": "Proximamente"
+  }
 }

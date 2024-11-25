@@ -20,5 +20,11 @@
   "ja": {},
   "da": {},
   "cs": {},
-  "nl": {}
+  "nl": {},
+  "es": {
+    "noUpcomingSessions": "🌱 No hay sesiones planificadas.",
+    "privateSessions": "Con amigos/as",
+    "publicSessions": "Con cualquier persona",
+    "sessions": "Próximas sesiones"
+  }
 }

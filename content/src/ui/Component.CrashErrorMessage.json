@@ -11,5 +11,8 @@
   "ja": {},
   "da": {},
   "cs": {},
-  "nl": {}
+  "nl": {},
+  "es": {
+    "text__markdown": "# ¡Algo salió mal!\n\n¡Oh no! Cometimos un error. Estamos trabajando para solucionarlo lo antes posible.\n\nSi el problema persiste, por favor contáctanos a [help@29k.org](mailto:help@29k.org)."
+  }
 }

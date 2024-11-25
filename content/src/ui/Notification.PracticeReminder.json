@@ -291,5 +291,101 @@
   "ja": {},
   "da": {},
   "cs": {},
-  "nl": {}
+  "nl": {},
+  "es": {
+    "reminders": {
+      "collection": [
+        {
+          "generic": {
+            "body": "¿Preparado/a para practicar?",
+            "title": "{{collectionName}}"
+          },
+          "id": "reminder-1-v1",
+          "personal": {
+            "body": "¿Preparado/a para practicar, {{userName}}?",
+            "title": "{{collectionName}}"
+          }
+        },
+        {
+          "generic": {
+            "body": "Do te olvides de practicar.",
+            "title": "{{collectionName}}"
+          },
+          "id": "reminder-2-v1",
+          "personal": {
+            "body": "Do te olvides de practicar, {{userName}}.",
+            "title": "{{collectionName}}"
+          }
+        },
+        {
+          "generic": {
+            "body": "La práctica a lo largo del tiempo es importante.",
+            "title": "{{collectionName}}"
+          },
+          "id": "reminder-3-v1",
+          "personal": {
+            "body": "La práctica a lo largo del tiempo es importante, {{userName}}.",
+            "title": "{{collectionName}}"
+          }
+        },
+        {
+          "generic": {
+            "body": "Un último recordatorio para practicar.",
+            "title": "{{collectionName}}"
+          },
+          "id": "reminder-4-v1",
+          "personal": {
+            "body": "Un último recordatorio para practicar, {{userName}}.",
+            "title": "{{collectionName}}"
+          }
+        }
+      ],
+      "general": [
+        {
+          "generic": {
+            "body": "¿Preparado/a para practicar?",
+            "title": "Recordatorio"
+          },
+          "id": "reminder-1-v1",
+          "personal": {
+            "body": "¿Preparado/a para practicar, {{userName}}?",
+            "title": "Recordatorio"
+          }
+        },
+        {
+          "generic": {
+            "body": "No te olvides de practicar.",
+            "title": "Recordatorio"
+          },
+          "id": "reminder-2-v1",
+          "personal": {
+            "body": "Do te olvides de practicar, {{userName}}.",
+            "title": "Recordatorio"
+          }
+        },
+        {
+          "generic": {
+            "body": "La práctica a lo largo del tiempo es importante, {{userName}}.",
+            "title": "Recordatorio"
+          },
+          "id": "reminder-3-v1",
+          "personal": {
+            "body": "La práctica a lo largo del tiempo es importante, {{userName}}.",
+            "title": "Recordatorio"
+          }
+        },
+        {
+          "generic": {
+            "body": "Un último recordatorio para practicar.",
+            "title": "Recordatorio"
+          },
+          "id": "reminder-4-v1",
+          "personal": {
+            "body": "Un último recordatorio para practicar, {{userName}}.",
+            "title": "Recordatorio"
+          }
+        }
+      ]
+    }
+  }
 }

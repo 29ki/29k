@@ -38,5 +38,16 @@
   "ja": {},
   "da": {},
   "cs": {},
-  "nl": {}
+  "nl": {},
+  "es": {
+    "downloading": {
+      "text": "Por favor, espera un momento. Estamos casi terminando.",
+      "title": "Bajando actualización"
+    },
+    "install": {
+      "dismiss_button": "Ahora no",
+      "restart_button": "Reiniciar para instalar",
+      "title": "Instalar actualización"
+    }
+  }
 }

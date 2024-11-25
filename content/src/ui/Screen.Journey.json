@@ -35,5 +35,16 @@
   "ja": {},
   "da": {},
   "cs": {},
-  "nl": {}
+  "nl": {},
+  "es": {
+    "fallback": "🌱 Tu viaje acaba de empezar",
+    "headings": {
+      "collections": "Programas",
+      "completed": "Completado",
+      "planned": "Tus sesiones planificadas"
+    },
+    "hostedSessions": "Sesiones \norganizadas por mí",
+    "meaninfulSessions": "Sesiones \nsignificativas",
+    "totalSessions": "Todas\nlas sesiones"
+  }
 }

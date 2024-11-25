@@ -17,5 +17,10 @@
   "ja": {},
   "da": {},
   "cs": {},
-  "nl": {}
+  "nl": {},
+  "es": {
+    "cancel": "Rechazar",
+    "confirm": "Aceptar",
+    "description": "{{hostName}} quiere que tú organices esta sesión en lugar de ellos."
+  }
 }

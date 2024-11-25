@@ -45,5 +45,19 @@
   "ja": {},
   "da": {},
   "cs": {},
-  "nl": {}
+  "nl": {},
+  "es": {
+    "email": "Correo electrónico / Email",
+    "errors": {
+      "auth/invalid-email": "Correo electrónico y/o contraseña incorrectos",
+      "auth/network-request-failed": "Error en la solicitud de red",
+      "auth/user-disabled": "Correo electrónico y/o contraseña incorrectos",
+      "auth/user-not-found": "Correo electrónico y/o contraseña incorrectos",
+      "auth/wrong-password": "Correo electrónico y/o contraseña incorrectos"
+    },
+    "password": "Contraseña",
+    "reset": "¿Olvidaste tu contraseña?",
+    "signIn": "Iniciar sesión",
+    "title": "Iniciar sesión"
+  }
 }

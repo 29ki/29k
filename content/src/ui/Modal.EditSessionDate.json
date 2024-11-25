@@ -38,5 +38,17 @@
   "ja": {},
   "da": {},
   "cs": {},
-  "nl": {}
+  "nl": {},
+  "es": {
+    "delete": {
+      "buttons": {
+        "cancel": "Cancelar",
+        "confirm": "Eliminar"
+      },
+      "header": "¿Eliminar sesión?",
+      "text": "¿Estás seguro/a que quieres eliminar la sesión?"
+    },
+    "deleteButton": "Eliminar sesión",
+    "done": "Guardar"
+  }
 }

@@ -50,5 +50,21 @@
   "ja": {},
   "da": {},
   "cs": {},
-  "nl": {}
+  "nl": {},
+  "es": {
+    "controls": {
+      "end": "Terminar",
+      "next": "Próxima",
+      "prev": "Regresar",
+      "start": "Empezar"
+    },
+    "endButton": "Terminar sesión",
+    "nameSuffix": "Tú",
+    "notifications": {
+      "joined": "{{name}} se ha unido",
+      "left": "{{name}} ha salido",
+      "muted": "Estás en silencio",
+      "networkQuality": "Conexión de red inestable"
+    }
+  }
 }

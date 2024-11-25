@@ -21,5 +21,10 @@
   },
   "da": {},
   "cs": {},
-  "nl": {}
+  "nl": {},
+  "es": {
+    "explore": "Explorar",
+    "home": "Hoy",
+    "journey": "Mi viaje"
+  }
 }

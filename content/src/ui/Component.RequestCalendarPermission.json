@@ -26,5 +26,13 @@
   "ja": {},
   "da": {},
   "cs": {},
-  "nl": {}
+  "nl": {},
+  "es": {
+    "actions": {
+      "cancel": "Cancelar",
+      "confirm": "Abrir configuración"
+    },
+    "message": "Abre la configuración para darnos permiso para agregar eventos a tu calendario. Esto reiniciará la app Aware.",
+    "title": "No tienes permiso."
+  }
 }

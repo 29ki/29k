@@ -35,5 +35,14 @@
   "ja": {},
   "da": {},
   "cs": {},
-  "nl": {}
+  "nl": {},
+  "es": {
+    "actions": {
+      "calmDown": "Relájate",
+      "faq": "Preguntas frecuentes",
+      "helplines": "Teléfonos de emergencia",
+      "report": "Informar"
+    },
+    "title": "Kit de seguridad"
+  }
 }

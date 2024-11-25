@@ -29,5 +29,14 @@
   "ja": {},
   "da": {},
   "cs": {},
-  "nl": {}
+  "nl": {},
+  "es": {
+    "comments": "¿Tienes algún comentario?",
+    "commentsPlaceholder": "Opcional...",
+    "note": "Tus comentarios se compartirán de forma anónima.",
+    "question": "¿Te resultó útil esto?",
+    "submit": "Enviar",
+    "thankYou__text": "¡Muchas \ngracias \npor tus \ncomentarios!",
+    "title": "Una última cosa..."
+  }
 }

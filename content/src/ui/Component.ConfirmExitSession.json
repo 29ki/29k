@@ -26,5 +26,13 @@
   "ja": {},
   "da": {},
   "cs": {},
-  "nl": {}
+  "nl": {},
+  "es": {
+    "buttons": {
+      "cancel": "No, me quedo en la sesión",
+      "confirm": "Sí, salgo de la sesión"
+    },
+    "header": "Salir de la sesión",
+    "text": "¿Estás seguro/a que quieres salir de la sesión?"
+  }
 }
