@@ -83,7 +83,10 @@ export default function ExercisePage({
   params: {language: LANGUAGE_TAG; exerciseId: string};
 }) {
   const searchParams = useSearchParams();
+  const noBack = searchParams.has('noBack');
   const returnTo = searchParams.get('returnTo');
+  const canGoBack =
+    !noBack && typeof window !== 'undefined' && window.history.length > 2;
   const router = useRouter();
   const setAsyncSession = useSessionState(state => state.setAsyncSession);
   const resetSession = useSessionState(state => state.reset);
@@ -110,11 +113,15 @@ export default function ExercisePage({
     useUpdateAsyncSessionState(session);
   const sessionSlideState = useAsyncSessionSlideState();
 
-  useEffect(() => {
+  const reset = useCallback(() => {
     resetSession();
     setAsyncSession(session);
     setExercise(exercise);
   }, [exercise, session, setAsyncSession, setExercise, resetSession]);
+
+  useEffect(() => {
+    reset();
+  }, [reset]);
 
   const onLeaveSession = useCallback(() => {
     if (returnTo) {
@@ -135,9 +142,9 @@ export default function ExercisePage({
         content: sessionSlideState.slides,
       });
     } else {
-      onLeaveSession();
+      reset();
     }
-  }, [sessionSlideState, navigateToIndex, onLeaveSession]);
+  }, [sessionSlideState, navigateToIndex, reset]);
 
   const onNextPress = useCallback(() => {
     if (sessionSlideState && sessionSlideState.next) {
@@ -217,7 +224,7 @@ export default function ExercisePage({
             isHost={true}
             hideHostNotes={true}
             onStartSession={startSession}
-            onLeaveSession={onLeaveSession}
+            onLeaveSession={canGoBack ? onLeaveSession : undefined}
             onNavigateToSession={onNavigateToSession}
             showMuteToggle
           />

@@ -39,8 +39,9 @@ const TopBar = styled(Gutters)({
 });
 
 const TopButtons = styled.View({
+  flex: 1,
   flexDirection: 'row',
-  justifyContent: 'space-between',
+  justifyContent: 'flex-end',
   alignItems: 'center',
 });
 
