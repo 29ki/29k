@@ -21,5 +21,10 @@
   },
   "da": {},
   "cs": {},
-  "nl": {}
+  "nl": {},
+  "es": {
+    "name": "Atención plena",
+    "id": "cfc00217-f65b-4a4d-8b82-8ccc8f852dd6",
+    "published": true
+  }
 }
