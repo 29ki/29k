@@ -16,7 +16,10 @@
       {
         "type": "instruction",
         "content": {
-          "text": "Values are our innermost desires. The things are really important for us - no matter what. In this exercise you will practice making your personal values explicit, so that you can let them guide you in your everyday life."
+          "text": "Values are our innermost desires. The things are really important for us - no matter what. In this exercise you will practice making your personal values explicit, so that you can let them guide you in your everyday life.",
+          "image": {
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1732713746/Images/visual_noBG_my_values_nf5tks.png"
+          }
         }
       },
       {
@@ -29,7 +32,8 @@
         "content": {
           "lottie": {
             "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1728993027/SRT%20(captions)%20files/PsyPal_My_values_ksdsjk.srt",
-            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1728993100/Audio/PsyPal_My_values_vnrjyr.mp3"
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1728993100/Audio/PsyPal_My_values_vnrjyr.mp3",
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1676977421/Lottie/audio_meditation_default_black_default_omemwt.json"
           }
         }
       },
@@ -44,7 +48,13 @@
           }
         ],
         "content": {
-          "heading": "What was your experience reflecting upon your values like this?"
+          "heading": "What was your experience reflecting upon your values like this?",
+          "lottie": {
+            "durationTimer": true,
+            "duration": 60,
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1676642915/Lottie/default_1min_black_rosi2l.json",
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1732713715/Audio/reflection_audio_my_values.png_c3kk6t.mp3"
+          }
         }
       },
       {
@@ -62,7 +72,12 @@
         ],
         "id": "Sharing 1",
         "content": {
-          "heading": "What was your experience reflecting upon your values like this?"
+          "heading": "What was your experience reflecting upon your values like this?",
+          "lottie": {
+            "durationTimer": true,
+            "duration": 120,
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1676639253/Lottie/default_2min_black_o6egey.json"
+          }
         }
       },
       {
@@ -82,12 +97,16 @@
       {
         "type": "instruction",
         "content": {
-          "text": "Well done. \n\nNow, you’ve calibrated your personal compass. \n\nIs there something you want to change in life after doing this? Do any of your chosen words or phrases need more attention from you? Plan one behavior you can do right now in line with your value."
+          "text": "Well done. \n\nNow, you’ve calibrated your personal compass. \n\nIs there something you want to change in life after doing this? Do any of your chosen words or phrases need more attention from you? Plan one behavior you can do right now in line with your value.",
+          "image": {
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1732713746/Images/visual_noBG_my_values_nf5tks.png"
+          }
         }
       }
     ],
     "theme": {
-      "textColor": "#2AE2D7"
+      "textColor": "#2E2E2E",
+      "backgroundColor": "#c7bea2"
     },
     "hidden": true,
     "locked": false,
@@ -95,8 +114,13 @@
     "live": false,
     "published": true,
     "asyncDuration": 15,
+    "card": {
+      "image": {
+        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1731909576/Images/card_Life_exploration_ey6d45.png"
+      }
+    },
     "introPortal": {
-      "textColor": "#2AE2D7",
+      "textColor": "#2E2E2E",
       "hostNotes": [
         {
           "text": "> Start the session when you're ready to go"
@@ -105,7 +129,12 @@
       "videoLoop": {
         "p5JsScript": {
           "lang": "javascript"
-        }
+        },
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1732713683/Video/portal_my_values_urbnjl.mp4",
+        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1732713715/Audio/portal_audio_my_values.png_yfzm2u.mp3"
+      },
+      "videoEnd": {
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1732713682/Video/portal_2_my_values_wzq6mm.mp4"
       }
     },
     "id": "3adeb40b-b9f8-4b13-b1a8-02f6106df9e5",
@@ -189,6 +218,7 @@
     "live": true,
     "published": false,
     "asyncDuration": 15,
+    "card": {},
     "introPortal": {
       "textColor": "#2AE2D7",
       "hostNotes": [
@@ -277,6 +307,7 @@
     "live": true,
     "published": false,
     "asyncDuration": 15,
+    "card": {},
     "introPortal": {
       "textColor": "#2AE2D7",
       "hostNotes": [
@@ -365,6 +396,7 @@
     "live": true,
     "published": false,
     "asyncDuration": 15,
+    "card": {},
     "introPortal": {
       "textColor": "#2AE2D7",
       "hostNotes": [
@@ -377,13 +409,15 @@
     "async": false
   },
   "da": {
-    "asyncDuration": 15
+    "asyncDuration": 15,
+    "card": {}
   },
   "cs": {
-    "asyncDuration": 15
+    "asyncDuration": 15,
+    "card": {}
   },
   "nl": {
-    "asyncDuration": 15
-  },
-  "es": {}
+    "asyncDuration": 15,
+    "card": {}
+  }
 }
