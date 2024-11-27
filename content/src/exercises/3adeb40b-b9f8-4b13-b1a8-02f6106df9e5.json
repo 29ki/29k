@@ -420,5 +420,8 @@
     "asyncDuration": 15,
     "card": {}
   },
-  "es": {}
+  "es": {
+    "asyncDuration": 15,
+    "card": {}
+  }
 }
