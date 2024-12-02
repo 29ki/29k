@@ -1,0 +1,181 @@
+{
+  "en": {
+    "hidden": true,
+    "locked": false,
+    "name": "PsyPal Aware",
+    "published": true,
+    "sortOrder": 1,
+    "coCreators": [],
+    "tags": [
+      "566aeb1b-1649-4f5a-96a2-0c80be27efc0",
+      "34100e43-2eb8-4d35-8eb0-9fa9f78e4935"
+    ],
+    "id": "5b0305d0-df2c-4ee5-b5ee-366f6709b33d",
+    "exercises": [
+      "b6de2e28-325e-4ce1-8894-09ac12a6c19f",
+      "f2c88307-b02e-4456-a81c-79b84c10ae04",
+      "3adeb40b-b9f8-4b13-b1a8-02f6106df9e5",
+      "b9001702-8502-46de-bc7b-3ebf2b812c0e",
+      "ba239e50-27f5-4a01-8daf-14b76edb7097",
+      "ed06daef-cecd-47d8-8ff2-3cf8dba65b6c",
+      "b491901c-37f8-48a7-829e-feb29a67a459",
+      "19573b9a-e2f2-4bba-9687-35d261cbbf49",
+      "dc38ce25-e0f3-465f-8df0-70b5f5089ce9"
+    ],
+    "description": "Self-help support for participants in the PsyPal trial."
+  },
+  "pt": {
+    "published": false,
+    "hidden": false,
+    "locked": false,
+    "id": "5b0305d0-df2c-4ee5-b5ee-366f6709b33d",
+    "tags": [
+      "566aeb1b-1649-4f5a-96a2-0c80be27efc0",
+      "34100e43-2eb8-4d35-8eb0-9fa9f78e4935"
+    ],
+    "sortOrder": 1,
+    "exercises": [
+      "b6de2e28-325e-4ce1-8894-09ac12a6c19f",
+      "f2c88307-b02e-4456-a81c-79b84c10ae04",
+      "3adeb40b-b9f8-4b13-b1a8-02f6106df9e5",
+      "b9001702-8502-46de-bc7b-3ebf2b812c0e",
+      "ba239e50-27f5-4a01-8daf-14b76edb7097",
+      "ed06daef-cecd-47d8-8ff2-3cf8dba65b6c",
+      "b491901c-37f8-48a7-829e-feb29a67a459",
+      "19573b9a-e2f2-4bba-9687-35d261cbbf49",
+      "dc38ce25-e0f3-465f-8df0-70b5f5089ce9"
+    ]
+  },
+  "sv": {
+    "published": false,
+    "hidden": false,
+    "locked": false,
+    "id": "5b0305d0-df2c-4ee5-b5ee-366f6709b33d",
+    "tags": [
+      "566aeb1b-1649-4f5a-96a2-0c80be27efc0",
+      "34100e43-2eb8-4d35-8eb0-9fa9f78e4935"
+    ],
+    "sortOrder": 1,
+    "exercises": [
+      "b6de2e28-325e-4ce1-8894-09ac12a6c19f",
+      "f2c88307-b02e-4456-a81c-79b84c10ae04",
+      "3adeb40b-b9f8-4b13-b1a8-02f6106df9e5",
+      "b9001702-8502-46de-bc7b-3ebf2b812c0e",
+      "ba239e50-27f5-4a01-8daf-14b76edb7097",
+      "ed06daef-cecd-47d8-8ff2-3cf8dba65b6c",
+      "b491901c-37f8-48a7-829e-feb29a67a459",
+      "19573b9a-e2f2-4bba-9687-35d261cbbf49",
+      "dc38ce25-e0f3-465f-8df0-70b5f5089ce9"
+    ]
+  },
+  "ja": {
+    "published": false,
+    "hidden": false,
+    "locked": false,
+    "id": "5b0305d0-df2c-4ee5-b5ee-366f6709b33d",
+    "tags": [
+      "566aeb1b-1649-4f5a-96a2-0c80be27efc0",
+      "34100e43-2eb8-4d35-8eb0-9fa9f78e4935"
+    ],
+    "sortOrder": 1,
+    "exercises": [
+      "b6de2e28-325e-4ce1-8894-09ac12a6c19f",
+      "f2c88307-b02e-4456-a81c-79b84c10ae04",
+      "3adeb40b-b9f8-4b13-b1a8-02f6106df9e5",
+      "b9001702-8502-46de-bc7b-3ebf2b812c0e",
+      "ba239e50-27f5-4a01-8daf-14b76edb7097",
+      "ed06daef-cecd-47d8-8ff2-3cf8dba65b6c",
+      "b491901c-37f8-48a7-829e-feb29a67a459",
+      "19573b9a-e2f2-4bba-9687-35d261cbbf49",
+      "dc38ce25-e0f3-465f-8df0-70b5f5089ce9"
+    ]
+  },
+  "da": {
+    "published": false,
+    "hidden": false,
+    "locked": false,
+    "id": "5b0305d0-df2c-4ee5-b5ee-366f6709b33d",
+    "tags": [
+      "566aeb1b-1649-4f5a-96a2-0c80be27efc0",
+      "34100e43-2eb8-4d35-8eb0-9fa9f78e4935"
+    ],
+    "sortOrder": 1,
+    "exercises": [
+      "b6de2e28-325e-4ce1-8894-09ac12a6c19f",
+      "f2c88307-b02e-4456-a81c-79b84c10ae04",
+      "3adeb40b-b9f8-4b13-b1a8-02f6106df9e5",
+      "b9001702-8502-46de-bc7b-3ebf2b812c0e",
+      "ba239e50-27f5-4a01-8daf-14b76edb7097",
+      "ed06daef-cecd-47d8-8ff2-3cf8dba65b6c",
+      "b491901c-37f8-48a7-829e-feb29a67a459",
+      "19573b9a-e2f2-4bba-9687-35d261cbbf49",
+      "dc38ce25-e0f3-465f-8df0-70b5f5089ce9"
+    ]
+  },
+  "cs": {
+    "published": false,
+    "hidden": false,
+    "locked": false,
+    "id": "5b0305d0-df2c-4ee5-b5ee-366f6709b33d",
+    "tags": [
+      "566aeb1b-1649-4f5a-96a2-0c80be27efc0",
+      "34100e43-2eb8-4d35-8eb0-9fa9f78e4935"
+    ],
+    "sortOrder": 1,
+    "exercises": [
+      "b6de2e28-325e-4ce1-8894-09ac12a6c19f",
+      "f2c88307-b02e-4456-a81c-79b84c10ae04",
+      "3adeb40b-b9f8-4b13-b1a8-02f6106df9e5",
+      "b9001702-8502-46de-bc7b-3ebf2b812c0e",
+      "ba239e50-27f5-4a01-8daf-14b76edb7097",
+      "ed06daef-cecd-47d8-8ff2-3cf8dba65b6c",
+      "b491901c-37f8-48a7-829e-feb29a67a459",
+      "19573b9a-e2f2-4bba-9687-35d261cbbf49",
+      "dc38ce25-e0f3-465f-8df0-70b5f5089ce9"
+    ]
+  },
+  "nl": {
+    "published": false,
+    "hidden": false,
+    "locked": false,
+    "id": "5b0305d0-df2c-4ee5-b5ee-366f6709b33d",
+    "tags": [
+      "566aeb1b-1649-4f5a-96a2-0c80be27efc0",
+      "34100e43-2eb8-4d35-8eb0-9fa9f78e4935"
+    ],
+    "sortOrder": 1,
+    "exercises": [
+      "b6de2e28-325e-4ce1-8894-09ac12a6c19f",
+      "f2c88307-b02e-4456-a81c-79b84c10ae04",
+      "3adeb40b-b9f8-4b13-b1a8-02f6106df9e5",
+      "b9001702-8502-46de-bc7b-3ebf2b812c0e",
+      "ba239e50-27f5-4a01-8daf-14b76edb7097",
+      "ed06daef-cecd-47d8-8ff2-3cf8dba65b6c",
+      "b491901c-37f8-48a7-829e-feb29a67a459",
+      "19573b9a-e2f2-4bba-9687-35d261cbbf49",
+      "dc38ce25-e0f3-465f-8df0-70b5f5089ce9"
+    ]
+  },
+  "es": {
+    "published": false,
+    "hidden": false,
+    "locked": false,
+    "id": "5b0305d0-df2c-4ee5-b5ee-366f6709b33d",
+    "tags": [
+      "566aeb1b-1649-4f5a-96a2-0c80be27efc0",
+      "34100e43-2eb8-4d35-8eb0-9fa9f78e4935"
+    ],
+    "sortOrder": 1,
+    "exercises": [
+      "b6de2e28-325e-4ce1-8894-09ac12a6c19f",
+      "f2c88307-b02e-4456-a81c-79b84c10ae04",
+      "3adeb40b-b9f8-4b13-b1a8-02f6106df9e5",
+      "b9001702-8502-46de-bc7b-3ebf2b812c0e",
+      "ba239e50-27f5-4a01-8daf-14b76edb7097",
+      "ed06daef-cecd-47d8-8ff2-3cf8dba65b6c",
+      "b491901c-37f8-48a7-829e-feb29a67a459",
+      "19573b9a-e2f2-4bba-9687-35d261cbbf49",
+      "dc38ce25-e0f3-465f-8df0-70b5f5089ce9"
+    ]
+  }
+}
