@@ -93,11 +93,11 @@
     "theme": {
       "textColor": "#2AE2D7"
     },
-    "hidden": false,
+    "hidden": true,
     "locked": false,
     "name": "PsyPal Hope - music exercise II",
     "live": false,
-    "published": false,
+    "published": true,
     "excludeFromWeb": false,
     "asyncDuration": 15,
     "introPortal": {
