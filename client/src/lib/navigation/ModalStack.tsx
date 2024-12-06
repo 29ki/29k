@@ -56,7 +56,7 @@ const modalScreenOptions: BottomSheetNavigationOptions = {
       pressBehavior="close"
       animatedIndex={animatedIndex}
       animatedPosition={animatedPosition}
-      disappearsOnIndex={-1}
+      disappearsOnIndex={-0.1}
       appearsOnIndex={0}
       opacity={0.1}
       style={style}
@@ -85,7 +85,7 @@ const modalScreenOptions: BottomSheetNavigationOptions = {
     https://github.com/gorhom/react-native-bottom-sheet/issues/618
   */
   android_keyboardInputMode: 'adjustResize',
-  stackBehavior: 'push',
+  stackBehavior: 'replace',
 };
 
 const ModalStack = () => {
