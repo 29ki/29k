@@ -1,4 +1,5 @@
 import React, {Fragment, useCallback, useMemo} from 'react';
+import {Share} from 'react-native';
 import {useTranslation} from 'react-i18next';
 
 import styled from 'styled-components/native';
@@ -56,7 +57,7 @@ import CoCreators from '../../../../../lib/components/CoCreators/CoCreators';
 import CardGraphic from '../../../../../lib/components/CardGraphic/CardGraphic';
 import BackgroundBlock from '../../../../../lib/components/BackgroundBlock/BackgroundBlock';
 import useGetSessionCardTags from '../../../../../lib/components/Cards/SessionCard/hooks/useGetSessionCardTags';
-import useShareFromModal from '../../../../../lib/navigation/hooks/useShareFromModal';
+import useHideModalUntilResolved from '../../../../../lib/navigation/hooks/useHideModalUntilResolved';
 
 const TypeItemWrapper = styled.View<{isLast?: boolean}>(({isLast}) => ({
   flexDirection: 'row',
@@ -161,7 +162,7 @@ const SelectTypeStep: React.FC<StepProps> = ({
     useNavigation<NativeStackNavigationProp<ModalStackProps>>();
   const getExerciseById = useGetExerciseById();
   const startSession = useStartAsyncSession();
-  const share = useShareFromModal();
+  const hideModalAndShare = useHideModalUntilResolved(Share.share);
 
   const {rating} = useExerciseRating(selectedExercise);
   const {feedback} = useExerciseFeedback(selectedExercise);
@@ -196,11 +197,11 @@ const SelectTypeStep: React.FC<StepProps> = ({
 
   const onShare = useCallback(() => {
     if (exercise?.link) {
-      share({
+      hideModalAndShare({
         message: exercise.link,
       });
     }
-  }, [exercise?.link, share]);
+  }, [exercise?.link, hideModalAndShare]);
 
   const onStartPress = useCallback(() => {
     if (selectedExercise) {

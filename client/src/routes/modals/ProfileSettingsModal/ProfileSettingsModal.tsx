@@ -41,6 +41,7 @@ import {SPACINGS} from '../../../lib/constants/spacings';
 import useUserState from '../../../lib/user/state/state';
 import ActionSwitch from '../../../lib/components/ActionList/ActionItems/ActionSwitch';
 import useLogMindfulMinutes from '../../../lib/mindfulMinutes/hooks/useLogMindfulMinutes';
+import useHideModalUntilResolved from '../../../lib/navigation/hooks/useHideModalUntilResolved';
 
 const Picture = styled(ProfilePicture)({
   width: 144,
@@ -71,6 +72,8 @@ const ProfileSettingsModal = () => {
     useChangeProfilePicture();
   const {updateProfileDetails, isUpdatingProfileDetails} =
     useUpdateProfileDetails();
+  const hideModalAndChangeProfilePicture =
+    useHideModalUntilResolved(changeProfilePicture);
   const {deleteUser} = useDeleteUser();
   const signOut = useSignOutUser();
   const user = useUser();
@@ -157,7 +160,7 @@ const ProfileSettingsModal = () => {
             pictureURL={user?.photoURL}
             letter={user?.displayName?.[0]}
             loading={isUpdatingProfilePicture}
-            onPress={changeProfilePicture}
+            onPress={hideModalAndChangeProfilePicture}
           />
           <Spacer24 />
           <ActionList>
