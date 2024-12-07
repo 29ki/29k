@@ -23,7 +23,7 @@
     "decap-cms-media-library-cloudinary": "^3.0.3",
     "i18next": "^24.0.2",
     "react-native-safe-area-context": "^4.14.0",
-    "react-native-svg": "15.4.0",
+    "react-native-svg": "15.10.1",
     "react-native-web": "^0.19.13",
     "styled-components": "^6.1.13"
   },
