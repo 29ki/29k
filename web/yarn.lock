@@ -4853,10 +4853,10 @@ react-native-safe-area-context@^4.14.0:
   resolved "https://registry.yarnpkg.com/react-native-safe-area-context/-/react-native-safe-area-context-4.14.0.tgz#138f4b2e180cb7517c78bd5f4d4cf91325ba0b1a"
   integrity sha512-/SyYpCulWQOnnXhRq6wepkhoyQMowHm1ptDyRz20s+YS/R9mbd+mK+jFyFCyXFJn8jp7vFl43VUCgspuOiEbwA==
 
-react-native-svg@15.4.0:
-  version "15.4.0"
-  resolved "https://registry.yarnpkg.com/react-native-svg/-/react-native-svg-15.4.0.tgz#a4929deece1f438282e18d007b12af5e4f718fda"
-  integrity sha512-zkBEbme/Dba4yqreg/oI2P6/6LrLywWY7HhaSwpU7Pb5COpTd2fV6/ShsgZz8GRFFdidUPwWmx01FITUsjhkmw==
+react-native-svg@15.10.1:
+  version "15.10.1"
+  resolved "https://registry.yarnpkg.com/react-native-svg/-/react-native-svg-15.10.1.tgz#5df51fca80cb1912648d058b67903f05eac0b8a6"
+  integrity sha512-Hqz/doQciVFK/Df2v+wsW96oY5jxlta7rZ31KQYo78dlgvAHEaGr6paEOAMvlIruw7EHNQ0Vc1ZmJPJF2kfIPQ==
   dependencies:
     css-select "^5.1.0"
     css-tree "^1.1.3"
