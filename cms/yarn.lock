@@ -3872,10 +3872,10 @@ decamelize@^1.2.0:
   resolved "https://registry.yarnpkg.com/decamelize/-/decamelize-1.2.0.tgz#f6534d15148269b20352e7bee26f501f9a191290"
   integrity sha512-z2S+W9X73hAUUki+N+9Za2lBlun89zigOyGrsax+KUQ6wKW4ZoWpEYBkGhQjwAjjDCkWxhY0VKEhk8wzY7F5cA==
 
-decap-cms-app@3.3.3:
-  version "3.3.3"
-  resolved "https://registry.yarnpkg.com/decap-cms-app/-/decap-cms-app-3.3.3.tgz#5a69747630843680577d24c11a3a22d0be6f0802"
-  integrity sha512-hhJU7T8COeU3KBwthNtfkPmAg1Ocygc3YwB2DEmz+errwaa72GWjPmp79u2m00xH9qRFst+j6B7VjICXp1GxjQ==
+decap-cms-app@3.4.0:
+  version "3.4.0"
+  resolved "https://registry.yarnpkg.com/decap-cms-app/-/decap-cms-app-3.4.0.tgz#1d6167ed09bf5f2330bd95498d211e848f92cc2c"
+  integrity sha512-qiR6fQw7VcnnCw1v4gYjSUVxqWVydu9UcmAJGttgd3vDxKl7POoXOORrVMe1kZ+jUq+G95f/SYATng+++1Nh1w==
   dependencies:
     "@emotion/react" "^11.11.1"
     "@emotion/styled" "^11.11.0"
@@ -3889,11 +3889,11 @@ decap-cms-app@3.3.3:
     decap-cms-backend-gitlab "^3.2.2"
     decap-cms-backend-proxy "^3.1.4"
     decap-cms-backend-test "^3.1.3"
-    decap-cms-core "^3.4.2"
+    decap-cms-core "^3.5.0"
     decap-cms-editor-component-image "^3.1.3"
     decap-cms-lib-auth "^3.0.5"
     decap-cms-lib-util "^3.1.0"
-    decap-cms-lib-widgets "^3.0.2"
+    decap-cms-lib-widgets "^3.1.0"
     decap-cms-locales "^3.2.0"
     decap-cms-ui-default "^3.1.4"
     decap-cms-widget-boolean "^3.1.3"
@@ -3904,7 +3904,7 @@ decap-cms-app@3.3.3:
     decap-cms-widget-image "^3.1.3"
     decap-cms-widget-list "^3.2.2"
     decap-cms-widget-map "^3.1.4"
-    decap-cms-widget-markdown "^3.1.6"
+    decap-cms-widget-markdown "^3.2.0"
     decap-cms-widget-number "^3.1.3"
     decap-cms-widget-object "^3.1.4"
     decap-cms-widget-relation "^3.3.2"
@@ -3997,10 +3997,10 @@ decap-cms-backend-test@^3.1.3:
   resolved "https://registry.yarnpkg.com/decap-cms-backend-test/-/decap-cms-backend-test-3.1.3.tgz#093da1cada4ae81872d385a69eb9b530f5f38892"
   integrity sha512-SsUzvljOnQYFqbFKshajKSPlzY8O8xzE0nWI4GqUAugXx5mxD1lNov0WgtO/5UPXr2zNEtxyQzF+gz6A4XhHrA==
 
-decap-cms-core@^3.4.2:
-  version "3.4.2"
-  resolved "https://registry.yarnpkg.com/decap-cms-core/-/decap-cms-core-3.4.2.tgz#8d581da79611ee2a51c31436098fccc08759d8a8"
-  integrity sha512-ngT5Zp5Vk4VlYKRJtEwRrz9bCVvjYG+wY2sXod09JCT6Is4cRCD1viwmZPVH+AJDESGCmgcC58YKduUpOr6tDQ==
+decap-cms-core@^3.5.0:
+  version "3.5.0"
+  resolved "https://registry.yarnpkg.com/decap-cms-core/-/decap-cms-core-3.5.0.tgz#f582203d0dd08ea422c0afd3ed4da7e497bbfab6"
+  integrity sha512-+R73V6Q8IELrsSeOav+B/FjG+v1Z/8h8lLIX12hYHOTBqtsKB4bH2pln/lTfAyVmeIlMjETR+6KOrayM4kqiww==
   dependencies:
     "@iarna/toml" "2.2.5"
     "@reduxjs/toolkit" "^1.9.1"
@@ -4072,10 +4072,10 @@ decap-cms-lib-util@^3.1.0:
     localforage "^1.7.3"
     semaphore "^1.1.0"
 
-decap-cms-lib-widgets@^3.0.2:
-  version "3.0.2"
-  resolved "https://registry.yarnpkg.com/decap-cms-lib-widgets/-/decap-cms-lib-widgets-3.0.2.tgz#03c281e4d3bad3402515f8b8a1718b0903410338"
-  integrity sha512-bb53ZKh98XnmBWXhvyyc9vXn6Nw4RCcS465V1bhI3AI+ec22feGg0G5dWb61NONj0j9XPbZKaqFxL7dcO9/S8Q==
+decap-cms-lib-widgets@^3.1.0:
+  version "3.1.0"
+  resolved "https://registry.yarnpkg.com/decap-cms-lib-widgets/-/decap-cms-lib-widgets-3.1.0.tgz#8ce3e01b79f9a843602464ecf5602cc68a41299d"
+  integrity sha512-y74KBQLWmdEGA+G9hj6pdSws7MlQUOkV+c2jJJop7SQmD1PXsCazb2RnVyJDlav9Mfxr2qaaKSFR+sqTvXcaRA==
   dependencies:
     dayjs "^1.11.10"
 
@@ -4157,10 +4157,10 @@ decap-cms-widget-map@^3.1.4:
   dependencies:
     ol "^6.9.0"
 
-decap-cms-widget-markdown@^3.1.6:
-  version "3.1.6"
-  resolved "https://registry.yarnpkg.com/decap-cms-widget-markdown/-/decap-cms-widget-markdown-3.1.6.tgz#a197630d50eae19425968000fa8a91cce3a2ed98"
-  integrity sha512-ctpDlXd/ViyNt3C2VWjqNbSwnxBl6yjXqb+8dH+AXfy4Db4LOVIqoYLhrZcHxQ+e2Am9brB/7P48QQvyM+Eeag==
+decap-cms-widget-markdown@^3.2.0:
+  version "3.2.0"
+  resolved "https://registry.yarnpkg.com/decap-cms-widget-markdown/-/decap-cms-widget-markdown-3.2.0.tgz#900794dad3af289b94eb2791b03a5bf32ad06ac0"
+  integrity sha512-8na7JrD80pUjbn8NVDZMw70dl3TXpZIuLj1EQkwU5kwvBRGE5Fth2PcON+kL7uyhV6A270nZEXUKfy1ucqpUuw==
   dependencies:
     dompurify "^2.2.6"
     is-hotkey "^0.2.0"
