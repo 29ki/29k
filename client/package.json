@@ -66,7 +66,7 @@
     "react-native-background-timer": "^2.3.1",
     "react-native-circular-progress": "^1.4.1",
     "react-native-code-push": "^9.0.0",
-    "react-native-device-info": "^11.1.0",
+    "react-native-device-info": "^14.0.1",
     "react-native-gesture-handler": "^2.20.0",
     "react-native-get-random-values": "^1.11.0",
     "react-native-haptic-feedback": "^2.2.0",
