@@ -32,7 +32,7 @@
       "cancel": "No",
       "confirm": "Sí, borrar"
     },
-    "message": "¿Estás seguro de que quieres eliminar tu usuario y todos los datos?",
-    "title": "Eliminar usuario y datos"
+    "message": "¿Estás seguro de que quieres eliminar tu cuenta de usuario y todos los datos?",
+    "title": "Eliminar cuenta de usuario y datos"
   }
 }

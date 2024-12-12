@@ -80,7 +80,7 @@
       "text__markdown": "## Algo no está funcionando correctamente...\n\nEstamos teniendo algunos problemas técnicos en este momento. Inténtalo de nuevo en un momento."
     },
     "maintenance": {
-      "text__markdown": "## Estamos pasando por un pequeño ~~mantenimiento~~\n\nDisculpa las molestias. Estaremos de vuelta y funcionando lo antes posible."
+      "text__markdown": "## Estamos realizando algunos pequeños ~~ajustes~~\n\nDisculpa las molestias. Estaremos de vuelta y funcionando lo antes posible."
     },
     "retry": "Vuelve a intentarlo",
     "update": {

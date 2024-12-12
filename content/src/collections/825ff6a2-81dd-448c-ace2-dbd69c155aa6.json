@@ -84,5 +84,23 @@
     ],
     "card": {}
   },
-  "es": {}
+  "es": {
+    "description": "Ser consciente consiste en estar atento/a a lo que sucede ahora mismo en la mente, en el cuerpo y en el entorno. Sin ser conscientes de lo que ocurre en la mente, no podemos darnos cuenta cuando estamos a punto de reaccionar de manera dañina, y por lo tanto, no podemos mantener la atención plena ni actuar con cuidado.",
+    "name": "VER Conciencia",
+    "published": true,
+    "hidden": false,
+    "locked": true,
+    "id": "825ff6a2-81dd-448c-ace2-dbd69c155aa6",
+    "card": {
+      "image": {
+        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1731442992/SEE/FullCategories_CardImage-01_kvtjbl.png"
+      }
+    },
+    "exercises": [
+      "023ad824-8009-4667-b148-13d0e966ffd2",
+      "4ffe2765-995a-4afc-ae86-65d08088915b",
+      "85b2fb9a-68ca-4094-8645-c4bd17e43229",
+      "881edc87-02f4-4543-9f32-7c4b5ef34c94"
+    ]
+  }
 }

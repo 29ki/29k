@@ -70,5 +70,21 @@
     ],
     "card": {}
   },
-  "es": {}
+  "es": {
+    "description": "Todos los seres vivos viven de manera interconectada e interdependiente. Impactamos y somos impactados por cada uno de los seres vivos dentro de nuestros sistemas. ‘Nuestra inteligencia de sistemas innata, al igual que nuestras capacidades innatas para entendernos a nosotros mismos y a los demás, necesita ser cultivada’, escribe Peter Senge, uno de los pensadores de sistemas más destacados del mundo, en The Triple Focus.",
+    "name": "VER Pensamiento sistémico",
+    "published": true,
+    "hidden": false,
+    "locked": true,
+    "id": "6524d27e-2a79-48c0-b4aa-dea830231062",
+    "card": {
+      "image": {
+        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1731443350/SEE/FullCategories_CardImage-04_btrx7d.png"
+      }
+    },
+    "exercises": [
+      "c747469a-f690-4a38-bdef-bd1a35b7d4b5",
+      "9451652d-444f-4e96-86cc-dcb774ab6c27"
+    ]
+  }
 }
