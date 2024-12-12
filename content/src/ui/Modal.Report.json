@@ -32,10 +32,10 @@
   "nl": {},
   "es": {
     "confirmButton": "Enviar informe",
-    "confirmationText": "Gracias por ponerte en contacto 🌱",
+    "confirmationText": "Gracias por contactarnos 🌱",
     "emailHeading": "Contestar a:",
     "emailPlaceholder": "Escribe el correo electrónico al que deseas que te respondamos.",
-    "reportHeading": "¿Qué deseas informar?",
+    "reportHeading": "¿Sobre qué deseas informar?",
     "reportPlaceholder": "Comparte tus pensamientos para que podamos mejorar",
     "title": "Informar"
   }

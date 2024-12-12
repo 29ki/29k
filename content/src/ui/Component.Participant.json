@@ -24,7 +24,7 @@
   "es": {
     "removeNo": "Cancelar",
     "removeText": "¿Estás seguro/a de que deseas eliminar a {{displayName}} de esta sesión? No podrá unirse de nuevo.",
-    "removeTitle": "Elimina {{displayName}} de la sesión",
-    "removeYes": "Sí, elimina"
+    "removeTitle": "Eliminar a {{displayName}} de la sesión",
+    "removeYes": "Sí, eliminar"
   }
 }

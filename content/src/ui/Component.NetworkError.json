@@ -33,6 +33,6 @@
     "requestTitle": "No se pudo actualizar la sesión.",
     "subscriptionMessage": "Parece que hay un problema para obtener actualizaciones de la sesión.",
     "subscriptionTitle": "Problema para obtener actualizaciones de progreso.",
-    "title": "Conexión a internet perdida"
+    "title": "Se ha perdido la conexión a internet"
   }
 }
