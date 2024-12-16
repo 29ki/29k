@@ -77,6 +77,13 @@
         "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1731849004/Images/card_Music_I_music_only_cgehjn.png"
       }
     },
+    "coCreators": [
+      {
+        "name": "Ints Ivanovskis, art works",
+        "url": "https://www.linkedin.com/in/ints-ivanovskis-46ab0311a/?originalSubdomain=se",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413436/Contributors/Ints%20Ivanovskis.jpg"
+      }
+    ],
     "introPortal": {
       "textColor": "#2E2E2E",
       "hostNotes": [
@@ -103,34 +110,36 @@
     "liveDuration": 30,
     "slides": [
       {
-        "type": "host",
-        "hostNotes": [
-          {
-            "text": "Welcome. I am X and today we will work for around 30 minutes on xx\n\nWe’ll be doing xx ex. meditation followed by time for reflection and sharing with each other."
-          },
-          {
-            "text": "Let’s start with a mini check-in. How are you feeling right now? Please answer in two-three words. X, would you like to start?\n\n> Let everyone in the session, including yourself, check in one by one.\n\nThank you all for checking in. Let’s get started."
+        "type": "instruction",
+        "content": {
+          "text": "Lean back and let the music guide you, as you embark on an imaginary journey.",
+          "image": {
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1731849005/Images/visual_noBG_Music_I_music_only_ou4vlx.png"
           }
-        ]
+        }
       },
       {
         "type": "content",
-        "hostNotes": [
-          {
-            "text": "Find a comfortable position. I will start the audio exercise and we'll meet back here afterwards. \n\n> Push play to start the audio exercise"
+        "hostNotes": [],
+        "content": {
+          "lottie": {
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1725981351/Audio/PsyPal_Music_exercise_1_music_only_z4hhtb.mp3",
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1676642915/Lottie/default_audio_black_zjrmu2.json"
           }
-        ]
+        }
       },
       {
         "type": "reflection",
-        "hostNotes": [
-          {
-            "text": "Now we’ll take 1 minute to reflect on our own.\n\nxxMain question\n\nxxFurther explanations of main question if needed"
-          },
-          {
-            "text": "You can take notes on a piece of paper or just mental notes in your head. And there is no right or wrong here, our answers are our own. 1 minute starting now.\n\n> Press play to start the timer.\n\nThat’s 1 minute and it’s time to move on."
+        "hostNotes": [],
+        "content": {
+          "text": "What did you experience?",
+          "lottie": {
+            "durationTimer": true,
+            "duration": 60,
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1676642915/Lottie/default_1min_black_rosi2l.json",
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1731849094/Audio/refelection_audio_Music_I_music_only_xueeah.mp3"
           }
-        ]
+        }
       },
       {
         "type": "sharing",
@@ -145,48 +154,64 @@
             "text": "Who would like to start?\n\n> Let everyone (or as many as you got time for) share one by one. Press play to start the timer. Re-start for each new sharing.\n\nThank you so much everyone."
           }
         ],
-        "id": "Sharing 1"
-      },
-      {
-        "type": "host",
-        "hostNotes": [
-          {
-            "text": "Well done. If you’re up for it, you can continue what we started here today with a mission to bring this into your everyday life.\n\nxx mission description"
-          },
-          {
-            "text": "Before we leave this space let’s do a mini check-out. \n\nHow are you feeling right now? Has anything shifted? Please answer in two-three words."
-          },
-          {
-            "text": "Who would like to start?\n\n> Let everyone in the session check out one by one.\n\nThank you all for checking out and for joining this session today.\n\n> Finish session to send everyone off to the exit experience."
-          }
-        ]
+        "id": "Sharing 1",
+        "content": {
+          "heading": "What did you experience?"
+        }
       },
       {
         "type": "instruction",
         "content": {
-          "text": "Well done.\n\nSummary.\n\nIf you’re up for it, you can continue with this mission.\n\nmission description"
+          "text": "Well done.\n\nMusic can help our brains to evoke emotions and images, less affected by our regular ways of thinking.",
+          "image": {
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1731849005/Images/visual_noBG_Music_I_music_only_ou4vlx.png"
+          }
         }
       }
     ],
     "theme": {
-      "textColor": "#2AE2D7"
+      "textColor": "#2E2E2E",
+      "backgroundColor": "#e6cc44"
     },
-    "hidden": false,
+    "hidden": true,
     "locked": false,
+    "name": "PsyPal Music exercise I - music only",
     "live": true,
-    "published": false,
+    "published": true,
     "asyncDuration": 15,
-    "card": {},
+    "card": {
+      "image": {
+        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1731849004/Images/card_Music_I_music_only_cgehjn.png"
+      }
+    },
+    "coCreators": [
+      {
+        "name": "Ints Ivanovskis, art works",
+        "url": "https://www.linkedin.com/in/ints-ivanovskis-46ab0311a/?originalSubdomain=se",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413436/Contributors/Ints%20Ivanovskis.jpg"
+      }
+    ],
     "introPortal": {
-      "textColor": "#2AE2D7",
+      "textColor": "#2E2E2E",
       "hostNotes": [
         {
           "text": "> Start the session when you're ready to go"
         }
-      ]
+      ],
+      "videoLoop": {
+        "p5JsScript": {
+          "lang": "javascript"
+        },
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1731849054/Video/portal_1_Music_I_music_only_i3773o.mp4",
+        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1731849092/Audio/portal_audio_Music_I_music_only_m78dak.mp3"
+      },
+      "videoEnd": {
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1731849053/Video/portal_2_Music_I_music_only_mvxv0s.mp4"
+      }
     },
     "id": "f2c88307-b02e-4456-a81c-79b84c10ae04",
-    "async": false
+    "async": true,
+    "description": "Let the music accompany you on a journey without guidance."
   },
   "sv": {
     "liveDuration": 30,
@@ -367,22 +392,321 @@
     "async": false
   },
   "da": {
+    "liveDuration": 30,
+    "slides": [
+      {
+        "type": "instruction",
+        "content": {
+          "text": "Lean back and let the music guide you, as you embark on an imaginary journey.",
+          "image": {
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1731849005/Images/visual_noBG_Music_I_music_only_ou4vlx.png"
+          }
+        }
+      },
+      {
+        "type": "content",
+        "hostNotes": [],
+        "content": {
+          "lottie": {
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1725981351/Audio/PsyPal_Music_exercise_1_music_only_z4hhtb.mp3",
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1676642915/Lottie/default_audio_black_zjrmu2.json"
+          }
+        }
+      },
+      {
+        "type": "reflection",
+        "hostNotes": [],
+        "content": {
+          "text": "What did you experience?",
+          "lottie": {
+            "durationTimer": true,
+            "duration": 60,
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1676642915/Lottie/default_1min_black_rosi2l.json",
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1731849094/Audio/refelection_audio_Music_I_music_only_xueeah.mp3"
+          }
+        }
+      },
+      {
+        "type": "sharing",
+        "hostNotes": [
+          {
+            "text": "Now we are getting into the sharing part. We have three rules for sharing:\n\n1. **What is said in here, stays in here.**\n2. **All you need to do is listen.** There is no fixing, helping or advice-giving needed. We are just showing up and exploring what ourselves and others are going through."
+          },
+          {
+            "text": "3. **Everything on the inside is okay.** Anger, love, hatred, sadness. Whatever shows up. No wrongs, no rights. It is what it is.\n\nThere will be a timer set for 2 minutes as an indicator. If you don’t want to share you can always say ‘pass’."
+          },
+          {
+            "text": "Who would like to start?\n\n> Let everyone (or as many as you got time for) share one by one. Press play to start the timer. Re-start for each new sharing.\n\nThank you so much everyone."
+          }
+        ],
+        "id": "Sharing 1",
+        "content": {
+          "heading": "What did you experience?"
+        }
+      },
+      {
+        "type": "instruction",
+        "content": {
+          "text": "Well done.\n\nMusic can help our brains to evoke emotions and images, less affected by our regular ways of thinking.",
+          "image": {
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1731849005/Images/visual_noBG_Music_I_music_only_ou4vlx.png"
+          }
+        }
+      }
+    ],
+    "theme": {
+      "textColor": "#2E2E2E",
+      "backgroundColor": "#e6cc44"
+    },
+    "hidden": true,
     "locked": false,
-    "card": {},
+    "name": "PsyPal Music exercise I - music only",
+    "published": true,
     "asyncDuration": 15,
-    "liveDuration": 30
+    "card": {
+      "image": {
+        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1731849004/Images/card_Music_I_music_only_cgehjn.png"
+      }
+    },
+    "coCreators": [
+      {
+        "name": "Ints Ivanovskis, art works",
+        "url": "https://www.linkedin.com/in/ints-ivanovskis-46ab0311a/?originalSubdomain=se",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413436/Contributors/Ints%20Ivanovskis.jpg"
+      }
+    ],
+    "introPortal": {
+      "textColor": "#2E2E2E",
+      "hostNotes": [
+        {
+          "text": "> Start the session when you're ready to go"
+        }
+      ],
+      "videoLoop": {
+        "p5JsScript": {
+          "lang": "javascript"
+        },
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1731849054/Video/portal_1_Music_I_music_only_i3773o.mp4",
+        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1731849092/Audio/portal_audio_Music_I_music_only_m78dak.mp3"
+      },
+      "videoEnd": {
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1731849053/Video/portal_2_Music_I_music_only_mvxv0s.mp4"
+      }
+    },
+    "async": true,
+    "description": "Let the music accompany you on a journey without guidance."
   },
   "cs": {
+    "liveDuration": 30,
+    "slides": [
+      {
+        "type": "instruction",
+        "content": {
+          "text": "Lean back and let the music guide you, as you embark on an imaginary journey.",
+          "image": {
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1731849005/Images/visual_noBG_Music_I_music_only_ou4vlx.png"
+          }
+        }
+      },
+      {
+        "type": "content",
+        "hostNotes": [],
+        "content": {
+          "lottie": {
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1725981351/Audio/PsyPal_Music_exercise_1_music_only_z4hhtb.mp3",
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1676642915/Lottie/default_audio_black_zjrmu2.json"
+          }
+        }
+      },
+      {
+        "type": "reflection",
+        "hostNotes": [],
+        "content": {
+          "text": "What did you experience?",
+          "lottie": {
+            "durationTimer": true,
+            "duration": 60,
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1676642915/Lottie/default_1min_black_rosi2l.json",
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1731849094/Audio/refelection_audio_Music_I_music_only_xueeah.mp3"
+          }
+        }
+      },
+      {
+        "type": "sharing",
+        "hostNotes": [
+          {
+            "text": "Now we are getting into the sharing part. We have three rules for sharing:\n\n1. **What is said in here, stays in here.**\n2. **All you need to do is listen.** There is no fixing, helping or advice-giving needed. We are just showing up and exploring what ourselves and others are going through."
+          },
+          {
+            "text": "3. **Everything on the inside is okay.** Anger, love, hatred, sadness. Whatever shows up. No wrongs, no rights. It is what it is.\n\nThere will be a timer set for 2 minutes as an indicator. If you don’t want to share you can always say ‘pass’."
+          },
+          {
+            "text": "Who would like to start?\n\n> Let everyone (or as many as you got time for) share one by one. Press play to start the timer. Re-start for each new sharing.\n\nThank you so much everyone."
+          }
+        ],
+        "id": "Sharing 1",
+        "content": {
+          "heading": "What did you experience?"
+        }
+      },
+      {
+        "type": "instruction",
+        "content": {
+          "text": "Well done.\n\nMusic can help our brains to evoke emotions and images, less affected by our regular ways of thinking.",
+          "image": {
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1731849005/Images/visual_noBG_Music_I_music_only_ou4vlx.png"
+          }
+        }
+      }
+    ],
+    "theme": {
+      "textColor": "#2E2E2E",
+      "backgroundColor": "#e6cc44"
+    },
+    "hidden": true,
     "locked": false,
-    "card": {},
+    "name": "PsyPal Music exercise I - music only",
+    "published": true,
     "asyncDuration": 15,
-    "liveDuration": 30
+    "card": {
+      "image": {
+        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1731849004/Images/card_Music_I_music_only_cgehjn.png"
+      }
+    },
+    "coCreators": [
+      {
+        "name": "Ints Ivanovskis, art works",
+        "url": "https://www.linkedin.com/in/ints-ivanovskis-46ab0311a/?originalSubdomain=se",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413436/Contributors/Ints%20Ivanovskis.jpg"
+      }
+    ],
+    "introPortal": {
+      "textColor": "#2E2E2E",
+      "hostNotes": [
+        {
+          "text": "> Start the session when you're ready to go"
+        }
+      ],
+      "videoLoop": {
+        "p5JsScript": {
+          "lang": "javascript"
+        },
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1731849054/Video/portal_1_Music_I_music_only_i3773o.mp4",
+        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1731849092/Audio/portal_audio_Music_I_music_only_m78dak.mp3"
+      },
+      "videoEnd": {
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1731849053/Video/portal_2_Music_I_music_only_mvxv0s.mp4"
+      }
+    },
+    "async": true,
+    "description": "Let the music accompany you on a journey without guidance."
   },
   "nl": {
+    "liveDuration": 30,
+    "slides": [
+      {
+        "type": "instruction",
+        "content": {
+          "text": "Lean back and let the music guide you, as you embark on an imaginary journey.",
+          "image": {
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1731849005/Images/visual_noBG_Music_I_music_only_ou4vlx.png"
+          }
+        }
+      },
+      {
+        "type": "content",
+        "hostNotes": [],
+        "content": {
+          "lottie": {
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1725981351/Audio/PsyPal_Music_exercise_1_music_only_z4hhtb.mp3",
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1676642915/Lottie/default_audio_black_zjrmu2.json"
+          }
+        }
+      },
+      {
+        "type": "reflection",
+        "hostNotes": [],
+        "content": {
+          "text": "What did you experience?",
+          "lottie": {
+            "durationTimer": true,
+            "duration": 60,
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1676642915/Lottie/default_1min_black_rosi2l.json",
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1731849094/Audio/refelection_audio_Music_I_music_only_xueeah.mp3"
+          }
+        }
+      },
+      {
+        "type": "sharing",
+        "hostNotes": [
+          {
+            "text": "Now we are getting into the sharing part. We have three rules for sharing:\n\n1. **What is said in here, stays in here.**\n2. **All you need to do is listen.** There is no fixing, helping or advice-giving needed. We are just showing up and exploring what ourselves and others are going through."
+          },
+          {
+            "text": "3. **Everything on the inside is okay.** Anger, love, hatred, sadness. Whatever shows up. No wrongs, no rights. It is what it is.\n\nThere will be a timer set for 2 minutes as an indicator. If you don’t want to share you can always say ‘pass’."
+          },
+          {
+            "text": "Who would like to start?\n\n> Let everyone (or as many as you got time for) share one by one. Press play to start the timer. Re-start for each new sharing.\n\nThank you so much everyone."
+          }
+        ],
+        "id": "Sharing 1",
+        "content": {
+          "heading": "What did you experience?"
+        }
+      },
+      {
+        "type": "instruction",
+        "content": {
+          "text": "Well done.\n\nMusic can help our brains to evoke emotions and images, less affected by our regular ways of thinking.",
+          "image": {
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1731849005/Images/visual_noBG_Music_I_music_only_ou4vlx.png"
+          }
+        }
+      }
+    ],
+    "theme": {
+      "textColor": "#2E2E2E",
+      "backgroundColor": "#e6cc44"
+    },
+    "hidden": true,
     "locked": false,
-    "card": {},
+    "name": "PsyPal Music exercise I - music only",
+    "published": true,
     "asyncDuration": 15,
-    "liveDuration": 30
+    "card": {
+      "image": {
+        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1731849004/Images/card_Music_I_music_only_cgehjn.png"
+      }
+    },
+    "coCreators": [
+      {
+        "name": "Ints Ivanovskis, art works",
+        "url": "https://www.linkedin.com/in/ints-ivanovskis-46ab0311a/?originalSubdomain=se",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413436/Contributors/Ints%20Ivanovskis.jpg"
+      }
+    ],
+    "introPortal": {
+      "textColor": "#2E2E2E",
+      "hostNotes": [
+        {
+          "text": "> Start the session when you're ready to go"
+        }
+      ],
+      "videoLoop": {
+        "p5JsScript": {
+          "lang": "javascript"
+        },
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1731849054/Video/portal_1_Music_I_music_only_i3773o.mp4",
+        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1731849092/Audio/portal_audio_Music_I_music_only_m78dak.mp3"
+      },
+      "videoEnd": {
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1731849053/Video/portal_2_Music_I_music_only_mvxv0s.mp4"
+      }
+    },
+    "async": true,
+    "description": "Let the music accompany you on a journey without guidance."
   },
-  "es": {}
+  "es": {
+    "card": {}
+  }
 }
