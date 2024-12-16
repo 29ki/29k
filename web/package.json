@@ -30,7 +30,7 @@
     "@types/react-dom": "^18",
     "@types/react-native-web": "^0.0.0",
     "eslint": "^8",
-    "eslint-config-next": "15.0.3",
+    "eslint-config-next": "15.1.0",
     "typescript": "^5"
   }
 }
