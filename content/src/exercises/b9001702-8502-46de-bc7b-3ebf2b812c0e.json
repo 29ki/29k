@@ -114,6 +114,18 @@
         "source": "https://res.cloudinary.com/cupcake-29k/image/upload/v1731909576/Images/card_Life_exploration_ey6d45.png"
       }
     },
+    "coCreators": [
+      {
+        "name": "Ints Ivanovskis, art works",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/v1665413436/Contributors/Ints%20Ivanovskis.jpg",
+        "url": "https://www.linkedin.com/in/ints-ivanovskis-46ab0311a/?originalSubdomain=se"
+      },
+      {
+        "name": "Jenny Rickardsson, writing & editing",
+        "url": "https://www.linkedin.com/in/jenny-rickardson-6770a959/",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413228/Contributors/Jenny%20Rickardsson.jpg"
+      }
+    ],
     "introPortal": {
       "textColor": "#2E2E2E",
       "hostNotes": [
