@@ -77,6 +77,13 @@
         "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1731849004/Images/card_Music_I_music_only_cgehjn.png"
       }
     },
+    "coCreators": [
+      {
+        "name": "Ints Ivanovskis, art works",
+        "url": "https://www.linkedin.com/in/ints-ivanovskis-46ab0311a/?originalSubdomain=se",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413436/Contributors/Ints%20Ivanovskis.jpg"
+      }
+    ],
     "introPortal": {
       "textColor": "#2E2E2E",
       "hostNotes": [
@@ -183,7 +190,12 @@
         {
           "text": "> Start the session when you're ready to go"
         }
-      ]
+      ],
+      "videoLoop": {
+        "p5JsScript": {
+          "lang": "javascript"
+        }
+      }
     },
     "id": "f2c88307-b02e-4456-a81c-79b84c10ae04",
     "async": false
