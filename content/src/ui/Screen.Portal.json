@@ -47,7 +47,10 @@
     "leavePortal": "Odejít",
     "startSession": "Začít sezení"
   },
-  "nl": {},
+  "nl": {
+    "leavePortal": "Verlaten",
+    "startSession": "Sessie starten"
+  },
   "es": {
     "counterLabel": {
       "shortly": "Pronto",
