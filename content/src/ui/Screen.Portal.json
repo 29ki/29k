@@ -40,7 +40,10 @@
   },
   "ja": {},
   "da": {},
-  "cs": {},
+  "cs": {
+    "leavePortal": "Odejít",
+    "startSession": "Začít sezení"
+  },
   "nl": {},
   "es": {
     "counterLabel": {

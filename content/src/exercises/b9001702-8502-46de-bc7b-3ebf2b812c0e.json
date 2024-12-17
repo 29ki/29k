@@ -132,7 +132,9 @@
         "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1731909539/Video/portal_2_Life_exploration_ntjptt.mp4"
       }
     },
-    "tags": ["566aeb1b-1649-4f5a-96a2-0c80be27efc0"],
+    "tags": [
+      "566aeb1b-1649-4f5a-96a2-0c80be27efc0"
+    ],
     "id": "b9001702-8502-46de-bc7b-3ebf2b812c0e",
     "async": true,
     "description": "Create an overview of your life so far, and learn from your own past experiences. You'll need pen and paper to complete this exercise."
@@ -223,7 +225,9 @@
         }
       ]
     },
-    "tags": ["566aeb1b-1649-4f5a-96a2-0c80be27efc0"],
+    "tags": [
+      "566aeb1b-1649-4f5a-96a2-0c80be27efc0"
+    ],
     "id": "b9001702-8502-46de-bc7b-3ebf2b812c0e",
     "async": false
   },
@@ -313,7 +317,9 @@
         }
       ]
     },
-    "tags": ["566aeb1b-1649-4f5a-96a2-0c80be27efc0"],
+    "tags": [
+      "566aeb1b-1649-4f5a-96a2-0c80be27efc0"
+    ],
     "id": "b9001702-8502-46de-bc7b-3ebf2b812c0e",
     "async": false
   },
@@ -403,7 +409,9 @@
         }
       ]
     },
-    "tags": ["566aeb1b-1649-4f5a-96a2-0c80be27efc0"],
+    "tags": [
+      "566aeb1b-1649-4f5a-96a2-0c80be27efc0"
+    ],
     "id": "b9001702-8502-46de-bc7b-3ebf2b812c0e",
     "async": false
   },
@@ -411,19 +419,84 @@
     "card": {},
     "asyncDuration": 15,
     "liveDuration": 30,
-    "tags": ["566aeb1b-1649-4f5a-96a2-0c80be27efc0"]
+    "tags": [
+      "566aeb1b-1649-4f5a-96a2-0c80be27efc0"
+    ]
   },
   "cs": {
-    "card": {},
-    "asyncDuration": 15,
+    "description": "Vytvořte přehled vašeho dosavadního života a poučte se z minulých zkušeností. K dokončení tohoto cvičení budete potřebovat pero a papír.",
+    "name": "PsyPal Průzkum života",
+    "slides": [
+      null,
+      {
+        "content": {
+          "text": "Podívejte se zblízka na svůj život, jak se vyvíjel až do současnosti. Toto cvičení může vyvolat silné emoce. To je v pořádku a je to součástí cvičení. Pokud potřebujete, můžete si kdykoli udělat přestávku."
+        }
+      },
+      null,
+      {
+        "content": {
+          "heading": "Co se z toho můžete naučit?"
+        }
+      },
+      {
+        "content": {
+          "heading": "Co se z toho můžete naučit?"
+        }
+      },
+      null,
+      {
+        "content": {
+          "text": "Výborně, že jste dokončili cvičení zaměřené naprůzkum vašeho života. Aktivní reflexe minulých událostí nám někdy pomáhá vidět současnou situaci v jiném světle.\n\nNěkdy jsou nejtemnější období ta, ve kterých jsme se naučili nejvíce. A někdy po nejtěžších výzvách následuje období hlubokého spojení a smyslu. Ať už to platí nebo neplatí také pro vás, doporučujeme pokračovat v rozhovoru s někým vám blízkým."
+        }
+      }
+    ],
     "liveDuration": 30,
-    "tags": ["566aeb1b-1649-4f5a-96a2-0c80be27efc0"]
+    "theme": {
+      "textColor": "#2E2E2E",
+      "backgroundColor": "#f4deb2"
+    },
+    "hidden": true,
+    "locked": false,
+    "live": false,
+    "published": true,
+    "asyncDuration": 15,
+    "card": {
+      "image": {
+        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/v1731909576/Images/card_Life_exploration_ey6d45.png"
+      }
+    },
+    "introPortal": {
+      "textColor": "#2E2E2E",
+      "hostNotes": [
+        {
+          "text": "> Start the session when you're ready to go"
+        }
+      ],
+      "videoLoop": {
+        "p5JsScript": {
+          "lang": "javascript"
+        },
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1731909546/Video/portal_1_Life_exploration_t8o0yx.mp4",
+        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1731909507/Audio/portal_audio_Life_exploration.png_hp9f8n.mp3"
+      },
+      "videoEnd": {
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1731909539/Video/portal_2_Life_exploration_ntjptt.mp4"
+      }
+    },
+    "tags": [
+      "566aeb1b-1649-4f5a-96a2-0c80be27efc0"
+    ],
+    "id": "b9001702-8502-46de-bc7b-3ebf2b812c0e",
+    "async": true
   },
   "nl": {
     "card": {},
     "asyncDuration": 15,
     "liveDuration": 30,
-    "tags": ["566aeb1b-1649-4f5a-96a2-0c80be27efc0"]
+    "tags": [
+      "566aeb1b-1649-4f5a-96a2-0c80be27efc0"
+    ]
   },
   "es": {}
 }

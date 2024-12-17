@@ -121,7 +121,9 @@
         "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1731837714/Video/portal_2_Music_I_qtbjdr.mp4"
       }
     },
-    "tags": ["566aeb1b-1649-4f5a-96a2-0c80be27efc0"],
+    "tags": [
+      "566aeb1b-1649-4f5a-96a2-0c80be27efc0"
+    ],
     "id": "b6de2e28-325e-4ce1-8894-09ac12a6c19f",
     "async": true,
     "description": "Mindfulness and visualization guided by music, can help our brains practice being in altered states of consciousness. It may be a way to relax, reset and ground ourselves in our bodies."
@@ -212,7 +214,9 @@
         }
       ]
     },
-    "tags": ["566aeb1b-1649-4f5a-96a2-0c80be27efc0"],
+    "tags": [
+      "566aeb1b-1649-4f5a-96a2-0c80be27efc0"
+    ],
     "id": "b6de2e28-325e-4ce1-8894-09ac12a6c19f",
     "async": false
   },
@@ -302,7 +306,9 @@
         }
       ]
     },
-    "tags": ["566aeb1b-1649-4f5a-96a2-0c80be27efc0"],
+    "tags": [
+      "566aeb1b-1649-4f5a-96a2-0c80be27efc0"
+    ],
     "id": "b6de2e28-325e-4ce1-8894-09ac12a6c19f",
     "async": false
   },
@@ -392,7 +398,9 @@
         }
       ]
     },
-    "tags": ["566aeb1b-1649-4f5a-96a2-0c80be27efc0"],
+    "tags": [
+      "566aeb1b-1649-4f5a-96a2-0c80be27efc0"
+    ],
     "id": "b6de2e28-325e-4ce1-8894-09ac12a6c19f",
     "async": false
   },
@@ -401,21 +409,88 @@
     "locked": false,
     "asyncDuration": 25,
     "liveDuration": 40,
-    "tags": ["566aeb1b-1649-4f5a-96a2-0c80be27efc0"]
+    "tags": [
+      "566aeb1b-1649-4f5a-96a2-0c80be27efc0"
+    ]
   },
   "cs": {
-    "card": {},
-    "locked": false,
-    "asyncDuration": 25,
+    "description": "Cvičení všímavosti a vizualizace s hudbou může pomoci naší mysli prožívat změněné stavy vědomí. Může být cestou, jak se uvolnit, nabrat nové síly a uzemnit se ve svém těle.",
+    "name": "PsyPal hudební cvičení I",
+    "slides": [
+      {
+        "content": {
+          "text": "Součástí tohoto cvičení bude relaxace, skenování vašich tělesných pocitů, slovem vedená vizualizace s hudbou a nakonec se vydáte na vlastní cestu jen s hudbou.\n\nZáměrem je učit se prožívat změněný stav vědomí."
+        }
+      },
+      null,
+      {
+        "content": {
+          "heading": "Jak jste toto prožívali?"
+        }
+      },
+      {
+        "content": {
+          "heading": "Jak jste toto prožívali?"
+        }
+      },
+      {
+        "content": {
+          "text": "Vítejte zpět. Dobrá práce.\n\nPonoření se do poslechu hudby může pomoci naší mysli odpočinout si a nabrat nové síly. Může přinést nové myšlenky a také nám poskytnout přestávku od každodenního shonu."
+        }
+      }
+    ],
     "liveDuration": 40,
-    "tags": ["566aeb1b-1649-4f5a-96a2-0c80be27efc0"]
+    "theme": {
+      "textColor": "#2E2E2E",
+      "backgroundColor": "#e6cd44"
+    },
+    "hidden": true,
+    "locked": false,
+    "live": false,
+    "published": true,
+    "asyncDuration": 25,
+    "card": {
+      "image": {
+        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1731836741/Images/card_Music_I_qt5sxp.png"
+      }
+    },
+    "outroPortal": {
+      "video": {
+        "source": ""
+      }
+    },
+    "introPortal": {
+      "textColor": "#2E2E2E",
+      "hostNotes": [
+        {
+          "text": "> Start the session when you're ready to go"
+        }
+      ],
+      "videoLoop": {
+        "p5JsScript": {
+          "lang": "javascript"
+        },
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/v1731836473/Video/portal_1_Music_I_v7ozzd.mp4",
+        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1731845216/Audio/portal_audio_Music_I_aeasai.mp3"
+      },
+      "videoEnd": {
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1731837714/Video/portal_2_Music_I_qtbjdr.mp4"
+      }
+    },
+    "tags": [
+      "566aeb1b-1649-4f5a-96a2-0c80be27efc0"
+    ],
+    "id": "b6de2e28-325e-4ce1-8894-09ac12a6c19f",
+    "async": true
   },
   "nl": {
     "card": {},
     "locked": false,
     "asyncDuration": 25,
     "liveDuration": 40,
-    "tags": ["566aeb1b-1649-4f5a-96a2-0c80be27efc0"]
+    "tags": [
+      "566aeb1b-1649-4f5a-96a2-0c80be27efc0"
+    ]
   },
   "es": {}
 }

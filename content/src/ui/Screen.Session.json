@@ -49,7 +49,15 @@
   },
   "ja": {},
   "da": {},
-  "cs": {},
+  "cs": {
+    "controls": {
+      "end": "Dokončit",
+      "next": "Další",
+      "prev": "Zpět",
+      "start": "Začít"
+    },
+    "endButton": "Ukončit sezení"
+  },
   "nl": {},
   "es": {
     "controls": {

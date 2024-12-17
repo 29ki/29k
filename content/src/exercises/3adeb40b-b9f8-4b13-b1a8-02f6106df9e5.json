@@ -413,8 +413,68 @@
     "card": {}
   },
   "cs": {
+    "description": "Naše vnitřní hodnoty jsou o tom, kým chceme být v životě. Život založený na hodnotách je pro lidi často naplňující a smysluplnější.",
+    "name": "Moje hodnoty",
+    "slides": [
+      null,
+      {
+        "content": {
+          "text": "Hodnoty jsou naše nejniternější touhy. Věci, které jsou pro nás opravdu důležité - za všech okolností. V tomto cvičení si procvičíte vyjádřování vašich osobních hodnot, aby mohly vést váš každodenní život."
+        }
+      },
+      null,
+      {
+        "content": {
+          "heading": "Jaká byla vaše zkušenost s tímto zamyšlením nad vašimi hodnotami?"
+        }
+      },
+      {
+        "content": {
+          "heading": "Jaká byla vaše zkušenost s tímto zamyšlením nad vašimi hodnotami?"
+        }
+      },
+      null,
+      {
+        "content": {
+          "text": "Výborně.\n\nNyní jste zkalibrovali svůj osobní kompas.\n\nJe něco, co po tomto cvičení chcete v životě změnit? Vyžadují některá z vámi vybraných slov nebo frází více pozornosti? Naplánujte si něco, co můžete souladu s vaší hodnotou udělat hned teď."
+        }
+      }
+    ],
+    "liveDuration": 30,
+    "theme": {
+      "textColor": "#2E2E2E",
+      "backgroundColor": "#c7bea2"
+    },
+    "hidden": true,
+    "locked": false,
+    "live": false,
+    "published": true,
     "asyncDuration": 15,
-    "card": {}
+    "card": {
+      "image": {
+        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1732713746/Images/card_my_values_pwtpxm.png"
+      }
+    },
+    "introPortal": {
+      "textColor": "#2E2E2E",
+      "hostNotes": [
+        {
+          "text": "> Start the session when you're ready to go"
+        }
+      ],
+      "videoLoop": {
+        "p5JsScript": {
+          "lang": "javascript"
+        },
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1732713683/Video/portal_my_values_urbnjl.mp4",
+        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1732713715/Audio/portal_audio_my_values.png_yfzm2u.mp3"
+      },
+      "videoEnd": {
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1732713682/Video/portal_2_my_values_wzq6mm.mp4"
+      }
+    },
+    "id": "3adeb40b-b9f8-4b13-b1a8-02f6106df9e5",
+    "async": true
   },
   "nl": {
     "asyncDuration": 15,
