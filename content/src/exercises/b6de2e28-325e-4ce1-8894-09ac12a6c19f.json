@@ -405,13 +405,74 @@
     "async": false
   },
   "da": {
-    "card": {},
-    "locked": false,
-    "asyncDuration": 25,
+    "description": "Mindfulness og musik-guidet visualisering kan hjælpe os til at træde ind i en let ændret bevidsthedstilstand, samt slappe af, genstarte, og komme i kontakt med kroppen. ",
+    "name": "PsyPal musikøvelse I",
+    "slides": [
+      {
+        "content": {
+          "text": "I denne øvelse vil du blive guidet til at slappe af, foretage en  kropsscanning, udføre en visualiseringsøvelse med musik og til sidst begive dig ud på din egen rejse, kun guidet af musikken.\n\nHensigten med dette er at øve det at være i en ændret bevidsthedstilstand. "
+        }
+      },
+      null,
+      {
+        "content": {
+          "heading": "Hvordan føltes dette?"
+        }
+      },
+      {
+        "content": {
+          "heading": "Hvordan føltes det?"
+        }
+      },
+      {
+        "content": {
+          "text": "Velkommen tilbage, og godt klaret. \n\nAt fordybe sig i musik kan hjælpe os  med at slappe af og give slip. Det kan give plads til nye tanker og kan give os en pause fra hverdagens larm."
+        }
+      }
+    ],
     "liveDuration": 40,
+    "theme": {
+      "textColor": "#2E2E2E",
+      "backgroundColor": "#e6cd44"
+    },
+    "hidden": true,
+    "locked": false,
+    "live": false,
+    "published": true,
+    "asyncDuration": 25,
+    "card": {
+      "image": {
+        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1731836741/Images/card_Music_I_qt5sxp.png"
+      }
+    },
+    "outroPortal": {
+      "video": {
+        "source": ""
+      }
+    },
+    "introPortal": {
+      "textColor": "#2E2E2E",
+      "hostNotes": [
+        {
+          "text": "> Start the session when you're ready to go"
+        }
+      ],
+      "videoLoop": {
+        "p5JsScript": {
+          "lang": "javascript"
+        },
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/v1731836473/Video/portal_1_Music_I_v7ozzd.mp4",
+        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1731845216/Audio/portal_audio_Music_I_aeasai.mp3"
+      },
+      "videoEnd": {
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1731837714/Video/portal_2_Music_I_qtbjdr.mp4"
+      }
+    },
     "tags": [
       "566aeb1b-1649-4f5a-96a2-0c80be27efc0"
-    ]
+    ],
+    "id": "b6de2e28-325e-4ce1-8894-09ac12a6c19f",
+    "async": true
   },
   "cs": {
     "description": "Cvičení všímavosti a vizualizace s hudbou může pomoci naší mysli prožívat změněné stavy vědomí. Může být cestou, jak se uvolnit, nabrat nové síly a uzemnit se ve svém těle.",

@@ -416,12 +416,71 @@
     "async": false
   },
   "da": {
-    "card": {},
-    "asyncDuration": 15,
+    "description": "Lav en oversigt over dit livsforløb frem til nu, og lær af dine egne tidligere erfaringer. Du skal bruge pen og papir for at gennemføre denne øvelse.",
+    "name": "PsyPal Livsrefleksion",
+    "slides": [
+      null,
+      {
+        "content": {
+          "text": "Kast et nærmere blik på dit liv, som det har udfoldet sig frem til nu. Denne øvelse kan frembringe stærke følelser. Det er helt i orden og er en del af øvelsen. Hvis du har brug for det kan du altid tage en pause undervejs. "
+        }
+      },
+      null,
+      {
+        "content": {
+          "heading": "Hvad kan du lære af dette?"
+        }
+      },
+      {
+        "content": {
+          "heading": "Hvad kan du lære af dette?"
+        }
+      },
+      null,
+      {
+        "content": {
+          "text": "Godt klaret at gennemføre livsrefleksionen! Nogle gange kan det at reflektere over tidligere begivenheder hjælpe os med at se vores nuværende omstændigheder i et nyt lys.\n\nNogle gange er de mørkeste perioder af vores liv også de mest lærerige. Og nogle gange er det de hårdeste udfordringer, der baner vejen for en tid fyldt med mening og dyb forbindelse. Uanset hvad der er tilfældet for dig, opfordrer vi dig til at fortsætte samtalen med en, der står dig nær."
+        }
+      }
+    ],
     "liveDuration": 30,
+    "theme": {
+      "textColor": "#2E2E2E",
+      "backgroundColor": "#f4deb2"
+    },
+    "hidden": true,
+    "locked": false,
+    "live": false,
+    "published": true,
+    "asyncDuration": 15,
+    "card": {
+      "image": {
+        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/v1731909576/Images/card_Life_exploration_ey6d45.png"
+      }
+    },
+    "introPortal": {
+      "textColor": "#2E2E2E",
+      "hostNotes": [
+        {
+          "text": "> Start the session when you're ready to go"
+        }
+      ],
+      "videoLoop": {
+        "p5JsScript": {
+          "lang": "javascript"
+        },
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1731909546/Video/portal_1_Life_exploration_t8o0yx.mp4",
+        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1731909507/Audio/portal_audio_Life_exploration.png_hp9f8n.mp3"
+      },
+      "videoEnd": {
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1731909539/Video/portal_2_Life_exploration_ntjptt.mp4"
+      }
+    },
     "tags": [
       "566aeb1b-1649-4f5a-96a2-0c80be27efc0"
-    ]
+    ],
+    "id": "b9001702-8502-46de-bc7b-3ebf2b812c0e",
+    "async": true
   },
   "cs": {
     "description": "Vytvořte přehled vašeho dosavadního života a poučte se z minulých zkušeností. K dokončení tohoto cvičení budete potřebovat pero a papír.",

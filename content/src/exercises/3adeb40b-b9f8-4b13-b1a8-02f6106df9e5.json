@@ -409,8 +409,68 @@
     "async": false
   },
   "da": {
+    "description": "Vores indre værdier omhandler, hvem vi ønsker at være her i tilværelsen. Det er ofte mere tilfredsstillende og meningsfuldt for folk at leve i overensstemmelse med deres værdier.",
+    "name": "Mine værdier",
+    "slides": [
+      null,
+      {
+        "content": {
+          "text": "Værdier er vores inderste ønsker, som indebærer de ting, der er vigtige for os - uanset hvad. I denne øvelse vil du øve dig i at formulere dine personlige værdier, så du bedre kan lade dem guide dig i din hverdag."
+        }
+      },
+      null,
+      {
+        "content": {
+          "heading": "Hvordan føltes det at reflektere over dine værdier på denne måde?"
+        }
+      },
+      {
+        "content": {
+          "heading": "Hvordan føltes det at reflektere over dine værdier på denne måde?"
+        }
+      },
+      null,
+      {
+        "content": {
+          "text": "Godt klaret. \n\nNu har du indstillet dit personlige kompas.\n\nEr der noget, som du ønsker at ændre i dit liv efter at have gjort dette? Er der nogen af dine valgte ord eller sætninger, der kræver mere opmærksomhed fra dig? Planlæg én handling, som du kan udføre lige nu, i overensstemmelse med din værdi."
+        }
+      }
+    ],
+    "liveDuration": 30,
+    "theme": {
+      "textColor": "#2E2E2E",
+      "backgroundColor": "#c7bea2"
+    },
+    "hidden": true,
+    "locked": false,
+    "live": false,
+    "published": true,
     "asyncDuration": 15,
-    "card": {}
+    "card": {
+      "image": {
+        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1732713746/Images/card_my_values_pwtpxm.png"
+      }
+    },
+    "introPortal": {
+      "textColor": "#2E2E2E",
+      "hostNotes": [
+        {
+          "text": "> Start the session when you're ready to go"
+        }
+      ],
+      "videoLoop": {
+        "p5JsScript": {
+          "lang": "javascript"
+        },
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1732713683/Video/portal_my_values_urbnjl.mp4",
+        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1732713715/Audio/portal_audio_my_values.png_yfzm2u.mp3"
+      },
+      "videoEnd": {
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1732713682/Video/portal_2_my_values_wzq6mm.mp4"
+      }
+    },
+    "id": "3adeb40b-b9f8-4b13-b1a8-02f6106df9e5",
+    "async": true
   },
   "cs": {
     "description": "Naše vnitřní hodnoty jsou o tom, kým chceme být v životě. Život založený na hodnotách je pro lidi často naplňující a smysluplnější.",

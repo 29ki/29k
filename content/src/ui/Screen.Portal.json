@@ -39,7 +39,10 @@
     "leavePortal": "Lämna"
   },
   "ja": {},
-  "da": {},
+  "da": {
+    "leavePortal": "Forlad",
+    "startSession": "Start session"
+  },
   "cs": {
     "leavePortal": "Odejít",
     "startSession": "Začít sezení"

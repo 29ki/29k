@@ -48,7 +48,15 @@
     }
   },
   "ja": {},
-  "da": {},
+  "da": {
+    "controls": {
+      "end": "Afslut",
+      "next": "Næste",
+      "prev": "Tilbage",
+      "start": "Start"
+    },
+    "endButton": "Afslut session"
+  },
   "cs": {
     "controls": {
       "end": "Dokončit",
