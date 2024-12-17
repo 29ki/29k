@@ -1,5 +1,6 @@
 {
   "en": {
+    "liveDuration": 30,
     "slides": [
       {
         "type": "host",
@@ -85,7 +86,6 @@
     "live": false,
     "published": true,
     "asyncDuration": 10,
-    "liveDuration": 30,
     "introPortal": {
       "textColor": "#2AE2D7",
       "hostNotes": [
@@ -104,6 +104,7 @@
     "description": "All our lives will end, some day in the future. That may be an emotionally challenging thought. That is alright - feelings can’t harm us. Practicing letting them come and go is a part of the exercise. Facing our mortality can help us accept death and letting us focus on the most important thing in life - living it."
   },
   "pt": {
+    "liveDuration": 30,
     "slides": [
       {
         "type": "host",
@@ -179,19 +180,24 @@
     "live": true,
     "published": false,
     "asyncDuration": 10,
-    "liveDuration": 30,
     "introPortal": {
       "textColor": "#2AE2D7",
       "hostNotes": [
         {
           "text": "> Start the session when you're ready to go"
         }
-      ]
+      ],
+      "videoLoop": {
+        "p5JsScript": {
+          "lang": "javascript"
+        }
+      }
     },
     "id": "b491901c-37f8-48a7-829e-feb29a67a459",
     "async": false
   },
   "sv": {
+    "liveDuration": 30,
     "slides": [
       {
         "type": "host",
@@ -267,7 +273,6 @@
     "live": true,
     "published": false,
     "asyncDuration": 10,
-    "liveDuration": 30,
     "introPortal": {
       "textColor": "#2AE2D7",
       "hostNotes": [
@@ -280,6 +285,7 @@
     "async": false
   },
   "ja": {
+    "liveDuration": 30,
     "slides": [
       {
         "type": "host",
@@ -355,7 +361,6 @@
     "live": true,
     "published": false,
     "asyncDuration": 10,
-    "liveDuration": 30,
     "introPortal": {
       "textColor": "#2AE2D7",
       "hostNotes": [
