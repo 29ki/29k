@@ -97,6 +97,11 @@
         "name": "Rachel Brathen, script and voice",
         "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1709567296/Contributors/Yoga_Girl_016895_color_oju3wq_-_Square_Post_mbemkp.png",
         "url": "https://rachelbrathen.com/"
+      },
+      {
+        "name": "Ints Ivanovskis, art works",
+        "url": "https://www.linkedin.com/in/ints-ivanovskis-46ab0311a/",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413436/Contributors/Ints%20Ivanovskis.jpg"
       }
     ],
     "introPortal": {
@@ -112,6 +117,9 @@
         }
       }
     },
+    "tags": [
+      "34100e43-2eb8-4d35-8eb0-9fa9f78e4935"
+    ],
     "id": "dc38ce25-e0f3-465f-8df0-70b5f5089ce9",
     "async": true,
     "description": "In this meditation exercise we’ll practise moving through our difficulties instead of trying to avoid them. Letting ourselves experience the full spectrum of emotions can help us lead more meaningful and fulfilled lives."
@@ -206,6 +214,9 @@
         }
       }
     },
+    "tags": [
+      "34100e43-2eb8-4d35-8eb0-9fa9f78e4935"
+    ],
     "id": "dc38ce25-e0f3-465f-8df0-70b5f5089ce9",
     "async": false
   },
@@ -294,6 +305,9 @@
         }
       ]
     },
+    "tags": [
+      "34100e43-2eb8-4d35-8eb0-9fa9f78e4935"
+    ],
     "id": "dc38ce25-e0f3-465f-8df0-70b5f5089ce9",
     "async": false
   },
@@ -382,19 +396,34 @@
         }
       ]
     },
+    "tags": [
+      "34100e43-2eb8-4d35-8eb0-9fa9f78e4935"
+    ],
     "id": "dc38ce25-e0f3-465f-8df0-70b5f5089ce9",
     "async": false
   },
   "da": {
-    "liveDuration": 30
+    "liveDuration": 30,
+    "tags": [
+      "34100e43-2eb8-4d35-8eb0-9fa9f78e4935"
+    ]
   },
   "cs": {
-    "liveDuration": 30
+    "liveDuration": 30,
+    "tags": [
+      "34100e43-2eb8-4d35-8eb0-9fa9f78e4935"
+    ]
   },
   "nl": {
-    "liveDuration": 30
+    "liveDuration": 30,
+    "tags": [
+      "34100e43-2eb8-4d35-8eb0-9fa9f78e4935"
+    ]
   },
   "es": {
-    "liveDuration": 30
+    "liveDuration": 30,
+    "tags": [
+      "34100e43-2eb8-4d35-8eb0-9fa9f78e4935"
+    ]
   }
 }
