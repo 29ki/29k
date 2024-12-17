@@ -1,5 +1,6 @@
 {
   "en": {
+    "liveDuration": 29,
     "slides": [
       {
         "type": "host",
@@ -24,7 +25,13 @@
           {
             "text": "Find a comfortable position. I will start the audio exercise and we'll meet back here afterwards. \n\n> Push play to start the audio exercise"
           }
-        ]
+        ],
+        "content": {
+          "lottie": {
+            "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1734425967/SRT%20(captions)%20files/PsyPal%E2%80%93acceptance-practice.srt",
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1734426164/Audio/PsyPal_acceptance_practice_audio_eng.mp3.mp3"
+          }
+        }
       },
       {
         "type": "reflection",
@@ -85,7 +92,6 @@
     "live": false,
     "published": true,
     "asyncDuration": 10,
-    "liveDuration": 29,
     "introPortal": {
       "textColor": "#2AE2D7",
       "hostNotes": [
@@ -104,6 +110,7 @@
     "description": "In this meditation exercise we’ll practise moving through our difficulties instead of trying to avoid them. Letting ourselves experience the full spectrum of emotions can help us lead more meaningful and fulfilled lives."
   },
   "pt": {
+    "liveDuration": 29,
     "slides": [
       {
         "type": "host",
@@ -179,19 +186,24 @@
     "live": true,
     "published": false,
     "asyncDuration": 10,
-    "liveDuration": 29,
     "introPortal": {
       "textColor": "#2AE2D7",
       "hostNotes": [
         {
           "text": "> Start the session when you're ready to go"
         }
-      ]
+      ],
+      "videoLoop": {
+        "p5JsScript": {
+          "lang": "javascript"
+        }
+      }
     },
     "id": "dc38ce25-e0f3-465f-8df0-70b5f5089ce9",
     "async": false
   },
   "sv": {
+    "liveDuration": 29,
     "slides": [
       {
         "type": "host",
@@ -267,7 +279,6 @@
     "live": true,
     "published": false,
     "asyncDuration": 10,
-    "liveDuration": 29,
     "introPortal": {
       "textColor": "#2AE2D7",
       "hostNotes": [
@@ -280,6 +291,7 @@
     "async": false
   },
   "ja": {
+    "liveDuration": 29,
     "slides": [
       {
         "type": "host",
@@ -355,7 +367,6 @@
     "live": true,
     "published": false,
     "asyncDuration": 10,
-    "liveDuration": 29,
     "introPortal": {
       "textColor": "#2AE2D7",
       "hostNotes": [
