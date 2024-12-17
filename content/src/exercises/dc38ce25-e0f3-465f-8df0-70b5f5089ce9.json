@@ -1,5 +1,6 @@
 {
   "en": {
+    "liveDuration": 30,
     "slides": [
       {
         "type": "host",
@@ -24,7 +25,13 @@
           {
             "text": "Find a comfortable position. I will start the audio exercise and we'll meet back here afterwards. \n\n> Push play to start the audio exercise"
           }
-        ]
+        ],
+        "content": {
+          "lottie": {
+            "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1734425967/SRT%20(captions)%20files/PsyPal%E2%80%93acceptance-practice.srt",
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1734426164/Audio/PsyPal_acceptance_practice_audio_eng.mp3.mp3"
+          }
+        }
       },
       {
         "type": "reflection",
@@ -85,7 +92,18 @@
     "live": false,
     "published": true,
     "asyncDuration": 10,
-    "liveDuration": 29,
+    "coCreators": [
+      {
+        "name": "Rachel Brathen, script and voice",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1709567296/Contributors/Yoga_Girl_016895_color_oju3wq_-_Square_Post_mbemkp.png",
+        "url": "https://rachelbrathen.com/"
+      },
+      {
+        "name": "Ints Ivanovskis, art works",
+        "url": "https://www.linkedin.com/in/ints-ivanovskis-46ab0311a/",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413436/Contributors/Ints%20Ivanovskis.jpg"
+      }
+    ],
     "introPortal": {
       "textColor": "#2AE2D7",
       "hostNotes": [
@@ -99,11 +117,15 @@
         }
       }
     },
+    "tags": [
+      "34100e43-2eb8-4d35-8eb0-9fa9f78e4935"
+    ],
     "id": "dc38ce25-e0f3-465f-8df0-70b5f5089ce9",
     "async": true,
     "description": "In this meditation exercise we’ll practise moving through our difficulties instead of trying to avoid them. Letting ourselves experience the full spectrum of emotions can help us lead more meaningful and fulfilled lives."
   },
   "pt": {
+    "liveDuration": 30,
     "slides": [
       {
         "type": "host",
@@ -179,19 +201,27 @@
     "live": true,
     "published": false,
     "asyncDuration": 10,
-    "liveDuration": 29,
     "introPortal": {
       "textColor": "#2AE2D7",
       "hostNotes": [
         {
           "text": "> Start the session when you're ready to go"
         }
-      ]
+      ],
+      "videoLoop": {
+        "p5JsScript": {
+          "lang": "javascript"
+        }
+      }
     },
+    "tags": [
+      "34100e43-2eb8-4d35-8eb0-9fa9f78e4935"
+    ],
     "id": "dc38ce25-e0f3-465f-8df0-70b5f5089ce9",
     "async": false
   },
   "sv": {
+    "liveDuration": 30,
     "slides": [
       {
         "type": "host",
@@ -267,7 +297,6 @@
     "live": true,
     "published": false,
     "asyncDuration": 10,
-    "liveDuration": 29,
     "introPortal": {
       "textColor": "#2AE2D7",
       "hostNotes": [
@@ -276,10 +305,14 @@
         }
       ]
     },
+    "tags": [
+      "34100e43-2eb8-4d35-8eb0-9fa9f78e4935"
+    ],
     "id": "dc38ce25-e0f3-465f-8df0-70b5f5089ce9",
     "async": false
   },
   "ja": {
+    "liveDuration": 30,
     "slides": [
       {
         "type": "host",
@@ -355,7 +388,6 @@
     "live": true,
     "published": false,
     "asyncDuration": 10,
-    "liveDuration": 29,
     "introPortal": {
       "textColor": "#2AE2D7",
       "hostNotes": [
@@ -364,11 +396,34 @@
         }
       ]
     },
+    "tags": [
+      "34100e43-2eb8-4d35-8eb0-9fa9f78e4935"
+    ],
     "id": "dc38ce25-e0f3-465f-8df0-70b5f5089ce9",
     "async": false
   },
-  "da": {},
-  "cs": {},
-  "nl": {},
-  "es": {}
+  "da": {
+    "liveDuration": 30,
+    "tags": [
+      "34100e43-2eb8-4d35-8eb0-9fa9f78e4935"
+    ]
+  },
+  "cs": {
+    "liveDuration": 30,
+    "tags": [
+      "34100e43-2eb8-4d35-8eb0-9fa9f78e4935"
+    ]
+  },
+  "nl": {
+    "liveDuration": 30,
+    "tags": [
+      "34100e43-2eb8-4d35-8eb0-9fa9f78e4935"
+    ]
+  },
+  "es": {
+    "liveDuration": 30,
+    "tags": [
+      "34100e43-2eb8-4d35-8eb0-9fa9f78e4935"
+    ]
+  }
 }
