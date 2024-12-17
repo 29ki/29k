@@ -98,6 +98,18 @@
         "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1731836741/Images/card_Music_I_qt5sxp.png"
       }
     },
+    "coCreators": [
+      {
+        "name": "Catharina Messel, script and voice",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1734343422/Contributors/Catharina_Messel_Da_PsyPal.png",
+        "url": "https://palliativeprojects.eu/psypal/university-of-copenhagen/"
+      },
+      {
+        "name": "Ints Ivanovskis, art works",
+        "url": "https://www.linkedin.com/in/ints-ivanovskis-46ab0311a/?originalSubdomain=se",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413436/Contributors/Ints%20Ivanovskis.jpg"
+      }
+    ],
     "outroPortal": {
       "video": {
         "source": ""
@@ -121,9 +133,7 @@
         "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1731837714/Video/portal_2_Music_I_qtbjdr.mp4"
       }
     },
-    "tags": [
-      "566aeb1b-1649-4f5a-96a2-0c80be27efc0"
-    ],
+    "tags": ["566aeb1b-1649-4f5a-96a2-0c80be27efc0"],
     "id": "b6de2e28-325e-4ce1-8894-09ac12a6c19f",
     "async": true,
     "description": "Mindfulness and visualization guided by music, can help our brains practice being in altered states of consciousness. It may be a way to relax, reset and ground ourselves in our bodies."
@@ -251,9 +261,7 @@
         "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1731837714/Video/portal_2_Music_I_qtbjdr.mp4"
       }
     },
-    "tags": [
-      "566aeb1b-1649-4f5a-96a2-0c80be27efc0"
-    ],
+    "tags": ["566aeb1b-1649-4f5a-96a2-0c80be27efc0"],
     "id": "b6de2e28-325e-4ce1-8894-09ac12a6c19f",
     "async": true
   },
@@ -343,9 +351,7 @@
         }
       ]
     },
-    "tags": [
-      "566aeb1b-1649-4f5a-96a2-0c80be27efc0"
-    ],
+    "tags": ["566aeb1b-1649-4f5a-96a2-0c80be27efc0"],
     "id": "b6de2e28-325e-4ce1-8894-09ac12a6c19f",
     "async": false
   },
@@ -435,9 +441,7 @@
         }
       ]
     },
-    "tags": [
-      "566aeb1b-1649-4f5a-96a2-0c80be27efc0"
-    ],
+    "tags": ["566aeb1b-1649-4f5a-96a2-0c80be27efc0"],
     "id": "b6de2e28-325e-4ce1-8894-09ac12a6c19f",
     "async": false
   },
@@ -564,9 +568,7 @@
         "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1731837714/Video/portal_2_Music_I_qtbjdr.mp4"
       }
     },
-    "tags": [
-      "566aeb1b-1649-4f5a-96a2-0c80be27efc0"
-    ],
+    "tags": ["566aeb1b-1649-4f5a-96a2-0c80be27efc0"],
     "id": "b6de2e28-325e-4ce1-8894-09ac12a6c19f",
     "async": true
   },
@@ -693,9 +695,7 @@
         "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1731837714/Video/portal_2_Music_I_qtbjdr.mp4"
       }
     },
-    "tags": [
-      "566aeb1b-1649-4f5a-96a2-0c80be27efc0"
-    ],
+    "tags": ["566aeb1b-1649-4f5a-96a2-0c80be27efc0"],
     "id": "b6de2e28-325e-4ce1-8894-09ac12a6c19f",
     "async": true
   },
@@ -822,9 +822,7 @@
         "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1731837714/Video/portal_2_Music_I_qtbjdr.mp4"
       }
     },
-    "tags": [
-      "566aeb1b-1649-4f5a-96a2-0c80be27efc0"
-    ],
+    "tags": ["566aeb1b-1649-4f5a-96a2-0c80be27efc0"],
     "id": "b6de2e28-325e-4ce1-8894-09ac12a6c19f",
     "async": true
   },
