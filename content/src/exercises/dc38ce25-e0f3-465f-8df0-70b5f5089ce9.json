@@ -1,6 +1,6 @@
 {
   "en": {
-    "liveDuration": 29,
+    "liveDuration": 30,
     "slides": [
       {
         "type": "host",
@@ -92,6 +92,13 @@
     "live": false,
     "published": true,
     "asyncDuration": 10,
+    "coCreators": [
+      {
+        "name": "Rachel Brathen, script and voice",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1709567296/Contributors/Yoga_Girl_016895_color_oju3wq_-_Square_Post_mbemkp.png",
+        "url": "https://rachelbrathen.com/"
+      }
+    ],
     "introPortal": {
       "textColor": "#2AE2D7",
       "hostNotes": [
@@ -110,7 +117,7 @@
     "description": "In this meditation exercise we’ll practise moving through our difficulties instead of trying to avoid them. Letting ourselves experience the full spectrum of emotions can help us lead more meaningful and fulfilled lives."
   },
   "pt": {
-    "liveDuration": 29,
+    "liveDuration": 30,
     "slides": [
       {
         "type": "host",
@@ -203,7 +210,7 @@
     "async": false
   },
   "sv": {
-    "liveDuration": 29,
+    "liveDuration": 30,
     "slides": [
       {
         "type": "host",
@@ -291,7 +298,7 @@
     "async": false
   },
   "ja": {
-    "liveDuration": 29,
+    "liveDuration": 30,
     "slides": [
       {
         "type": "host",
@@ -378,8 +385,16 @@
     "id": "dc38ce25-e0f3-465f-8df0-70b5f5089ce9",
     "async": false
   },
-  "da": {},
-  "cs": {},
-  "nl": {},
-  "es": {}
+  "da": {
+    "liveDuration": 30
+  },
+  "cs": {
+    "liveDuration": 30
+  },
+  "nl": {
+    "liveDuration": 30
+  },
+  "es": {
+    "liveDuration": 30
+  }
 }
