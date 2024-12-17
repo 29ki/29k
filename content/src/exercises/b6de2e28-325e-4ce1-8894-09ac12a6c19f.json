@@ -129,18 +129,17 @@
     "description": "Mindfulness and visualization guided by music, can help our brains practice being in altered states of consciousness. It may be a way to relax, reset and ground ourselves in our bodies."
   },
   "pt": {
-    "liveDuration": 40,
+    "description": "Técnicas de mindfullness e de visualização/imagética guiada pela música podem ajudar os nossos cérebros a praticar estados de consciência alterados. Podem ser uma forma de relaxarmos e nos situarmos nos nossos corpos.",
+    "name": "Exercício de música PsyPal I ",
     "slides": [
       {
-        "type": "host",
-        "hostNotes": [
-          {
-            "text": "Welcome. I am X and today we will work for around 30 minutes on xx\n\nWe’ll be doing xx ex. meditation followed by time for reflection and sharing with each other."
-          },
-          {
-            "text": "Let’s start with a mini check-in. How are you feeling right now? Please answer in two-three words. X, would you like to start?\n\n> Let everyone in the session, including yourself, check in one by one.\n\nThank you all for checking in. Let’s get started."
+        "content": {
+          "text": "Neste exercício será orientado para relaxar, fazer uma exploração corporal consciente, fazer uma tarefa de visualização com música e, no final, embarcar na sua própria viagem, guiado apenas pela música.\n\nA intenção é de praticar um estado alterado de consciência.",
+          "image": {
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1731838272/Images/visual_noBG_Music_I_scubak.png"
           }
-        ]
+        },
+        "type": "instruction"
       },
       {
         "type": "content",
@@ -148,9 +147,29 @@
           {
             "text": "Find a comfortable position. I will start the audio exercise and we'll meet back here afterwards. \n\n> Push play to start the audio exercise"
           }
-        ]
+        ],
+        "content": {
+          "lottie": {
+            "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1725970559/SRT%20%28captions%29%20files/PsyPal__Music_exercise_1_igejly.srt",
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1731069614/Audio/PsyPal__Music_exercise_1_uprkfe.mp3",
+            "durationTimer": true,
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto/v1676642915/Lottie/default_audio_black_zjrmu2.json"
+          }
+        }
       },
       {
+        "content": {
+          "heading": "Como foi a sua experiência?",
+          "lottie": {
+            "durationTimer": true,
+            "duration": 60,
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto/v1676642915/Lottie/default_1min_black_rosi2l.json",
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1731845216/Audio/reflection_audio_Music_I_izc9dp.mp3"
+          },
+          "image": {
+            "source": ""
+          }
+        },
         "type": "reflection",
         "hostNotes": [
           {
@@ -162,6 +181,14 @@
         ]
       },
       {
+        "content": {
+          "heading": "Como foi a sua experiência?",
+          "lottie": {
+            "durationTimer": true,
+            "duration": 120,
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto/v1676639253/Lottie/default_2min_black_o6egey.json"
+          }
+        },
         "type": "sharing",
         "hostNotes": [
           {
@@ -177,48 +204,58 @@
         "id": "Sharing 1"
       },
       {
-        "type": "host",
-        "hostNotes": [
-          {
-            "text": "Well done. If you’re up for it, you can continue what we started here today with a mission to bring this into your everyday life.\n\nxx mission description"
-          },
-          {
-            "text": "Before we leave this space let’s do a mini check-out. \n\nHow are you feeling right now? Has anything shifted? Please answer in two-three words."
-          },
-          {
-            "text": "Who would like to start?\n\n> Let everyone in the session check out one by one.\n\nThank you all for checking out and for joining this session today.\n\n> Finish session to send everyone off to the exit experience."
-          }
-        ]
-      },
-      {
-        "type": "instruction",
         "content": {
-          "text": "Well done.\n\nSummary.\n\nIf you’re up for it, you can continue with this mission.\n\nmission description"
-        }
+          "text": "Bem-vindo de volta e bom trabalho.\n\nA imersão na música pode ajudar os nossos cérebros a descansar e a reiniciar. Pode trazer-nos novos pensamentos, assim como oferecer um intervalo do ruído quotidiano.",
+          "image": {
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1731838272/Images/visual_noBG_Music_I_scubak.png"
+          }
+        },
+        "type": "instruction"
       }
     ],
+    "liveDuration": 40,
     "theme": {
-      "textColor": "#2AE2D7"
+      "textColor": "#2E2E2E",
+      "backgroundColor": "#e6cd44"
     },
-    "hidden": false,
+    "hidden": true,
     "locked": false,
-    "live": true,
-    "published": false,
+    "live": false,
+    "published": true,
     "asyncDuration": 25,
-    "card": {},
+    "card": {
+      "image": {
+        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1731836741/Images/card_Music_I_qt5sxp.png"
+      }
+    },
+    "outroPortal": {
+      "video": {
+        "source": ""
+      }
+    },
     "introPortal": {
-      "textColor": "#2AE2D7",
+      "textColor": "#2E2E2E",
       "hostNotes": [
         {
           "text": "> Start the session when you're ready to go"
         }
-      ]
+      ],
+      "videoLoop": {
+        "p5JsScript": {
+          "lang": "javascript"
+        },
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/v1731836473/Video/portal_1_Music_I_v7ozzd.mp4",
+        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1731845216/Audio/portal_audio_Music_I_aeasai.mp3"
+      },
+      "videoEnd": {
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1731837714/Video/portal_2_Music_I_qtbjdr.mp4"
+      }
     },
     "tags": [
       "566aeb1b-1649-4f5a-96a2-0c80be27efc0"
     ],
     "id": "b6de2e28-325e-4ce1-8894-09ac12a6c19f",
-    "async": false
+    "async": true
   },
   "sv": {
     "liveDuration": 40,
