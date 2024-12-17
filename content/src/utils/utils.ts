@@ -6,7 +6,16 @@ import {
   LANGUAGE_TAG,
   LANGUAGE_TAGS,
 } from '../../../shared/src/i18n/constants';
-import {keys, mergeDeepRight, reduce, unapply, without} from 'ramda';
+import {
+  is,
+  isNil,
+  keys,
+  mergeDeepRight,
+  mergeDeepWith,
+  reduce,
+  unapply,
+  without,
+} from 'ramda';
 
 type LocalizedContent<T> = Record<LANGUAGE_TAG, Record<string, T>>;
 type Content<T> = Record<string, LocalizedContent<T>>;
@@ -102,3 +111,15 @@ export const generateI18NResources = <T>(
   );
 
 export const mergeDeepAll = unapply(reduce(mergeDeepRight, {}));
+
+export const mergeWithArrays = (a: unknown, b: unknown) => {
+  if (is(Array, a) && is(Array, b)) {
+    return b.map((item, index) => mergeWithArrays(a[index], item));
+  }
+
+  if (is(Object, a) && is(Object, b)) {
+    return mergeDeepWith(mergeWithArrays, a, b);
+  }
+
+  return isNil(a) ? b : a;
+};

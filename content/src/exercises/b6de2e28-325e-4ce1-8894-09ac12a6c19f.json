@@ -141,16 +141,17 @@
     "description": "Mindfulness and visualization guided by music, can help our brains practice being in altered states of consciousness. It may be a way to relax, reset and ground ourselves in our bodies."
   },
   "pt": {
-    "liveDuration": 40,
+    "description": "Técnicas de mindfullness e de visualização/imagética guiada pela música podem ajudar os nossos cérebros a praticar estados de consciência alterados. Podem ser uma forma de relaxarmos e nos situarmos nos nossos corpos.",
+    "name": "Exercício de música PsyPal I ",
     "slides": [
       {
-        "type": "instruction",
         "content": {
-          "text": "In this exercise you will be guided to relax, do a mindful body scan, a visualization task with music, and finally embark on your own journey, guided by the music alone. \n\nThe intention is to practice being in an altered state of consciousness.",
+          "text": "Neste exercício será orientado para relaxar, fazer uma exploração corporal consciente, fazer uma tarefa de visualização com música e, no final, embarcar na sua própria viagem, guiado apenas pela música.\n\nA intenção é de praticar um estado alterado de consciência.",
           "image": {
             "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1731838272/Images/visual_noBG_Music_I_scubak.png"
           }
-        }
+        },
+        "type": "instruction"
       },
       {
         "type": "content",
@@ -169,17 +170,8 @@
         }
       },
       {
-        "type": "reflection",
-        "hostNotes": [
-          {
-            "text": "Now we’ll take 1 minute to reflect on our own.\n\nxxMain question\n\nxxFurther explanations of main question if needed"
-          },
-          {
-            "text": "You can take notes on a piece of paper or just mental notes in your head. And there is no right or wrong here, our answers are our own. 1 minute starting now.\n\n> Press play to start the timer.\n\nThat’s 1 minute and it’s time to move on."
-          }
-        ],
         "content": {
-          "heading": "How did you experience this?",
+          "heading": "Como foi a sua experiência?",
           "lottie": {
             "durationTimer": true,
             "duration": 60,
@@ -189,9 +181,26 @@
           "image": {
             "source": ""
           }
-        }
+        },
+        "type": "reflection",
+        "hostNotes": [
+          {
+            "text": "Now we’ll take 1 minute to reflect on our own.\n\nxxMain question\n\nxxFurther explanations of main question if needed"
+          },
+          {
+            "text": "You can take notes on a piece of paper or just mental notes in your head. And there is no right or wrong here, our answers are our own. 1 minute starting now.\n\n> Press play to start the timer.\n\nThat’s 1 minute and it’s time to move on."
+          }
+        ]
       },
       {
+        "content": {
+          "heading": "Como foi a sua experiência?",
+          "lottie": {
+            "durationTimer": true,
+            "duration": 120,
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto/v1676639253/Lottie/default_2min_black_o6egey.json"
+          }
+        },
         "type": "sharing",
         "hostNotes": [
           {
@@ -204,34 +213,26 @@
             "text": "Who would like to start?\n\n> Let everyone (or as many as you got time for) share one by one. Press play to start the timer. Re-start for each new sharing.\n\nThank you so much everyone."
           }
         ],
-        "id": "Sharing 1",
-        "content": {
-          "heading": "How did you experience this?",
-          "lottie": {
-            "durationTimer": true,
-            "duration": 120,
-            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto/v1676639253/Lottie/default_2min_black_o6egey.json"
-          }
-        }
+        "id": "Sharing 1"
       },
       {
-        "type": "instruction",
         "content": {
-          "text": "Well done. \n\nImmersing oneself into music can help our brains to rest and reset. It can bring new thoughts as well as give us a break from the everyday buzz.",
+          "text": "Bem-vindo de volta e bom trabalho.\n\nA imersão na música pode ajudar os nossos cérebros a descansar e a reiniciar. Pode trazer-nos novos pensamentos, assim como oferecer um intervalo do ruído quotidiano.",
           "image": {
             "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1731838272/Images/visual_noBG_Music_I_scubak.png"
           }
-        }
+        },
+        "type": "instruction"
       }
     ],
+    "liveDuration": 40,
     "theme": {
       "textColor": "#2E2E2E",
       "backgroundColor": "#e6cd44"
     },
     "hidden": true,
     "locked": false,
-    "name": "PsyPal Music exercise I",
-    "live": true,
+    "live": false,
     "published": true,
     "asyncDuration": 25,
     "card": {
@@ -278,8 +279,7 @@
       "566aeb1b-1649-4f5a-96a2-0c80be27efc0"
     ],
     "id": "b6de2e28-325e-4ce1-8894-09ac12a6c19f",
-    "async": true,
-    "description": "Mindfulness and visualization guided by music, can help our brains practice being in altered states of consciousness. It may be a way to relax, reset and ground ourselves in our bodies."
+    "async": true
   },
   "sv": {
     "liveDuration": 40,
@@ -466,16 +466,17 @@
     "async": false
   },
   "da": {
-    "liveDuration": 40,
+    "description": "Mindfulness og musik-guidet visualisering kan hjælpe os til at træde ind i en let ændret bevidsthedstilstand, samt slappe af, genstarte, og komme i kontakt med kroppen. ",
+    "name": "PsyPal musikøvelse I",
     "slides": [
       {
-        "type": "instruction",
         "content": {
-          "text": "In this exercise you will be guided to relax, do a mindful body scan, a visualization task with music, and finally embark on your own journey, guided by the music alone. \n\nThe intention is to practice being in an altered state of consciousness.",
+          "text": "I denne øvelse vil du blive guidet til at slappe af, foretage en  kropsscanning, udføre en visualiseringsøvelse med musik og til sidst begive dig ud på din egen rejse, kun guidet af musikken.\n\nHensigten med dette er at øve det at være i en ændret bevidsthedstilstand. ",
           "image": {
             "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1731838272/Images/visual_noBG_Music_I_scubak.png"
           }
-        }
+        },
+        "type": "instruction"
       },
       {
         "type": "content",
@@ -494,17 +495,8 @@
         }
       },
       {
-        "type": "reflection",
-        "hostNotes": [
-          {
-            "text": "Now we’ll take 1 minute to reflect on our own.\n\nxxMain question\n\nxxFurther explanations of main question if needed"
-          },
-          {
-            "text": "You can take notes on a piece of paper or just mental notes in your head. And there is no right or wrong here, our answers are our own. 1 minute starting now.\n\n> Press play to start the timer.\n\nThat’s 1 minute and it’s time to move on."
-          }
-        ],
         "content": {
-          "heading": "How did you experience this?",
+          "heading": "Hvordan føltes dette?",
           "lottie": {
             "durationTimer": true,
             "duration": 60,
@@ -514,9 +506,26 @@
           "image": {
             "source": ""
           }
-        }
+        },
+        "type": "reflection",
+        "hostNotes": [
+          {
+            "text": "Now we’ll take 1 minute to reflect on our own.\n\nxxMain question\n\nxxFurther explanations of main question if needed"
+          },
+          {
+            "text": "You can take notes on a piece of paper or just mental notes in your head. And there is no right or wrong here, our answers are our own. 1 minute starting now.\n\n> Press play to start the timer.\n\nThat’s 1 minute and it’s time to move on."
+          }
+        ]
       },
       {
+        "content": {
+          "heading": "Hvordan føltes det?",
+          "lottie": {
+            "durationTimer": true,
+            "duration": 120,
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto/v1676639253/Lottie/default_2min_black_o6egey.json"
+          }
+        },
         "type": "sharing",
         "hostNotes": [
           {
@@ -529,33 +538,26 @@
             "text": "Who would like to start?\n\n> Let everyone (or as many as you got time for) share one by one. Press play to start the timer. Re-start for each new sharing.\n\nThank you so much everyone."
           }
         ],
-        "id": "Sharing 1",
-        "content": {
-          "heading": "How did you experience this?",
-          "lottie": {
-            "durationTimer": true,
-            "duration": 120,
-            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto/v1676639253/Lottie/default_2min_black_o6egey.json"
-          }
-        }
+        "id": "Sharing 1"
       },
       {
-        "type": "instruction",
         "content": {
-          "text": "Well done. \n\nImmersing oneself into music can help our brains to rest and reset. It can bring new thoughts as well as give us a break from the everyday buzz.",
+          "text": "Velkommen tilbage, og godt klaret. \n\nAt fordybe sig i musik kan hjælpe os  med at slappe af og give slip. Det kan give plads til nye tanker og kan give os en pause fra hverdagens larm.",
           "image": {
             "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1731838272/Images/visual_noBG_Music_I_scubak.png"
           }
-        }
+        },
+        "type": "instruction"
       }
     ],
+    "liveDuration": 40,
     "theme": {
       "textColor": "#2E2E2E",
       "backgroundColor": "#e6cd44"
     },
     "hidden": true,
     "locked": false,
-    "name": "PsyPal Music exercise I",
+    "live": false,
     "published": true,
     "asyncDuration": 25,
     "card": {
@@ -601,20 +603,21 @@
     "tags": [
       "566aeb1b-1649-4f5a-96a2-0c80be27efc0"
     ],
-    "async": true,
-    "description": "Mindfulness and visualization guided by music, can help our brains practice being in altered states of consciousness. It may be a way to relax, reset and ground ourselves in our bodies."
+    "id": "b6de2e28-325e-4ce1-8894-09ac12a6c19f",
+    "async": true
   },
   "cs": {
-    "liveDuration": 40,
+    "description": "Cvičení všímavosti a vizualizace s hudbou může pomoci naší mysli prožívat změněné stavy vědomí. Může být cestou, jak se uvolnit, nabrat nové síly a uzemnit se ve svém těle.",
+    "name": "PsyPal hudební cvičení I",
     "slides": [
       {
-        "type": "instruction",
         "content": {
-          "text": "In this exercise you will be guided to relax, do a mindful body scan, a visualization task with music, and finally embark on your own journey, guided by the music alone. \n\nThe intention is to practice being in an altered state of consciousness.",
+          "text": "Součástí tohoto cvičení bude relaxace, skenování vašich tělesných pocitů, slovem vedená vizualizace s hudbou a nakonec se vydáte na vlastní cestu jen s hudbou.\n\nZáměrem je učit se prožívat změněný stav vědomí.",
           "image": {
             "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1731838272/Images/visual_noBG_Music_I_scubak.png"
           }
-        }
+        },
+        "type": "instruction"
       },
       {
         "type": "content",
@@ -633,17 +636,8 @@
         }
       },
       {
-        "type": "reflection",
-        "hostNotes": [
-          {
-            "text": "Now we’ll take 1 minute to reflect on our own.\n\nxxMain question\n\nxxFurther explanations of main question if needed"
-          },
-          {
-            "text": "You can take notes on a piece of paper or just mental notes in your head. And there is no right or wrong here, our answers are our own. 1 minute starting now.\n\n> Press play to start the timer.\n\nThat’s 1 minute and it’s time to move on."
-          }
-        ],
         "content": {
-          "heading": "How did you experience this?",
+          "heading": "Jak jste toto prožívali?",
           "lottie": {
             "durationTimer": true,
             "duration": 60,
@@ -653,9 +647,26 @@
           "image": {
             "source": ""
           }
-        }
+        },
+        "type": "reflection",
+        "hostNotes": [
+          {
+            "text": "Now we’ll take 1 minute to reflect on our own.\n\nxxMain question\n\nxxFurther explanations of main question if needed"
+          },
+          {
+            "text": "You can take notes on a piece of paper or just mental notes in your head. And there is no right or wrong here, our answers are our own. 1 minute starting now.\n\n> Press play to start the timer.\n\nThat’s 1 minute and it’s time to move on."
+          }
+        ]
       },
       {
+        "content": {
+          "heading": "Jak jste toto prožívali?",
+          "lottie": {
+            "durationTimer": true,
+            "duration": 120,
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto/v1676639253/Lottie/default_2min_black_o6egey.json"
+          }
+        },
         "type": "sharing",
         "hostNotes": [
           {
@@ -668,33 +679,26 @@
             "text": "Who would like to start?\n\n> Let everyone (or as many as you got time for) share one by one. Press play to start the timer. Re-start for each new sharing.\n\nThank you so much everyone."
           }
         ],
-        "id": "Sharing 1",
-        "content": {
-          "heading": "How did you experience this?",
-          "lottie": {
-            "durationTimer": true,
-            "duration": 120,
-            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto/v1676639253/Lottie/default_2min_black_o6egey.json"
-          }
-        }
+        "id": "Sharing 1"
       },
       {
-        "type": "instruction",
         "content": {
-          "text": "Well done. \n\nImmersing oneself into music can help our brains to rest and reset. It can bring new thoughts as well as give us a break from the everyday buzz.",
+          "text": "Vítejte zpět. Dobrá práce.\n\nPonoření se do poslechu hudby může pomoci naší mysli odpočinout si a nabrat nové síly. Může přinést nové myšlenky a také nám poskytnout přestávku od každodenního shonu.",
           "image": {
             "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1731838272/Images/visual_noBG_Music_I_scubak.png"
           }
-        }
+        },
+        "type": "instruction"
       }
     ],
+    "liveDuration": 40,
     "theme": {
       "textColor": "#2E2E2E",
       "backgroundColor": "#e6cd44"
     },
     "hidden": true,
     "locked": false,
-    "name": "PsyPal Music exercise I",
+    "live": false,
     "published": true,
     "asyncDuration": 25,
     "card": {
@@ -740,20 +744,21 @@
     "tags": [
       "566aeb1b-1649-4f5a-96a2-0c80be27efc0"
     ],
-    "async": true,
-    "description": "Mindfulness and visualization guided by music, can help our brains practice being in altered states of consciousness. It may be a way to relax, reset and ground ourselves in our bodies."
+    "id": "b6de2e28-325e-4ce1-8894-09ac12a6c19f",
+    "async": true
   },
   "nl": {
-    "liveDuration": 40,
+    "description": "Mindfulness en visualisatie begeleid door muziek kunnen onze hersenen helpen oefenen in het ervaren van veranderde bewustzijnstoestanden. Het kan een manier zijn om te ontspannen, te resetten en onszelf te aarden in ons lichaam.",
+    "name": "PsyPal muziekoefening I",
     "slides": [
       {
-        "type": "instruction",
         "content": {
-          "text": "In this exercise you will be guided to relax, do a mindful body scan, a visualization task with music, and finally embark on your own journey, guided by the music alone. \n\nThe intention is to practice being in an altered state of consciousness.",
+          "text": "In deze oefening word je begeleid om te ontspannen, een mindfulness bodyscan te doen, een visualisatietaak met muziek uit te voeren, en ten slotte je eigen reis te beginnen, alleen begeleid door de muziek.\n\nHet doel is om te oefenen in het ervaren van een veranderde bewustzijnstoestand.",
           "image": {
             "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1731838272/Images/visual_noBG_Music_I_scubak.png"
           }
-        }
+        },
+        "type": "instruction"
       },
       {
         "type": "content",
@@ -772,17 +777,8 @@
         }
       },
       {
-        "type": "reflection",
-        "hostNotes": [
-          {
-            "text": "Now we’ll take 1 minute to reflect on our own.\n\nxxMain question\n\nxxFurther explanations of main question if needed"
-          },
-          {
-            "text": "You can take notes on a piece of paper or just mental notes in your head. And there is no right or wrong here, our answers are our own. 1 minute starting now.\n\n> Press play to start the timer.\n\nThat’s 1 minute and it’s time to move on."
-          }
-        ],
         "content": {
-          "heading": "How did you experience this?",
+          "heading": "Hoe heb je dit ervaren?",
           "lottie": {
             "durationTimer": true,
             "duration": 60,
@@ -792,9 +788,26 @@
           "image": {
             "source": ""
           }
-        }
+        },
+        "type": "reflection",
+        "hostNotes": [
+          {
+            "text": "Now we’ll take 1 minute to reflect on our own.\n\nxxMain question\n\nxxFurther explanations of main question if needed"
+          },
+          {
+            "text": "You can take notes on a piece of paper or just mental notes in your head. And there is no right or wrong here, our answers are our own. 1 minute starting now.\n\n> Press play to start the timer.\n\nThat’s 1 minute and it’s time to move on."
+          }
+        ]
       },
       {
+        "content": {
+          "heading": "Hoe heb je dit ervaren?",
+          "lottie": {
+            "durationTimer": true,
+            "duration": 120,
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto/v1676639253/Lottie/default_2min_black_o6egey.json"
+          }
+        },
         "type": "sharing",
         "hostNotes": [
           {
@@ -807,33 +820,26 @@
             "text": "Who would like to start?\n\n> Let everyone (or as many as you got time for) share one by one. Press play to start the timer. Re-start for each new sharing.\n\nThank you so much everyone."
           }
         ],
-        "id": "Sharing 1",
-        "content": {
-          "heading": "How did you experience this?",
-          "lottie": {
-            "durationTimer": true,
-            "duration": 120,
-            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto/v1676639253/Lottie/default_2min_black_o6egey.json"
-          }
-        }
+        "id": "Sharing 1"
       },
       {
-        "type": "instruction",
         "content": {
-          "text": "Well done. \n\nImmersing oneself into music can help our brains to rest and reset. It can bring new thoughts as well as give us a break from the everyday buzz.",
+          "text": "Welkom terug, en goed gedaan.\n\nJezelf onderdompelen in muziek kan onze hersenen helpen rusten en enigszins resetten. Het kan nieuwe gedachten brengen en ons een pauze geven van de dagelijkse drukte.",
           "image": {
             "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1731838272/Images/visual_noBG_Music_I_scubak.png"
           }
-        }
+        },
+        "type": "instruction"
       }
     ],
+    "liveDuration": 40,
     "theme": {
       "textColor": "#2E2E2E",
       "backgroundColor": "#e6cd44"
     },
     "hidden": true,
     "locked": false,
-    "name": "PsyPal Music exercise I",
+    "live": false,
     "published": true,
     "asyncDuration": 25,
     "card": {
@@ -879,13 +885,8 @@
     "tags": [
       "566aeb1b-1649-4f5a-96a2-0c80be27efc0"
     ],
-    "async": true,
-    "description": "Mindfulness and visualization guided by music, can help our brains practice being in altered states of consciousness. It may be a way to relax, reset and ground ourselves in our bodies."
+    "id": "b6de2e28-325e-4ce1-8894-09ac12a6c19f",
+    "async": true
   },
-  "es": {
-    "tags": [
-      "566aeb1b-1649-4f5a-96a2-0c80be27efc0"
-    ],
-    "card": {}
-  }
+  "es": {}
 }

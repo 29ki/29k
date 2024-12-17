@@ -1,7 +1,7 @@
-import {mergeDeepLeft, uniq} from 'ramda';
+import {mergeDeepWith, uniq} from 'ramda';
 import {unflatten} from 'safe-flat';
 import * as csv from '@fast-csv/parse';
-import {getContentByType} from './src/utils/utils';
+import {getContentByType, mergeWithArrays} from './src/utils/utils';
 import {DEFAULT_LANGUAGE_TAG, LANGUAGE_TAG} from '../shared/src/i18n/constants';
 import fs from 'fs';
 import path from 'path';
@@ -65,7 +65,8 @@ const main = async () => {
         const filePath = path.resolve('src', type, `${fileKey}.json`);
         const fileContent = {
           ...content,
-          [TO_LANGUAGE_TAG]: mergeDeepLeft(
+          [TO_LANGUAGE_TAG]: mergeDeepWith(
+            mergeWithArrays,
             unflatten(fileTranslations),
             skipLanguageMergeForTypes.includes(type)
               ? {}

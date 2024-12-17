@@ -152,7 +152,8 @@
     "description": "Create an overview of your life so far, and learn from your own past experiences. You'll need pen and paper to complete this exercise."
   },
   "pt": {
-    "liveDuration": 30,
+    "description": "Faça uma síntese da sua vida até ao momento presente, e reflita sobre as suas experiências passadas. Para realizar este exercício, vai precisar de papel e caneta.",
+    "name": "Exploração de vida",
     "slides": [
       {
         "type": "host",
@@ -166,13 +167,13 @@
         ]
       },
       {
-        "type": "instruction",
         "content": {
-          "text": "Take a close look at your life as it has evolved up until now. This exercise can bring up strong emotions. That is alright and all part of the exercise. If you need to, you can take a break at any time.",
+          "text": "Examine de perto a evolução da sua vida até ao momento presente. Este exercício poderá trazer emoções intensas, o que é normal e faz parte do processo. Se precisar pode fazer uma pausa a qualquer momento.",
           "image": {
             "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1731909575/Images/visual_noBG_Life_exploration_ejdn1o.png"
           }
-        }
+        },
+        "type": "instruction"
       },
       {
         "type": "content",
@@ -210,6 +211,9 @@
         }
       },
       {
+        "content": {
+          "heading": "Que conclusões pode retirar desta experiência?"
+        },
         "type": "sharing",
         "hostNotes": [
           {
@@ -222,10 +226,7 @@
             "text": "Who would like to start?\n\n> Let everyone (or as many as you got time for) share one by one. Press play to start the timer. Re-start for each new sharing.\n\nThank you so much everyone."
           }
         ],
-        "id": "Sharing 1",
-        "content": {
-          "heading": "What can you learn from this?"
-        }
+        "id": "Sharing 1"
       },
       {
         "type": "host",
@@ -242,23 +243,23 @@
         ]
       },
       {
-        "type": "instruction",
         "content": {
-          "text": "Well done for completing the life exploration. To actively reflect on past events sometimes help us look at the current circumstances in a different light. \n\nSometimes the darker periods are the ones where we have learned the most. And sometimes the toughest challenges are followed by a time of deep connection and meaning. Whatever is true for you, we encourage you to continue the conversation with someone close to you.",
+          "text": "Parabéns por ter concluído a exploração da sua vida. Refletir ativamente sobre eventos passados pode, por vezes, ajudar a ver as circunstâncias atuais de uma nova perspetiva.\n\nPor vezes, os períodos mais difíceis são aqueles em que mais aprendemos, e, em algumas situações, os desafios mais exigentes são seguidos por um tempo de profunda conexão e significado. Seja qual for a sua realidade, encorajamo-lo a continuar a conversa com alguém próximo de si.",
           "image": {
             "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1731909575/Images/visual_noBG_Life_exploration_ejdn1o.png"
           }
-        }
+        },
+        "type": "instruction"
       }
     ],
+    "liveDuration": 30,
     "theme": {
       "textColor": "#2E2E2E",
       "backgroundColor": "#f4deb2"
     },
     "hidden": true,
     "locked": false,
-    "name": "PsyPal Life exploration",
-    "live": true,
+    "live": false,
     "published": true,
     "asyncDuration": 15,
     "card": {
@@ -300,8 +301,7 @@
       "566aeb1b-1649-4f5a-96a2-0c80be27efc0"
     ],
     "id": "b9001702-8502-46de-bc7b-3ebf2b812c0e",
-    "async": true,
-    "description": "Create an overview of your life so far, and learn from your own past experiences. You'll need pen and paper to complete this exercise."
+    "async": true
   },
   "sv": {
     "liveDuration": 30,
@@ -488,7 +488,8 @@
     "async": false
   },
   "da": {
-    "liveDuration": 30,
+    "description": "Lav en oversigt over dit livsforløb frem til nu, og lær af dine egne tidligere erfaringer. Du skal bruge pen og papir for at gennemføre denne øvelse.",
+    "name": "PsyPal Livsrefleksion",
     "slides": [
       {
         "type": "host",
@@ -502,13 +503,13 @@
         ]
       },
       {
-        "type": "instruction",
         "content": {
-          "text": "Take a close look at your life as it has evolved up until now. This exercise can bring up strong emotions. That is alright and all part of the exercise. If you need to, you can take a break at any time.",
+          "text": "Kast et nærmere blik på dit liv, som det har udfoldet sig frem til nu. Denne øvelse kan frembringe stærke følelser. Det er helt i orden og er en del af øvelsen. Hvis du har brug for det kan du altid tage en pause undervejs. ",
           "image": {
             "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1731909575/Images/visual_noBG_Life_exploration_ejdn1o.png"
           }
-        }
+        },
+        "type": "instruction"
       },
       {
         "type": "content",
@@ -526,6 +527,15 @@
         }
       },
       {
+        "content": {
+          "heading": "Hvad kan du lære af dette?",
+          "lottie": {
+            "durationTimer": true,
+            "duration": 60,
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1676642915/Lottie/default_1min_black_rosi2l.json",
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1731909507/Audio/reflection_audio_Life_exploration.png_duevze.mp3"
+          }
+        },
         "type": "reflection",
         "hostNotes": [
           {
@@ -534,18 +544,12 @@
           {
             "text": "You can take notes on a piece of paper or just mental notes in your head. And there is no right or wrong here, our answers are our own. 1 minute starting now.\n\n> Press play to start the timer.\n\nThat’s 1 minute and it’s time to move on."
           }
-        ],
-        "content": {
-          "heading": "What can you learn from this?",
-          "lottie": {
-            "durationTimer": true,
-            "duration": 60,
-            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1676642915/Lottie/default_1min_black_rosi2l.json",
-            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1731909507/Audio/reflection_audio_Life_exploration.png_duevze.mp3"
-          }
-        }
+        ]
       },
       {
+        "content": {
+          "heading": "Hvad kan du lære af dette?"
+        },
         "type": "sharing",
         "hostNotes": [
           {
@@ -558,10 +562,7 @@
             "text": "Who would like to start?\n\n> Let everyone (or as many as you got time for) share one by one. Press play to start the timer. Re-start for each new sharing.\n\nThank you so much everyone."
           }
         ],
-        "id": "Sharing 1",
-        "content": {
-          "heading": "What can you learn from this?"
-        }
+        "id": "Sharing 1"
       },
       {
         "type": "host",
@@ -578,21 +579,23 @@
         ]
       },
       {
-        "type": "instruction",
         "content": {
-          "text": "Well done for completing the life exploration. To actively reflect on past events sometimes help us look at the current circumstances in a different light. \n\nSometimes the darker periods are the ones where we have learned the most. And sometimes the toughest challenges are followed by a time of deep connection and meaning. Whatever is true for you, we encourage you to continue the conversation with someone close to you.",
+          "text": "Godt klaret at gennemføre livsrefleksionen! Nogle gange kan det at reflektere over tidligere begivenheder hjælpe os med at se vores nuværende omstændigheder i et nyt lys.\n\nNogle gange er de mørkeste perioder af vores liv også de mest lærerige. Og nogle gange er det de hårdeste udfordringer, der baner vejen for en tid fyldt med mening og dyb forbindelse. Uanset hvad der er tilfældet for dig, opfordrer vi dig til at fortsætte samtalen med en, der står dig nær.",
           "image": {
             "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1731909575/Images/visual_noBG_Life_exploration_ejdn1o.png"
           }
-        }
+        },
+        "type": "instruction"
       }
     ],
+    "liveDuration": 30,
     "theme": {
       "textColor": "#2E2E2E",
       "backgroundColor": "#f4deb2"
     },
     "hidden": true,
-    "name": "PsyPal Life exploration",
+    "locked": false,
+    "live": false,
     "published": true,
     "asyncDuration": 15,
     "card": {
@@ -633,11 +636,12 @@
     "tags": [
       "566aeb1b-1649-4f5a-96a2-0c80be27efc0"
     ],
-    "async": true,
-    "description": "Create an overview of your life so far, and learn from your own past experiences. You'll need pen and paper to complete this exercise."
+    "id": "b9001702-8502-46de-bc7b-3ebf2b812c0e",
+    "async": true
   },
   "cs": {
-    "liveDuration": 30,
+    "description": "Vytvořte přehled vašeho dosavadního života a poučte se z minulých zkušeností. K dokončení tohoto cvičení budete potřebovat pero a papír.",
+    "name": "PsyPal Průzkum života",
     "slides": [
       {
         "type": "host",
@@ -651,13 +655,13 @@
         ]
       },
       {
-        "type": "instruction",
         "content": {
-          "text": "Take a close look at your life as it has evolved up until now. This exercise can bring up strong emotions. That is alright and all part of the exercise. If you need to, you can take a break at any time.",
+          "text": "Podívejte se zblízka na svůj život, jak se vyvíjel až do současnosti. Toto cvičení může vyvolat silné emoce. To je v pořádku a je to součástí cvičení. Pokud potřebujete, můžete si kdykoli udělat přestávku.",
           "image": {
             "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1731909575/Images/visual_noBG_Life_exploration_ejdn1o.png"
           }
-        }
+        },
+        "type": "instruction"
       },
       {
         "type": "content",
@@ -675,6 +679,15 @@
         }
       },
       {
+        "content": {
+          "heading": "Co se z toho můžete naučit?",
+          "lottie": {
+            "durationTimer": true,
+            "duration": 60,
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1676642915/Lottie/default_1min_black_rosi2l.json",
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1731909507/Audio/reflection_audio_Life_exploration.png_duevze.mp3"
+          }
+        },
         "type": "reflection",
         "hostNotes": [
           {
@@ -683,18 +696,12 @@
           {
             "text": "You can take notes on a piece of paper or just mental notes in your head. And there is no right or wrong here, our answers are our own. 1 minute starting now.\n\n> Press play to start the timer.\n\nThat’s 1 minute and it’s time to move on."
           }
-        ],
-        "content": {
-          "heading": "What can you learn from this?",
-          "lottie": {
-            "durationTimer": true,
-            "duration": 60,
-            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1676642915/Lottie/default_1min_black_rosi2l.json",
-            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1731909507/Audio/reflection_audio_Life_exploration.png_duevze.mp3"
-          }
-        }
+        ]
       },
       {
+        "content": {
+          "heading": "Co se z toho můžete naučit?"
+        },
         "type": "sharing",
         "hostNotes": [
           {
@@ -707,10 +714,7 @@
             "text": "Who would like to start?\n\n> Let everyone (or as many as you got time for) share one by one. Press play to start the timer. Re-start for each new sharing.\n\nThank you so much everyone."
           }
         ],
-        "id": "Sharing 1",
-        "content": {
-          "heading": "What can you learn from this?"
-        }
+        "id": "Sharing 1"
       },
       {
         "type": "host",
@@ -727,21 +731,23 @@
         ]
       },
       {
-        "type": "instruction",
         "content": {
-          "text": "Well done for completing the life exploration. To actively reflect on past events sometimes help us look at the current circumstances in a different light. \n\nSometimes the darker periods are the ones where we have learned the most. And sometimes the toughest challenges are followed by a time of deep connection and meaning. Whatever is true for you, we encourage you to continue the conversation with someone close to you.",
+          "text": "Výborně, že jste dokončili cvičení zaměřené naprůzkum vašeho života. Aktivní reflexe minulých událostí nám někdy pomáhá vidět současnou situaci v jiném světle.\n\nNěkdy jsou nejtemnější období ta, ve kterých jsme se naučili nejvíce. A někdy po nejtěžších výzvách následuje období hlubokého spojení a smyslu. Ať už to platí nebo neplatí také pro vás, doporučujeme pokračovat v rozhovoru s někým vám blízkým.",
           "image": {
             "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1731909575/Images/visual_noBG_Life_exploration_ejdn1o.png"
           }
-        }
+        },
+        "type": "instruction"
       }
     ],
+    "liveDuration": 30,
     "theme": {
       "textColor": "#2E2E2E",
       "backgroundColor": "#f4deb2"
     },
     "hidden": true,
-    "name": "PsyPal Life exploration",
+    "locked": false,
+    "live": false,
     "published": true,
     "asyncDuration": 15,
     "card": {
@@ -782,11 +788,12 @@
     "tags": [
       "566aeb1b-1649-4f5a-96a2-0c80be27efc0"
     ],
-    "async": true,
-    "description": "Create an overview of your life so far, and learn from your own past experiences. You'll need pen and paper to complete this exercise."
+    "id": "b9001702-8502-46de-bc7b-3ebf2b812c0e",
+    "async": true
   },
   "nl": {
-    "liveDuration": 30,
+    "description": "Maak een overzicht van je leven tot nu toe en leer van je eigen ervaringen uit het verleden. Je hebt pen en papier nodig om deze oefening te voltooien.",
+    "name": "PsyPal Levensverkenning",
     "slides": [
       {
         "type": "host",
@@ -800,13 +807,13 @@
         ]
       },
       {
-        "type": "instruction",
         "content": {
-          "text": "Take a close look at your life as it has evolved up until now. This exercise can bring up strong emotions. That is alright and all part of the exercise. If you need to, you can take a break at any time.",
+          "text": "Neem een goede kijk op je leven zoals het zich tot nu toe heeft ontwikkeld. Deze oefening kan sterke emoties oproepen. Dat is oké en maakt deel uit van de oefening. Als je het nodig hebt, kun je op elk moment een pauze nemen.",
           "image": {
             "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1731909575/Images/visual_noBG_Life_exploration_ejdn1o.png"
           }
-        }
+        },
+        "type": "instruction"
       },
       {
         "type": "content",
@@ -824,6 +831,15 @@
         }
       },
       {
+        "content": {
+          "heading": "Wat kun je hiervan leren?",
+          "lottie": {
+            "durationTimer": true,
+            "duration": 60,
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1676642915/Lottie/default_1min_black_rosi2l.json",
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1731909507/Audio/reflection_audio_Life_exploration.png_duevze.mp3"
+          }
+        },
         "type": "reflection",
         "hostNotes": [
           {
@@ -832,18 +848,12 @@
           {
             "text": "You can take notes on a piece of paper or just mental notes in your head. And there is no right or wrong here, our answers are our own. 1 minute starting now.\n\n> Press play to start the timer.\n\nThat’s 1 minute and it’s time to move on."
           }
-        ],
-        "content": {
-          "heading": "What can you learn from this?",
-          "lottie": {
-            "durationTimer": true,
-            "duration": 60,
-            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1676642915/Lottie/default_1min_black_rosi2l.json",
-            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1731909507/Audio/reflection_audio_Life_exploration.png_duevze.mp3"
-          }
-        }
+        ]
       },
       {
+        "content": {
+          "heading": "Wat kun je hiervan leren?"
+        },
         "type": "sharing",
         "hostNotes": [
           {
@@ -856,10 +866,7 @@
             "text": "Who would like to start?\n\n> Let everyone (or as many as you got time for) share one by one. Press play to start the timer. Re-start for each new sharing.\n\nThank you so much everyone."
           }
         ],
-        "id": "Sharing 1",
-        "content": {
-          "heading": "What can you learn from this?"
-        }
+        "id": "Sharing 1"
       },
       {
         "type": "host",
@@ -876,21 +883,23 @@
         ]
       },
       {
-        "type": "instruction",
         "content": {
-          "text": "Well done for completing the life exploration. To actively reflect on past events sometimes help us look at the current circumstances in a different light. \n\nSometimes the darker periods are the ones where we have learned the most. And sometimes the toughest challenges are followed by a time of deep connection and meaning. Whatever is true for you, we encourage you to continue the conversation with someone close to you.",
+          "text": "Goed gedaan met het voltooien van de levensverkenning. Actief reflecteren op gebeurtenissen uit het verleden helpt ons soms om de huidige omstandigheden in een ander licht te zien.\n\nSoms zijn de donkerste periodes degene waarvan we het meest hebben geleerd. En soms worden de moeilijkste uitdagingen gevolgd door een tijd van diepe verbondenheid en betekenis. Wat voor jou ook waar is, we moedigen je aan om het gesprek voort te zetten met iemand die dicht bij je staat.",
           "image": {
             "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1731909575/Images/visual_noBG_Life_exploration_ejdn1o.png"
           }
-        }
+        },
+        "type": "instruction"
       }
     ],
+    "liveDuration": 30,
     "theme": {
       "textColor": "#2E2E2E",
       "backgroundColor": "#f4deb2"
     },
     "hidden": true,
-    "name": "PsyPal Life exploration",
+    "locked": false,
+    "live": false,
     "published": true,
     "asyncDuration": 15,
     "card": {
@@ -931,13 +940,8 @@
     "tags": [
       "566aeb1b-1649-4f5a-96a2-0c80be27efc0"
     ],
-    "async": true,
-    "description": "Create an overview of your life so far, and learn from your own past experiences. You'll need pen and paper to complete this exercise."
+    "id": "b9001702-8502-46de-bc7b-3ebf2b812c0e",
+    "async": true
   },
-  "es": {
-    "tags": [
-      "566aeb1b-1649-4f5a-96a2-0c80be27efc0"
-    ],
-    "card": {}
-  }
+  "es": {}
 }

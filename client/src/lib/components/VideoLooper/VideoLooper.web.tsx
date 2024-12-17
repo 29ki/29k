@@ -9,10 +9,13 @@ import React, {
 import {VideoLooperProperties} from './VideoLooper';
 import styled from 'styled-components';
 
-const useCanvasColorCorrection = !(
+const useCanvasColorCorrection = false; // Currently disabled because of rendering issues on Windows
+/*
+!(
   typeof window !== 'undefined' &&
   /^((?!chrome|android).)*safari/i.test(navigator.userAgent)
 ); // Not Safari
+*/
 
 const Wrapper = styled.div({
   position: 'relative',

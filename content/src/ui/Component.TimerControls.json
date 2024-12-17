@@ -3,15 +3,21 @@
     "text": "Start the timer to take a minute to reflect"
   },
   "pt": {
-    "text": "Inicia o cronómetro e reserva um momento para refletir"
+    "text": "Inicie o cronómetro e tire um momento para refletir"
   },
   "sv": {
     "text": "Starta timern och ta en stund att reflektera"
   },
   "ja": {},
-  "da": {},
-  "cs": {},
-  "nl": {},
+  "da": {
+    "text": "Start timeren og tag et øjebblik til at reflektere"
+  },
+  "cs": {
+    "text": "Spusťte časovač a chvíli se zamyslete"
+  },
+  "nl": {
+    "text": "Start de timer en neem een moment om te reflecteren"
+  },
   "es": {
     "text": "Inicia el temporizador y tómate un momento para reflexionar"
   }

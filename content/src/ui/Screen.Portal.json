@@ -39,9 +39,18 @@
     "leavePortal": "Lämna"
   },
   "ja": {},
-  "da": {},
-  "cs": {},
-  "nl": {},
+  "da": {
+    "leavePortal": "Forlad",
+    "startSession": "Start session"
+  },
+  "cs": {
+    "leavePortal": "Odejít",
+    "startSession": "Začít sezení"
+  },
+  "nl": {
+    "leavePortal": "Verlaten",
+    "startSession": "Sessie starten"
+  },
   "es": {
     "counterLabel": {
       "shortly": "Pronto",
