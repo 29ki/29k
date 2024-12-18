@@ -183,6 +183,18 @@ describe('utils', () => {
       });
     });
 
+    it('merges even if array A is longer than B', () => {
+      const a = {
+        foo: [1, 2, 3, 4],
+      };
+      const b = {
+        foo: [5, 6],
+      };
+      expect(mergeDeepWith(mergeWithArrays, a, b)).toEqual({
+        foo: [1, 2, 3, 4],
+      });
+    });
+
     it('disregards array nil values', () => {
       const a = {
         foo: [null, 5, undefined, 6],

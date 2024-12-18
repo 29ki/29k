@@ -114,7 +114,10 @@ export const mergeDeepAll = unapply(reduce(mergeDeepRight, {}));
 
 export const mergeWithArrays = (a: unknown, b: unknown) => {
   if (is(Array, a) && is(Array, b)) {
-    return b.map((item, index) => mergeWithArrays(a[index], item));
+    const length = Math.max(a.length, b.length);
+    return Array.from({length}, (_, index) =>
+      mergeWithArrays(a[index], b[index]),
+    );
   }
 
   if (is(Object, a) && is(Object, b)) {
