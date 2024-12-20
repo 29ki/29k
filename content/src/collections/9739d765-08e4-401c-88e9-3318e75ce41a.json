@@ -83,9 +83,15 @@
     "sortOrder": 2,
     "link": "https://aware.29k.org/values-II-overcome-obstacles"
   },
-  "da": {},
-  "cs": {},
-  "nl": {},
+  "da": {
+    "id": "9739d765-08e4-401c-88e9-3318e75ce41a"
+  },
+  "cs": {
+    "id": "9739d765-08e4-401c-88e9-3318e75ce41a"
+  },
+  "nl": {
+    "id": "9739d765-08e4-401c-88e9-3318e75ce41a"
+  },
   "es": {
     "description": "Vivir una vida basada en valores nos llevará a encontrarnos con obstáculos en el camino. A menudo, estos vienen en forma de pensamientos y emociones. Aprende a navegarlos.",
     "name": "Valores II: Superar obstáculos",

@@ -83,9 +83,15 @@
     "sortOrder": 2,
     "link": "https://aware.29k.org/values-act-for-what-matters"
   },
-  "da": {},
-  "cs": {},
-  "nl": {},
+  "da": {
+    "id": "b77e52b5-c927-4178-ba76-8c3fe3dbf13c"
+  },
+  "cs": {
+    "id": "b77e52b5-c927-4178-ba76-8c3fe3dbf13c"
+  },
+  "nl": {
+    "id": "b77e52b5-c927-4178-ba76-8c3fe3dbf13c"
+  },
   "es": {
     "description": "Pasa de valores difusos a acciones diarias. Aprende a establecer metas, amplía tu abanico de comportamientos y navega por la vida con integridad.",
     "name": "Valores III: actúa por lo que importa",
