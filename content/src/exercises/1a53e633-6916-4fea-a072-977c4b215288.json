@@ -412,6 +412,7 @@
       "backgroundColor": "#378d88"
     },
     "name": "Para empezar",
+    "live": false,
     "published": true,
     "card": {
       "lottie": {
