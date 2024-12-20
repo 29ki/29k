@@ -1,4 +1,4 @@
-import {readFileSync, writeFileSync} from 'fs';
+import {writeFileSync} from 'fs';
 import {getContentByType} from './src/utils/utils';
 import path from 'path';
 
