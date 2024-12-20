@@ -391,7 +391,7 @@
         "type": "sharing",
         "hostNotes": [],
         "content": {
-          "heading": "Porque estás aqui?",
+          "heading": "¿Por qué estás aquí?",
           "text": ""
         },
         "id": "1"
@@ -399,8 +399,8 @@
       {
         "type": "instruction",
         "content": {
-          "text": "Acabaste de completar a sessão Começa aqui. \n\nAgora estás pronta/o para continuar a tua jornada – individualmente, com os teus amigos ou com pessoas novas.",
-          "heading": "Parabéns",
+          "text": "Acabas de completar la sesión introductoria. Bien hecho.\n\nAhora estás listo/a para continuar tu viaje, por tu cuenta, con tus amigos/as, o con nuevos contactos.",
+          "heading": "Felicidades",
           "image": {
             "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1683790808/Images/journey_icon_ja3ug7.png"
           }
@@ -411,7 +411,7 @@
       "textColor": "#F9F8F4",
       "backgroundColor": "#378d88"
     },
-    "name": "Começa aqui",
+    "name": "Para empezar",
     "published": true,
     "card": {
       "lottie": {
@@ -421,7 +421,7 @@
     },
     "coCreators": [
       {
-        "name": "Jenny Rickardsson, script and voice",
+        "name": "Jenny Rickardsson, texto",
         "url": "https://www.linkedin.com/in/jenny-rickardson-6770a959/",
         "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413228/Contributors/Jenny%20Rickardsson.jpg"
       },
@@ -431,8 +431,8 @@
         "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413436/Contributors/Ints%20Ivanovskis.jpg"
       },
       {
-        "name": "Nuria",
-        "url": "",
+        "name": "Núria Tous - voz en Español",
+        "url": "https://www.linkedin.com/in/nuriatous/",
         "image": ""
       }
     ],
@@ -459,6 +459,6 @@
       "cfc00217-f65b-4a4d-8b82-8ccc8f852dd6"
     ],
     "async": true,
-    "description": ""
+    "description": "Una introducción a la práctica de la atención plena, la gratitud y cómo comenzar a usar la aplicación Aware."
   }
 }
