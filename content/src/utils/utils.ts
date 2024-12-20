@@ -20,7 +20,7 @@ import {
 type LocalizedContent<T> = Record<LANGUAGE_TAG, Record<string, T>>;
 type Content<T> = Record<string, LocalizedContent<T>>;
 
-export const getContentByType = <T>(type: string) => {
+export const getContentByType = <T>(type: string, throwOnErrors = true) => {
   const dirPath = path.resolve('src', type);
 
   if (existsSync(dirPath)) {
@@ -39,8 +39,19 @@ export const getContentByType = <T>(type: string) => {
         const languageKeys = keys(languageContent);
 
         // Make sure the content defines all available languages
-        if (languageContent === undefined) {
+        if (throwOnErrors && languageContent === undefined) {
           throw new Error(`${languageTag} is not defined for ${filePath}`);
+        }
+
+        // Make sure the ID matches the file name
+        if (
+          throwOnErrors &&
+          'id' in defaultLanguageContent &&
+          languageContent['id'] !== fileKey
+        ) {
+          throw new Error(
+            `${languageTag} has different ID ${languageContent['id']} for ${filePath}`,
+          );
         }
 
         // Make sure the keys matches DEFAULT_LANGUAGE
