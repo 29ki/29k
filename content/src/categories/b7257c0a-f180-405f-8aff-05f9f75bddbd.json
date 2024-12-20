@@ -119,9 +119,15 @@
       "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1702302654/Lottie/understand_myself_qeibfi.json"
     }
   },
-  "da": {},
-  "cs": {},
-  "nl": {},
+  "da": {
+    "id": "b7257c0a-f180-405f-8aff-05f9f75bddbd"
+  },
+  "cs": {
+    "id": "b7257c0a-f180-405f-8aff-05f9f75bddbd"
+  },
+  "nl": {
+    "id": "b7257c0a-f180-405f-8aff-05f9f75bddbd"
+  },
   "es": {
     "name": "Conocerte",
     "id": "b7257c0a-f180-405f-8aff-05f9f75bddbd",

@@ -563,7 +563,8 @@
       "8da0534a-5da9-430a-bdf3-242ace6460fb"
     ],
     "asyncDuration": 8,
-    "link": "https://aware.29k.org/self-soothing"
+    "link": "https://aware.29k.org/self-soothing",
+    "id": "b4307d0b-512d-46d6-a500-7fb372bfe057"
   },
   "cs": {
     "tags": [
@@ -571,7 +572,8 @@
       "8da0534a-5da9-430a-bdf3-242ace6460fb"
     ],
     "asyncDuration": 8,
-    "link": "https://aware.29k.org/self-soothing"
+    "link": "https://aware.29k.org/self-soothing",
+    "id": "b4307d0b-512d-46d6-a500-7fb372bfe057"
   },
   "nl": {
     "tags": [
@@ -579,7 +581,10 @@
       "8da0534a-5da9-430a-bdf3-242ace6460fb"
     ],
     "asyncDuration": 8,
-    "link": "https://aware.29k.org/self-soothing"
+    "link": "https://aware.29k.org/self-soothing",
+    "id": "b4307d0b-512d-46d6-a500-7fb372bfe057"
   },
-  "es": {}
+  "es": {
+    "id": "b4307d0b-512d-46d6-a500-7fb372bfe057"
+  }
 }

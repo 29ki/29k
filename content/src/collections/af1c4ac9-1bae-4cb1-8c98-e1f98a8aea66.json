@@ -80,9 +80,15 @@
     },
     "sortOrder": 5
   },
-  "da": {},
-  "cs": {},
-  "nl": {},
+  "da": {
+    "id": "af1c4ac9-1bae-4cb1-8c98-e1f98a8aea66"
+  },
+  "cs": {
+    "id": "af1c4ac9-1bae-4cb1-8c98-e1f98a8aea66"
+  },
+  "nl": {
+    "id": "af1c4ac9-1bae-4cb1-8c98-e1f98a8aea66"
+  },
   "es": {
     "description": "Durante momentos de estrés, los momentos de descanso y recuperación son clave. Este programa puede ayudarnos a cuidar de nosotros/as mismos/as y a tomar merecidos descansos.",
     "name": "Encuentra la calma",
