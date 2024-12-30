@@ -2628,10 +2628,10 @@
     "@nodelib/fs.scandir" "2.1.5"
     fastq "^1.6.0"
 
-"@notifee/react-native@^9.1.1":
-  version "9.1.1"
-  resolved "https://registry.yarnpkg.com/@notifee/react-native/-/react-native-9.1.1.tgz#81f81570442c27fcd7f968692912f39d8d1bec54"
-  integrity sha512-d9UdnT7TIJKal+RSCcl81beveWXjBpNZZ+8rqzcfd8DcAlkl7WGvvIAhUfkb83aOfc/zHpZJrJwu4fxwI6GCCg==
+"@notifee/react-native@^9.1.3":
+  version "9.1.3"
+  resolved "https://registry.yarnpkg.com/@notifee/react-native/-/react-native-9.1.3.tgz#974b4b3d6ffc12109644a2634e81ac09195bbf95"
+  integrity sha512-KUshWu/MCYHCbVIVGwevQc7si0IA76uKGV7a0qbnCZlVFkuQvCUrrHzM2HWBhQ0+8dB1g6jPJxipNeXDWHELVw==
 
 "@opentelemetry/api@^1.0.1":
   version "1.4.1"
@@ -3065,10 +3065,10 @@
   dependencies:
     invariant "^2.2.4"
 
-"@react-native-community/netinfo@^11.3.2":
-  version "11.3.2"
-  resolved "https://registry.yarnpkg.com/@react-native-community/netinfo/-/netinfo-11.3.2.tgz#e63201d0b87ad42d086d1003be48ae7b327f0594"
-  integrity sha512-YsaS3Dutnzqd1BEoeC+DEcuNJedYRkN6Ef3kftT5Sm8ExnCF94C/nl4laNxuvFli3+Jz8Df3jO25Jn8A9S0h4w==
+"@react-native-community/netinfo@^11.4.1":
+  version "11.4.1"
+  resolved "https://registry.yarnpkg.com/@react-native-community/netinfo/-/netinfo-11.4.1.tgz#a3c247aceab35f75dd0aa4bfa85d2be5a4508688"
+  integrity sha512-B0BYAkghz3Q2V09BF88RA601XursIEA111tnc2JOaN7axJWmNefmfjZqw/KdSxKZp7CZUuPpjBmz/WCR9uaHYg==
 
 "@react-native-firebase/app@^20.3.0":
   version "20.3.0"
@@ -9539,10 +9539,10 @@ postcss@8.4.38:
     picocolors "^1.0.0"
     source-map-js "^1.2.0"
 
-posthog-react-native@^3.3.9:
-  version "3.3.9"
-  resolved "https://registry.yarnpkg.com/posthog-react-native/-/posthog-react-native-3.3.9.tgz#bb551d3858430ca686a1b459f15bde20e9033948"
-  integrity sha512-Gb7Hc0HKMGc9T3bWXF1IfAOYkBlzIOKl71CVveEdNEzUkxvN3bfsq5CQ2TXNpzz31q2BMvfVEt0SIN9JQZCeKA==
+posthog-react-native@^3.6.1:
+  version "3.6.1"
+  resolved "https://registry.yarnpkg.com/posthog-react-native/-/posthog-react-native-3.6.1.tgz#a0a7189761013fac3ef46582b5e3b279067ba7ca"
+  integrity sha512-IRGfLEranh+8nTvUsyw97XeqhGwi0ine/F6tMGrdT+RmlsRFA9eRYLwupkdCviRL9mMVugBY6J4v1R1MvBw+1w==
 
 prelude-ls@^1.2.1:
   version "1.2.1"
@@ -9924,10 +9924,10 @@ react-native-code-push@^9.0.0:
     semver "^7.3.5"
     xcode "3.0.1"
 
-react-native-device-info@^11.1.0:
-  version "11.1.0"
-  resolved "https://registry.yarnpkg.com/react-native-device-info/-/react-native-device-info-11.1.0.tgz#7db5c4e5a179dce761efac155a493aa0956a40ab"
-  integrity sha512-hzXJSObJdezEz0hF7MAJ3tGeoesuQWenXXt9mrQR9Mjb8kXpZ09rqSsZ/quNpJdZpQ3rYiFa3/0GFG5KNn9PBg==
+react-native-device-info@^14.0.2:
+  version "14.0.2"
+  resolved "https://registry.yarnpkg.com/react-native-device-info/-/react-native-device-info-14.0.2.tgz#cb583e283eba4e54f56c9c548dae89a96ccf39ab"
+  integrity sha512-W1oqu4dC4uLKT/Z4uimRP6birJprWjhMP/AwV9hxGSZ5K3wJ/yb34aQ22sd6HmegQHfT2PmkFs3mj+4uXLE1YQ==
 
 react-native-dotenv@^3.4.11:
   version "3.4.11"
@@ -9960,20 +9960,20 @@ react-native-get-random-values@^1.11.0:
   dependencies:
     fast-base64-decode "^1.0.0"
 
-react-native-haptic-feedback@^2.2.0:
-  version "2.2.0"
-  resolved "https://registry.yarnpkg.com/react-native-haptic-feedback/-/react-native-haptic-feedback-2.2.0.tgz#bc46edd1f053265bfbe6c32487cbce074e099429"
-  integrity sha512-3tqJOjCguWhIrX0nkURn4yw6kXdsSDjjrvZCRjKXYGlL28hdQmoW2okAHduDTD9FWj9lA+lHgwFWgGs4aFNN7A==
+react-native-haptic-feedback@^2.3.3:
+  version "2.3.3"
+  resolved "https://registry.yarnpkg.com/react-native-haptic-feedback/-/react-native-haptic-feedback-2.3.3.tgz#88b6876e91399a69bd1b551fe1681b2f3dc1214e"
+  integrity sha512-svS4D5PxfNv8o68m9ahWfwje5NqukM3qLS48+WTdhbDkNUkOhP9rDfDSRHzlhk4zq+ISjyw95EhLeh8NkKX5vQ==
 
 react-native-idle-timer@^2.2.3:
   version "2.2.3"
   resolved "https://registry.yarnpkg.com/react-native-idle-timer/-/react-native-idle-timer-2.2.3.tgz#88304ea562b06e730048dc6b84910e900247294a"
   integrity sha512-psqoUJDHmFkl5o3ublqLI6eiYFiM/o1O7TLeHjW8Fmx/wVXKESoVaWKIP01QqkoUnHqqch3GmBThkDx8plBnVA==
 
-react-native-image-crop-picker@^0.41.2:
-  version "0.41.2"
-  resolved "https://registry.yarnpkg.com/react-native-image-crop-picker/-/react-native-image-crop-picker-0.41.2.tgz#824fa8fee8391fbb3e0b5ae2973221a2dff0cafb"
-  integrity sha512-GcDu/adXU/1y/MrxsbOfqcGRGWC2pTttt5VGy/jyRJ6GXfoC29fTQf8SG5kGtc5schSR6K+mKYO4uW6eJPljlQ==
+react-native-image-crop-picker@^0.41.6:
+  version "0.41.6"
+  resolved "https://registry.yarnpkg.com/react-native-image-crop-picker/-/react-native-image-crop-picker-0.41.6.tgz#de2c00102f4c934848fa11ff2335f29f5dc6b3e3"
+  integrity sha512-oyEVkiJX1cnjYJolQluOqXxz9xhLHrv+pyCs7+jA87yaa110/0jv1UCqxjVjxueKug7zk/UnjG7i9Ks1cGyLpA==
 
 react-native-linear-gradient@^2.8.3:
   version "2.8.3"
@@ -10022,10 +10022,10 @@ react-native-reanimated@^3.15.4:
     convert-source-map "^2.0.0"
     invariant "^2.2.4"
 
-react-native-safe-area-context@^4.10.9:
-  version "4.10.9"
-  resolved "https://registry.yarnpkg.com/react-native-safe-area-context/-/react-native-safe-area-context-4.10.9.tgz#6ab82dc866ab499b101b033cb0f5b40125a4d410"
-  integrity sha512-wz/JXV1kARWyP5q93PFNKQP03StVBimOK7rRYEJjM+blZdXbM6H7EP3XhQUb6OK620+0M1AzpcGgyTHvgSJNAw==
+react-native-safe-area-context@^4.14.0:
+  version "4.14.0"
+  resolved "https://registry.yarnpkg.com/react-native-safe-area-context/-/react-native-safe-area-context-4.14.0.tgz#138f4b2e180cb7517c78bd5f4d4cf91325ba0b1a"
+  integrity sha512-/SyYpCulWQOnnXhRq6wepkhoyQMowHm1ptDyRz20s+YS/R9mbd+mK+jFyFCyXFJn8jp7vFl43VUCgspuOiEbwA==
 
 react-native-screens@^4.4.0:
   version "4.4.0"
