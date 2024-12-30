@@ -22,14 +22,14 @@
     "decap-cms-app": "3.4.0",
     "decap-cms-media-library-cloudinary": "^3.0.3",
     "i18next": "^24.2.0",
-    "react-native-safe-area-context": "^4.14.0",
+    "react-native-safe-area-context": "^5.0.0",
     "react-native-svg": "15.4.0",
     "react-native-web": "^0.19.13",
     "styled-components": "^6.1.13"
   },
   "devDependencies": {
     "@types/jest": "^29.5.14",
-    "@types/node": "^22.10.1",
+    "@types/node": "^22.10.2",
     "@types/react": "^18.3.12",
     "@types/react-dom": "^18.3.1",
     "@types/react-native-web": "^0.19.0",
