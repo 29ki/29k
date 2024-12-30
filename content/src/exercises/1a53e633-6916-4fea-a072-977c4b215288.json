@@ -96,7 +96,6 @@
     "description": "An introduction to practicing mindfulness, gratitude and start using the Aware app."
   },
   "pt": {
-    "excludeFromWeb": true,
     "liveDuration": 5,
     "slides": [
       {
@@ -141,6 +140,7 @@
     "hidden": false,
     "name": "Começa aqui",
     "published": true,
+    "excludeFromWeb": true,
     "asyncDuration": 5,
     "card": {
       "lottie": {
@@ -193,7 +193,6 @@
     "description": "Uma introdução à prática de atenção plena, gratidão e como começar a utilizar a Aware"
   },
   "sv": {
-    "excludeFromWeb": true,
     "liveDuration": 5,
     "slides": [
       {
@@ -239,6 +238,7 @@
     "hidden": false,
     "name": "Kom igång",
     "published": true,
+    "excludeFromWeb": true,
     "asyncDuration": 5,
     "card": {
       "lottie": {
@@ -345,21 +345,125 @@
       "43a6dc0d-d866-4b79-9453-13c44e906128",
       "cfc00217-f65b-4a4d-8b82-8ccc8f852dd6"
     ],
-    "asyncDuration": 5
+    "asyncDuration": 5,
+    "card": {
+      "imageBackgroundColor": ""
+    },
+    "id": "1a53e633-6916-4fea-a072-977c4b215288"
   },
   "cs": {
     "tags": [
       "43a6dc0d-d866-4b79-9453-13c44e906128",
       "cfc00217-f65b-4a4d-8b82-8ccc8f852dd6"
     ],
-    "asyncDuration": 5
+    "asyncDuration": 5,
+    "card": {
+      "imageBackgroundColor": ""
+    },
+    "id": "1a53e633-6916-4fea-a072-977c4b215288"
   },
   "nl": {
     "tags": [
       "43a6dc0d-d866-4b79-9453-13c44e906128",
       "cfc00217-f65b-4a4d-8b82-8ccc8f852dd6"
     ],
-    "asyncDuration": 5
+    "asyncDuration": 5,
+    "card": {
+      "imageBackgroundColor": ""
+    },
+    "id": "1a53e633-6916-4fea-a072-977c4b215288"
   },
-  "es": {}
+  "es": {
+    "slides": [
+      {
+        "type": "content",
+        "content": {
+          "video": {
+            "audio": "",
+            "durationTimer": false
+          },
+          "lottie": {
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1683721090/Lottie/dive_in_audio_visual_white_vjvfjo.json",
+            "durationTimer": true,
+            "autoPlayLoop": false,
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1734684778/Spanish/Audio%20MP3/ParaEmpezar_uyrlzq.mp3"
+          }
+        }
+      },
+      {
+        "type": "sharing",
+        "hostNotes": [],
+        "content": {
+          "heading": "¿Por qué estás aquí?",
+          "text": ""
+        },
+        "id": "1"
+      },
+      {
+        "type": "instruction",
+        "content": {
+          "text": "Acabas de completar la sesión introductoria. Bien hecho.\n\nAhora estás listo/a para continuar tu viaje, por tu cuenta, con tus amigos/as, o con nuevos contactos.",
+          "heading": "Felicidades",
+          "image": {
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1683790808/Images/journey_icon_ja3ug7.png"
+          }
+        }
+      }
+    ],
+    "theme": {
+      "textColor": "#F9F8F4",
+      "backgroundColor": "#378d88"
+    },
+    "name": "Para empezar",
+    "live": false,
+    "published": true,
+    "card": {
+      "lottie": {
+        "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1683720732/Lottie/aware_logo_teal_qqweff.json"
+      },
+      "imageBackgroundColor": ""
+    },
+    "coCreators": [
+      {
+        "name": "Jenny Rickardsson, texto",
+        "url": "https://www.linkedin.com/in/jenny-rickardson-6770a959/",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413228/Contributors/Jenny%20Rickardsson.jpg"
+      },
+      {
+        "name": "Ints Ivanovskis, art works",
+        "url": "https://www.linkedin.com/in/ints-ivanovskis-46ab0311a/",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413436/Contributors/Ints%20Ivanovskis.jpg"
+      },
+      {
+        "name": "Núria Tous - voz en Español",
+        "url": "https://www.linkedin.com/in/nuriatous/",
+        "image": ""
+      }
+    ],
+    "outroPortal": {
+      "video": {
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1683646038/Video/get_started_portal_q8xuck.mp4",
+        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1683646074/Audio/get_started_portal_audio_d9u6dy.mp3",
+        "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1683646986/Images/dive_in_thumb_v5iugn.png"
+      }
+    },
+    "introPortal": {
+      "hostNotes": [],
+      "videoLoop": {
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1683646038/Video/get_started_portal_q8xuck.mp4",
+        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1683646074/Audio/get_started_portal_audio_d9u6dy.mp3",
+        "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1683646986/Images/dive_in_thumb_v5iugn.png",
+        "p5JsScript": {
+          "lang": "javascript"
+        }
+      }
+    },
+    "tags": [
+      "43a6dc0d-d866-4b79-9453-13c44e906128",
+      "cfc00217-f65b-4a4d-8b82-8ccc8f852dd6"
+    ],
+    "async": true,
+    "description": "Una introducción a la práctica de la atención plena, la gratitud y cómo comenzar a usar la aplicación Aware.",
+    "id": "1a53e633-6916-4fea-a072-977c4b215288"
+  }
 }

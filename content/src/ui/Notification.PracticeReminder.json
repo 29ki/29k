@@ -308,12 +308,12 @@
         },
         {
           "generic": {
-            "body": "Do te olvides de practicar.",
+            "body": "No te olvides de practicar.",
             "title": "{{collectionName}}"
           },
           "id": "reminder-2-v1",
           "personal": {
-            "body": "Do te olvides de practicar, {{userName}}.",
+            "body": "No te olvides de practicar, {{userName}}.",
             "title": "{{collectionName}}"
           }
         },
@@ -359,7 +359,7 @@
           },
           "id": "reminder-2-v1",
           "personal": {
-            "body": "Do te olvides de practicar, {{userName}}.",
+            "body": "No te olvides de practicar, {{userName}}.",
             "title": "Recordatorio"
           }
         },

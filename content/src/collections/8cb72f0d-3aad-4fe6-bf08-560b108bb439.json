@@ -100,9 +100,15 @@
     "link": "https://aware.29k.org/manage-stress-in-school",
     "sortOrder": 3
   },
-  "da": {},
-  "cs": {},
-  "nl": {},
+  "da": {
+    "id": "8cb72f0d-3aad-4fe6-bf08-560b108bb439"
+  },
+  "cs": {
+    "id": "8cb72f0d-3aad-4fe6-bf08-560b108bb439"
+  },
+  "nl": {
+    "id": "8cb72f0d-3aad-4fe6-bf08-560b108bb439"
+  },
   "es": {
     "description": "Aprende a afrontar situaciones estresantes y a cuidarte de manera sostenible.",
     "name": "Gestiona el estrés",

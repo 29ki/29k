@@ -2,9 +2,9 @@
   "en": {
     "title": "One last thing...",
     "question": "Was this meaningful for you?",
-    "comments": "Do you have any comments?",
-    "commentsPlaceholder": "Optional...",
-    "note": "Your comments will be shared anonymously. ",
+    "comments": "Would you be open to share your thoughts about this app in a short interview?",
+    "commentsPlaceholder": "Email..",
+    "note": "Type your email here and we'll get back to you. ",
     "submit": "Submit",
     "thankYou__text": "Thank you\nso much\nfor your\nfeedback!"
   },
@@ -20,9 +20,9 @@
   "sv": {
     "title": "En sak till...",
     "question": "Var det här meningsfullt för dig?",
-    "comments": "Har du någon kommentar?",
-    "commentsPlaceholder": "Frivilligt...",
-    "note": "Din kommentar visas anonymt. ",
+    "comments": "Har du lust att ställa upp på en kort intervju om din upplevelse av den här appen?",
+    "commentsPlaceholder": "Email...",
+    "note": "Fyll i din mailadress så kontakter vi dig. ",
     "submit": "Skicka",
     "thankYou__text": "Tack så\nmycket\nför din \nfeedback!"
   },
@@ -34,7 +34,7 @@
     "comments": "¿Tienes algún comentario?",
     "commentsPlaceholder": "Opcional...",
     "note": "Tus comentarios se compartirán de forma anónima.",
-    "question": "¿Te resultó útil esto?",
+    "question": "¿Te resultó útil esta sesión?",
     "submit": "Enviar",
     "thankYou__text": "¡Muchas \ngracias \npor tus \ncomentarios!",
     "title": "Una última cosa..."

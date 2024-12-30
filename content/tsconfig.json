@@ -12,6 +12,6 @@
     "jsx": "react-jsx",
     "typeRoots": ["./types", "./node_modules/@types"],
   },
-  "include": ["src", "types", "buildContent.ts", "exportToCsv.ts", "importFromCsv.ts", "jest.config.js"],
+  "include": ["src", "types", "buildContent.ts", "exportToCsv.ts", "importFromCsv.ts", "fixContentIds.ts", "jest.config.js"],
 }
 

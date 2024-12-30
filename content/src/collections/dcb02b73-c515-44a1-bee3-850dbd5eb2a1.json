@@ -119,9 +119,15 @@
       "imageBackgroundColor": "#f6d984"
     }
   },
-  "da": {},
-  "cs": {},
-  "nl": {},
+  "da": {
+    "id": "dcb02b73-c515-44a1-bee3-850dbd5eb2a1"
+  },
+  "cs": {
+    "id": "dcb02b73-c515-44a1-bee3-850dbd5eb2a1"
+  },
+  "nl": {
+    "id": "dcb02b73-c515-44a1-bee3-850dbd5eb2a1"
+  },
   "es": {
     "description": "Hacer lo que importa para un mañana mejor.",
     "name": "Susténtate a ti mismo/a",

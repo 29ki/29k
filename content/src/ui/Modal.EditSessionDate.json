@@ -46,7 +46,7 @@
         "confirm": "Eliminar"
       },
       "header": "¿Eliminar sesión?",
-      "text": "¿Estás seguro/a que quieres eliminar la sesión?"
+      "text": "¿Estás seguro/a de que quieres eliminar la sesión?"
     },
     "deleteButton": "Eliminar sesión",
     "done": "Guardar"

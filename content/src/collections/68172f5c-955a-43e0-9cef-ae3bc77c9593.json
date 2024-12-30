@@ -64,11 +64,17 @@
     "link": "https://aware.29k.org/new-perspectives",
     "sortOrder": 3
   },
-  "da": {},
-  "cs": {},
-  "nl": {},
+  "da": {
+    "id": "68172f5c-955a-43e0-9cef-ae3bc77c9593"
+  },
+  "cs": {
+    "id": "68172f5c-955a-43e0-9cef-ae3bc77c9593"
+  },
+  "nl": {
+    "id": "68172f5c-955a-43e0-9cef-ae3bc77c9593"
+  },
   "es": {
-    "description": "Somos criaturas de hábitos: tendemos a hacer lo que estamos acostumbrados a hacer. Esto es una cosa inteligente, ya que así ahorramos energía. Y, a veces, también puede hacernos sentir atrapados.\nEste programa puede ofrecer nuevas perspectivas y prácticas para cambiar o desafiar la forma en que usualmente vivimos.",
+    "description": "Somos criaturas de hábitos: tendemos a hacer lo que estamos acostumbrados a hacer. Esta es una manera inteligente en la que nuestro cerebro ahorra energía. A la vez, puede hacernos sentir atrapados en algunas ocasiones.\nEste programa puede ofrecer nuevas perspectivas y prácticas para cambiar o desafiar la forma en que usualmente vivimos.",
     "name": "Adquiere nuevas perspectivas",
     "hidden": false,
     "published": true,

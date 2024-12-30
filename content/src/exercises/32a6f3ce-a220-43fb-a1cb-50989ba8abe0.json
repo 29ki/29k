@@ -580,7 +580,8 @@
       "8da0534a-5da9-430a-bdf3-242ace6460fb"
     ],
     "asyncDuration": 6,
-    "link": "https://aware.29k.org/work-life-values"
+    "link": "https://aware.29k.org/work-life-values",
+    "id": "32a6f3ce-a220-43fb-a1cb-50989ba8abe0"
   },
   "cs": {
     "tags": [
@@ -588,7 +589,8 @@
       "8da0534a-5da9-430a-bdf3-242ace6460fb"
     ],
     "asyncDuration": 6,
-    "link": "https://aware.29k.org/work-life-values"
+    "link": "https://aware.29k.org/work-life-values",
+    "id": "32a6f3ce-a220-43fb-a1cb-50989ba8abe0"
   },
   "nl": {
     "tags": [
@@ -596,7 +598,10 @@
       "8da0534a-5da9-430a-bdf3-242ace6460fb"
     ],
     "asyncDuration": 6,
-    "link": "https://aware.29k.org/work-life-values"
+    "link": "https://aware.29k.org/work-life-values",
+    "id": "32a6f3ce-a220-43fb-a1cb-50989ba8abe0"
   },
-  "es": {}
+  "es": {
+    "id": "32a6f3ce-a220-43fb-a1cb-50989ba8abe0"
+  }
 }
