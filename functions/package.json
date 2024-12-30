@@ -26,11 +26,11 @@
     "@sendgrid/mail": "^8.1.4",
     "@sentry/node": "^8.41.0",
     "@slack/bolt": "^4.1.0",
-    "@slack/web-api": "^7.7.0",
+    "@slack/web-api": "^7.8.0",
     "@types/i18next": "^13.0.0",
     "bs58": "^6.0.0",
     "dayjs": "^1.11.13",
-    "dotenv": "^16.4.5",
+    "dotenv": "^16.4.7",
     "envalid": "^8.0.0",
     "fast-memoize": "^2.5.2",
     "firebase-admin": "^12.7.0",
@@ -76,9 +76,9 @@
     "koa-bodyparser": "^4.4.1",
     "localtunnel": "^2.0.2",
     "mockdate": "^3.0.5",
-    "prettier": "^3.3.3",
+    "prettier": "^3.4.2",
     "supertest": "^7.0.0",
     "ts-jest": "^28.0.8",
-    "typescript": "^5.6.3"
+    "typescript": "^5.7.2"
   }
 }
