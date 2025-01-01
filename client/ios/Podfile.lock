@@ -2391,7 +2391,7 @@ PODS:
     - Firebase/Storage (= 10.29.0)
     - React-Core
     - RNFBApp
-  - RNGestureHandler (2.20.0):
+  - RNGestureHandler (2.21.2):
     - DoubleConversion
     - glog
     - hermes-engine
@@ -2434,7 +2434,7 @@ PODS:
     - React-Core
   - RNReactNativeHapticFeedback (2.2.0):
     - React-Core
-  - RNReanimated (3.15.4):
+  - RNReanimated (3.16.4):
     - DoubleConversion
     - glog
     - hermes-engine
@@ -2454,10 +2454,32 @@ PODS:
     - React-utils
     - ReactCommon/turbomodule/bridging
     - ReactCommon/turbomodule/core
-    - RNReanimated/reanimated (= 3.15.4)
-    - RNReanimated/worklets (= 3.15.4)
+    - RNReanimated/reanimated (= 3.16.4)
+    - RNReanimated/worklets (= 3.16.4)
     - Yoga
-  - RNReanimated/reanimated (3.15.4):
+  - RNReanimated/reanimated (3.16.4):
+    - DoubleConversion
+    - glog
+    - hermes-engine
+    - RCT-Folly (= 2024.01.01.00)
+    - RCTRequired
+    - RCTTypeSafety
+    - React-Codegen
+    - React-Core
+    - React-debug
+    - React-Fabric
+    - React-featureflags
+    - React-graphics
+    - React-ImageManager
+    - React-NativeModulesApple
+    - React-RCTFabric
+    - React-rendererdebug
+    - React-utils
+    - ReactCommon/turbomodule/bridging
+    - ReactCommon/turbomodule/core
+    - RNReanimated/reanimated/apple (= 3.16.4)
+    - Yoga
+  - RNReanimated/reanimated/apple (3.16.4):
     - DoubleConversion
     - glog
     - hermes-engine
@@ -2478,7 +2500,7 @@ PODS:
     - ReactCommon/turbomodule/bridging
     - ReactCommon/turbomodule/core
     - Yoga
-  - RNReanimated/worklets (3.15.4):
+  - RNReanimated/worklets (3.16.4):
     - DoubleConversion
     - glog
     - hermes-engine
@@ -2499,7 +2521,7 @@ PODS:
     - ReactCommon/turbomodule/bridging
     - ReactCommon/turbomodule/core
     - Yoga
-  - RNScreens (3.34.0):
+  - RNScreens (4.3.0):
     - DoubleConversion
     - glog
     - hermes-engine
@@ -3013,15 +3035,15 @@ SPEC CHECKSUMS:
   RNFBDynamicLinks: 6e5d52576c079e65040110c8a9b895c6e1f02edc
   RNFBFirestore: 9b5e7d645787f02d5d16c4e060e778e9da762e02
   RNFBStorage: a86f59a4adae00b3061e55257d6c3d70851a1810
-  RNGestureHandler: 83fd202dbc0b8971414c5c7c56ddd9f5cde05911
+  RNGestureHandler: 38b7949a58a56ae0e2a3c38920cb6852cafb6b9f
   RNImageCropPicker: 771e2ca319d2cf92e04ebf334ece892ee9a6728f
   RNLocalize: 4f22418187ecd5ca693231093ff1d912d1b3c9bc
   RNNotifee: 35b5f984d11083b02d7f2990b3408cd99a0aeeac
   RNPermissions: a58e61bd4e6bd417adcf8ef8ca094b93d772e492
   RNRate: ef3bcff84f39bb1d1e41c5593d3eea4aab2bd73a
   RNReactNativeHapticFeedback: ec56a5f81c3941206fd85625fa669ffc7b4545f9
-  RNReanimated: 4e3738c07d997c502b5fa407524700dfa8712777
-  RNScreens: db442e7b8c7bc8befec2ce057927305ff8598cc8
+  RNReanimated: 13f9f061449dd7a1f6e1b8fb4caf18b880b41bd1
+  RNScreens: d090bfb033bb48f8da0983999ea58868e813cb80
   RNSentry: d2f4b8dc672fb4e26b50b99e006e52d547e36b3f
   RNSVG: 8b1a777d54096b8c2a0fd38fc9d5a454332bbb4d
   Sentry: f8374b5415bc38dfb5645941b3ae31230fbeae57
@@ -3037,7 +3059,7 @@ SPEC CHECKSUMS:
   StripePaymentsUI: 7d7cffb2ecfc0d6b5ac3a4488c02893a5ff6cc77
   StripeUICore: bb102d453b1e1a10a37f810bc0a9aa0675fb17fd
   TOCropViewController: 80b8985ad794298fb69d3341de183f33d1853654
-  Yoga: eed50599a85bd9f6882a9938d118aed6a397db9c
+  Yoga: bd92064a0d558be92786820514d74fc4dddd1233
 
 PODFILE CHECKSUM: 1e2c5c3ea8152bd7472ee44e381909c2f6afd170
 
