@@ -65,7 +65,7 @@
       "tuesday": "Martes",
       "wednesday": "Miércoles"
     },
-    "sessionRemindersText": "Te recuerda sobre las sesiones próximas 10 minutos antes de que empiecen.",
+    "sessionRemindersText": "Te recuerda sobre las próximas sesiones 10 minutos antes de que empiecen.",
     "time": "Hora",
     "title": "Recordatorios",
     "updateButton": "Actualizar recordatorios",

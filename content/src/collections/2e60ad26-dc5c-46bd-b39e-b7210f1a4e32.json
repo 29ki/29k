@@ -133,11 +133,17 @@
     "locked": true,
     "sortOrder": 1
   },
-  "da": {},
-  "cs": {},
-  "nl": {},
+  "da": {
+    "id": "2e60ad26-dc5c-46bd-b39e-b7210f1a4e32"
+  },
+  "cs": {
+    "id": "2e60ad26-dc5c-46bd-b39e-b7210f1a4e32"
+  },
+  "nl": {
+    "id": "2e60ad26-dc5c-46bd-b39e-b7210f1a4e32"
+  },
   "es": {
-    "description": "Practica habilidades y cualidades basadas en la ciencia para una vida con propósito y sostenible. IDG, los Objetivos de Desarrollo Interior (o en inglés Inner Development Goals), son un marco para alcanzar los Objetivos de Desarrollo Sostenible establecidos por la ONU.",
+    "description": "Practica habilidades y cualidades basadas en la ciencia para fomentar una vida con propósito y sostenible. IDG, los Objetivos de Desarrollo Interior (o en inglés Inner Development Goals), son un marco para alcanzar los Objetivos de Desarrollo Sostenible establecidos por la ONU.",
     "name": "El programa IDG",
     "hidden": false,
     "locked": true,

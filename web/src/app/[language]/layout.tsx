@@ -4,6 +4,7 @@ import type {Metadata} from 'next';
 import {
   CLIENT_LANGUAGE_TAGS,
   LANGUAGE_TAG,
+  LANGUAGE_TAGS,
 } from '../../../../shared/src/i18n/constants';
 import I18nProvider from '@/lib/I18nProvider';
 
@@ -15,7 +16,7 @@ export const metadata: Metadata = {
 };
 
 export function generateStaticParams() {
-  return CLIENT_LANGUAGE_TAGS.map(language => ({
+  return LANGUAGE_TAGS.map(language => ({
     language,
   }));
 }

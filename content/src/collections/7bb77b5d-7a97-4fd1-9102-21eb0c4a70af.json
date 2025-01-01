@@ -115,11 +115,17 @@
       "b4307d0b-512d-46d6-a500-7fb372bfe057"
     ]
   },
-  "da": {},
-  "cs": {},
-  "nl": {},
+  "da": {
+    "id": "7bb77b5d-7a97-4fd1-9102-21eb0c4a70af"
+  },
+  "cs": {
+    "id": "7bb77b5d-7a97-4fd1-9102-21eb0c4a70af"
+  },
+  "nl": {
+    "id": "7bb77b5d-7a97-4fd1-9102-21eb0c4a70af"
+  },
   "es": {
-    "description": "Ser amables con nosotros mismos y tratarnos con compasión no es algo natural para muchos de nosotros. En este programa practicamos adoptar una postura interior, tratándonos con amabilidad y cuidado. Las prácticas de autocompasión pueden mejorar nuestro bienestar y la relación con nosotros mismos y con los demás.",
+    "description": "Ser amables con nosotros/as mismos/as y tratarnos con compasión no es algo natural para muchos/as de nosotros/as. En este programa practicamos adoptar una actitud interior que nos trate con amabilidad y cuidado. Las prácticas de autocompasión pueden mejorar nuestro bienestar y la relación con nosotros/as mismos/as y con los demás.",
     "name": "Autocompasión I: El trabajo interior",
     "hidden": false,
     "locked": false,

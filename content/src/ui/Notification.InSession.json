@@ -16,7 +16,7 @@
   "cs": {},
   "nl": {},
   "es": {
-    "subtitle": "Estás en una sesión con {{host}}. Toca para abrirla.\"",
+    "subtitle": "Estás en una sesión con {{host}}. Toca para abrirla.",
     "title": "En una sesión en directo"
   }
 }

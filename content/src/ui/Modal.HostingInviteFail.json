@@ -24,6 +24,6 @@
   "es": {
     "description": "Por esto no puedes aceptar organizar la sesión que {{hostName}} quería transferirte.",
     "hostNameFallback": "el amfitrión / la amfitriona",
-    "title": "No tienes permiso para organizar sesiones abiertas para que cualquiera se una."
+    "title": "No tienes permiso para organizar sesiones abiertas a todo el mundo."
   }
 }

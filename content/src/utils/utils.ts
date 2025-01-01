@@ -6,12 +6,21 @@ import {
   LANGUAGE_TAG,
   LANGUAGE_TAGS,
 } from '../../../shared/src/i18n/constants';
-import {keys, mergeDeepRight, reduce, unapply, without} from 'ramda';
+import {
+  is,
+  isNil,
+  keys,
+  mergeDeepRight,
+  mergeDeepWith,
+  reduce,
+  unapply,
+  without,
+} from 'ramda';
 
 type LocalizedContent<T> = Record<LANGUAGE_TAG, Record<string, T>>;
 type Content<T> = Record<string, LocalizedContent<T>>;
 
-export const getContentByType = <T>(type: string) => {
+export const getContentByType = <T>(type: string, throwOnErrors = true) => {
   const dirPath = path.resolve('src', type);
 
   if (existsSync(dirPath)) {
@@ -30,8 +39,19 @@ export const getContentByType = <T>(type: string) => {
         const languageKeys = keys(languageContent);
 
         // Make sure the content defines all available languages
-        if (languageContent === undefined) {
+        if (throwOnErrors && languageContent === undefined) {
           throw new Error(`${languageTag} is not defined for ${filePath}`);
+        }
+
+        // Make sure the ID matches the file name
+        if (
+          throwOnErrors &&
+          'id' in defaultLanguageContent &&
+          languageContent['id'] !== fileKey
+        ) {
+          throw new Error(
+            `${languageTag} has different ID ${languageContent['id']} for ${filePath}`,
+          );
         }
 
         // Make sure the keys matches DEFAULT_LANGUAGE
@@ -102,3 +122,15 @@ export const generateI18NResources = <T>(
   );
 
 export const mergeDeepAll = unapply(reduce(mergeDeepRight, {}));
+
+export const mergeWithArrays = (a: unknown, b: unknown) => {
+  if (is(Array, a) && is(Array, b)) {
+    return b.map((item, index) => mergeWithArrays(a[index], item));
+  }
+
+  if (is(Object, a) && is(Object, b)) {
+    return mergeDeepWith(mergeWithArrays, a, b);
+  }
+
+  return isNil(a) ? b : a;
+};

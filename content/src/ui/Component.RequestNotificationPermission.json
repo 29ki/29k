@@ -32,7 +32,7 @@
       "cancel": "Cancelar",
       "confirm": "Abrir configuración"
     },
-    "message": "Abre la configuración para darnos permiso para enviarte notificaciones. Esto reiniciará la aplicación Aware.",
+    "message": "Abre la configuración para darnos permiso para enviarte notificaciones. Esto reiniciará la aplicación.",
     "title": "No tienes permiso."
   }
 }

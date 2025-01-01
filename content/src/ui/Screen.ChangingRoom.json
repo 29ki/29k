@@ -61,7 +61,7 @@
       "validateSession/not-found": "No se pudo encontrar la sesión.",
       "validateSession/user-not-found": "Usuario no encontrado para la sesión."
     },
-    "join_button": "Unirse",
+    "join_button": "Unirme",
     "onboarding": {
       "about": "Esta sesión es una videollamada en directo. Puedes escuchar o compartir tu experiencia con el grupo.",
       "button": "Entendido",
