@@ -1,5 +1,4 @@
-import React, {useMemo} from 'react';
-import {StyleSheet} from 'react-native';
+import React, {Fragment, useMemo} from 'react';
 
 import {
   BottomSheetNavigationOptions,
@@ -51,14 +50,9 @@ import SessionModal from '../../routes/modals/SessionModal/SessionModal';
 import FeedbackPostModal from '../../routes/modals/FeedbackPostModal/FeedbackPostModal';
 import LiveSessionsModal from '../../routes/modals/LiveSessionsModal/LiveSessionsModal';
 import UnlockCollectionModal from '../../routes/modals/UnlockCollectionModal/UnlockCollectionModal';
-import styled from 'styled-components/native';
 
 const {Navigator, Screen, Group} =
   createBottomSheetNavigator<ModalStackProps>();
-
-const ContainerComponent = styled.View.attrs({
-  pointerEvents: 'box-none',
-})({...StyleSheet.absoluteFillObject});
 
 const BackdropComponent = ({
   animatedIndex,
@@ -77,7 +71,7 @@ const BackdropComponent = ({
 );
 
 const modalScreenOptions: BottomSheetNavigationOptions = {
-  containerComponent: ContainerComponent,
+  containerComponent: Fragment,
   backdropComponent: BackdropComponent,
   backgroundStyle: {
     backgroundColor: 'transparent',
