@@ -99,9 +99,15 @@
       "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1702302654/Lottie/find_meaning_wta8nc.json"
     }
   },
-  "da": {},
-  "cs": {},
-  "nl": {},
+  "da": {
+    "id": "e2d46c10-77c3-4784-a9ea-4e7b4939711d"
+  },
+  "cs": {
+    "id": "e2d46c10-77c3-4784-a9ea-4e7b4939711d"
+  },
+  "nl": {
+    "id": "e2d46c10-77c3-4784-a9ea-4e7b4939711d"
+  },
   "es": {
     "name": "Encontrar sentido",
     "id": "e2d46c10-77c3-4784-a9ea-4e7b4939711d",

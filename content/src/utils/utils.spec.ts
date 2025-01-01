@@ -1,4 +1,5 @@
-import {generateI18NResources} from './utils';
+import {mergeDeepWith} from 'ramda';
+import {generateI18NResources, mergeWithArrays} from './utils';
 
 describe('utils', () => {
   describe('generateI18NResources', () => {
@@ -165,6 +166,47 @@ describe('utils', () => {
             'some-other-exercise-id': {published: false},
           },
         },
+      });
+    });
+  });
+
+  describe('mergeWithArrays', () => {
+    it('supports deep merging arrays', () => {
+      const a = {
+        foo: [1, 2],
+      };
+      const b = {
+        foo: [5, 6, 3, 4],
+      };
+      expect(mergeDeepWith(mergeWithArrays, a, b)).toEqual({
+        foo: [1, 2, 3, 4],
+      });
+    });
+
+    it('disregards array nil values', () => {
+      const a = {
+        foo: [null, 5, undefined, 6],
+      };
+      const b = {
+        foo: [1, 2, 3, 4],
+      };
+      expect(mergeDeepWith(mergeWithArrays, a, b)).toEqual({
+        foo: [1, 5, 3, 6],
+      });
+    });
+
+    it('deep merges objects in arrays', () => {
+      const a = {
+        foo: [{bar: 1}, {bar: 2}],
+      };
+      const b = {
+        foo: [{baz: 3}, {baz: 4}],
+      };
+      expect(mergeDeepWith(mergeWithArrays, a, b)).toEqual({
+        foo: [
+          {bar: 1, baz: 3},
+          {bar: 2, baz: 4},
+        ],
       });
     });
   });

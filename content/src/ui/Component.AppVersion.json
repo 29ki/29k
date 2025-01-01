@@ -59,12 +59,12 @@
       "status": "Bajando actualización"
     },
     "installed": {
-      "action": "reiniciar la app",
+      "action": "reiniciar la aplicación",
       "status": "Actualización disponible -"
     },
     "upToDate": {
       "action": "Buscar actualizaciones",
-      "status": "Aware está actualizado -"
+      "status": "La aplicación Aware está actualizada -"
     }
   }
 }

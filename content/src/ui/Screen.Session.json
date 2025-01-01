@@ -48,9 +48,33 @@
     }
   },
   "ja": {},
-  "da": {},
-  "cs": {},
-  "nl": {},
+  "da": {
+    "controls": {
+      "end": "Afslut",
+      "next": "Næste",
+      "prev": "Tilbage",
+      "start": "Start"
+    },
+    "endButton": "Afslut session"
+  },
+  "cs": {
+    "controls": {
+      "end": "Dokončit",
+      "next": "Další",
+      "prev": "Zpět",
+      "start": "Začít"
+    },
+    "endButton": "Ukončit sezení"
+  },
+  "nl": {
+    "controls": {
+      "end": "Afronden",
+      "next": "Volgende",
+      "prev": "Terug",
+      "start": "Starten"
+    },
+    "endButton": "Sessie afronden"
+  },
   "es": {
     "controls": {
       "end": "Terminar",

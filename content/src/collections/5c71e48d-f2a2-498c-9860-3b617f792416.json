@@ -97,9 +97,15 @@
     "card": {},
     "link": "https://aware.29k.org/Part1-DiscoverYourself"
   },
-  "da": {},
-  "cs": {},
-  "nl": {},
+  "da": {
+    "id": "5c71e48d-f2a2-498c-9860-3b617f792416"
+  },
+  "cs": {
+    "id": "5c71e48d-f2a2-498c-9860-3b617f792416"
+  },
+  "nl": {
+    "id": "5c71e48d-f2a2-498c-9860-3b617f792416"
+  },
   "es": {
     "description": "Practica mirar hacia adentro y estar con lo que aparece. Este apartado trata de mirar en el espejo retrovisor para ayudarnos a ver lo que nos trajo hasta aquí, atreviéndonos a enfrentar las cosas que tratamos de esconder, y también probando a tratarnos con amabilidad y a construir una base para quien queremos ser.",
     "name": "Parte I - Autoconciencia",

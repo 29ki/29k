@@ -35,8 +35,8 @@
     "unsupportedLanguage": {
       "confirm": "Sí, cambia",
       "dismiss": "No, gracias",
-      "message": "{{language}} todavía está en desarrollo y puede que no te brinde la mejor experiencia en este momento. ¿Quieres cambiar a {{language}} de todos modos?",
-      "title": "Idioma no totalmente soportado"
+      "message": "{{language}} todavía está en desarrollo y puede que todavía no te ofrezca la mejor experiencia. ¿Quieres cambiar a {{language}} de todos modos?",
+      "title": "Idioma soportado parcialmente"
     }
   }
 }

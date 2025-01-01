@@ -98,6 +98,18 @@
         "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1731836741/Images/card_Music_I_qt5sxp.png"
       }
     },
+    "coCreators": [
+      {
+        "name": "Catharina Messel, script and voice",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1734343422/Contributors/Catharina_Messel_Da_PsyPal.png",
+        "url": "https://palliativeprojects.eu/psypal/university-of-copenhagen/"
+      },
+      {
+        "name": "Ints Ivanovskis, art works",
+        "url": "https://www.linkedin.com/in/ints-ivanovskis-46ab0311a/?originalSubdomain=se",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413436/Contributors/Ints%20Ivanovskis.jpg"
+      }
+    ],
     "outroPortal": {
       "video": {
         "source": ""
@@ -121,24 +133,25 @@
         "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1731837714/Video/portal_2_Music_I_qtbjdr.mp4"
       }
     },
-    "tags": ["566aeb1b-1649-4f5a-96a2-0c80be27efc0"],
+    "tags": [
+      "566aeb1b-1649-4f5a-96a2-0c80be27efc0"
+    ],
     "id": "b6de2e28-325e-4ce1-8894-09ac12a6c19f",
     "async": true,
     "description": "Mindfulness and visualization guided by music, can help our brains practice being in altered states of consciousness. It may be a way to relax, reset and ground ourselves in our bodies."
   },
   "pt": {
-    "liveDuration": 40,
+    "description": "Técnicas de mindfullness e de visualização/imagética guiada pela música podem ajudar os nossos cérebros a praticar estados de consciência alterados. Podem ser uma forma de relaxarmos e nos situarmos nos nossos corpos.",
+    "name": "Exercício de música PsyPal I ",
     "slides": [
       {
-        "type": "host",
-        "hostNotes": [
-          {
-            "text": "Welcome. I am X and today we will work for around 30 minutes on xx\n\nWe’ll be doing xx ex. meditation followed by time for reflection and sharing with each other."
-          },
-          {
-            "text": "Let’s start with a mini check-in. How are you feeling right now? Please answer in two-three words. X, would you like to start?\n\n> Let everyone in the session, including yourself, check in one by one.\n\nThank you all for checking in. Let’s get started."
+        "content": {
+          "text": "Neste exercício será orientado para relaxar, fazer uma exploração corporal consciente, fazer uma tarefa de visualização com música e, no final, embarcar na sua própria viagem, guiado apenas pela música.\n\nA intenção é de praticar um estado alterado de consciência.",
+          "image": {
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1731838272/Images/visual_noBG_Music_I_scubak.png"
           }
-        ]
+        },
+        "type": "instruction"
       },
       {
         "type": "content",
@@ -146,9 +159,29 @@
           {
             "text": "Find a comfortable position. I will start the audio exercise and we'll meet back here afterwards. \n\n> Push play to start the audio exercise"
           }
-        ]
+        ],
+        "content": {
+          "lottie": {
+            "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1725970559/SRT%20%28captions%29%20files/PsyPal__Music_exercise_1_igejly.srt",
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1731069614/Audio/PsyPal__Music_exercise_1_uprkfe.mp3",
+            "durationTimer": true,
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto/v1676642915/Lottie/default_audio_black_zjrmu2.json"
+          }
+        }
       },
       {
+        "content": {
+          "heading": "Como foi a sua experiência?",
+          "lottie": {
+            "durationTimer": true,
+            "duration": 60,
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto/v1676642915/Lottie/default_1min_black_rosi2l.json",
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1731845216/Audio/reflection_audio_Music_I_izc9dp.mp3"
+          },
+          "image": {
+            "source": ""
+          }
+        },
         "type": "reflection",
         "hostNotes": [
           {
@@ -160,6 +193,14 @@
         ]
       },
       {
+        "content": {
+          "heading": "Como foi a sua experiência?",
+          "lottie": {
+            "durationTimer": true,
+            "duration": 120,
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto/v1676639253/Lottie/default_2min_black_o6egey.json"
+          }
+        },
         "type": "sharing",
         "hostNotes": [
           {
@@ -175,46 +216,70 @@
         "id": "Sharing 1"
       },
       {
-        "type": "host",
-        "hostNotes": [
-          {
-            "text": "Well done. If you’re up for it, you can continue what we started here today with a mission to bring this into your everyday life.\n\nxx mission description"
-          },
-          {
-            "text": "Before we leave this space let’s do a mini check-out. \n\nHow are you feeling right now? Has anything shifted? Please answer in two-three words."
-          },
-          {
-            "text": "Who would like to start?\n\n> Let everyone in the session check out one by one.\n\nThank you all for checking out and for joining this session today.\n\n> Finish session to send everyone off to the exit experience."
-          }
-        ]
-      },
-      {
-        "type": "instruction",
         "content": {
-          "text": "Well done.\n\nSummary.\n\nIf you’re up for it, you can continue with this mission.\n\nmission description"
-        }
+          "text": "Bem-vindo de volta e bom trabalho.\n\nA imersão na música pode ajudar os nossos cérebros a descansar e a reiniciar. Pode trazer-nos novos pensamentos, assim como oferecer um intervalo do ruído quotidiano.",
+          "image": {
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1731838272/Images/visual_noBG_Music_I_scubak.png"
+          }
+        },
+        "type": "instruction"
       }
     ],
+    "liveDuration": 40,
     "theme": {
-      "textColor": "#2AE2D7"
+      "textColor": "#2E2E2E",
+      "backgroundColor": "#e6cd44"
     },
-    "hidden": false,
+    "hidden": true,
     "locked": false,
-    "live": true,
-    "published": false,
+    "live": false,
+    "published": true,
     "asyncDuration": 25,
-    "card": {},
+    "card": {
+      "image": {
+        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1731836741/Images/card_Music_I_qt5sxp.png"
+      }
+    },
+    "coCreators": [
+      {
+        "name": "Catharina Messel, script and voice",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1734343422/Contributors/Catharina_Messel_Da_PsyPal.png",
+        "url": "https://palliativeprojects.eu/psypal/university-of-copenhagen/"
+      },
+      {
+        "name": "Ints Ivanovskis, art works",
+        "url": "https://www.linkedin.com/in/ints-ivanovskis-46ab0311a/?originalSubdomain=se",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413436/Contributors/Ints%20Ivanovskis.jpg"
+      }
+    ],
+    "outroPortal": {
+      "video": {
+        "source": ""
+      }
+    },
     "introPortal": {
-      "textColor": "#2AE2D7",
+      "textColor": "#2E2E2E",
       "hostNotes": [
         {
           "text": "> Start the session when you're ready to go"
         }
-      ]
+      ],
+      "videoLoop": {
+        "p5JsScript": {
+          "lang": "javascript"
+        },
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/v1731836473/Video/portal_1_Music_I_v7ozzd.mp4",
+        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1731845216/Audio/portal_audio_Music_I_aeasai.mp3"
+      },
+      "videoEnd": {
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1731837714/Video/portal_2_Music_I_qtbjdr.mp4"
+      }
     },
-    "tags": ["566aeb1b-1649-4f5a-96a2-0c80be27efc0"],
+    "tags": [
+      "566aeb1b-1649-4f5a-96a2-0c80be27efc0"
+    ],
     "id": "b6de2e28-325e-4ce1-8894-09ac12a6c19f",
-    "async": false
+    "async": true
   },
   "sv": {
     "liveDuration": 40,
@@ -302,7 +367,9 @@
         }
       ]
     },
-    "tags": ["566aeb1b-1649-4f5a-96a2-0c80be27efc0"],
+    "tags": [
+      "566aeb1b-1649-4f5a-96a2-0c80be27efc0"
+    ],
     "id": "b6de2e28-325e-4ce1-8894-09ac12a6c19f",
     "async": false
   },
@@ -392,30 +459,436 @@
         }
       ]
     },
-    "tags": ["566aeb1b-1649-4f5a-96a2-0c80be27efc0"],
+    "tags": [
+      "566aeb1b-1649-4f5a-96a2-0c80be27efc0"
+    ],
     "id": "b6de2e28-325e-4ce1-8894-09ac12a6c19f",
     "async": false
   },
   "da": {
-    "card": {},
-    "locked": false,
-    "asyncDuration": 25,
+    "description": "Mindfulness og musik-guidet visualisering kan hjælpe os til at træde ind i en let ændret bevidsthedstilstand, samt slappe af, genstarte, og komme i kontakt med kroppen. ",
+    "name": "PsyPal musikøvelse I",
+    "slides": [
+      {
+        "content": {
+          "text": "I denne øvelse vil du blive guidet til at slappe af, foretage en  kropsscanning, udføre en visualiseringsøvelse med musik og til sidst begive dig ud på din egen rejse, kun guidet af musikken.\n\nHensigten med dette er at øve det at være i en ændret bevidsthedstilstand. ",
+          "image": {
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1731838272/Images/visual_noBG_Music_I_scubak.png"
+          }
+        },
+        "type": "instruction"
+      },
+      {
+        "type": "content",
+        "hostNotes": [
+          {
+            "text": "Find a comfortable position. I will start the audio exercise and we'll meet back here afterwards. \n\n> Push play to start the audio exercise"
+          }
+        ],
+        "content": {
+          "lottie": {
+            "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1725970559/SRT%20%28captions%29%20files/PsyPal__Music_exercise_1_igejly.srt",
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1731069614/Audio/PsyPal__Music_exercise_1_uprkfe.mp3",
+            "durationTimer": true,
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto/v1676642915/Lottie/default_audio_black_zjrmu2.json"
+          }
+        }
+      },
+      {
+        "content": {
+          "heading": "Hvordan føltes dette?",
+          "lottie": {
+            "durationTimer": true,
+            "duration": 60,
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto/v1676642915/Lottie/default_1min_black_rosi2l.json",
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1731845216/Audio/reflection_audio_Music_I_izc9dp.mp3"
+          },
+          "image": {
+            "source": ""
+          }
+        },
+        "type": "reflection",
+        "hostNotes": [
+          {
+            "text": "Now we’ll take 1 minute to reflect on our own.\n\nxxMain question\n\nxxFurther explanations of main question if needed"
+          },
+          {
+            "text": "You can take notes on a piece of paper or just mental notes in your head. And there is no right or wrong here, our answers are our own. 1 minute starting now.\n\n> Press play to start the timer.\n\nThat’s 1 minute and it’s time to move on."
+          }
+        ]
+      },
+      {
+        "content": {
+          "heading": "Hvordan føltes det?",
+          "lottie": {
+            "durationTimer": true,
+            "duration": 120,
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto/v1676639253/Lottie/default_2min_black_o6egey.json"
+          }
+        },
+        "type": "sharing",
+        "hostNotes": [
+          {
+            "text": "Now we are getting into the sharing part. We have three rules for sharing:\n\n1. **What is said in here, stays in here.**\n2. **All you need to do is listen.** There is no fixing, helping or advice-giving needed. We are just showing up and exploring what ourselves and others are going through."
+          },
+          {
+            "text": "3. **Everything on the inside is okay.** Anger, love, hatred, sadness. Whatever shows up. No wrongs, no rights. It is what it is.\n\nThere will be a timer set for 2 minutes as an indicator. If you don’t want to share you can always say ‘pass’."
+          },
+          {
+            "text": "Who would like to start?\n\n> Let everyone (or as many as you got time for) share one by one. Press play to start the timer. Re-start for each new sharing.\n\nThank you so much everyone."
+          }
+        ],
+        "id": "Sharing 1"
+      },
+      {
+        "content": {
+          "text": "Velkommen tilbage, og godt klaret. \n\nAt fordybe sig i musik kan hjælpe os  med at slappe af og give slip. Det kan give plads til nye tanker og kan give os en pause fra hverdagens larm.",
+          "image": {
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1731838272/Images/visual_noBG_Music_I_scubak.png"
+          }
+        },
+        "type": "instruction"
+      }
+    ],
     "liveDuration": 40,
-    "tags": ["566aeb1b-1649-4f5a-96a2-0c80be27efc0"]
+    "theme": {
+      "textColor": "#2E2E2E",
+      "backgroundColor": "#e6cd44"
+    },
+    "hidden": true,
+    "locked": false,
+    "live": false,
+    "published": true,
+    "asyncDuration": 25,
+    "card": {
+      "image": {
+        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1731836741/Images/card_Music_I_qt5sxp.png"
+      }
+    },
+    "coCreators": [
+      {
+        "name": "Catharina Messel, script and voice",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1734343422/Contributors/Catharina_Messel_Da_PsyPal.png",
+        "url": "https://palliativeprojects.eu/psypal/university-of-copenhagen/"
+      },
+      {
+        "name": "Ints Ivanovskis, art works",
+        "url": "https://www.linkedin.com/in/ints-ivanovskis-46ab0311a/?originalSubdomain=se",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413436/Contributors/Ints%20Ivanovskis.jpg"
+      }
+    ],
+    "outroPortal": {
+      "video": {
+        "source": ""
+      }
+    },
+    "introPortal": {
+      "textColor": "#2E2E2E",
+      "hostNotes": [
+        {
+          "text": "> Start the session when you're ready to go"
+        }
+      ],
+      "videoLoop": {
+        "p5JsScript": {
+          "lang": "javascript"
+        },
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/v1731836473/Video/portal_1_Music_I_v7ozzd.mp4",
+        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1731845216/Audio/portal_audio_Music_I_aeasai.mp3"
+      },
+      "videoEnd": {
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1731837714/Video/portal_2_Music_I_qtbjdr.mp4"
+      }
+    },
+    "tags": [
+      "566aeb1b-1649-4f5a-96a2-0c80be27efc0"
+    ],
+    "id": "b6de2e28-325e-4ce1-8894-09ac12a6c19f",
+    "async": true
   },
   "cs": {
-    "card": {},
-    "locked": false,
-    "asyncDuration": 25,
+    "description": "Cvičení všímavosti a vizualizace s hudbou může pomoci naší mysli prožívat změněné stavy vědomí. Může být cestou, jak se uvolnit, nabrat nové síly a uzemnit se ve svém těle.",
+    "name": "PsyPal hudební cvičení I",
+    "slides": [
+      {
+        "content": {
+          "text": "Součástí tohoto cvičení bude relaxace, skenování vašich tělesných pocitů, slovem vedená vizualizace s hudbou a nakonec se vydáte na vlastní cestu jen s hudbou.\n\nZáměrem je učit se prožívat změněný stav vědomí.",
+          "image": {
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1731838272/Images/visual_noBG_Music_I_scubak.png"
+          }
+        },
+        "type": "instruction"
+      },
+      {
+        "type": "content",
+        "hostNotes": [
+          {
+            "text": "Find a comfortable position. I will start the audio exercise and we'll meet back here afterwards. \n\n> Push play to start the audio exercise"
+          }
+        ],
+        "content": {
+          "lottie": {
+            "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1725970559/SRT%20%28captions%29%20files/PsyPal__Music_exercise_1_igejly.srt",
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1731069614/Audio/PsyPal__Music_exercise_1_uprkfe.mp3",
+            "durationTimer": true,
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto/v1676642915/Lottie/default_audio_black_zjrmu2.json"
+          }
+        }
+      },
+      {
+        "content": {
+          "heading": "Jak jste toto prožívali?",
+          "lottie": {
+            "durationTimer": true,
+            "duration": 60,
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto/v1676642915/Lottie/default_1min_black_rosi2l.json",
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1731845216/Audio/reflection_audio_Music_I_izc9dp.mp3"
+          },
+          "image": {
+            "source": ""
+          }
+        },
+        "type": "reflection",
+        "hostNotes": [
+          {
+            "text": "Now we’ll take 1 minute to reflect on our own.\n\nxxMain question\n\nxxFurther explanations of main question if needed"
+          },
+          {
+            "text": "You can take notes on a piece of paper or just mental notes in your head. And there is no right or wrong here, our answers are our own. 1 minute starting now.\n\n> Press play to start the timer.\n\nThat’s 1 minute and it’s time to move on."
+          }
+        ]
+      },
+      {
+        "content": {
+          "heading": "Jak jste toto prožívali?",
+          "lottie": {
+            "durationTimer": true,
+            "duration": 120,
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto/v1676639253/Lottie/default_2min_black_o6egey.json"
+          }
+        },
+        "type": "sharing",
+        "hostNotes": [
+          {
+            "text": "Now we are getting into the sharing part. We have three rules for sharing:\n\n1. **What is said in here, stays in here.**\n2. **All you need to do is listen.** There is no fixing, helping or advice-giving needed. We are just showing up and exploring what ourselves and others are going through."
+          },
+          {
+            "text": "3. **Everything on the inside is okay.** Anger, love, hatred, sadness. Whatever shows up. No wrongs, no rights. It is what it is.\n\nThere will be a timer set for 2 minutes as an indicator. If you don’t want to share you can always say ‘pass’."
+          },
+          {
+            "text": "Who would like to start?\n\n> Let everyone (or as many as you got time for) share one by one. Press play to start the timer. Re-start for each new sharing.\n\nThank you so much everyone."
+          }
+        ],
+        "id": "Sharing 1"
+      },
+      {
+        "content": {
+          "text": "Vítejte zpět. Dobrá práce.\n\nPonoření se do poslechu hudby může pomoci naší mysli odpočinout si a nabrat nové síly. Může přinést nové myšlenky a také nám poskytnout přestávku od každodenního shonu.",
+          "image": {
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1731838272/Images/visual_noBG_Music_I_scubak.png"
+          }
+        },
+        "type": "instruction"
+      }
+    ],
     "liveDuration": 40,
-    "tags": ["566aeb1b-1649-4f5a-96a2-0c80be27efc0"]
+    "theme": {
+      "textColor": "#2E2E2E",
+      "backgroundColor": "#e6cd44"
+    },
+    "hidden": true,
+    "locked": false,
+    "live": false,
+    "published": true,
+    "asyncDuration": 25,
+    "card": {
+      "image": {
+        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1731836741/Images/card_Music_I_qt5sxp.png"
+      }
+    },
+    "coCreators": [
+      {
+        "name": "Catharina Messel, script and voice",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1734343422/Contributors/Catharina_Messel_Da_PsyPal.png",
+        "url": "https://palliativeprojects.eu/psypal/university-of-copenhagen/"
+      },
+      {
+        "name": "Ints Ivanovskis, art works",
+        "url": "https://www.linkedin.com/in/ints-ivanovskis-46ab0311a/?originalSubdomain=se",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413436/Contributors/Ints%20Ivanovskis.jpg"
+      }
+    ],
+    "outroPortal": {
+      "video": {
+        "source": ""
+      }
+    },
+    "introPortal": {
+      "textColor": "#2E2E2E",
+      "hostNotes": [
+        {
+          "text": "> Start the session when you're ready to go"
+        }
+      ],
+      "videoLoop": {
+        "p5JsScript": {
+          "lang": "javascript"
+        },
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/v1731836473/Video/portal_1_Music_I_v7ozzd.mp4",
+        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1731845216/Audio/portal_audio_Music_I_aeasai.mp3"
+      },
+      "videoEnd": {
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1731837714/Video/portal_2_Music_I_qtbjdr.mp4"
+      }
+    },
+    "tags": [
+      "566aeb1b-1649-4f5a-96a2-0c80be27efc0"
+    ],
+    "id": "b6de2e28-325e-4ce1-8894-09ac12a6c19f",
+    "async": true
   },
   "nl": {
-    "card": {},
-    "locked": false,
-    "asyncDuration": 25,
+    "description": "Mindfulness en visualisatie begeleid door muziek kunnen onze hersenen helpen oefenen in het ervaren van veranderde bewustzijnstoestanden. Het kan een manier zijn om te ontspannen, te resetten en onszelf te aarden in ons lichaam.",
+    "name": "PsyPal muziekoefening I",
+    "slides": [
+      {
+        "content": {
+          "text": "In deze oefening word je begeleid om te ontspannen, een mindfulness bodyscan te doen, een visualisatietaak met muziek uit te voeren, en ten slotte je eigen reis te beginnen, alleen begeleid door de muziek.\n\nHet doel is om te oefenen in het ervaren van een veranderde bewustzijnstoestand.",
+          "image": {
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1731838272/Images/visual_noBG_Music_I_scubak.png"
+          }
+        },
+        "type": "instruction"
+      },
+      {
+        "type": "content",
+        "hostNotes": [
+          {
+            "text": "Find a comfortable position. I will start the audio exercise and we'll meet back here afterwards. \n\n> Push play to start the audio exercise"
+          }
+        ],
+        "content": {
+          "lottie": {
+            "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1725970559/SRT%20%28captions%29%20files/PsyPal__Music_exercise_1_igejly.srt",
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1731069614/Audio/PsyPal__Music_exercise_1_uprkfe.mp3",
+            "durationTimer": true,
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto/v1676642915/Lottie/default_audio_black_zjrmu2.json"
+          }
+        }
+      },
+      {
+        "content": {
+          "heading": "Hoe heb je dit ervaren?",
+          "lottie": {
+            "durationTimer": true,
+            "duration": 60,
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto/v1676642915/Lottie/default_1min_black_rosi2l.json",
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1731845216/Audio/reflection_audio_Music_I_izc9dp.mp3"
+          },
+          "image": {
+            "source": ""
+          }
+        },
+        "type": "reflection",
+        "hostNotes": [
+          {
+            "text": "Now we’ll take 1 minute to reflect on our own.\n\nxxMain question\n\nxxFurther explanations of main question if needed"
+          },
+          {
+            "text": "You can take notes on a piece of paper or just mental notes in your head. And there is no right or wrong here, our answers are our own. 1 minute starting now.\n\n> Press play to start the timer.\n\nThat’s 1 minute and it’s time to move on."
+          }
+        ]
+      },
+      {
+        "content": {
+          "heading": "Hoe heb je dit ervaren?",
+          "lottie": {
+            "durationTimer": true,
+            "duration": 120,
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto/v1676639253/Lottie/default_2min_black_o6egey.json"
+          }
+        },
+        "type": "sharing",
+        "hostNotes": [
+          {
+            "text": "Now we are getting into the sharing part. We have three rules for sharing:\n\n1. **What is said in here, stays in here.**\n2. **All you need to do is listen.** There is no fixing, helping or advice-giving needed. We are just showing up and exploring what ourselves and others are going through."
+          },
+          {
+            "text": "3. **Everything on the inside is okay.** Anger, love, hatred, sadness. Whatever shows up. No wrongs, no rights. It is what it is.\n\nThere will be a timer set for 2 minutes as an indicator. If you don’t want to share you can always say ‘pass’."
+          },
+          {
+            "text": "Who would like to start?\n\n> Let everyone (or as many as you got time for) share one by one. Press play to start the timer. Re-start for each new sharing.\n\nThank you so much everyone."
+          }
+        ],
+        "id": "Sharing 1"
+      },
+      {
+        "content": {
+          "text": "Welkom terug, en goed gedaan.\n\nJezelf onderdompelen in muziek kan onze hersenen helpen rusten en enigszins resetten. Het kan nieuwe gedachten brengen en ons een pauze geven van de dagelijkse drukte.",
+          "image": {
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1731838272/Images/visual_noBG_Music_I_scubak.png"
+          }
+        },
+        "type": "instruction"
+      }
+    ],
     "liveDuration": 40,
-    "tags": ["566aeb1b-1649-4f5a-96a2-0c80be27efc0"]
+    "theme": {
+      "textColor": "#2E2E2E",
+      "backgroundColor": "#e6cd44"
+    },
+    "hidden": true,
+    "locked": false,
+    "live": false,
+    "published": true,
+    "asyncDuration": 25,
+    "card": {
+      "image": {
+        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1731836741/Images/card_Music_I_qt5sxp.png"
+      }
+    },
+    "coCreators": [
+      {
+        "name": "Catharina Messel, script and voice",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1734343422/Contributors/Catharina_Messel_Da_PsyPal.png",
+        "url": "https://palliativeprojects.eu/psypal/university-of-copenhagen/"
+      },
+      {
+        "name": "Ints Ivanovskis, art works",
+        "url": "https://www.linkedin.com/in/ints-ivanovskis-46ab0311a/?originalSubdomain=se",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413436/Contributors/Ints%20Ivanovskis.jpg"
+      }
+    ],
+    "outroPortal": {
+      "video": {
+        "source": ""
+      }
+    },
+    "introPortal": {
+      "textColor": "#2E2E2E",
+      "hostNotes": [
+        {
+          "text": "> Start the session when you're ready to go"
+        }
+      ],
+      "videoLoop": {
+        "p5JsScript": {
+          "lang": "javascript"
+        },
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/v1731836473/Video/portal_1_Music_I_v7ozzd.mp4",
+        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1731845216/Audio/portal_audio_Music_I_aeasai.mp3"
+      },
+      "videoEnd": {
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1731837714/Video/portal_2_Music_I_qtbjdr.mp4"
+      }
+    },
+    "tags": [
+      "566aeb1b-1649-4f5a-96a2-0c80be27efc0"
+    ],
+    "id": "b6de2e28-325e-4ce1-8894-09ac12a6c19f",
+    "async": true
   },
-  "es": {}
+  "es": {
+    "id": "b6de2e28-325e-4ce1-8894-09ac12a6c19f"
+  }
 }

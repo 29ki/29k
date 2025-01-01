@@ -149,9 +149,15 @@
     },
     "sortOrder": 5
   },
-  "da": {},
-  "cs": {},
-  "nl": {},
+  "da": {
+    "id": "be8d8f71-1b30-4f9a-80cb-616ff24e8db9"
+  },
+  "cs": {
+    "id": "be8d8f71-1b30-4f9a-80cb-616ff24e8db9"
+  },
+  "nl": {
+    "id": "be8d8f71-1b30-4f9a-80cb-616ff24e8db9"
+  },
   "es": {
     "description": "Gestiona tus emociones, encuentra apoyo y formas de colaborar para un mañana mejor.",
     "name": "Actúa por la sostenibilidad",
