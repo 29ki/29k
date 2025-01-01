@@ -1,4 +1,5 @@
-import React, {useMemo} from 'react';
+import React, {Fragment, useMemo} from 'react';
+
 import {
   BottomSheetNavigationOptions,
   createBottomSheetNavigator,
@@ -14,7 +15,10 @@ import SessionErrorModal from '../../routes/modals/SessionErrorModal/SessionErro
 import {COLORS} from '../../../../shared/src/constants/colors';
 import SETTINGS from '../constants/settings';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
-import {BottomSheetBackdrop} from '@gorhom/bottom-sheet';
+import {
+  BottomSheetBackdrop,
+  BottomSheetBackdropProps,
+} from '@gorhom/bottom-sheet';
 import ChangeLanguageModal from '../../routes/modals/ChangeLanguageModal/ChangeLanguageModal';
 import ProfileSettingsModal from '../../routes/modals/ProfileSettingsModal/ProfileSettingsModal';
 import SignInModal from '../../routes/modals/SignInModal/SignInModal';
@@ -50,18 +54,25 @@ import UnlockCollectionModal from '../../routes/modals/UnlockCollectionModal/Unl
 const {Navigator, Screen, Group} =
   createBottomSheetNavigator<ModalStackProps>();
 
+const BackdropComponent = ({
+  animatedIndex,
+  animatedPosition,
+  style,
+}: BottomSheetBackdropProps) => (
+  <BottomSheetBackdrop
+    pressBehavior="close"
+    animatedIndex={animatedIndex}
+    animatedPosition={animatedPosition}
+    disappearsOnIndex={-0.1}
+    appearsOnIndex={0}
+    opacity={0.1}
+    style={style}
+  />
+);
+
 const modalScreenOptions: BottomSheetNavigationOptions = {
-  backdropComponent: ({animatedIndex, animatedPosition, style}) => (
-    <BottomSheetBackdrop
-      pressBehavior="close"
-      animatedIndex={animatedIndex}
-      animatedPosition={animatedPosition}
-      disappearsOnIndex={-0.1}
-      appearsOnIndex={0}
-      opacity={0.1}
-      style={style}
-    />
-  ),
+  containerComponent: Fragment,
+  backdropComponent: BackdropComponent,
   backgroundStyle: {
     backgroundColor: 'transparent',
     shadowColor: '#000000',
@@ -80,12 +91,13 @@ const modalScreenOptions: BottomSheetNavigationOptions = {
     left: 0,
     right: 0,
   },
+  enableDynamicSizing: false,
   /*
     TODO: Fixes issues with modals being clipped when focusing on input fields
     https://github.com/gorhom/react-native-bottom-sheet/issues/618
   */
   android_keyboardInputMode: 'adjustResize',
-  stackBehavior: 'replace',
+  stackBehavior: 'push',
 };
 
 const ModalStack = () => {

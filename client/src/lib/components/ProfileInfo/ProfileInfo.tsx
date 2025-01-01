@@ -11,7 +11,6 @@ import useUpdateProfileDetails from '../../user/hooks/useUpdateProfileDetails';
 import ProfilePicture from '../User/ProfilePicture';
 import useUser from '../../user/hooks/useUser';
 import {COLORS} from '../../../../../shared/src/constants/colors';
-import useHideModalUntilResolved from '../../navigation/hooks/useHideModalUntilResolved';
 
 const Container = styled.View({
   alignItems: 'center',
@@ -47,8 +46,6 @@ const ProfileInfo: React.FC<ProfileInfoProps> = ({onSaveCallback}) => {
     useChangeProfilePicture();
   const {updateProfileDetails, isUpdatingProfileDetails} =
     useUpdateProfileDetails();
-  const hideModalAndChangeProfilePicture =
-    useHideModalUntilResolved(changeProfilePicture);
   const [displayName, setDisplayName] = useState(user?.displayName ?? '');
   const [nameMissing, setNameMissing] = useState(false);
   const [pictureMissing, setPictureMissing] = useState(false);
@@ -97,7 +94,7 @@ const ProfileInfo: React.FC<ProfileInfoProps> = ({onSaveCallback}) => {
         pictureURL={user?.photoURL}
         hasError={pictureMissing}
         loading={isUpdatingProfilePicture}
-        onPress={hideModalAndChangeProfilePicture}
+        onPress={changeProfilePicture}
         size={SPACINGS.NINTYSIX}
       />
       <Spacer16 />
