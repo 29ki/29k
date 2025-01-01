@@ -25,7 +25,6 @@ import {SPACINGS} from '../../../lib/constants/spacings';
 import {ModalHeading} from '../../../lib/components/Typography/Heading/Heading';
 import useConfirmSessionReminder from '../../../lib/sessions/hooks/useConfirmSessionReminder';
 import {getSessionHostingLink} from '../../../lib/sessions/api/session';
-import useHideModalUntilResolved from '../../../lib/navigation/hooks/useHideModalUntilResolved';
 
 const Row = styled(View)({
   flexDirection: 'row',
@@ -42,18 +41,17 @@ const AssignNewHostModal = () => {
 
   const exercise = useExerciseById(session?.exerciseId, session?.language);
   const confirmToggleReminder = useConfirmSessionReminder(session);
-  const hideModalAndShare = useHideModalUntilResolved(Share.share);
 
   const isHost = user?.uid === session.hostId;
 
   const onHostChange = useCallback(async () => {
     const link = await getSessionHostingLink(session.id);
     if (link) {
-      hideModalAndShare({
+      Share.share({
         message: link,
       });
     }
-  }, [session.id, hideModalAndShare]);
+  }, [session.id]);
 
   useEffect(() => {
     if (isHost) {

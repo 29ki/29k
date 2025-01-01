@@ -57,7 +57,6 @@ import CoCreators from '../../../../../lib/components/CoCreators/CoCreators';
 import CardGraphic from '../../../../../lib/components/CardGraphic/CardGraphic';
 import BackgroundBlock from '../../../../../lib/components/BackgroundBlock/BackgroundBlock';
 import useGetSessionCardTags from '../../../../../lib/components/Cards/SessionCard/hooks/useGetSessionCardTags';
-import useHideModalUntilResolved from '../../../../../lib/navigation/hooks/useHideModalUntilResolved';
 
 const TypeItemWrapper = styled.View<{isLast?: boolean}>(({isLast}) => ({
   flexDirection: 'row',
@@ -162,7 +161,6 @@ const SelectTypeStep: React.FC<StepProps> = ({
     useNavigation<NativeStackNavigationProp<ModalStackProps>>();
   const getExerciseById = useGetExerciseById();
   const startSession = useStartAsyncSession();
-  const hideModalAndShare = useHideModalUntilResolved(Share.share);
 
   const {rating} = useExerciseRating(selectedExercise);
   const {feedback} = useExerciseFeedback(selectedExercise);
@@ -197,11 +195,11 @@ const SelectTypeStep: React.FC<StepProps> = ({
 
   const onShare = useCallback(() => {
     if (exercise?.link) {
-      hideModalAndShare({
+      Share.share({
         message: exercise.link,
       });
     }
-  }, [exercise?.link, hideModalAndShare]);
+  }, [exercise?.link]);
 
   const onStartPress = useCallback(() => {
     if (selectedExercise) {
