@@ -9995,10 +9995,10 @@ react-native-markdown-display@^7.0.2:
     prop-types "^15.7.2"
     react-native-fit-image "^1.5.5"
 
-react-native-permissions@^4.1.5:
-  version "4.1.5"
-  resolved "https://registry.yarnpkg.com/react-native-permissions/-/react-native-permissions-4.1.5.tgz#db4d1ddbf076570043f4fd4168f54bb6020aec92"
-  integrity sha512-r6VMRacASmtRHS+GZ+5HQCp9p9kiE+UU9magHOZCXZLTJitdTuVHWZRrb4v4oqZGU+zAp3mZhTQftuMMv+WLUg==
+react-native-permissions@^5.2.2:
+  version "5.2.2"
+  resolved "https://registry.yarnpkg.com/react-native-permissions/-/react-native-permissions-5.2.2.tgz#1eb9849ef23500b4d618cf9c2049f40069fa6946"
+  integrity sha512-Mae5VKT8bjliksONZ+jMYTPf90wxuhn1H1FiH/kRfw0Y5tW5WIV1P8t/KiEHKZRvimnrInimuCr+EpRzK0IPWQ==
 
 react-native-rate@^1.2.12:
   version "1.2.12"
