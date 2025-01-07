@@ -2093,7 +2093,7 @@ PODS:
     - React-Core
   - react-native-background-timer (2.4.1):
     - React-Core
-  - react-native-daily-js (0.69.0):
+  - react-native-daily-js (0.71.0):
     - React-Core
     - ReactNativeDailyJSScreenShareExtension (= 0.0.1)
   - react-native-get-random-values (1.11.0):
@@ -2428,7 +2428,7 @@ PODS:
     - RNNotifee/NotifeeCore (= 9.1.3)
   - RNNotifee/NotifeeCore (9.1.3):
     - React-Core
-  - RNPermissions (4.1.5):
+  - RNPermissions (5.2.2):
     - React-Core
   - RNRate (1.2.12):
     - React-Core
@@ -3012,7 +3012,7 @@ SPEC CHECKSUMS:
   React-Mapbuffer: 70da5955150a58732e9336a0c7e71cd49e909f25
   react-native-add-calendar-event: b9802a8be8ad4beb0dcb3efb28969c077558fb29
   react-native-background-timer: 17ea5e06803401a379ebf1f20505b793ac44d0fe
-  react-native-daily-js: 6f3b0930d5fd7fc94648eb334a35d3efe538c93c
+  react-native-daily-js: ba55f2e6393ac507dd91972b7df509543552c454
   react-native-get-random-values: 21325b2244dfa6b58878f51f9aa42821e7ba3d06
   react-native-idle-timer: b4e9ff189950bcd3ba03257d9f033f3432341db8
   react-native-netinfo: f0a9899081c185db1de5bb2fdc1c88c202a059ac
@@ -3058,7 +3058,7 @@ SPEC CHECKSUMS:
   RNImageCropPicker: 8e39c01f205e00d739c31e682f068aac315587bf
   RNLocalize: 4f22418187ecd5ca693231093ff1d912d1b3c9bc
   RNNotifee: 522276e0be010e98173175fb838514b69f18cbe0
-  RNPermissions: a58e61bd4e6bd417adcf8ef8ca094b93d772e492
+  RNPermissions: b8fcf4c21a018a2eb1869231f3e121aa97c0f642
   RNRate: ef3bcff84f39bb1d1e41c5593d3eea4aab2bd73a
   RNReactNativeHapticFeedback: dd1df8ab143dfd0ac79fe483cd08822d7a86fc85
   RNReanimated: 13f9f061449dd7a1f6e1b8fb4caf18b880b41bd1
@@ -3078,7 +3078,7 @@ SPEC CHECKSUMS:
   StripePaymentsUI: 7d7cffb2ecfc0d6b5ac3a4488c02893a5ff6cc77
   StripeUICore: bb102d453b1e1a10a37f810bc0a9aa0675fb17fd
   TOCropViewController: 80b8985ad794298fb69d3341de183f33d1853654
-  Yoga: eed50599a85bd9f6882a9938d118aed6a397db9c
+  Yoga: bd92064a0d558be92786820514d74fc4dddd1233
 
 PODFILE CHECKSUM: 1e2c5c3ea8152bd7472ee44e381909c2f6afd170
 
