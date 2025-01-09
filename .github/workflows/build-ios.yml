@@ -157,14 +157,14 @@ jobs:
         run: bundle exec fastlane ios app
 
       - name: Upload IPA
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         if: always()
         with:
           name: ios-ipa
           path: ./client/ios/*.ipa
 
       - name: Upload Logs
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         if: failure()
         with:
           name: ios-build-logs

@@ -152,14 +152,14 @@ jobs:
         run: bundle exec fastlane android app
 
       - name: Upload AAB
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         if: always()
         with:
           name: android-aab
           path: ./client/android/app/build/outputs/bundle
 
       - name: Upload Logs
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         if: failure()
         with:
           name: android-build-logs
