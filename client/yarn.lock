@@ -9988,15 +9988,14 @@ react-native-fit-image@^1.5.5:
   dependencies:
     prop-types "^15.5.10"
 
-react-native-gesture-handler@^2.21.2:
-  version "2.21.2"
-  resolved "https://registry.yarnpkg.com/react-native-gesture-handler/-/react-native-gesture-handler-2.21.2.tgz#824a098d7397212fbe51aa3a9df84833a4ea1c3f"
-  integrity sha512-HcwB225K9aeZ8e/B8nFzEh+2T4EPWTeamO1l/y3PcQ9cyCDYO2zja/G31ITpYRIqkip7XzGs6wI/gnHOQn1LDQ==
+react-native-gesture-handler@^2.22.0:
+  version "2.22.0"
+  resolved "https://registry.yarnpkg.com/react-native-gesture-handler/-/react-native-gesture-handler-2.22.0.tgz#d90dad3e4d7fe149e3d1d445f697b487f717ac8e"
+  integrity sha512-m5Ps1cOSxSiMP4re+XsbeWcC9DNJuIEjMSmtUxBdyfYEJtdu5iAAiX7KlHHrf2mnK4I/56Ncy4PvPKWBwSpWpQ==
   dependencies:
     "@egjs/hammerjs" "^2.0.17"
     hoist-non-react-statics "^3.3.0"
     invariant "^2.2.4"
-    prop-types "^15.7.2"
 
 react-native-get-random-values@^1.11.0:
   version "1.11.0"
