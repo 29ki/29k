@@ -154,8 +154,7 @@
     "description": "Our inner values is about who we want to be in life. Living a value-based life is often more fulfilling and meaningful to people."
   },
   "pt": {
-    "description": "Os nossos valores dizem respeito a quem desejamos ser na vida. Viver uma vida baseada em valores é frequentemente mais gratificante e tem mais significado para as pessoas.",
-    "name": "Os meus valores",
+    "liveDuration": 30,
     "slides": [
       {
         "type": "host",
@@ -259,13 +258,13 @@
         "type": "instruction"
       }
     ],
-    "liveDuration": 30,
     "theme": {
       "textColor": "#2E2E2E",
       "backgroundColor": "#c7bea2"
     },
     "hidden": true,
     "locked": false,
+    "name": "Os meus valores",
     "live": false,
     "published": true,
     "asyncDuration": 15,
@@ -305,7 +304,8 @@
       }
     },
     "id": "3adeb40b-b9f8-4b13-b1a8-02f6106df9e5",
-    "async": true
+    "async": true,
+    "description": "Os nossos valores dizem respeito a quem desejamos ser na vida. Viver uma vida baseada em valores é frequentemente mais gratificante e tem mais significado para as pessoas."
   },
   "sv": {
     "liveDuration": 30,
@@ -486,8 +486,7 @@
     "async": false
   },
   "da": {
-    "description": "Vores indre værdier omhandler, hvem vi ønsker at være her i tilværelsen. Det er ofte mere tilfredsstillende og meningsfuldt for folk at leve i overensstemmelse med deres værdier.",
-    "name": "Mine værdier",
+    "liveDuration": 30,
     "slides": [
       {
         "type": "host",
@@ -591,13 +590,13 @@
         "type": "instruction"
       }
     ],
-    "liveDuration": 30,
     "theme": {
       "textColor": "#2E2E2E",
       "backgroundColor": "#c7bea2"
     },
     "hidden": true,
     "locked": false,
+    "name": "Mine værdier",
     "live": false,
     "published": true,
     "asyncDuration": 15,
@@ -637,11 +636,11 @@
       }
     },
     "id": "3adeb40b-b9f8-4b13-b1a8-02f6106df9e5",
-    "async": true
+    "async": true,
+    "description": "Vores indre værdier omhandler, hvem vi ønsker at være her i tilværelsen. Det er ofte mere tilfredsstillende og meningsfuldt for folk at leve i overensstemmelse med deres værdier."
   },
   "cs": {
-    "description": "Naše vnitřní hodnoty jsou o tom, kým chceme být v životě. Život založený na hodnotách je pro lidi často naplňující a smysluplnější.",
-    "name": "Moje hodnoty",
+    "liveDuration": 30,
     "slides": [
       {
         "type": "host",
@@ -745,13 +744,13 @@
         "type": "instruction"
       }
     ],
-    "liveDuration": 30,
     "theme": {
       "textColor": "#2E2E2E",
       "backgroundColor": "#c7bea2"
     },
     "hidden": true,
     "locked": false,
+    "name": "Moje hodnoty",
     "live": false,
     "published": true,
     "asyncDuration": 15,
@@ -791,11 +790,11 @@
       }
     },
     "id": "3adeb40b-b9f8-4b13-b1a8-02f6106df9e5",
-    "async": true
+    "async": true,
+    "description": "Naše vnitřní hodnoty jsou o tom, kým chceme být v životě. Život založený na hodnotách je pro lidi často naplňující a smysluplnější."
   },
   "nl": {
-    "description": "Onze innerlijke waarden gaan over wie we willen zijn in het leven. Een waardengedreven leven leiden is vaak meer vervullend en betekenisvol voor mensen.",
-    "name": "Mijn waarden",
+    "liveDuration": 30,
     "slides": [
       {
         "type": "host",
@@ -899,13 +898,13 @@
         "type": "instruction"
       }
     ],
-    "liveDuration": 30,
     "theme": {
       "textColor": "#2E2E2E",
       "backgroundColor": "#c7bea2"
     },
     "hidden": true,
     "locked": false,
+    "name": "Mijn waarden",
     "live": false,
     "published": true,
     "asyncDuration": 15,
@@ -945,7 +944,8 @@
       }
     },
     "id": "3adeb40b-b9f8-4b13-b1a8-02f6106df9e5",
-    "async": true
+    "async": true,
+    "description": "Onze innerlijke waarden gaan over wie we willen zijn in het leven. Een waardengedreven leven leiden is vaak meer vervullend en betekenisvol voor mensen."
   },
   "es": {
     "asyncDuration": 15,
