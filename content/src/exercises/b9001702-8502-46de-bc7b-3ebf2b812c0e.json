@@ -152,8 +152,7 @@
     "description": "Create an overview of your life so far, and learn from your own past experiences. You'll need pen and paper to complete this exercise."
   },
   "pt": {
-    "description": "Faça uma síntese da sua vida até ao momento presente, e reflita sobre as suas experiências passadas. Para realizar este exercício, vai precisar de papel e caneta.",
-    "name": "Exploração de vida",
+    "liveDuration": 30,
     "slides": [
       {
         "type": "host",
@@ -201,7 +200,7 @@
           }
         ],
         "content": {
-          "heading": "What can you learn from this?",
+          "heading": "Que conclusões pode retirar desta experiência?",
           "lottie": {
             "durationTimer": true,
             "duration": 60,
@@ -252,13 +251,13 @@
         "type": "instruction"
       }
     ],
-    "liveDuration": 30,
     "theme": {
       "textColor": "#2E2E2E",
       "backgroundColor": "#f4deb2"
     },
     "hidden": true,
     "locked": false,
+    "name": "Exploração de vida",
     "live": false,
     "published": true,
     "asyncDuration": 15,
@@ -301,7 +300,8 @@
       "566aeb1b-1649-4f5a-96a2-0c80be27efc0"
     ],
     "id": "b9001702-8502-46de-bc7b-3ebf2b812c0e",
-    "async": true
+    "async": true,
+    "description": "Faça uma síntese da sua vida até ao momento presente, e reflita sobre as suas experiências passadas. Para realizar este exercício, vai precisar de papel e caneta."
   },
   "sv": {
     "liveDuration": 30,
@@ -488,8 +488,7 @@
     "async": false
   },
   "da": {
-    "description": "Lav en oversigt over dit livsforløb frem til nu, og lær af dine egne tidligere erfaringer. Du skal bruge pen og papir for at gennemføre denne øvelse.",
-    "name": "PsyPal Livsrefleksion",
+    "liveDuration": 30,
     "slides": [
       {
         "type": "host",
@@ -588,13 +587,13 @@
         "type": "instruction"
       }
     ],
-    "liveDuration": 30,
     "theme": {
       "textColor": "#2E2E2E",
       "backgroundColor": "#f4deb2"
     },
     "hidden": true,
     "locked": false,
+    "name": "PsyPal Livsrefleksion",
     "live": false,
     "published": true,
     "asyncDuration": 15,
@@ -637,11 +636,11 @@
       "566aeb1b-1649-4f5a-96a2-0c80be27efc0"
     ],
     "id": "b9001702-8502-46de-bc7b-3ebf2b812c0e",
-    "async": true
+    "async": true,
+    "description": "Lav en oversigt over dit livsforløb frem til nu, og lær af dine egne tidligere erfaringer. Du skal bruge pen og papir for at gennemføre denne øvelse."
   },
   "cs": {
-    "description": "Vytvořte přehled vašeho dosavadního života a poučte se z minulých zkušeností. K dokončení tohoto cvičení budete potřebovat pero a papír.",
-    "name": "PsyPal Průzkum života",
+    "liveDuration": 30,
     "slides": [
       {
         "type": "host",
@@ -740,13 +739,13 @@
         "type": "instruction"
       }
     ],
-    "liveDuration": 30,
     "theme": {
       "textColor": "#2E2E2E",
       "backgroundColor": "#f4deb2"
     },
     "hidden": true,
     "locked": false,
+    "name": "PsyPal Průzkum života",
     "live": false,
     "published": true,
     "asyncDuration": 15,
@@ -789,11 +788,11 @@
       "566aeb1b-1649-4f5a-96a2-0c80be27efc0"
     ],
     "id": "b9001702-8502-46de-bc7b-3ebf2b812c0e",
-    "async": true
+    "async": true,
+    "description": "Vytvořte přehled vašeho dosavadního života a poučte se z minulých zkušeností. K dokončení tohoto cvičení budete potřebovat pero a papír."
   },
   "nl": {
-    "description": "Maak een overzicht van je leven tot nu toe en leer van je eigen ervaringen uit het verleden. Je hebt pen en papier nodig om deze oefening te voltooien.",
-    "name": "PsyPal Levensverkenning",
+    "liveDuration": 30,
     "slides": [
       {
         "type": "host",
@@ -892,13 +891,13 @@
         "type": "instruction"
       }
     ],
-    "liveDuration": 30,
     "theme": {
       "textColor": "#2E2E2E",
       "backgroundColor": "#f4deb2"
     },
     "hidden": true,
     "locked": false,
+    "name": "PsyPal Levensverkenning",
     "live": false,
     "published": true,
     "asyncDuration": 15,
@@ -941,9 +940,13 @@
       "566aeb1b-1649-4f5a-96a2-0c80be27efc0"
     ],
     "id": "b9001702-8502-46de-bc7b-3ebf2b812c0e",
-    "async": true
+    "async": true,
+    "description": "Maak een overzicht van je leven tot nu toe en leer van je eigen ervaringen uit het verleden. Je hebt pen en papier nodig om deze oefening te voltooien."
   },
   "es": {
-    "id": "b9001702-8502-46de-bc7b-3ebf2b812c0e"
+    "id": "b9001702-8502-46de-bc7b-3ebf2b812c0e",
+    "tags": [
+      "566aeb1b-1649-4f5a-96a2-0c80be27efc0"
+    ]
   }
 }
