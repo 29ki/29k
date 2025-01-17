@@ -2,7 +2,6 @@ import React, {useCallback, useEffect, useState} from 'react';
 import {StyleSheet} from 'react-native';
 import {useTranslation} from 'react-i18next';
 import styled from 'styled-components/native';
-import ReactNativeHapticFeedback from 'react-native-haptic-feedback';
 
 import {SPACINGS} from '../../../constants/spacings';
 import useSessionState from '../../state/state';
@@ -21,6 +20,7 @@ import VideoTransition from '../VideoTransition/VideoTransition';
 import P5Animation from '../P5Animation/P5Animation';
 import {ExerciseWithLanguage} from '../../../content/types';
 import Toggler from '../../../components/Toggler/Toggler';
+import useHapticFeedback from '../../hooks/useHapticFeedback';
 
 const Spinner = styled.ActivityIndicator({
   ...StyleSheet.absoluteFillObject,
@@ -91,6 +91,7 @@ const IntroPortal: React.FC<IntroPortalProps> = ({
   const [isHidden, setIsHidden] = useState(!isVisible);
   const [hasError, setHasError] = useState(false);
   const [muted, setMuted] = useState(false);
+  const triggerHapticFeedback = useHapticFeedback();
 
   const sessionState = useSessionState(state => state.sessionState);
 
@@ -141,9 +142,9 @@ const IntroPortal: React.FC<IntroPortalProps> = ({
   }, [isLive, setIsReadyForAudio, setIsLoading]);
 
   const onVideoTransition = useCallback(() => {
+    triggerHapticFeedback();
     setIsTransitioning(true);
-    ReactNativeHapticFeedback.trigger('impactHeavy');
-  }, [setIsTransitioning]);
+  }, [triggerHapticFeedback]);
 
   const onVideoEnd = useCallback(() => {
     onNavigateToSession();
