@@ -16,7 +16,10 @@
       {
         "type": "instruction",
         "content": {
-          "text": "Lean back and watch the sky in this mindfulness exercise. Practice being in the present moment can help us feel happier and more connected. To do this exercise, you can be outside or by a window."
+          "text": "Lean back and watch the sky in this mindfulness exercise. Practice being in the present moment can help us feel happier and more connected. To do this exercise, you can be outside or by a window.",
+          "image": {
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1737187816/Images/image_1_Sky_gazing_mr701r.png"
+          }
         }
       },
       {
@@ -79,7 +82,10 @@
       {
         "type": "instruction",
         "content": {
-          "text": "Welcome back, and well done. Practicing letting things come and go both on the inside and the outside can help us feel grounded and more satisfied with life."
+          "text": "Welcome back, and well done. Practicing letting things come and go both on the inside and the outside can help us feel grounded and more satisfied with life.",
+          "image": {
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1737187815/Images/image_2_Sky_gazing_copu05.png"
+          }
         }
       }
     ],
@@ -93,6 +99,11 @@
     "live": false,
     "published": true,
     "asyncDuration": 10,
+    "card": {
+      "image": {
+        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1737187816/Images/image_3_Sky_gazing_la4ogp.png"
+      }
+    },
     "introPortal": {
       "textColor": "#2E2E2E",
       "hostNotes": [
@@ -191,6 +202,7 @@
     "live": true,
     "published": false,
     "asyncDuration": 10,
+    "card": {},
     "introPortal": {
       "textColor": "#2AE2D7",
       "hostNotes": [
@@ -282,6 +294,7 @@
     "live": true,
     "published": false,
     "asyncDuration": 10,
+    "card": {},
     "introPortal": {
       "textColor": "#2AE2D7",
       "hostNotes": [
@@ -373,6 +386,7 @@
     "live": true,
     "published": false,
     "asyncDuration": 10,
+    "card": {},
     "introPortal": {
       "textColor": "#2AE2D7",
       "hostNotes": [
@@ -393,7 +407,8 @@
     "tags": [
       "566aeb1b-1649-4f5a-96a2-0c80be27efc0"
     ],
-    "id": "ba239e50-27f5-4a01-8daf-14b76edb7097"
+    "id": "ba239e50-27f5-4a01-8daf-14b76edb7097",
+    "card": {}
   },
   "cs": {
     "asyncDuration": 10,
@@ -401,7 +416,8 @@
     "tags": [
       "566aeb1b-1649-4f5a-96a2-0c80be27efc0"
     ],
-    "id": "ba239e50-27f5-4a01-8daf-14b76edb7097"
+    "id": "ba239e50-27f5-4a01-8daf-14b76edb7097",
+    "card": {}
   },
   "nl": {
     "asyncDuration": 10,
@@ -409,12 +425,14 @@
     "tags": [
       "566aeb1b-1649-4f5a-96a2-0c80be27efc0"
     ],
-    "id": "ba239e50-27f5-4a01-8daf-14b76edb7097"
+    "id": "ba239e50-27f5-4a01-8daf-14b76edb7097",
+    "card": {}
   },
   "es": {
     "id": "ba239e50-27f5-4a01-8daf-14b76edb7097",
     "tags": [
       "566aeb1b-1649-4f5a-96a2-0c80be27efc0"
-    ]
+    ],
+    "card": {}
   }
 }
