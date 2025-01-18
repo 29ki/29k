@@ -16,7 +16,10 @@
       {
         "type": "instruction",
         "content": {
-          "text": "Lean back and watch the sky in this mindfulness exercise. Practice being in the present moment can help us feel happier and more connected. To do this exercise, you can be outside or by a window."
+          "text": "Lean back and watch the sky in this mindfulness exercise. Practice being in the present moment can help us feel happier and more connected. To do this exercise, you can be outside or by a window.",
+          "image": {
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1737187816/Images/image_1_Sky_gazing_mr701r.png"
+          }
         }
       },
       {
@@ -79,7 +82,10 @@
       {
         "type": "instruction",
         "content": {
-          "text": "Welcome back, and well done. Practicing letting things come and go both on the inside and the outside can help us feel grounded and more satisfied with life."
+          "text": "Welcome back, and well done. Practicing letting things come and go both on the inside and the outside can help us feel grounded and more satisfied with life.",
+          "image": {
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1737187815/Images/image_2_Sky_gazing_copu05.png"
+          }
         }
       }
     ],
