@@ -32,7 +32,8 @@
         "content": {
           "lottie": {
             "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1731943873/SRT%20%28captions%29%20files/PsyPal_Sky_gazing_vzyxtn.srt",
-            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1731943961/Audio/PsyPal_Sky_gazing_tksnyo.mp3"
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1731943961/Audio/PsyPal_Sky_gazing_tksnyo.mp3",
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto/v1737211026/Lottie/audio_visual_Sky_gazing_whx1yq.json"
           }
         }
       },
@@ -91,7 +92,7 @@
     ],
     "theme": {
       "textColor": "#2E2E2E",
-      "backgroundColor": "#2cb7d0"
+      "backgroundColor": "#51a9ce"
     },
     "hidden": true,
     "locked": false,
@@ -115,7 +116,7 @@
         "p5JsScript": {
           "lang": "javascript"
         },
-        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1737180948/Video/portal_1_Sky_gazing_ikgexy.mp4"
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1737192863/Video/portal1_sky_gazing_color_corection_qtq8bz.mp4"
       }
     },
     "tags": [
