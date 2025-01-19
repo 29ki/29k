@@ -1,11 +1,15 @@
 {
   "en": {
+    "liveDuration": 30,
     "slides": [
       {
         "type": "instruction",
         "content": {
           "heading": "",
-          "text": "In this exercise you'll start thinking about what memories you would like to leave behind for your loved ones when you are gone. \n\nYou'll need peace and quiet, and somewhere to take notes."
+          "text": "In this exercise you'll start thinking about what memories you would like to leave behind for your loved ones when you are gone. \n\nYou'll need peace and quiet, and somewhere to take notes.",
+          "image": {
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1737188066/Images/image_2_memory_box_zddagb.png"
+          }
         }
       },
       {
@@ -73,12 +77,16 @@
       {
         "type": "instruction",
         "content": {
-          "text": "A basic fact of life is that it is followed by death. Well done for daring to think about your own mortality for a few minutes. \n\nIf you want to involve someone else in making your memory box, a first step is to reach out to them. If you want to make your box on your own, take notes on your next steps somewhere only you can see it."
+          "text": "A basic fact of life is that it is followed by death. Well done for daring to think about your own mortality for a few minutes. \n\nIf you want to involve someone else in making your memory box, a first step is to reach out to them. If you want to make your box on your own, take notes on your next steps somewhere only you can see it.",
+          "image": {
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1737188064/Images/image_3_memory_box_p7lb35.png"
+          }
         }
       }
     ],
     "theme": {
-      "textColor": "#2E2E2E"
+      "textColor": "#2E2E2E",
+      "backgroundColor": "#dbd602"
     },
     "hidden": true,
     "locked": false,
@@ -86,9 +94,13 @@
     "live": false,
     "published": true,
     "asyncDuration": 10,
-    "liveDuration": 30,
+    "card": {
+      "image": {
+        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1737188068/Images/image_1_memory_box_zzn2wn.png"
+      }
+    },
     "introPortal": {
-      "textColor": "#2AE2D7",
+      "textColor": "#2E2E2E",
       "hostNotes": [
         {
           "text": "> Start the session when you're ready to go"
@@ -97,7 +109,8 @@
       "videoLoop": {
         "p5JsScript": {
           "lang": "javascript"
-        }
+        },
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1737274969/Video/portal_1_memory_box_pjpo47.mp4"
       }
     },
     "id": "19573b9a-e2f2-4bba-9687-35d261cbbf49",
@@ -105,6 +118,7 @@
     "description": "In this exercise you'll reflect on moments that you have appreciated in life, and recall some past memories. Also, you’ll start thinking of what you would like to leave behind for your loved ones when you, some time in the future, are gone."
   },
   "pt": {
+    "liveDuration": 30,
     "slides": [
       {
         "type": "host",
@@ -180,7 +194,7 @@
     "live": true,
     "published": false,
     "asyncDuration": 10,
-    "liveDuration": 30,
+    "card": {},
     "introPortal": {
       "textColor": "#2AE2D7",
       "hostNotes": [
@@ -193,6 +207,7 @@
     "async": false
   },
   "sv": {
+    "liveDuration": 30,
     "slides": [
       {
         "type": "host",
@@ -268,7 +283,7 @@
     "live": true,
     "published": false,
     "asyncDuration": 10,
-    "liveDuration": 30,
+    "card": {},
     "introPortal": {
       "textColor": "#2AE2D7",
       "hostNotes": [
@@ -281,6 +296,7 @@
     "async": false
   },
   "ja": {
+    "liveDuration": 30,
     "slides": [
       {
         "type": "host",
@@ -356,7 +372,7 @@
     "live": true,
     "published": false,
     "asyncDuration": 10,
-    "liveDuration": 30,
+    "card": {},
     "introPortal": {
       "textColor": "#2AE2D7",
       "hostNotes": [
@@ -369,15 +385,19 @@
     "async": false
   },
   "da": {
-    "id": "19573b9a-e2f2-4bba-9687-35d261cbbf49"
+    "id": "19573b9a-e2f2-4bba-9687-35d261cbbf49",
+    "card": {}
   },
   "cs": {
-    "id": "19573b9a-e2f2-4bba-9687-35d261cbbf49"
+    "id": "19573b9a-e2f2-4bba-9687-35d261cbbf49",
+    "card": {}
   },
   "nl": {
-    "id": "19573b9a-e2f2-4bba-9687-35d261cbbf49"
+    "id": "19573b9a-e2f2-4bba-9687-35d261cbbf49",
+    "card": {}
   },
   "es": {
-    "id": "19573b9a-e2f2-4bba-9687-35d261cbbf49"
+    "id": "19573b9a-e2f2-4bba-9687-35d261cbbf49",
+    "card": {}
   }
 }
