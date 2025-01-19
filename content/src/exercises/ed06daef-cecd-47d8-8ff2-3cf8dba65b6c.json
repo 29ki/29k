@@ -31,8 +31,13 @@
         ],
         "content": {
           "lottie": {
-            "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1731416778/SRT%20(captions)%20files/PsyPal_Hope_music_exc_II_ktul5r.srt",
-            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1731416921/Audio/PsyPal_Hope_music_exc_II_idyonq.mp3"
+            "subtitles": "",
+            "audio": ""
+          },
+          "video": {
+            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1737297670/Video/audio_timer_acceptance_practice_pqmvuu.mp4",
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1731416921/Audio/PsyPal_Hope_music_exc_II_idyonq.mp3",
+            "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1731416778/SRT%20(captions)%20files/PsyPal_Hope_music_exc_II_ktul5r.srt"
           }
         }
       },
