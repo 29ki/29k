@@ -16,7 +16,10 @@
       {
         "type": "instruction",
         "content": {
-          "text": "Doing what's important for us is rarely a smooth journey. When we need to stand up for ourselves—like managing a conflict or telling a friend a painful truth—anxiety, fear, and guilt often arise. In this exercise, we'll practice accepting our own feelings to help us focus on what truly matters."
+          "text": "Doing what's important for us is rarely a smooth journey. When we need to stand up for ourselves—like managing a conflict or telling a friend a painful truth—anxiety, fear, and guilt often arise. In this exercise, we'll practice accepting our own feelings to help us focus on what truly matters.",
+          "image": {
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1737188025/Images/image_3_Difficult_conversation_fs6zuk.png"
+          }
         }
       },
       {
@@ -76,12 +79,16 @@
       {
         "type": "instruction",
         "content": {
-          "text": "Well done for daring to face difficult emotions. Acceptance can help us do what matters to us, even when our insides are screaming the opposite. Now, plan where and when you will take action on the conversation you just imagined."
+          "text": "Well done for daring to face difficult emotions. Acceptance can help us do what matters to us, even when our insides are screaming the opposite. Now, plan where and when you will take action on the conversation you just imagined.",
+          "image": {
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1737188024/Images/image_1_Difficult_conversation_s8n6wc.png"
+          }
         }
       }
     ],
     "theme": {
-      "textColor": "#2AE2D7"
+      "textColor": "#F9F8F4",
+      "backgroundColor": "#b62b14"
     },
     "hidden": true,
     "locked": false,
@@ -90,8 +97,13 @@
     "published": true,
     "excludeFromWeb": false,
     "asyncDuration": 10,
+    "card": {
+      "image": {
+        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1737188027/Images/image_2_Difficult_conversation_xroiqs.png"
+      }
+    },
     "introPortal": {
-      "textColor": "#2AE2D7",
+      "textColor": "#F9F8F4",
       "hostNotes": [
         {
           "text": "> Start the session when you're ready to go"
@@ -100,7 +112,8 @@
       "videoLoop": {
         "p5JsScript": {
           "lang": "javascript"
-        }
+        },
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1737274976/Video/portal_1_Difficult_conversation_mjexai.mp4"
       }
     },
     "tags": [
@@ -189,6 +202,7 @@
     "published": false,
     "excludeFromWeb": false,
     "asyncDuration": 10,
+    "card": {},
     "introPortal": {
       "textColor": "#2AE2D7",
       "hostNotes": [
@@ -287,6 +301,7 @@
     "published": false,
     "excludeFromWeb": false,
     "asyncDuration": 10,
+    "card": {},
     "introPortal": {
       "textColor": "#2AE2D7",
       "hostNotes": [
@@ -380,6 +395,7 @@
     "published": false,
     "excludeFromWeb": false,
     "asyncDuration": 10,
+    "card": {},
     "introPortal": {
       "textColor": "#2AE2D7",
       "hostNotes": [
@@ -473,6 +489,7 @@
     "published": false,
     "excludeFromWeb": false,
     "asyncDuration": 10,
+    "card": {},
     "introPortal": {
       "textColor": "#2AE2D7",
       "hostNotes": [
@@ -566,6 +583,7 @@
     "published": false,
     "excludeFromWeb": false,
     "asyncDuration": 10,
+    "card": {},
     "introPortal": {
       "textColor": "#2AE2D7",
       "hostNotes": [
@@ -659,6 +677,7 @@
     "published": false,
     "excludeFromWeb": false,
     "asyncDuration": 10,
+    "card": {},
     "introPortal": {
       "textColor": "#2AE2D7",
       "hostNotes": [
@@ -752,6 +771,7 @@
     "published": false,
     "excludeFromWeb": false,
     "asyncDuration": 10,
+    "card": {},
     "introPortal": {
       "textColor": "#2AE2D7",
       "hostNotes": [
