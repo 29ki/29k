@@ -16,7 +16,10 @@
       {
         "type": "instruction",
         "content": {
-          "text": "Music can help guide us to experiences and see things from a different light. This exercise is about letting hope in, and letting it guide us to things we want to change."
+          "text": "Music can help guide us to experiences and see things from a different light. This exercise is about letting hope in, and letting it guide us to things we want to change.",
+          "image": {
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1737187857/Images/image_4_Hope_music_exercise_II_emn4p6.png"
+          }
         }
       },
       {
@@ -86,12 +89,16 @@
       {
         "type": "instruction",
         "content": {
-          "text": "Well done.\n\nVisualizing hope and light, even in times of darkness, can help guide our footsteps towards the change we might want to see in ourselves. If you are up for it, here's a mission for you: Remind yourself of the image that you created of light and hope, once a day for the coming three days. Notice how it affects you."
+          "text": "Well done.\n\nVisualizing hope and light, even in times of darkness, can help guide our footsteps towards the change we might want to see in ourselves. If you are up for it, here's a mission for you: Remind yourself of the image that you created of light and hope, once a day for the coming three days. Notice how it affects you.",
+          "image": {
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1737187853/Images/image_1_Hope_music_exercise_II_nney6c.png"
+          }
         }
       }
     ],
     "theme": {
-      "textColor": "#2AE2D7"
+      "textColor": "#2E2E2E",
+      "backgroundColor": "#27acc8"
     },
     "hidden": true,
     "locked": false,
@@ -100,8 +107,13 @@
     "published": true,
     "excludeFromWeb": false,
     "asyncDuration": 15,
+    "card": {
+      "image": {
+        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1737187860/Images/image_5_Hope_music_exercise_II_kgusv1.png"
+      }
+    },
     "introPortal": {
-      "textColor": "#2AE2D7",
+      "textColor": "#2E2E2E",
       "hostNotes": [
         {
           "text": "> Start the session when you're ready to go"
@@ -110,7 +122,8 @@
       "videoLoop": {
         "p5JsScript": {
           "lang": "javascript"
-        }
+        },
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1737272009/Video/portal_1_Hope_music_exercise_II_njii38.mp4"
       }
     },
     "id": "ed06daef-cecd-47d8-8ff2-3cf8dba65b6c",
@@ -195,6 +208,7 @@
     "published": false,
     "excludeFromWeb": false,
     "asyncDuration": 15,
+    "card": {},
     "introPortal": {
       "textColor": "#2AE2D7",
       "hostNotes": [
@@ -284,6 +298,7 @@
     "published": false,
     "excludeFromWeb": false,
     "asyncDuration": 15,
+    "card": {},
     "introPortal": {
       "textColor": "#2AE2D7",
       "hostNotes": [
@@ -373,6 +388,7 @@
     "published": false,
     "excludeFromWeb": false,
     "asyncDuration": 15,
+    "card": {},
     "introPortal": {
       "textColor": "#2AE2D7",
       "hostNotes": [
@@ -462,6 +478,7 @@
     "published": false,
     "excludeFromWeb": false,
     "asyncDuration": 15,
+    "card": {},
     "introPortal": {
       "textColor": "#2AE2D7",
       "hostNotes": [
@@ -551,6 +568,7 @@
     "published": false,
     "excludeFromWeb": false,
     "asyncDuration": 15,
+    "card": {},
     "introPortal": {
       "textColor": "#2AE2D7",
       "hostNotes": [
@@ -640,6 +658,7 @@
     "published": false,
     "excludeFromWeb": false,
     "asyncDuration": 15,
+    "card": {},
     "introPortal": {
       "textColor": "#2AE2D7",
       "hostNotes": [
@@ -652,6 +671,7 @@
     "async": false
   },
   "es": {
-    "id": "ed06daef-cecd-47d8-8ff2-3cf8dba65b6c"
+    "id": "ed06daef-cecd-47d8-8ff2-3cf8dba65b6c",
+    "card": {}
   }
 }
