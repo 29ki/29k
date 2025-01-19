@@ -16,7 +16,10 @@
       {
         "type": "instruction",
         "content": {
-          "text": "We all know that our life one day will end. Often we have difficulties facing this fact, but research shows that exposing ourselves to our own mortality can make our relationship to death more calm and accepting."
+          "text": "We all know that our life one day will end. Often we have difficulties facing this fact, but research shows that exposing ourselves to our own mortality can make our relationship to death more calm and accepting.",
+          "image": {
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1737187985/Images/image_3_Deal_with_dying_dryehi.png"
+          }
         }
       },
       {
@@ -73,12 +76,16 @@
       {
         "type": "instruction",
         "content": {
-          "text": "You might have realized something important or decided to reach out to someone. Also, you may want to talk about your feelings with someone.\n\nNote down anything that feels important to you."
+          "text": "You might have realized something important or decided to reach out to someone. Also, you may want to talk about your feelings with someone.\n\nNote down anything that feels important to you.",
+          "image": {
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1737187987/Images/image_1_Deal_with_dying_vxj6ki.png"
+          }
         }
       }
     ],
     "theme": {
-      "textColor": "#2AE2D7"
+      "textColor": "#2E2E2E",
+      "backgroundColor": "#27acc8"
     },
     "hidden": true,
     "locked": false,
@@ -86,8 +93,13 @@
     "live": false,
     "published": true,
     "asyncDuration": 10,
+    "card": {
+      "image": {
+        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1737187988/Images/image_2_Deal_with_dying_sudw5r.png"
+      }
+    },
     "introPortal": {
-      "textColor": "#2AE2D7",
+      "textColor": "#2E2E2E",
       "hostNotes": [
         {
           "text": "> Start the session when you're ready to go"
@@ -96,7 +108,8 @@
       "videoLoop": {
         "p5JsScript": {
           "lang": "javascript"
-        }
+        },
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1737274983/Video/portal_1_Deal_with_dying_xjxoqg.mp4"
       }
     },
     "id": "b491901c-37f8-48a7-829e-feb29a67a459",
@@ -180,6 +193,7 @@
     "live": true,
     "published": false,
     "asyncDuration": 10,
+    "card": {},
     "introPortal": {
       "textColor": "#2AE2D7",
       "hostNotes": [
@@ -273,6 +287,7 @@
     "live": true,
     "published": false,
     "asyncDuration": 10,
+    "card": {},
     "introPortal": {
       "textColor": "#2AE2D7",
       "hostNotes": [
@@ -361,6 +376,7 @@
     "live": true,
     "published": false,
     "asyncDuration": 10,
+    "card": {},
     "introPortal": {
       "textColor": "#2AE2D7",
       "hostNotes": [
@@ -373,15 +389,19 @@
     "async": false
   },
   "da": {
-    "id": "b491901c-37f8-48a7-829e-feb29a67a459"
+    "id": "b491901c-37f8-48a7-829e-feb29a67a459",
+    "card": {}
   },
   "cs": {
-    "id": "b491901c-37f8-48a7-829e-feb29a67a459"
+    "id": "b491901c-37f8-48a7-829e-feb29a67a459",
+    "card": {}
   },
   "nl": {
-    "id": "b491901c-37f8-48a7-829e-feb29a67a459"
+    "id": "b491901c-37f8-48a7-829e-feb29a67a459",
+    "card": {}
   },
   "es": {
-    "id": "b491901c-37f8-48a7-829e-feb29a67a459"
+    "id": "b491901c-37f8-48a7-829e-feb29a67a459",
+    "card": {}
   }
 }
