@@ -32,14 +32,16 @@
         "content": {
           "lottie": {
             "subtitles": "",
-            "audio": ""
+            "audio": "",
+            "source": ""
           },
           "video": {
-            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1737297670/Video/audio_timer_acceptance_practice_pqmvuu.mp4",
+            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1737362504/Video/color_test_bv7ww7.mp4",
             "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1734426164/Audio/PsyPal_acceptance_practice_audio_eng.mp3.mp3",
             "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1734425967/SRT%20(captions)%20files/PsyPal%E2%80%93acceptance-practice.srt",
             "durationTimer": false,
-            "autoPlayLoop": false
+            "autoPlayLoop": false,
+            "preview": ""
           }
         }
       },
