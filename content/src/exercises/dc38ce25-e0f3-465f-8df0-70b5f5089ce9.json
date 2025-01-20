@@ -100,7 +100,7 @@
     ],
     "theme": {
       "textColor": "#F9F8F4",
-      "backgroundColor": "#bb2c10"
+      "backgroundColor": ""
     },
     "hidden": true,
     "locked": false,
