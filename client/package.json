@@ -54,7 +54,7 @@
     "intl-pluralrules": "^2.0.1",
     "lodash.throttle": "^4.1.1",
     "lottie-react-native": "^6.7.2",
-    "posthog-react-native": "^3.6.1",
+    "posthog-react-native": "^3.6.3",
     "ramda": "^0.30.1",
     "react": "18.2.0",
     "react-i18next": "^15.4.0",
