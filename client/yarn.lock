@@ -2588,10 +2588,10 @@
     "@jridgewell/resolve-uri" "^3.0.3"
     "@jridgewell/sourcemap-codec" "^1.4.10"
 
-"@kingstinct/react-native-healthkit@^8.2.0":
-  version "8.2.0"
-  resolved "https://registry.yarnpkg.com/@kingstinct/react-native-healthkit/-/react-native-healthkit-8.2.0.tgz#330a36c6e60b870982a9c7e711e9610f0dddb763"
-  integrity sha512-RA2sDOts1EX2V+6sLFfyg8Xjpfcz4fXrTCfgjEuIUF4LVzSaE4QqO/buLmsB8XrMjAwsqmdJO1Wmfp9yHqTyFA==
+"@kingstinct/react-native-healthkit@^8.4.0":
+  version "8.4.0"
+  resolved "https://registry.yarnpkg.com/@kingstinct/react-native-healthkit/-/react-native-healthkit-8.4.0.tgz#37961fc78d9d96ac942019e6cff887af46875d00"
+  integrity sha512-pMYW0VEZisoZn+pl++yb9sYDi25mEgPGhdMSoFxcD0WGPZ3F5ZcnfvLlDNG7vZnoLZOYhCfuWq+otrHFKm9HuQ==
 
 "@lottiefiles/react-lottie-player@^3.5.4":
   version "3.5.4"
