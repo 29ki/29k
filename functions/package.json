@@ -24,7 +24,7 @@
     "@googleapis/firebasedynamiclinks": "^1.2.0",
     "@koa/router": "^13.1.0",
     "@sendgrid/mail": "^8.1.4",
-    "@sentry/node": "^8.47.0",
+    "@sentry/node": "^8.50.0",
     "@slack/bolt": "^4.2.0",
     "@slack/web-api": "^7.8.0",
     "@types/i18next": "^13.0.0",
