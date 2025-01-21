@@ -36,7 +36,7 @@
             "source": ""
           },
           "video": {
-            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1737362504/Video/color_test_bv7ww7.mp4",
+            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1737404993/Video/audio_timer_acceptance_practice_a8wjbo.mp4",
             "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1734426164/Audio/PsyPal_acceptance_practice_audio_eng.mp3.mp3",
             "subtitles": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto,t_global/v1737363621/Video/color_test_2_fnosip.mp4",
             "durationTimer": false,
@@ -100,7 +100,7 @@
     ],
     "theme": {
       "textColor": "#F9F8F4",
-      "backgroundColor": ""
+      "backgroundColor": "#b72a0d"
     },
     "hidden": true,
     "locked": false,
