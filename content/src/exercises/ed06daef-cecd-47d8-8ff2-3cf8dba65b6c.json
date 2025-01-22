@@ -105,8 +105,8 @@
       "textColor": "#2E2E2E",
       "backgroundColor": "#27acc8"
     },
-    "hidden": true,
-    "locked": false,
+    "hidden": false,
+    "locked": true,
     "name": "PsyPal Hope - music exercise II",
     "live": false,
     "published": true,
@@ -208,7 +208,7 @@
       "textColor": "#2AE2D7"
     },
     "hidden": false,
-    "locked": false,
+    "locked": true,
     "live": true,
     "published": false,
     "excludeFromWeb": false,
@@ -298,7 +298,7 @@
       "textColor": "#2AE2D7"
     },
     "hidden": false,
-    "locked": false,
+    "locked": true,
     "live": true,
     "published": false,
     "excludeFromWeb": false,
@@ -388,7 +388,7 @@
       "textColor": "#2AE2D7"
     },
     "hidden": false,
-    "locked": false,
+    "locked": true,
     "live": true,
     "published": false,
     "excludeFromWeb": false,
@@ -478,7 +478,7 @@
       "textColor": "#2AE2D7"
     },
     "hidden": false,
-    "locked": false,
+    "locked": true,
     "live": true,
     "published": false,
     "excludeFromWeb": false,
@@ -568,7 +568,7 @@
       "textColor": "#2AE2D7"
     },
     "hidden": false,
-    "locked": false,
+    "locked": true,
     "live": true,
     "published": false,
     "excludeFromWeb": false,
@@ -658,7 +658,7 @@
       "textColor": "#2AE2D7"
     },
     "hidden": false,
-    "locked": false,
+    "locked": true,
     "live": true,
     "published": false,
     "excludeFromWeb": false,
@@ -677,6 +677,7 @@
   },
   "es": {
     "id": "ed06daef-cecd-47d8-8ff2-3cf8dba65b6c",
-    "card": {}
+    "card": {},
+    "locked": true
   }
 }
