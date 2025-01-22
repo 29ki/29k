@@ -66,8 +66,8 @@
       "textColor": "#2E2E2E",
       "backgroundColor": "#e6cc44"
     },
-    "hidden": true,
-    "locked": false,
+    "hidden": false,
+    "locked": true,
     "name": "PsyPal Music exercise I - music only",
     "live": false,
     "published": true,
@@ -174,7 +174,7 @@
       "backgroundColor": "#e6cc44"
     },
     "hidden": true,
-    "locked": false,
+    "locked": true,
     "name": "PsyPal Music exercise I - music only",
     "live": true,
     "published": true,
@@ -286,7 +286,7 @@
       "textColor": "#2AE2D7"
     },
     "hidden": false,
-    "locked": false,
+    "locked": true,
     "live": true,
     "published": false,
     "asyncDuration": 15,
@@ -375,7 +375,7 @@
       "textColor": "#2AE2D7"
     },
     "hidden": false,
-    "locked": false,
+    "locked": true,
     "live": true,
     "published": false,
     "asyncDuration": 15,
@@ -459,7 +459,7 @@
       "backgroundColor": "#e6cc44"
     },
     "hidden": true,
-    "locked": false,
+    "locked": true,
     "name": "PsyPal Music exercise I - music only",
     "published": true,
     "asyncDuration": 15,
@@ -493,9 +493,9 @@
         "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1731849053/Video/portal_2_Music_I_music_only_mvxv0s.mp4"
       }
     },
+    "id": "f2c88307-b02e-4456-a81c-79b84c10ae04",
     "async": true,
-    "description": "Let the music accompany you on a journey without guidance.",
-    "id": "f2c88307-b02e-4456-a81c-79b84c10ae04"
+    "description": "Let the music accompany you on a journey without guidance."
   },
   "cs": {
     "liveDuration": 30,
@@ -565,7 +565,7 @@
       "backgroundColor": "#e6cc44"
     },
     "hidden": true,
-    "locked": false,
+    "locked": true,
     "name": "PsyPal Music exercise I - music only",
     "published": true,
     "asyncDuration": 15,
@@ -599,9 +599,9 @@
         "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1731849053/Video/portal_2_Music_I_music_only_mvxv0s.mp4"
       }
     },
+    "id": "f2c88307-b02e-4456-a81c-79b84c10ae04",
     "async": true,
-    "description": "Let the music accompany you on a journey without guidance.",
-    "id": "f2c88307-b02e-4456-a81c-79b84c10ae04"
+    "description": "Let the music accompany you on a journey without guidance."
   },
   "nl": {
     "liveDuration": 30,
@@ -671,7 +671,7 @@
       "backgroundColor": "#e6cc44"
     },
     "hidden": true,
-    "locked": false,
+    "locked": true,
     "name": "PsyPal Music exercise I - music only",
     "published": true,
     "asyncDuration": 15,
@@ -705,12 +705,13 @@
         "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1731849053/Video/portal_2_Music_I_music_only_mvxv0s.mp4"
       }
     },
+    "id": "f2c88307-b02e-4456-a81c-79b84c10ae04",
     "async": true,
-    "description": "Let the music accompany you on a journey without guidance.",
-    "id": "f2c88307-b02e-4456-a81c-79b84c10ae04"
+    "description": "Let the music accompany you on a journey without guidance."
   },
   "es": {
     "card": {},
-    "id": "f2c88307-b02e-4456-a81c-79b84c10ae04"
+    "id": "f2c88307-b02e-4456-a81c-79b84c10ae04",
+    "locked": true
   }
 }
