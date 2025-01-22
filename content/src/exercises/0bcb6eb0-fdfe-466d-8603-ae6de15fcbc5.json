@@ -334,7 +334,7 @@
     "link": "https://aware.29k.org/your-90th-birthday",
     "id": "0bcb6eb0-fdfe-466d-8603-ae6de15fcbc5",
     "async": true,
-    "description": "Sonhar com o nosso futuro pode orientar-nos no momento presente, iluminando o que é importante a longo prazo.\n\nIsso pode ser especialmente útil quando estamos sob pressão, momentos em que tendemos a ser mais imediatistas e a perder de vista o que realmente importa,"
+    "description": ""
   },
   "sv": {
     "liveDuration": 30,
@@ -680,16 +680,9 @@
       },
       {
         "type": "reflection",
-        "hostNotes": [
-          {
-            "text": "Agora vamos tirar 1 minuto para refletir individualmente.\n\nQue aprendizagens ou reflexões surgiram durante o exercício? Como gostarias de ser lembrado quando tiveres 90 anos?"
-          },
-          {
-            "text": "Podes tomar notas num pedaço de papel ou mentalmente. Não há certo ou errado, as nossas respostas são só nossas. 1 minuto a partir de agora.\n\n> Carrega em play para iniciar o cronómetro.\n\nPassou 1 minuto e é hora de avançar."
-          }
-        ],
+        "hostNotes": [],
         "content": {
-          "heading": "Como gostarias de ser lembrado quando tiveres 90 anos?",
+          "heading": "",
           "text": "",
           "lottie": {
             "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1676642915/Lottie/default_1min_black_rosi2l.json",
@@ -700,19 +693,9 @@
       },
       {
         "type": "sharing",
-        "hostNotes": [
-          {
-            "text": "Agora passamos para a parte da partilha. Temos três regras para partilhar:\n\n1. **O que é dito aqui, fica aqui.**\n2. **Só precisas de ouvir.** Não é necessário corrigir, ajudar ou dar conselhos. Estamos apenas a explorar o que nós e os outros estão a passar."
-          },
-          {
-            "text": "3. **Tudo o que sentires é válido.** Raiva, amor, ódio, tristeza. O que quer que surja. Não há certo ou errado. É o que é.\n\nHaverá um cronómetro de 2 minutos como indicador. Se não quiseres partilhar, pode sempre dizer 'passo'."
-          },
-          {
-            "text": "Quem gostaria de começar?\n\n> Deixa que todos (ou os que houver tempo) partilhem individualmente. Carrega em play para iniciar o cronómetro. Reinicia para cada nova partilha.\n\nMuito obrigada/o a todos."
-          }
-        ],
+        "hostNotes": [],
         "content": {
-          "heading": "Como gostarias de ser lembrado quando tiveres 90 anos?",
+          "heading": "",
           "text": "",
           "lottie": {
             "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1676639253/Lottie/default_2min_black_o6egey.json",
@@ -729,26 +712,16 @@
       },
       {
         "type": "host",
-        "hostNotes": [
-          {
-            "text": "Muito bem. Acabámos de nos imaginar no futuro para ver o que podemos aprender com o nosso \"eu\" do futuro, aqui e agora. Isto pode ajudar-nos a identificar valores e dar-nos um sentido de direção e significado na vida.\n\nEstás disponível para uma missão? Se sim, decide uma ação simples que possas fazer hoje ou amanhã para te aproximar de como gostarias de ser lembrado."
-          },
-          {
-            "text": "Antes de deixarmos este espaço, vamos fazer um pequeno check-out. \n\nComo te sentes agora? Alguma coisa mudou? Responde por favor em duas ou três palavras."
-          },
-          {
-            "text": "Quem gostaria de começar?\n\n> Deixa que todos na sessão façam o check-out individualmente.\n\nObrigada/o a todos por fazerem o check-out final e por participarem nesta sessão de hoje.\n\n> Termina a sessão e envia todos para a experiência de saída."
-          }
-        ]
+        "hostNotes": []
       },
       {
         "type": "instruction",
         "content": {
-          "text": "Acabámos de nos imaginar no futuro para ver o que podemos aprender com o nosso \"eu\" do futuro, aqui e agora. Isto pode ajudar-nos a identificar valores e dar-nos um sentido de direção e significado na vida.\n\nEstás disponível para uma missão?\n\nSe sim, decide uma ação simples que possas fazer hoje ou amanhã para te aproximar de como gostarias de ser lembrado.",
+          "text": "",
           "image": {
             "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1692855592/Images/card_image_90th_birthday_noi09y.png"
           },
-          "heading": "Parabéns"
+          "heading": ""
         }
       }
     ],
@@ -792,6 +765,6 @@
     ],
     "id": "0bcb6eb0-fdfe-466d-8603-ae6de15fcbc5",
     "async": true,
-    "description": "Sonhar com o nosso futuro pode orientar-nos no momento presente, iluminando o que é importante a longo prazo.\n\nIsso pode ser especialmente útil quando estamos sob pressão, momentos em que tendemos a ser mais imediatistas e a perder de vista o que realmente importa,"
+    "description": ""
   }
 }
