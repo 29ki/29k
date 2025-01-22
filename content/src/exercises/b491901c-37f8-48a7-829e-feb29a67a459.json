@@ -87,8 +87,8 @@
       "textColor": "#2E2E2E",
       "backgroundColor": "#27acc8"
     },
-    "hidden": true,
-    "locked": false,
+    "hidden": false,
+    "locked": true,
     "name": "PsyPal Deal with dying",
     "live": false,
     "published": true,
@@ -189,7 +189,7 @@
       "textColor": "#2AE2D7"
     },
     "hidden": false,
-    "locked": false,
+    "locked": true,
     "live": true,
     "published": false,
     "asyncDuration": 10,
@@ -283,7 +283,7 @@
       "textColor": "#2AE2D7"
     },
     "hidden": false,
-    "locked": false,
+    "locked": true,
     "live": true,
     "published": false,
     "asyncDuration": 10,
@@ -372,7 +372,7 @@
       "textColor": "#2AE2D7"
     },
     "hidden": false,
-    "locked": false,
+    "locked": true,
     "live": true,
     "published": false,
     "asyncDuration": 10,
@@ -390,18 +390,22 @@
   },
   "da": {
     "id": "b491901c-37f8-48a7-829e-feb29a67a459",
-    "card": {}
+    "card": {},
+    "locked": true
   },
   "cs": {
     "id": "b491901c-37f8-48a7-829e-feb29a67a459",
-    "card": {}
+    "card": {},
+    "locked": true
   },
   "nl": {
     "id": "b491901c-37f8-48a7-829e-feb29a67a459",
-    "card": {}
+    "card": {},
+    "locked": true
   },
   "es": {
     "id": "b491901c-37f8-48a7-829e-feb29a67a459",
-    "card": {}
+    "card": {},
+    "locked": true
   }
 }
