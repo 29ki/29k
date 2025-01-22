@@ -98,6 +98,18 @@
         "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1737187988/Images/image_2_Deal_with_dying_sudw5r.png"
       }
     },
+    "coCreators": [
+      {
+        "name": "Ints Ivanovskis, art works",
+        "url": "https://www.linkedin.com/in/ints-ivanovskis-46ab0311a/",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413436/Contributors/Ints%20Ivanovskis.jpg"
+      },
+      {
+        "name": "Jenny Rickardsson, script and voice",
+        "url": "https://www.linkedin.com/in/jenny-rickardson-6770a959/",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413228/Contributors/Jenny%20Rickardsson.jpg"
+      }
+    ],
     "introPortal": {
       "textColor": "#2E2E2E",
       "hostNotes": [
@@ -112,6 +124,10 @@
         "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1737274983/Video/portal_1_Deal_with_dying_xjxoqg.mp4"
       }
     },
+    "tags": [
+      "34100e43-2eb8-4d35-8eb0-9fa9f78e4935",
+      "9c2c08a9-7dc6-4058-bc78-016d0eb00614"
+    ],
     "id": "b491901c-37f8-48a7-829e-feb29a67a459",
     "async": true,
     "description": "All our lives will end, some day in the future. That may be an emotionally challenging thought. That is alright - feelings can’t harm us. Practicing letting them come and go is a part of the exercise. Facing our mortality can help us accept death and letting us focus on the most important thing in life - living it."
@@ -207,6 +223,10 @@
         }
       }
     },
+    "tags": [
+      "34100e43-2eb8-4d35-8eb0-9fa9f78e4935",
+      "9c2c08a9-7dc6-4058-bc78-016d0eb00614"
+    ],
     "id": "b491901c-37f8-48a7-829e-feb29a67a459",
     "async": false
   },
@@ -296,6 +316,10 @@
         }
       ]
     },
+    "tags": [
+      "34100e43-2eb8-4d35-8eb0-9fa9f78e4935",
+      "9c2c08a9-7dc6-4058-bc78-016d0eb00614"
+    ],
     "id": "b491901c-37f8-48a7-829e-feb29a67a459",
     "async": false
   },
@@ -385,27 +409,47 @@
         }
       ]
     },
+    "tags": [
+      "34100e43-2eb8-4d35-8eb0-9fa9f78e4935",
+      "9c2c08a9-7dc6-4058-bc78-016d0eb00614"
+    ],
     "id": "b491901c-37f8-48a7-829e-feb29a67a459",
     "async": false
   },
   "da": {
     "id": "b491901c-37f8-48a7-829e-feb29a67a459",
     "card": {},
-    "locked": true
+    "locked": true,
+    "tags": [
+      "34100e43-2eb8-4d35-8eb0-9fa9f78e4935",
+      "9c2c08a9-7dc6-4058-bc78-016d0eb00614"
+    ]
   },
   "cs": {
     "id": "b491901c-37f8-48a7-829e-feb29a67a459",
     "card": {},
-    "locked": true
+    "locked": true,
+    "tags": [
+      "34100e43-2eb8-4d35-8eb0-9fa9f78e4935",
+      "9c2c08a9-7dc6-4058-bc78-016d0eb00614"
+    ]
   },
   "nl": {
     "id": "b491901c-37f8-48a7-829e-feb29a67a459",
     "card": {},
-    "locked": true
+    "locked": true,
+    "tags": [
+      "34100e43-2eb8-4d35-8eb0-9fa9f78e4935",
+      "9c2c08a9-7dc6-4058-bc78-016d0eb00614"
+    ]
   },
   "es": {
     "id": "b491901c-37f8-48a7-829e-feb29a67a459",
     "card": {},
-    "locked": true
+    "locked": true,
+    "tags": [
+      "34100e43-2eb8-4d35-8eb0-9fa9f78e4935",
+      "9c2c08a9-7dc6-4058-bc78-016d0eb00614"
+    ]
   }
 }
