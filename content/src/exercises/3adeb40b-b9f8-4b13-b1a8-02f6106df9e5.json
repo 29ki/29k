@@ -108,8 +108,8 @@
       "textColor": "#2E2E2E",
       "backgroundColor": "#c7bea2"
     },
-    "hidden": true,
-    "locked": false,
+    "hidden": false,
+    "locked": true,
     "name": "PsyPal My values",
     "live": false,
     "published": true,
@@ -263,7 +263,7 @@
       "backgroundColor": "#c7bea2"
     },
     "hidden": true,
-    "locked": false,
+    "locked": true,
     "name": "Os meus valores",
     "live": false,
     "published": true,
@@ -380,7 +380,7 @@
       "textColor": "#2AE2D7"
     },
     "hidden": false,
-    "locked": false,
+    "locked": true,
     "live": true,
     "published": false,
     "asyncDuration": 15,
@@ -469,7 +469,7 @@
       "textColor": "#2AE2D7"
     },
     "hidden": false,
-    "locked": false,
+    "locked": true,
     "live": true,
     "published": false,
     "asyncDuration": 15,
@@ -595,7 +595,7 @@
       "backgroundColor": "#c7bea2"
     },
     "hidden": true,
-    "locked": false,
+    "locked": true,
     "name": "Mine værdier",
     "live": false,
     "published": true,
@@ -749,7 +749,7 @@
       "backgroundColor": "#c7bea2"
     },
     "hidden": true,
-    "locked": false,
+    "locked": true,
     "name": "Moje hodnoty",
     "live": false,
     "published": true,
@@ -903,7 +903,7 @@
       "backgroundColor": "#c7bea2"
     },
     "hidden": true,
-    "locked": false,
+    "locked": true,
     "name": "Mijn waarden",
     "live": false,
     "published": true,
@@ -955,6 +955,7 @@
   "es": {
     "asyncDuration": 15,
     "card": {},
-    "id": "3adeb40b-b9f8-4b13-b1a8-02f6106df9e5"
+    "id": "3adeb40b-b9f8-4b13-b1a8-02f6106df9e5",
+    "locked": true
   }
 }
