@@ -149,6 +149,10 @@
         "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1732713682/Video/portal_2_my_values_wzq6mm.mp4"
       }
     },
+    "tags": [
+      "9c2c08a9-7dc6-4058-bc78-016d0eb00614",
+      "566aeb1b-1649-4f5a-96a2-0c80be27efc0"
+    ],
     "id": "3adeb40b-b9f8-4b13-b1a8-02f6106df9e5",
     "async": true,
     "description": "Our inner values is about who we want to be in life. Living a value-based life is often more fulfilling and meaningful to people."
@@ -303,6 +307,10 @@
         "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1732713682/Video/portal_2_my_values_wzq6mm.mp4"
       }
     },
+    "tags": [
+      "9c2c08a9-7dc6-4058-bc78-016d0eb00614",
+      "566aeb1b-1649-4f5a-96a2-0c80be27efc0"
+    ],
     "id": "3adeb40b-b9f8-4b13-b1a8-02f6106df9e5",
     "async": true,
     "description": "Os nossos valores dizem respeito a quem desejamos ser na vida. Viver uma vida baseada em valores é frequentemente mais gratificante e tem mais significado para as pessoas."
@@ -393,6 +401,10 @@
         }
       ]
     },
+    "tags": [
+      "9c2c08a9-7dc6-4058-bc78-016d0eb00614",
+      "566aeb1b-1649-4f5a-96a2-0c80be27efc0"
+    ],
     "id": "3adeb40b-b9f8-4b13-b1a8-02f6106df9e5",
     "async": false
   },
@@ -482,6 +494,10 @@
         }
       ]
     },
+    "tags": [
+      "9c2c08a9-7dc6-4058-bc78-016d0eb00614",
+      "566aeb1b-1649-4f5a-96a2-0c80be27efc0"
+    ],
     "id": "3adeb40b-b9f8-4b13-b1a8-02f6106df9e5",
     "async": false
   },
@@ -635,6 +651,10 @@
         "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1732713682/Video/portal_2_my_values_wzq6mm.mp4"
       }
     },
+    "tags": [
+      "9c2c08a9-7dc6-4058-bc78-016d0eb00614",
+      "566aeb1b-1649-4f5a-96a2-0c80be27efc0"
+    ],
     "id": "3adeb40b-b9f8-4b13-b1a8-02f6106df9e5",
     "async": true,
     "description": "Vores indre værdier omhandler, hvem vi ønsker at være her i tilværelsen. Det er ofte mere tilfredsstillende og meningsfuldt for folk at leve i overensstemmelse med deres værdier."
@@ -789,6 +809,10 @@
         "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1732713682/Video/portal_2_my_values_wzq6mm.mp4"
       }
     },
+    "tags": [
+      "9c2c08a9-7dc6-4058-bc78-016d0eb00614",
+      "566aeb1b-1649-4f5a-96a2-0c80be27efc0"
+    ],
     "id": "3adeb40b-b9f8-4b13-b1a8-02f6106df9e5",
     "async": true,
     "description": "Naše vnitřní hodnoty jsou o tom, kým chceme být v životě. Život založený na hodnotách je pro lidi často naplňující a smysluplnější."
@@ -948,6 +972,10 @@
         "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1732713682/Video/portal_2_my_values_wzq6mm.mp4"
       }
     },
+    "tags": [
+      "9c2c08a9-7dc6-4058-bc78-016d0eb00614",
+      "566aeb1b-1649-4f5a-96a2-0c80be27efc0"
+    ],
     "id": "3adeb40b-b9f8-4b13-b1a8-02f6106df9e5",
     "async": true,
     "description": "Onze innerlijke waarden gaan over wie we willen zijn in het leven. Een waardengedreven leven leiden is vaak meer vervullend en betekenisvol voor mensen."
@@ -956,6 +984,10 @@
     "asyncDuration": 15,
     "card": {},
     "id": "3adeb40b-b9f8-4b13-b1a8-02f6106df9e5",
-    "locked": true
+    "locked": true,
+    "tags": [
+      "9c2c08a9-7dc6-4058-bc78-016d0eb00614",
+      "566aeb1b-1649-4f5a-96a2-0c80be27efc0"
+    ]
   }
 }
