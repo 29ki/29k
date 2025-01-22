@@ -94,8 +94,8 @@
       "textColor": "#2E2E2E",
       "backgroundColor": "#27acc8"
     },
-    "hidden": true,
-    "locked": false,
+    "hidden": false,
+    "locked": true,
     "name": "PsyPal Sky gazing",
     "live": false,
     "published": true,
@@ -199,7 +199,7 @@
       "textColor": "#2AE2D7"
     },
     "hidden": false,
-    "locked": false,
+    "locked": true,
     "live": true,
     "published": false,
     "asyncDuration": 10,
@@ -291,7 +291,7 @@
       "textColor": "#2AE2D7"
     },
     "hidden": false,
-    "locked": false,
+    "locked": true,
     "live": true,
     "published": false,
     "asyncDuration": 10,
@@ -383,7 +383,7 @@
       "textColor": "#2AE2D7"
     },
     "hidden": false,
-    "locked": false,
+    "locked": true,
     "live": true,
     "published": false,
     "asyncDuration": 10,
@@ -409,7 +409,8 @@
       "566aeb1b-1649-4f5a-96a2-0c80be27efc0"
     ],
     "id": "ba239e50-27f5-4a01-8daf-14b76edb7097",
-    "card": {}
+    "card": {},
+    "locked": true
   },
   "cs": {
     "asyncDuration": 10,
@@ -418,7 +419,8 @@
       "566aeb1b-1649-4f5a-96a2-0c80be27efc0"
     ],
     "id": "ba239e50-27f5-4a01-8daf-14b76edb7097",
-    "card": {}
+    "card": {},
+    "locked": true
   },
   "nl": {
     "asyncDuration": 10,
@@ -427,13 +429,15 @@
       "566aeb1b-1649-4f5a-96a2-0c80be27efc0"
     ],
     "id": "ba239e50-27f5-4a01-8daf-14b76edb7097",
-    "card": {}
+    "card": {},
+    "locked": true
   },
   "es": {
     "id": "ba239e50-27f5-4a01-8daf-14b76edb7097",
     "tags": [
       "566aeb1b-1649-4f5a-96a2-0c80be27efc0"
     ],
-    "card": {}
+    "card": {},
+    "locked": true
   }
 }
