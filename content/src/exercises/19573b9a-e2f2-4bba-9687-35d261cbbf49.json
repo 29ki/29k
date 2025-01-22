@@ -88,8 +88,8 @@
       "textColor": "#2E2E2E",
       "backgroundColor": "#dbd602"
     },
-    "hidden": true,
-    "locked": false,
+    "hidden": false,
+    "locked": true,
     "name": "PsyPal The memory box",
     "live": false,
     "published": true,
@@ -190,7 +190,7 @@
       "textColor": "#2AE2D7"
     },
     "hidden": false,
-    "locked": false,
+    "locked": true,
     "live": true,
     "published": false,
     "asyncDuration": 10,
@@ -279,7 +279,7 @@
       "textColor": "#2AE2D7"
     },
     "hidden": false,
-    "locked": false,
+    "locked": true,
     "live": true,
     "published": false,
     "asyncDuration": 10,
@@ -368,7 +368,7 @@
       "textColor": "#2AE2D7"
     },
     "hidden": false,
-    "locked": false,
+    "locked": true,
     "live": true,
     "published": false,
     "asyncDuration": 10,
@@ -386,18 +386,22 @@
   },
   "da": {
     "id": "19573b9a-e2f2-4bba-9687-35d261cbbf49",
-    "card": {}
+    "card": {},
+    "locked": true
   },
   "cs": {
     "id": "19573b9a-e2f2-4bba-9687-35d261cbbf49",
-    "card": {}
+    "card": {},
+    "locked": true
   },
   "nl": {
     "id": "19573b9a-e2f2-4bba-9687-35d261cbbf49",
-    "card": {}
+    "card": {},
+    "locked": true
   },
   "es": {
     "id": "19573b9a-e2f2-4bba-9687-35d261cbbf49",
-    "card": {}
+    "card": {},
+    "locked": true
   }
 }
