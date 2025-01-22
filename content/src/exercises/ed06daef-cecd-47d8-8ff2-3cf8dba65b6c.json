@@ -117,6 +117,18 @@
         "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1737187860/Images/image_5_Hope_music_exercise_II_kgusv1.png"
       }
     },
+    "coCreators": [
+      {
+        "name": "Catharina Messel, voice",
+        "url": "https://palliativeprojects.eu/psypal/university-of-copenhagen/",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1734343422/Contributors/Catharina_Messel_Da_PsyPal.png"
+      },
+      {
+        "name": "Ints Ivanovskis, art works",
+        "url": "https://www.linkedin.com/in/ints-ivanovskis-46ab0311a/",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413436/Contributors/Ints%20Ivanovskis.jpg"
+      }
+    ],
     "introPortal": {
       "textColor": "#2E2E2E",
       "hostNotes": [
@@ -131,6 +143,9 @@
         "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1737272009/Video/portal_1_Hope_music_exercise_II_njii38.mp4"
       }
     },
+    "tags": [
+      "8da0534a-5da9-430a-bdf3-242ace6460fb"
+    ],
     "id": "ed06daef-cecd-47d8-8ff2-3cf8dba65b6c",
     "async": true,
     "description": "Visualize your heart igniting light and hope in this exercise, guided by music."
@@ -222,6 +237,9 @@
         }
       ]
     },
+    "tags": [
+      "8da0534a-5da9-430a-bdf3-242ace6460fb"
+    ],
     "id": "ed06daef-cecd-47d8-8ff2-3cf8dba65b6c",
     "async": false
   },
@@ -312,6 +330,9 @@
         }
       ]
     },
+    "tags": [
+      "8da0534a-5da9-430a-bdf3-242ace6460fb"
+    ],
     "id": "ed06daef-cecd-47d8-8ff2-3cf8dba65b6c",
     "async": false
   },
@@ -402,6 +423,9 @@
         }
       ]
     },
+    "tags": [
+      "8da0534a-5da9-430a-bdf3-242ace6460fb"
+    ],
     "id": "ed06daef-cecd-47d8-8ff2-3cf8dba65b6c",
     "async": false
   },
@@ -492,6 +516,9 @@
         }
       ]
     },
+    "tags": [
+      "8da0534a-5da9-430a-bdf3-242ace6460fb"
+    ],
     "id": "ed06daef-cecd-47d8-8ff2-3cf8dba65b6c",
     "async": false
   },
@@ -582,6 +609,9 @@
         }
       ]
     },
+    "tags": [
+      "8da0534a-5da9-430a-bdf3-242ace6460fb"
+    ],
     "id": "ed06daef-cecd-47d8-8ff2-3cf8dba65b6c",
     "async": false
   },
@@ -672,12 +702,18 @@
         }
       ]
     },
+    "tags": [
+      "8da0534a-5da9-430a-bdf3-242ace6460fb"
+    ],
     "id": "ed06daef-cecd-47d8-8ff2-3cf8dba65b6c",
     "async": false
   },
   "es": {
     "id": "ed06daef-cecd-47d8-8ff2-3cf8dba65b6c",
     "card": {},
-    "locked": true
+    "locked": true,
+    "tags": [
+      "8da0534a-5da9-430a-bdf3-242ace6460fb"
+    ]
   }
 }
