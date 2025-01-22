@@ -1,7 +1,7 @@
 {
   "en": {
-    "hidden": true,
-    "locked": false,
+    "hidden": false,
+    "locked": true,
     "name": "Aware PsyPal",
     "published": true,
     "sortOrder": 1,
@@ -45,7 +45,7 @@
   "pt": {
     "published": false,
     "hidden": false,
-    "locked": false,
+    "locked": true,
     "id": "5b0305d0-df2c-4ee5-b5ee-366f6709b33d",
     "tags": [
       "566aeb1b-1649-4f5a-96a2-0c80be27efc0",
@@ -69,7 +69,7 @@
   "sv": {
     "published": false,
     "hidden": false,
-    "locked": false,
+    "locked": true,
     "id": "5b0305d0-df2c-4ee5-b5ee-366f6709b33d",
     "tags": [
       "566aeb1b-1649-4f5a-96a2-0c80be27efc0",
@@ -93,7 +93,7 @@
   "ja": {
     "published": false,
     "hidden": false,
-    "locked": false,
+    "locked": true,
     "id": "5b0305d0-df2c-4ee5-b5ee-366f6709b33d",
     "tags": [
       "566aeb1b-1649-4f5a-96a2-0c80be27efc0",
@@ -117,7 +117,7 @@
   "da": {
     "published": false,
     "hidden": false,
-    "locked": false,
+    "locked": true,
     "id": "5b0305d0-df2c-4ee5-b5ee-366f6709b33d",
     "tags": [
       "566aeb1b-1649-4f5a-96a2-0c80be27efc0",
@@ -141,7 +141,7 @@
   "cs": {
     "published": false,
     "hidden": false,
-    "locked": false,
+    "locked": true,
     "id": "5b0305d0-df2c-4ee5-b5ee-366f6709b33d",
     "tags": [
       "566aeb1b-1649-4f5a-96a2-0c80be27efc0",
@@ -165,7 +165,7 @@
   "nl": {
     "published": false,
     "hidden": false,
-    "locked": false,
+    "locked": true,
     "id": "5b0305d0-df2c-4ee5-b5ee-366f6709b33d",
     "tags": [
       "566aeb1b-1649-4f5a-96a2-0c80be27efc0",
@@ -189,7 +189,7 @@
   "es": {
     "published": false,
     "hidden": false,
-    "locked": false,
+    "locked": true,
     "id": "5b0305d0-df2c-4ee5-b5ee-366f6709b33d",
     "tags": [
       "566aeb1b-1649-4f5a-96a2-0c80be27efc0",
