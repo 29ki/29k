@@ -87,8 +87,8 @@
       "textColor": "#2E2E2E",
       "backgroundColor": "#e6cd44"
     },
-    "hidden": true,
-    "locked": false,
+    "hidden": false,
+    "locked": true,
     "name": "PsyPal Music exercise I",
     "live": false,
     "published": true,
@@ -141,8 +141,7 @@
     "description": "Mindfulness and visualization guided by music, can help our brains practice being in altered states of consciousness. It may be a way to relax, reset and ground ourselves in our bodies."
   },
   "pt": {
-    "description": "Técnicas de mindfullness e de visualização/imagética guiada pela música podem ajudar os nossos cérebros a praticar estados de consciência alterados. Podem ser uma forma de relaxarmos e nos situarmos nos nossos corpos.",
-    "name": "Exercício de música PsyPal I ",
+    "liveDuration": 40,
     "slides": [
       {
         "content": {
@@ -225,13 +224,13 @@
         "type": "instruction"
       }
     ],
-    "liveDuration": 40,
     "theme": {
       "textColor": "#2E2E2E",
       "backgroundColor": "#e6cd44"
     },
     "hidden": true,
-    "locked": false,
+    "locked": true,
+    "name": "Exercício de música PsyPal I ",
     "live": false,
     "published": true,
     "asyncDuration": 25,
@@ -279,7 +278,8 @@
       "566aeb1b-1649-4f5a-96a2-0c80be27efc0"
     ],
     "id": "b6de2e28-325e-4ce1-8894-09ac12a6c19f",
-    "async": true
+    "async": true,
+    "description": "Técnicas de mindfullness e de visualização/imagética guiada pela música podem ajudar os nossos cérebros a praticar estados de consciência alterados. Podem ser uma forma de relaxarmos e nos situarmos nos nossos corpos."
   },
   "sv": {
     "liveDuration": 40,
@@ -354,7 +354,7 @@
       "textColor": "#2AE2D7"
     },
     "hidden": false,
-    "locked": false,
+    "locked": true,
     "live": true,
     "published": false,
     "asyncDuration": 25,
@@ -446,7 +446,7 @@
       "textColor": "#2AE2D7"
     },
     "hidden": false,
-    "locked": false,
+    "locked": true,
     "live": true,
     "published": false,
     "asyncDuration": 25,
@@ -466,8 +466,7 @@
     "async": false
   },
   "da": {
-    "description": "Mindfulness og musik-guidet visualisering kan hjælpe os til at træde ind i en let ændret bevidsthedstilstand, samt slappe af, genstarte, og komme i kontakt med kroppen. ",
-    "name": "PsyPal musikøvelse I",
+    "liveDuration": 40,
     "slides": [
       {
         "content": {
@@ -550,13 +549,13 @@
         "type": "instruction"
       }
     ],
-    "liveDuration": 40,
     "theme": {
       "textColor": "#2E2E2E",
       "backgroundColor": "#e6cd44"
     },
     "hidden": true,
-    "locked": false,
+    "locked": true,
+    "name": "PsyPal musikøvelse I",
     "live": false,
     "published": true,
     "asyncDuration": 25,
@@ -604,11 +603,11 @@
       "566aeb1b-1649-4f5a-96a2-0c80be27efc0"
     ],
     "id": "b6de2e28-325e-4ce1-8894-09ac12a6c19f",
-    "async": true
+    "async": true,
+    "description": "Mindfulness og musik-guidet visualisering kan hjælpe os til at træde ind i en let ændret bevidsthedstilstand, samt slappe af, genstarte, og komme i kontakt med kroppen. "
   },
   "cs": {
-    "description": "Cvičení všímavosti a vizualizace s hudbou může pomoci naší mysli prožívat změněné stavy vědomí. Může být cestou, jak se uvolnit, nabrat nové síly a uzemnit se ve svém těle.",
-    "name": "PsyPal hudební cvičení I",
+    "liveDuration": 40,
     "slides": [
       {
         "content": {
@@ -691,13 +690,13 @@
         "type": "instruction"
       }
     ],
-    "liveDuration": 40,
     "theme": {
       "textColor": "#2E2E2E",
       "backgroundColor": "#e6cd44"
     },
     "hidden": true,
-    "locked": false,
+    "locked": true,
+    "name": "PsyPal hudební cvičení I",
     "live": false,
     "published": true,
     "asyncDuration": 25,
@@ -745,11 +744,11 @@
       "566aeb1b-1649-4f5a-96a2-0c80be27efc0"
     ],
     "id": "b6de2e28-325e-4ce1-8894-09ac12a6c19f",
-    "async": true
+    "async": true,
+    "description": "Cvičení všímavosti a vizualizace s hudbou může pomoci naší mysli prožívat změněné stavy vědomí. Může být cestou, jak se uvolnit, nabrat nové síly a uzemnit se ve svém těle."
   },
   "nl": {
-    "description": "Mindfulness en visualisatie begeleid door muziek kunnen onze hersenen helpen oefenen in het ervaren van veranderde bewustzijnstoestanden. Het kan een manier zijn om te ontspannen, te resetten en onszelf te aarden in ons lichaam.",
-    "name": "PsyPal muziekoefening I",
+    "liveDuration": 40,
     "slides": [
       {
         "content": {
@@ -832,13 +831,13 @@
         "type": "instruction"
       }
     ],
-    "liveDuration": 40,
     "theme": {
       "textColor": "#2E2E2E",
       "backgroundColor": "#e6cd44"
     },
     "hidden": true,
-    "locked": false,
+    "locked": true,
+    "name": "PsyPal muziekoefening I",
     "live": false,
     "published": true,
     "asyncDuration": 25,
@@ -886,9 +885,14 @@
       "566aeb1b-1649-4f5a-96a2-0c80be27efc0"
     ],
     "id": "b6de2e28-325e-4ce1-8894-09ac12a6c19f",
-    "async": true
+    "async": true,
+    "description": "Mindfulness en visualisatie begeleid door muziek kunnen onze hersenen helpen oefenen in het ervaren van veranderde bewustzijnstoestanden. Het kan een manier zijn om te ontspannen, te resetten en onszelf te aarden in ons lichaam."
   },
   "es": {
-    "id": "b6de2e28-325e-4ce1-8894-09ac12a6c19f"
+    "id": "b6de2e28-325e-4ce1-8894-09ac12a6c19f",
+    "tags": [
+      "566aeb1b-1649-4f5a-96a2-0c80be27efc0"
+    ],
+    "locked": true
   }
 }
