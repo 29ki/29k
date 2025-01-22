@@ -99,6 +99,18 @@
         "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1737188068/Images/image_1_memory_box_zzn2wn.png"
       }
     },
+    "coCreators": [
+      {
+        "name": "Jenny Rickardsson, script and voice",
+        "url": "https://www.linkedin.com/in/jenny-rickardson-6770a959/",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413228/Contributors/Jenny%20Rickardsson.jpg"
+      },
+      {
+        "name": "Ints Ivanovskis, art works",
+        "url": "https://www.linkedin.com/in/ints-ivanovskis-46ab0311a/",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413436/Contributors/Ints%20Ivanovskis.jpg"
+      }
+    ],
     "introPortal": {
       "textColor": "#2E2E2E",
       "hostNotes": [
@@ -113,6 +125,10 @@
         "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1737274969/Video/portal_1_memory_box_pjpo47.mp4"
       }
     },
+    "tags": [
+      "34100e43-2eb8-4d35-8eb0-9fa9f78e4935",
+      "43a6dc0d-d866-4b79-9453-13c44e906128"
+    ],
     "id": "19573b9a-e2f2-4bba-9687-35d261cbbf49",
     "async": true,
     "description": "In this exercise you'll reflect on moments that you have appreciated in life, and recall some past memories. Also, you’ll start thinking of what you would like to leave behind for your loved ones when you, some time in the future, are gone."
@@ -203,6 +219,10 @@
         }
       ]
     },
+    "tags": [
+      "34100e43-2eb8-4d35-8eb0-9fa9f78e4935",
+      "43a6dc0d-d866-4b79-9453-13c44e906128"
+    ],
     "id": "19573b9a-e2f2-4bba-9687-35d261cbbf49",
     "async": false
   },
@@ -292,6 +312,10 @@
         }
       ]
     },
+    "tags": [
+      "34100e43-2eb8-4d35-8eb0-9fa9f78e4935",
+      "43a6dc0d-d866-4b79-9453-13c44e906128"
+    ],
     "id": "19573b9a-e2f2-4bba-9687-35d261cbbf49",
     "async": false
   },
@@ -381,27 +405,47 @@
         }
       ]
     },
+    "tags": [
+      "34100e43-2eb8-4d35-8eb0-9fa9f78e4935",
+      "43a6dc0d-d866-4b79-9453-13c44e906128"
+    ],
     "id": "19573b9a-e2f2-4bba-9687-35d261cbbf49",
     "async": false
   },
   "da": {
     "id": "19573b9a-e2f2-4bba-9687-35d261cbbf49",
     "card": {},
-    "locked": true
+    "locked": true,
+    "tags": [
+      "34100e43-2eb8-4d35-8eb0-9fa9f78e4935",
+      "43a6dc0d-d866-4b79-9453-13c44e906128"
+    ]
   },
   "cs": {
     "id": "19573b9a-e2f2-4bba-9687-35d261cbbf49",
     "card": {},
-    "locked": true
+    "locked": true,
+    "tags": [
+      "34100e43-2eb8-4d35-8eb0-9fa9f78e4935",
+      "43a6dc0d-d866-4b79-9453-13c44e906128"
+    ]
   },
   "nl": {
     "id": "19573b9a-e2f2-4bba-9687-35d261cbbf49",
     "card": {},
-    "locked": true
+    "locked": true,
+    "tags": [
+      "34100e43-2eb8-4d35-8eb0-9fa9f78e4935",
+      "43a6dc0d-d866-4b79-9453-13c44e906128"
+    ]
   },
   "es": {
     "id": "19573b9a-e2f2-4bba-9687-35d261cbbf49",
     "card": {},
-    "locked": true
+    "locked": true,
+    "tags": [
+      "34100e43-2eb8-4d35-8eb0-9fa9f78e4935",
+      "43a6dc0d-d866-4b79-9453-13c44e906128"
+    ]
   }
 }
