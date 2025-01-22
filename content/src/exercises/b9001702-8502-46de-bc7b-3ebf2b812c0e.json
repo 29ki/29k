@@ -103,8 +103,8 @@
       "textColor": "#2E2E2E",
       "backgroundColor": "#f4deb2"
     },
-    "hidden": true,
-    "locked": false,
+    "hidden": false,
+    "locked": true,
     "name": "PsyPal Life exploration",
     "live": false,
     "published": true,
@@ -256,7 +256,7 @@
       "backgroundColor": "#f4deb2"
     },
     "hidden": true,
-    "locked": false,
+    "locked": true,
     "name": "Exploração de vida",
     "live": false,
     "published": true,
@@ -376,7 +376,7 @@
       "textColor": "#2AE2D7"
     },
     "hidden": false,
-    "locked": false,
+    "locked": true,
     "live": true,
     "published": false,
     "asyncDuration": 15,
@@ -468,7 +468,7 @@
       "textColor": "#2AE2D7"
     },
     "hidden": false,
-    "locked": false,
+    "locked": true,
     "live": true,
     "published": false,
     "asyncDuration": 15,
@@ -592,7 +592,7 @@
       "backgroundColor": "#f4deb2"
     },
     "hidden": true,
-    "locked": false,
+    "locked": true,
     "name": "PsyPal Livsrefleksion",
     "live": false,
     "published": true,
@@ -744,7 +744,7 @@
       "backgroundColor": "#f4deb2"
     },
     "hidden": true,
-    "locked": false,
+    "locked": true,
     "name": "PsyPal Průzkum života",
     "live": false,
     "published": true,
@@ -896,7 +896,7 @@
       "backgroundColor": "#f4deb2"
     },
     "hidden": true,
-    "locked": false,
+    "locked": true,
     "name": "PsyPal Levensverkenning",
     "live": false,
     "published": true,
@@ -947,6 +947,7 @@
     "id": "b9001702-8502-46de-bc7b-3ebf2b812c0e",
     "tags": [
       "566aeb1b-1649-4f5a-96a2-0c80be27efc0"
-    ]
+    ],
+    "locked": true
   }
 }
