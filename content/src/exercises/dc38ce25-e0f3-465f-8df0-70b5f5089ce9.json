@@ -102,8 +102,8 @@
       "textColor": "#F9F8F4",
       "backgroundColor": "#cf400c"
     },
-    "hidden": true,
-    "locked": false,
+    "hidden": false,
+    "locked": true,
     "name": "PsyPal Acceptance practice ",
     "live": false,
     "published": true,
@@ -219,7 +219,7 @@
       "textColor": "#2AE2D7"
     },
     "hidden": false,
-    "locked": false,
+    "locked": true,
     "live": true,
     "published": false,
     "asyncDuration": 10,
@@ -316,7 +316,7 @@
       "textColor": "#2AE2D7"
     },
     "hidden": false,
-    "locked": false,
+    "locked": true,
     "live": true,
     "published": false,
     "asyncDuration": 10,
@@ -408,7 +408,7 @@
       "textColor": "#2AE2D7"
     },
     "hidden": false,
-    "locked": false,
+    "locked": true,
     "live": true,
     "published": false,
     "asyncDuration": 10,
@@ -433,7 +433,8 @@
       "34100e43-2eb8-4d35-8eb0-9fa9f78e4935"
     ],
     "id": "dc38ce25-e0f3-465f-8df0-70b5f5089ce9",
-    "card": {}
+    "card": {},
+    "locked": true
   },
   "cs": {
     "liveDuration": 30,
@@ -441,7 +442,8 @@
       "34100e43-2eb8-4d35-8eb0-9fa9f78e4935"
     ],
     "id": "dc38ce25-e0f3-465f-8df0-70b5f5089ce9",
-    "card": {}
+    "card": {},
+    "locked": true
   },
   "nl": {
     "liveDuration": 30,
@@ -449,7 +451,8 @@
       "34100e43-2eb8-4d35-8eb0-9fa9f78e4935"
     ],
     "id": "dc38ce25-e0f3-465f-8df0-70b5f5089ce9",
-    "card": {}
+    "card": {},
+    "locked": true
   },
   "es": {
     "liveDuration": 30,
@@ -457,6 +460,7 @@
       "34100e43-2eb8-4d35-8eb0-9fa9f78e4935"
     ],
     "id": "dc38ce25-e0f3-465f-8df0-70b5f5089ce9",
-    "card": {}
+    "card": {},
+    "locked": true
   }
 }
