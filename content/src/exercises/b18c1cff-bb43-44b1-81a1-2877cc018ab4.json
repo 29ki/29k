@@ -574,7 +574,14 @@
     "slides": [
       {
         "type": "host",
-        "hostNotes": []
+        "hostNotes": [
+          {
+            "text": "Olá, o meu nome é X e hoje vamos trabalhar cerca de 30 min em ancorarmo-nos no aqui e agora.\n\nVamos fazer uma pequena apresentação, seguida de uma meditação, reflexão e por fim vamos partilhar a nossa experiência uns com os outros."
+          },
+          {
+            "text": "Vamos começar com um mini check-in. Do que é que estás grata/o agora? Podes responder em duas ou três palavras. Quem gostaria de começar?\n\n> Permite que todos na sessão, inclusive tu, façam check-in individual.\n\nObrigada/o a todos pelo check-in. Vamos começar."
+          }
+        ]
       },
       {
         "type": "content",
@@ -592,43 +599,18 @@
         }
       },
       {
-        "type": "reflection",
-        "hostNotes": [],
-        "content": {
-          "heading": "",
-          "lottie": {
-            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1676642915/Lottie/default_1min_black_rosi2l.json",
-            "durationTimer": true,
-            "duration": 60
-          }
-        }
-      },
-      {
-        "type": "sharing",
-        "hostNotes": [],
-        "content": {
-          "heading": "",
-          "lottie": {
-            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1676639253/Lottie/default_2min_black_o6egey.json",
-            "durationTimer": true,
-            "duration": 120
-          }
-        },
-        "id": ""
-      },
-      {
         "type": "host",
-        "hostNotes": []
-      },
-      {
-        "type": "instruction",
-        "content": {
-          "image": {
-            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1678973954/Images/card_image_breathing_anchor_vibuvl.png"
+        "hostNotes": [
+          {
+            "text": "Muito bem. Deixamos-te o desafio de levares para o teu dia-a-dia o que começamos aqui hoje. Nos próximos três dias, dedica alguns minutos do teu dia para te ancorares no presente com a tua respiração."
           },
-          "heading": "",
-          "text": ""
-        }
+          {
+            "text": "Pode ser uma forma para construíres os teus próprios recursos e resiliência.\n\nAntes de sairmos deste espaço vamos fazer um mini check-out.\n\nO que vais levar daqui contigo para o resto do teu dia? Responde por favor em duas ou três palavras."
+          },
+          {
+            "text": "Quem gostaria de começar?\n\n> Deixa todas as pessoas fazerem o check-out individualmente.\n\nObrigada/o a todos pelo check-out e por terem participado nesta sessão.\n\n> Termina a sessão enviando toda a gente para a experiência de saída."
+          }
+        ]
       }
     ],
     "theme": {
@@ -650,7 +632,7 @@
         "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413436/Contributors/Ints%20Ivanovskis.jpg"
       },
       {
-        "name": "Núria Tous, voz en español",
+        "name": "Núria Tous, voz en Español",
         "url": "https://www.linkedin.com/in/nuriatous/",
         "image": ""
       }
@@ -680,6 +662,6 @@
     ],
     "id": "b18c1cff-bb43-44b1-81a1-2877cc018ab4",
     "async": true,
-    "description": "Uma meditação guiada para nos ancorarmos no momento presente através da nossa respiração. A consciência do momento presente pode ajudar-nos a reduzir a ruminação e o stress assim como melhorar a nossa capacidade de decisão."
+    "description": ""
   }
 }
