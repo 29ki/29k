@@ -674,7 +674,8 @@
       "43a6dc0d-d866-4b79-9453-13c44e906128"
     ],
     "asyncDuration": 4,
-    "id": "095f9642-73b6-4c9a-ae9a-ea7dea7363f5"
+    "id": "095f9642-73b6-4c9a-ae9a-ea7dea7363f5",
+    "card": {}
   },
   "cs": {
     "tags": [
@@ -682,7 +683,8 @@
       "43a6dc0d-d866-4b79-9453-13c44e906128"
     ],
     "asyncDuration": 4,
-    "id": "095f9642-73b6-4c9a-ae9a-ea7dea7363f5"
+    "id": "095f9642-73b6-4c9a-ae9a-ea7dea7363f5",
+    "card": {}
   },
   "nl": {
     "tags": [
@@ -690,9 +692,134 @@
       "43a6dc0d-d866-4b79-9453-13c44e906128"
     ],
     "asyncDuration": 4,
-    "id": "095f9642-73b6-4c9a-ae9a-ea7dea7363f5"
+    "id": "095f9642-73b6-4c9a-ae9a-ea7dea7363f5",
+    "card": {}
   },
   "es": {
-    "id": "095f9642-73b6-4c9a-ae9a-ea7dea7363f5"
+    "slides": [
+      {
+        "type": "host",
+        "hostNotes": [],
+        "video": {
+          "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1675956726/Video/async_intro_pure_simple_love_eng_vbozum.mp4",
+          "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1675960044/Images/thumb_async_pure%20simple_love_q6jg7c.png"
+        }
+      },
+      {
+        "type": "content",
+        "content": {
+          "heading": "",
+          "video": {
+            "source": "",
+            "preview": "",
+            "durationTimer": true
+          },
+          "image": "https://res.cloudinary.com/twentyninek/image/upload/q_auto,t_global/v1636016815/Singles/sticky_eng_ps00eg.png",
+          "lottie": {
+            "durationTimer": true,
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1676977421/Lottie/audio_meditation_default_black_default_omemwt.json",
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1737570894/Spanish/Audio%20MP3/AmorPuroYSencillo_dallec.mp3",
+            "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1737630296/Spanish/Subtitles%20SRT/Amor_Puro_y_Sencillo_ngytzn.srt"
+          }
+        },
+        "hostNotes": []
+      },
+      {
+        "type": "reflection",
+        "content": {
+          "heading": "",
+          "video": {
+            "source": "https://res.cloudinary.com/twentyninek/video/upload/q_auto/v1663328538/temp/1_min_eto52x.mp4",
+            "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1674554578/Images/thumb_timer1min_pure_simple_love_jahzvt.png",
+            "durationTimer": true
+          },
+          "text": ""
+        },
+        "hostNotes": []
+      },
+      {
+        "type": "sharing",
+        "content": {
+          "heading": "",
+          "video": {
+            "source": "https://res.cloudinary.com/twentyninek/video/upload/q_auto/v1663328538/temp/2_min_fr9hsu.mp4",
+            "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1674554578/Images/thumb_timer2min_pure_simple_love_czlzbh.png",
+            "durationTimer": true
+          },
+          "text": ""
+        },
+        "hostNotes": [],
+        "id": ""
+      },
+      {
+        "type": "host",
+        "hostNotes": [],
+        "video": {
+          "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1675958263/Video/async_outro_pure_simple_love_kjkjaq.mp4",
+          "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/v1675960044/Images/thumb_async_pure%20simple_love_q6jg7c.png"
+        }
+      },
+      {
+        "type": "instruction",
+        "content": {
+          "image": {
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1698256076/Images/pure-simple-love_vi9ura.png"
+          },
+          "heading": "",
+          "text": ""
+        }
+      }
+    ],
+    "name": "",
+    "live": true,
+    "published": true,
+    "card": {
+      "image": {
+        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1698256076/Images/pure-simple-love_vi9ura.png"
+      }
+    },
+    "coCreators": [
+      {
+        "name": "Ints Ivanovskis, art works",
+        "url": "https://www.linkedin.com/in/ints-ivanovskis-46ab0311a/",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413436/Contributors/Ints%20Ivanovskis.jpg"
+      },
+      {
+        "name": "Núria Tous - voz en Español",
+        "url": "https://www.linkedin.com/in/nuriatous/",
+        "image": ""
+      }
+    ],
+    "outroPortal": {
+      "video": {
+        "source": "https://res.cloudinary.com/twentyninek/video/upload/q_auto/v1664798564/temp/portal_outro_lpm80e.mp4"
+      }
+    },
+    "introPortal": {
+      "type": "video",
+      "videoLoop": {
+        "source": "https://res.cloudinary.com/twentyninek/video/upload/q_auto/v1663143395/temp/portal-intro_h7qccz.mp4",
+        "audio": "https://res.cloudinary.com/twentyninek/video/upload/v1664811123/temp/ocean_s3t5yy_mm2dgh.mp3",
+        "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1674554579/Images/thumb_portal_pure_simple_love_geibz4.png",
+        "p5JsScript": {
+          "lang": "javascript"
+        }
+      },
+      "videoEnd": {
+        "source": "https://res.cloudinary.com/twentyninek/video/upload/q_auto/v1663147750/temp/portal-intro-end_crzjih.mp4"
+      },
+      "hostNotes": [
+        {
+          "text": "> Começa a sessão quando estiveres pronta/o."
+        }
+      ]
+    },
+    "tags": [
+      "cfc00217-f65b-4a4d-8b82-8ccc8f852dd6",
+      "43a6dc0d-d866-4b79-9453-13c44e906128"
+    ],
+    "id": "095f9642-73b6-4c9a-ae9a-ea7dea7363f5",
+    "async": true,
+    "description": "Uma meditação guiada que traz um momento especial para o centro da nossa atenção. Praticar a perceção do que está a funcionar bem pode ajudar-nos a sentirmo-nos mais felizes e realizados, e a neutralizar a tendência natural do nosso cérebro para focar no negativo."
   }
 }
