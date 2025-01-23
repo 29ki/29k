@@ -674,7 +674,7 @@
             "durationTimer": true,
             "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1676977421/Lottie/audio_meditation_default_black_default_omemwt.json",
             "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1737570911/Spanish/Audio%20MP3/90Cumpleanyos_a1o3iz.mp3",
-            "subtitles": ""
+            "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1737627896/Spanish/Subtitles%20SRT/90_Cumplean%CC%83os_unys0f.srt"
           }
         }
       },
@@ -740,7 +740,12 @@
     "socialMeta": {
       "image": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1692855592/Images/card_image_90th_birthday_noi09y.png"
     },
-    "coCreators": [],
+    "coCreators": [
+      {
+        "name": "Núria Tous - voz en Español",
+        "url": "https://www.linkedin.com/in/nuriatous/"
+      }
+    ],
     "introPortal": {
       "hostNotes": [
         {
