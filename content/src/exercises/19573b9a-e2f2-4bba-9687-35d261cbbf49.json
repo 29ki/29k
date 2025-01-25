@@ -8,7 +8,7 @@
           "heading": "",
           "text": "In this exercise you'll start thinking about what memories you would like to leave behind for your loved ones when you are gone. \n\nYou'll need peace and quiet, and somewhere to take notes.",
           "image": {
-            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1737188066/Images/image_2_memory_box_zddagb.png"
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1737803288/Images/image_22_memory_box_y1uq7b.png"
           }
         }
       },
@@ -29,7 +29,12 @@
           {
             "text": "Find a comfortable position. I will start the audio exercise and we'll meet back here afterwards. \n\n> Push play to start the audio exercise"
           }
-        ]
+        ],
+        "content": {
+          "video": {
+            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1737803438/Video/timer_memory_box_g0wklz.mp4"
+          }
+        }
       },
       {
         "type": "reflection",
@@ -79,14 +84,14 @@
         "content": {
           "text": "A basic fact of life is that it is followed by death. Well done for daring to think about your own mortality for a few minutes. \n\nIf you want to involve someone else in making your memory box, a first step is to reach out to them. If you want to make your box on your own, take notes on your next steps somewhere only you can see it.",
           "image": {
-            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1737188064/Images/image_3_memory_box_p7lb35.png"
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1737803289/Images/image_33_memory_box_jxsiwf.png"
           }
         }
       }
     ],
     "theme": {
       "textColor": "#2E2E2E",
-      "backgroundColor": "#dbd602"
+      "backgroundColor": "#e2d002"
     },
     "hidden": false,
     "locked": true,
