@@ -107,6 +107,9 @@
         "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1737188027/Images/image_2_Difficult_conversation_xroiqs.png"
       }
     },
+    "outroPortal": {
+      "desktopOptimized": true
+    },
     "introPortal": {
       "textColor": "#F9F8F4",
       "hostNotes": [
@@ -119,7 +122,8 @@
           "lang": "javascript"
         },
         "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1737274976/Video/portal_1_Difficult_conversation_mjexai.mp4"
-      }
+      },
+      "desktopOptimized": true
     },
     "tags": [
       "34100e43-2eb8-4d35-8eb0-9fa9f78e4935",
