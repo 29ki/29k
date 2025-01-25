@@ -18,7 +18,7 @@
         "content": {
           "text": "Doing what's important for us is rarely a smooth journey. When we need to stand up for ourselves—like managing a conflict or telling a friend a painful truth—anxiety, fear, and guilt often arise. In this exercise, we'll practice accepting our own feelings to help us focus on what truly matters.",
           "image": {
-            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1737188025/Images/image_3_Difficult_conversation_fs6zuk.png"
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1737800766/Images/image_11_Difficult_conversation_fxast1.png"
           }
         }
       },
@@ -28,7 +28,12 @@
           {
             "text": "Find a comfortable position. I will start the audio exercise and we'll meet back here afterwards. \n\n> Push play to start the audio exercise"
           }
-        ]
+        ],
+        "content": {
+          "video": {
+            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1737616068/Video/audio_timer_acceptance_practice_1_cungu2.mp4"
+          }
+        }
       },
       {
         "type": "reflection",
@@ -81,14 +86,14 @@
         "content": {
           "text": "Well done for daring to face difficult emotions. Acceptance can help us do what matters to us, even when our insides are screaming the opposite. Now, plan where and when you will take action on the conversation you just imagined.",
           "image": {
-            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1737188024/Images/image_1_Difficult_conversation_s8n6wc.png"
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1737800767/Images/image_33_Difficult_conversation_h81lm9.png"
           }
         }
       }
     ],
     "theme": {
       "textColor": "#F9F8F4",
-      "backgroundColor": "#b62b14"
+      "backgroundColor": "#cf400c"
     },
     "hidden": false,
     "locked": true,
