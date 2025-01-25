@@ -150,7 +150,7 @@ const ExercisePreview = (props: PreviewTemplateComponentProps) => {
               <PortalVideo
                 source={entry.introPortal?.videoEnd?.source}
                 resizeMode={
-                  entry.introPortal?.desktopOptimized ? 'contain' : 'cover'
+                  entry.outroPortal?.desktopOptimized ? 'contain' : 'cover'
                 }
                 reverse
               />
@@ -162,7 +162,7 @@ const ExercisePreview = (props: PreviewTemplateComponentProps) => {
               <PortalVideo
                 source={entry.introPortal?.videoLoop?.source}
                 resizeMode={
-                  entry.introPortal?.desktopOptimized ? 'contain' : 'cover'
+                  entry.outroPortal?.desktopOptimized ? 'contain' : 'cover'
                 }
                 loop
                 reverse
