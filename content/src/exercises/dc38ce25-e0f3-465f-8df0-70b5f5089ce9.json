@@ -125,6 +125,9 @@
         "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413436/Contributors/Ints%20Ivanovskis.jpg"
       }
     ],
+    "outroPortal": {
+      "desktopOptimized": true
+    },
     "introPortal": {
       "textColor": "#F9F8F4",
       "hostNotes": [
@@ -137,7 +140,8 @@
           "lang": "javascript"
         },
         "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1737479333/Video/portal_1_acceptance_practice_uf24np.mp4"
-      }
+      },
+      "desktopOptimized": true
     },
     "tags": [
       "34100e43-2eb8-4d35-8eb0-9fa9f78e4935"
