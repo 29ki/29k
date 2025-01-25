@@ -218,7 +218,7 @@ const IntroPortal: React.FC<IntroPortalProps> = ({
               />
             )}
             <TopButtons>
-              {showMuteToggle && (
+              {showMuteToggle && introPortal?.videoLoop?.audio && (
                 <Toggler
                   toggled={muted}
                   onToggle={onMuteChange}
