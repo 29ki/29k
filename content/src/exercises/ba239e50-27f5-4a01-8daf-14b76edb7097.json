@@ -105,6 +105,9 @@
         "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1737187816/Images/image_3_Sky_gazing_la4ogp.png"
       }
     },
+    "outroPortal": {
+      "desktopOptimized": true
+    },
     "introPortal": {
       "textColor": "#2E2E2E",
       "hostNotes": [
@@ -117,7 +120,8 @@
           "lang": "javascript"
         },
         "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1737192863/Video/portal1_sky_gazing_color_corection_qtq8bz.mp4"
-      }
+      },
+      "desktopOptimized": true
     },
     "tags": [
       "566aeb1b-1649-4f5a-96a2-0c80be27efc0"
