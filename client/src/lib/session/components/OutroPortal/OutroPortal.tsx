@@ -13,6 +13,7 @@ import Button from '../../../components/Buttons/Button';
 import P5Animation from '../P5Animation/P5Animation';
 import {ExerciseWithLanguage} from '../../../content/types';
 import useHapticFeedback from '../../hooks/useHapticFeedback';
+import {VideoLooperProperties} from '../../../components/VideoLooper/VideoLooper';
 
 const Spinner = styled.ActivityIndicator({
   ...StyleSheet.absoluteFillObject,
@@ -27,11 +28,13 @@ const TopBar = styled(Gutters)({
 type OutroPortalProps = {
   exercise: ExerciseWithLanguage | null;
   onLeaveSession?: () => void;
+  resizeMode?: VideoLooperProperties['resizeMode'];
 };
 
 const OutroPortal: React.FC<OutroPortalProps> = ({
   exercise,
   onLeaveSession,
+  resizeMode,
 }) => {
   const {t} = useTranslation('Screen.Portal');
 
@@ -92,6 +95,7 @@ const OutroPortal: React.FC<OutroPortalProps> = ({
               onTransition={onVideoTransition}
               onLoad={onVideoLoad}
               onError={onVideoError}
+              resizeMode={resizeMode}
             />
           )}
         </>

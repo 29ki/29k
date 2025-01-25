@@ -14,16 +14,15 @@ const Wrapper = styled.div({
   overflow: 'hidden',
 });
 
-const Video = styled.video<{active: boolean}>(({active}) => ({
+const Video = styled.video<{
+  active: boolean;
+  resizeMode: VideoLooperProperties['resizeMode'];
+}>(({active, resizeMode}) => ({
   position: 'absolute',
-  left: 0,
-  right: 0,
-  top: '50%',
-  bottom: 0,
   width: '100%',
-  overflow: 'hidden',
-  transform: 'translateY(-50%)',
+  height: '100%',
   display: !active ? 'none' : 'block',
+  objectFit: resizeMode,
 }));
 
 const Audio = styled.audio({
