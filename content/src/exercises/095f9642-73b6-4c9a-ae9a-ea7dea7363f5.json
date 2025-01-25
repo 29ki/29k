@@ -696,23 +696,54 @@
     "card": {}
   },
   "es": {
+    "description": "Una meditación guiada que pone luz a un momento precioso. Practicar notar lo que sí ya está funcionando en nuestras vidas puede ayudarnos a sentirnos más felices y realizados, a la vez que nos ayuda a contrarrestar la tendencia natural de nuestro cerebro a enfocarse en lo negativo.",
+    "introPortal": {
+      "hostNotes": [
+        {
+          "text": "> Comienza la sesión cuando estés listo/a para empezar."
+        }
+      ],
+      "type": "video",
+      "videoLoop": {
+        "source": "https://res.cloudinary.com/twentyninek/video/upload/q_auto/v1663143395/temp/portal-intro_h7qccz.mp4",
+        "audio": "https://res.cloudinary.com/twentyninek/video/upload/v1664811123/temp/ocean_s3t5yy_mm2dgh.mp3",
+        "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1674554579/Images/thumb_portal_pure_simple_love_geibz4.png",
+        "p5JsScript": {
+          "lang": "javascript"
+        }
+      },
+      "videoEnd": {
+        "source": "https://res.cloudinary.com/twentyninek/video/upload/q_auto/v1663147750/temp/portal-intro-end_crzjih.mp4"
+      }
+    },
+    "name": "Amor puro y sencillo",
     "slides": [
       {
+        "hostNotes": [
+          {
+            "text": "Bienvenidos/as. Soy X y hoy trabajaremos durante unos 30 minutos sobre el amor y la conexión con nosotros/as mismos/as y con los demás.\n\nRealizaremos una breve meditación juntos/as, luego tomaremos un momento para reflexionar individualmente, y finalmente, compartiremos con el resto lo que experimentamos."
+          },
+          {
+            "text": "Antes de continuar con la sesión, vamos a anclarnos en el aquí y el ahora. Centrémonos en nuestra respiración durante tres ciclos de inhalación y exhalación.\n\n> Inhala y exhala lentamente x3"
+          },
+          {
+            "text": "Comencemos con un pequeño chequeo sobre cómo estamos. ¿Cómo te sientes en este momento? Por favor, responde en dos o tres palabras. X, ¿te gustaría empezar?\n\n> Permite que todos/as en la sesión, incluido tú, compartan uno a uno, una a una.\n\nGracias a todos/as por compartir. ¡Empecemos!"
+          }
+        ],
         "type": "host",
-        "hostNotes": [],
         "video": {
           "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1675956726/Video/async_intro_pure_simple_love_eng_vbozum.mp4",
           "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1675960044/Images/thumb_async_pure%20simple_love_q6jg7c.png"
         }
       },
       {
-        "type": "content",
         "content": {
-          "heading": "",
+          "heading": "Amor puro y sencillo",
           "video": {
             "source": "",
             "preview": "",
-            "durationTimer": true
+            "durationTimer": true,
+            "subtitles": ""
           },
           "image": "https://res.cloudinary.com/twentyninek/image/upload/q_auto,t_global/v1636016815/Singles/sticky_eng_ps00eg.png",
           "lottie": {
@@ -722,55 +753,92 @@
             "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1737630296/Spanish/Subtitles%20SRT/Amor_Puro_y_Sencillo_ngytzn.srt"
           }
         },
-        "hostNotes": []
+        "hostNotes": [
+          {
+            "text": "A veces, parece que la vida sigue y sigue, como una cinta de correr interminable. Y aunque podamos tener cosas hermosas en nuestras vidas, nuestros cerebros están programados para enfocarse en lo que no funciona: los problemas, las amenazas potenciales, las cosas que necesitamos resolver."
+          },
+          {
+            "text": "Recordarnos a nosotros/as mismos/as lo que sí ya está funcionando en nuestras vidas requiere un esfuerzo. Y ahora vamos a hacerlo. Tomaremos unos minutos para recordar juntos un momento bonito y lleno de amor en nuestras vidas. Es una práctica que ha demostrado promover la felicidad y un sentido de propósito, a la vez que ayuda a ralentizar un poco nuestros sistemas.\n\n> Pulsa play para comenzar la meditación."
+          }
+        ],
+        "type": "content"
       },
       {
-        "type": "reflection",
         "content": {
-          "heading": "",
+          "heading": "¿Cómo te hizo sentir esta meditación?",
+          "text": "¿Qué puedes llevarte contigo para el resto del día?",
           "video": {
             "source": "https://res.cloudinary.com/twentyninek/video/upload/q_auto/v1663328538/temp/1_min_eto52x.mp4",
             "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1674554578/Images/thumb_timer1min_pure_simple_love_jahzvt.png",
             "durationTimer": true
-          },
-          "text": ""
+          }
         },
-        "hostNotes": []
+        "hostNotes": [
+          {
+            "text": "Ahora tomaremos 1 minuto para reflexionar de forma individual.\n\n¿Cómo te hizo sentir esta meditación?\n\n¿Qué puedes llevarte contigo para el resto del día?"
+          },
+          {
+            "text": "Puedes tomar notas en un papel o mentalmente. No hay respuestas correctas o incorrectas, cada uno/a tiene sus propias respuestas. 1 minuto, empezando ahora.\n\n> Pulsa play para iniciar el temporizador.\n\nHa pasado 1 minuto, vamos a continuar."
+          }
+        ],
+        "type": "reflection"
       },
       {
-        "type": "sharing",
         "content": {
-          "heading": "",
+          "heading": "¿Cómo te hizo sentir esta meditación?",
+          "text": "¿Qué puedes llevarte contigo para el resto del día?",
           "video": {
             "source": "https://res.cloudinary.com/twentyninek/video/upload/q_auto/v1663328538/temp/2_min_fr9hsu.mp4",
             "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1674554578/Images/thumb_timer2min_pure_simple_love_czlzbh.png",
             "durationTimer": true
-          },
-          "text": ""
+          }
         },
-        "hostNotes": [],
+        "hostNotes": [
+          {
+            "text": "Ahora entramos en la parte de compartir. Tenemos tres reglas para compartir:\n\n1. **Lo que se diga aquí, se queda aquí.**\n2. **Todo lo que necesitas hacer es escuchar.** No se necesita arreglar, ayudar ni dar consejos. Solo estamos presentes y explorando lo que nosotros/as mismos/as y los/las demás estamos experimentando."
+          },
+          {
+            "text": "3. **Todo lo que sentimos dentro está bien.** Ira, amor, odio, tristeza. Lo que sea que surja. No hay correcto ni incorrecto. Simplemente es lo que es, hay lo que hay.\n\nSe establecerá un temporizador de 2 minutos como indicador. Si no deseas compartir, siempre puedes decir 'paso'."
+          },
+          {
+            "text": "¿Quién le gustaría comenzar?\n\n> Deja que hasta seis personas compartan una por una. Pulsa play para iniciar el temporizador. Reinicia el temporizador para cada persona nueva.\n\nMuchas gracias a todos/as."
+          }
+        ],
+        "type": "sharing",
         "id": ""
       },
       {
+        "hostNotes": [
+          {
+            "text": "Acabamos de recordar un momento bonito y lleno de amor en nuestras vidas. Hemos puesto uno de los momentos más valiosos de nuestra vida en el centro de atención. Esto nos ayuda a equilibrar el esfuerzo natural de nuestro cerebro por enfocarse en lo negativo para asegurarnos de sobrevivir."
+          },
+          {
+            "text": "¡Bien hecho! Si te animas, puedes continuar lo que comenzamos hoy con el objetivo de integrar esto en tu vida cotidiana.\n\nConfigura un recordatorio a una hora aleatoria del día durante una semana. Cuando suene el recordatorio, piensa en un momento bonito lleno de amor de las últimas 24 horas. Observa cómo se siente por dentro, en tu cuerpo."
+          },
+          {
+            "text": "Antes de salir de este espacio, hagamos una pequeña reflexión sobre qué ha cambiado.\n\n¿Cómo te sientes en este momento? ¿Ha cambiado algo? Por favor, responde en dos o tres palabras."
+          },
+          {
+            "text": "¿Quién le gustaría empezar?\n\n> Deja que todos/as en la sesión compartan y/o se despidan uno por uno, una por una.\n\nGracias a todos/as por compartir y por uniros hoy a esta sesión.\n\n> Finaliza la sesión para enviar a todos/as a la experiencia de salida."
+          }
+        ],
         "type": "host",
-        "hostNotes": [],
         "video": {
           "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1675958263/Video/async_outro_pure_simple_love_kjkjaq.mp4",
           "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/v1675960044/Images/thumb_async_pure%20simple_love_q6jg7c.png"
         }
       },
       {
-        "type": "instruction",
         "content": {
+          "heading": "Bien hecho ",
+          "text": "Si te animas, puedes continuar con este ejercicio:\n\nConfigura un recordatorio a una hora aleatoria del día durante una semana. Cuando suene el recordatorio, piensa en un momento bonito lleno de amor de las últimas 24 horas. Observa cómo se siente por dentro, en tu cuerpo.",
           "image": {
             "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1698256076/Images/pure-simple-love_vi9ura.png"
-          },
-          "heading": "",
-          "text": ""
-        }
+          }
+        },
+        "type": "instruction"
       }
     ],
-    "name": "",
     "live": true,
     "published": true,
     "card": {
@@ -795,31 +863,14 @@
         "source": "https://res.cloudinary.com/twentyninek/video/upload/q_auto/v1664798564/temp/portal_outro_lpm80e.mp4"
       }
     },
-    "introPortal": {
-      "type": "video",
-      "videoLoop": {
-        "source": "https://res.cloudinary.com/twentyninek/video/upload/q_auto/v1663143395/temp/portal-intro_h7qccz.mp4",
-        "audio": "https://res.cloudinary.com/twentyninek/video/upload/v1664811123/temp/ocean_s3t5yy_mm2dgh.mp3",
-        "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1674554579/Images/thumb_portal_pure_simple_love_geibz4.png",
-        "p5JsScript": {
-          "lang": "javascript"
-        }
-      },
-      "videoEnd": {
-        "source": "https://res.cloudinary.com/twentyninek/video/upload/q_auto/v1663147750/temp/portal-intro-end_crzjih.mp4"
-      },
-      "hostNotes": [
-        {
-          "text": "> Começa a sessão quando estiveres pronta/o."
-        }
-      ]
-    },
     "tags": [
       "cfc00217-f65b-4a4d-8b82-8ccc8f852dd6",
       "43a6dc0d-d866-4b79-9453-13c44e906128"
     ],
     "id": "095f9642-73b6-4c9a-ae9a-ea7dea7363f5",
     "async": true,
-    "description": "Uma meditação guiada que traz um momento especial para o centro da nossa atenção. Praticar a perceção do que está a funcionar bem pode ajudar-nos a sentirmo-nos mais felizes e realizados, e a neutralizar a tendência natural do nosso cérebro para focar no negativo."
+    "liveDuration": 30,
+    "asyncDuration": 4,
+    "link": "https://aware.29k.org/pure-simple-love"
   }
 }

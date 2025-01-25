@@ -68,9 +68,13 @@ const main = async () => {
           [TO_LANGUAGE_TAG]: mergeDeepWith(
             mergeWithArrays,
             unflatten(fileTranslations),
-            skipLanguageMergeForTypes.includes(type)
-              ? {}
-              : content[FROM_LANGUAGE_TAG],
+            mergeDeepWith(
+              mergeWithArrays,
+              content[TO_LANGUAGE_TAG],
+              skipLanguageMergeForTypes.includes(type)
+                ? {}
+                : content[FROM_LANGUAGE_TAG],
+            ),
           ),
         };
 

@@ -28,7 +28,12 @@
           {
             "text": "Find a comfortable position. I will start the audio exercise and we'll meet back here afterwards. \n\n> Push play to start the audio exercise"
           }
-        ]
+        ],
+        "content": {
+          "video": {
+            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1737799132/Video/timer_deal_with_dying_trhjuq.mp4"
+          }
+        }
       },
       {
         "type": "reflection",
@@ -85,7 +90,7 @@
     ],
     "theme": {
       "textColor": "#2E2E2E",
-      "backgroundColor": "#27acc8"
+      "backgroundColor": "#1fabd2"
     },
     "hidden": false,
     "locked": true,
