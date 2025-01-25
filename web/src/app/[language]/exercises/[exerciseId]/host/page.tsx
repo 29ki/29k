@@ -23,7 +23,6 @@ import Wrapper from '../components/Wrapper';
 import styled from 'styled-components';
 import {COLORS} from '../../../../../../../shared/src/constants/colors';
 import hexToRgba from 'hex-to-rgba';
-import dynamic from 'next/dynamic';
 import useLiveSessionSlideState, {
   SessionSlideState,
 } from '../../../../../../../client/src/lib/session/hooks/useLiveSessionSlideState';
@@ -271,11 +270,18 @@ export default function ExerciseHostPage({
         {Boolean(sessionState?.ended) && (
           <Wrapper backgroundColor={exercise?.theme?.backgroundColor}>
             <Spacer32 />
-            <OutroPortal exercise={exercise} />
-            <DesktopOnly>
-              <LeftGradient color={exercise?.theme?.backgroundColor} />
-              <RightGradient color={exercise?.theme?.backgroundColor} />
-            </DesktopOnly>
+            <OutroPortal
+              exercise={exercise}
+              resizeMode={
+                exercise?.outroPortal?.desktopOptimized ? 'contain' : 'cover'
+              }
+            />
+            {!Boolean(exercise?.outroPortal?.desktopOptimized) && (
+              <DesktopOnly>
+                <LeftGradient color={exercise?.theme?.backgroundColor} />
+                <RightGradient color={exercise?.theme?.backgroundColor} />
+              </DesktopOnly>
+            )}
           </Wrapper>
         )}
         <Fade
@@ -311,11 +317,16 @@ export default function ExerciseHostPage({
             onNavigateToSession={onNavigateToSession}
             showMuteToggle={!sessionControlsOpen}
             startButtonText={t('openHostControls')}
+            resizeMode={
+              exercise?.introPortal?.desktopOptimized ? 'contain' : 'cover'
+            }
           />
-          <DesktopOnly>
-            <LeftGradient color={exercise?.theme?.backgroundColor} />
-            <RightGradient color={exercise?.theme?.backgroundColor} />
-          </DesktopOnly>
+          {!Boolean(exercise?.introPortal?.desktopOptimized) && (
+            <DesktopOnly>
+              <LeftGradient color={exercise?.theme?.backgroundColor} />
+              <RightGradient color={exercise?.theme?.backgroundColor} />
+            </DesktopOnly>
+          )}
         </Wrapper>
       </NoSsr>
     </SafeAreaProvider>
