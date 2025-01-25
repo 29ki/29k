@@ -11,20 +11,28 @@ export const reverseVideo = (url: string) => {
   }
 };
 
-const Video = styled.video({
-  width: '100%',
-  height: '100%',
-  objectFit: 'cover',
-});
+const Video = styled.video<{resizeMode?: 'cover' | 'contain'}>(
+  ({resizeMode}) => ({
+    width: '100%',
+    height: '100%',
+    objectFit: resizeMode,
+  }),
+);
 
 type Props = {
   source?: string;
   loop?: boolean;
   reverse?: boolean;
+  resizeMode?: 'cover' | 'contain';
 };
-const PortalVideo: React.FC<Props> = ({source, loop, reverse}) =>
+const PortalVideo: React.FC<Props> = ({
+  source,
+  loop,
+  reverse,
+  resizeMode = 'cover',
+}) =>
   source && (
-    <Video controls loop={loop}>
+    <Video controls loop={loop} resizeMode={resizeMode}>
       <source src={reverse ? reverseVideo(source) : source} />
     </Video>
   );
