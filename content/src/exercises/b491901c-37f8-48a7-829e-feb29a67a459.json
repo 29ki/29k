@@ -115,6 +115,9 @@
         "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413228/Contributors/Jenny%20Rickardsson.jpg"
       }
     ],
+    "outroPortal": {
+      "desktopOptimized": true
+    },
     "introPortal": {
       "textColor": "#2E2E2E",
       "hostNotes": [
@@ -127,7 +130,8 @@
           "lang": "javascript"
         },
         "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1737274983/Video/portal_1_Deal_with_dying_xjxoqg.mp4"
-      }
+      },
+      "desktopOptimized": true
     },
     "tags": [
       "34100e43-2eb8-4d35-8eb0-9fa9f78e4935",
