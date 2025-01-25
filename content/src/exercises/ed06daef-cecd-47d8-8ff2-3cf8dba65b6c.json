@@ -144,7 +144,8 @@
           "lang": "javascript"
         },
         "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1737272009/Video/portal_1_Hope_music_exercise_II_njii38.mp4"
-      }
+      },
+      "desktopOptimized": true
     },
     "tags": [
       "8da0534a-5da9-430a-bdf3-242ace6460fb"
