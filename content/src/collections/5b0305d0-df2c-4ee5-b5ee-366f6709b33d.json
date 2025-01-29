@@ -43,15 +43,33 @@
     "description": "Self-help support for participants in the PsyPal trial. Practice mindfulness, dealing with emotions and doing what matters to you."
   },
   "pt": {
-    "published": false,
     "hidden": false,
     "locked": true,
-    "id": "5b0305d0-df2c-4ee5-b5ee-366f6709b33d",
+    "name": "Aware PsyPal",
+    "published": true,
+    "sortOrder": 1,
+    "coCreators": [
+      {
+        "name": "Funded by the European Union",
+        "url": "https://palliativeprojects.eu/psypal/#info",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1737532074/Contributors/EU-flag_imdgjs.png"
+      },
+      {
+        "name": "Ints Ivanovskis, art works",
+        "url": "https://www.linkedin.com/in/ints-ivanovskis-46ab0311a",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413436/Contributors/Ints%20Ivanovskis.jpg"
+      },
+      {
+        "name": "Jenny Rickardsson, editor",
+        "url": "https://www.linkedin.com/in/jenny-rickardson-6770a959/",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413228/Contributors/Jenny%20Rickardsson.jpg"
+      }
+    ],
     "tags": [
       "566aeb1b-1649-4f5a-96a2-0c80be27efc0",
       "34100e43-2eb8-4d35-8eb0-9fa9f78e4935"
     ],
-    "sortOrder": 1,
+    "id": "5b0305d0-df2c-4ee5-b5ee-366f6709b33d",
     "exercises": [
       "b6de2e28-325e-4ce1-8894-09ac12a6c19f",
       "f2c88307-b02e-4456-a81c-79b84c10ae04",
@@ -64,7 +82,8 @@
       "dc38ce25-e0f3-465f-8df0-70b5f5089ce9",
       "4161a0d8-55ee-4866-a9be-263c85fafd70",
       "e52b3b32-f2a2-4d09-a3b1-4a186998c980"
-    ]
+    ],
+    "description": "Self-help support for participants in the PsyPal trial. Practice mindfulness, dealing with emotions and doing what matters to you."
   },
   "sv": {
     "published": false,
