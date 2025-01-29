@@ -519,8 +519,8 @@
         ],
         "content": {
           "lottie": {
-            "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1728986423/SRT%20(captions)%20files/PsyPal_Life_exploration_d370hk.srt",
-            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1728986355/Audio/PsyPal_Life_exploration_tsbxhj.mp3",
+            "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1737992405/SRT%20(captions)%20files/PsyPal_Life_Exploration_Danish_kzhv38.srt",
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1737992508/Audio/PsyPal_Life_Exploration_Danish_coafdo.mp3",
             "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1676642915/Lottie/default_audio_black_zjrmu2.json"
           }
         }
@@ -612,6 +612,11 @@
         "name": "Jenny Rickardsson, writing & editing",
         "url": "https://www.linkedin.com/in/jenny-rickardson-6770a959/",
         "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413228/Contributors/Jenny%20Rickardsson.jpg"
+      },
+      {
+        "name": "Catharina Messel, voice",
+        "url": "https://palliativeprojects.eu/psypal/university-of-copenhagen/",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1734343422/Contributors/Catharina_Messel_Da_PsyPal.png"
       }
     ],
     "introPortal": {
