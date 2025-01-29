@@ -43,7 +43,7 @@
     "description": "Self-help support for participants in the PsyPal trial. Practice mindfulness, dealing with emotions and doing what matters to you."
   },
   "pt": {
-    "hidden": false,
+    "hidden": true,
     "locked": true,
     "name": "Aware PsyPal",
     "published": true,
