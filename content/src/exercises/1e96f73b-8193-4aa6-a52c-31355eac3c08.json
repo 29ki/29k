@@ -576,7 +576,8 @@
       "cfc00217-f65b-4a4d-8b82-8ccc8f852dd6"
     ],
     "asyncDuration": 8,
-    "id": "1e96f73b-8193-4aa6-a52c-31355eac3c08"
+    "id": "1e96f73b-8193-4aa6-a52c-31355eac3c08",
+    "card": {}
   },
   "cs": {
     "tags": [
@@ -584,7 +585,8 @@
       "cfc00217-f65b-4a4d-8b82-8ccc8f852dd6"
     ],
     "asyncDuration": 8,
-    "id": "1e96f73b-8193-4aa6-a52c-31355eac3c08"
+    "id": "1e96f73b-8193-4aa6-a52c-31355eac3c08",
+    "card": {}
   },
   "nl": {
     "tags": [
@@ -592,9 +594,124 @@
       "cfc00217-f65b-4a4d-8b82-8ccc8f852dd6"
     ],
     "asyncDuration": 8,
-    "id": "1e96f73b-8193-4aa6-a52c-31355eac3c08"
+    "id": "1e96f73b-8193-4aa6-a52c-31355eac3c08",
+    "card": {}
   },
   "es": {
-    "id": "1e96f73b-8193-4aa6-a52c-31355eac3c08"
+    "slides": [
+      {
+        "type": "host",
+        "hostNotes": [],
+        "video": {
+          "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1678967008/Video/The_way_out_is_through_intro_rnvvyx.mp4",
+          "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1678967010/Images/The_way_out_is_through_thumb_fxakco.png"
+        }
+      },
+      {
+        "type": "content",
+        "hostNotes": [],
+        "content": {
+          "video": {
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1715249408/FJN/Meditations/Pedro_-_The_way_out_is_through_b7j3pt_fzkdcc.mp3"
+          },
+          "lottie": {
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1676977421/Lottie/audio_meditation_default_black_default_omemwt.json",
+            "durationTimer": true,
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1738506643/Spanish/Audio%20MP3/SuperarLasDificultades_admlrh.mp3",
+            "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1738514117/Spanish/Subtitles%20SRT/Superar_las_dificultades_stbvoi.srt"
+          }
+        }
+      },
+      {
+        "type": "reflection",
+        "hostNotes": [],
+        "content": {
+          "heading": "",
+          "lottie": {
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1676642915/Lottie/default_1min_black_rosi2l.json",
+            "durationTimer": true,
+            "duration": 60
+          }
+        }
+      },
+      {
+        "type": "sharing",
+        "hostNotes": [],
+        "content": {
+          "heading": "",
+          "lottie": {
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1676639253/Lottie/default_2min_black_o6egey.json",
+            "durationTimer": true,
+            "duration": 120
+          }
+        },
+        "id": "sharing1"
+      },
+      {
+        "type": "host",
+        "hostNotes": [],
+        "video": {
+          "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1678967008/Video/The_way_out_is_through_outro_waudnc.mp4",
+          "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1678967010/Images/The_way_out_is_through_thumb_fxakco.png"
+        }
+      },
+      {
+        "type": "instruction",
+        "content": {
+          "heading": "",
+          "text": "",
+          "image": {
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1687406076/Images/card_image_way_out_is_through_qjpv4m.png"
+          }
+        }
+      }
+    ],
+    "theme": {
+      "textColor": "#2E2E2E"
+    },
+    "name": "",
+    "live": true,
+    "published": true,
+    "card": {
+      "image": {
+        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1687406076/Images/card_image_way_out_is_through_qjpv4m.png"
+      }
+    },
+    "coCreators": [
+      {
+        "name": "Núria Tous, voz en Español",
+        "url": "https://www.linkedin.com/in/nuriatous/"
+      }
+    ],
+    "outroPortal": {
+      "video": {
+        "source": "",
+        "audio": ""
+      }
+    },
+    "introPortal": {
+      "hostNotes": [
+        {
+          "text": "> Começa a sessão quando estiveres pronta/o"
+        }
+      ],
+      "videoLoop": {
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1687856251/Video/way_out_is_through_portal1_rpqnfr.mp4",
+        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1687418774/Audio/way_out_is_through_portal_audio_doduhc.mp3",
+        "p5JsScript": {
+          "lang": "javascript"
+        }
+      },
+      "videoEnd": {
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1687856193/Video/way_out_is_through_portal_end_erxgxh.mp4"
+      }
+    },
+    "tags": [
+      "34100e43-2eb8-4d35-8eb0-9fa9f78e4935",
+      "cfc00217-f65b-4a4d-8b82-8ccc8f852dd6"
+    ],
+    "id": "1e96f73b-8193-4aa6-a52c-31355eac3c08",
+    "async": true,
+    "description": "Neste exercício de meditação, vamos aprender a lidar com as dificuldades em vez de tentar evitá-las. Permitir-nos sentir o espectro completo de emoções pode ajudar-nos a ter vidas com mais significado e sentido de realização."
   }
 }
