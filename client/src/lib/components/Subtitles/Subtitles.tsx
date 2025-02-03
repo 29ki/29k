@@ -2,7 +2,6 @@ import React from 'react';
 import {useMemo} from 'react';
 import {TextStyle, ViewStyle} from 'react-native';
 import RNSubtitles from '../../subtitles';
-import hexToRgba from 'hex-to-rgba';
 
 import {COLORS} from '../../../../../shared/src/constants/colors';
 import textStyles from '../Typography/styles';
@@ -10,7 +9,6 @@ import textStyles from '../Typography/styles';
 type SubtitleProps = {
   src: string;
   time: number;
-  backgroundColor?: string;
 };
 
 const containerStyle: ViewStyle = {
@@ -28,29 +26,16 @@ const textStyle: TextStyle = {
   textAlign: 'center',
   alignSelf: 'center',
   borderRadius: 4,
-  backgroundColor: hexToRgba(COLORS.PURE_WHITE, 0.51),
+  backgroundColor: COLORS.PURE_WHITE,
   overflow: 'hidden',
 };
 
-const Subtitles: React.FC<SubtitleProps> = ({src, time, backgroundColor}) => {
+const Subtitles: React.FC<SubtitleProps> = ({src, time}) => {
   const subtititles = useMemo(() => ({file: src}), [src]);
-
-  const customContainerStyle = useMemo<ViewStyle>(
-    () =>
-      backgroundColor
-        ? {
-            ...containerStyle,
-            backgroundColor: hexToRgba(backgroundColor, 0.51),
-          }
-        : containerStyle,
-
-    [backgroundColor],
-  );
-
   return (
     <RNSubtitles
       currentTime={time}
-      containerStyle={customContainerStyle}
+      containerStyle={containerStyle}
       textStyle={textStyle}
       selectedsubtitle={subtititles}
     />
