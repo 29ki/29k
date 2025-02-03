@@ -115,7 +115,7 @@
       {
         "type": "instruction",
         "content": {
-          "text": "Lean back and let the music guide you, as you embark on an imaginary journey.",
+          "text": "Neste exercício será orientado para relaxar, fazer uma exploração corporal consciente, fazer uma tarefa de visualização com música e, no final, embarcar na sua própria viagem, guiado apenas pela música.\n\nA intenção é de praticar um estado alterado de consciência.",
           "image": {
             "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1731849005/Images/visual_noBG_Music_I_music_only_ou4vlx.png"
           }
@@ -135,13 +135,14 @@
         "type": "reflection",
         "hostNotes": [],
         "content": {
-          "text": "What did you experience?",
+          "text": "",
           "lottie": {
             "durationTimer": true,
             "duration": 60,
             "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1676642915/Lottie/default_1min_black_rosi2l.json",
             "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1731849094/Audio/refelection_audio_Music_I_music_only_xueeah.mp3"
-          }
+          },
+          "heading": "Como foi a sua experiência?"
         }
       },
       {
@@ -159,13 +160,13 @@
         ],
         "id": "Sharing 1",
         "content": {
-          "heading": "What did you experience?"
+          "heading": "Como foi a sua experiência?"
         }
       },
       {
         "type": "instruction",
         "content": {
-          "text": "Well done.\n\nMusic can help our brains to evoke emotions and images, less affected by our regular ways of thinking.",
+          "text": "Bem-vindo de volta e bom trabalho.\n\nA imersão na música pode ajudar os nossos cérebros a descansar e a reiniciar. Pode trazer-nos novos pensamentos, assim como oferecer um intervalo do ruído quotidiano.",
           "image": {
             "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1731849005/Images/visual_noBG_Music_I_music_only_ou4vlx.png"
           }
@@ -178,7 +179,7 @@
     },
     "hidden": false,
     "locked": true,
-    "name": "PsyPal Music exercise I - music only",
+    "name": "Exercício de música PsyPal I ",
     "live": false,
     "published": true,
     "asyncDuration": 15,
@@ -217,7 +218,7 @@
     ],
     "id": "f2c88307-b02e-4456-a81c-79b84c10ae04",
     "async": true,
-    "description": "Let the music accompany you on a journey without guidance."
+    "description": "Técnicas de mindfulness e de visualização/imagética guiada pela música podem ajudar os nossos cérebros a praticar estados de consciência alterados. Podem ser uma forma de relaxarmos e nos situarmos nos nossos corpos."
   },
   "sv": {
     "liveDuration": 30,
