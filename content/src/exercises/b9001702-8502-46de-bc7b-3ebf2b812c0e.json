@@ -255,7 +255,7 @@
       "textColor": "#2E2E2E",
       "backgroundColor": "#f4deb2"
     },
-    "hidden": true,
+    "hidden": false,
     "locked": true,
     "name": "Exploração de vida",
     "live": false,
