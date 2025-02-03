@@ -598,101 +598,11 @@
     "card": {}
   },
   "es": {
-    "slides": [
-      {
-        "type": "host",
-        "hostNotes": [],
-        "video": {
-          "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1678967008/Video/The_way_out_is_through_intro_rnvvyx.mp4",
-          "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1678967010/Images/The_way_out_is_through_thumb_fxakco.png"
-        }
-      },
-      {
-        "type": "content",
-        "hostNotes": [],
-        "content": {
-          "video": {
-            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1715249408/FJN/Meditations/Pedro_-_The_way_out_is_through_b7j3pt_fzkdcc.mp3"
-          },
-          "lottie": {
-            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1676977421/Lottie/audio_meditation_default_black_default_omemwt.json",
-            "durationTimer": true,
-            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1738506643/Spanish/Audio%20MP3/SuperarLasDificultades_admlrh.mp3",
-            "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1738514117/Spanish/Subtitles%20SRT/Superar_las_dificultades_stbvoi.srt"
-          }
-        }
-      },
-      {
-        "type": "reflection",
-        "hostNotes": [],
-        "content": {
-          "heading": "",
-          "lottie": {
-            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1676642915/Lottie/default_1min_black_rosi2l.json",
-            "durationTimer": true,
-            "duration": 60
-          }
-        }
-      },
-      {
-        "type": "sharing",
-        "hostNotes": [],
-        "content": {
-          "heading": "",
-          "lottie": {
-            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1676639253/Lottie/default_2min_black_o6egey.json",
-            "durationTimer": true,
-            "duration": 120
-          }
-        },
-        "id": "sharing1"
-      },
-      {
-        "type": "host",
-        "hostNotes": [],
-        "video": {
-          "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1678967008/Video/The_way_out_is_through_outro_waudnc.mp4",
-          "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1678967010/Images/The_way_out_is_through_thumb_fxakco.png"
-        }
-      },
-      {
-        "type": "instruction",
-        "content": {
-          "heading": "",
-          "text": "",
-          "image": {
-            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1687406076/Images/card_image_way_out_is_through_qjpv4m.png"
-          }
-        }
-      }
-    ],
-    "theme": {
-      "textColor": "#2E2E2E"
-    },
-    "name": "",
-    "live": true,
-    "published": true,
-    "card": {
-      "image": {
-        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1687406076/Images/card_image_way_out_is_through_qjpv4m.png"
-      }
-    },
-    "coCreators": [
-      {
-        "name": "Núria Tous, voz en Español",
-        "url": "https://www.linkedin.com/in/nuriatous/"
-      }
-    ],
-    "outroPortal": {
-      "video": {
-        "source": "",
-        "audio": ""
-      }
-    },
+    "description": "En este ejercicio de meditación practicaremos atravesar nuestras dificultades en lugar de intentar evitarlas. Permitirnos experimentar todo el espectro de emociones puede ayudarnos a llevar vidas más significativas y plenas.",
     "introPortal": {
       "hostNotes": [
         {
-          "text": "> Começa a sessão quando estiveres pronta/o"
+          "text": "> Inicia la sesión cuando estés listo/a para comenzar"
         }
       ],
       "videoLoop": {
@@ -706,12 +616,154 @@
         "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1687856193/Video/way_out_is_through_portal_end_erxgxh.mp4"
       }
     },
+    "name": "Superar las dificultades",
+    "slides": [
+      {
+        "hostNotes": [
+          {
+            "text": "Bienvenidos, bienvenidas. Soy X y hoy trabajaremos durante unos 30 minutos en la aceptación y la voluntad.\n\nEmpezaremos con una breve introducción, escucharemos una meditación y luego tomaremos un tiempo para reflexionar y compartir entre nosotros/as."
+          },
+          {
+            "text": "Comencemos con una breve reflexión. ¿Qué te trajo aquí hoy? Por favor, responde en dos o tres palabras. X, ¿te gustaría empezar?\n\n> Permite que todos/as en la sesión, incluido tú mismo/a, compartan uno a uno, una a una.\n\nGracias a todos y a todas por compartir. Empecemos."
+          }
+        ],
+        "type": "host",
+        "video": {
+          "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1678967008/Video/The_way_out_is_through_intro_rnvvyx.mp4",
+          "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1678967010/Images/The_way_out_is_through_thumb_fxakco.png"
+        }
+      },
+      {
+        "hostNotes": [
+          {
+            "text": "Encontrarse con obstáculos es una parte natural de la vida. Con las cosas que deseamos en la vida, como relaciones amorosas, un trabajo interesante o convertirnos en padres, el riesgo de salir heridos siempre está presente. Aún así, rara vez lo reconocemos, y a menudo intentamos evitarlo."
+          },
+          {
+            "text": "En el siguiente ejercicio practicaremos experimentar emociones desafiantes o difíciles, tal como son. Esta es una forma de gastar menos energía intentando evitar lo incómodo y en cambio, dedicar más a lo que realmente nos importa a largo plazo."
+          }
+        ],
+        "type": "content",
+        "content": {
+          "video": {
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1715249408/FJN/Meditations/Pedro_-_The_way_out_is_through_b7j3pt_fzkdcc.mp3"
+          },
+          "lottie": {
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1676977421/Lottie/audio_meditation_default_black_default_omemwt.json",
+            "durationTimer": true,
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1738506643/Spanish/Audio%20MP3/SuperarLasDificultades_admlrh.mp3",
+            "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1738514117/Spanish/Subtitles%20SRT/Superar_las_dificultades_stbvoi.srt"
+          }
+        }
+      },
+      {
+        "content": {
+          "heading": "¿Qué sería diferente si atravesaras las dificultades?",
+          "lottie": {
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1676642915/Lottie/default_1min_black_rosi2l.json",
+            "durationTimer": true,
+            "duration": 60
+          }
+        },
+        "hostNotes": [
+          {
+            "text": "Ahora tomaremos 1 minuto para reflexionar por nuestra cuenta.\n\n¿Qué sería diferente en tu vida si practicases atravesar tus dificultades en lugar de intentar evitarlas?"
+          },
+          {
+            "text": "Puedes tomar notas en un papel o mentalmente. No hay respuestas correctas o incorrectas, cada uno, cada, una tiene sus propias respuestas. 1 minuto, empieza ahora.\n\n> Pulsa play para iniciar el temporizador.\n\nHa pasado 1 minuto, vamos a continuar."
+          }
+        ],
+        "type": "reflection"
+      },
+      {
+        "content": {
+          "heading": "¿Qué sería diferente si atravesaras las dificultades?",
+          "lottie": {
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1676639253/Lottie/default_2min_black_o6egey.json",
+            "durationTimer": true,
+            "duration": 120
+          }
+        },
+        "hostNotes": [
+          {
+            "text": "Ahora entramos en la parte de compartir. Tenemos tres reglas para compartir:\n\n1. **Lo que se diga aquí, se queda aquí.**\n2. **Todo lo que necesitas hacer es escuchar.** No se necesita arreglar, ayudar ni dar consejos. Solo estamos presentes y explorando lo que nosotros/as mismos/as y el resto estamos experimentando."
+          },
+          {
+            "text": "3. **Todo lo que sentimos dentro está bien.** Ira, amor, odio, tristeza. Lo que sea que surja. No hay correcto ni incorrecto. Simplemente es lo que es, hay lo que hay.\n\nSe establecerá un temporizador de 2 minutos como indicador. Si no deseas compartir, siempre puedes decir 'paso'."
+          },
+          {
+            "text": "¿Quién le gustaría empezar?\n\n> Deja que todos/as (o los/las que tengas tiempo) compartan uno a uno, una a una. Pulsa play para iniciar el temporizador. Reinicia el temporizador para cada nueva intervención.\n\nMuchas gracias a todos/as."
+          }
+        ],
+        "type": "sharing",
+        "id": "sharing1"
+      },
+      {
+        "hostNotes": [
+          {
+            "text": "Bien hecho.\n\nAcabamos de practicar atravesar las dificultades en lugar de intentar evitarlas. Esta técnica puede ayudarnos a vivir más alineados con nuestros valores y llevar una vida más significativa."
+          },
+          {
+            "text": "Antes de salir de este espacio, hagamos una breve reflexión final.\n\n¿Qué puedes llevarte de esto para el resto de tu día? Por favor, responde en dos o tres palabras."
+          },
+          {
+            "text": "¿Quién le gustaría empezar?\n\n> Deja que todos/as en la sesión compartan y/o se despidan uno por uno, una por una.\n\nGracias a todos/as por compartir y por uniros hoy a esta sesión.\n\n> Finaliza la sesión para enviar a todos/as a la experiencia de salida."
+          }
+        ],
+        "type": "host",
+        "video": {
+          "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1678967008/Video/The_way_out_is_through_outro_waudnc.mp4",
+          "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1678967010/Images/The_way_out_is_through_thumb_fxakco.png"
+        }
+      },
+      {
+        "content": {
+          "heading": "Bien hecho",
+          "text": "Acabamos de practicar atravesar las dificultades en lugar de intentar evitarlas. Esta técnica puede ayudarnos a vivir más alineados con nuestros valores y llevar una vida más significativa.",
+          "image": {
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1687406076/Images/card_image_way_out_is_through_qjpv4m.png"
+          }
+        },
+        "type": "instruction"
+      }
+    ],
+    "theme": {
+      "textColor": "#2E2E2E"
+    },
+    "live": true,
+    "published": true,
+    "card": {
+      "image": {
+        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1687406076/Images/card_image_way_out_is_through_qjpv4m.png"
+      }
+    },
+    "coCreators": [
+      {
+        "name": "Núria Tous, voz en Español",
+        "url": "https://www.linkedin.com/in/nuriatous/"
+      },
+      {
+        "name": "Based on research by Kristin Neff & Chris Germer, CMSC",
+        "link": "https://centerformsc.org/",
+        "avatar_url": "https://res.cloudinary.com/cupcake-29k/image/upload/v1697723039/Images/Germer%2C%20Neff.png",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1697723039/Images/Germer%2C%20Neff.png",
+        "url": "https://centerformsc.org/"
+      }
+    ],
+    "outroPortal": {
+      "video": {
+        "source": "",
+        "audio": ""
+      }
+    },
     "tags": [
       "34100e43-2eb8-4d35-8eb0-9fa9f78e4935",
       "cfc00217-f65b-4a4d-8b82-8ccc8f852dd6"
     ],
     "id": "1e96f73b-8193-4aa6-a52c-31355eac3c08",
     "async": true,
-    "description": "Neste exercício de meditação, vamos aprender a lidar com as dificuldades em vez de tentar evitá-las. Permitir-nos sentir o espectro completo de emoções pode ajudar-nos a ter vidas com mais significado e sentido de realização."
+    "liveDuration": 30,
+    "hidden": false,
+    "asyncDuration": 8,
+    "link": "https://aware.29k.org/the-way-out-is-through"
   }
 }
