@@ -520,7 +520,7 @@
       {
         "type": "instruction",
         "content": {
-          "text": "Lean back and let the music guide you, as you embark on an imaginary journey.",
+          "text": "Součástí tohoto cvičení bude relaxace, skenování vašich tělesných pocitů, slovem vedená vizualizace s hudbou a nakonec se vydáte na vlastní cestu jen s hudbou.\n\nZáměrem je učit se prožívat změněný stav vědomí.",
           "image": {
             "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1731849005/Images/visual_noBG_Music_I_music_only_ou4vlx.png"
           }
@@ -540,13 +540,14 @@
         "type": "reflection",
         "hostNotes": [],
         "content": {
-          "text": "What did you experience?",
+          "text": "",
           "lottie": {
             "durationTimer": true,
             "duration": 60,
             "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1676642915/Lottie/default_1min_black_rosi2l.json",
             "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1731849094/Audio/refelection_audio_Music_I_music_only_xueeah.mp3"
-          }
+          },
+          "heading": "Jak jste toto prožívali?"
         }
       },
       {
@@ -564,13 +565,13 @@
         ],
         "id": "Sharing 1",
         "content": {
-          "heading": "What did you experience?"
+          "heading": "Jak jste toto prožívali?"
         }
       },
       {
         "type": "instruction",
         "content": {
-          "text": "Well done.\n\nMusic can help our brains to evoke emotions and images, less affected by our regular ways of thinking.",
+          "text": "Vítejte zpět. Dobrá práce.\n\nPonoření se do poslechu hudby může pomoci naší mysli odpočinout si a nabrat nové síly. Může přinést nové myšlenky a také nám poskytnout přestávku od každodenního shonu.",
           "image": {
             "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1731849005/Images/visual_noBG_Music_I_music_only_ou4vlx.png"
           }
@@ -583,7 +584,7 @@
     },
     "hidden": false,
     "locked": true,
-    "name": "PsyPal Music exercise I - music only",
+    "name": "PsyPal hudební cvičení I - music only",
     "published": true,
     "asyncDuration": 15,
     "card": {
@@ -621,7 +622,7 @@
     ],
     "id": "f2c88307-b02e-4456-a81c-79b84c10ae04",
     "async": true,
-    "description": "Let the music accompany you on a journey without guidance."
+    "description": "Cvičení všímavosti a vizualizace s hudbou může pomoci naší mysli prožívat změněné stavy vědomí. Může být cestou, jak se uvolnit, nabrat nové síly a uzemnit se ve svém těle."
   },
   "nl": {
     "liveDuration": 30,
