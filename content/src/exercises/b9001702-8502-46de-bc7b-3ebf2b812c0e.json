@@ -591,7 +591,7 @@
       "textColor": "#2E2E2E",
       "backgroundColor": "#f4deb2"
     },
-    "hidden": true,
+    "hidden": false,
     "locked": true,
     "name": "PsyPal Livsrefleksion",
     "live": false,
@@ -614,7 +614,7 @@
         "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413228/Contributors/Jenny%20Rickardsson.jpg"
       },
       {
-        "name": "Catharina Messel, voice",
+        "name": "Catharina Messell, voice",
         "url": "https://palliativeprojects.eu/psypal/university-of-copenhagen/",
         "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1734343422/Contributors/Catharina_Messel_Da_PsyPal.png"
       }
