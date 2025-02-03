@@ -5,7 +5,7 @@
       {
         "type": "instruction",
         "content": {
-          "text": "Lean back and let the music guide you, as you embark on an imaginary journey.",
+          "text": "In deze oefening word je begeleid om te ontspannen, een mindfulness bodyscan te doen, een visualisatietaak met muziek uit te voeren, en ten slotte je eigen reis te beginnen, alleen begeleid door de muziek.\n\nHet doel is om te oefenen in het ervaren van een veranderde bewustzijnstoestand.",
           "image": {
             "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1731849005/Images/visual_noBG_Music_I_music_only_ou4vlx.png"
           }
@@ -25,13 +25,14 @@
         "type": "reflection",
         "hostNotes": [],
         "content": {
-          "text": "What did you experience?",
+          "text": "",
           "lottie": {
             "durationTimer": true,
             "duration": 60,
             "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1676642915/Lottie/default_1min_black_rosi2l.json",
             "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1731849094/Audio/refelection_audio_Music_I_music_only_xueeah.mp3"
-          }
+          },
+          "heading": "Hoe heb je dit ervaren?"
         }
       },
       {
@@ -49,13 +50,13 @@
         ],
         "id": "Sharing 1",
         "content": {
-          "heading": "What did you experience?"
+          "heading": "Hoe heb je dit ervaren?"
         }
       },
       {
         "type": "instruction",
         "content": {
-          "text": "Well done.\n\nMusic can help our brains to evoke emotions and images, less affected by our regular ways of thinking.",
+          "text": "Welkom terug, en goed gedaan.\n\nJezelf onderdompelen in muziek kan onze hersenen helpen rusten en enigszins resetten. Het kan nieuwe gedachten brengen en ons een pauze geven van de dagelijkse drukte.",
           "image": {
             "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1731849005/Images/visual_noBG_Music_I_music_only_ou4vlx.png"
           }
@@ -68,7 +69,7 @@
     },
     "hidden": false,
     "locked": true,
-    "name": "PsyPal Music exercise I - music only",
+    "name": "PsyPal muziekoefening I - music only",
     "live": false,
     "published": true,
     "asyncDuration": 15,
@@ -107,7 +108,7 @@
     ],
     "id": "f2c88307-b02e-4456-a81c-79b84c10ae04",
     "async": true,
-    "description": "Let the music accompany you on a journey without guidance."
+    "description": "Mindfulness en visualisatie begeleid door muziek kunnen onze hersenen helpen oefenen in het ervaren van veranderde bewustzijnstoestanden. Het kan een manier zijn om te ontspannen, te resetten en onszelf te aarden in ons lichaam."
   },
   "pt": {
     "liveDuration": 30,
@@ -115,7 +116,7 @@
       {
         "type": "instruction",
         "content": {
-          "text": "Lean back and let the music guide you, as you embark on an imaginary journey.",
+          "text": "Neste exercício será orientado para relaxar, fazer uma exploração corporal consciente, fazer uma tarefa de visualização com música e, no final, embarcar na sua própria viagem, guiado apenas pela música.\n\nA intenção é de praticar um estado alterado de consciência.",
           "image": {
             "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1731849005/Images/visual_noBG_Music_I_music_only_ou4vlx.png"
           }
@@ -135,13 +136,14 @@
         "type": "reflection",
         "hostNotes": [],
         "content": {
-          "text": "What did you experience?",
+          "text": "",
           "lottie": {
             "durationTimer": true,
             "duration": 60,
             "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1676642915/Lottie/default_1min_black_rosi2l.json",
             "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1731849094/Audio/refelection_audio_Music_I_music_only_xueeah.mp3"
-          }
+          },
+          "heading": "Como foi a sua experiência?"
         }
       },
       {
@@ -159,13 +161,13 @@
         ],
         "id": "Sharing 1",
         "content": {
-          "heading": "What did you experience?"
+          "heading": "Como foi a sua experiência?"
         }
       },
       {
         "type": "instruction",
         "content": {
-          "text": "Well done.\n\nMusic can help our brains to evoke emotions and images, less affected by our regular ways of thinking.",
+          "text": "Bem-vindo de volta e bom trabalho.\n\nA imersão na música pode ajudar os nossos cérebros a descansar e a reiniciar. Pode trazer-nos novos pensamentos, assim como oferecer um intervalo do ruído quotidiano.",
           "image": {
             "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1731849005/Images/visual_noBG_Music_I_music_only_ou4vlx.png"
           }
@@ -176,10 +178,10 @@
       "textColor": "#2E2E2E",
       "backgroundColor": "#e6cc44"
     },
-    "hidden": true,
+    "hidden": false,
     "locked": true,
-    "name": "PsyPal Music exercise I - music only",
-    "live": true,
+    "name": "Exercício de música PsyPal I - music only",
+    "live": false,
     "published": true,
     "asyncDuration": 15,
     "card": {
@@ -217,7 +219,7 @@
     ],
     "id": "f2c88307-b02e-4456-a81c-79b84c10ae04",
     "async": true,
-    "description": "Let the music accompany you on a journey without guidance."
+    "description": "Técnicas de mindfulness e de visualização/imagética guiada pela música podem ajudar os nossos cérebros a praticar estados de consciência alterados. Podem ser uma forma de relaxarmos e nos situarmos nos nossos corpos."
   },
   "sv": {
     "liveDuration": 30,
@@ -409,7 +411,7 @@
       {
         "type": "instruction",
         "content": {
-          "text": "Lean back and let the music guide you, as you embark on an imaginary journey.",
+          "text": "I denne øvelse vil du blive guidet til at slappe af, foretage en  kropsscanning, udføre en visualiseringsøvelse med musik og til sidst begive dig ud på din egen rejse, kun guidet af musikken.\n\nHensigten med dette er at øve det at være i en ændret bevidsthedstilstand.",
           "image": {
             "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1731849005/Images/visual_noBG_Music_I_music_only_ou4vlx.png"
           }
@@ -429,13 +431,14 @@
         "type": "reflection",
         "hostNotes": [],
         "content": {
-          "text": "What did you experience?",
+          "text": "",
           "lottie": {
             "durationTimer": true,
             "duration": 60,
             "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1676642915/Lottie/default_1min_black_rosi2l.json",
             "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1731849094/Audio/refelection_audio_Music_I_music_only_xueeah.mp3"
-          }
+          },
+          "heading": "Hvordan føltes dette?"
         }
       },
       {
@@ -453,13 +456,13 @@
         ],
         "id": "Sharing 1",
         "content": {
-          "heading": "What did you experience?"
+          "heading": "Hvordan føltes dette?"
         }
       },
       {
         "type": "instruction",
         "content": {
-          "text": "Well done.\n\nMusic can help our brains to evoke emotions and images, less affected by our regular ways of thinking.",
+          "text": "Velkommen tilbage, og godt klaret. \n\nAt fordybe sig i musik kan hjælpe os  med at slappe af og give slip. Det kan give plads til nye tanker og kan give os en pause fra hverdagens larm.",
           "image": {
             "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1731849005/Images/visual_noBG_Music_I_music_only_ou4vlx.png"
           }
@@ -470,9 +473,9 @@
       "textColor": "#2E2E2E",
       "backgroundColor": "#e6cc44"
     },
-    "hidden": true,
+    "hidden": false,
     "locked": true,
-    "name": "PsyPal Music exercise I - music only",
+    "name": "PsyPal musikøvelse I - music only",
     "published": true,
     "asyncDuration": 15,
     "card": {
@@ -510,7 +513,7 @@
     ],
     "id": "f2c88307-b02e-4456-a81c-79b84c10ae04",
     "async": true,
-    "description": "Let the music accompany you on a journey without guidance."
+    "description": "Mindfulness og musik-guidet visualisering kan hjælpe os til at træde ind i en let ændret bevidsthedstilstand, samt slappe af, genstarte, og komme i kontakt med kroppen."
   },
   "cs": {
     "liveDuration": 30,
@@ -518,7 +521,7 @@
       {
         "type": "instruction",
         "content": {
-          "text": "Lean back and let the music guide you, as you embark on an imaginary journey.",
+          "text": "Součástí tohoto cvičení bude relaxace, skenování vašich tělesných pocitů, slovem vedená vizualizace s hudbou a nakonec se vydáte na vlastní cestu jen s hudbou.\n\nZáměrem je učit se prožívat změněný stav vědomí.",
           "image": {
             "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1731849005/Images/visual_noBG_Music_I_music_only_ou4vlx.png"
           }
@@ -538,13 +541,14 @@
         "type": "reflection",
         "hostNotes": [],
         "content": {
-          "text": "What did you experience?",
+          "text": "",
           "lottie": {
             "durationTimer": true,
             "duration": 60,
             "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1676642915/Lottie/default_1min_black_rosi2l.json",
             "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1731849094/Audio/refelection_audio_Music_I_music_only_xueeah.mp3"
-          }
+          },
+          "heading": "Jak jste toto prožívali?"
         }
       },
       {
@@ -562,13 +566,13 @@
         ],
         "id": "Sharing 1",
         "content": {
-          "heading": "What did you experience?"
+          "heading": "Jak jste toto prožívali?"
         }
       },
       {
         "type": "instruction",
         "content": {
-          "text": "Well done.\n\nMusic can help our brains to evoke emotions and images, less affected by our regular ways of thinking.",
+          "text": "Vítejte zpět. Dobrá práce.\n\nPonoření se do poslechu hudby může pomoci naší mysli odpočinout si a nabrat nové síly. Může přinést nové myšlenky a také nám poskytnout přestávku od každodenního shonu.",
           "image": {
             "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1731849005/Images/visual_noBG_Music_I_music_only_ou4vlx.png"
           }
@@ -579,9 +583,9 @@
       "textColor": "#2E2E2E",
       "backgroundColor": "#e6cc44"
     },
-    "hidden": true,
+    "hidden": false,
     "locked": true,
-    "name": "PsyPal Music exercise I - music only",
+    "name": "PsyPal hudební cvičení I - music only",
     "published": true,
     "asyncDuration": 15,
     "card": {
@@ -619,7 +623,7 @@
     ],
     "id": "f2c88307-b02e-4456-a81c-79b84c10ae04",
     "async": true,
-    "description": "Let the music accompany you on a journey without guidance."
+    "description": "Cvičení všímavosti a vizualizace s hudbou může pomoci naší mysli prožívat změněné stavy vědomí. Může být cestou, jak se uvolnit, nabrat nové síly a uzemnit se ve svém těle."
   },
   "nl": {
     "liveDuration": 30,
@@ -688,7 +692,7 @@
       "textColor": "#2E2E2E",
       "backgroundColor": "#e6cc44"
     },
-    "hidden": true,
+    "hidden": false,
     "locked": true,
     "name": "PsyPal Music exercise I - music only",
     "published": true,
