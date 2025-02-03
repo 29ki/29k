@@ -579,7 +579,7 @@
       "textColor": "#2E2E2E",
       "backgroundColor": "#e6cc44"
     },
-    "hidden": true,
+    "hidden": false,
     "locked": true,
     "name": "PsyPal Music exercise I - music only",
     "published": true,
