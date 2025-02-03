@@ -525,7 +525,8 @@
       "8da0534a-5da9-430a-bdf3-242ace6460fb"
     ],
     "asyncDuration": 6,
-    "id": "961656ea-021c-4faa-ae03-46d6ace4be4b"
+    "id": "961656ea-021c-4faa-ae03-46d6ace4be4b",
+    "card": {}
   },
   "cs": {
     "tags": [
@@ -533,7 +534,8 @@
       "8da0534a-5da9-430a-bdf3-242ace6460fb"
     ],
     "asyncDuration": 6,
-    "id": "961656ea-021c-4faa-ae03-46d6ace4be4b"
+    "id": "961656ea-021c-4faa-ae03-46d6ace4be4b",
+    "card": {}
   },
   "nl": {
     "tags": [
@@ -541,9 +543,118 @@
       "8da0534a-5da9-430a-bdf3-242ace6460fb"
     ],
     "asyncDuration": 6,
-    "id": "961656ea-021c-4faa-ae03-46d6ace4be4b"
+    "id": "961656ea-021c-4faa-ae03-46d6ace4be4b",
+    "card": {}
   },
   "es": {
-    "id": "961656ea-021c-4faa-ae03-46d6ace4be4b"
+    "slides": [
+      {
+        "type": "host",
+        "hostNotes": []
+      },
+      {
+        "type": "content",
+        "content": {
+          "lottie": {
+            "durationTimer": true,
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1738506647/Spanish/Audio%20MP3/TresCosas_okua0a.mp3",
+            "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1738512676/Spanish/Subtitles%20SRT/Tres_Cosas_uq9apb.srt",
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1676977421/Lottie/audio_meditation_default_white_default_mqfcuo.json"
+          }
+        },
+        "hostNotes": []
+      },
+      {
+        "type": "reflection",
+        "hostNotes": [],
+        "content": {
+          "text": "Como te sentiste?",
+          "lottie": {
+            "durationTimer": true,
+            "duration": 120,
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1676642915/Lottie/default_1min_white_wvgwma.json"
+          }
+        }
+      },
+      {
+        "type": "sharing",
+        "hostNotes": [],
+        "id": "1",
+        "content": {
+          "text": "",
+          "lottie": {
+            "durationTimer": true,
+            "duration": 120,
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1676639253/Lottie/default_2min_white_arvrf2.json"
+          },
+          "heading": ""
+        }
+      },
+      {
+        "type": "host",
+        "hostNotes": []
+      },
+      {
+        "type": "instruction",
+        "content": {
+          "heading": "",
+          "text": "",
+          "image": {
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1692965918/Images/asynk_image_become_present_sdnk4j.png"
+          }
+        }
+      }
+    ],
+    "theme": {
+      "textColor": "#F9F8F4",
+      "backgroundColor": "#263e54"
+    },
+    "name": "",
+    "live": true,
+    "published": true,
+    "card": {
+      "image": {
+        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1692965918/Images/2card_become_present_zhuz9j.png"
+      }
+    },
+    "socialMeta": {
+      "image": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1692897989/Images/card_become_present_s5b47y.png"
+    },
+    "coCreators": [
+      {
+        "name": "Ints Ivanovskis, art works",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413436/Contributors/Ints%20Ivanovskis.jpg",
+        "url": "https://www.linkedin.com/in/ints-ivanovskis-46ab0311a/"
+      },
+      {
+        "name": "Núria Tous, voz en Español",
+        "url": "https://www.linkedin.com/in/nuriatous/",
+        "image": ""
+      }
+    ],
+    "introPortal": {
+      "hostNotes": [
+        {
+          "text": "> Inicia a sessão quando estiveres pronta/o"
+        }
+      ],
+      "videoLoop": {
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1692965732/Video/2portal1_become_present_a6tjv1.mp4",
+        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1692898013/Audio/portal_audio_become_present_bgjavz.mp3",
+        "p5JsScript": {
+          "lang": "javascript"
+        }
+      },
+      "videoEnd": {
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1692965720/Video/2portal2_become_present_iddvnq.mp4"
+      }
+    },
+    "tags": [
+      "cfc00217-f65b-4a4d-8b82-8ccc8f852dd6",
+      "8da0534a-5da9-430a-bdf3-242ace6460fb"
+    ],
+    "id": "961656ea-021c-4faa-ae03-46d6ace4be4b",
+    "async": true,
+    "description": "Quando estamos stressados, a nossa mente facilmente vagueia para o futuro ou fixa-se nas experiências passadas. Uma estratégia mais eficaz para combater o stress é estar presente no aqui e agora. Este exercício permite-nos praticar essa presença usando três dos nossos sentidos."
   }
 }
