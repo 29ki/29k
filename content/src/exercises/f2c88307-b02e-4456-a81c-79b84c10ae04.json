@@ -5,7 +5,7 @@
       {
         "type": "instruction",
         "content": {
-          "text": "Lean back and let the music guide you, as you embark on an imaginary journey.",
+          "text": "In deze oefening word je begeleid om te ontspannen, een mindfulness bodyscan te doen, een visualisatietaak met muziek uit te voeren, en ten slotte je eigen reis te beginnen, alleen begeleid door de muziek.\n\nHet doel is om te oefenen in het ervaren van een veranderde bewustzijnstoestand.",
           "image": {
             "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1731849005/Images/visual_noBG_Music_I_music_only_ou4vlx.png"
           }
@@ -25,13 +25,14 @@
         "type": "reflection",
         "hostNotes": [],
         "content": {
-          "text": "What did you experience?",
+          "text": "",
           "lottie": {
             "durationTimer": true,
             "duration": 60,
             "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1676642915/Lottie/default_1min_black_rosi2l.json",
             "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1731849094/Audio/refelection_audio_Music_I_music_only_xueeah.mp3"
-          }
+          },
+          "heading": "Hoe heb je dit ervaren?"
         }
       },
       {
@@ -49,13 +50,13 @@
         ],
         "id": "Sharing 1",
         "content": {
-          "heading": "What did you experience?"
+          "heading": "Hoe heb je dit ervaren?"
         }
       },
       {
         "type": "instruction",
         "content": {
-          "text": "Well done.\n\nMusic can help our brains to evoke emotions and images, less affected by our regular ways of thinking.",
+          "text": "Welkom terug, en goed gedaan.\n\nJezelf onderdompelen in muziek kan onze hersenen helpen rusten en enigszins resetten. Het kan nieuwe gedachten brengen en ons een pauze geven van de dagelijkse drukte.",
           "image": {
             "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1731849005/Images/visual_noBG_Music_I_music_only_ou4vlx.png"
           }
@@ -68,7 +69,7 @@
     },
     "hidden": false,
     "locked": true,
-    "name": "PsyPal Music exercise I - music only",
+    "name": "PsyPal muziekoefening I - music only",
     "live": false,
     "published": true,
     "asyncDuration": 15,
@@ -107,7 +108,7 @@
     ],
     "id": "f2c88307-b02e-4456-a81c-79b84c10ae04",
     "async": true,
-    "description": "Let the music accompany you on a journey without guidance."
+    "description": "Mindfulness en visualisatie begeleid door muziek kunnen onze hersenen helpen oefenen in het ervaren van veranderde bewustzijnstoestanden. Het kan een manier zijn om te ontspannen, te resetten en onszelf te aarden in ons lichaam."
   },
   "pt": {
     "liveDuration": 30,
