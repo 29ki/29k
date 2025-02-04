@@ -676,8 +676,8 @@
         ],
         "content": {
           "lottie": {
-            "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1728986423/SRT%20(captions)%20files/PsyPal_Life_exploration_d370hk.srt",
-            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1728986355/Audio/PsyPal_Life_exploration_tsbxhj.mp3",
+            "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1738658128/SRT%20(captions)%20files/Life_Exploration_CZ_nlbxgb.srt",
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1738658167/Audio/Life_Exploration_CZ_tz4xwy.mp3",
             "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1676642915/Lottie/default_audio_black_zjrmu2.json"
           }
         }
@@ -748,7 +748,7 @@
       "textColor": "#2E2E2E",
       "backgroundColor": "#f4deb2"
     },
-    "hidden": true,
+    "hidden": false,
     "locked": true,
     "name": "PsyPal Průzkum života",
     "live": false,
@@ -769,6 +769,11 @@
         "name": "Jenny Rickardsson, writing & editing",
         "url": "https://www.linkedin.com/in/jenny-rickardson-6770a959/",
         "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413228/Contributors/Jenny%20Rickardsson.jpg"
+      },
+      {
+        "name": "Petra Valikova, voice",
+        "url": "https://www.petravalikova.cz/",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/v1738658028/Contributors/PetraValikova_g3nnac.jpg"
       }
     ],
     "introPortal": {
