@@ -9584,10 +9584,10 @@ postcss@8.4.38:
     picocolors "^1.0.0"
     source-map-js "^1.2.0"
 
-posthog-react-native@^3.6.1:
-  version "3.6.1"
-  resolved "https://registry.yarnpkg.com/posthog-react-native/-/posthog-react-native-3.6.1.tgz#a0a7189761013fac3ef46582b5e3b279067ba7ca"
-  integrity sha512-IRGfLEranh+8nTvUsyw97XeqhGwi0ine/F6tMGrdT+RmlsRFA9eRYLwupkdCviRL9mMVugBY6J4v1R1MvBw+1w==
+posthog-react-native@^3.9.0:
+  version "3.9.0"
+  resolved "https://registry.yarnpkg.com/posthog-react-native/-/posthog-react-native-3.9.0.tgz#e9a8e568e6c2d04e29da959b25df508be2fd4074"
+  integrity sha512-GeqdgzJADlx/Zvn7Kp3NCwH+zYbKuTUADYjCio45ZC+aWsvP8UH5watxVECgKrKtUqipQr3dNoaRDDxiZs+k1w==
 
 prelude-ls@^1.2.1:
   version "1.2.1"
