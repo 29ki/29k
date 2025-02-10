@@ -3,7 +3,7 @@
     "join": "Join",
     "coCreatorsHeading": "Co-created with",
     "howItWorks": "How it works",
-    "journeyButton": "My journey",
+    "journeyButton": "Interested",
     "feedbackHeading": "Reviews",
     "moreLikeThis": "More like this"
   },
@@ -17,7 +17,7 @@
   },
   "sv": {
     "join": "Anslut",
-    "journeyButton": "Min plan",
+    "journeyButton": "Intresserad",
     "deleteButton": "Ta bort session",
     "coCreatorsHeading": "Skapad med",
     "howItWorks": "Så funkar det",
