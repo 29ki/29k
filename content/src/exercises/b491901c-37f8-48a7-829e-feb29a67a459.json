@@ -31,7 +31,13 @@
         ],
         "content": {
           "video": {
-            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1737799132/Video/timer_deal_with_dying_trhjuq.mp4"
+            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1737799132/Video/timer_deal_with_dying_trhjuq.mp4",
+            "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1739199179/SRT%20(captions)%20files/PsyPal_Facing_mortality_infqet.srt",
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1739199226/Audio/PsyPal_Facing_mortality_yep3xm.mp3"
+          },
+          "lottie": {
+            "subtitles": "",
+            "audio": ""
           }
         }
       },
@@ -46,7 +52,7 @@
           }
         ],
         "content": {
-          "heading": "What was it like for you to reflect on death today?"
+          "heading": "What was it like for you to reflect on life and death today?"
         }
       },
       {
@@ -81,7 +87,7 @@
       {
         "type": "instruction",
         "content": {
-          "text": "You might have realized something important or decided to reach out to someone. Also, you may want to talk about your feelings with someone.\n\nNote down anything that feels important to you.",
+          "text": "Well done.\n\nYou might have realized something important, decided to reach out to someone or you may want to talk about your feelings with somebody.\n\nNote down anything that feels important to you.",
           "image": {
             "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1737187987/Images/image_1_Deal_with_dying_vxj6ki.png"
           }
@@ -94,10 +100,10 @@
     },
     "hidden": false,
     "locked": true,
-    "name": "PsyPal Deal with dying",
+    "name": "PsyPal Facing mortality",
     "live": false,
     "published": true,
-    "asyncDuration": 10,
+    "asyncDuration": 15,
     "card": {
       "image": {
         "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1737187988/Images/image_2_Deal_with_dying_sudw5r.png"
@@ -217,7 +223,7 @@
     "locked": true,
     "live": true,
     "published": false,
-    "asyncDuration": 10,
+    "asyncDuration": 15,
     "card": {},
     "introPortal": {
       "textColor": "#2AE2D7",
@@ -315,7 +321,7 @@
     "locked": true,
     "live": true,
     "published": false,
-    "asyncDuration": 10,
+    "asyncDuration": 15,
     "card": {},
     "introPortal": {
       "textColor": "#2AE2D7",
@@ -408,7 +414,7 @@
     "locked": true,
     "live": true,
     "published": false,
-    "asyncDuration": 10,
+    "asyncDuration": 15,
     "card": {},
     "introPortal": {
       "textColor": "#2AE2D7",
@@ -432,7 +438,8 @@
     "tags": [
       "34100e43-2eb8-4d35-8eb0-9fa9f78e4935",
       "9c2c08a9-7dc6-4058-bc78-016d0eb00614"
-    ]
+    ],
+    "asyncDuration": 15
   },
   "cs": {
     "id": "b491901c-37f8-48a7-829e-feb29a67a459",
@@ -441,7 +448,8 @@
     "tags": [
       "34100e43-2eb8-4d35-8eb0-9fa9f78e4935",
       "9c2c08a9-7dc6-4058-bc78-016d0eb00614"
-    ]
+    ],
+    "asyncDuration": 15
   },
   "nl": {
     "id": "b491901c-37f8-48a7-829e-feb29a67a459",
@@ -450,7 +458,8 @@
     "tags": [
       "34100e43-2eb8-4d35-8eb0-9fa9f78e4935",
       "9c2c08a9-7dc6-4058-bc78-016d0eb00614"
-    ]
+    ],
+    "asyncDuration": 15
   },
   "es": {
     "id": "b491901c-37f8-48a7-829e-feb29a67a459",
@@ -459,6 +468,7 @@
     "tags": [
       "34100e43-2eb8-4d35-8eb0-9fa9f78e4935",
       "9c2c08a9-7dc6-4058-bc78-016d0eb00614"
-    ]
+    ],
+    "asyncDuration": 15
   }
 }
