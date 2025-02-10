@@ -31,11 +31,13 @@
         ],
         "content": {
           "video": {
-            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1737799132/Video/timer_deal_with_dying_trhjuq.mp4"
-          },
-          "lottie": {
+            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1737799132/Video/timer_deal_with_dying_trhjuq.mp4",
             "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1739199179/SRT%20(captions)%20files/PsyPal_Facing_mortality_infqet.srt",
             "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1739199226/Audio/PsyPal_Facing_mortality_yep3xm.mp3"
+          },
+          "lottie": {
+            "subtitles": "",
+            "audio": ""
           }
         }
       },
