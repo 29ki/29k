@@ -101,7 +101,7 @@
     "name": "PsyPal Facing mortality",
     "live": false,
     "published": true,
-    "asyncDuration": 10,
+    "asyncDuration": 15,
     "card": {
       "image": {
         "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1737187988/Images/image_2_Deal_with_dying_sudw5r.png"
@@ -221,7 +221,7 @@
     "locked": true,
     "live": true,
     "published": false,
-    "asyncDuration": 10,
+    "asyncDuration": 15,
     "card": {},
     "introPortal": {
       "textColor": "#2AE2D7",
@@ -319,7 +319,7 @@
     "locked": true,
     "live": true,
     "published": false,
-    "asyncDuration": 10,
+    "asyncDuration": 15,
     "card": {},
     "introPortal": {
       "textColor": "#2AE2D7",
@@ -412,7 +412,7 @@
     "locked": true,
     "live": true,
     "published": false,
-    "asyncDuration": 10,
+    "asyncDuration": 15,
     "card": {},
     "introPortal": {
       "textColor": "#2AE2D7",
@@ -436,7 +436,8 @@
     "tags": [
       "34100e43-2eb8-4d35-8eb0-9fa9f78e4935",
       "9c2c08a9-7dc6-4058-bc78-016d0eb00614"
-    ]
+    ],
+    "asyncDuration": 15
   },
   "cs": {
     "id": "b491901c-37f8-48a7-829e-feb29a67a459",
@@ -445,7 +446,8 @@
     "tags": [
       "34100e43-2eb8-4d35-8eb0-9fa9f78e4935",
       "9c2c08a9-7dc6-4058-bc78-016d0eb00614"
-    ]
+    ],
+    "asyncDuration": 15
   },
   "nl": {
     "id": "b491901c-37f8-48a7-829e-feb29a67a459",
@@ -454,7 +456,8 @@
     "tags": [
       "34100e43-2eb8-4d35-8eb0-9fa9f78e4935",
       "9c2c08a9-7dc6-4058-bc78-016d0eb00614"
-    ]
+    ],
+    "asyncDuration": 15
   },
   "es": {
     "id": "b491901c-37f8-48a7-829e-feb29a67a459",
@@ -463,6 +466,7 @@
     "tags": [
       "34100e43-2eb8-4d35-8eb0-9fa9f78e4935",
       "9c2c08a9-7dc6-4058-bc78-016d0eb00614"
-    ]
+    ],
+    "asyncDuration": 15
   }
 }
