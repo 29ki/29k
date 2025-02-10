@@ -68,7 +68,10 @@
             "text": "Who would like to start?\n\n> Let everyone (or as many as you got time for) share one by one. Press play to start the timer. Re-start for each new sharing.\n\nThank you so much everyone."
           }
         ],
-        "id": "Sharing 1"
+        "id": "Sharing 1",
+        "content": {
+          "text": "What was it like for you to reflect on life and death today?"
+        }
       },
       {
         "type": "host",
