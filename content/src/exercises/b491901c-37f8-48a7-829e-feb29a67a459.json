@@ -32,6 +32,10 @@
         "content": {
           "video": {
             "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1737799132/Video/timer_deal_with_dying_trhjuq.mp4"
+          },
+          "lottie": {
+            "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1739199179/SRT%20(captions)%20files/PsyPal_Facing_mortality_infqet.srt",
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1739199226/Audio/PsyPal_Facing_mortality_yep3xm.mp3"
           }
         }
       },
@@ -46,7 +50,7 @@
           }
         ],
         "content": {
-          "heading": "What was it like for you to reflect on death today?"
+          "heading": "What was it like for you to reflect on life and death today?"
         }
       },
       {
@@ -81,7 +85,7 @@
       {
         "type": "instruction",
         "content": {
-          "text": "You might have realized something important or decided to reach out to someone. Also, you may want to talk about your feelings with someone.\n\nNote down anything that feels important to you.",
+          "text": "Well done.\n\nYou might have realized something important, decided to reach out to someone or you may want to talk about your feelings with somebody.\n\nNote down anything that feels important to you.",
           "image": {
             "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1737187987/Images/image_1_Deal_with_dying_vxj6ki.png"
           }
@@ -94,7 +98,7 @@
     },
     "hidden": false,
     "locked": true,
-    "name": "PsyPal Deal with dying",
+    "name": "PsyPal Facing mortality",
     "live": false,
     "published": true,
     "asyncDuration": 10,
