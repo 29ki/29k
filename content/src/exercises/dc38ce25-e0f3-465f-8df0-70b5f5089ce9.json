@@ -16,7 +16,7 @@
       {
         "type": "instruction",
         "content": {
-          "text": "Running into obstacles is a natural part of life. With the things we want in life – like for example love, growth, interesting work – the risk of being hurt is always present. Even though we seldom acknowledge it. And often try to avoid it.\n\nIn this exercise we’ll be practising experiencing challenging or difficult emotions. Just as they are. As a way to spend less energy trying to avoid the uncomfortable, and more on what matters to us in the long run.",
+          "text": "In this exercise we’ll be practising experiencing challenging or difficult emotions. Just as they are. As a way to spend less energy trying to avoid the uncomfortable, and more on what matters to us in the long run.",
           "image": {
             "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1737482599/Images/image_2_acceptance_practice_rfgk30.png"
           }
@@ -107,7 +107,7 @@
     "name": "PsyPal Acceptance practice ",
     "live": false,
     "published": true,
-    "asyncDuration": 10,
+    "asyncDuration": 15,
     "card": {
       "image": {
         "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1737188108/Images/image_5_acceptance_practice_trsysn.png"
@@ -148,7 +148,7 @@
     ],
     "id": "dc38ce25-e0f3-465f-8df0-70b5f5089ce9",
     "async": true,
-    "description": "In this meditation exercise we’ll practise moving through our difficulties instead of trying to avoid them. Letting ourselves experience the full spectrum of emotions can help us lead more meaningful and fulfilled lives."
+    "description": "Running into obstacles is a natural part of life. With the things we want in life – like for example love, growth, interesting work – the risk of being hurt is always present. Even though we seldom acknowledge it, and often try to avoid it. In this week’s exercise we’ll practice the opposite: moving through difficulties."
   },
   "pt": {
     "liveDuration": 30,
@@ -226,7 +226,7 @@
     "locked": true,
     "live": true,
     "published": false,
-    "asyncDuration": 10,
+    "asyncDuration": 15,
     "card": {},
     "introPortal": {
       "textColor": "#2AE2D7",
@@ -323,7 +323,7 @@
     "locked": true,
     "live": true,
     "published": false,
-    "asyncDuration": 10,
+    "asyncDuration": 15,
     "card": {},
     "introPortal": {
       "textColor": "#2AE2D7",
@@ -415,7 +415,7 @@
     "locked": true,
     "live": true,
     "published": false,
-    "asyncDuration": 10,
+    "asyncDuration": 15,
     "card": {},
     "introPortal": {
       "textColor": "#2AE2D7",
@@ -438,7 +438,8 @@
     ],
     "id": "dc38ce25-e0f3-465f-8df0-70b5f5089ce9",
     "card": {},
-    "locked": true
+    "locked": true,
+    "asyncDuration": 15
   },
   "cs": {
     "liveDuration": 30,
@@ -447,7 +448,8 @@
     ],
     "id": "dc38ce25-e0f3-465f-8df0-70b5f5089ce9",
     "card": {},
-    "locked": true
+    "locked": true,
+    "asyncDuration": 15
   },
   "nl": {
     "liveDuration": 30,
@@ -559,6 +561,7 @@
     "locked": true,
     "name": "PsyPal Acceptance practice ",
     "published": true,
+    "asyncDuration": 15,
     "card": {
       "image": {
         "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1737188108/Images/image_5_acceptance_practice_trsysn.png"
@@ -566,7 +569,7 @@
     },
     "coCreators": [
       {
-        "name": "Rachel Brathen, script and voice",
+        "name": "Rachel Brathen, script",
         "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1709567296/Contributors/Yoga_Girl_016895_color_oju3wq_-_Square_Post_mbemkp.png",
         "url": "https://rachelbrathen.com/"
       },
@@ -574,6 +577,11 @@
         "name": "Ints Ivanovskis, art works",
         "url": "https://www.linkedin.com/in/ints-ivanovskis-46ab0311a/",
         "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413436/Contributors/Ints%20Ivanovskis.jpg"
+      },
+      {
+        "name": "Mila W, voice",
+        "url": "https://www.fiverr.com/milawilde/deliver-affordable-studio-quality-dutch-female-voiceovers?utm_campaign=gigs_show_buyers&utm_medium=shared&utm_source=copy_link&utm_term=ldlnlap",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1737469735/Contributors/MilaW_demgfw.jpg"
       }
     ],
     "outroPortal": {
@@ -608,6 +616,7 @@
     ],
     "id": "dc38ce25-e0f3-465f-8df0-70b5f5089ce9",
     "card": {},
-    "locked": true
+    "locked": true,
+    "asyncDuration": 15
   }
 }
