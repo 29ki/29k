@@ -649,7 +649,7 @@
       {
         "type": "instruction",
         "content": {
-          "text": "Music can help guide us to experiences and see things from a different light. This exercise is about letting hope in, and letting it guide us to things we want to change.",
+          "text": "Laat je innerlijke licht hoop worden in deze oefening met muziek.",
           "image": {
             "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1737788390/Images/image_11_Hope_music_exercise_II_y6rncz.png"
           }
@@ -685,7 +685,7 @@
           }
         ],
         "content": {
-          "heading": "What did this exercise awake in you?",
+          "heading": "Hoe voelde je je tijdens deze oefening?",
           "lottie": {
             "subtitles": "",
             "audio": ""
@@ -707,7 +707,7 @@
         ],
         "id": "Sharing 1",
         "content": {
-          "heading": "What did this exercise awake in you?",
+          "heading": "Hoe voelde je je tijdens deze oefening?",
           "image": {
             "source": ""
           }
@@ -730,7 +730,7 @@
       {
         "type": "instruction",
         "content": {
-          "text": "Well done.\n\nVisualizing hope and light, even in times of darkness, can help guide our footsteps towards the change we might want to see in ourselves. If you are up for it, here's a mission for you: Remind yourself of the image that you created of light and hope, once a day for the coming three days. Notice how it affects you.",
+          "text": "Welkom terug. \n\nOefenen met beelden en muziek kan ons helpen om dingen anders te zien en ons beter te voelen.",
           "image": {
             "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1737788390/Images/image_22_Hope_music_exercise_II_iand4w.png"
           }
@@ -755,14 +755,19 @@
     },
     "coCreators": [
       {
-        "name": "Catharina Messel, voice",
-        "url": "https://palliativeprojects.eu/psypal/university-of-copenhagen/",
-        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1734343422/Contributors/Catharina_Messel_Da_PsyPal.png"
+        "name": "Mila W, voice",
+        "url": "https://www.fiverr.com/milawilde/deliver-affordable-studio-quality-dutch-female-voiceovers?utm_campaign=gigs_show_buyers&utm_medium=shared&utm_source=copy_link&utm_term=ldlnlap",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1737469735/Contributors/MilaW_demgfw.jpg"
       },
       {
         "name": "Ints Ivanovskis, art works",
         "url": "https://www.linkedin.com/in/ints-ivanovskis-46ab0311a/",
         "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413436/Contributors/Ints%20Ivanovskis.jpg"
+      },
+      {
+        "name": "Dea Siggard Stenbæk, script",
+        "url": "https://researchprofiles.ku.dk/en/persons/dea-siggaard-stenb%C3%A6k",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1739354155/Contributors/Dea%20Siggard%20Stenb%C3%A6k.png"
       }
     ],
     "outroPortal": {
@@ -788,7 +793,7 @@
     ],
     "id": "ed06daef-cecd-47d8-8ff2-3cf8dba65b6c",
     "async": true,
-    "description": "Visualize your heart igniting light and hope in this exercise, guided by music."
+    "description": "Muziek is een goede hulp die ons kan helpen onze gevoelens en gedachten te sturen, zodat we dingen anders kunnen zien.\n\nVandaag gaan we een oefening doen waarin ik je help om een gevoel van hoop voor te stellen."
   },
   "es": {
     "id": "ed06daef-cecd-47d8-8ff2-3cf8dba65b6c",
