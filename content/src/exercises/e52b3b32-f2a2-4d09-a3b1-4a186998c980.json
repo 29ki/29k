@@ -81,7 +81,7 @@
       }
     ],
     "theme": {
-      "textColor": "#2AE2D7"
+      "textColor": "#2E2E2E"
     },
     "hidden": false,
     "locked": true,
@@ -89,7 +89,19 @@
     "live": false,
     "published": true,
     "excludeFromWeb": false,
-    "asyncDuration": 10,
+    "asyncDuration": 20,
+    "coCreators": [
+      {
+        "name": "Jenny Rickardsson, script and voice",
+        "url": "https://www.linkedin.com/in/jenny-rickardson-6770a959/",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413228/Contributors/Jenny%20Rickardsson.jpg"
+      },
+      {
+        "name": "Ints Ivanovskis, art works",
+        "url": "https://www.linkedin.com/in/ints-ivanovskis-46ab0311a/?originalSubdomain=se",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413436/Contributors/Ints%20Ivanovskis.jpg"
+      }
+    ],
     "introPortal": {
       "textColor": "#2AE2D7",
       "hostNotes": [
@@ -126,6 +138,12 @@
         ]
       },
       {
+        "type": "instruction",
+        "content": {
+          "text": "Our brains have developed to focus on the negative - threats, dangers, things that need fixing. That has helped humans survive for tens of thousands of years - but is not very helpful for feeling good or happy. In this exercise you’ll practice paying attention to the things we tend to take for granted, the things we are grateful for."
+        }
+      },
+      {
         "type": "content",
         "hostNotes": [
           {
@@ -142,7 +160,10 @@
           {
             "text": "You can take notes on a piece of paper or just mental notes in your head. And there is no right or wrong here, our answers are our own. 1 minute starting now.\n\n> Press play to start the timer.\n\nThat’s 1 minute and it’s time to move on."
           }
-        ]
+        ],
+        "content": {
+          "text": "How did you feel practicing gratitude?"
+        }
       },
       {
         "type": "sharing",
@@ -157,7 +178,10 @@
             "text": "Who would like to start?\n\n> Let everyone (or as many as you got time for) share one by one. Press play to start the timer. Re-start for each new sharing.\n\nThank you so much everyone."
           }
         ],
-        "id": "Sharing 1"
+        "id": "Sharing 1",
+        "content": {
+          "text": "How did you feel practicing gratitude?"
+        }
       },
       {
         "type": "host",
@@ -176,7 +200,7 @@
       {
         "type": "instruction",
         "content": {
-          "text": "Well done.\n\nSummary.\n\nIf you’re up for it, you can continue with this mission.\n\nmission description"
+          "text": "Well done for practicing gratitude and counteracting some of the negativity bias nature has equipped us with. The next step is to share your gratitude letter with the person you wrote to. If you want to, read it out aloud to them."
         }
       }
     ],
@@ -185,24 +209,43 @@
     },
     "hidden": false,
     "locked": true,
+    "name": "PsyPal Gratitude letters",
     "live": true,
-    "published": false,
+    "published": true,
     "excludeFromWeb": false,
-    "asyncDuration": 10,
+    "asyncDuration": 20,
+    "coCreators": [
+      {
+        "name": "Jenny Rickardsson, script and voice",
+        "url": "https://www.linkedin.com/in/jenny-rickardson-6770a959/",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413228/Contributors/Jenny%20Rickardsson.jpg"
+      },
+      {
+        "name": "Ints Ivanovskis, art works",
+        "url": "https://www.linkedin.com/in/ints-ivanovskis-46ab0311a/?originalSubdomain=se",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413436/Contributors/Ints%20Ivanovskis.jpg"
+      }
+    ],
     "introPortal": {
       "textColor": "#2AE2D7",
       "hostNotes": [
         {
           "text": "> Start the session when you're ready to go"
         }
-      ]
+      ],
+      "videoLoop": {
+        "p5JsScript": {
+          "lang": "javascript"
+        }
+      }
     },
     "tags": [
       "43a6dc0d-d866-4b79-9453-13c44e906128",
       "8da0534a-5da9-430a-bdf3-242ace6460fb"
     ],
     "id": "e52b3b32-f2a2-4d09-a3b1-4a186998c980",
-    "async": false
+    "async": true,
+    "description": "Our minds are often set to focus on the negative. In this exercise we practice the opposite - expressing gratitude for some of the things in life we are grateful for. It can help us feel more fulfilled and happy, regardless of where we are in life."
   },
   "sv": {
     "liveDuration": 30,
@@ -281,7 +324,7 @@
     "live": true,
     "published": false,
     "excludeFromWeb": false,
-    "asyncDuration": 10,
+    "asyncDuration": 20,
     "introPortal": {
       "textColor": "#2AE2D7",
       "hostNotes": [
@@ -374,7 +417,7 @@
     "live": true,
     "published": false,
     "excludeFromWeb": false,
-    "asyncDuration": 10,
+    "asyncDuration": 20,
     "introPortal": {
       "textColor": "#2AE2D7",
       "hostNotes": [
@@ -405,6 +448,12 @@
         ]
       },
       {
+        "type": "instruction",
+        "content": {
+          "text": "Our brains have developed to focus on the negative - threats, dangers, things that need fixing. That has helped humans survive for tens of thousands of years - but is not very helpful for feeling good or happy. In this exercise you’ll practice paying attention to the things we tend to take for granted, the things we are grateful for."
+        }
+      },
+      {
         "type": "content",
         "hostNotes": [
           {
@@ -421,7 +470,10 @@
           {
             "text": "You can take notes on a piece of paper or just mental notes in your head. And there is no right or wrong here, our answers are our own. 1 minute starting now.\n\n> Press play to start the timer.\n\nThat’s 1 minute and it’s time to move on."
           }
-        ]
+        ],
+        "content": {
+          "text": "How did you feel practicing gratitude?"
+        }
       },
       {
         "type": "sharing",
@@ -436,7 +488,10 @@
             "text": "Who would like to start?\n\n> Let everyone (or as many as you got time for) share one by one. Press play to start the timer. Re-start for each new sharing.\n\nThank you so much everyone."
           }
         ],
-        "id": "Sharing 1"
+        "id": "Sharing 1",
+        "content": {
+          "text": "How did you feel practicing gratitude?"
+        }
       },
       {
         "type": "host",
@@ -455,7 +510,7 @@
       {
         "type": "instruction",
         "content": {
-          "text": "Well done.\n\nSummary.\n\nIf you’re up for it, you can continue with this mission.\n\nmission description"
+          "text": "Well done for practicing gratitude and counteracting some of the negativity bias nature has equipped us with. The next step is to share your gratitude letter with the person you wrote to. If you want to, read it out aloud to them."
         }
       }
     ],
@@ -464,24 +519,43 @@
     },
     "hidden": false,
     "locked": true,
+    "name": "PsyPal Gratitude letters",
     "live": true,
-    "published": false,
+    "published": true,
     "excludeFromWeb": false,
-    "asyncDuration": 10,
+    "asyncDuration": 20,
+    "coCreators": [
+      {
+        "name": "Jenny Rickardsson, script and voice",
+        "url": "https://www.linkedin.com/in/jenny-rickardson-6770a959/",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413228/Contributors/Jenny%20Rickardsson.jpg"
+      },
+      {
+        "name": "Ints Ivanovskis, art works",
+        "url": "https://www.linkedin.com/in/ints-ivanovskis-46ab0311a/?originalSubdomain=se",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413436/Contributors/Ints%20Ivanovskis.jpg"
+      }
+    ],
     "introPortal": {
       "textColor": "#2AE2D7",
       "hostNotes": [
         {
           "text": "> Start the session when you're ready to go"
         }
-      ]
+      ],
+      "videoLoop": {
+        "p5JsScript": {
+          "lang": "javascript"
+        }
+      }
     },
     "tags": [
       "43a6dc0d-d866-4b79-9453-13c44e906128",
       "8da0534a-5da9-430a-bdf3-242ace6460fb"
     ],
     "id": "e52b3b32-f2a2-4d09-a3b1-4a186998c980",
-    "async": false
+    "async": true,
+    "description": "Our minds are often set to focus on the negative. In this exercise we practice the opposite - expressing gratitude for some of the things in life we are grateful for. It can help us feel more fulfilled and happy, regardless of where we are in life."
   },
   "cs": {
     "liveDuration": 30,
@@ -498,6 +572,12 @@
         ]
       },
       {
+        "type": "instruction",
+        "content": {
+          "text": "Our brains have developed to focus on the negative - threats, dangers, things that need fixing. That has helped humans survive for tens of thousands of years - but is not very helpful for feeling good or happy. In this exercise you’ll practice paying attention to the things we tend to take for granted, the things we are grateful for."
+        }
+      },
+      {
         "type": "content",
         "hostNotes": [
           {
@@ -514,7 +594,10 @@
           {
             "text": "You can take notes on a piece of paper or just mental notes in your head. And there is no right or wrong here, our answers are our own. 1 minute starting now.\n\n> Press play to start the timer.\n\nThat’s 1 minute and it’s time to move on."
           }
-        ]
+        ],
+        "content": {
+          "text": "How did you feel practicing gratitude?"
+        }
       },
       {
         "type": "sharing",
@@ -529,7 +612,10 @@
             "text": "Who would like to start?\n\n> Let everyone (or as many as you got time for) share one by one. Press play to start the timer. Re-start for each new sharing.\n\nThank you so much everyone."
           }
         ],
-        "id": "Sharing 1"
+        "id": "Sharing 1",
+        "content": {
+          "text": "How did you feel practicing gratitude?"
+        }
       },
       {
         "type": "host",
@@ -548,7 +634,7 @@
       {
         "type": "instruction",
         "content": {
-          "text": "Well done.\n\nSummary.\n\nIf you’re up for it, you can continue with this mission.\n\nmission description"
+          "text": "Well done for practicing gratitude and counteracting some of the negativity bias nature has equipped us with. The next step is to share your gratitude letter with the person you wrote to. If you want to, read it out aloud to them."
         }
       }
     ],
@@ -557,24 +643,43 @@
     },
     "hidden": false,
     "locked": true,
+    "name": "PsyPal Gratitude letters",
     "live": true,
-    "published": false,
+    "published": true,
     "excludeFromWeb": false,
-    "asyncDuration": 10,
+    "asyncDuration": 20,
+    "coCreators": [
+      {
+        "name": "Jenny Rickardsson, script and voice",
+        "url": "https://www.linkedin.com/in/jenny-rickardson-6770a959/",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413228/Contributors/Jenny%20Rickardsson.jpg"
+      },
+      {
+        "name": "Ints Ivanovskis, art works",
+        "url": "https://www.linkedin.com/in/ints-ivanovskis-46ab0311a/?originalSubdomain=se",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413436/Contributors/Ints%20Ivanovskis.jpg"
+      }
+    ],
     "introPortal": {
       "textColor": "#2AE2D7",
       "hostNotes": [
         {
           "text": "> Start the session when you're ready to go"
         }
-      ]
+      ],
+      "videoLoop": {
+        "p5JsScript": {
+          "lang": "javascript"
+        }
+      }
     },
     "tags": [
       "43a6dc0d-d866-4b79-9453-13c44e906128",
       "8da0534a-5da9-430a-bdf3-242ace6460fb"
     ],
     "id": "e52b3b32-f2a2-4d09-a3b1-4a186998c980",
-    "async": false
+    "async": true,
+    "description": "Our minds are often set to focus on the negative. In this exercise we practice the opposite - expressing gratitude for some of the things in life we are grateful for. It can help us feel more fulfilled and happy, regardless of where we are in life."
   },
   "nl": {
     "liveDuration": 30,
@@ -591,12 +696,24 @@
         ]
       },
       {
+        "type": "instruction",
+        "content": {
+          "text": "Onze hersenen zijn zo gemaakt dat ze vooral letten op negatieve dingen: gevaren, bedreigingen, dingen die kapot zijn. Dat heeft mensen tienduizenden jaren geholpen om te overleven – maar het helpt niet echt om je goed of gelukkig te voelen. In deze oefening ga je oefenen met letten op de dingen die we normaal vinden, de dingen waar we dankbaar voor zijn."
+        }
+      },
+      {
         "type": "content",
         "hostNotes": [
           {
             "text": "Find a comfortable position. I will start the audio exercise and we'll meet back here afterwards. \n\n> Push play to start the audio exercise"
           }
-        ]
+        ],
+        "content": {
+          "lottie": {
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1738770384/Audio/psypal-GratitudeLetters1R_NL_vssixs.mp3",
+            "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1739175774/SRT%20(captions)%20files/GratitudeLetters_NL_yzwqxy.srt"
+          }
+        }
       },
       {
         "type": "reflection",
@@ -607,7 +724,11 @@
           {
             "text": "You can take notes on a piece of paper or just mental notes in your head. And there is no right or wrong here, our answers are our own. 1 minute starting now.\n\n> Press play to start the timer.\n\nThat’s 1 minute and it’s time to move on."
           }
-        ]
+        ],
+        "content": {
+          "text": "",
+          "heading": "Hoe voelde het om dankbaarheid te beoefenen?"
+        }
       },
       {
         "type": "sharing",
@@ -622,7 +743,11 @@
             "text": "Who would like to start?\n\n> Let everyone (or as many as you got time for) share one by one. Press play to start the timer. Re-start for each new sharing.\n\nThank you so much everyone."
           }
         ],
-        "id": "Sharing 1"
+        "id": "Sharing 1",
+        "content": {
+          "text": "",
+          "heading": "Hoe voelde het om dankbaarheid te beoefenen?"
+        }
       },
       {
         "type": "host",
@@ -641,33 +766,57 @@
       {
         "type": "instruction",
         "content": {
-          "text": "Well done.\n\nSummary.\n\nIf you’re up for it, you can continue with this mission.\n\nmission description"
+          "text": "Goed gedaan met het oefenen van dankbaarheid! Het is goed om te oefenen met het tegenovergestelde van alleen maar letten op negatieve dingen.\n\nAls het kan, bedank dan ook echt de persoon aan wie je de bedankbrief hebt geschreven. We raden aan om met diegene af te spreken en je brief hardop voor te lezen."
         }
       }
     ],
     "theme": {
-      "textColor": "#2AE2D7"
+      "textColor": "#2E2E2E"
     },
     "hidden": false,
     "locked": true,
+    "name": "PsyPal Gratitude letters",
     "live": true,
-    "published": false,
+    "published": true,
     "excludeFromWeb": false,
-    "asyncDuration": 10,
+    "asyncDuration": 20,
+    "coCreators": [
+      {
+        "name": "Jenny Rickardsson, script",
+        "url": "https://www.linkedin.com/in/jenny-rickardson-6770a959/",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413228/Contributors/Jenny%20Rickardsson.jpg"
+      },
+      {
+        "name": "Ints Ivanovskis, art works",
+        "url": "https://www.linkedin.com/in/ints-ivanovskis-46ab0311a/?originalSubdomain=se",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413436/Contributors/Ints%20Ivanovskis.jpg"
+      },
+      {
+        "name": "Mila W, voice",
+        "url": "https://www.fiverr.com/milawilde/deliver-affordable-studio-quality-dutch-female-voiceovers?utm_campaign=gigs_show_buyers&utm_medium=shared&utm_source=copy_link&utm_term=ldlnlap",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1737469735/Contributors/MilaW_demgfw.jpg"
+      }
+    ],
     "introPortal": {
       "textColor": "#2AE2D7",
       "hostNotes": [
         {
           "text": "> Start the session when you're ready to go"
         }
-      ]
+      ],
+      "videoLoop": {
+        "p5JsScript": {
+          "lang": "javascript"
+        }
+      }
     },
     "tags": [
       "43a6dc0d-d866-4b79-9453-13c44e906128",
       "8da0534a-5da9-430a-bdf3-242ace6460fb"
     ],
     "id": "e52b3b32-f2a2-4d09-a3b1-4a186998c980",
-    "async": false
+    "async": true,
+    "description": "Onze gedachten zijn vaak gericht op negatieve dingen. In deze oefening doen we het tegenovergestelde: we zeggen waar we dankbaar voor zijn in ons leven. Dit kan ons helpen om meer tevreden en gelukkig te zijn, waar we ook zijn in ons leven."
   },
   "es": {
     "liveDuration": 30,
@@ -746,7 +895,7 @@
     "live": true,
     "published": false,
     "excludeFromWeb": false,
-    "asyncDuration": 10,
+    "asyncDuration": 20,
     "introPortal": {
       "textColor": "#2AE2D7",
       "hostNotes": [
