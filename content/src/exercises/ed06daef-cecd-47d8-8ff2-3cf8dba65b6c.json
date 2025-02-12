@@ -669,8 +669,8 @@
           },
           "video": {
             "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1737620719/Video/timer_Hope_music_exercise_II_yqpfp7.mp4",
-            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1731416921/Audio/PsyPal_Hope_music_exc_II_idyonq.mp3",
-            "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1731416778/SRT%20(captions)%20files/PsyPal_Hope_music_exc_II_ktul5r.srt"
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1738770382/Audio/psyapl-SkyGazing1R_NL_niuf2p.mp3",
+            "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1739175774/SRT%20(captions)%20files/SkyGazing_NL_dmp7fn.srt"
           }
         }
       },
@@ -744,7 +744,7 @@
     "hidden": false,
     "locked": true,
     "name": "PsyPal Hope - music exercise II",
-    "live": true,
+    "live": false,
     "published": true,
     "excludeFromWeb": false,
     "asyncDuration": 15,
