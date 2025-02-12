@@ -698,7 +698,7 @@
       {
         "type": "instruction",
         "content": {
-          "text": "Our brains have developed to focus on the negative - threats, dangers, things that need fixing. That has helped humans survive for tens of thousands of years - but is not very helpful for feeling good or happy. In this exercise you’ll practice paying attention to the things we tend to take for granted, the things we are grateful for."
+          "text": "Onze hersenen zijn zo gemaakt dat ze vooral letten op negatieve dingen: gevaren, bedreigingen, dingen die kapot zijn. Dat heeft mensen tienduizenden jaren geholpen om te overleven – maar het helpt niet echt om je goed of gelukkig te voelen. In deze oefening ga je oefenen met letten op de dingen die we normaal vinden, de dingen waar we dankbaar voor zijn."
         }
       },
       {
@@ -707,7 +707,13 @@
           {
             "text": "Find a comfortable position. I will start the audio exercise and we'll meet back here afterwards. \n\n> Push play to start the audio exercise"
           }
-        ]
+        ],
+        "content": {
+          "lottie": {
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1738770384/Audio/psypal-GratitudeLetters1R_NL_vssixs.mp3",
+            "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1739175774/SRT%20(captions)%20files/GratitudeLetters_NL_yzwqxy.srt"
+          }
+        }
       },
       {
         "type": "reflection",
@@ -720,7 +726,8 @@
           }
         ],
         "content": {
-          "text": "How did you feel practicing gratitude?"
+          "text": "",
+          "heading": "Hoe voelde het om dankbaarheid te beoefenen?"
         }
       },
       {
@@ -738,7 +745,8 @@
         ],
         "id": "Sharing 1",
         "content": {
-          "text": "How did you feel practicing gratitude?"
+          "text": "",
+          "heading": "Hoe voelde het om dankbaarheid te beoefenen?"
         }
       },
       {
@@ -758,7 +766,7 @@
       {
         "type": "instruction",
         "content": {
-          "text": "Well done for practicing gratitude and counteracting some of the negativity bias nature has equipped us with. The next step is to share your gratitude letter with the person you wrote to. If you want to, read it out aloud to them."
+          "text": "Goed gedaan met het oefenen van dankbaarheid! Het is goed om te oefenen met het tegenovergestelde van alleen maar letten op negatieve dingen.\n\nAls het kan, bedank dan ook echt de persoon aan wie je de bedankbrief hebt geschreven. We raden aan om met diegene af te spreken en je brief hardop voor te lezen."
         }
       }
     ],
@@ -782,6 +790,11 @@
         "name": "Ints Ivanovskis, art works",
         "url": "https://www.linkedin.com/in/ints-ivanovskis-46ab0311a/?originalSubdomain=se",
         "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413436/Contributors/Ints%20Ivanovskis.jpg"
+      },
+      {
+        "name": "Mila W, voice",
+        "url": "https://www.fiverr.com/milawilde/deliver-affordable-studio-quality-dutch-female-voiceovers?utm_campaign=gigs_show_buyers&utm_medium=shared&utm_source=copy_link&utm_term=ldlnlap",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1737469735/Contributors/MilaW_demgfw.jpg"
       }
     ],
     "introPortal": {
@@ -803,7 +816,7 @@
     ],
     "id": "e52b3b32-f2a2-4d09-a3b1-4a186998c980",
     "async": true,
-    "description": "Our minds are often set to focus on the negative. In this exercise we practice the opposite - expressing gratitude for some of the things in life we are grateful for. It can help us feel more fulfilled and happy, regardless of where we are in life."
+    "description": "Onze gedachten zijn vaak gericht op negatieve dingen. In deze oefening doen we het tegenovergestelde: we zeggen waar we dankbaar voor zijn in ons leven. Dit kan ons helpen om meer tevreden en gelukkig te zijn, waar we ook zijn in ons leven."
   },
   "es": {
     "liveDuration": 30,
