@@ -776,7 +776,7 @@
     "hidden": false,
     "locked": true,
     "name": "PsyPal Gratitude letters",
-    "live": true,
+    "live": false,
     "published": true,
     "excludeFromWeb": false,
     "asyncDuration": 20,
