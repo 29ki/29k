@@ -89,7 +89,7 @@
     "live": false,
     "published": true,
     "excludeFromWeb": false,
-    "asyncDuration": 10,
+    "asyncDuration": 20,
     "coCreators": [
       {
         "name": "Jenny Rickardsson, script and voice",
@@ -213,7 +213,7 @@
     "live": true,
     "published": true,
     "excludeFromWeb": false,
-    "asyncDuration": 10,
+    "asyncDuration": 20,
     "coCreators": [
       {
         "name": "Jenny Rickardsson, script and voice",
@@ -324,7 +324,7 @@
     "live": true,
     "published": false,
     "excludeFromWeb": false,
-    "asyncDuration": 10,
+    "asyncDuration": 20,
     "introPortal": {
       "textColor": "#2AE2D7",
       "hostNotes": [
@@ -417,7 +417,7 @@
     "live": true,
     "published": false,
     "excludeFromWeb": false,
-    "asyncDuration": 10,
+    "asyncDuration": 20,
     "introPortal": {
       "textColor": "#2AE2D7",
       "hostNotes": [
@@ -523,7 +523,7 @@
     "live": true,
     "published": true,
     "excludeFromWeb": false,
-    "asyncDuration": 10,
+    "asyncDuration": 20,
     "coCreators": [
       {
         "name": "Jenny Rickardsson, script and voice",
@@ -647,7 +647,7 @@
     "live": true,
     "published": true,
     "excludeFromWeb": false,
-    "asyncDuration": 10,
+    "asyncDuration": 20,
     "coCreators": [
       {
         "name": "Jenny Rickardsson, script and voice",
@@ -771,10 +771,10 @@
     "live": true,
     "published": true,
     "excludeFromWeb": false,
-    "asyncDuration": 10,
+    "asyncDuration": 20,
     "coCreators": [
       {
-        "name": "Jenny Rickardsson, script and voice",
+        "name": "Jenny Rickardsson, script",
         "url": "https://www.linkedin.com/in/jenny-rickardson-6770a959/",
         "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413228/Contributors/Jenny%20Rickardsson.jpg"
       },
@@ -882,7 +882,7 @@
     "live": true,
     "published": false,
     "excludeFromWeb": false,
-    "asyncDuration": 10,
+    "asyncDuration": 20,
     "introPortal": {
       "textColor": "#2AE2D7",
       "hostNotes": [
