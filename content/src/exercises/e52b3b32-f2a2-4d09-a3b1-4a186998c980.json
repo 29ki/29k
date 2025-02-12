@@ -138,6 +138,12 @@
         ]
       },
       {
+        "type": "instruction",
+        "content": {
+          "text": "Our brains have developed to focus on the negative - threats, dangers, things that need fixing. That has helped humans survive for tens of thousands of years - but is not very helpful for feeling good or happy. In this exercise you’ll practice paying attention to the things we tend to take for granted, the things we are grateful for."
+        }
+      },
+      {
         "type": "content",
         "hostNotes": [
           {
@@ -154,7 +160,10 @@
           {
             "text": "You can take notes on a piece of paper or just mental notes in your head. And there is no right or wrong here, our answers are our own. 1 minute starting now.\n\n> Press play to start the timer.\n\nThat’s 1 minute and it’s time to move on."
           }
-        ]
+        ],
+        "content": {
+          "text": "How did you feel practicing gratitude?"
+        }
       },
       {
         "type": "sharing",
@@ -169,7 +178,10 @@
             "text": "Who would like to start?\n\n> Let everyone (or as many as you got time for) share one by one. Press play to start the timer. Re-start for each new sharing.\n\nThank you so much everyone."
           }
         ],
-        "id": "Sharing 1"
+        "id": "Sharing 1",
+        "content": {
+          "text": "How did you feel practicing gratitude?"
+        }
       },
       {
         "type": "host",
@@ -188,7 +200,7 @@
       {
         "type": "instruction",
         "content": {
-          "text": "Well done.\n\nSummary.\n\nIf you’re up for it, you can continue with this mission.\n\nmission description"
+          "text": "Well done for practicing gratitude and counteracting some of the negativity bias nature has equipped us with. The next step is to share your gratitude letter with the person you wrote to. If you want to, read it out aloud to them."
         }
       }
     ],
@@ -197,10 +209,23 @@
     },
     "hidden": false,
     "locked": true,
+    "name": "PsyPal Gratitude letters",
     "live": true,
-    "published": false,
+    "published": true,
     "excludeFromWeb": false,
     "asyncDuration": 10,
+    "coCreators": [
+      {
+        "name": "Jenny Rickardsson, script and voice",
+        "url": "https://www.linkedin.com/in/jenny-rickardson-6770a959/",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413228/Contributors/Jenny%20Rickardsson.jpg"
+      },
+      {
+        "name": "Ints Ivanovskis, art works",
+        "url": "https://www.linkedin.com/in/ints-ivanovskis-46ab0311a/?originalSubdomain=se",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413436/Contributors/Ints%20Ivanovskis.jpg"
+      }
+    ],
     "introPortal": {
       "textColor": "#2AE2D7",
       "hostNotes": [
@@ -219,7 +244,8 @@
       "8da0534a-5da9-430a-bdf3-242ace6460fb"
     ],
     "id": "e52b3b32-f2a2-4d09-a3b1-4a186998c980",
-    "async": false
+    "async": true,
+    "description": "Our minds are often set to focus on the negative. In this exercise we practice the opposite - expressing gratitude for some of the things in life we are grateful for. It can help us feel more fulfilled and happy, regardless of where we are in life."
   },
   "sv": {
     "liveDuration": 30,
@@ -422,6 +448,12 @@
         ]
       },
       {
+        "type": "instruction",
+        "content": {
+          "text": "Our brains have developed to focus on the negative - threats, dangers, things that need fixing. That has helped humans survive for tens of thousands of years - but is not very helpful for feeling good or happy. In this exercise you’ll practice paying attention to the things we tend to take for granted, the things we are grateful for."
+        }
+      },
+      {
         "type": "content",
         "hostNotes": [
           {
@@ -438,7 +470,10 @@
           {
             "text": "You can take notes on a piece of paper or just mental notes in your head. And there is no right or wrong here, our answers are our own. 1 minute starting now.\n\n> Press play to start the timer.\n\nThat’s 1 minute and it’s time to move on."
           }
-        ]
+        ],
+        "content": {
+          "text": "How did you feel practicing gratitude?"
+        }
       },
       {
         "type": "sharing",
@@ -453,7 +488,10 @@
             "text": "Who would like to start?\n\n> Let everyone (or as many as you got time for) share one by one. Press play to start the timer. Re-start for each new sharing.\n\nThank you so much everyone."
           }
         ],
-        "id": "Sharing 1"
+        "id": "Sharing 1",
+        "content": {
+          "text": "How did you feel practicing gratitude?"
+        }
       },
       {
         "type": "host",
@@ -472,7 +510,7 @@
       {
         "type": "instruction",
         "content": {
-          "text": "Well done.\n\nSummary.\n\nIf you’re up for it, you can continue with this mission.\n\nmission description"
+          "text": "Well done for practicing gratitude and counteracting some of the negativity bias nature has equipped us with. The next step is to share your gratitude letter with the person you wrote to. If you want to, read it out aloud to them."
         }
       }
     ],
@@ -481,24 +519,43 @@
     },
     "hidden": false,
     "locked": true,
+    "name": "PsyPal Gratitude letters",
     "live": true,
-    "published": false,
+    "published": true,
     "excludeFromWeb": false,
     "asyncDuration": 10,
+    "coCreators": [
+      {
+        "name": "Jenny Rickardsson, script and voice",
+        "url": "https://www.linkedin.com/in/jenny-rickardson-6770a959/",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413228/Contributors/Jenny%20Rickardsson.jpg"
+      },
+      {
+        "name": "Ints Ivanovskis, art works",
+        "url": "https://www.linkedin.com/in/ints-ivanovskis-46ab0311a/?originalSubdomain=se",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413436/Contributors/Ints%20Ivanovskis.jpg"
+      }
+    ],
     "introPortal": {
       "textColor": "#2AE2D7",
       "hostNotes": [
         {
           "text": "> Start the session when you're ready to go"
         }
-      ]
+      ],
+      "videoLoop": {
+        "p5JsScript": {
+          "lang": "javascript"
+        }
+      }
     },
     "tags": [
       "43a6dc0d-d866-4b79-9453-13c44e906128",
       "8da0534a-5da9-430a-bdf3-242ace6460fb"
     ],
     "id": "e52b3b32-f2a2-4d09-a3b1-4a186998c980",
-    "async": false
+    "async": true,
+    "description": "Our minds are often set to focus on the negative. In this exercise we practice the opposite - expressing gratitude for some of the things in life we are grateful for. It can help us feel more fulfilled and happy, regardless of where we are in life."
   },
   "cs": {
     "liveDuration": 30,
@@ -515,6 +572,12 @@
         ]
       },
       {
+        "type": "instruction",
+        "content": {
+          "text": "Our brains have developed to focus on the negative - threats, dangers, things that need fixing. That has helped humans survive for tens of thousands of years - but is not very helpful for feeling good or happy. In this exercise you’ll practice paying attention to the things we tend to take for granted, the things we are grateful for."
+        }
+      },
+      {
         "type": "content",
         "hostNotes": [
           {
@@ -531,7 +594,10 @@
           {
             "text": "You can take notes on a piece of paper or just mental notes in your head. And there is no right or wrong here, our answers are our own. 1 minute starting now.\n\n> Press play to start the timer.\n\nThat’s 1 minute and it’s time to move on."
           }
-        ]
+        ],
+        "content": {
+          "text": "How did you feel practicing gratitude?"
+        }
       },
       {
         "type": "sharing",
@@ -546,7 +612,10 @@
             "text": "Who would like to start?\n\n> Let everyone (or as many as you got time for) share one by one. Press play to start the timer. Re-start for each new sharing.\n\nThank you so much everyone."
           }
         ],
-        "id": "Sharing 1"
+        "id": "Sharing 1",
+        "content": {
+          "text": "How did you feel practicing gratitude?"
+        }
       },
       {
         "type": "host",
@@ -565,7 +634,7 @@
       {
         "type": "instruction",
         "content": {
-          "text": "Well done.\n\nSummary.\n\nIf you’re up for it, you can continue with this mission.\n\nmission description"
+          "text": "Well done for practicing gratitude and counteracting some of the negativity bias nature has equipped us with. The next step is to share your gratitude letter with the person you wrote to. If you want to, read it out aloud to them."
         }
       }
     ],
@@ -574,24 +643,43 @@
     },
     "hidden": false,
     "locked": true,
+    "name": "PsyPal Gratitude letters",
     "live": true,
-    "published": false,
+    "published": true,
     "excludeFromWeb": false,
     "asyncDuration": 10,
+    "coCreators": [
+      {
+        "name": "Jenny Rickardsson, script and voice",
+        "url": "https://www.linkedin.com/in/jenny-rickardson-6770a959/",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413228/Contributors/Jenny%20Rickardsson.jpg"
+      },
+      {
+        "name": "Ints Ivanovskis, art works",
+        "url": "https://www.linkedin.com/in/ints-ivanovskis-46ab0311a/?originalSubdomain=se",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413436/Contributors/Ints%20Ivanovskis.jpg"
+      }
+    ],
     "introPortal": {
       "textColor": "#2AE2D7",
       "hostNotes": [
         {
           "text": "> Start the session when you're ready to go"
         }
-      ]
+      ],
+      "videoLoop": {
+        "p5JsScript": {
+          "lang": "javascript"
+        }
+      }
     },
     "tags": [
       "43a6dc0d-d866-4b79-9453-13c44e906128",
       "8da0534a-5da9-430a-bdf3-242ace6460fb"
     ],
     "id": "e52b3b32-f2a2-4d09-a3b1-4a186998c980",
-    "async": false
+    "async": true,
+    "description": "Our minds are often set to focus on the negative. In this exercise we practice the opposite - expressing gratitude for some of the things in life we are grateful for. It can help us feel more fulfilled and happy, regardless of where we are in life."
   },
   "nl": {
     "liveDuration": 30,
@@ -684,6 +772,18 @@
     "published": true,
     "excludeFromWeb": false,
     "asyncDuration": 10,
+    "coCreators": [
+      {
+        "name": "Jenny Rickardsson, script and voice",
+        "url": "https://www.linkedin.com/in/jenny-rickardson-6770a959/",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413228/Contributors/Jenny%20Rickardsson.jpg"
+      },
+      {
+        "name": "Ints Ivanovskis, art works",
+        "url": "https://www.linkedin.com/in/ints-ivanovskis-46ab0311a/?originalSubdomain=se",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413436/Contributors/Ints%20Ivanovskis.jpg"
+      }
+    ],
     "introPortal": {
       "textColor": "#2AE2D7",
       "hostNotes": [
