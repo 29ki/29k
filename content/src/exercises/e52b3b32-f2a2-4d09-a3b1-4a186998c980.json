@@ -25,7 +25,13 @@
           {
             "text": "Find a comfortable position. I will start the audio exercise and we'll meet back here afterwards. \n\n> Push play to start the audio exercise"
           }
-        ]
+        ],
+        "content": {
+          "lottie": {
+            "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1739460219/SRT%20(captions)%20files/PsyPal_Gratitude_letters_ud2uqg.srt",
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1739460180/Audio/PsyPal_Gratitude_letters_nd2o8r.mp3"
+          }
+        }
       },
       {
         "type": "reflection",
