@@ -32,7 +32,9 @@
         ],
         "content": {
           "video": {
-            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1737803438/Video/timer_memory_box_g0wklz.mp4"
+            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1737803438/Video/timer_memory_box_g0wklz.mp4",
+            "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1739812045/SRT%20(captions)%20files/PsyPal_The_memory_box_yhsbnc.srt",
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1739812095/Audio/PsyPal_The_memory_box_o4c68i.mp3"
           }
         }
       },
@@ -63,7 +65,10 @@
             "text": "Who would like to start?\n\n> Let everyone (or as many as you got time for) share one by one. Press play to start the timer. Re-start for each new sharing.\n\nThank you so much everyone."
           }
         ],
-        "id": "Sharing 1"
+        "id": "Sharing 1",
+        "content": {
+          "heading": "How did you experience thinking of your own memory box?"
+        }
       },
       {
         "type": "host",
@@ -82,7 +87,7 @@
       {
         "type": "instruction",
         "content": {
-          "text": "A basic fact of life is that it is followed by death. Well done for daring to think about your own mortality for a few minutes. \n\nIf you want to involve someone else in making your memory box, a first step is to reach out to them. If you want to make your box on your own, take notes on your next steps somewhere only you can see it.",
+          "text": "A basic fact of life is that it is followed by death. Well done for daring to think about your own mortality for a few minutes. \n\nIf you want to involve someone else in making a memory box, a first step is to reach out to them. If you want to make a box on your own, take notes on your next steps somewhere only you can see it.",
           "image": {
             "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1737803289/Images/image_33_memory_box_jxsiwf.png"
           }
