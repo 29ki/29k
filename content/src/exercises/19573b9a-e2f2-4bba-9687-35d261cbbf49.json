@@ -103,7 +103,7 @@
     "name": "PsyPal The memory box",
     "live": false,
     "published": true,
-    "asyncDuration": 10,
+    "asyncDuration": 15,
     "card": {
       "image": {
         "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1737188068/Images/image_1_memory_box_zzn2wn.png"
@@ -223,7 +223,7 @@
     "locked": true,
     "live": true,
     "published": false,
-    "asyncDuration": 10,
+    "asyncDuration": 15,
     "card": {},
     "introPortal": {
       "textColor": "#2AE2D7",
@@ -316,7 +316,7 @@
     "locked": true,
     "live": true,
     "published": false,
-    "asyncDuration": 10,
+    "asyncDuration": 15,
     "card": {},
     "introPortal": {
       "textColor": "#2AE2D7",
@@ -409,7 +409,7 @@
     "locked": true,
     "live": true,
     "published": false,
-    "asyncDuration": 10,
+    "asyncDuration": 15,
     "card": {},
     "introPortal": {
       "textColor": "#2AE2D7",
@@ -433,7 +433,8 @@
     "tags": [
       "34100e43-2eb8-4d35-8eb0-9fa9f78e4935",
       "43a6dc0d-d866-4b79-9453-13c44e906128"
-    ]
+    ],
+    "asyncDuration": 15
   },
   "cs": {
     "id": "19573b9a-e2f2-4bba-9687-35d261cbbf49",
@@ -442,7 +443,8 @@
     "tags": [
       "34100e43-2eb8-4d35-8eb0-9fa9f78e4935",
       "43a6dc0d-d866-4b79-9453-13c44e906128"
-    ]
+    ],
+    "asyncDuration": 15
   },
   "nl": {
     "id": "19573b9a-e2f2-4bba-9687-35d261cbbf49",
@@ -451,7 +453,8 @@
     "tags": [
       "34100e43-2eb8-4d35-8eb0-9fa9f78e4935",
       "43a6dc0d-d866-4b79-9453-13c44e906128"
-    ]
+    ],
+    "asyncDuration": 15
   },
   "es": {
     "id": "19573b9a-e2f2-4bba-9687-35d261cbbf49",
@@ -460,6 +463,7 @@
     "tags": [
       "34100e43-2eb8-4d35-8eb0-9fa9f78e4935",
       "43a6dc0d-d866-4b79-9453-13c44e906128"
-    ]
+    ],
+    "asyncDuration": 15
   }
 }
