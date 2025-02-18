@@ -20,13 +20,19 @@
     "published": true
   },
   "da": {
-    "id": "34100e43-2eb8-4d35-8eb0-9fa9f78e4935"
+    "id": "34100e43-2eb8-4d35-8eb0-9fa9f78e4935",
+    "name": "Accept",
+    "published": true
   },
   "cs": {
-    "id": "34100e43-2eb8-4d35-8eb0-9fa9f78e4935"
+    "id": "34100e43-2eb8-4d35-8eb0-9fa9f78e4935",
+    "name": "Přijetí",
+    "published": true
   },
   "nl": {
-    "id": "34100e43-2eb8-4d35-8eb0-9fa9f78e4935"
+    "id": "34100e43-2eb8-4d35-8eb0-9fa9f78e4935",
+    "name": "Acceptatie",
+    "published": true
   },
   "es": {
     "name": "Aceptación",
