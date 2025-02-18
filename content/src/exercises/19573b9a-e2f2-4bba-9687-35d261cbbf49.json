@@ -99,10 +99,10 @@
       "backgroundColor": "#e2d002"
     },
     "hidden": false,
-    "locked": true,
-    "name": "PsyPal The memory box",
+    "locked": false,
+    "name": "The memory box",
     "live": false,
-    "published": true,
+    "published": false,
     "asyncDuration": 15,
     "card": {
       "image": {
@@ -220,7 +220,7 @@
       "textColor": "#2AE2D7"
     },
     "hidden": false,
-    "locked": true,
+    "locked": false,
     "live": true,
     "published": false,
     "asyncDuration": 15,
@@ -231,7 +231,12 @@
         {
           "text": "> Start the session when you're ready to go"
         }
-      ]
+      ],
+      "videoLoop": {
+        "p5JsScript": {
+          "lang": "javascript"
+        }
+      }
     },
     "tags": [
       "34100e43-2eb8-4d35-8eb0-9fa9f78e4935",
@@ -313,7 +318,7 @@
       "textColor": "#2AE2D7"
     },
     "hidden": false,
-    "locked": true,
+    "locked": false,
     "live": true,
     "published": false,
     "asyncDuration": 15,
@@ -406,7 +411,7 @@
       "textColor": "#2AE2D7"
     },
     "hidden": false,
-    "locked": true,
+    "locked": false,
     "live": true,
     "published": false,
     "asyncDuration": 15,
@@ -429,37 +434,58 @@
   "da": {
     "id": "19573b9a-e2f2-4bba-9687-35d261cbbf49",
     "card": {},
-    "locked": true,
+    "locked": false,
     "tags": [
       "34100e43-2eb8-4d35-8eb0-9fa9f78e4935",
       "43a6dc0d-d866-4b79-9453-13c44e906128"
     ],
-    "asyncDuration": 15
+    "asyncDuration": 15,
+    "introPortal": {
+      "videoLoop": {
+        "p5JsScript": {
+          "lang": "javascript"
+        }
+      }
+    }
   },
   "cs": {
     "id": "19573b9a-e2f2-4bba-9687-35d261cbbf49",
     "card": {},
-    "locked": true,
+    "locked": false,
     "tags": [
       "34100e43-2eb8-4d35-8eb0-9fa9f78e4935",
       "43a6dc0d-d866-4b79-9453-13c44e906128"
     ],
-    "asyncDuration": 15
+    "asyncDuration": 15,
+    "introPortal": {
+      "videoLoop": {
+        "p5JsScript": {
+          "lang": "javascript"
+        }
+      }
+    }
   },
   "nl": {
     "id": "19573b9a-e2f2-4bba-9687-35d261cbbf49",
     "card": {},
-    "locked": true,
+    "locked": false,
     "tags": [
       "34100e43-2eb8-4d35-8eb0-9fa9f78e4935",
       "43a6dc0d-d866-4b79-9453-13c44e906128"
     ],
-    "asyncDuration": 15
+    "asyncDuration": 15,
+    "introPortal": {
+      "videoLoop": {
+        "p5JsScript": {
+          "lang": "javascript"
+        }
+      }
+    }
   },
   "es": {
     "id": "19573b9a-e2f2-4bba-9687-35d261cbbf49",
     "card": {},
-    "locked": true,
+    "locked": false,
     "tags": [
       "34100e43-2eb8-4d35-8eb0-9fa9f78e4935",
       "43a6dc0d-d866-4b79-9453-13c44e906128"
