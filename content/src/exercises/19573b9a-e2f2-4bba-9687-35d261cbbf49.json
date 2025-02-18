@@ -6,7 +6,7 @@
         "type": "instruction",
         "content": {
           "heading": "",
-          "text": "In this exercise you'll start thinking about what memories you would like to leave behind for your loved ones when you are gone. \n\nYou'll need peace and quiet, and somewhere to take notes.",
+          "text": "Our brains have developed to focus on the negative - threats, dangers, things that need fixing. That has helped humans survive for tens of thousands of years - but is not very helpful for feeling good or happy. \n\nIn this exercise you’ll practice paying attention to the things we tend to take for granted, the things we are grateful for.",
           "image": {
             "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1737803288/Images/image_22_memory_box_y1uq7b.png"
           }
@@ -33,8 +33,8 @@
         "content": {
           "video": {
             "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1737803438/Video/timer_memory_box_g0wklz.mp4",
-            "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1739812045/SRT%20(captions)%20files/PsyPal_The_memory_box_yhsbnc.srt",
-            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1739812095/Audio/PsyPal_The_memory_box_o4c68i.mp3"
+            "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1739460219/SRT%20%28captions%29%20files/PsyPal_Gratitude_letters_ud2uqg.srt",
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1739460180/Audio/PsyPal_Gratitude_letters_nd2o8r.mp3"
           }
         }
       },
@@ -49,7 +49,7 @@
           }
         ],
         "content": {
-          "heading": "How did you experience thinking of your own memory box?"
+          "heading": "How did you experience expressing gratitude?"
         }
       },
       {
@@ -67,7 +67,7 @@
         ],
         "id": "Sharing 1",
         "content": {
-          "heading": "How did you experience thinking of your own memory box?"
+          "heading": "How did you experience expressing gratitude?"
         }
       },
       {
@@ -87,7 +87,7 @@
       {
         "type": "instruction",
         "content": {
-          "text": "A basic fact of life is that it is followed by death. Well done for daring to think about your own mortality for a few minutes. \n\nIf you want to involve someone else in making a memory box, a first step is to reach out to them. If you want to make a box on your own, take notes on your next steps somewhere only you can see it.",
+          "text": "Well done for practicing gratitude and counteracting some of the negativity bias nature has equipped us with. If it’s possible, express your gratitude towards the person you wrote the letter of gratitude to.\n\nWe recommend meeting them in person and read your letter out loud to them.",
           "image": {
             "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1737803289/Images/image_33_memory_box_jxsiwf.png"
           }
@@ -100,7 +100,7 @@
     },
     "hidden": false,
     "locked": true,
-    "name": "PsyPal The memory box",
+    "name": "PsyPal Gratitude letters n",
     "live": false,
     "published": true,
     "asyncDuration": 15,
@@ -145,7 +145,7 @@
     ],
     "id": "19573b9a-e2f2-4bba-9687-35d261cbbf49",
     "async": true,
-    "description": "In this exercise you'll reflect on moments that you have appreciated in life, and recall some past memories. Also, you’ll start thinking of what you would like to leave behind for your loved ones when you, some time in the future, are gone."
+    "description": "Our minds are often set to focus on the negative. In this exercise we practice the opposite - expressing gratitude for some of the things in life we are grateful for. It can help us feel more fulfilled and happy, regardless of where we are in life."
   },
   "pt": {
     "liveDuration": 30,
