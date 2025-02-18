@@ -519,7 +519,7 @@
       {
         "type": "instruction",
         "content": {
-          "text": "Součástí tohoto cvičení bude relaxace, skenování vašich tělesných pocitů, slovem vedená vizualizace s hudbou a nakonec se vydáte na vlastní cestu jen s hudbou.\n\nZáměrem je učit se prožívat změněný stav vědomí.",
+          "text": "Vydáte na vlastní cestu jen s hudbou.\n\nZáměrem je učit se prožívat změněný stav vědomí.",
           "image": {
             "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1731849005/Images/visual_noBG_Music_I_music_only_ou4vlx.png"
           }
@@ -583,7 +583,7 @@
     },
     "hidden": false,
     "locked": true,
-    "name": "PsyPal hudební cvičení I - music only",
+    "name": "PsyPal hudební cvičení I - pouze hudba",
     "published": true,
     "asyncDuration": 15,
     "card": {
@@ -621,7 +621,7 @@
     ],
     "id": "f2c88307-b02e-4456-a81c-79b84c10ae04",
     "async": true,
-    "description": "Cvičení všímavosti a vizualizace s hudbou může pomoci naší mysli prožívat změněné stavy vědomí. Může být cestou, jak se uvolnit, nabrat nové síly a uzemnit se ve svém těle."
+    "description": "Vydejte se na cestu, vedeni pouze hudbou. Hudba nám může pomoci cvičit změněné stavy vědomí."
   },
   "nl": {
     "liveDuration": 30,
