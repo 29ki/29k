@@ -224,6 +224,7 @@
     },
     "hidden": false,
     "locked": true,
+    "name": "Estar com o que é",
     "live": true,
     "published": false,
     "asyncDuration": 15,
@@ -597,7 +598,15 @@
     "id": "dc38ce25-e0f3-465f-8df0-70b5f5089ce9",
     "card": {},
     "locked": true,
-    "asyncDuration": 15
+    "asyncDuration": 15,
+    "introPortal": {
+      "videoLoop": {
+        "p5JsScript": {
+          "lang": "javascript"
+        }
+      }
+    },
+    "name": "PsyPal Být s tím, co je"
   },
   "nl": {
     "liveDuration": 30,
@@ -707,7 +716,7 @@
       "backgroundColor": "#cf400c"
     },
     "locked": true,
-    "name": "PsyPal Acceptance practice ",
+    "name": "PsyPal Zijn met wat is",
     "published": true,
     "asyncDuration": 15,
     "card": {
