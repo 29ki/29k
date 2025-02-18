@@ -68,7 +68,7 @@
     },
     "hidden": false,
     "locked": true,
-    "name": "PsyPal Music exercise I - music only",
+    "name": "PsyPal The meadow - music only",
     "published": true,
     "asyncDuration": 15,
     "card": {
@@ -101,7 +101,9 @@
         "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1731849053/Video/portal_2_Music_I_music_only_mvxv0s.mp4"
       }
     },
-    "tags": ["566aeb1b-1649-4f5a-96a2-0c80be27efc0"],
+    "tags": [
+      "566aeb1b-1649-4f5a-96a2-0c80be27efc0"
+    ],
     "id": "f2c88307-b02e-4456-a81c-79b84c10ae04",
     "async": true,
     "description": "Let the music accompany you on a journey without guidance."
@@ -210,7 +212,9 @@
         "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1731849053/Video/portal_2_Music_I_music_only_mvxv0s.mp4"
       }
     },
-    "tags": ["566aeb1b-1649-4f5a-96a2-0c80be27efc0"],
+    "tags": [
+      "566aeb1b-1649-4f5a-96a2-0c80be27efc0"
+    ],
     "id": "f2c88307-b02e-4456-a81c-79b84c10ae04",
     "async": true,
     "description": "Técnicas de mindfulness e de visualização/imagética guiada pela música podem ajudar os nossos cérebros a praticar estados de consciência alterados. Podem ser uma forma de relaxarmos e nos situarmos nos nossos corpos."
@@ -301,7 +305,9 @@
         }
       ]
     },
-    "tags": ["566aeb1b-1649-4f5a-96a2-0c80be27efc0"],
+    "tags": [
+      "566aeb1b-1649-4f5a-96a2-0c80be27efc0"
+    ],
     "id": "f2c88307-b02e-4456-a81c-79b84c10ae04",
     "async": false
   },
@@ -391,7 +397,9 @@
         }
       ]
     },
-    "tags": ["566aeb1b-1649-4f5a-96a2-0c80be27efc0"],
+    "tags": [
+      "566aeb1b-1649-4f5a-96a2-0c80be27efc0"
+    ],
     "id": "f2c88307-b02e-4456-a81c-79b84c10ae04",
     "async": false
   },
@@ -401,7 +409,7 @@
       {
         "type": "instruction",
         "content": {
-          "text": "I denne øvelse vil du blive guidet til at slappe af, foretage en  kropsscanning, udføre en visualiseringsøvelse med musik og til sidst begive dig ud på din egen rejse, kun guidet af musikken.\n\nHensigten med dette er at øve det at være i en ændret bevidsthedstilstand.",
+          "text": "Begive dig ud på din egen rejse, kun guidet af musikken.\n\nHensigten med dette er at øve det at være i en ændret bevidsthedstilstand.",
           "image": {
             "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1731849005/Images/visual_noBG_Music_I_music_only_ou4vlx.png"
           }
@@ -465,7 +473,7 @@
     },
     "hidden": false,
     "locked": true,
-    "name": "PsyPal musikøvelse I - music only",
+    "name": "PsyPal Engen - kun musik",
     "published": true,
     "asyncDuration": 15,
     "card": {
@@ -498,10 +506,12 @@
         "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1731849053/Video/portal_2_Music_I_music_only_mvxv0s.mp4"
       }
     },
-    "tags": ["566aeb1b-1649-4f5a-96a2-0c80be27efc0"],
+    "tags": [
+      "566aeb1b-1649-4f5a-96a2-0c80be27efc0"
+    ],
     "id": "f2c88307-b02e-4456-a81c-79b84c10ae04",
     "async": true,
-    "description": "Mindfulness og musik-guidet visualisering kan hjælpe os til at træde ind i en let ændret bevidsthedstilstand, samt slappe af, genstarte, og komme i kontakt med kroppen."
+    "description": "Musik kan hjælpe os til at træde ind i en let ændret bevidsthedstilstand, samt slappe af, genstarte, og komme i kontakt med kroppen."
   },
   "cs": {
     "liveDuration": 30,
@@ -606,7 +616,9 @@
         "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1731849053/Video/portal_2_Music_I_music_only_mvxv0s.mp4"
       }
     },
-    "tags": ["566aeb1b-1649-4f5a-96a2-0c80be27efc0"],
+    "tags": [
+      "566aeb1b-1649-4f5a-96a2-0c80be27efc0"
+    ],
     "id": "f2c88307-b02e-4456-a81c-79b84c10ae04",
     "async": true,
     "description": "Cvičení všímavosti a vizualizace s hudbou může pomoci naší mysli prožívat změněné stavy vědomí. Může být cestou, jak se uvolnit, nabrat nové síly a uzemnit se ve svém těle."
@@ -715,7 +727,9 @@
         "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1731849053/Video/portal_2_Music_I_music_only_mvxv0s.mp4"
       }
     },
-    "tags": ["566aeb1b-1649-4f5a-96a2-0c80be27efc0"],
+    "tags": [
+      "566aeb1b-1649-4f5a-96a2-0c80be27efc0"
+    ],
     "id": "f2c88307-b02e-4456-a81c-79b84c10ae04",
     "async": true,
     "description": "Mindfulness en visualisatie begeleid door muziek kunnen onze hersenen helpen oefenen in het ervaren van veranderde bewustzijnstoestanden. Het kan een manier zijn om te ontspannen, te resetten en onszelf te aarden in ons lichaam."
@@ -724,6 +738,8 @@
     "card": {},
     "id": "f2c88307-b02e-4456-a81c-79b84c10ae04",
     "locked": true,
-    "tags": ["566aeb1b-1649-4f5a-96a2-0c80be27efc0"]
+    "tags": [
+      "566aeb1b-1649-4f5a-96a2-0c80be27efc0"
+    ]
   }
 }
