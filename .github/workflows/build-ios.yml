@@ -96,7 +96,7 @@ jobs:
 
       - name: Cache Shared Dependencies
         id: cache-shared-node-modules
-        uses: actions/cache@v2
+        uses: actions/cache@v4
         with:
           path: ./shared/node_modules
           key: shared-node-modules-${{ hashFiles('./shared/yarn.lock') }}
@@ -108,7 +108,7 @@ jobs:
 
       - name: Cache Content Dependencies
         id: cache-content-node-modules
-        uses: actions/cache@v2
+        uses: actions/cache@v4
         with:
           path: ./content/node_modules
           key: content-node-modules-${{ hashFiles('./content/yarn.lock') }}
@@ -120,7 +120,7 @@ jobs:
 
       - name: Cache Client Dependencies
         id: cache-client-osx-node-modules
-        uses: actions/cache@v2
+        uses: actions/cache@v4
         with:
           path: ./client/node_modules
           key: client-osx-node-modules-${{ hashFiles('./client/yarn.lock') }}
@@ -132,7 +132,7 @@ jobs:
 
       - name: Cache Client Cocoapods Dependencies
         id: cache-client-pods
-        uses: actions/cache@v2
+        uses: actions/cache@v4
         with:
           path: ./client/ios/Pods
           key: client-pods-${{ hashFiles('./client/ios/Podfile.lock') }}
