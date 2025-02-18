@@ -94,10 +94,10 @@
       "textColor": "#2E2E2E"
     },
     "hidden": false,
-    "locked": true,
-    "name": "PsyPal Gratitude letters",
+    "locked": false,
+    "name": "PsyPal Scrambled ex",
     "live": false,
-    "published": true,
+    "published": false,
     "excludeFromWeb": false,
     "asyncDuration": 20,
     "coCreators": [
@@ -130,8 +130,8 @@
       "8da0534a-5da9-430a-bdf3-242ace6460fb"
     ],
     "id": "e52b3b32-f2a2-4d09-a3b1-4a186998c980",
-    "async": true,
-    "description": "Our minds are often set to focus on the negative. In this exercise we practice the opposite - expressing gratitude for some of the things in life we are grateful for. It can help us feel more fulfilled and happy, regardless of where we are in life."
+    "async": false,
+    "description": ""
   },
   "pt": {
     "liveDuration": 30,
@@ -218,7 +218,7 @@
       "textColor": "#2AE2D7"
     },
     "hidden": false,
-    "locked": true,
+    "locked": false,
     "name": "PsyPal Gratitude letters",
     "live": true,
     "published": true,
@@ -330,7 +330,7 @@
       "textColor": "#2AE2D7"
     },
     "hidden": false,
-    "locked": true,
+    "locked": false,
     "live": true,
     "published": false,
     "excludeFromWeb": false,
@@ -423,7 +423,7 @@
       "textColor": "#2AE2D7"
     },
     "hidden": false,
-    "locked": true,
+    "locked": false,
     "live": true,
     "published": false,
     "excludeFromWeb": false,
@@ -528,7 +528,7 @@
       "textColor": "#2AE2D7"
     },
     "hidden": false,
-    "locked": true,
+    "locked": false,
     "name": "PsyPal Gratitude letters",
     "live": true,
     "published": true,
@@ -652,7 +652,7 @@
       "textColor": "#2AE2D7"
     },
     "hidden": false,
-    "locked": true,
+    "locked": false,
     "name": "PsyPal Gratitude letters",
     "live": true,
     "published": true,
@@ -784,7 +784,7 @@
       "textColor": "#2E2E2E"
     },
     "hidden": false,
-    "locked": true,
+    "locked": false,
     "name": "PsyPal Gratitude letters",
     "live": false,
     "published": true,
@@ -901,7 +901,7 @@
       "textColor": "#2AE2D7"
     },
     "hidden": false,
-    "locked": true,
+    "locked": false,
     "live": true,
     "published": false,
     "excludeFromWeb": false,
