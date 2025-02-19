@@ -266,11 +266,11 @@
       "textColor": "#2E2E2E",
       "backgroundColor": "#c7bea2"
     },
-    "hidden": true,
+    "hidden": false,
     "locked": true,
     "name": "Os meus valores",
     "live": false,
-    "published": true,
+    "published": false,
     "asyncDuration": 15,
     "card": {
       "image": {
@@ -633,7 +633,7 @@
         "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413228/Contributors/Jenny%20Rickardsson.jpg"
       },
       {
-        "name": "Catharina Messell",
+        "name": "Catharina Messell, voice",
         "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1734343422/Contributors/Catharina_Messel_Da_PsyPal.png",
         "url": "https://palliativeprojects.eu/psypal/university-of-copenhagen/"
       }
@@ -773,7 +773,7 @@
       "textColor": "#2E2E2E",
       "backgroundColor": "#c7bea2"
     },
-    "hidden": true,
+    "hidden": false,
     "locked": true,
     "name": "Moje hodnoty",
     "live": false,
@@ -794,6 +794,11 @@
         "name": "Jenny Rickardsson, script, editor",
         "url": "https://www.linkedin.com/in/jenny-rickardson-6770a959/",
         "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413228/Contributors/Jenny%20Rickardsson.jpg"
+      },
+      {
+        "name": "Petra Valikova, voice",
+        "url": "https://www.petravalikova.cz/",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1738658028/Contributors/PetraValikova_g3nnac.jpg"
       }
     ],
     "introPortal": {
