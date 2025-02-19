@@ -53,10 +53,10 @@ jobs:
         run: ./scripts/getGitCommitShort.sh >> $GITHUB_ENV
 
       - name: Create Dotenv File
-        uses: iamsauravsharma/create-dotenv@v1.2.1
+        uses: iamsauravsharma/create-dotenv@v3.1.1
         with:
-          env-prefix: DOTENV_
-          directory: ./functions
+          input-prefix: DOTENV_
+          file-path: ./functions/.env
         env:
           DOTENV_GIT_COMMIT_SHORT: ${{ env.GIT_COMMIT_SHORT }}
 
