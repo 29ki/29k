@@ -777,7 +777,7 @@
         "type": "instruction",
         "content": {
           "heading": "",
-          "text": "Our brains have developed to focus on the negative - threats, dangers, things that need fixing. That has helped humans survive for tens of thousands of years - but is not very helpful for feeling good or happy. \n\nIn this exercise you’ll practice paying attention to the things we tend to take for granted, the things we are grateful for.",
+          "text": "Onze hersenen zijn zo gemaakt dat ze vooral letten op negatieve dingen: gevaren, bedreigingen, dingen die kapot zijn. Dat heeft mensen tienduizenden jaren geholpen om te overleven – maar het helpt niet echt om je goed of gelukkig te voelen. \n\nIn deze oefening ga je oefenen met letten op de dingen die we normaal vinden, de dingen waar we dankbaar voor zijn.",
           "image": {
             "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1737803288/Images/image_22_memory_box_y1uq7b.png"
           }
@@ -804,8 +804,8 @@
         "content": {
           "video": {
             "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1737803438/Video/timer_memory_box_g0wklz.mp4",
-            "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1739460219/SRT%20%28captions%29%20files/PsyPal_Gratitude_letters_ud2uqg.srt",
-            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1739460180/Audio/PsyPal_Gratitude_letters_nd2o8r.mp3"
+            "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1739175774/SRT%20(captions)%20files/GratitudeLetters_NL_yzwqxy.srt",
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1738770384/Audio/psypal-GratitudeLetters1R_NL_vssixs.mp3"
           }
         }
       },
@@ -820,7 +820,7 @@
           }
         ],
         "content": {
-          "heading": "How did you experience expressing gratitude?"
+          "heading": "Hoe voelde het om dankbaarheid te beoefenen?"
         }
       },
       {
@@ -838,7 +838,7 @@
         ],
         "id": "Sharing 1",
         "content": {
-          "heading": "How did you experience expressing gratitude?"
+          "heading": "Hoe voelde het om dankbaarheid te beoefenen?"
         }
       },
       {
@@ -858,7 +858,7 @@
       {
         "type": "instruction",
         "content": {
-          "text": "Well done for practicing gratitude and counteracting some of the negativity bias nature has equipped us with. If it’s possible, express your gratitude towards the person you wrote the letter of gratitude to.\n\nWe recommend meeting them in person and read your letter out loud to them.",
+          "text": "Goed gedaan met het oefenen van dankbaarheid! Het is goed om te oefenen met het tegenovergestelde van alleen maar letten op negatieve dingen.\n\nAls het kan, bedank dan ook echt de persoon aan wie je de bedankbrief hebt geschreven. We raden aan om met diegene af te spreken en je brief hardop voor te lezen.",
           "image": {
             "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1737803289/Images/image_33_memory_box_jxsiwf.png"
           }
@@ -870,7 +870,7 @@
       "backgroundColor": "#e2d002"
     },
     "locked": true,
-    "name": "PsyPal Gratitude letters",
+    "name": "PsyPal Dankbaarheidsbrieven",
     "published": true,
     "asyncDuration": 15,
     "card": {
@@ -880,7 +880,7 @@
     },
     "coCreators": [
       {
-        "name": "Jenny Rickardsson, script and voice",
+        "name": "Jenny Rickardsson, script",
         "url": "https://www.linkedin.com/in/jenny-rickardson-6770a959/",
         "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413228/Contributors/Jenny%20Rickardsson.jpg"
       },
@@ -888,6 +888,11 @@
         "name": "Ints Ivanovskis, art works",
         "url": "https://www.linkedin.com/in/ints-ivanovskis-46ab0311a/",
         "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413436/Contributors/Ints%20Ivanovskis.jpg"
+      },
+      {
+        "name": "Mila W",
+        "url": "https://www.fiverr.com/milawilde?source=inbox",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1737469735/Contributors/MilaW_demgfw.jpg"
       }
     ],
     "outroPortal": {
@@ -914,7 +919,7 @@
     ],
     "id": "19573b9a-e2f2-4bba-9687-35d261cbbf49",
     "async": true,
-    "description": "Our minds are often set to focus on the negative. In this exercise we practice the opposite - expressing gratitude for some of the things in life we are grateful for. It can help us feel more fulfilled and happy, regardless of where we are in life."
+    "description": "Onze gedachten zijn vaak gericht op negatieve dingen. In deze oefening doen we het tegenovergestelde: we zeggen waar we dankbaar voor zijn in ons leven. Dit kan ons helpen om meer tevreden en gelukkig te zijn, waar we ook zijn in ons leven."
   },
   "es": {
     "id": "19573b9a-e2f2-4bba-9687-35d261cbbf49",
