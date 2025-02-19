@@ -47,15 +47,15 @@ jobs:
       - uses: actions/checkout@v2
 
       - name: Use Node.js v18.18
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
           node-version: 18.18
 
       - name: Create Dotenv File
-        uses: iamsauravsharma/create-dotenv@v1.2.1
+        uses: iamsauravsharma/create-dotenv@v3.1.1
         with:
-          env-prefix: DOTENV_
-          directory: ./client
+          input-prefix: DOTENV_
+          file-path: ./client/.env
 
       - name: Cache Shared Dependencies
         id: cache-shared-node-modules
