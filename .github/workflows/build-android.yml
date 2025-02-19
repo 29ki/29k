@@ -48,7 +48,7 @@ jobs:
       ANDROID_GOOGLE_PLAY_SERVICE_FILE: ./google-play-service.json
 
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v3
         with:
           lfs: 'true'
 
@@ -65,15 +65,15 @@ jobs:
           ruby-version: 2.7.2
 
       - name: Use Node.js v18.18
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v3
         with:
           node-version: 18.18
 
       - name: Create Dotenv File
-        uses: iamsauravsharma/create-dotenv@v3.1.1
+        uses: iamsauravsharma/create-dotenv@v1.2.1
         with:
-          input-prefix: DOTENV_
-          file-path: ./client/.env
+          env-prefix: DOTENV_
+          directory: ./client
 
       - name: Create google-play-service.json
         working-directory: ./client
