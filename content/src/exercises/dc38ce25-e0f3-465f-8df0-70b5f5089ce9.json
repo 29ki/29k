@@ -540,7 +540,7 @@
       "backgroundColor": "#cf400c"
     },
     "locked": true,
-    "name": "PsyPal At være med det som er ",
+    "name": "At være med det som er ",
     "published": true,
     "asyncDuration": 15,
     "card": {
@@ -606,7 +606,7 @@
         }
       }
     },
-    "name": "PsyPal Být s tím, co je"
+    "name": "Být s tím, co je"
   },
   "nl": {
     "liveDuration": 30,
@@ -716,7 +716,7 @@
       "backgroundColor": "#cf400c"
     },
     "locked": true,
-    "name": "PsyPal Zijn met wat is",
+    "name": "Zijn met wat is",
     "published": true,
     "asyncDuration": 15,
     "card": {
