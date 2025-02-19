@@ -44,7 +44,7 @@ jobs:
       - uses: actions/checkout@v2
 
       - name: Use Node.js v18.18
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v3
         with:
           node-version: 18.18
 
@@ -53,10 +53,10 @@ jobs:
         run: ./scripts/getGitCommitShort.sh >> $GITHUB_ENV
 
       - name: Create Dotenv File
-        uses: iamsauravsharma/create-dotenv@v3.1.1
+        uses: iamsauravsharma/create-dotenv@v1.2.1
         with:
-          input-prefix: DOTENV_
-          file-path: ./functions/.env
+          env-prefix: DOTENV_
+          directory: ./functions
         env:
           DOTENV_GIT_COMMIT_SHORT: ${{ env.GIT_COMMIT_SHORT }}
 
