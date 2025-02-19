@@ -114,7 +114,7 @@
       {
         "type": "instruction",
         "content": {
-          "text": "Neste exercício será orientado para relaxar, fazer uma exploração corporal consciente, fazer uma tarefa de visualização com música e, no final, embarcar na sua própria viagem, guiado apenas pela música.\n\nA intenção é de praticar um estado alterado de consciência.",
+          "text": "Embarcar na sua própria viagem, guiado apenas pela música.\n\nA intenção é de praticar um estado alterado de consciência.",
           "image": {
             "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1731849005/Images/visual_noBG_Music_I_music_only_ou4vlx.png"
           }
@@ -217,7 +217,7 @@
     ],
     "id": "f2c88307-b02e-4456-a81c-79b84c10ae04",
     "async": true,
-    "description": "Técnicas de mindfulness e de visualização/imagética guiada pela música podem ajudar os nossos cérebros a praticar estados de consciência alterados. Podem ser uma forma de relaxarmos e nos situarmos nos nossos corpos."
+    "description": "Técnicas de mindfulness e de visualização/imagética pela música podem ajudar os nossos cérebros a praticar estados de consciência alterados. Podem ser uma forma de relaxarmos e nos situarmos nos nossos corpos."
   },
   "sv": {
     "liveDuration": 30,
