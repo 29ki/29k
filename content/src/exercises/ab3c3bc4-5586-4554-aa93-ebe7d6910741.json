@@ -98,7 +98,7 @@
       {
         "type": "instruction",
         "content": {
-          "text": "Well done. Experiencing kind actions and actin with kindness can improve our collaborating skills and foster a sense of belonging. If you’re up for it, you can continue with a mission to bring this into your everyday life.\n\nPlan a simple act of kindness you can do during the day, and notice how it affects others as well as yourself.",
+          "text": "Well done. Experiencing kind actions and acting with kindness can improve our collaborating skills and foster a sense of belonging. If you’re up for it, you can continue with a mission to bring this into your everyday life.\n\nPlan a simple act of kindness you can do during the day, and notice how it affects others as well as yourself.",
           "image": {
             "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1709149023/Images/Collaboraiting_async_image_uwgqr1.png"
           }
@@ -219,6 +219,9 @@
     "id": "ab3c3bc4-5586-4554-aa93-ebe7d6910741"
   },
   "es": {
-    "id": "ab3c3bc4-5586-4554-aa93-ebe7d6910741"
+    "id": "ab3c3bc4-5586-4554-aa93-ebe7d6910741",
+    "tags": [
+      "43a6dc0d-d866-4b79-9453-13c44e906128"
+    ]
   }
 }
