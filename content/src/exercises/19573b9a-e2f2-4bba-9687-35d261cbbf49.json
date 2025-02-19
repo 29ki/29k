@@ -637,7 +637,7 @@
         "type": "instruction",
         "content": {
           "heading": "",
-          "text": "Our brains have developed to focus on the negative - threats, dangers, things that need fixing. That has helped humans survive for tens of thousands of years - but is not very helpful for feeling good or happy. \n\nIn this exercise you’ll practice paying attention to the things we tend to take for granted, the things we are grateful for.",
+          "text": "Náš mozek se vyvinul tak, aby se soustředil na negativní věci - hrozby, nebezpečí a věci, které je třeba napravit. To pomáhalo lidem přežít desítky tisíc let. Není to ale příliš užitečné, abychom se cítili dobře nebo šťastně. \n\nV tomto cvičení budeme věnovat pozornost věcem, které považujeme za samozřejmé, věcem, za které jsme vděční.",
           "image": {
             "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1737803288/Images/image_22_memory_box_y1uq7b.png"
           }
@@ -664,8 +664,8 @@
         "content": {
           "video": {
             "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1737803438/Video/timer_memory_box_g0wklz.mp4",
-            "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1739460219/SRT%20%28captions%29%20files/PsyPal_Gratitude_letters_ud2uqg.srt",
-            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1739460180/Audio/PsyPal_Gratitude_letters_nd2o8r.mp3"
+            "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1739871885/SRT%20(captions)%20files/PsyPal_Gratitude_letters_Dopisy_vdecnosti_CZ_bup65i.srt",
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1739871441/Audio/PsyPal_Gratitude_letters_Dopisy_vdecnosti_CZ_r82jyx.mp3"
           }
         }
       },
@@ -680,7 +680,7 @@
           }
         ],
         "content": {
-          "heading": "How did you experience expressing gratitude?"
+          "heading": "Jak jste prožili vyjádření vděčnosti?"
         }
       },
       {
@@ -698,7 +698,7 @@
         ],
         "id": "Sharing 1",
         "content": {
-          "heading": "How did you experience expressing gratitude?"
+          "heading": "Jak jste prožili vyjádření vděčnosti?"
         }
       },
       {
@@ -718,7 +718,7 @@
       {
         "type": "instruction",
         "content": {
-          "text": "Well done for practicing gratitude and counteracting some of the negativity bias nature has equipped us with. If it’s possible, express your gratitude towards the person you wrote the letter of gratitude to.\n\nWe recommend meeting them in person and read your letter out loud to them.",
+          "text": "Výborně. Procvičili jste vyjadřování vděčnosti, a tak vyvážili přirozenou tendenci vidět především negativní věci.\n\nPokud je to možné, vyjádřete svou vděčnost osobě, které jste dopis vděčnosti napsali. Doporučujeme setkat se osobně a přečíst jí váš dopis nahlas.",
           "image": {
             "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1737803289/Images/image_33_memory_box_jxsiwf.png"
           }
@@ -730,7 +730,7 @@
       "backgroundColor": "#e2d002"
     },
     "locked": true,
-    "name": "PsyPal Gratitude letters",
+    "name": "PsyPal Dopisy vděčnosti",
     "published": true,
     "asyncDuration": 15,
     "card": {
@@ -740,7 +740,7 @@
     },
     "coCreators": [
       {
-        "name": "Jenny Rickardsson, script and voice",
+        "name": "Jenny Rickardsson, script",
         "url": "https://www.linkedin.com/in/jenny-rickardson-6770a959/",
         "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413228/Contributors/Jenny%20Rickardsson.jpg"
       },
@@ -748,6 +748,11 @@
         "name": "Ints Ivanovskis, art works",
         "url": "https://www.linkedin.com/in/ints-ivanovskis-46ab0311a/",
         "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413436/Contributors/Ints%20Ivanovskis.jpg"
+      },
+      {
+        "name": "Petra Valikova, voice",
+        "url": "https://www.petravalikova.cz/",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1738658028/Contributors/PetraValikova_g3nnac.jpg"
       }
     ],
     "outroPortal": {
@@ -774,7 +779,7 @@
     ],
     "id": "19573b9a-e2f2-4bba-9687-35d261cbbf49",
     "async": true,
-    "description": "Our minds are often set to focus on the negative. In this exercise we practice the opposite - expressing gratitude for some of the things in life we are grateful for. It can help us feel more fulfilled and happy, regardless of where we are in life."
+    "description": "Naše mysl je často nastavena tak, že se soustředí na negativní věci. V tomto cvičení praktikujeme opak. Vyjadřujeme vděčnost za některé hodnotné věci v našem životě. Může nám to pomoci cítit se více naplněni a šťastní, bez ohledu na to, kde se v životě nacházíme."
   },
   "nl": {
     "slides": [
