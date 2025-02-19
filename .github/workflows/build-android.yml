@@ -48,7 +48,7 @@ jobs:
       ANDROID_GOOGLE_PLAY_SERVICE_FILE: ./google-play-service.json
 
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
         with:
           lfs: 'true'
 
