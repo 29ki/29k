@@ -585,7 +585,7 @@
       "backgroundColor": "#e2d002"
     },
     "locked": true,
-    "name": "PsyPal Taknemmelighedsbreve",
+    "name": "Taknemmelighedsbreve",
     "published": true,
     "asyncDuration": 15,
     "card": {
@@ -735,7 +735,7 @@
       "backgroundColor": "#e2d002"
     },
     "locked": true,
-    "name": "PsyPal Dopisy vděčnosti",
+    "name": "Dopisy vděčnosti",
     "published": true,
     "asyncDuration": 15,
     "card": {
@@ -885,7 +885,7 @@
       "backgroundColor": "#e2d002"
     },
     "locked": true,
-    "name": "PsyPal Dankbaarheidsbrieven",
+    "name": "Dankbaarheidsbrieven",
     "published": true,
     "asyncDuration": 15,
     "card": {
