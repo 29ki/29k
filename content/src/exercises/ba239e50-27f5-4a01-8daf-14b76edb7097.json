@@ -157,12 +157,28 @@
         ]
       },
       {
+        "type": "instruction",
+        "content": {
+          "text": "Lean back and watch the sky in this mindfulness exercise. Practice being in the present moment can help us feel happier and more connected. To do this exercise, you can be outside or by a window.",
+          "image": {
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1737187816/Images/image_1_Sky_gazing_mr701r.png"
+          }
+        }
+      },
+      {
         "type": "content",
         "hostNotes": [
           {
             "text": "Find a comfortable position. I will start the audio exercise and we'll meet back here afterwards. \n\n> Push play to start the audio exercise"
           }
-        ]
+        ],
+        "content": {
+          "lottie": {
+            "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1731943873/SRT%20%28captions%29%20files/PsyPal_Sky_gazing_vzyxtn.srt",
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1731943961/Audio/PsyPal_Sky_gazing_tksnyo.mp3",
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto/v1737270342/Lottie/audio_visual_Sky_gazing_edhwfl.json"
+          }
+        }
       },
       {
         "type": "reflection",
@@ -173,7 +189,10 @@
           {
             "text": "You can take notes on a piece of paper or just mental notes in your head. And there is no right or wrong here, our answers are our own. 1 minute starting now.\n\n> Press play to start the timer.\n\nThat’s 1 minute and it’s time to move on."
           }
-        ]
+        ],
+        "content": {
+          "heading": "How did you experience to sky gaze?"
+        }
       },
       {
         "type": "sharing",
@@ -207,32 +226,64 @@
       {
         "type": "instruction",
         "content": {
-          "text": "Well done.\n\nSummary.\n\nIf you’re up for it, you can continue with this mission.\n\nmission description"
+          "text": "Welcome back, and well done. Practicing letting things come and go both on the inside and the outside can help us feel grounded and more satisfied with life.",
+          "image": {
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1737187815/Images/image_2_Sky_gazing_copu05.png"
+          }
         }
       }
     ],
     "theme": {
-      "textColor": "#2AE2D7"
+      "textColor": "#2E2E2E",
+      "backgroundColor": "#27acc8"
     },
     "hidden": false,
     "locked": true,
+    "name": "Sky gazing",
     "live": true,
-    "published": false,
+    "published": true,
     "asyncDuration": 10,
-    "card": {},
+    "card": {
+      "image": {
+        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1737187816/Images/image_3_Sky_gazing_la4ogp.png"
+      }
+    },
+    "coCreators": [
+      {
+        "name": "Jenny Rickardsson, script and voice",
+        "url": "https://www.linkedin.com/in/jenny-rickardson-6770a959/",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1682602411/Images/Jenny_Rickardsson_kopia_sdodwf.jpg"
+      },
+      {
+        "name": "Ints Ivanovskis, art works",
+        "url": "https://www.linkedin.com/in/ints-ivanovskis-46ab0311a/?originalSubdomain=se",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413436/Contributors/Ints%20Ivanovskis.jpg"
+      }
+    ],
+    "outroPortal": {
+      "desktopOptimized": true
+    },
     "introPortal": {
-      "textColor": "#2AE2D7",
+      "textColor": "#2E2E2E",
       "hostNotes": [
         {
           "text": "> Start the session when you're ready to go"
         }
-      ]
+      ],
+      "videoLoop": {
+        "p5JsScript": {
+          "lang": "javascript"
+        },
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1737192863/Video/portal1_sky_gazing_color_corection_qtq8bz.mp4"
+      },
+      "desktopOptimized": true
     },
     "tags": [
       "566aeb1b-1649-4f5a-96a2-0c80be27efc0"
     ],
     "id": "ba239e50-27f5-4a01-8daf-14b76edb7097",
-    "async": false
+    "async": true,
+    "description": "A mindful exercise where you practice being with what is - in the sky right now. Note that you need to be outside or by a window to do this exercise."
   },
   "sv": {
     "liveDuration": 30,
@@ -517,7 +568,7 @@
       "backgroundColor": "#27acc8"
     },
     "locked": true,
-    "name": "PsyPal Sky gazing",
+    "name": "Sky gazing",
     "published": true,
     "asyncDuration": 10,
     "card": {
@@ -666,7 +717,7 @@
       "backgroundColor": "#27acc8"
     },
     "locked": true,
-    "name": "PsyPal Pozorovani oblohy",
+    "name": "Pozorovani oblohy",
     "published": true,
     "asyncDuration": 10,
     "card": {
@@ -815,7 +866,7 @@
       "backgroundColor": "#27acc8"
     },
     "locked": true,
-    "name": "PsyPal Sky gazing",
+    "name": "Sky gazing",
     "published": true,
     "asyncDuration": 10,
     "card": {
