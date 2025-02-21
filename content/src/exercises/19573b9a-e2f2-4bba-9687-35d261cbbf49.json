@@ -154,7 +154,7 @@
         "type": "instruction",
         "content": {
           "heading": "",
-          "text": "Our brains have developed to focus on the negative - threats, dangers, things that need fixing. That has helped humans survive for tens of thousands of years - but is not very helpful for feeling good or happy. \n\nIn this exercise you’ll practice paying attention to the things we tend to take for granted, the things we are grateful for.",
+          "text": "Os nossos cérebros desenvolveram-se para se concentrarem no negativo - ameaças, perigos, coisas que precisam de ser corrigidas. Isto ajudou os humanos a sobreviver durante dezenas de milhares de anos - mas não é muito útil para nos sentirmos bem ou felizes. \n\nNeste exercício, vai praticar dar atenção às coisas que tendemos a tomar como garantidas.",
           "image": {
             "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1737803288/Images/image_22_memory_box_y1uq7b.png"
           }
@@ -181,8 +181,8 @@
         "content": {
           "video": {
             "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1737803438/Video/timer_memory_box_g0wklz.mp4",
-            "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1739460219/SRT%20%28captions%29%20files/PsyPal_Gratitude_letters_ud2uqg.srt",
-            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1739460180/Audio/PsyPal_Gratitude_letters_nd2o8r.mp3"
+            "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1740128818/SRT%20(captions)%20files/PsyPal_Gratitude_letters_Pt_ow0kuh.srt",
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1740128856/Audio/PsyPal_Gratitude_letters_Pt_fiwkqr.mp3"
           }
         }
       },
@@ -197,7 +197,7 @@
           }
         ],
         "content": {
-          "heading": "How did you experience expressing gratitude?"
+          "heading": "Como foi expressar gratidão?"
         }
       },
       {
@@ -215,7 +215,7 @@
         ],
         "id": "Sharing 1",
         "content": {
-          "heading": "How did you experience expressing gratitude?"
+          "heading": "Como foi expressar gratidão?"
         }
       },
       {
@@ -235,7 +235,7 @@
       {
         "type": "instruction",
         "content": {
-          "text": "Well done for practicing gratitude and counteracting some of the negativity bias nature has equipped us with. If it’s possible, express your gratitude towards the person you wrote the letter of gratitude to.\n\nWe recommend meeting them in person and read your letter out loud to them.",
+          "text": "Excelente exercício de gratidão e de neutralização de algumas das tendências negativas com que a natureza nos dotou. \nSe for possível, exprima a sua gratidão à pessoa a quem escreveu a carta de agradecimento. Recomendamos que se encontre com ela pessoalmente e que lhe leia a sua carta em voz alta.",
           "image": {
             "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1737803289/Images/image_33_memory_box_jxsiwf.png"
           }
@@ -248,7 +248,7 @@
     },
     "hidden": false,
     "locked": true,
-    "name": "PsyPal Gratitude letters",
+    "name": "Cartas de agradecimento",
     "live": true,
     "published": true,
     "asyncDuration": 15,
@@ -259,7 +259,7 @@
     },
     "coCreators": [
       {
-        "name": "Jenny Rickardsson, script and voice",
+        "name": "Jenny Rickardsson, script",
         "url": "https://www.linkedin.com/in/jenny-rickardson-6770a959/",
         "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413228/Contributors/Jenny%20Rickardsson.jpg"
       },
@@ -267,6 +267,11 @@
         "name": "Ints Ivanovskis, art works",
         "url": "https://www.linkedin.com/in/ints-ivanovskis-46ab0311a/",
         "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413436/Contributors/Ints%20Ivanovskis.jpg"
+      },
+      {
+        "name": "Florbela Silva, voice",
+        "url": "https://www.linkedin.com/in/florbela-silva/?originalSubdomain=pt",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1727943392/FJN/People/Florbela_Silva_bd0qx9.jpg"
       }
     ],
     "outroPortal": {
@@ -293,7 +298,7 @@
     ],
     "id": "19573b9a-e2f2-4bba-9687-35d261cbbf49",
     "async": true,
-    "description": "Our minds are often set to focus on the negative. In this exercise we practice the opposite - expressing gratitude for some of the things in life we are grateful for. It can help us feel more fulfilled and happy, regardless of where we are in life."
+    "description": "As nossas mentes estão muitas vezes formatadas para se concentrarem no negativo.\nNeste exercício, praticamos o oposto - expressar gratidão por algumas das coisas da vida pelas quais estamos agradecidos. Isto pode ajudar-nos a sentirmo-nos mais realizados e felizes, independentemente da fase da vida em que nos encontramos."
   },
   "sv": {
     "liveDuration": 30,
