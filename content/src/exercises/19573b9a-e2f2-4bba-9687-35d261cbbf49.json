@@ -249,7 +249,7 @@
     "hidden": false,
     "locked": true,
     "name": "Cartas de agradecimento",
-    "live": true,
+    "live": false,
     "published": true,
     "asyncDuration": 15,
     "card": {
