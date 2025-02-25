@@ -456,14 +456,159 @@
     "asyncDuration": 15
   },
   "nl": {
-    "id": "b491901c-37f8-48a7-829e-feb29a67a459",
-    "card": {},
+    "slides": [
+      {
+        "type": "host",
+        "hostNotes": [
+          {
+            "text": "Welcome. I am X and today we will work for around 30 minutes on xx\n\nWe’ll be doing xx ex. meditation followed by time for reflection and sharing with each other."
+          },
+          {
+            "text": "Let’s start with a mini check-in. How are you feeling right now? Please answer in two-three words. X, would you like to start?\n\n> Let everyone in the session, including yourself, check in one by one.\n\nThank you all for checking in. Let’s get started."
+          }
+        ]
+      },
+      {
+        "type": "instruction",
+        "content": {
+          "text": "We weten allemaal dat ons leven ooit zal eindigen. Vaak hebben we moeite om dit feit onder ogen te zien, maar onderzoek toont aan dat  we een rustige en meer accepterende relatie met de dood kunnen krijgen als we nadenken over onze sterfelijkheid.",
+          "image": {
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1737187985/Images/image_3_Deal_with_dying_dryehi.png"
+          }
+        }
+      },
+      {
+        "type": "content",
+        "hostNotes": [
+          {
+            "text": "Find a comfortable position. I will start the audio exercise and we'll meet back here afterwards. \n\n> Push play to start the audio exercise"
+          }
+        ],
+        "content": {
+          "video": {
+            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1737799132/Video/timer_deal_with_dying_trhjuq.mp4",
+            "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1740472074/SRT%20(captions)%20files/PsyPalFacingMortality-NL.srt",
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1740472015/Audio/psyPalFacingMortalityNL_ds0ewl.mp3"
+          },
+          "lottie": {
+            "subtitles": "",
+            "audio": ""
+          }
+        }
+      },
+      {
+        "type": "reflection",
+        "hostNotes": [
+          {
+            "text": "Now we’ll take 1 minute to reflect on our own.\n\nxxMain question\n\nxxFurther explanations of main question if needed"
+          },
+          {
+            "text": "You can take notes on a piece of paper or just mental notes in your head. And there is no right or wrong here, our answers are our own. 1 minute starting now.\n\n> Press play to start the timer.\n\nThat’s 1 minute and it’s time to move on."
+          }
+        ],
+        "content": {
+          "heading": "",
+          "text": "Hoe was het voor jou om vandaag na te denken over leven en dood?"
+        }
+      },
+      {
+        "type": "sharing",
+        "hostNotes": [
+          {
+            "text": "Now we are getting into the sharing part. We have three rules for sharing:\n\n1. **What is said in here, stays in here.**\n2. **All you need to do is listen.** There is no fixing, helping or advice-giving needed. We are just showing up and exploring what ourselves and others are going through."
+          },
+          {
+            "text": "3. **Everything on the inside is okay.** Anger, love, hatred, sadness. Whatever shows up. No wrongs, no rights. It is what it is.\n\nThere will be a timer set for 2 minutes as an indicator. If you don’t want to share you can always say ‘pass’."
+          },
+          {
+            "text": "Who would like to start?\n\n> Let everyone (or as many as you got time for) share one by one. Press play to start the timer. Re-start for each new sharing.\n\nThank you so much everyone."
+          }
+        ],
+        "id": "Sharing 1",
+        "content": {
+          "text": "Hoe was het voor jou om vandaag na te denken over leven en dood?",
+          "heading": ""
+        }
+      },
+      {
+        "type": "host",
+        "hostNotes": [
+          {
+            "text": "Well done. If you’re up for it, you can continue what we started here today with a mission to bring this into your everyday life.\n\nxx mission description"
+          },
+          {
+            "text": "Before we leave this space let’s do a mini check-out. \n\nHow are you feeling right now? Has anything shifted? Please answer in two-three words."
+          },
+          {
+            "text": "Who would like to start?\n\n> Let everyone in the session check out one by one.\n\nThank you all for checking out and for joining this session today.\n\n> Finish session to send everyone off to the exit experience."
+          }
+        ]
+      },
+      {
+        "type": "instruction",
+        "content": {
+          "text": "Goed gedaan.\n\nMisschien heb je iets belangrijks beseft of besloten om contact op te nemen met iemand. Ook wil je misschien met iemand praten over je gevoelens.\n\nSchrijf alles op wat belangrijk voor je voelt.",
+          "image": {
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1737187987/Images/image_1_Deal_with_dying_vxj6ki.png"
+          }
+        }
+      }
+    ],
+    "theme": {
+      "textColor": "#2E2E2E",
+      "backgroundColor": "#1fabd2"
+    },
     "locked": true,
+    "name": "Sterfelijkheid aanvaarden",
+    "published": true,
+    "asyncDuration": 15,
+    "card": {
+      "image": {
+        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1737187988/Images/image_2_Deal_with_dying_sudw5r.png"
+      }
+    },
+    "coCreators": [
+      {
+        "name": "Ints Ivanovskis, art works",
+        "url": "https://www.linkedin.com/in/ints-ivanovskis-46ab0311a/",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413436/Contributors/Ints%20Ivanovskis.jpg"
+      },
+      {
+        "name": "Jenny Rickardsson, script",
+        "url": "https://www.linkedin.com/in/jenny-rickardson-6770a959/",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413228/Contributors/Jenny%20Rickardsson.jpg"
+      },
+      {
+        "name": "Mila W, voice",
+        "url": "https://www.fiverr.com/milawilde",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1737469735/Contributors/MilaW_demgfw.jpg"
+      }
+    ],
+    "outroPortal": {
+      "desktopOptimized": true
+    },
+    "introPortal": {
+      "textColor": "#2E2E2E",
+      "hostNotes": [
+        {
+          "text": "> Start the session when you're ready to go"
+        }
+      ],
+      "videoLoop": {
+        "p5JsScript": {
+          "lang": "javascript"
+        },
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1737274983/Video/portal_1_Deal_with_dying_xjxoqg.mp4"
+      },
+      "desktopOptimized": true
+    },
     "tags": [
       "34100e43-2eb8-4d35-8eb0-9fa9f78e4935",
       "9c2c08a9-7dc6-4058-bc78-016d0eb00614"
     ],
-    "asyncDuration": 15
+    "id": "b491901c-37f8-48a7-829e-feb29a67a459",
+    "async": true,
+    "description": "Deze week krijg je een oefening over een van de belangrijkste onderwerpen in het leven - dat ons leven een keer stopt. Nadenken over onze eigen sterfelijkheid kan emotioneel uitdagend zijn. Dat is oké - gevoelens kunnen ons geen kwaad doen. Het oefenen om ze te laten komen en gaan is onderdeel van de oefening.\n\nJe hebt nodig:\n* 20 minuten rust en stilte.\n* Een plek om aantekeningen te maken."
   },
   "es": {
     "id": "b491901c-37f8-48a7-829e-feb29a67a459",
