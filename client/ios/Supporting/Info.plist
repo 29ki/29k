@@ -164,5 +164,7 @@
 	<array>
 		<string>INSendMessageIntent</string>
 	</array>
+  <key>CodePushServerURL</key>
+  <string>https://api.revopush.org</string>
 </dict>
 </plist>
