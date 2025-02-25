@@ -270,7 +270,7 @@
     "locked": true,
     "name": "Os meus valores",
     "live": false,
-    "published": false,
+    "published": true,
     "asyncDuration": 15,
     "card": {
       "image": {
