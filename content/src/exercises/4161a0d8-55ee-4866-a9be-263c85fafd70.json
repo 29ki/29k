@@ -449,12 +449,28 @@
         ]
       },
       {
+        "type": "instruction",
+        "content": {
+          "text": "Det er ikke altid let at gøre det, som har stor betydning for os. Når vi har behov for at stå op for os selv—hvad enten det drejer sig om at håndtere en konflikt eller dele svære sandheder med en ven—møder vi ofte angst, frygt og skyldfølelse. I denne øvelse vil vi arbejde med at acceptere disse udfordrende følelser, så vi kan fokusere på det, der virkelig betyder noget.",
+          "image": {
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1737800766/Images/image_11_Difficult_conversation_fxast1.png"
+          }
+        }
+      },
+      {
         "type": "content",
         "hostNotes": [
           {
             "text": "Find a comfortable position. I will start the audio exercise and we'll meet back here afterwards. \n\n> Push play to start the audio exercise"
           }
-        ]
+        ],
+        "content": {
+          "video": {
+            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1737616068/Video/audio_timer_acceptance_practice_1_cungu2.mp4",
+            "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1740589937/SRT%20(captions)%20files/PsyPal_Difficult_conversations_Da_Sv%C3%A6re_samtaler_pqk1ry.srt",
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1740589913/Audio/PsyPal_Difficult_conversations_Da_Sv%C3%A6re_samtaler_gj8b1a.mp3"
+          }
+        }
       },
       {
         "type": "reflection",
@@ -465,7 +481,11 @@
           {
             "text": "You can take notes on a piece of paper or just mental notes in your head. And there is no right or wrong here, our answers are our own. 1 minute starting now.\n\n> Press play to start the timer.\n\nThat’s 1 minute and it’s time to move on."
           }
-        ]
+        ],
+        "content": {
+          "text": "",
+          "heading": "Hvordan oplevede du dét at lave denne øvelse?"
+        }
       },
       {
         "type": "sharing",
@@ -480,7 +500,11 @@
             "text": "Who would like to start?\n\n> Let everyone (or as many as you got time for) share one by one. Press play to start the timer. Re-start for each new sharing.\n\nThank you so much everyone."
           }
         ],
-        "id": "Sharing 1"
+        "id": "Sharing 1",
+        "content": {
+          "text": "",
+          "heading": "Hvordan oplevede du dét at lave denne øvelse?"
+        }
       },
       {
         "type": "host",
@@ -499,34 +523,71 @@
       {
         "type": "instruction",
         "content": {
-          "text": "Well done.\n\nSummary.\n\nIf you’re up for it, you can continue with this mission.\n\nmission description"
+          "text": "Du har fået nogle færdigheder til at være mere forberedt på svære samtaler:\n\n1. Bemærk og tillad svære følelser og tanker.\n2. Spørg for at forstå, ikke for at overtale.\n3. Lyt, tillad stilhed.\n4. Vær sårbar og åben.\n\nHvis du har en svær samtale i tankerne, så læg en plan for hvornår og hvor du vil have den.",
+          "image": {
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1737800767/Images/image_33_Difficult_conversation_h81lm9.png"
+          }
         }
       }
     ],
     "theme": {
-      "textColor": "#2AE2D7"
+      "textColor": "#F9F8F4",
+      "backgroundColor": "#cf400c"
     },
     "hidden": false,
     "locked": true,
-    "live": true,
-    "published": false,
+    "name": "Svære samtaler",
+    "live": false,
+    "published": true,
     "excludeFromWeb": false,
     "asyncDuration": 15,
-    "card": {},
+    "card": {
+      "image": {
+        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1737188027/Images/image_2_Difficult_conversation_xroiqs.png"
+      }
+    },
+    "coCreators": [
+      {
+        "name": "Jenny Rickardsson, script",
+        "url": "https://www.linkedin.com/in/jenny-rickardson-6770a959/",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1682602411/Images/Jenny_Rickardsson_kopia_sdodwf.jpg"
+      },
+      {
+        "name": "Ints Ivanovskis, art works",
+        "url": "https://www.linkedin.com/in/ints-ivanovskis-46ab0311a/",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413436/Contributors/Ints%20Ivanovskis.jpg"
+      },
+      {
+        "name": "Catharina Messell",
+        "url": "https://nru.dk/index.php/about-us/staff-list/98-other-research-staff/292-catharina-messell",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1734343422/Contributors/Catharina_Messel_Da_PsyPal.png"
+      }
+    ],
+    "outroPortal": {
+      "desktopOptimized": true
+    },
     "introPortal": {
-      "textColor": "#2AE2D7",
+      "textColor": "#F9F8F4",
       "hostNotes": [
         {
           "text": "> Start the session when you're ready to go"
         }
-      ]
+      ],
+      "videoLoop": {
+        "p5JsScript": {
+          "lang": "javascript"
+        },
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1737274976/Video/portal_1_Difficult_conversation_mjexai.mp4"
+      },
+      "desktopOptimized": true
     },
     "tags": [
       "34100e43-2eb8-4d35-8eb0-9fa9f78e4935",
       "9c2c08a9-7dc6-4058-bc78-016d0eb00614"
     ],
     "id": "4161a0d8-55ee-4866-a9be-263c85fafd70",
-    "async": false
+    "async": true,
+    "description": "Vi undgår ofte svære samtaler, fordi vi ved, de vil være følelsesmæssigt udfordrende. At gøre det modsatte—at møde udfordringer med —kan hjælpe os med at håndtere disse situationer bedre.\n\nDu skal bruge:\n\n* 20 minutters uforstyrret tid\n* Pen og papir"
   },
   "cs": {
     "liveDuration": 30,
