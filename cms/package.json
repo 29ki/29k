@@ -21,7 +21,7 @@
     "dayjs": "^1.11.13",
     "decap-cms-app": "3.6.2",
     "decap-cms-media-library-cloudinary": "^3.0.3",
-    "i18next": "^24.2.0",
+    "i18next": "^24.2.2",
     "react-native-safe-area-context": "^5.2.0",
     "react-native-svg": "15.4.0",
     "react-native-web": "^0.19.13",
