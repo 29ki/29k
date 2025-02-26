@@ -16,7 +16,10 @@
       {
         "type": "instruction",
         "content": {
-          "text": "Doing what's important for us is rarely a smooth journey. When we need to stand up for ourselves—like managing a conflict or telling a friend a painful truth—anxiety, fear, and guilt often arise. In this exercise, we'll practice accepting our own feelings to help us focus on what truly matters."
+          "text": "Following what matters to us isn't always easy. When we need to stand up for ourselves—whether managing a conflict or sharing difficult truths with a friend—we often face anxiety, fear, and guilt. In this exercise, we'll learn to accept these challenging feelings so we can focus on what truly matters.",
+          "image": {
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1737800766/Images/image_11_Difficult_conversation_fxast1.png"
+          }
         }
       },
       {
@@ -25,7 +28,14 @@
           {
             "text": "Find a comfortable position. I will start the audio exercise and we'll meet back here afterwards. \n\n> Push play to start the audio exercise"
           }
-        ]
+        ],
+        "content": {
+          "video": {
+            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1737616068/Video/audio_timer_acceptance_practice_1_cungu2.mp4",
+            "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1739805357/SRT%20(captions)%20files/PsyPal_Difficutl_conversations_nfzx1g.srt",
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1739805280/Audio/PsyPal_Difficult_conversations_pumif5.mp3"
+          }
+        }
       },
       {
         "type": "reflection",
@@ -38,7 +48,7 @@
           }
         ],
         "content": {
-          "text": "How did you experience facing challenging emotions?"
+          "text": "How did you experience this exercise?"
         }
       },
       {
@@ -56,7 +66,7 @@
         ],
         "id": "Sharing 1",
         "content": {
-          "text": "How did you experience facing challenging emotions?"
+          "text": "How did you experience this exercise?"
         }
       },
       {
@@ -76,22 +86,46 @@
       {
         "type": "instruction",
         "content": {
-          "text": "Well done for daring to face difficult emotions. Acceptance can help us do what matters to us, even when our insides are screaming the opposite. Now, plan where and when you will take action on the conversation you just imagined."
+          "text": "You have learned some skills to be more prepared for difficult conversations:\n\n1. Notice and allow difficult emotions.\n2. Ask to understand, not to persuade.\n3. Listen, allow silences.\n4. Be vulnerable and open.\n\nIf you have a difficult conversation in mind, make a plan for when and where you will have it.",
+          "image": {
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1737800767/Images/image_33_Difficult_conversation_h81lm9.png"
+          }
         }
       }
     ],
     "theme": {
-      "textColor": "#2AE2D7"
+      "textColor": "#F9F8F4",
+      "backgroundColor": "#cf400c"
     },
-    "hidden": true,
-    "locked": false,
+    "hidden": false,
+    "locked": true,
     "name": "PsyPal Difficult conversations",
     "live": false,
     "published": true,
     "excludeFromWeb": false,
-    "asyncDuration": 10,
+    "asyncDuration": 15,
+    "card": {
+      "image": {
+        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1737188027/Images/image_2_Difficult_conversation_xroiqs.png"
+      }
+    },
+    "coCreators": [
+      {
+        "name": "Jenny Rickardsson, script and voice",
+        "url": "https://www.linkedin.com/in/jenny-rickardson-6770a959/",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1682602411/Images/Jenny_Rickardsson_kopia_sdodwf.jpg"
+      },
+      {
+        "name": "Ints Ivanovskis, art works",
+        "url": "https://www.linkedin.com/in/ints-ivanovskis-46ab0311a/",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413436/Contributors/Ints%20Ivanovskis.jpg"
+      }
+    ],
+    "outroPortal": {
+      "desktopOptimized": true
+    },
     "introPortal": {
-      "textColor": "#2AE2D7",
+      "textColor": "#F9F8F4",
       "hostNotes": [
         {
           "text": "> Start the session when you're ready to go"
@@ -100,8 +134,10 @@
       "videoLoop": {
         "p5JsScript": {
           "lang": "javascript"
-        }
-      }
+        },
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1737274976/Video/portal_1_Difficult_conversation_mjexai.mp4"
+      },
+      "desktopOptimized": true
     },
     "tags": [
       "34100e43-2eb8-4d35-8eb0-9fa9f78e4935",
@@ -109,7 +145,7 @@
     ],
     "id": "4161a0d8-55ee-4866-a9be-263c85fafd70",
     "async": true,
-    "description": "We often avoid difficult conversations because we know they will be emotionally challenging. Practice the opposite - facing the difficult with an accepting attitude - can help us deal more effectively with the situation."
+    "description": "We often avoid difficult conversations because we know they will be emotionally challenging. Practice the opposite - facing the difficult with an accepting attitude - can help these situations better. You'll need somewhere to take notes for this exercise."
   },
   "pt": {
     "liveDuration": 30,
@@ -184,11 +220,12 @@
       "textColor": "#2AE2D7"
     },
     "hidden": false,
-    "locked": false,
+    "locked": true,
     "live": true,
     "published": false,
     "excludeFromWeb": false,
-    "asyncDuration": 10,
+    "asyncDuration": 15,
+    "card": {},
     "introPortal": {
       "textColor": "#2AE2D7",
       "hostNotes": [
@@ -282,11 +319,12 @@
       "textColor": "#2AE2D7"
     },
     "hidden": false,
-    "locked": false,
+    "locked": true,
     "live": true,
     "published": false,
     "excludeFromWeb": false,
-    "asyncDuration": 10,
+    "asyncDuration": 15,
+    "card": {},
     "introPortal": {
       "textColor": "#2AE2D7",
       "hostNotes": [
@@ -375,11 +413,12 @@
       "textColor": "#2AE2D7"
     },
     "hidden": false,
-    "locked": false,
+    "locked": true,
     "live": true,
     "published": false,
     "excludeFromWeb": false,
-    "asyncDuration": 10,
+    "asyncDuration": 15,
+    "card": {},
     "introPortal": {
       "textColor": "#2AE2D7",
       "hostNotes": [
@@ -468,11 +507,12 @@
       "textColor": "#2AE2D7"
     },
     "hidden": false,
-    "locked": false,
+    "locked": true,
     "live": true,
     "published": false,
     "excludeFromWeb": false,
-    "asyncDuration": 10,
+    "asyncDuration": 15,
+    "card": {},
     "introPortal": {
       "textColor": "#2AE2D7",
       "hostNotes": [
@@ -561,11 +601,12 @@
       "textColor": "#2AE2D7"
     },
     "hidden": false,
-    "locked": false,
+    "locked": true,
     "live": true,
     "published": false,
     "excludeFromWeb": false,
-    "asyncDuration": 10,
+    "asyncDuration": 15,
+    "card": {},
     "introPortal": {
       "textColor": "#2AE2D7",
       "hostNotes": [
@@ -596,12 +637,28 @@
         ]
       },
       {
+        "type": "instruction",
+        "content": {
+          "text": "Volgen wat belangrijk voor ons is, is niet altijd even makkelijk. Wanneer we voor onszelf moeten opkomen—of het nu gaat om een conflict of het delen van moeilijke waarheden met een vriend—worden we vaak geconfronteerd met angst, vrees en schuldgevoelens. In deze oefening leren we deze uitdagende gevoelens te accepteren zodat we ons kunnen concentreren op wat er echt toe doet.",
+          "image": {
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1737800766/Images/image_11_Difficult_conversation_fxast1.png"
+          }
+        }
+      },
+      {
         "type": "content",
         "hostNotes": [
           {
             "text": "Find a comfortable position. I will start the audio exercise and we'll meet back here afterwards. \n\n> Push play to start the audio exercise"
           }
-        ]
+        ],
+        "content": {
+          "video": {
+            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1737616068/Video/audio_timer_acceptance_practice_1_cungu2.mp4",
+            "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1740474138/SRT%20(captions)%20files/PsyPalDifficultConversations_NL__y1i8qo.srt",
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1740474122/Audio/PsyPalDifficultConversations_NL__orssg5.mp3"
+          }
+        }
       },
       {
         "type": "reflection",
@@ -612,7 +669,10 @@
           {
             "text": "You can take notes on a piece of paper or just mental notes in your head. And there is no right or wrong here, our answers are our own. 1 minute starting now.\n\n> Press play to start the timer.\n\nThat’s 1 minute and it’s time to move on."
           }
-        ]
+        ],
+        "content": {
+          "text": "Hoe heb je het ervaren om deze oefening te doen?"
+        }
       },
       {
         "type": "sharing",
@@ -627,7 +687,10 @@
             "text": "Who would like to start?\n\n> Let everyone (or as many as you got time for) share one by one. Press play to start the timer. Re-start for each new sharing.\n\nThank you so much everyone."
           }
         ],
-        "id": "Sharing 1"
+        "id": "Sharing 1",
+        "content": {
+          "text": "Hoe heb je het ervaren om deze oefening te doen?"
+        }
       },
       {
         "type": "host",
@@ -646,33 +709,71 @@
       {
         "type": "instruction",
         "content": {
-          "text": "Well done.\n\nSummary.\n\nIf you’re up for it, you can continue with this mission.\n\nmission description"
+          "text": "Je hebt enkele vaardigheden geleerd om beter voorbereid te zijn op moeilijke gesprekken:\n\n1. Merk moeilijke emoties en gedachten op en sta ze toe.\n2. Vraag om te begrijpen, niet om te overtuigen.\n3. Luister, sta stiltes toe.\n4. Wees kwetsbaar en open.\n\nAls je een moeilijk gesprek in gedachten hebt, maak dan een plan voor wanneer en waar je het zult voeren.",
+          "image": {
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1737800767/Images/image_33_Difficult_conversation_h81lm9.png"
+          }
         }
       }
     ],
     "theme": {
-      "textColor": "#2AE2D7"
+      "textColor": "#F9F8F4",
+      "backgroundColor": "#cf400c"
     },
     "hidden": false,
-    "locked": false,
-    "live": true,
-    "published": false,
+    "locked": true,
+    "name": "Moeilijke gesprekken",
+    "live": false,
+    "published": true,
     "excludeFromWeb": false,
-    "asyncDuration": 10,
+    "asyncDuration": 15,
+    "card": {
+      "image": {
+        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1737188027/Images/image_2_Difficult_conversation_xroiqs.png"
+      }
+    },
+    "coCreators": [
+      {
+        "name": "Jenny Rickardsson, script",
+        "url": "https://www.linkedin.com/in/jenny-rickardson-6770a959/",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1682602411/Images/Jenny_Rickardsson_kopia_sdodwf.jpg"
+      },
+      {
+        "name": "Ints Ivanovskis, art works",
+        "url": "https://www.linkedin.com/in/ints-ivanovskis-46ab0311a/",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413436/Contributors/Ints%20Ivanovskis.jpg"
+      },
+      {
+        "name": "Mila W, voice",
+        "url": "https://www.fiverr.com/milawilde",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1737469735/Contributors/MilaW_demgfw.jpg"
+      }
+    ],
+    "outroPortal": {
+      "desktopOptimized": true
+    },
     "introPortal": {
-      "textColor": "#2AE2D7",
+      "textColor": "#F9F8F4",
       "hostNotes": [
         {
           "text": "> Start the session when you're ready to go"
         }
-      ]
+      ],
+      "videoLoop": {
+        "p5JsScript": {
+          "lang": "javascript"
+        },
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1737274976/Video/portal_1_Difficult_conversation_mjexai.mp4"
+      },
+      "desktopOptimized": true
     },
     "tags": [
       "34100e43-2eb8-4d35-8eb0-9fa9f78e4935",
       "9c2c08a9-7dc6-4058-bc78-016d0eb00614"
     ],
     "id": "4161a0d8-55ee-4866-a9be-263c85fafd70",
-    "async": false
+    "async": true,
+    "description": "We vermijden vaak moeilijke gesprekken omdat we weten dat ze emotioneel uitdagend zijn. Het tegenovergestelde oefenen—moeilijkheden met een accepterende houding tegemoet treden—kan ons helpen om beter met deze situaties om te gaan.\n\nJe hebt nodig:\n\n* 20 minuten ononderbroken tijd\n* Pen en papier"
   },
   "es": {
     "liveDuration": 30,
@@ -747,11 +848,12 @@
       "textColor": "#2AE2D7"
     },
     "hidden": false,
-    "locked": false,
+    "locked": true,
     "live": true,
     "published": false,
     "excludeFromWeb": false,
-    "asyncDuration": 10,
+    "asyncDuration": 15,
+    "card": {},
     "introPortal": {
       "textColor": "#2AE2D7",
       "hostNotes": [

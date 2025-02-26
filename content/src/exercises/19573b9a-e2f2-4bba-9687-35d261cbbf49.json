@@ -1,11 +1,15 @@
 {
   "en": {
+    "liveDuration": 30,
     "slides": [
       {
         "type": "instruction",
         "content": {
           "heading": "",
-          "text": "In this exercise you'll start thinking about what memories you would like to leave behind for your loved ones when you are gone. \n\nYou'll need peace and quiet, and somewhere to take notes."
+          "text": "Our brains have developed to focus on the negative - threats, dangers, things that need fixing. That has helped humans survive for tens of thousands of years - but is not very helpful for feeling good or happy. \n\nIn this exercise you’ll practice paying attention to the things we tend to take for granted, the things we are grateful for.",
+          "image": {
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1737803288/Images/image_22_memory_box_y1uq7b.png"
+          }
         }
       },
       {
@@ -25,7 +29,14 @@
           {
             "text": "Find a comfortable position. I will start the audio exercise and we'll meet back here afterwards. \n\n> Push play to start the audio exercise"
           }
-        ]
+        ],
+        "content": {
+          "video": {
+            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1737803438/Video/timer_memory_box_g0wklz.mp4",
+            "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1739460219/SRT%20%28captions%29%20files/PsyPal_Gratitude_letters_ud2uqg.srt",
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1739460180/Audio/PsyPal_Gratitude_letters_nd2o8r.mp3"
+          }
+        }
       },
       {
         "type": "reflection",
@@ -38,7 +49,7 @@
           }
         ],
         "content": {
-          "heading": "How did you experience thinking of your own memory box?"
+          "heading": "How did you experience expressing gratitude?"
         }
       },
       {
@@ -54,7 +65,10 @@
             "text": "Who would like to start?\n\n> Let everyone (or as many as you got time for) share one by one. Press play to start the timer. Re-start for each new sharing.\n\nThank you so much everyone."
           }
         ],
-        "id": "Sharing 1"
+        "id": "Sharing 1",
+        "content": {
+          "heading": "How did you experience expressing gratitude?"
+        }
       },
       {
         "type": "host",
@@ -73,22 +87,45 @@
       {
         "type": "instruction",
         "content": {
-          "text": "A basic fact of life is that it is followed by death. Well done for daring to think about your own mortality for a few minutes. \n\nIf you want to involve someone else in making your memory box, a first step is to reach out to them. If you want to make your box on your own, take notes on your next steps somewhere only you can see it."
+          "text": "Well done for practicing gratitude and counteracting some of the negativity bias nature has equipped us with. If it’s possible, express your gratitude towards the person you wrote the letter of gratitude to.\n\nWe recommend meeting them in person and read your letter out loud to them.",
+          "image": {
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1737803289/Images/image_33_memory_box_jxsiwf.png"
+          }
         }
       }
     ],
     "theme": {
-      "textColor": "#2E2E2E"
+      "textColor": "#2E2E2E",
+      "backgroundColor": "#e2d002"
     },
-    "hidden": true,
-    "locked": false,
-    "name": "PsyPal The memory box",
+    "hidden": false,
+    "locked": true,
+    "name": "PsyPal Gratitude letters",
     "live": false,
     "published": true,
-    "asyncDuration": 10,
-    "liveDuration": 30,
+    "asyncDuration": 15,
+    "card": {
+      "image": {
+        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1737188068/Images/image_1_memory_box_zzn2wn.png"
+      }
+    },
+    "coCreators": [
+      {
+        "name": "Jenny Rickardsson, script and voice",
+        "url": "https://www.linkedin.com/in/jenny-rickardson-6770a959/",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413228/Contributors/Jenny%20Rickardsson.jpg"
+      },
+      {
+        "name": "Ints Ivanovskis, art works",
+        "url": "https://www.linkedin.com/in/ints-ivanovskis-46ab0311a/",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413436/Contributors/Ints%20Ivanovskis.jpg"
+      }
+    ],
+    "outroPortal": {
+      "desktopOptimized": true
+    },
     "introPortal": {
-      "textColor": "#2AE2D7",
+      "textColor": "#2E2E2E",
       "hostNotes": [
         {
           "text": "> Start the session when you're ready to go"
@@ -97,15 +134,32 @@
       "videoLoop": {
         "p5JsScript": {
           "lang": "javascript"
-        }
-      }
+        },
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1737274969/Video/portal_1_memory_box_pjpo47.mp4"
+      },
+      "desktopOptimized": true
     },
+    "tags": [
+      "34100e43-2eb8-4d35-8eb0-9fa9f78e4935",
+      "43a6dc0d-d866-4b79-9453-13c44e906128"
+    ],
     "id": "19573b9a-e2f2-4bba-9687-35d261cbbf49",
     "async": true,
-    "description": "In this exercise you'll reflect on moments that you have appreciated in life, and recall some past memories. Also, you’ll start thinking of what you would like to leave behind for your loved ones when you, some time in the future, are gone."
+    "description": "Our minds are often set to focus on the negative. In this exercise we practice the opposite - expressing gratitude for some of the things in life we are grateful for. It can help us feel more fulfilled and happy, regardless of where we are in life."
   },
   "pt": {
+    "liveDuration": 30,
     "slides": [
+      {
+        "type": "instruction",
+        "content": {
+          "heading": "",
+          "text": "Os nossos cérebros desenvolveram-se para se concentrarem no negativo - ameaças, perigos, coisas que precisam de ser corrigidas. Isto ajudou os humanos a sobreviver durante dezenas de milhares de anos - mas não é muito útil para nos sentirmos bem ou felizes. \n\nNeste exercício, vai praticar dar atenção às coisas que tendemos a tomar como garantidas.",
+          "image": {
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1737803288/Images/image_22_memory_box_y1uq7b.png"
+          }
+        }
+      },
       {
         "type": "host",
         "hostNotes": [
@@ -123,7 +177,14 @@
           {
             "text": "Find a comfortable position. I will start the audio exercise and we'll meet back here afterwards. \n\n> Push play to start the audio exercise"
           }
-        ]
+        ],
+        "content": {
+          "video": {
+            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1737803438/Video/timer_memory_box_g0wklz.mp4",
+            "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1740128818/SRT%20(captions)%20files/PsyPal_Gratitude_letters_Pt_ow0kuh.srt",
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1740128856/Audio/PsyPal_Gratitude_letters_Pt_fiwkqr.mp3"
+          }
+        }
       },
       {
         "type": "reflection",
@@ -134,7 +195,10 @@
           {
             "text": "You can take notes on a piece of paper or just mental notes in your head. And there is no right or wrong here, our answers are our own. 1 minute starting now.\n\n> Press play to start the timer.\n\nThat’s 1 minute and it’s time to move on."
           }
-        ]
+        ],
+        "content": {
+          "heading": "Como foi expressar gratidão?"
+        }
       },
       {
         "type": "sharing",
@@ -149,7 +213,10 @@
             "text": "Who would like to start?\n\n> Let everyone (or as many as you got time for) share one by one. Press play to start the timer. Re-start for each new sharing.\n\nThank you so much everyone."
           }
         ],
-        "id": "Sharing 1"
+        "id": "Sharing 1",
+        "content": {
+          "heading": "Como foi expressar gratidão?"
+        }
       },
       {
         "type": "host",
@@ -168,31 +235,73 @@
       {
         "type": "instruction",
         "content": {
-          "text": "Well done.\n\nSummary.\n\nIf you’re up for it, you can continue with this mission.\n\nmission description"
+          "text": "Excelente exercício de gratidão e de neutralização de algumas das tendências negativas com que a natureza nos dotou. \nSe for possível, exprima a sua gratidão à pessoa a quem escreveu a carta de agradecimento. Recomendamos que se encontre com ela pessoalmente e que lhe leia a sua carta em voz alta.",
+          "image": {
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1737803289/Images/image_33_memory_box_jxsiwf.png"
+          }
         }
       }
     ],
     "theme": {
-      "textColor": "#2AE2D7"
+      "textColor": "#2E2E2E",
+      "backgroundColor": "#e2d002"
     },
     "hidden": false,
-    "locked": false,
-    "live": true,
-    "published": false,
-    "asyncDuration": 10,
-    "liveDuration": 30,
+    "locked": true,
+    "name": "Cartas de agradecimento",
+    "live": false,
+    "published": true,
+    "asyncDuration": 15,
+    "card": {
+      "image": {
+        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1737188068/Images/image_1_memory_box_zzn2wn.png"
+      }
+    },
+    "coCreators": [
+      {
+        "name": "Jenny Rickardsson, script",
+        "url": "https://www.linkedin.com/in/jenny-rickardson-6770a959/",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413228/Contributors/Jenny%20Rickardsson.jpg"
+      },
+      {
+        "name": "Ints Ivanovskis, art works",
+        "url": "https://www.linkedin.com/in/ints-ivanovskis-46ab0311a/",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413436/Contributors/Ints%20Ivanovskis.jpg"
+      },
+      {
+        "name": "Florbela Silva, voice",
+        "url": "https://www.linkedin.com/in/florbela-silva/?originalSubdomain=pt",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1727943392/FJN/People/Florbela_Silva_bd0qx9.jpg"
+      }
+    ],
+    "outroPortal": {
+      "desktopOptimized": true
+    },
     "introPortal": {
-      "textColor": "#2AE2D7",
+      "textColor": "#2E2E2E",
       "hostNotes": [
         {
           "text": "> Start the session when you're ready to go"
         }
-      ]
+      ],
+      "videoLoop": {
+        "p5JsScript": {
+          "lang": "javascript"
+        },
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1737274969/Video/portal_1_memory_box_pjpo47.mp4"
+      },
+      "desktopOptimized": true
     },
+    "tags": [
+      "34100e43-2eb8-4d35-8eb0-9fa9f78e4935",
+      "43a6dc0d-d866-4b79-9453-13c44e906128"
+    ],
     "id": "19573b9a-e2f2-4bba-9687-35d261cbbf49",
-    "async": false
+    "async": true,
+    "description": "As nossas mentes estão muitas vezes formatadas para se concentrarem no negativo.\nNeste exercício, praticamos o oposto - expressar gratidão por algumas das coisas da vida pelas quais estamos agradecidos. Isto pode ajudar-nos a sentirmo-nos mais realizados e felizes, independentemente da fase da vida em que nos encontramos."
   },
   "sv": {
+    "liveDuration": 30,
     "slides": [
       {
         "type": "host",
@@ -264,11 +373,11 @@
       "textColor": "#2AE2D7"
     },
     "hidden": false,
-    "locked": false,
+    "locked": true,
     "live": true,
     "published": false,
-    "asyncDuration": 10,
-    "liveDuration": 30,
+    "asyncDuration": 15,
+    "card": {},
     "introPortal": {
       "textColor": "#2AE2D7",
       "hostNotes": [
@@ -277,10 +386,15 @@
         }
       ]
     },
+    "tags": [
+      "34100e43-2eb8-4d35-8eb0-9fa9f78e4935",
+      "43a6dc0d-d866-4b79-9453-13c44e906128"
+    ],
     "id": "19573b9a-e2f2-4bba-9687-35d261cbbf49",
     "async": false
   },
   "ja": {
+    "liveDuration": 30,
     "slides": [
       {
         "type": "host",
@@ -352,11 +466,11 @@
       "textColor": "#2AE2D7"
     },
     "hidden": false,
-    "locked": false,
+    "locked": true,
     "live": true,
     "published": false,
-    "asyncDuration": 10,
-    "liveDuration": 30,
+    "asyncDuration": 15,
+    "card": {},
     "introPortal": {
       "textColor": "#2AE2D7",
       "hostNotes": [
@@ -365,19 +479,471 @@
         }
       ]
     },
+    "tags": [
+      "34100e43-2eb8-4d35-8eb0-9fa9f78e4935",
+      "43a6dc0d-d866-4b79-9453-13c44e906128"
+    ],
     "id": "19573b9a-e2f2-4bba-9687-35d261cbbf49",
     "async": false
   },
   "da": {
-    "id": "19573b9a-e2f2-4bba-9687-35d261cbbf49"
+    "slides": [
+      {
+        "type": "instruction",
+        "content": {
+          "heading": "",
+          "text": "Vores hjerner har udviklet sig til at fokusere på det negative - trusler, farer, ting der skal fixes. Det har hjulpet mennesker med at overleve i titusindvis af år - men er ikke særligt hjælpsomt i forhold til at føle sig godt tilpas eller glad.\n\nI denne øvelse skal du træne at være opmærksom på de ting, vi har tendens til at tage for givet, de ting vi er taknemmelige for.",
+          "image": {
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1737803288/Images/image_22_memory_box_y1uq7b.png"
+          }
+        }
+      },
+      {
+        "type": "host",
+        "hostNotes": [
+          {
+            "text": "Welcome. I am X and today we will work for around 30 minutes on xx\n\nWe’ll be doing xx ex. meditation followed by time for reflection and sharing with each other."
+          },
+          {
+            "text": "Let’s start with a mini check-in. How are you feeling right now? Please answer in two-three words. X, would you like to start?\n\n> Let everyone in the session, including yourself, check in one by one.\n\nThank you all for checking in. Let’s get started."
+          }
+        ]
+      },
+      {
+        "type": "content",
+        "hostNotes": [
+          {
+            "text": "Find a comfortable position. I will start the audio exercise and we'll meet back here afterwards. \n\n> Push play to start the audio exercise"
+          }
+        ],
+        "content": {
+          "video": {
+            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1737803438/Video/timer_memory_box_g0wklz.mp4",
+            "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1739874256/SRT%20(captions)%20files/Taknemmelighedsbreve_Danish_-_07.02.2025_11.30_ed__z0tlb1.srt",
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1739351145/Audio/PsyPal-Gratitudeletters-Taknemmelighedsbreve_Danish_oztd5e.mp3"
+          }
+        }
+      },
+      {
+        "type": "reflection",
+        "hostNotes": [
+          {
+            "text": "Now we’ll take 1 minute to reflect on our own.\n\nxxMain question\n\nxxFurther explanations of main question if needed"
+          },
+          {
+            "text": "You can take notes on a piece of paper or just mental notes in your head. And there is no right or wrong here, our answers are our own. 1 minute starting now.\n\n> Press play to start the timer.\n\nThat’s 1 minute and it’s time to move on."
+          }
+        ],
+        "content": {
+          "heading": "Hvordan oplevede du at udtrykke taknemmelighed?"
+        }
+      },
+      {
+        "type": "sharing",
+        "hostNotes": [
+          {
+            "text": "Now we are getting into the sharing part. We have three rules for sharing:\n\n1. **What is said in here, stays in here.**\n2. **All you need to do is listen.** There is no fixing, helping or advice-giving needed. We are just showing up and exploring what ourselves and others are going through."
+          },
+          {
+            "text": "3. **Everything on the inside is okay.** Anger, love, hatred, sadness. Whatever shows up. No wrongs, no rights. It is what it is.\n\nThere will be a timer set for 2 minutes as an indicator. If you don’t want to share you can always say ‘pass’."
+          },
+          {
+            "text": "Who would like to start?\n\n> Let everyone (or as many as you got time for) share one by one. Press play to start the timer. Re-start for each new sharing.\n\nThank you so much everyone."
+          }
+        ],
+        "id": "Sharing 1",
+        "content": {
+          "heading": "Hvordan oplevede du at udtrykke taknemmelighed?"
+        }
+      },
+      {
+        "type": "host",
+        "hostNotes": [
+          {
+            "text": "Well done. If you’re up for it, you can continue what we started here today with a mission to bring this into your everyday life.\n\nxx mission description"
+          },
+          {
+            "text": "Before we leave this space let’s do a mini check-out. \n\nHow are you feeling right now? Has anything shifted? Please answer in two-three words."
+          },
+          {
+            "text": "Who would like to start?\n\n> Let everyone in the session check out one by one.\n\nThank you all for checking out and for joining this session today.\n\n> Finish session to send everyone off to the exit experience."
+          }
+        ]
+      },
+      {
+        "type": "instruction",
+        "content": {
+          "text": "Godt klaret med at træne taknemmelighed og modvirke en del af den tendens til negativ tænkning, som naturen har udstyret os med. Hvis det er muligt, så udtryk din taknemmelighed over for den person, du skrev takkebrevet til. \n\nVi anbefaler at mødes med dem personligt og læse dit brev højt for dem.",
+          "image": {
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1737803289/Images/image_33_memory_box_jxsiwf.png"
+          }
+        }
+      }
+    ],
+    "theme": {
+      "textColor": "#2E2E2E",
+      "backgroundColor": "#e2d002"
+    },
+    "locked": true,
+    "name": "Taknemmelighedsbreve",
+    "published": true,
+    "asyncDuration": 15,
+    "card": {
+      "image": {
+        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1737188068/Images/image_1_memory_box_zzn2wn.png"
+      }
+    },
+    "coCreators": [
+      {
+        "name": "Jenny Rickardsson, script",
+        "url": "https://www.linkedin.com/in/jenny-rickardson-6770a959/",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413228/Contributors/Jenny%20Rickardsson.jpg"
+      },
+      {
+        "name": "Ints Ivanovskis, art works",
+        "url": "https://www.linkedin.com/in/ints-ivanovskis-46ab0311a/",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413436/Contributors/Ints%20Ivanovskis.jpg"
+      },
+      {
+        "name": "Catharina Messell, voice",
+        "url": "https://cepda.dk/portraet/moed-catharina-messell-musikterapeut/",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1734343422/Contributors/Catharina_Messel_Da_PsyPal.png"
+      }
+    ],
+    "outroPortal": {
+      "desktopOptimized": true
+    },
+    "introPortal": {
+      "textColor": "#2E2E2E",
+      "hostNotes": [
+        {
+          "text": "> Start the session when you're ready to go"
+        }
+      ],
+      "videoLoop": {
+        "p5JsScript": {
+          "lang": "javascript"
+        },
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1737274969/Video/portal_1_memory_box_pjpo47.mp4"
+      },
+      "desktopOptimized": true
+    },
+    "tags": [
+      "34100e43-2eb8-4d35-8eb0-9fa9f78e4935",
+      "43a6dc0d-d866-4b79-9453-13c44e906128"
+    ],
+    "id": "19573b9a-e2f2-4bba-9687-35d261cbbf49",
+    "async": true,
+    "description": "Vores sind er ofte indstillet på at fokusere på det negative. I denne øvelse træner vi det modsatte - at udtrykke taknemmelighed for nogle af de ting i livet, vi er taknemmelige for.\nDet kan hjælpe os med at føle os mere opfyldte og glade, uanset hvor vi er i livet."
   },
   "cs": {
-    "id": "19573b9a-e2f2-4bba-9687-35d261cbbf49"
+    "slides": [
+      {
+        "type": "instruction",
+        "content": {
+          "heading": "",
+          "text": "Náš mozek se vyvinul tak, aby se soustředil na negativní věci - hrozby, nebezpečí a věci, které je třeba napravit. To pomáhalo lidem přežít desítky tisíc let. Není to ale příliš užitečné, abychom se cítili dobře nebo šťastně. \n\nV tomto cvičení budeme věnovat pozornost věcem, které považujeme za samozřejmé, věcem, za které jsme vděční.",
+          "image": {
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1737803288/Images/image_22_memory_box_y1uq7b.png"
+          }
+        }
+      },
+      {
+        "type": "host",
+        "hostNotes": [
+          {
+            "text": "Welcome. I am X and today we will work for around 30 minutes on xx\n\nWe’ll be doing xx ex. meditation followed by time for reflection and sharing with each other."
+          },
+          {
+            "text": "Let’s start with a mini check-in. How are you feeling right now? Please answer in two-three words. X, would you like to start?\n\n> Let everyone in the session, including yourself, check in one by one.\n\nThank you all for checking in. Let’s get started."
+          }
+        ]
+      },
+      {
+        "type": "content",
+        "hostNotes": [
+          {
+            "text": "Find a comfortable position. I will start the audio exercise and we'll meet back here afterwards. \n\n> Push play to start the audio exercise"
+          }
+        ],
+        "content": {
+          "video": {
+            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1737803438/Video/timer_memory_box_g0wklz.mp4",
+            "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1739871885/SRT%20(captions)%20files/PsyPal_Gratitude_letters_Dopisy_vdecnosti_CZ_bup65i.srt",
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1739871441/Audio/PsyPal_Gratitude_letters_Dopisy_vdecnosti_CZ_r82jyx.mp3"
+          }
+        }
+      },
+      {
+        "type": "reflection",
+        "hostNotes": [
+          {
+            "text": "Now we’ll take 1 minute to reflect on our own.\n\nxxMain question\n\nxxFurther explanations of main question if needed"
+          },
+          {
+            "text": "You can take notes on a piece of paper or just mental notes in your head. And there is no right or wrong here, our answers are our own. 1 minute starting now.\n\n> Press play to start the timer.\n\nThat’s 1 minute and it’s time to move on."
+          }
+        ],
+        "content": {
+          "heading": "Jak jste prožili vyjádření vděčnosti?"
+        }
+      },
+      {
+        "type": "sharing",
+        "hostNotes": [
+          {
+            "text": "Now we are getting into the sharing part. We have three rules for sharing:\n\n1. **What is said in here, stays in here.**\n2. **All you need to do is listen.** There is no fixing, helping or advice-giving needed. We are just showing up and exploring what ourselves and others are going through."
+          },
+          {
+            "text": "3. **Everything on the inside is okay.** Anger, love, hatred, sadness. Whatever shows up. No wrongs, no rights. It is what it is.\n\nThere will be a timer set for 2 minutes as an indicator. If you don’t want to share you can always say ‘pass’."
+          },
+          {
+            "text": "Who would like to start?\n\n> Let everyone (or as many as you got time for) share one by one. Press play to start the timer. Re-start for each new sharing.\n\nThank you so much everyone."
+          }
+        ],
+        "id": "Sharing 1",
+        "content": {
+          "heading": "Jak jste prožili vyjádření vděčnosti?"
+        }
+      },
+      {
+        "type": "host",
+        "hostNotes": [
+          {
+            "text": "Well done. If you’re up for it, you can continue what we started here today with a mission to bring this into your everyday life.\n\nxx mission description"
+          },
+          {
+            "text": "Before we leave this space let’s do a mini check-out. \n\nHow are you feeling right now? Has anything shifted? Please answer in two-three words."
+          },
+          {
+            "text": "Who would like to start?\n\n> Let everyone in the session check out one by one.\n\nThank you all for checking out and for joining this session today.\n\n> Finish session to send everyone off to the exit experience."
+          }
+        ]
+      },
+      {
+        "type": "instruction",
+        "content": {
+          "text": "Výborně. Procvičili jste vyjadřování vděčnosti, a tak vyvážili přirozenou tendenci vidět především negativní věci.\n\nPokud je to možné, vyjádřete svou vděčnost osobě, které jste dopis vděčnosti napsali. Doporučujeme setkat se osobně a přečíst jí váš dopis nahlas.",
+          "image": {
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1737803289/Images/image_33_memory_box_jxsiwf.png"
+          }
+        }
+      }
+    ],
+    "theme": {
+      "textColor": "#2E2E2E",
+      "backgroundColor": "#e2d002"
+    },
+    "locked": true,
+    "name": "Dopisy vděčnosti",
+    "published": true,
+    "asyncDuration": 15,
+    "card": {
+      "image": {
+        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1737188068/Images/image_1_memory_box_zzn2wn.png"
+      }
+    },
+    "coCreators": [
+      {
+        "name": "Jenny Rickardsson, script",
+        "url": "https://www.linkedin.com/in/jenny-rickardson-6770a959/",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413228/Contributors/Jenny%20Rickardsson.jpg"
+      },
+      {
+        "name": "Ints Ivanovskis, art works",
+        "url": "https://www.linkedin.com/in/ints-ivanovskis-46ab0311a/",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413436/Contributors/Ints%20Ivanovskis.jpg"
+      },
+      {
+        "name": "Petra Valikova, voice",
+        "url": "https://www.petravalikova.cz/",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1738658028/Contributors/PetraValikova_g3nnac.jpg"
+      }
+    ],
+    "outroPortal": {
+      "desktopOptimized": true
+    },
+    "introPortal": {
+      "textColor": "#2E2E2E",
+      "hostNotes": [
+        {
+          "text": "> Start the session when you're ready to go"
+        }
+      ],
+      "videoLoop": {
+        "p5JsScript": {
+          "lang": "javascript"
+        },
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1737274969/Video/portal_1_memory_box_pjpo47.mp4"
+      },
+      "desktopOptimized": true
+    },
+    "tags": [
+      "34100e43-2eb8-4d35-8eb0-9fa9f78e4935",
+      "43a6dc0d-d866-4b79-9453-13c44e906128"
+    ],
+    "id": "19573b9a-e2f2-4bba-9687-35d261cbbf49",
+    "async": true,
+    "description": "Naše mysl je často nastavena tak, že se soustředí na negativní věci. V tomto cvičení praktikujeme opak. Vyjadřujeme vděčnost za některé hodnotné věci v našem životě. Může nám to pomoci cítit se více naplněni a šťastní, bez ohledu na to, kde se v životě nacházíme."
   },
   "nl": {
-    "id": "19573b9a-e2f2-4bba-9687-35d261cbbf49"
+    "slides": [
+      {
+        "type": "instruction",
+        "content": {
+          "heading": "",
+          "text": "Onze hersenen zijn zo gemaakt dat ze vooral letten op negatieve dingen: gevaren, bedreigingen, dingen die kapot zijn. Dat heeft mensen tienduizenden jaren geholpen om te overleven – maar het helpt niet echt om je goed of gelukkig te voelen. \n\nIn deze oefening ga je oefenen met letten op de dingen die we normaal vinden, de dingen waar we dankbaar voor zijn.",
+          "image": {
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1737803288/Images/image_22_memory_box_y1uq7b.png"
+          }
+        }
+      },
+      {
+        "type": "host",
+        "hostNotes": [
+          {
+            "text": "Welcome. I am X and today we will work for around 30 minutes on xx\n\nWe’ll be doing xx ex. meditation followed by time for reflection and sharing with each other."
+          },
+          {
+            "text": "Let’s start with a mini check-in. How are you feeling right now? Please answer in two-three words. X, would you like to start?\n\n> Let everyone in the session, including yourself, check in one by one.\n\nThank you all for checking in. Let’s get started."
+          }
+        ]
+      },
+      {
+        "type": "content",
+        "hostNotes": [
+          {
+            "text": "Find a comfortable position. I will start the audio exercise and we'll meet back here afterwards. \n\n> Push play to start the audio exercise"
+          }
+        ],
+        "content": {
+          "video": {
+            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1737803438/Video/timer_memory_box_g0wklz.mp4",
+            "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1739175774/SRT%20(captions)%20files/GratitudeLetters_NL_yzwqxy.srt",
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1738770384/Audio/psypal-GratitudeLetters1R_NL_vssixs.mp3"
+          }
+        }
+      },
+      {
+        "type": "reflection",
+        "hostNotes": [
+          {
+            "text": "Now we’ll take 1 minute to reflect on our own.\n\nxxMain question\n\nxxFurther explanations of main question if needed"
+          },
+          {
+            "text": "You can take notes on a piece of paper or just mental notes in your head. And there is no right or wrong here, our answers are our own. 1 minute starting now.\n\n> Press play to start the timer.\n\nThat’s 1 minute and it’s time to move on."
+          }
+        ],
+        "content": {
+          "heading": "Hoe voelde het om dankbaarheid te beoefenen?"
+        }
+      },
+      {
+        "type": "sharing",
+        "hostNotes": [
+          {
+            "text": "Now we are getting into the sharing part. We have three rules for sharing:\n\n1. **What is said in here, stays in here.**\n2. **All you need to do is listen.** There is no fixing, helping or advice-giving needed. We are just showing up and exploring what ourselves and others are going through."
+          },
+          {
+            "text": "3. **Everything on the inside is okay.** Anger, love, hatred, sadness. Whatever shows up. No wrongs, no rights. It is what it is.\n\nThere will be a timer set for 2 minutes as an indicator. If you don’t want to share you can always say ‘pass’."
+          },
+          {
+            "text": "Who would like to start?\n\n> Let everyone (or as many as you got time for) share one by one. Press play to start the timer. Re-start for each new sharing.\n\nThank you so much everyone."
+          }
+        ],
+        "id": "Sharing 1",
+        "content": {
+          "heading": "Hoe voelde het om dankbaarheid te beoefenen?"
+        }
+      },
+      {
+        "type": "host",
+        "hostNotes": [
+          {
+            "text": "Well done. If you’re up for it, you can continue what we started here today with a mission to bring this into your everyday life.\n\nxx mission description"
+          },
+          {
+            "text": "Before we leave this space let’s do a mini check-out. \n\nHow are you feeling right now? Has anything shifted? Please answer in two-three words."
+          },
+          {
+            "text": "Who would like to start?\n\n> Let everyone in the session check out one by one.\n\nThank you all for checking out and for joining this session today.\n\n> Finish session to send everyone off to the exit experience."
+          }
+        ]
+      },
+      {
+        "type": "instruction",
+        "content": {
+          "text": "Goed gedaan met het oefenen van dankbaarheid! Het is goed om te oefenen met het tegenovergestelde van alleen maar letten op negatieve dingen.\n\nAls het kan, bedank dan ook echt de persoon aan wie je de bedankbrief hebt geschreven. We raden aan om met diegene af te spreken en je brief hardop voor te lezen.",
+          "image": {
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1737803289/Images/image_33_memory_box_jxsiwf.png"
+          }
+        }
+      }
+    ],
+    "theme": {
+      "textColor": "#2E2E2E",
+      "backgroundColor": "#e2d002"
+    },
+    "locked": true,
+    "name": "Dankbaarheidsbrieven",
+    "published": true,
+    "asyncDuration": 15,
+    "card": {
+      "image": {
+        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1737188068/Images/image_1_memory_box_zzn2wn.png"
+      }
+    },
+    "coCreators": [
+      {
+        "name": "Jenny Rickardsson, script",
+        "url": "https://www.linkedin.com/in/jenny-rickardson-6770a959/",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413228/Contributors/Jenny%20Rickardsson.jpg"
+      },
+      {
+        "name": "Ints Ivanovskis, art works",
+        "url": "https://www.linkedin.com/in/ints-ivanovskis-46ab0311a/",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413436/Contributors/Ints%20Ivanovskis.jpg"
+      },
+      {
+        "name": "Mila W, voice",
+        "url": "https://www.fiverr.com/milawilde?source=inbox",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1737469735/Contributors/MilaW_demgfw.jpg"
+      }
+    ],
+    "outroPortal": {
+      "desktopOptimized": true
+    },
+    "introPortal": {
+      "textColor": "#2E2E2E",
+      "hostNotes": [
+        {
+          "text": "> Start the session when you're ready to go"
+        }
+      ],
+      "videoLoop": {
+        "p5JsScript": {
+          "lang": "javascript"
+        },
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1737274969/Video/portal_1_memory_box_pjpo47.mp4"
+      },
+      "desktopOptimized": true
+    },
+    "tags": [
+      "34100e43-2eb8-4d35-8eb0-9fa9f78e4935",
+      "43a6dc0d-d866-4b79-9453-13c44e906128"
+    ],
+    "id": "19573b9a-e2f2-4bba-9687-35d261cbbf49",
+    "async": true,
+    "description": "Onze gedachten zijn vaak gericht op negatieve dingen. In deze oefening doen we het tegenovergestelde: we zeggen waar we dankbaar voor zijn in ons leven. Dit kan ons helpen om meer tevreden en gelukkig te zijn, waar we ook zijn in ons leven."
   },
   "es": {
-    "id": "19573b9a-e2f2-4bba-9687-35d261cbbf49"
+    "id": "19573b9a-e2f2-4bba-9687-35d261cbbf49",
+    "card": {},
+    "locked": true,
+    "tags": [
+      "34100e43-2eb8-4d35-8eb0-9fa9f78e4935",
+      "43a6dc0d-d866-4b79-9453-13c44e906128"
+    ],
+    "asyncDuration": 15
   }
 }

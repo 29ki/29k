@@ -1,6 +1,7 @@
 import {
   CmsField,
   CmsFieldBase,
+  CmsFieldBoolean,
   CmsFieldCode,
   CmsFieldList,
 } from 'decap-cms-core';
@@ -114,6 +115,14 @@ const P5JS_SCRIPT: CmsFieldBase & CmsFieldCode = {
   hint: '❗️ Overrides video',
 };
 
+const DESKTOP_OPTIMIZED: CmsFieldBase & CmsFieldBoolean = {
+  name: 'desktopOptimized',
+  label: '🖥️ Desktop Optimized',
+  widget: 'boolean',
+  required: false,
+  default: false,
+};
+
 export const INTRO_PORTAL: CmsField = {
   label: '🌇 Intro Portal',
   name: 'introPortal',
@@ -122,6 +131,7 @@ export const INTRO_PORTAL: CmsField = {
   required: false,
   i18n: true,
   fields: [
+    DESKTOP_OPTIMIZED,
     {
       ...VIDEO_FIELD,
       fields: [...VIDEO_FIELD.fields, P5JS_SCRIPT, AUDIO_FIELD],
@@ -142,6 +152,7 @@ export const OUTRO_PORTAL: CmsField = {
   required: false,
   i18n: true,
   fields: [
+    DESKTOP_OPTIMIZED,
     {
       ...VIDEO_FIELD,
       fields: [...VIDEO_FIELD.fields, AUDIO_FIELD],

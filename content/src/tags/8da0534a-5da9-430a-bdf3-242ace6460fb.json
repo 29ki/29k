@@ -20,13 +20,19 @@
     "published": true
   },
   "da": {
-    "id": "8da0534a-5da9-430a-bdf3-242ace6460fb"
+    "id": "8da0534a-5da9-430a-bdf3-242ace6460fb",
+    "name": "Modstandsdygtighed",
+    "published": true
   },
   "cs": {
-    "id": "8da0534a-5da9-430a-bdf3-242ace6460fb"
+    "id": "8da0534a-5da9-430a-bdf3-242ace6460fb",
+    "name": "Odolnost",
+    "published": true
   },
   "nl": {
-    "id": "8da0534a-5da9-430a-bdf3-242ace6460fb"
+    "id": "8da0534a-5da9-430a-bdf3-242ace6460fb",
+    "name": "Veerkracht\t",
+    "published": true
   },
   "es": {
     "name": "Resiliencia",

@@ -3,7 +3,7 @@
     "join": "Join",
     "coCreatorsHeading": "Co-created with",
     "howItWorks": "How it works",
-    "journeyButton": "My journey",
+    "journeyButton": "Interested",
     "feedbackHeading": "Reviews",
     "moreLikeThis": "More like this"
   },
@@ -11,13 +11,13 @@
     "join": "Participar",
     "coCreatorsHeading": "Co-criada com",
     "howItWorks": "Como funciona",
-    "journeyButton": "Minha jornada",
+    "journeyButton": "Interessada/o",
     "feedbackHeading": "Comentários",
     "moreLikeThis": "Semelhantes"
   },
   "sv": {
     "join": "Anslut",
-    "journeyButton": "Min plan",
+    "journeyButton": "Intresserad",
     "deleteButton": "Ta bort session",
     "coCreatorsHeading": "Skapad med",
     "howItWorks": "Så funkar det",
@@ -33,7 +33,7 @@
     "feedbackHeading": "Reseñas",
     "howItWorks": "Cómo funciona",
     "join": "Unirme",
-    "journeyButton": "Mi viaje",
+    "journeyButton": "Interesado/a",
     "moreLikeThis": "Más como esta sesión"
   }
 }

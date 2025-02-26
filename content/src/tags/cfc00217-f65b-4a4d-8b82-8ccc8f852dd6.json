@@ -20,13 +20,19 @@
     "published": true
   },
   "da": {
-    "id": "cfc00217-f65b-4a4d-8b82-8ccc8f852dd6"
+    "id": "cfc00217-f65b-4a4d-8b82-8ccc8f852dd6",
+    "name": "Opmærksomhed",
+    "published": true
   },
   "cs": {
-    "id": "cfc00217-f65b-4a4d-8b82-8ccc8f852dd6"
+    "id": "cfc00217-f65b-4a4d-8b82-8ccc8f852dd6",
+    "name": "Všímavost",
+    "published": true
   },
   "nl": {
-    "id": "cfc00217-f65b-4a4d-8b82-8ccc8f852dd6"
+    "id": "cfc00217-f65b-4a4d-8b82-8ccc8f852dd6",
+    "name": "Mindfulness",
+    "published": true
   },
   "es": {
     "name": "Atención plena",

@@ -9,41 +9,20 @@ import React, {
 import {VideoLooperProperties} from './VideoLooper';
 import styled from 'styled-components';
 
-const useCanvasColorCorrection = false; // Currently disabled because of rendering issues on Windows
-/*
-!(
-  typeof window !== 'undefined' &&
-  /^((?!chrome|android).)*safari/i.test(navigator.userAgent)
-); // Not Safari
-*/
-
 const Wrapper = styled.div({
   position: 'relative',
   overflow: 'hidden',
 });
 
-const Canvas = styled.canvas({
+const Video = styled.video<{
+  active: boolean;
+  resizeMode: VideoLooperProperties['resizeMode'];
+}>(({active, resizeMode}) => ({
   position: 'absolute',
-  left: 0,
-  right: 0,
-  top: '50%',
-  bottom: 0,
   width: '100%',
-  overflow: 'hidden',
-  transform: 'translateY(-50%)',
-  display: useCanvasColorCorrection ? 'block' : 'none',
-});
-
-const Video = styled.video<{active: boolean}>(({active}) => ({
-  position: 'absolute',
-  left: 0,
-  right: 0,
-  top: '50%',
-  bottom: 0,
-  width: '100%',
-  overflow: 'hidden',
-  transform: 'translateY(-50%)',
-  display: !active || useCanvasColorCorrection ? 'none' : 'block',
+  height: '100%',
+  display: !active ? 'none' : 'block',
+  objectFit: resizeMode,
 }));
 
 const Audio = styled.audio({
@@ -69,12 +48,10 @@ const VideoLooper = forwardRef<VideoPlayerHandle, VideoLooperProperties>(
       onEnd,
       onAutoPlayFailed = () => {},
       audioOnly,
+      resizeMode = 'cover',
     },
     ref,
   ) => {
-    const canvasRef = useRef<HTMLCanvasElement>(null);
-    const canvasContext = useRef<CanvasRenderingContext2D | null>(null);
-
     const playerEls = useRef<(HTMLVideoElement | HTMLAudioElement | null)[]>(
       [],
     );
@@ -91,11 +68,6 @@ const VideoLooper = forwardRef<VideoPlayerHandle, VideoLooperProperties>(
     const getCurrentPlayerEl = useCallback(
       () => playerEls.current[currentSource.current],
       [],
-    );
-
-    const getCurrentVideoEl = useCallback(
-      () => !audioOnly && (getCurrentPlayerEl() as HTMLVideoElement),
-      [audioOnly, getCurrentPlayerEl],
     );
 
     const isCurrentSource = useCallback(
@@ -129,39 +101,6 @@ const VideoLooper = forwardRef<VideoPlayerHandle, VideoLooperProperties>(
       [stopCurrentSource, playCurrentSource],
     );
 
-    const drawCurrentFrame = useCallback(() => {
-      const videoEl = getCurrentVideoEl();
-      if (
-        useCanvasColorCorrection &&
-        canvasContext.current &&
-        canvasRef.current &&
-        videoEl
-      ) {
-        canvasContext.current.drawImage(
-          videoEl,
-          0,
-          0,
-          canvasRef.current.width,
-          canvasRef.current.height,
-        );
-      }
-    }, [getCurrentVideoEl]);
-
-    const drawFrames = useCallback(() => {
-      const videoEl = getCurrentVideoEl();
-      if (
-        useCanvasColorCorrection &&
-        videoEl &&
-        !videoEl.paused &&
-        !videoEl.ended
-      ) {
-        videoEl.requestVideoFrameCallback(() => {
-          drawCurrentFrame();
-          drawFrames();
-        });
-      }
-    }, [drawCurrentFrame, getCurrentVideoEl]);
-
     const seek = useCallback(
       (seconds: number) => {
         const playerEl = getCurrentPlayerEl();
@@ -177,48 +116,16 @@ const VideoLooper = forwardRef<VideoPlayerHandle, VideoLooperProperties>(
       playCurrentSource,
     ]);
 
-    const onLoadedMetadata = useCallback(
-      (sourceIndex: number) => () => {
-        const videoEl = getCurrentVideoEl();
-        if (
-          useCanvasColorCorrection &&
-          isCurrentSource(sourceIndex) &&
-          canvasRef.current &&
-          videoEl
-        ) {
-          canvasContext.current = canvasRef.current.getContext('2d', {
-            alpha: true,
-            desynchronized: true,
-            willReadFrequently: true,
-          });
-          canvasRef.current.width = videoEl.videoWidth;
-          canvasRef.current.height = videoEl.videoHeight;
-        }
-      },
-      [getCurrentVideoEl, isCurrentSource],
-    );
-
     const onLoadedData = useCallback(
       (sourceIndex: number) => () => {
         const playerEl = getCurrentPlayerEl();
-        const videoEl = getCurrentVideoEl();
         if (isCurrentSource(sourceIndex) && playerEl) {
-          if (videoEl) {
-            drawCurrentFrame();
-            videoEl.requestVideoFrameCallback(drawCurrentFrame);
-          }
           if (onLoad) {
             onLoad({duration: playerEl.duration});
           }
         }
       },
-      [
-        onLoad,
-        drawCurrentFrame,
-        getCurrentPlayerEl,
-        getCurrentVideoEl,
-        isCurrentSource,
-      ],
+      [onLoad, getCurrentPlayerEl, isCurrentSource],
     );
 
     const onTimeUpdate = useCallback(
@@ -253,15 +160,6 @@ const VideoLooper = forwardRef<VideoPlayerHandle, VideoLooperProperties>(
         onTransition,
         onEnd,
       ],
-    );
-
-    const onPlay = useCallback(
-      (sourceIndex: number) => () => {
-        if (isCurrentSource(sourceIndex)) {
-          drawFrames();
-        }
-      },
-      [drawFrames, isCurrentSource],
     );
 
     const checkAutoPlayError = useCallback(
@@ -319,21 +217,19 @@ const VideoLooper = forwardRef<VideoPlayerHandle, VideoLooperProperties>(
 
     return (
       <Wrapper style={style}>
-        {!audioOnly && <Canvas ref={canvasRef} />}
         {sources.map(({source, repeat: sourceRepeat}, sourceIndex) => (
           <Component
             key={source}
             ref={setVideoRef(sourceIndex)}
             src={source}
-            onLoadedMetadata={onLoadedMetadata(sourceIndex)}
             onLoadedData={onLoadedData(sourceIndex)}
             onTimeUpdate={onTimeUpdate(sourceIndex)}
             onEnded={onEnded(sourceIndex)}
-            onPlay={onPlay(sourceIndex)}
             loop={sourceRepeat}
             autoPlay={!paused && isCurrentSource(sourceIndex)}
             muted={muted}
             active={isCurrentSource(sourceIndex)}
+            resizeMode={resizeMode}
             playsInline
           />
         ))}

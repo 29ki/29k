@@ -11,6 +11,7 @@ export interface VideoLooperProperties extends ViewProps {
   muted?: boolean;
   audioOnly?: boolean;
   mixWithOthers?: boolean;
+  resizeMode?: 'cover' | 'contain';
   onEnd?: () => void;
   onLoad?: ({duration: number}) => void;
   onProgress?: ({time: number}) => void;
