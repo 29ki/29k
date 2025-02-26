@@ -1126,7 +1126,7 @@ PODS:
   - JitsiWebRTC (118.0.0)
   - JWT (3.0.0-beta.14):
     - Base64 (~> 1.1.2)
-  - kingstinct-react-native-healthkit (8.2.0):
+  - kingstinct-react-native-healthkit (8.5.0):
     - React
   - leveldb-library (1.22.5)
   - lottie-ios (4.4.1)
@@ -2364,7 +2364,7 @@ PODS:
   - RecaptchaInterop (100.0.0)
   - RNCAsyncStorage (1.24.0):
     - React-Core
-  - RNCPicker (2.7.7):
+  - RNCPicker (2.11.0):
     - React-Core
   - RNDateTimePicker (8.2.0):
     - React-Core
@@ -2391,7 +2391,7 @@ PODS:
     - Firebase/Storage (= 10.29.0)
     - React-Core
     - RNFBApp
-  - RNGestureHandler (2.21.2):
+  - RNGestureHandler (2.24.0):
     - DoubleConversion
     - glog
     - hermes-engine
@@ -2412,12 +2412,12 @@ PODS:
     - ReactCommon/turbomodule/bridging
     - ReactCommon/turbomodule/core
     - Yoga
-  - RNImageCropPicker (0.41.6):
+  - RNImageCropPicker (0.42.0):
     - React-Core
     - React-RCTImage
-    - RNImageCropPicker/QBImagePickerController (= 0.41.6)
+    - RNImageCropPicker/QBImagePickerController (= 0.42.0)
     - TOCropViewController (~> 2.7.4)
-  - RNImageCropPicker/QBImagePickerController (0.41.6):
+  - RNImageCropPicker/QBImagePickerController (0.42.0):
     - React-Core
     - React-RCTImage
     - TOCropViewController (~> 2.7.4)
@@ -2540,7 +2540,7 @@ PODS:
     - ReactCommon/turbomodule/bridging
     - ReactCommon/turbomodule/core
     - Yoga
-  - RNScreens (4.4.0):
+  - RNScreens (4.9.0):
     - DoubleConversion
     - glog
     - hermes-engine
@@ -2978,7 +2978,7 @@ SPEC CHECKSUMS:
   hermes-engine: 1f547997900dd0752dc0cc0ae6dd16173c49e09b
   JitsiWebRTC: 3a41671ef65a51d7204323814b055a2690b921c7
   JWT: ef71dfb03e1f842081e64dc42eef0e164f35d251
-  kingstinct-react-native-healthkit: d25569576d9fd5084500f3ec83f5102a7de2692b
+  kingstinct-react-native-healthkit: 8538d8fd7bef0cbde70da491852db4b3ca6825b4
   leveldb-library: e8eadf9008a61f9e1dde3978c086d2b6d9b9dc28
   lottie-ios: e047b1d2e6239b787cc5e9755b988869cf190494
   lottie-react-native: 445dc3d3c964a4365ec39131d8b991556dc55b01
@@ -3046,7 +3046,7 @@ SPEC CHECKSUMS:
   ReactNativeDailyJSScreenShareExtension: 70af702672121fcd283d7d567def4e501ce207b1
   RecaptchaInterop: 7d1a4a01a6b2cb1610a47ef3f85f0c411434cb21
   RNCAsyncStorage: ec53e44dc3e75b44aa2a9f37618a49c3bc080a7a
-  RNCPicker: b7873ba797dc586bfaf3307d737cbdc620a9ff3e
+  RNCPicker: 4f6d5e8d107064be32dfc8f1bcb5a3741135db0b
   RNDateTimePicker: 40ffda97d071a98a10fdca4fa97e3977102ccd14
   RNDeviceInfo: 3f2e5fcca3637f75c6d30ba287293c2f97206781
   RNFBApp: 793adb33298db7e67dc365dc1ec0dc8a55a7a044
@@ -3054,15 +3054,15 @@ SPEC CHECKSUMS:
   RNFBDynamicLinks: 6e5d52576c079e65040110c8a9b895c6e1f02edc
   RNFBFirestore: 9b5e7d645787f02d5d16c4e060e778e9da762e02
   RNFBStorage: a86f59a4adae00b3061e55257d6c3d70851a1810
-  RNGestureHandler: 38b7949a58a56ae0e2a3c38920cb6852cafb6b9f
-  RNImageCropPicker: 8e39c01f205e00d739c31e682f068aac315587bf
+  RNGestureHandler: f402e21b9b18bde8125dfca59d4ed1c491bf9d85
+  RNImageCropPicker: 64b6bec9ec185ee59b71a93d7058816bd0e1916e
   RNLocalize: 4f22418187ecd5ca693231093ff1d912d1b3c9bc
   RNNotifee: 522276e0be010e98173175fb838514b69f18cbe0
   RNPermissions: b8fcf4c21a018a2eb1869231f3e121aa97c0f642
   RNRate: ef3bcff84f39bb1d1e41c5593d3eea4aab2bd73a
   RNReactNativeHapticFeedback: dd1df8ab143dfd0ac79fe483cd08822d7a86fc85
   RNReanimated: 13f9f061449dd7a1f6e1b8fb4caf18b880b41bd1
-  RNScreens: a582697173dfacb627c9366a80881ffb5dd92971
+  RNScreens: e7a0958cea20a92f373fa04cb3582aeebe797bef
   RNSentry: d2f4b8dc672fb4e26b50b99e006e52d547e36b3f
   RNSVG: 8b1a777d54096b8c2a0fd38fc9d5a454332bbb4d
   Sentry: f8374b5415bc38dfb5645941b3ae31230fbeae57

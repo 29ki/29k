@@ -13,12 +13,12 @@ on:
 jobs:
   ios:
     name: Build
-    runs-on: macos-14
+    runs-on: macos-latest
     environment: client-${{ inputs.environment }}
     env:
       CI: github
 
-      SOURCEMAPS_DIR: ./build/sourcemaps
+      BUILD_DIR: ./build
 
       SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
       SENTRY_ORG: ${{ vars.SENTRY_ORG }}
@@ -26,13 +26,13 @@ jobs:
 
       DOTENV_ENVIRONMENT: ${{ vars.ENVIRONMENT }}
       DOTENV_DEBUG: ${{ vars.DEBUG }}
-      DOTENV_ANDROID_CODE_PUSH_DEPLOYMENT_KEY: ${{ vars.ANDROID_CODE_PUSH_DEPLOYMENT_KEY }}
+      DOTENV_ANDROID_REVOPUSH_DEPLOYMENT_KEY: ${{ vars.ANDROID_REVOPUSH_DEPLOYMENT_KEY }}
       DOTENV_ANDROID_PACKAGE_NAME: ${{ vars.ANDROID_PACKAGE_NAME }}
       DOTENV_API_ENDPOINT: ${{ vars.API_ENDPOINT }}
       DOTENV_DEEP_LINK_PREFIX: ${{ vars.DEEP_LINK_PREFIX }}
       DOTENV_DEEP_LINK_SCHEME: ${{ vars.DEEP_LINK_SCHEME }}
       DOTENV_IOS_APPSTORE_ID: ${{ vars.IOS_APPSTORE_ID }}
-      DOTENV_IOS_CODE_PUSH_DEPLOYMENT_KEY: ${{ vars.IOS_CODE_PUSH_DEPLOYMENT_KEY }}
+      DOTENV_IOS_REVOPUSH_DEPLOYMENT_KEY: ${{ vars.IOS_REVOPUSH_DEPLOYMENT_KEY }}
       DOTENV_METRICS_ENDPOINT: ${{ vars.METRICS_ENDPOINT }}
       DOTENV_POSTHOG_API_KEY: ${{ vars.POSTHOG_API_KEY }}
       DOTENV_SENTRY_DSN: ${{ vars.SENTRY_DSN }}
@@ -86,9 +86,9 @@ jobs:
         working-directory: ./client/ios/Supporting
         run: echo "${{ secrets.IOS_GOOGLE_SERVICE_PLIST_FILE }}" > ./$IOS_SCHEME/GoogleService-Info.plist
 
-      - name: Prepare Source Maps Directory
+      - name: Prepare Build Directory
         working-directory: ./client
-        run: mkdir -p $SOURCEMAPS_DIR
+        run: mkdir -p $BUILD_DIR
 
       - name: Prepare $GIT_COMMIT_SHORT
         working-directory: ./shared
@@ -177,8 +177,8 @@ jobs:
           --dev false
           --entry-file index.js
           --platform ios
-          --bundle-output $SOURCEMAPS_DIR/main.jsbundle
-          --sourcemap-output $SOURCEMAPS_DIR/main.jsbundle.map
+          --bundle-output $BUILD_DIR/main.jsbundle
+          --sourcemap-output $BUILD_DIR/main.jsbundle.map
 
       - name: Compile Hermes Bytecode
         working-directory: ./client
@@ -186,28 +186,28 @@ jobs:
           ios/Pods/hermes-engine/destroot/bin/hermesc
           -O -emit-binary
           -output-source-map
-          -out=$SOURCEMAPS_DIR/main.jsbundle.hbc
-          $SOURCEMAPS_DIR/main.jsbundle
+          -out=$BUILD_DIR/main.jsbundle.hbc
+          $BUILD_DIR/main.jsbundle
 
-          rm -f $SOURCEMAPS_DIR/main.jsbundle
+          rm -f $BUILD_DIR/main.jsbundle
 
-          mv $SOURCEMAPS_DIR/main.jsbundle.hbc $SOURCEMAPS_DIR/main.jsbundle
+          mv $BUILD_DIR/main.jsbundle.hbc $BUILD_DIR/main.jsbundle
 
       - name: Compose Hermes Bytecode and Source Map
         working-directory: ./client
         run: >
-          mv $SOURCEMAPS_DIR/main.jsbundle.map $SOURCEMAPS_DIR/main.jsbundle.packager.map
+          mv $BUILD_DIR/main.jsbundle.map $BUILD_DIR/main.jsbundle.packager.map
 
           node node_modules/react-native/scripts/compose-source-maps.js
-          $SOURCEMAPS_DIR/main.jsbundle.packager.map
-          $SOURCEMAPS_DIR/main.jsbundle.hbc.map
-          -o $SOURCEMAPS_DIR/main.jsbundle.map
+          $BUILD_DIR/main.jsbundle.packager.map
+          $BUILD_DIR/main.jsbundle.hbc.map
+          -o $BUILD_DIR/main.jsbundle.map
 
           node node_modules/@sentry/react-native/scripts/copy-debugid.js
-          $SOURCEMAPS_DIR/main.jsbundle.packager.map
-          $SOURCEMAPS_DIR/main.jsbundle.map
+          $BUILD_DIR/main.jsbundle.packager.map
+          $BUILD_DIR/main.jsbundle.map
 
-          rm -f $SOURCEMAPS_DIR/main.jsbundle.packager.map
+          rm -f $BUILD_DIR/main.jsbundle.packager.map
 
       - name: Upload Source Map to Sentry
         working-directory: ./client
@@ -217,8 +217,8 @@ jobs:
           --strip-prefix $PWD
           --dist ${{ vars.ENVIRONMENT }}
           --release $GIT_COMMIT_SHORT
-          $SOURCEMAPS_DIR/main.jsbundle
-          $SOURCEMAPS_DIR/main.jsbundle.map
+          $BUILD_DIR/main.jsbundle
+          $BUILD_DIR/main.jsbundle.map
 
       - name: Associate Commits to Sentry Release
         working-directory: ./client

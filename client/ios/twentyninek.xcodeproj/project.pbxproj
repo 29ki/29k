@@ -1041,16 +1041,18 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = production.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 193;
+				CURRENT_PROJECT_VERSION = 195;
 				DEVELOPMENT_TEAM = 68Y57ZGKLJ;
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 68Y57ZGKLJ;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = ./Supporting/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.59.0;
+				MARKETING_VERSION = 2.60.0;
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
@@ -1060,6 +1062,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = org.twentyninek.app.cupcake;
 				PRODUCT_NAME = production;
 				PROVISIONING_PROFILE_SPECIFIER = "development org.twentyninek.app.cupcake";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "development org.twentyninek.app.cupcake";
 				SWIFT_OBJC_BRIDGING_HEADER = "VideoLooper-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
@@ -1076,14 +1079,15 @@
 				CODE_SIGN_ENTITLEMENTS = production.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 193;
+				CURRENT_PROJECT_VERSION = 195;
 				DEVELOPMENT_TEAM = 68Y57ZGKLJ;
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 68Y57ZGKLJ;
 				INFOPLIST_FILE = ./Supporting/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.59.0;
+				MARKETING_VERSION = 2.60.0;
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
@@ -1093,6 +1097,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = org.twentyninek.app.cupcake;
 				PRODUCT_NAME = production;
 				PROVISIONING_PROFILE_SPECIFIER = "appstore org.twentyninek.app.cupcake";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "appstore org.twentyninek.app.cupcake";
 				SWIFT_OBJC_BRIDGING_HEADER = "VideoLooper-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -1108,15 +1113,16 @@
 				CODE_SIGN_ENTITLEMENTS = dev.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 193;
+				CURRENT_PROJECT_VERSION = 195;
 				DEVELOPMENT_TEAM = 68Y57ZGKLJ;
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 68Y57ZGKLJ;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = ./Supporting/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.59.0;
+				MARKETING_VERSION = 2.60.0;
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
@@ -1126,6 +1132,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = org.twentyninek.app.cupcake.dev;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "development org.twentyninek.app.cupcake.dev";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "development org.twentyninek.app.cupcake.dev";
 				SWIFT_OBJC_BRIDGING_HEADER = "VideoLooper-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
@@ -1142,14 +1149,15 @@
 				CODE_SIGN_ENTITLEMENTS = dev.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 193;
+				CURRENT_PROJECT_VERSION = 195;
 				DEVELOPMENT_TEAM = 68Y57ZGKLJ;
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 68Y57ZGKLJ;
 				INFOPLIST_FILE = ./Supporting/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.59.0;
+				MARKETING_VERSION = 2.60.0;
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
@@ -1160,6 +1168,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = org.twentyninek.app.cupcake.dev;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "appstore org.twentyninek.app.cupcake.dev";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "appstore org.twentyninek.app.cupcake.dev";
 				SWIFT_OBJC_BRIDGING_HEADER = "VideoLooper-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -1175,15 +1184,16 @@
 				CODE_SIGN_ENTITLEMENTS = staging.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 193;
+				CURRENT_PROJECT_VERSION = 195;
 				DEVELOPMENT_TEAM = 68Y57ZGKLJ;
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 68Y57ZGKLJ;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = ./Supporting/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.59.0;
+				MARKETING_VERSION = 2.60.0;
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
@@ -1193,6 +1203,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = org.twentyninek.app.cupcake.staging;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "development org.twentyninek.app.cupcake.staging";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "development org.twentyninek.app.cupcake.staging";
 				SWIFT_OBJC_BRIDGING_HEADER = "VideoLooper-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
@@ -1208,15 +1219,17 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = staging.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 193;
+				CURRENT_PROJECT_VERSION = 195;
 				DEVELOPMENT_TEAM = 68Y57ZGKLJ;
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 68Y57ZGKLJ;
 				INFOPLIST_FILE = ./Supporting/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.59.0;
+				MARKETING_VERSION = 2.60.0;
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
@@ -1226,6 +1239,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = org.twentyninek.app.cupcake.staging;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "appstore org.twentyninek.app.cupcake.staging";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "appstore org.twentyninek.app.cupcake.staging";
 				SWIFT_OBJC_BRIDGING_HEADER = "VideoLooper-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";

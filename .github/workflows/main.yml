@@ -51,7 +51,7 @@ jobs:
     name: iOS Production
     concurrency: deploy-ios-production
     needs: deploy-functions-production
-    uses: ./.github/workflows/deploy-codepush.yml
+    uses: ./.github/workflows/deploy-revopush.yml
     with:
       environment: production
       platform: ios
@@ -61,7 +61,7 @@ jobs:
     name: iOS Staging
     concurrency: deploy-ios-staging
     needs: deploy-functions-staging
-    uses: ./.github/workflows/deploy-codepush.yml
+    uses: ./.github/workflows/deploy-revopush.yml
     with:
       environment: staging
       platform: ios
@@ -71,7 +71,7 @@ jobs:
     name: Android Production
     concurrency: deploy-android-production
     needs: deploy-functions-production
-    uses: ./.github/workflows/deploy-codepush.yml
+    uses: ./.github/workflows/deploy-revopush.yml
     with:
       environment: production
       platform: android
@@ -81,7 +81,7 @@ jobs:
     name: Android Staging
     concurrency: deploy-android-staging
     needs: deploy-functions-staging
-    uses: ./.github/workflows/deploy-codepush.yml
+    uses: ./.github/workflows/deploy-revopush.yml
     with:
       environment: staging
       platform: android

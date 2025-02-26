@@ -1,4 +1,4 @@
-name: CodePush
+name: Revopush
 
 on:
   workflow_call:
@@ -17,25 +17,24 @@ jobs:
     environment: client-${{ inputs.environment }}
     env:
       BUILD_DIR: ./build
-      SOURCEMAPS_DIR: ./build/sourcemaps
 
       SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
       SENTRY_ORG: ${{ vars.SENTRY_ORG }}
       SENTRY_PROJECT: ${{ vars.SENTRY_PROJECT }}
 
-      APPCENTER_ACCESS_TOKEN: ${{ secrets.APPCENTER_ACCESS_TOKEN }}
-      ANDROID_CODE_PUSH_PROJECT: ${{ vars.ANDROID_CODE_PUSH_PROJECT }}
-      IOS_CODE_PUSH_PROJECT: ${{ vars.IOS_CODE_PUSH_PROJECT }}
+      REVOPUSH_ACCESS_KEY: ${{ secrets.REVOPUSH_ACCESS_KEY }}
+      ANDROID_REVOPUSH_PROJECT: ${{ vars.ANDROID_REVOPUSH_PROJECT }}
+      IOS_REVOPUSH_PROJECT: ${{ vars.IOS_REVOPUSH_PROJECT }}
 
       DOTENV_ENVIRONMENT: ${{ vars.ENVIRONMENT }}
       DOTENV_DEBUG: ${{ vars.DEBUG }}
-      DOTENV_ANDROID_CODE_PUSH_DEPLOYMENT_KEY: ${{ vars.ANDROID_CODE_PUSH_DEPLOYMENT_KEY }}
+      DOTENV_ANDROID_REVOPUSH_DEPLOYMENT_KEY: ${{ vars.ANDROID_REVOPUSH_DEPLOYMENT_KEY }}
       DOTENV_ANDROID_PACKAGE_NAME: ${{ vars.ANDROID_PACKAGE_NAME }}
       DOTENV_API_ENDPOINT: ${{ vars.API_ENDPOINT }}
       DOTENV_DEEP_LINK_PREFIX: ${{ vars.DEEP_LINK_PREFIX }}
       DOTENV_DEEP_LINK_SCHEME: ${{ vars.DEEP_LINK_SCHEME }}
       DOTENV_IOS_APPSTORE_ID: ${{ vars.IOS_APPSTORE_ID }}
-      DOTENV_IOS_CODE_PUSH_DEPLOYMENT_KEY: ${{ vars.IOS_CODE_PUSH_DEPLOYMENT_KEY }}
+      DOTENV_IOS_REVOPUSH_DEPLOYMENT_KEY: ${{ vars.IOS_REVOPUSH_DEPLOYMENT_KEY }}
       DOTENV_METRICS_ENDPOINT: ${{ vars.METRICS_ENDPOINT }}
       DOTENV_POSTHOG_API_KEY: ${{ vars.POSTHOG_API_KEY }}
       DOTENV_SENTRY_DSN: ${{ vars.SENTRY_DSN }}
@@ -99,59 +98,63 @@ jobs:
 
       - name: Prepare Build Directory
         working-directory: ./client
-        run: mkdir -p $SOURCEMAPS_DIR
+        run: mkdir -p $BUILD_DIR
 
       - name: Prepare $GIT_COMMIT_SHORT
         working-directory: ./shared
         run: ./scripts/getGitCommitShort.sh >> $GITHUB_ENV
 
-      - name: Codepush Android
+      - name: Authenticate Revopush
+        working-directory: ./client
+        run: yarn revopush login --accessKey $REVOPUSH_ACCESS_KEY
+
+      - name: Revopush Android
         working-directory: ./client
         if: inputs.platform == 'android'
         run: >
-          yarn appcenter codepush release-react
-          --app $ANDROID_CODE_PUSH_PROJECT
-          --deployment-name ${{ vars.ENVIRONMENT }}
-          --output-dir $BUILD_DIR
-          --sourcemap-output-dir $SOURCEMAPS_DIR
-          --disable-duplicate-release-error
-          --use-hermes
+          yarn revopush release-react $ANDROID_REVOPUSH_PROJECT android
+          --deploymentName ${{ vars.ENVIRONMENT }}
+          --outputDir $BUILD_DIR
+          --sourcemapOutput $BUILD_DIR
+          --noDuplicateReleaseError
+          --useHermes
 
-      - name: Codepush iOS
+      - name: Revopush iOS
         working-directory: ./client
         if: inputs.platform == 'ios'
         run: >
-          yarn appcenter codepush release-react
-          --app $IOS_CODE_PUSH_PROJECT
-          --deployment-name ${{ vars.ENVIRONMENT }}
-          --plist-file ./ios/Supporting/Info.plist
-          --xcode-project-file ./ios/twentyninek.xcodeproj
-          --output-dir $BUILD_DIR
-          --sourcemap-output-dir $SOURCEMAPS_DIR
-          --disable-duplicate-release-error
-          --use-hermes
+          yarn revopush release-react $IOS_REVOPUSH_PROJECT ios
+          --deploymentName ${{ vars.ENVIRONMENT }}
+          --plistFile ./ios/Supporting/Info.plist
+          --xcodeProjectFile ./ios/twentyninek.xcodeproj
+          --outputDir $BUILD_DIR
+          --sourcemapOutput $BUILD_DIR
+          --noDuplicateReleaseError
+          --useHermes
 
       - name: Upload Android Source Maps to Sentry
         working-directory: ./client
         if: inputs.platform == 'android'
         run: >
-          yarn sentry-cli react-native appcenter
-          $ANDROID_CODE_PUSH_PROJECT android
-          $BUILD_DIR/CodePush $SOURCEMAPS_DIR
-          --deployment ${{ vars.ENVIRONMENT }}
+          yarn sentry-cli sourcemaps upload
+          --debug-id-reference
+          --strip-prefix $PWD
           --dist ${{ vars.ENVIRONMENT }}
-          --release-name $GIT_COMMIT_SHORT
+          --release $GIT_COMMIT_SHORT
+          $BUILD_DIR/index.android.bundle
+          $BUILD_DIR/index.android.bundle.map
 
       - name: Upload iOS Source Maps to Sentry
         working-directory: ./client
         if: inputs.platform == 'ios'
         run: >
-          yarn sentry-cli react-native appcenter
-          $IOS_CODE_PUSH_PROJECT ios
-          $BUILD_DIR/CodePush $SOURCEMAPS_DIR
-          --deployment ${{ vars.ENVIRONMENT }}
+          yarn sentry-cli sourcemaps upload
+          --debug-id-reference
+          --strip-prefix $PWD
           --dist ${{ vars.ENVIRONMENT }}
-          --release-name $GIT_COMMIT_SHORT
+          --release $GIT_COMMIT_SHORT
+          $BUILD_DIR/main.jsbundle
+          $BUILD_DIR/main.jsbundle.map
 
       - name: Associate Commits to Sentry Release
         working-directory: ./client
