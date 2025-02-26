@@ -5559,10 +5559,10 @@ i18next@*, i18next@^24.2.0:
   dependencies:
     "@babel/runtime" "^7.23.2"
 
-ical-generator@^8.0.1:
-  version "8.0.1"
-  resolved "https://registry.yarnpkg.com/ical-generator/-/ical-generator-8.0.1.tgz#881fd1ace6492c50c217040332f8a1db4c49e0ea"
-  integrity sha512-D7D0HPdjg8dEVTyN3QM95sioJj5/6TPj9wetrpt16tzszVgTIXHSSlreTsLuSSQpF61EdVxxTwYS9TVWr7vF0g==
+ical-generator@^8.1.1:
+  version "8.1.1"
+  resolved "https://registry.yarnpkg.com/ical-generator/-/ical-generator-8.1.1.tgz#88cd74397cf4fad4676b776dec7e7ebcdeea51fa"
+  integrity sha512-vorfUDZk4NaVLB7f1pm9AeRGy0jTYn7QUHZCFCMx3EGOz9+yykdAjA1i4ez+ZLAEK55lmutCXvVovEdTj9s1XA==
   dependencies:
     uuid-random "^1.3.2"
 
