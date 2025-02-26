@@ -107,7 +107,7 @@ jobs:
 
       - name: Authenticate Revopush
         working-directory: ./client
-        run: revopush login --accessKey $REVOPUSH_ACCESS_KEY
+        run: yarn revopush login --accessKey $REVOPUSH_ACCESS_KEY
 
       - name: Revopush Android
         working-directory: ./client
