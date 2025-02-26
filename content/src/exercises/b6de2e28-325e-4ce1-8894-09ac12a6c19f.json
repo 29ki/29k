@@ -89,7 +89,7 @@
     },
     "hidden": false,
     "locked": true,
-    "name": "PsyPal Music exercise I",
+    "name": "PsyPal At dawn",
     "live": false,
     "published": true,
     "asyncDuration": 25,
@@ -100,7 +100,7 @@
     },
     "coCreators": [
       {
-        "name": "Catharina Messel, script and voice",
+        "name": "Catharina Messell, voice",
         "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1734343422/Contributors/Catharina_Messel_Da_PsyPal.png",
         "url": "https://palliativeprojects.eu/psypal/university-of-copenhagen/"
       },
@@ -108,6 +108,11 @@
         "name": "Ints Ivanovskis, art works",
         "url": "https://www.linkedin.com/in/ints-ivanovskis-46ab0311a/?originalSubdomain=se",
         "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413436/Contributors/Ints%20Ivanovskis.jpg"
+      },
+      {
+        "name": "Dea Siggaard Stenbæk, script",
+        "url": "https://psychology.ku.dk/staff/academic_staff/?pure=en/persons/248279",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1739354155/Contributors/Dea%20Siggard%20Stenb%C3%A6k.png"
       }
     ],
     "outroPortal": {
@@ -230,7 +235,7 @@
     },
     "hidden": true,
     "locked": true,
-    "name": "Exercício de música PsyPal I ",
+    "name": "Ao amanhecer",
     "live": false,
     "published": true,
     "asyncDuration": 25,
@@ -279,7 +284,7 @@
     ],
     "id": "b6de2e28-325e-4ce1-8894-09ac12a6c19f",
     "async": true,
-    "description": "Técnicas de mindfullness e de visualização/imagética guiada pela música podem ajudar os nossos cérebros a praticar estados de consciência alterados. Podem ser uma forma de relaxarmos e nos situarmos nos nossos corpos."
+    "description": "Técnicas de mindfulness e de visualização guiada pela música podem ajudar os nossos cérebros a praticar estados de consciência alterados. Podem ser uma forma de relaxarmos e nos situarmos nos nossos corpos."
   },
   "sv": {
     "liveDuration": 40,
@@ -555,7 +560,7 @@
     },
     "hidden": true,
     "locked": true,
-    "name": "PsyPal musikøvelse I",
+    "name": "Ved daggry",
     "live": false,
     "published": true,
     "asyncDuration": 25,
@@ -696,7 +701,7 @@
     },
     "hidden": true,
     "locked": true,
-    "name": "PsyPal hudební cvičení I",
+    "name": "Za úsvitu",
     "live": false,
     "published": true,
     "asyncDuration": 25,
@@ -837,7 +842,7 @@
     },
     "hidden": true,
     "locked": true,
-    "name": "PsyPal muziekoefening I",
+    "name": "Bij het ochtendgloren",
     "live": false,
     "published": true,
     "asyncDuration": 25,

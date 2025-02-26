@@ -10,7 +10,7 @@ on:
 jobs:
   deploy:
     name: Deploy
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
     environment: web-${{ inputs.environment }}
     steps:
       - uses: actions/checkout@v2
@@ -22,7 +22,7 @@ jobs:
 
       - name: Cache Root Dependencies
         id: cache-root-node-modules
-        uses: actions/cache@v2
+        uses: actions/cache@v4
         with:
           path: ./node_modules
           key: node-modules-${{ hashFiles('./yarn.lock') }}
@@ -33,7 +33,7 @@ jobs:
 
       - name: Cache Shared Dependencies
         id: cache-shared-node-modules
-        uses: actions/cache@v2
+        uses: actions/cache@v4
         with:
           path: ./shared/node_modules
           key: shared-node-modules-${{ hashFiles('./shared/yarn.lock') }}
@@ -45,7 +45,7 @@ jobs:
 
       - name: Cache Content Dependencies
         id: cache-content-node-modules
-        uses: actions/cache@v2
+        uses: actions/cache@v4
         with:
           path: ./content/node_modules
           key: content-node-modules-${{ hashFiles('./content/yarn.lock') }}
@@ -57,7 +57,7 @@ jobs:
 
       - name: Cache Client Dependencies
         id: cache-client-node-modules
-        uses: actions/cache@v2
+        uses: actions/cache@v4
         with:
           path: ./client/node_modules
           key: client-node-modules-${{ hashFiles('./client/yarn.lock') }}
@@ -69,7 +69,7 @@ jobs:
 
       - name: Cache web Dependencies
         id: cache-web-node-modules
-        uses: actions/cache@v2
+        uses: actions/cache@v4
         with:
           path: ./web/node_modules
           key: web-node-modules-${{ hashFiles('./web/yarn.lock') }}

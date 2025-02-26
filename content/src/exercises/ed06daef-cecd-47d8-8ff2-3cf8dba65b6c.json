@@ -110,7 +110,7 @@
     },
     "hidden": false,
     "locked": true,
-    "name": "PsyPal Hope - music exercise II",
+    "name": "PsyPal Hope",
     "live": false,
     "published": true,
     "excludeFromWeb": false,
@@ -122,7 +122,7 @@
     },
     "coCreators": [
       {
-        "name": "Catharina Messel, voice",
+        "name": "Catharina Messell, voice",
         "url": "https://palliativeprojects.eu/psypal/university-of-copenhagen/",
         "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1734343422/Contributors/Catharina_Messel_Da_PsyPal.png"
       },
@@ -130,6 +130,11 @@
         "name": "Ints Ivanovskis, art works",
         "url": "https://www.linkedin.com/in/ints-ivanovskis-46ab0311a/",
         "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413436/Contributors/Ints%20Ivanovskis.jpg"
+      },
+      {
+        "name": "Dea Siggard Stenbæk, script",
+        "url": "https://researchprofiles.ku.dk/en/persons/dea-siggaard-stenb%C3%A6k",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1739354155/Contributors/Dea%20Siggard%20Stenb%C3%A6k.png"
       }
     ],
     "outroPortal": {
@@ -242,7 +247,12 @@
         {
           "text": "> Start the session when you're ready to go"
         }
-      ]
+      ],
+      "videoLoop": {
+        "p5JsScript": {
+          "lang": "javascript"
+        }
+      }
     },
     "tags": [
       "8da0534a-5da9-430a-bdf3-242ace6460fb"
@@ -451,12 +461,32 @@
         ]
       },
       {
+        "type": "instruction",
+        "content": {
+          "text": "Forestil dig, at du har et indre lys. Lad dit indre lys blive til håb i denne visualiseringsøvelse, som er guidet af musik.",
+          "image": {
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1737788390/Images/image_11_Hope_music_exercise_II_y6rncz.png"
+          }
+        }
+      },
+      {
         "type": "content",
         "hostNotes": [
           {
             "text": "Find a comfortable position. I will start the audio exercise and we'll meet back here afterwards. \n\n> Push play to start the audio exercise"
           }
-        ]
+        ],
+        "content": {
+          "lottie": {
+            "subtitles": "",
+            "audio": ""
+          },
+          "video": {
+            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1737620719/Video/timer_Hope_music_exercise_II_yqpfp7.mp4",
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1739351146/Audio/PsyPal-Hope-Da.mp3.mp3",
+            "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1739874274/SRT%20(captions)%20files/Ha%CC%8Ab_Danish_only_speak_-_06.02.2025_15.13._Ed__en22m0.srt"
+          }
+        }
       },
       {
         "type": "reflection",
@@ -467,7 +497,14 @@
           {
             "text": "You can take notes on a piece of paper or just mental notes in your head. And there is no right or wrong here, our answers are our own. 1 minute starting now.\n\n> Press play to start the timer.\n\nThat’s 1 minute and it’s time to move on."
           }
-        ]
+        ],
+        "content": {
+          "heading": "Hvad følte du under denne øvelse?",
+          "lottie": {
+            "subtitles": "",
+            "audio": ""
+          }
+        }
       },
       {
         "type": "sharing",
@@ -482,7 +519,13 @@
             "text": "Who would like to start?\n\n> Let everyone (or as many as you got time for) share one by one. Press play to start the timer. Re-start for each new sharing.\n\nThank you so much everyone."
           }
         ],
-        "id": "Sharing 1"
+        "id": "Sharing 1",
+        "content": {
+          "heading": "Hvad følte du under denne øvelse?",
+          "image": {
+            "source": ""
+          }
+        }
       },
       {
         "type": "host",
@@ -501,33 +544,70 @@
       {
         "type": "instruction",
         "content": {
-          "text": "Well done.\n\nSummary.\n\nIf you’re up for it, you can continue with this mission.\n\nmission description"
+          "text": "Velkommen tilbage. Visualisering med hjælp fra musik kan hjælpe os med at se tingene i et andet lys og ændre vores humør til det bedre.",
+          "image": {
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1737788390/Images/image_22_Hope_music_exercise_II_iand4w.png"
+          }
         }
       }
     ],
     "theme": {
-      "textColor": "#2AE2D7"
+      "textColor": "#2E2E2E",
+      "backgroundColor": "#1fabd2"
     },
     "hidden": false,
     "locked": true,
-    "live": true,
-    "published": false,
+    "name": "Håb",
+    "live": false,
+    "published": true,
     "excludeFromWeb": false,
     "asyncDuration": 15,
-    "card": {},
+    "card": {
+      "image": {
+        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1737187860/Images/image_5_Hope_music_exercise_II_kgusv1.png"
+      }
+    },
+    "coCreators": [
+      {
+        "name": "Catharina Messell, voice",
+        "url": "https://nru.dk/index.php/about-us/staff-list/98-other-research-staff/292-catharina-messell",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1734343422/Contributors/Catharina_Messel_Da_PsyPal.png"
+      },
+      {
+        "name": "Ints Ivanovskis, art works",
+        "url": "https://www.linkedin.com/in/ints-ivanovskis-46ab0311a/",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413436/Contributors/Ints%20Ivanovskis.jpg"
+      },
+      {
+        "name": "Dea Siggard Stenbæk, script",
+        "url": "https://researchprofiles.ku.dk/en/persons/dea-siggaard-stenb%C3%A6k",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1739354155/Contributors/Dea%20Siggard%20Stenb%C3%A6k.png"
+      }
+    ],
+    "outroPortal": {
+      "desktopOptimized": true
+    },
     "introPortal": {
-      "textColor": "#2AE2D7",
+      "textColor": "#2E2E2E",
       "hostNotes": [
         {
           "text": "> Start the session when you're ready to go"
         }
-      ]
+      ],
+      "videoLoop": {
+        "p5JsScript": {
+          "lang": "javascript"
+        },
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1737272009/Video/portal_1_Hope_music_exercise_II_njii38.mp4"
+      },
+      "desktopOptimized": true
     },
     "tags": [
       "8da0534a-5da9-430a-bdf3-242ace6460fb"
     ],
     "id": "ed06daef-cecd-47d8-8ff2-3cf8dba65b6c",
-    "async": false
+    "async": true,
+    "description": "Musik har en særlig evne til guide vores følelser og tanker, og til at hjælpe os med at forestille os ting på nye måder.\n\nI dagens øvelse, vil du blive guidet til at forestille dig håb."
   },
   "cs": {
     "liveDuration": 30,
@@ -544,12 +624,32 @@
         ]
       },
       {
+        "type": "instruction",
+        "content": {
+          "text": "Nechť se vaše vnitřní světlo stane nadějí v tomto cvičení vizualizace doprovázené hudbou.",
+          "image": {
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1737788390/Images/image_11_Hope_music_exercise_II_y6rncz.png"
+          }
+        }
+      },
+      {
         "type": "content",
         "hostNotes": [
           {
             "text": "Find a comfortable position. I will start the audio exercise and we'll meet back here afterwards. \n\n> Push play to start the audio exercise"
           }
-        ]
+        ],
+        "content": {
+          "lottie": {
+            "subtitles": "",
+            "audio": ""
+          },
+          "video": {
+            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1737620719/Video/timer_Hope_music_exercise_II_yqpfp7.mp4",
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1739870427/Audio/PsyPal-Hope-Nadeje_CZ_p7f0as.mp3",
+            "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1739870510/SRT%20(captions)%20files/PsyPal-Hope-Nadeje_CZ_swsfle.srt"
+          }
+        }
       },
       {
         "type": "reflection",
@@ -560,7 +660,14 @@
           {
             "text": "You can take notes on a piece of paper or just mental notes in your head. And there is no right or wrong here, our answers are our own. 1 minute starting now.\n\n> Press play to start the timer.\n\nThat’s 1 minute and it’s time to move on."
           }
-        ]
+        ],
+        "content": {
+          "heading": "Jak jste se při tomto cvičení cítili?",
+          "lottie": {
+            "subtitles": "",
+            "audio": ""
+          }
+        }
       },
       {
         "type": "sharing",
@@ -575,7 +682,13 @@
             "text": "Who would like to start?\n\n> Let everyone (or as many as you got time for) share one by one. Press play to start the timer. Re-start for each new sharing.\n\nThank you so much everyone."
           }
         ],
-        "id": "Sharing 1"
+        "id": "Sharing 1",
+        "content": {
+          "heading": "Jak jste se při tomto cvičení cítili?",
+          "image": {
+            "source": ""
+          }
+        }
       },
       {
         "type": "host",
@@ -594,33 +707,70 @@
       {
         "type": "instruction",
         "content": {
-          "text": "Well done.\n\nSummary.\n\nIf you’re up for it, you can continue with this mission.\n\nmission description"
+          "text": "Vítejte zpět. \n\nVizualizace s pomocí hudby může pomoci vidět věci v jiném světle a změnit naši náladu k lepšímu.",
+          "image": {
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1737788390/Images/image_22_Hope_music_exercise_II_iand4w.png"
+          }
         }
       }
     ],
     "theme": {
-      "textColor": "#2AE2D7"
+      "textColor": "#2E2E2E",
+      "backgroundColor": "#1fabd2"
     },
     "hidden": false,
     "locked": true,
-    "live": true,
-    "published": false,
+    "name": "Naděje",
+    "live": false,
+    "published": true,
     "excludeFromWeb": false,
     "asyncDuration": 15,
-    "card": {},
+    "card": {
+      "image": {
+        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1737187860/Images/image_5_Hope_music_exercise_II_kgusv1.png"
+      }
+    },
+    "coCreators": [
+      {
+        "name": "Ints Ivanovskis, art works",
+        "url": "https://www.linkedin.com/in/ints-ivanovskis-46ab0311a/",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413436/Contributors/Ints%20Ivanovskis.jpg"
+      },
+      {
+        "name": "Dea Siggard Stenbæk, script",
+        "url": "https://researchprofiles.ku.dk/en/persons/dea-siggaard-stenb%C3%A6k",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1739354155/Contributors/Dea%20Siggard%20Stenb%C3%A6k.png"
+      },
+      {
+        "name": "Petra Valikova, voice",
+        "url": "www.petravalikova.cz",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1738658028/Contributors/PetraValikova_g3nnac.jpg"
+      }
+    ],
+    "outroPortal": {
+      "desktopOptimized": true
+    },
     "introPortal": {
-      "textColor": "#2AE2D7",
+      "textColor": "#2E2E2E",
       "hostNotes": [
         {
           "text": "> Start the session when you're ready to go"
         }
-      ]
+      ],
+      "videoLoop": {
+        "p5JsScript": {
+          "lang": "javascript"
+        },
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1737272009/Video/portal_1_Hope_music_exercise_II_njii38.mp4"
+      },
+      "desktopOptimized": true
     },
     "tags": [
       "8da0534a-5da9-430a-bdf3-242ace6460fb"
     ],
     "id": "ed06daef-cecd-47d8-8ff2-3cf8dba65b6c",
-    "async": false
+    "async": true,
+    "description": "Hudba je naším mocným spojencem a může pomoci vést naše pocity a myšlenky, abychom viděli věci jinak.\n\nDnešní cvičení věnujeme tématu naděje."
   },
   "nl": {
     "liveDuration": 30,
@@ -637,12 +787,32 @@
         ]
       },
       {
+        "type": "instruction",
+        "content": {
+          "text": "Laat je innerlijke licht hoop worden in deze oefening met muziek.",
+          "image": {
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1737788390/Images/image_11_Hope_music_exercise_II_y6rncz.png"
+          }
+        }
+      },
+      {
         "type": "content",
         "hostNotes": [
           {
             "text": "Find a comfortable position. I will start the audio exercise and we'll meet back here afterwards. \n\n> Push play to start the audio exercise"
           }
-        ]
+        ],
+        "content": {
+          "lottie": {
+            "subtitles": "",
+            "audio": ""
+          },
+          "video": {
+            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1737620719/Video/timer_Hope_music_exercise_II_yqpfp7.mp4",
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1738770382/Audio/psyapl-SkyGazing1R_NL_niuf2p.mp3",
+            "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1739175774/SRT%20(captions)%20files/SkyGazing_NL_dmp7fn.srt"
+          }
+        }
       },
       {
         "type": "reflection",
@@ -653,7 +823,14 @@
           {
             "text": "You can take notes on a piece of paper or just mental notes in your head. And there is no right or wrong here, our answers are our own. 1 minute starting now.\n\n> Press play to start the timer.\n\nThat’s 1 minute and it’s time to move on."
           }
-        ]
+        ],
+        "content": {
+          "heading": "Hoe voelde je je tijdens deze oefening?",
+          "lottie": {
+            "subtitles": "",
+            "audio": ""
+          }
+        }
       },
       {
         "type": "sharing",
@@ -668,7 +845,13 @@
             "text": "Who would like to start?\n\n> Let everyone (or as many as you got time for) share one by one. Press play to start the timer. Re-start for each new sharing.\n\nThank you so much everyone."
           }
         ],
-        "id": "Sharing 1"
+        "id": "Sharing 1",
+        "content": {
+          "heading": "Hoe voelde je je tijdens deze oefening?",
+          "image": {
+            "source": ""
+          }
+        }
       },
       {
         "type": "host",
@@ -687,33 +870,70 @@
       {
         "type": "instruction",
         "content": {
-          "text": "Well done.\n\nSummary.\n\nIf you’re up for it, you can continue with this mission.\n\nmission description"
+          "text": "Welkom terug. \n\nOefenen met beelden en muziek kan ons helpen om dingen anders te zien en ons beter te voelen.",
+          "image": {
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1737788390/Images/image_22_Hope_music_exercise_II_iand4w.png"
+          }
         }
       }
     ],
     "theme": {
-      "textColor": "#2AE2D7"
+      "textColor": "#2E2E2E",
+      "backgroundColor": "#1fabd2"
     },
     "hidden": false,
     "locked": true,
-    "live": true,
-    "published": false,
+    "name": "Hoop",
+    "live": false,
+    "published": true,
     "excludeFromWeb": false,
     "asyncDuration": 15,
-    "card": {},
+    "card": {
+      "image": {
+        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1737187860/Images/image_5_Hope_music_exercise_II_kgusv1.png"
+      }
+    },
+    "coCreators": [
+      {
+        "name": "Mila W, voice",
+        "url": "https://www.fiverr.com/milawilde/deliver-affordable-studio-quality-dutch-female-voiceovers?utm_campaign=gigs_show_buyers&utm_medium=shared&utm_source=copy_link&utm_term=ldlnlap",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1737469735/Contributors/MilaW_demgfw.jpg"
+      },
+      {
+        "name": "Ints Ivanovskis, art works",
+        "url": "https://www.linkedin.com/in/ints-ivanovskis-46ab0311a/",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413436/Contributors/Ints%20Ivanovskis.jpg"
+      },
+      {
+        "name": "Dea Siggard Stenbæk, script",
+        "url": "https://researchprofiles.ku.dk/en/persons/dea-siggaard-stenb%C3%A6k",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1739354155/Contributors/Dea%20Siggard%20Stenb%C3%A6k.png"
+      }
+    ],
+    "outroPortal": {
+      "desktopOptimized": true
+    },
     "introPortal": {
-      "textColor": "#2AE2D7",
+      "textColor": "#2E2E2E",
       "hostNotes": [
         {
           "text": "> Start the session when you're ready to go"
         }
-      ]
+      ],
+      "videoLoop": {
+        "p5JsScript": {
+          "lang": "javascript"
+        },
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1737272009/Video/portal_1_Hope_music_exercise_II_njii38.mp4"
+      },
+      "desktopOptimized": true
     },
     "tags": [
       "8da0534a-5da9-430a-bdf3-242ace6460fb"
     ],
     "id": "ed06daef-cecd-47d8-8ff2-3cf8dba65b6c",
-    "async": false
+    "async": true,
+    "description": "Muziek is een goede hulp die ons kan helpen onze gevoelens en gedachten te sturen, zodat we dingen anders kunnen zien.\n\nVandaag gaan we een oefening doen waarin ik je help om een gevoel van hoop voor te stellen."
   },
   "es": {
     "id": "ed06daef-cecd-47d8-8ff2-3cf8dba65b6c",

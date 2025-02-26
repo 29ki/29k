@@ -4,8 +4,8 @@
     "interested": "Interested"
   },
   "pt": {
-    "myJourneyTag": "A minha jornada",
-    "interested": "Vou"
+    "myJourneyTag": "Interessada/o",
+    "interested": "Interessada/o"
   },
   "sv": {
     "myJourneyTag": "Intresserad",
@@ -17,6 +17,6 @@
   "nl": {},
   "es": {
     "interested": "Interesado/a",
-    "myJourneyTag": "Mi viaje"
+    "myJourneyTag": "Interesado/a"
   }
 }
