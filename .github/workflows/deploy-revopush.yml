@@ -17,7 +17,6 @@ jobs:
     environment: client-${{ inputs.environment }}
     env:
       BUILD_DIR: ./build
-      SOURCEMAPS_DIR: ./build/sourcemaps
 
       SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
       SENTRY_ORG: ${{ vars.SENTRY_ORG }}
@@ -99,7 +98,7 @@ jobs:
 
       - name: Prepare Build Directory
         working-directory: ./client
-        run: mkdir -p $SOURCEMAPS_DIR
+        run: mkdir -p $BUILD_DIR
 
       - name: Prepare $GIT_COMMIT_SHORT
         working-directory: ./shared
@@ -115,8 +114,8 @@ jobs:
         run: >
           yarn revopush release-react $ANDROID_REVOPUSH_PROJECT android
           --deploymentName ${{ vars.ENVIRONMENT }}
-          --outputDir $BUILD_DIR/Revopush
-          --sourcemapOutput $SOURCEMAPS_DIR
+          --outputDir $BUILD_DIR
+          --sourcemapOutput $BUILD_DIR
           --noDuplicateReleaseError
           --useHermes
 
@@ -128,8 +127,8 @@ jobs:
           --deploymentName ${{ vars.ENVIRONMENT }}
           --plistFile ./ios/Supporting/Info.plist
           --xcodeProjectFile ./ios/twentyninek.xcodeproj
-          --outputDir $BUILD_DIR/Revopush
-          --sourcemapOutput $SOURCEMAPS_DIR
+          --outputDir $BUILD_DIR
+          --sourcemapOutput $BUILD_DIR
           --noDuplicateReleaseError
           --useHermes
 
@@ -137,23 +136,25 @@ jobs:
         working-directory: ./client
         if: inputs.platform == 'android'
         run: >
-          yarn sentry-cli react-native appcenter
-          $ANDROID_REVOPUSH_PROJECT android
-          $BUILD_DIR/Revopush $SOURCEMAPS_DIR
-          --deployment ${{ vars.ENVIRONMENT }}
+          yarn sentry-cli sourcemaps upload
+          --debug-id-reference
+          --strip-prefix $PWD
           --dist ${{ vars.ENVIRONMENT }}
-          --release-name $GIT_COMMIT_SHORT
+          --release $GIT_COMMIT_SHORT
+          $BUILD_DIR/index.android.bundle
+          $BUILD_DIR/index.android.bundle.map
 
       - name: Upload iOS Source Maps to Sentry
         working-directory: ./client
         if: inputs.platform == 'ios'
         run: >
-          yarn sentry-cli react-native appcenter
-          $IOS_REVOPUSH_PROJECT ios
-          $BUILD_DIR/Revopush $SOURCEMAPS_DIR
-          --deployment ${{ vars.ENVIRONMENT }}
+          yarn sentry-cli sourcemaps upload
+          --debug-id-reference
+          --strip-prefix $PWD
           --dist ${{ vars.ENVIRONMENT }}
-          --release-name $GIT_COMMIT_SHORT
+          --release $GIT_COMMIT_SHORT
+          $BUILD_DIR/main.jsbundle
+          $BUILD_DIR/main.jsbundle.map
 
       - name: Associate Commits to Sentry Release
         working-directory: ./client
