@@ -35,7 +35,7 @@ describe('useCheckForUpdate', () => {
       expect(codePushMock.sync).toHaveBeenCalledTimes(1);
       expect(codePushMock.sync).toHaveBeenCalledWith(
         {
-          deploymentKey: 'some-ios-code-push-deployment-key',
+          deploymentKey: 'some-ios-revopush-deployment-key',
           mandatoryInstallMode: 1337,
         },
         expect.any(Function),

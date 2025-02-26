@@ -2,8 +2,8 @@
 // babel plugin
 process.env = Object.assign(process.env, {
   ENVIRONMENT: 'dev',
-  IOS_CODE_PUSH_DEPLOYMENT_KEY: 'some-ios-code-push-deployment-key',
-  ANDROID_CODE_PUSH_DEPLOYMENT_KEY: 'some-android-code-push-deployment-key',
+  IOS_REVOPUSH_DEPLOYMENT_KEY: 'some-ios-revopush-deployment-key',
+  ANDROID_REVOPUSH_DEPLOYMENT_KEY: 'some-android-revopush-deployment-key',
   POSTHOG_API_KEY: 'some-posthog-api-key',
   API_ENDPOINT: 'some-api-endpoint',
   METRICS_ENDPOINT: 'some-metrics-endpoint',
