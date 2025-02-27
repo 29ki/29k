@@ -31,7 +31,7 @@ jobs:
       - name: Install Shared Dependencies
         if: steps.cache-shared-node-modules.outputs.cache-hit != 'true'
         working-directory: ./shared
-        run: yarn
+        run: yarn --network-concurrency 1
 
       - name: Cache Content Dependencies
         id: cache-content-node-modules
@@ -43,7 +43,7 @@ jobs:
       - name: Install Content Dependencies
         if: steps.cache-content-node-modules.outputs.cache-hit != 'true'
         working-directory: ./content
-        run: yarn
+        run: yarn --network-concurrency 1
 
       - name: Cache Client Dependencies
         id: cache-client-node-modules
@@ -55,7 +55,7 @@ jobs:
       - name: Install Client Dependencies
         if: steps.cache-client-node-modules.outputs.cache-hit != 'true'
         working-directory: ./client
-        run: yarn
+        run: yarn --network-concurrency 1
 
       - name: Run tests
         working-directory: ./client
@@ -87,7 +87,7 @@ jobs:
       - name: Install Shared Dependencies
         if: steps.cache-shared-node-modules.outputs.cache-hit != 'true'
         working-directory: ./shared
-        run: yarn
+        run: yarn --network-concurrency 1
 
       - name: Cache Content Dependencies
         id: cache-content-node-modules
@@ -99,7 +99,7 @@ jobs:
       - name: Install Content Dependencies
         if: steps.cache-content-node-modules.outputs.cache-hit != 'true'
         working-directory: ./content
-        run: yarn
+        run: yarn --network-concurrency 1
 
       - name: Cache Functions Dependencies
         id: cache-functions-node-modules
@@ -111,7 +111,7 @@ jobs:
       - name: Install Functions Dependencies
         if: steps.cache-functions-node-modules.outputs.cache-hit != 'true'
         working-directory: ./functions
-        run: yarn
+        run: yarn --network-concurrency 1
 
       - name: Run tests
         working-directory: ./functions
@@ -138,7 +138,7 @@ jobs:
       - name: Install Shared Dependencies
         if: steps.cache-shared-node-modules.outputs.cache-hit != 'true'
         working-directory: ./shared
-        run: yarn
+        run: yarn --network-concurrency 1
 
       - name: Cache Content Dependencies
         id: cache-content-node-modules
@@ -150,7 +150,7 @@ jobs:
       - name: Install Content Dependencies
         if: steps.cache-content-node-modules.outputs.cache-hit != 'true'
         working-directory: ./content
-        run: yarn
+        run: yarn --network-concurrency 1
 
       - name: Cache Client Dependencies
         id: cache-client-node-modules
@@ -162,7 +162,7 @@ jobs:
       - name: Install Client Dependencies
         if: steps.cache-client-node-modules.outputs.cache-hit != 'true'
         working-directory: ./client
-        run: yarn
+        run: yarn --network-concurrency 1
 
       - name: Cache CMS Dependencies
         id: cache-cms-node-modules
@@ -174,7 +174,7 @@ jobs:
       - name: Install CMS Dependencies
         if: steps.cache-cms-node-modules.outputs.cache-hit != 'true'
         working-directory: ./cms
-        run: yarn
+        run: yarn --network-concurrency 1
 
       - name: Run tests
         working-directory: ./cms
@@ -201,7 +201,7 @@ jobs:
       - name: Install Shared Dependencies
         if: steps.cache-shared-node-modules.outputs.cache-hit != 'true'
         working-directory: ./shared
-        run: yarn
+        run: yarn --network-concurrency 1
 
       - name: Cache Content Dependencies
         id: cache-content-node-modules
@@ -213,7 +213,7 @@ jobs:
       - name: Install Content Dependencies
         if: steps.cache-content-node-modules.outputs.cache-hit != 'true'
         working-directory: ./content
-        run: yarn
+        run: yarn --network-concurrency 1
 
       - name: Cache Client Dependencies
         id: cache-client-node-modules
@@ -225,7 +225,7 @@ jobs:
       - name: Install Client Dependencies
         if: steps.cache-client-node-modules.outputs.cache-hit != 'true'
         working-directory: ./client
-        run: yarn
+        run: yarn --network-concurrency 1
 
       - name: Cache Web Dependencies
         id: cache-web-node-modules
@@ -237,7 +237,7 @@ jobs:
       - name: Install Web Dependencies
         if: steps.cache-web-node-modules.outputs.cache-hit != 'true'
         working-directory: ./web
-        run: yarn
+        run: yarn --network-concurrency 1
 
       - name: Run tests
         working-directory: ./web
@@ -264,7 +264,7 @@ jobs:
       - name: Install Shared Dependencies
         if: steps.cache-shared-node-modules.outputs.cache-hit != 'true'
         working-directory: ./shared
-        run: yarn
+        run: yarn --network-concurrency 1
 
       - name: Cache Content Dependencies
         id: cache-content-node-modules
@@ -276,7 +276,7 @@ jobs:
       - name: Install Content Dependencies
         if: steps.cache-content-node-modules.outputs.cache-hit != 'true'
         working-directory: ./content
-        run: yarn
+        run: yarn --network-concurrency 1
 
       - name: Run tests
         working-directory: ./content
@@ -303,7 +303,7 @@ jobs:
       - name: Install Content Dependencies
         if: steps.cache-content-node-modules.outputs.cache-hit != 'true'
         working-directory: ./content
-        run: yarn
+        run: yarn --network-concurrency 1
 
       - name: Cache Shared Dependencies
         id: cache-shared-node-modules
@@ -315,7 +315,7 @@ jobs:
       - name: Install Shared Dependencies
         if: steps.cache-shared-node-modules.outputs.cache-hit != 'true'
         working-directory: ./shared
-        run: yarn
+        run: yarn --network-concurrency 1
 
       - name: Run tests
         working-directory: ./shared
