@@ -82,7 +82,7 @@ const Content: React.FC<ContentProps> = ({slide, active, async, web}) => {
         (content.video || content.image || content.lottie) &&
         content.text && <SubHeading>{content.text}</SubHeading>}
 
-      {content.lottie ? (
+      {content.lottie?.source ? (
         <GraphicsWrapper>
           <Spacer8 />
           <Lottie
@@ -97,7 +97,7 @@ const Content: React.FC<ContentProps> = ({slide, active, async, web}) => {
           />
           <Spacer8 />
         </GraphicsWrapper>
-      ) : content.video ? (
+      ) : content.video?.source ? (
         <GraphicsWrapper>
           <Spacer8 />
           <Video
@@ -111,7 +111,7 @@ const Content: React.FC<ContentProps> = ({slide, active, async, web}) => {
             isTimer={slide.type === 'reflection' || slide.type === 'sharing'}
           />
         </GraphicsWrapper>
-      ) : content.image ? (
+      ) : content.image?.source ? (
         <GraphicsWrapper>
           <Spacer8 />
           <Image resizeMode="contain" source={imageSource} />

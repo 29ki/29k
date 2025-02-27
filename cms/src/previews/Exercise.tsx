@@ -91,6 +91,9 @@ const ExercisePreview = (props: PreviewTemplateComponentProps) => {
               <MobileView>
                 <PortalVideo
                   source={entry.introPortal?.videoLoop?.source}
+                  resizeMode={
+                    entry.introPortal?.desktopOptimized ? 'contain' : 'cover'
+                  }
                   loop
                 />
               </MobileView>
@@ -99,7 +102,12 @@ const ExercisePreview = (props: PreviewTemplateComponentProps) => {
                 <Heading16>{INTRO_PORTAL.label} - Transition</Heading16>
                 <Spacer4 />
                 <MobileView>
-                  <PortalVideo source={entry.introPortal?.videoEnd?.source} />
+                  <PortalVideo
+                    source={entry.introPortal?.videoEnd?.source}
+                    resizeMode={
+                      entry.introPortal?.desktopOptimized ? 'contain' : 'cover'
+                    }
+                  />
                 </MobileView>
               </MobileView>
               <Spacer16 />
@@ -118,7 +126,12 @@ const ExercisePreview = (props: PreviewTemplateComponentProps) => {
             <Heading16>{OUTRO_PORTAL.label}</Heading16>
             <Spacer4 />
             <MobileView>
-              <PortalVideo source={entry.outroPortal?.video?.source} />
+              <PortalVideo
+                source={entry.outroPortal?.video?.source}
+                resizeMode={
+                  entry.outroPortal?.desktopOptimized ? 'contain' : 'cover'
+                }
+              />
             </MobileView>
           </MobileView>
         ) : entry.introPortal?.videoLoop?.p5JsScript?.code ? (
@@ -136,6 +149,9 @@ const ExercisePreview = (props: PreviewTemplateComponentProps) => {
             <MobileView>
               <PortalVideo
                 source={entry.introPortal?.videoEnd?.source}
+                resizeMode={
+                  entry.outroPortal?.desktopOptimized ? 'contain' : 'cover'
+                }
                 reverse
               />
             </MobileView>
@@ -145,6 +161,9 @@ const ExercisePreview = (props: PreviewTemplateComponentProps) => {
             <MobileView>
               <PortalVideo
                 source={entry.introPortal?.videoLoop?.source}
+                resizeMode={
+                  entry.outroPortal?.desktopOptimized ? 'contain' : 'cover'
+                }
                 loop
                 reverse
               />

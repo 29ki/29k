@@ -20,13 +20,19 @@
     "published": true
   },
   "da": {
-    "id": "566aeb1b-1649-4f5a-96a2-0c80be27efc0"
+    "id": "566aeb1b-1649-4f5a-96a2-0c80be27efc0",
+    "name": "Perspektivtagning",
+    "published": true
   },
   "cs": {
-    "id": "566aeb1b-1649-4f5a-96a2-0c80be27efc0"
+    "id": "566aeb1b-1649-4f5a-96a2-0c80be27efc0",
+    "name": "Přijetí perspektivy\t",
+    "published": true
   },
   "nl": {
-    "id": "566aeb1b-1649-4f5a-96a2-0c80be27efc0"
+    "id": "566aeb1b-1649-4f5a-96a2-0c80be27efc0",
+    "name": "Perspectief nemen\t",
+    "published": true
   },
   "es": {
     "name": "Tomar perspectiva",

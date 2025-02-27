@@ -103,8 +103,8 @@
       "textColor": "#2E2E2E",
       "backgroundColor": "#f4deb2"
     },
-    "hidden": true,
-    "locked": false,
+    "hidden": false,
+    "locked": true,
     "name": "PsyPal Life exploration",
     "live": false,
     "published": true,
@@ -183,8 +183,8 @@
         ],
         "content": {
           "lottie": {
-            "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1728986423/SRT%20(captions)%20files/PsyPal_Life_exploration_d370hk.srt",
-            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1728986355/Audio/PsyPal_Life_exploration_tsbxhj.mp3",
+            "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1737968193/SRT%20(captions)%20files/PsyPal-life-expl-Pt-Linha_da_vida_epjbgo.srt",
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1739350698/Audio/PsyPal_life_Exploration_pt_Linha_da_vida_y9dmwe.mp3",
             "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1676642915/Lottie/default_audio_black_zjrmu2.json"
           }
         }
@@ -255,8 +255,8 @@
       "textColor": "#2E2E2E",
       "backgroundColor": "#f4deb2"
     },
-    "hidden": true,
-    "locked": false,
+    "hidden": false,
+    "locked": true,
     "name": "Exploração de vida",
     "live": false,
     "published": true,
@@ -376,7 +376,7 @@
       "textColor": "#2AE2D7"
     },
     "hidden": false,
-    "locked": false,
+    "locked": true,
     "live": true,
     "published": false,
     "asyncDuration": 15,
@@ -468,7 +468,7 @@
       "textColor": "#2AE2D7"
     },
     "hidden": false,
-    "locked": false,
+    "locked": true,
     "live": true,
     "published": false,
     "asyncDuration": 15,
@@ -519,8 +519,8 @@
         ],
         "content": {
           "lottie": {
-            "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1728986423/SRT%20(captions)%20files/PsyPal_Life_exploration_d370hk.srt",
-            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1728986355/Audio/PsyPal_Life_exploration_tsbxhj.mp3",
+            "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1737992405/SRT%20(captions)%20files/PsyPal_Life_Exploration_Danish_kzhv38.srt",
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1737992508/Audio/PsyPal_Life_Exploration_Danish_coafdo.mp3",
             "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1676642915/Lottie/default_audio_black_zjrmu2.json"
           }
         }
@@ -591,9 +591,9 @@
       "textColor": "#2E2E2E",
       "backgroundColor": "#f4deb2"
     },
-    "hidden": true,
-    "locked": false,
-    "name": "PsyPal Livsrefleksion",
+    "hidden": false,
+    "locked": true,
+    "name": "Livsrefleksion",
     "live": false,
     "published": true,
     "asyncDuration": 15,
@@ -612,6 +612,11 @@
         "name": "Jenny Rickardsson, writing & editing",
         "url": "https://www.linkedin.com/in/jenny-rickardson-6770a959/",
         "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413228/Contributors/Jenny%20Rickardsson.jpg"
+      },
+      {
+        "name": "Catharina Messell, voice",
+        "url": "https://palliativeprojects.eu/psypal/university-of-copenhagen/",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1734343422/Contributors/Catharina_Messel_Da_PsyPal.png"
       }
     ],
     "introPortal": {
@@ -671,8 +676,8 @@
         ],
         "content": {
           "lottie": {
-            "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1728986423/SRT%20(captions)%20files/PsyPal_Life_exploration_d370hk.srt",
-            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1728986355/Audio/PsyPal_Life_exploration_tsbxhj.mp3",
+            "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1738658128/SRT%20(captions)%20files/Life_Exploration_CZ_nlbxgb.srt",
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1738658167/Audio/Life_Exploration_CZ_tz4xwy.mp3",
             "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1676642915/Lottie/default_audio_black_zjrmu2.json"
           }
         }
@@ -743,9 +748,9 @@
       "textColor": "#2E2E2E",
       "backgroundColor": "#f4deb2"
     },
-    "hidden": true,
-    "locked": false,
-    "name": "PsyPal Průzkum života",
+    "hidden": false,
+    "locked": true,
+    "name": "Průzkum života",
     "live": false,
     "published": true,
     "asyncDuration": 15,
@@ -764,6 +769,11 @@
         "name": "Jenny Rickardsson, writing & editing",
         "url": "https://www.linkedin.com/in/jenny-rickardson-6770a959/",
         "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413228/Contributors/Jenny%20Rickardsson.jpg"
+      },
+      {
+        "name": "Petra Valikova, voice",
+        "url": "https://www.petravalikova.cz/",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/v1738658028/Contributors/PetraValikova_g3nnac.jpg"
       }
     ],
     "introPortal": {
@@ -807,7 +817,7 @@
       },
       {
         "content": {
-          "text": "Neem een goede kijk op je leven zoals het zich tot nu toe heeft ontwikkeld. Deze oefening kan sterke emoties oproepen. Dat is oké en maakt deel uit van de oefening. Als je het nodig hebt, kun je op elk moment een pauze nemen.",
+          "text": "Neem een goede kijk op je leven zoals het zich tot nu toe heeft ontwikkeld. Deze oefening kan sterke emoties oproepen. Dat is oké en maakt deel uit van de oefening. \n\nAls je het nodig hebt, kun je op elk moment een pauze nemen.",
           "image": {
             "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1731909575/Images/visual_noBG_Life_exploration_ejdn1o.png"
           }
@@ -823,8 +833,8 @@
         ],
         "content": {
           "lottie": {
-            "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1728986423/SRT%20(captions)%20files/PsyPal_Life_exploration_d370hk.srt",
-            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1728986355/Audio/PsyPal_Life_exploration_tsbxhj.mp3",
+            "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1739954942/SRT%20(captions)%20files/Life_Exploration_Dutch_od7iyc.srt",
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1739873265/Audio/LifeExploration_NL1_fexzhw.mp3",
             "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1676642915/Lottie/default_audio_black_zjrmu2.json"
           }
         }
@@ -896,8 +906,8 @@
       "backgroundColor": "#f4deb2"
     },
     "hidden": true,
-    "locked": false,
-    "name": "PsyPal Levensverkenning",
+    "locked": true,
+    "name": "Levensverkenning",
     "live": false,
     "published": true,
     "asyncDuration": 15,
@@ -916,6 +926,11 @@
         "name": "Jenny Rickardsson, writing & editing",
         "url": "https://www.linkedin.com/in/jenny-rickardson-6770a959/",
         "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413228/Contributors/Jenny%20Rickardsson.jpg"
+      },
+      {
+        "name": "Mila W, voice",
+        "url": "https://www.fiverr.com/milawilde?source=inbox",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1737469735/Contributors/MilaW_demgfw.jpg"
       }
     ],
     "introPortal": {
@@ -947,6 +962,7 @@
     "id": "b9001702-8502-46de-bc7b-3ebf2b812c0e",
     "tags": [
       "566aeb1b-1649-4f5a-96a2-0c80be27efc0"
-    ]
+    ],
+    "locked": true
   }
 }

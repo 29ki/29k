@@ -2,7 +2,9 @@ import React, {useMemo} from 'react';
 import Sentry from '../../../sentry';
 import styled from 'styled-components/native';
 import {StyleSheet} from 'react-native';
-import VideoLooper from '../../../components/VideoLooper/VideoLooper';
+import VideoLooper, {
+  VideoLooperProperties,
+} from '../../../components/VideoLooper/VideoLooper';
 import {SourceConfig} from '../../../components/VideoLooper/VideoLooper';
 
 const reverseVideo = (url: string) => {
@@ -45,6 +47,7 @@ type VideoTransitionProps = {
   onTransition?: () => void;
   onEnd?: () => void;
   onError?: () => void;
+  resizeMode?: VideoLooperProperties['resizeMode'];
 };
 
 const VideoTransition: React.FC<VideoTransitionProps> = ({
@@ -59,6 +62,7 @@ const VideoTransition: React.FC<VideoTransitionProps> = ({
   onTransition = () => {},
   onEnd = () => {},
   onError = () => {},
+  resizeMode,
 }) => {
   const startVideoSource = useVideoSource(startSource, reverse);
   const loopVideoSource = useVideoSource(loopSource, reverse);
@@ -88,6 +92,7 @@ const VideoTransition: React.FC<VideoTransitionProps> = ({
       paused={paused}
       repeat={repeat}
       mixWithOthers={isLive}
+      resizeMode={resizeMode}
       muted
     />
   );

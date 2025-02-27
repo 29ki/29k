@@ -167,11 +167,19 @@ export default function ExercisePage({
         {Boolean(sessionState?.ended) && (
           <Wrapper backgroundColor={exercise?.theme?.backgroundColor}>
             <Spacer32 />
-            <OutroPortal exercise={exercise} onLeaveSession={onLeaveSession} />
-            <DesktopOnly>
-              <LeftGradient color={exercise?.theme?.backgroundColor} />
-              <RightGradient color={exercise?.theme?.backgroundColor} />
-            </DesktopOnly>
+            <OutroPortal
+              exercise={exercise}
+              onLeaveSession={onLeaveSession}
+              resizeMode={
+                exercise?.outroPortal?.desktopOptimized ? 'contain' : 'cover'
+              }
+            />
+            {!Boolean(exercise?.outroPortal?.desktopOptimized) && (
+              <DesktopOnly>
+                <LeftGradient color={exercise?.theme?.backgroundColor} />
+                <RightGradient color={exercise?.theme?.backgroundColor} />
+              </DesktopOnly>
+            )}
           </Wrapper>
         )}
         <Fade
@@ -227,11 +235,16 @@ export default function ExercisePage({
             onLeaveSession={canGoBack ? onLeaveSession : undefined}
             onNavigateToSession={onNavigateToSession}
             showMuteToggle
+            resizeMode={
+              exercise?.introPortal?.desktopOptimized ? 'contain' : 'cover'
+            }
           />
-          <DesktopOnly>
-            <LeftGradient color={exercise?.theme?.backgroundColor} />
-            <RightGradient color={exercise?.theme?.backgroundColor} />
-          </DesktopOnly>
+          {!Boolean(exercise?.introPortal?.desktopOptimized) && (
+            <DesktopOnly>
+              <LeftGradient color={exercise?.theme?.backgroundColor} />
+              <RightGradient color={exercise?.theme?.backgroundColor} />
+            </DesktopOnly>
+          )}
         </Wrapper>
       </NoSsr>
     </SafeAreaProvider>

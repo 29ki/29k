@@ -65,6 +65,7 @@ export interface ExerciseIntroPortalHostNote {
 }
 
 export interface ExerciseIntroPortal {
+  desktopOptimized?: boolean;
   videoLoop?: ExerciseIntroPortalVideoLoop;
   videoEnd?: ExerciseIntroPortalVideoEnd;
   textColor?: ExerciseIntroPortalTextColorOptions;
@@ -80,6 +81,7 @@ export interface ExerciseOutroPortalVideo {
 }
 
 export interface ExerciseOutroPortal {
+  desktopOptimized?: boolean;
   video?: ExerciseOutroPortalVideo;
 }
 

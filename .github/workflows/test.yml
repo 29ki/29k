@@ -23,7 +23,7 @@ jobs:
 
       - name: Cache Shared Dependencies
         id: cache-shared-node-modules
-        uses: actions/cache@v2
+        uses: actions/cache@v4
         with:
           path: ./shared/node_modules
           key: shared-node-modules-${{ hashFiles('./shared/yarn.lock') }}
@@ -35,7 +35,7 @@ jobs:
 
       - name: Cache Content Dependencies
         id: cache-content-node-modules
-        uses: actions/cache@v2
+        uses: actions/cache@v4
         with:
           path: ./content/node_modules
           key: content-node-modules-${{ hashFiles('./content/yarn.lock') }}
@@ -47,7 +47,7 @@ jobs:
 
       - name: Cache Client Dependencies
         id: cache-client-node-modules
-        uses: actions/cache@v2
+        uses: actions/cache@v4
         with:
           path: ./client/node_modules
           key: client-node-modules-${{ hashFiles('./client/yarn.lock') }}
@@ -79,7 +79,7 @@ jobs:
 
       - name: Cache Shared Dependencies
         id: cache-shared-node-modules
-        uses: actions/cache@v2
+        uses: actions/cache@v4
         with:
           path: ./shared/node_modules
           key: shared-node-modules-${{ hashFiles('./shared/yarn.lock') }}
@@ -91,7 +91,7 @@ jobs:
 
       - name: Cache Content Dependencies
         id: cache-content-node-modules
-        uses: actions/cache@v2
+        uses: actions/cache@v4
         with:
           path: ./content/node_modules
           key: content-node-modules-${{ hashFiles('./content/yarn.lock') }}
@@ -103,7 +103,7 @@ jobs:
 
       - name: Cache Functions Dependencies
         id: cache-functions-node-modules
-        uses: actions/cache@v2
+        uses: actions/cache@v4
         with:
           path: ./functions/node_modules
           key: functions-node-modules-${{ hashFiles('./functions/yarn.lock') }}
@@ -130,7 +130,7 @@ jobs:
 
       - name: Cache Shared Dependencies
         id: cache-shared-node-modules
-        uses: actions/cache@v2
+        uses: actions/cache@v4
         with:
           path: ./shared/node_modules
           key: shared-node-modules-${{ hashFiles('./shared/yarn.lock') }}
@@ -142,7 +142,7 @@ jobs:
 
       - name: Cache Content Dependencies
         id: cache-content-node-modules
-        uses: actions/cache@v2
+        uses: actions/cache@v4
         with:
           path: ./content/node_modules
           key: content-node-modules-${{ hashFiles('./content/yarn.lock') }}
@@ -154,7 +154,7 @@ jobs:
 
       - name: Cache Client Dependencies
         id: cache-client-node-modules
-        uses: actions/cache@v2
+        uses: actions/cache@v4
         with:
           path: ./client/node_modules
           key: client-node-modules-${{ hashFiles('./client/yarn.lock') }}
@@ -166,7 +166,7 @@ jobs:
 
       - name: Cache CMS Dependencies
         id: cache-cms-node-modules
-        uses: actions/cache@v2
+        uses: actions/cache@v4
         with:
           path: ./cms/node_modules
           key: cms-node-modules-${{ hashFiles('./cms/yarn.lock') }}
@@ -193,7 +193,7 @@ jobs:
 
       - name: Cache Shared Dependencies
         id: cache-shared-node-modules
-        uses: actions/cache@v2
+        uses: actions/cache@v4
         with:
           path: ./shared/node_modules
           key: shared-node-modules-${{ hashFiles('./shared/yarn.lock') }}
@@ -205,7 +205,7 @@ jobs:
 
       - name: Cache Content Dependencies
         id: cache-content-node-modules
-        uses: actions/cache@v2
+        uses: actions/cache@v4
         with:
           path: ./content/node_modules
           key: content-node-modules-${{ hashFiles('./content/yarn.lock') }}
@@ -217,7 +217,7 @@ jobs:
 
       - name: Cache Client Dependencies
         id: cache-client-node-modules
-        uses: actions/cache@v2
+        uses: actions/cache@v4
         with:
           path: ./client/node_modules
           key: client-node-modules-${{ hashFiles('./client/yarn.lock') }}
@@ -229,7 +229,7 @@ jobs:
 
       - name: Cache Web Dependencies
         id: cache-web-node-modules
-        uses: actions/cache@v2
+        uses: actions/cache@v4
         with:
           path: ./web/node_modules
           key: web-node-modules-${{ hashFiles('./web/yarn.lock') }}
@@ -256,7 +256,7 @@ jobs:
 
       - name: Cache Shared Dependencies
         id: cache-shared-node-modules
-        uses: actions/cache@v2
+        uses: actions/cache@v4
         with:
           path: ./shared/node_modules
           key: shared-node-modules-${{ hashFiles('./shared/yarn.lock') }}
@@ -268,7 +268,7 @@ jobs:
 
       - name: Cache Content Dependencies
         id: cache-content-node-modules
-        uses: actions/cache@v2
+        uses: actions/cache@v4
         with:
           path: ./content/node_modules
           key: content-node-modules-${{ hashFiles('./content/yarn.lock') }}
@@ -295,7 +295,7 @@ jobs:
 
       - name: Cache Content Dependencies
         id: cache-content-node-modules
-        uses: actions/cache@v2
+        uses: actions/cache@v4
         with:
           path: ./content/node_modules
           key: content-node-modules-${{ hashFiles('./content/yarn.lock') }}
@@ -307,7 +307,7 @@ jobs:
 
       - name: Cache Shared Dependencies
         id: cache-shared-node-modules
-        uses: actions/cache@v2
+        uses: actions/cache@v4
         with:
           path: ./shared/node_modules
           key: shared-node-modules-${{ hashFiles('./shared/yarn.lock') }}

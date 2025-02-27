@@ -3,16 +3,16 @@ import {useCallback} from 'react';
 import {Platform} from 'react-native';
 import codePush, {DownloadProgress} from 'react-native-code-push';
 import {
-  IOS_CODE_PUSH_DEPLOYMENT_KEY,
-  ANDROID_CODE_PUSH_DEPLOYMENT_KEY,
+  IOS_REVOPUSH_DEPLOYMENT_KEY,
+  ANDROID_REVOPUSH_DEPLOYMENT_KEY,
 } from 'config';
 import useCodePushState from '../state/state';
 
 const logDebug = debug('client:codePush');
 
 const deploymentKey = Platform.select({
-  android: ANDROID_CODE_PUSH_DEPLOYMENT_KEY,
-  ios: IOS_CODE_PUSH_DEPLOYMENT_KEY,
+  android: ANDROID_REVOPUSH_DEPLOYMENT_KEY,
+  ios: IOS_REVOPUSH_DEPLOYMENT_KEY,
 });
 
 const {

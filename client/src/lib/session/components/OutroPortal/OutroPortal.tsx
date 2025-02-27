@@ -2,7 +2,6 @@ import React, {useCallback, useState} from 'react';
 import {StyleSheet} from 'react-native';
 import styled from 'styled-components/native';
 import {useTranslation} from 'react-i18next';
-import ReactNativeHapticFeedback from 'react-native-haptic-feedback';
 
 import usePreventGoingBack from '../../../navigation/hooks/usePreventGoingBack';
 import useNavigateWithFade from '../../../navigation/hooks/useNavigateWithFade';
@@ -13,6 +12,8 @@ import AudioFader from '../AudioFader/AudioFader';
 import Button from '../../../components/Buttons/Button';
 import P5Animation from '../P5Animation/P5Animation';
 import {ExerciseWithLanguage} from '../../../content/types';
+import useHapticFeedback from '../../hooks/useHapticFeedback';
+import {VideoLooperProperties} from '../../../components/VideoLooper/VideoLooper';
 
 const Spinner = styled.ActivityIndicator({
   ...StyleSheet.absoluteFillObject,
@@ -27,11 +28,13 @@ const TopBar = styled(Gutters)({
 type OutroPortalProps = {
   exercise: ExerciseWithLanguage | null;
   onLeaveSession?: () => void;
+  resizeMode?: VideoLooperProperties['resizeMode'];
 };
 
 const OutroPortal: React.FC<OutroPortalProps> = ({
   exercise,
   onLeaveSession,
+  resizeMode,
 }) => {
   const {t} = useTranslation('Screen.Portal');
 
@@ -44,6 +47,8 @@ const OutroPortal: React.FC<OutroPortalProps> = ({
 
   const [isLoading, setIsLoading] = useState(isVideo);
   const [isReadyToLeave, setIsReadyToLeave] = useState(!isVideo);
+  const triggerHapticFeedback = useHapticFeedback();
+
   usePreventGoingBack();
   useNavigateWithFade();
 
@@ -51,10 +56,10 @@ const OutroPortal: React.FC<OutroPortalProps> = ({
     setIsLoading(false);
   }, [setIsLoading]);
 
-  const onVideoTransition = () => {
-    ReactNativeHapticFeedback.trigger('impactHeavy');
+  const onVideoTransition = useCallback(() => {
+    triggerHapticFeedback();
     setIsReadyToLeave(true);
-  };
+  }, [triggerHapticFeedback]);
 
   const onVideoError = useCallback(() => {
     setIsLoading(false);
@@ -90,6 +95,7 @@ const OutroPortal: React.FC<OutroPortalProps> = ({
               onTransition={onVideoTransition}
               onLoad={onVideoLoad}
               onError={onVideoError}
+              resizeMode={resizeMode}
             />
           )}
         </>

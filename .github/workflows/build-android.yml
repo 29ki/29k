@@ -18,7 +18,7 @@ jobs:
     env:
       CI: github
 
-      SOURCEMAPS_DIR: ./build/sourcemaps
+      BUILD_DIR: ./build
 
       SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
       SENTRY_ORG: ${{ vars.SENTRY_ORG }}
@@ -26,13 +26,13 @@ jobs:
 
       DOTENV_ENVIRONMENT: ${{ vars.ENVIRONMENT }}
       DOTENV_DEBUG: ${{ vars.DEBUG }}
-      DOTENV_ANDROID_CODE_PUSH_DEPLOYMENT_KEY: ${{ vars.ANDROID_CODE_PUSH_DEPLOYMENT_KEY }}
+      DOTENV_ANDROID_REVOPUSH_DEPLOYMENT_KEY: ${{ vars.ANDROID_REVOPUSH_DEPLOYMENT_KEY }}
       DOTENV_ANDROID_PACKAGE_NAME: ${{ vars.ANDROID_PACKAGE_NAME }}
       DOTENV_API_ENDPOINT: ${{ vars.API_ENDPOINT }}
       DOTENV_DEEP_LINK_PREFIX: ${{ vars.DEEP_LINK_PREFIX }}
       DOTENV_DEEP_LINK_SCHEME: ${{ vars.DEEP_LINK_SCHEME }}
       DOTENV_IOS_APPSTORE_ID: ${{ vars.IOS_APPSTORE_ID }}
-      DOTENV_IOS_CODE_PUSH_DEPLOYMENT_KEY: ${{ vars.IOS_CODE_PUSH_DEPLOYMENT_KEY }}
+      DOTENV_IOS_REVOPUSH_DEPLOYMENT_KEY: ${{ vars.IOS_REVOPUSH_DEPLOYMENT_KEY }}
       DOTENV_METRICS_ENDPOINT: ${{ vars.METRICS_ENDPOINT }}
       DOTENV_POSTHOG_API_KEY: ${{ vars.POSTHOG_API_KEY }}
       DOTENV_SENTRY_DSN: ${{ vars.SENTRY_DSN }}
@@ -93,9 +93,9 @@ jobs:
         working-directory: ./client/android/app
         run: echo -n "${{ secrets.ANDROID_RELEASE_KEYSTORE }}" | base64 --decode > release.keystore
 
-      - name: Prepare Source Maps Directory
+      - name: Prepare Build Directory
         working-directory: ./client
-        run: mkdir -p $SOURCEMAPS_DIR
+        run: mkdir -p $BUILD_DIR
 
       - name: Prepare $GIT_COMMIT_SHORT
         working-directory: ./shared
@@ -103,7 +103,7 @@ jobs:
 
       - name: Cache Shared Dependencies
         id: cache-shared-node-modules
-        uses: actions/cache@v2
+        uses: actions/cache@v4
         with:
           path: ./shared/node_modules
           key: shared-node-modules-${{ hashFiles('./shared/yarn.lock') }}
@@ -115,7 +115,7 @@ jobs:
 
       - name: Cache Content Dependencies
         id: cache-content-node-modules
-        uses: actions/cache@v2
+        uses: actions/cache@v4
         with:
           path: ./content/node_modules
           key: content-node-modules-${{ hashFiles('./content/yarn.lock') }}
@@ -127,7 +127,7 @@ jobs:
 
       - name: Cache Client Dependencies
         id: cache-client-node-modules
-        uses: actions/cache@v2
+        uses: actions/cache@v4
         with:
           path: ./client/node_modules
           key: client-node-modules-${{ hashFiles('./client/yarn.lock') }}
@@ -172,8 +172,8 @@ jobs:
           --dev false
           --entry-file index.js
           --platform android
-          --bundle-output $SOURCEMAPS_DIR/index.android.bundle
-          --sourcemap-output $SOURCEMAPS_DIR/index.android.bundle.map
+          --bundle-output $BUILD_DIR/index.android.bundle
+          --sourcemap-output $BUILD_DIR/index.android.bundle.map
 
       - name: Compile Hermes Bytecode
         working-directory: ./client
@@ -181,28 +181,28 @@ jobs:
           node_modules/react-native/sdks/hermesc/linux64-bin/hermesc
           -O -emit-binary
           -output-source-map
-          -out=$SOURCEMAPS_DIR/index.android.bundle.hbc
-          $SOURCEMAPS_DIR/index.android.bundle
+          -out=$BUILD_DIR/index.android.bundle.hbc
+          $BUILD_DIR/index.android.bundle
 
-          rm -f $SOURCEMAPS_DIR/index.android.bundle
+          rm -f $BUILD_DIR/index.android.bundle
 
-          mv $SOURCEMAPS_DIR/index.android.bundle.hbc $SOURCEMAPS_DIR/index.android.bundle
+          mv $BUILD_DIR/index.android.bundle.hbc $BUILD_DIR/index.android.bundle
 
       - name: Compose Hermes Bytecode and Source Map
         working-directory: ./client
         run: >
-          mv $SOURCEMAPS_DIR/index.android.bundle.map $SOURCEMAPS_DIR/index.android.bundle.packager.map
+          mv $BUILD_DIR/index.android.bundle.map $BUILD_DIR/index.android.bundle.packager.map
 
           node node_modules/react-native/scripts/compose-source-maps.js
-          $SOURCEMAPS_DIR/index.android.bundle.packager.map
-          $SOURCEMAPS_DIR/index.android.bundle.hbc.map
-          -o $SOURCEMAPS_DIR/index.android.bundle.map
+          $BUILD_DIR/index.android.bundle.packager.map
+          $BUILD_DIR/index.android.bundle.hbc.map
+          -o $BUILD_DIR/index.android.bundle.map
 
           node node_modules/@sentry/react-native/scripts/copy-debugid.js
-          $SOURCEMAPS_DIR/index.android.bundle.packager.map
-          $SOURCEMAPS_DIR/index.android.bundle.map
+          $BUILD_DIR/index.android.bundle.packager.map
+          $BUILD_DIR/index.android.bundle.map
 
-          rm -f $SOURCEMAPS_DIR/index.android.bundle.packager.map
+          rm -f $BUILD_DIR/index.android.bundle.packager.map
 
       - name: Upload Source Map to Sentry
         working-directory: ./client
@@ -212,8 +212,8 @@ jobs:
           --strip-prefix $PWD
           --dist ${{ vars.ENVIRONMENT }}
           --release $GIT_COMMIT_SHORT
-          $SOURCEMAPS_DIR/index.android.bundle
-          $SOURCEMAPS_DIR/index.android.bundle.map
+          $BUILD_DIR/index.android.bundle
+          $BUILD_DIR/index.android.bundle.map
 
       - name: Associate Commits to Sentry Release
         working-directory: ./client

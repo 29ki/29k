@@ -108,8 +108,8 @@
       "textColor": "#2E2E2E",
       "backgroundColor": "#c7bea2"
     },
-    "hidden": true,
-    "locked": false,
+    "hidden": false,
+    "locked": true,
     "name": "PsyPal My values",
     "live": false,
     "published": true,
@@ -149,6 +149,10 @@
         "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1732713682/Video/portal_2_my_values_wzq6mm.mp4"
       }
     },
+    "tags": [
+      "9c2c08a9-7dc6-4058-bc78-016d0eb00614",
+      "566aeb1b-1649-4f5a-96a2-0c80be27efc0"
+    ],
     "id": "3adeb40b-b9f8-4b13-b1a8-02f6106df9e5",
     "async": true,
     "description": "Our inner values is about who we want to be in life. Living a value-based life is often more fulfilling and meaningful to people."
@@ -262,8 +266,8 @@
       "textColor": "#2E2E2E",
       "backgroundColor": "#c7bea2"
     },
-    "hidden": true,
-    "locked": false,
+    "hidden": false,
+    "locked": true,
     "name": "Os meus valores",
     "live": false,
     "published": true,
@@ -303,6 +307,10 @@
         "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1732713682/Video/portal_2_my_values_wzq6mm.mp4"
       }
     },
+    "tags": [
+      "9c2c08a9-7dc6-4058-bc78-016d0eb00614",
+      "566aeb1b-1649-4f5a-96a2-0c80be27efc0"
+    ],
     "id": "3adeb40b-b9f8-4b13-b1a8-02f6106df9e5",
     "async": true,
     "description": "Os nossos valores dizem respeito a quem desejamos ser na vida. Viver uma vida baseada em valores é frequentemente mais gratificante e tem mais significado para as pessoas."
@@ -380,7 +388,7 @@
       "textColor": "#2AE2D7"
     },
     "hidden": false,
-    "locked": false,
+    "locked": true,
     "live": true,
     "published": false,
     "asyncDuration": 15,
@@ -393,6 +401,10 @@
         }
       ]
     },
+    "tags": [
+      "9c2c08a9-7dc6-4058-bc78-016d0eb00614",
+      "566aeb1b-1649-4f5a-96a2-0c80be27efc0"
+    ],
     "id": "3adeb40b-b9f8-4b13-b1a8-02f6106df9e5",
     "async": false
   },
@@ -469,7 +481,7 @@
       "textColor": "#2AE2D7"
     },
     "hidden": false,
-    "locked": false,
+    "locked": true,
     "live": true,
     "published": false,
     "asyncDuration": 15,
@@ -482,6 +494,10 @@
         }
       ]
     },
+    "tags": [
+      "9c2c08a9-7dc6-4058-bc78-016d0eb00614",
+      "566aeb1b-1649-4f5a-96a2-0c80be27efc0"
+    ],
     "id": "3adeb40b-b9f8-4b13-b1a8-02f6106df9e5",
     "async": false
   },
@@ -517,8 +533,8 @@
         ],
         "content": {
           "lottie": {
-            "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1728993027/SRT%20(captions)%20files/PsyPal_My_values_ksdsjk.srt",
-            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1728993100/Audio/PsyPal_My_values_vnrjyr.mp3",
+            "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1737996667/SRT%20(captions)%20files/PsyPal_My_Values_Danish_xymesi.srt",
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1737996698/Audio/PsyPal_My_Values_Danish_idhnlx.mp3",
             "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1676977421/Lottie/audio_meditation_default_black_default_omemwt.json"
           }
         }
@@ -594,8 +610,8 @@
       "textColor": "#2E2E2E",
       "backgroundColor": "#c7bea2"
     },
-    "hidden": true,
-    "locked": false,
+    "hidden": false,
+    "locked": true,
     "name": "Mine værdier",
     "live": false,
     "published": true,
@@ -615,6 +631,11 @@
         "name": "Jenny Rickardsson, script, editor",
         "url": "https://www.linkedin.com/in/jenny-rickardson-6770a959/",
         "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413228/Contributors/Jenny%20Rickardsson.jpg"
+      },
+      {
+        "name": "Catharina Messell, voice",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1734343422/Contributors/Catharina_Messel_Da_PsyPal.png",
+        "url": "https://palliativeprojects.eu/psypal/university-of-copenhagen/"
       }
     ],
     "introPortal": {
@@ -635,6 +656,10 @@
         "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1732713682/Video/portal_2_my_values_wzq6mm.mp4"
       }
     },
+    "tags": [
+      "9c2c08a9-7dc6-4058-bc78-016d0eb00614",
+      "566aeb1b-1649-4f5a-96a2-0c80be27efc0"
+    ],
     "id": "3adeb40b-b9f8-4b13-b1a8-02f6106df9e5",
     "async": true,
     "description": "Vores indre værdier omhandler, hvem vi ønsker at være her i tilværelsen. Det er ofte mere tilfredsstillende og meningsfuldt for folk at leve i overensstemmelse med deres værdier."
@@ -671,8 +696,8 @@
         ],
         "content": {
           "lottie": {
-            "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1728993027/SRT%20(captions)%20files/PsyPal_My_values_ksdsjk.srt",
-            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1728993100/Audio/PsyPal_My_values_vnrjyr.mp3",
+            "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1737990346/SRT%20(captions)%20files/PsyPalMyValues_cz_Moje_hodnoty_rdrxkf.srt",
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1737967677/Audio/PsyPalMyValues_Cz_Moje_hodnoty.mp3.mp3",
             "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1676977421/Lottie/audio_meditation_default_black_default_omemwt.json"
           }
         }
@@ -748,8 +773,8 @@
       "textColor": "#2E2E2E",
       "backgroundColor": "#c7bea2"
     },
-    "hidden": true,
-    "locked": false,
+    "hidden": false,
+    "locked": true,
     "name": "Moje hodnoty",
     "live": false,
     "published": true,
@@ -769,6 +794,11 @@
         "name": "Jenny Rickardsson, script, editor",
         "url": "https://www.linkedin.com/in/jenny-rickardson-6770a959/",
         "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413228/Contributors/Jenny%20Rickardsson.jpg"
+      },
+      {
+        "name": "Petra Valikova, voice",
+        "url": "https://www.petravalikova.cz/",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1738658028/Contributors/PetraValikova_g3nnac.jpg"
       }
     ],
     "introPortal": {
@@ -789,6 +819,10 @@
         "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1732713682/Video/portal_2_my_values_wzq6mm.mp4"
       }
     },
+    "tags": [
+      "9c2c08a9-7dc6-4058-bc78-016d0eb00614",
+      "566aeb1b-1649-4f5a-96a2-0c80be27efc0"
+    ],
     "id": "3adeb40b-b9f8-4b13-b1a8-02f6106df9e5",
     "async": true,
     "description": "Naše vnitřní hodnoty jsou o tom, kým chceme být v životě. Život založený na hodnotách je pro lidi často naplňující a smysluplnější."
@@ -825,8 +859,8 @@
         ],
         "content": {
           "lottie": {
-            "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1728993027/SRT%20(captions)%20files/PsyPal_My_values_ksdsjk.srt",
-            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1728993100/Audio/PsyPal_My_values_vnrjyr.mp3",
+            "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1737470173/SRT%20(captions)%20files/PsyPalMyValuesNl-Waarden_R1_NL_jdc50b.srt",
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1737470077/Audio/PsyPalMyValues%20Nl-Waarden_R1_NL_gtpx2b.mp3",
             "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1676977421/Lottie/audio_meditation_default_black_default_omemwt.json"
           }
         }
@@ -902,8 +936,8 @@
       "textColor": "#2E2E2E",
       "backgroundColor": "#c7bea2"
     },
-    "hidden": true,
-    "locked": false,
+    "hidden": false,
+    "locked": true,
     "name": "Mijn waarden",
     "live": false,
     "published": true,
@@ -923,6 +957,11 @@
         "name": "Jenny Rickardsson, script, editor",
         "url": "https://www.linkedin.com/in/jenny-rickardson-6770a959/",
         "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413228/Contributors/Jenny%20Rickardsson.jpg"
+      },
+      {
+        "name": "Mila W, voice",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/v1737469735/Contributors/MilaW_demgfw.jpg",
+        "url": "https://www.fiverr.com/s/LdlNLap"
       }
     ],
     "introPortal": {
@@ -943,6 +982,10 @@
         "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1732713682/Video/portal_2_my_values_wzq6mm.mp4"
       }
     },
+    "tags": [
+      "9c2c08a9-7dc6-4058-bc78-016d0eb00614",
+      "566aeb1b-1649-4f5a-96a2-0c80be27efc0"
+    ],
     "id": "3adeb40b-b9f8-4b13-b1a8-02f6106df9e5",
     "async": true,
     "description": "Onze innerlijke waarden gaan over wie we willen zijn in het leven. Een waardengedreven leven leiden is vaak meer vervullend en betekenisvol voor mensen."
@@ -950,6 +993,11 @@
   "es": {
     "asyncDuration": 15,
     "card": {},
-    "id": "3adeb40b-b9f8-4b13-b1a8-02f6106df9e5"
+    "id": "3adeb40b-b9f8-4b13-b1a8-02f6106df9e5",
+    "locked": true,
+    "tags": [
+      "9c2c08a9-7dc6-4058-bc78-016d0eb00614",
+      "566aeb1b-1649-4f5a-96a2-0c80be27efc0"
+    ]
   }
 }

@@ -24,13 +24,19 @@
     "published": true
   },
   "da": {
-    "id": "43a6dc0d-d866-4b79-9453-13c44e906128"
+    "id": "43a6dc0d-d866-4b79-9453-13c44e906128",
+    "name": "Taknemmelighed",
+    "published": true
   },
   "cs": {
-    "id": "43a6dc0d-d866-4b79-9453-13c44e906128"
+    "id": "43a6dc0d-d866-4b79-9453-13c44e906128",
+    "name": "Vděčnost\t",
+    "published": true
   },
   "nl": {
-    "id": "43a6dc0d-d866-4b79-9453-13c44e906128"
+    "id": "43a6dc0d-d866-4b79-9453-13c44e906128",
+    "name": "Dankbaarheid\t",
+    "published": true
   },
   "es": {
     "name": "Gratitud",

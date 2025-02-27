@@ -18,7 +18,7 @@ import CardGraphic from '../../../../client/src/lib/components/CardGraphic/CardG
 import useGetSessionCardTags from '../../../../client/src/lib/components/Cards/SessionCard/hooks/useGetSessionCardTags';
 import {SessionMode} from '../../../../shared/src/schemas/Session';
 import Tag from '../../../../client/src/lib/components/Tag/Tag';
-import {Fragment} from 'react';
+import {Fragment, use, useCallback} from 'react';
 import Gutters from './Gutters';
 import Link from 'next/link';
 import {Heading16} from '../../../../client/src/lib/components/Typography/Heading/Heading';
@@ -29,6 +29,8 @@ import {
 } from '../../../../client/src/lib/components/Icons';
 import {useTranslation} from 'react-i18next';
 import Markdown from '../../../../client/src/lib/components/Typography/Markdown/Markdown';
+import Button from '../../../../client/src/lib/components/Buttons/Button';
+import {useRouter} from 'next/navigation';
 
 const Background = styled.dialog.attrs({open: true})({
   position: 'fixed',
@@ -139,6 +141,10 @@ const CoCreatorName = styledNative(Body14)({
   textAlign: 'center',
 });
 
+const StartButton = styledNative(Button)({
+  justifySelf: 'flex-start',
+});
+
 const ExerciseModal = ({
   exercise,
   onClose,
@@ -148,6 +154,11 @@ const ExerciseModal = ({
 }) => {
   const {t} = useTranslation('Web.ExerciseModal');
   const tags = useGetSessionCardTags(exercise, SessionMode.async);
+  const router = useRouter();
+
+  const startSession = useCallback(() => {
+    router.push(`/${exercise.language}/exercises/${exercise.id}`);
+  }, [router, exercise]);
 
   return (
     <Background>
@@ -176,33 +187,41 @@ const ExerciseModal = ({
           ))}
         </Tags>
         <Spacer16 />
-        <Heading16>{t('startHeading')}</Heading16>
-        <Spacer8 />
-        <Modes>
-          {exercise.async && (
-            <>
-              <Mode href={`/${exercise.language}/exercises/${exercise.id}`}>
-                <ModeIcon>
-                  <MeIcon />
-                </ModeIcon>
-                <Body16>{t('mode.async')}</Body16>
-              </Mode>
-              <Spacer16 />
-            </>
-          )}
-          {exercise.live && (
-            <>
-              <Mode
-                href={`/${exercise.language}/exercises/${exercise.id}/host`}>
-                <ModeIcon>
-                  <CommunityIcon />
-                </ModeIcon>
-                <Body16>{t('mode.live')}</Body16>
-              </Mode>
-              <Spacer16 />
-            </>
-          )}
-        </Modes>
+        {!exercise.live ? (
+          <StartButton variant="secondary" onPress={startSession}>
+            {t('startCta')}
+          </StartButton>
+        ) : (
+          <>
+            <Heading16>{t('startHeading')}</Heading16>
+            <Spacer8 />
+            <Modes>
+              {exercise.async && (
+                <>
+                  <Mode href={`/${exercise.language}/exercises/${exercise.id}`}>
+                    <ModeIcon>
+                      <MeIcon />
+                    </ModeIcon>
+                    <Body16>{t('mode.async')}</Body16>
+                  </Mode>
+                  <Spacer16 />
+                </>
+              )}
+              {exercise.live && (
+                <>
+                  <Mode
+                    href={`/${exercise.language}/exercises/${exercise.id}/host`}>
+                    <ModeIcon>
+                      <CommunityIcon />
+                    </ModeIcon>
+                    <Body16>{t('mode.live')}</Body16>
+                  </Mode>
+                  <Spacer16 />
+                </>
+              )}
+            </Modes>
+          </>
+        )}
         {!!exercise?.coCreators?.length && (
           <>
             <Spacer32 />
