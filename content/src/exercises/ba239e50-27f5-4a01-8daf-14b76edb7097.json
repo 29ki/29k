@@ -48,7 +48,13 @@
           }
         ],
         "content": {
-          "heading": "How did you experience to sky gaze?"
+          "heading": "How did you experience to sky gaze?",
+          "lottie": {
+            "durationTimer": true,
+            "duration": 60,
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1676642915/Lottie/default_1min_black_rosi2l.json",
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1740905959/Audio/random%20audio/2_ewhv61.mp3"
+          }
         }
       },
       {
@@ -131,7 +137,8 @@
         "p5JsScript": {
           "lang": "javascript"
         },
-        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1737192863/Video/portal1_sky_gazing_color_corection_qtq8bz.mp4"
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1737192863/Video/portal1_sky_gazing_color_corection_qtq8bz.mp4",
+        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1740905959/Audio/random%20audio/2_ewhv61.mp3"
       },
       "desktopOptimized": true
     },
@@ -369,7 +376,12 @@
         {
           "text": "> Start the session when you're ready to go"
         }
-      ]
+      ],
+      "videoLoop": {
+        "p5JsScript": {
+          "lang": "javascript"
+        }
+      }
     },
     "tags": [
       "566aeb1b-1649-4f5a-96a2-0c80be27efc0"
@@ -461,7 +473,12 @@
         {
           "text": "> Start the session when you're ready to go"
         }
-      ]
+      ],
+      "videoLoop": {
+        "p5JsScript": {
+          "lang": "javascript"
+        }
+      }
     },
     "tags": [
       "566aeb1b-1649-4f5a-96a2-0c80be27efc0"
@@ -518,7 +535,13 @@
           }
         ],
         "content": {
-          "heading": "Hvordan oplevede du dét at kigge på himlen?"
+          "heading": "Hvordan oplevede du dét at kigge på himlen?",
+          "lottie": {
+            "durationTimer": true,
+            "duration": 60,
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1740905959/Audio/random%20audio/2_ewhv61.mp3",
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1676642915/Lottie/default_1min_black_rosi2l.json"
+          }
         }
       },
       {
@@ -607,7 +630,8 @@
         "p5JsScript": {
           "lang": "javascript"
         },
-        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1737192863/Video/portal1_sky_gazing_color_corection_qtq8bz.mp4"
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1737192863/Video/portal1_sky_gazing_color_corection_qtq8bz.mp4",
+        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1740905959/Audio/random%20audio/2_ewhv61.mp3"
       },
       "desktopOptimized": true
     },
@@ -667,7 +691,13 @@
           }
         ],
         "content": {
-          "heading": "Jaký byl váš zážitek z pozorování oblohy?"
+          "heading": "Jaký byl váš zážitek z pozorování oblohy?",
+          "lottie": {
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1740905959/Audio/random%20audio/2_ewhv61.mp3",
+            "durationTimer": true,
+            "duration": 60,
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1676642915/Lottie/default_1min_black_rosi2l.json"
+          }
         }
       },
       {
@@ -756,7 +786,8 @@
         "p5JsScript": {
           "lang": "javascript"
         },
-        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1737192863/Video/portal1_sky_gazing_color_corection_qtq8bz.mp4"
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1737192863/Video/portal1_sky_gazing_color_corection_qtq8bz.mp4",
+        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1740905959/Audio/random%20audio/2_ewhv61.mp3"
       },
       "desktopOptimized": true
     },
@@ -816,7 +847,13 @@
           }
         ],
         "content": {
-          "heading": "Hoe vond je het om naar de lucht te kijken?"
+          "heading": "Hoe vond je het om naar de lucht te kijken?",
+          "lottie": {
+            "durationTimer": true,
+            "duration": 60,
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1740905959/Audio/random%20audio/2_ewhv61.mp3",
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1676642915/Lottie/default_1min_black_rosi2l.json"
+          }
         }
       },
       {
@@ -905,7 +942,8 @@
         "p5JsScript": {
           "lang": "javascript"
         },
-        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1737192863/Video/portal1_sky_gazing_color_corection_qtq8bz.mp4"
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1737192863/Video/portal1_sky_gazing_color_corection_qtq8bz.mp4",
+        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1740905959/Audio/random%20audio/2_ewhv61.mp3"
       },
       "desktopOptimized": true
     },
@@ -922,6 +960,13 @@
       "566aeb1b-1649-4f5a-96a2-0c80be27efc0"
     ],
     "card": {},
-    "locked": true
+    "locked": true,
+    "introPortal": {
+      "videoLoop": {
+        "p5JsScript": {
+          "lang": "javascript"
+        }
+      }
+    }
   }
 }
