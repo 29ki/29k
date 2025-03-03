@@ -167,7 +167,7 @@
       {
         "type": "instruction",
         "content": {
-          "text": "In this exercise we’ll be practising experiencing challenging or difficult emotions. Just as they are. As a way to spend less energy trying to avoid the uncomfortable, and more on what matters to us in the long run.",
+          "text": "Neste exercício, vamos praticar experienciar emoções desafiantes ou difíceis, tal como elas são, como forma de gastar menos energia a tentar evitar o desconforto e mais naquilo que nos interessa a longo prazo.",
           "image": {
             "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1737482599/Images/image_2_acceptance_practice_rfgk30.png"
           }
@@ -188,8 +188,8 @@
           },
           "video": {
             "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1737616068/Video/audio_timer_acceptance_practice_1_cungu2.mp4",
-            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1734426164/Audio/PsyPal_acceptance_practice_audio_eng.mp3.mp3",
-            "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1734425967/SRT%20(captions)%20files/PsyPal%E2%80%93acceptance-practice.srt",
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1741009113/Audio/PsyPal_Being_with_what_is_Pt_zqs7lz.mp3",
+            "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1741009130/SRT%20(captions)%20files/PsyPal_Being_with_what_is_Pt_byawoi.srt",
             "durationTimer": false,
             "autoPlayLoop": false,
             "preview": ""
@@ -207,7 +207,8 @@
           }
         ],
         "content": {
-          "heading": "What would it mean to practice moving through difficulties, in your life?"
+          "heading": "",
+          "text": "O que significaria para si praticar movimentar-se entre as dificuldades na sua vida?"
         }
       },
       {
@@ -223,7 +224,10 @@
             "text": "Who would like to start?\n\n> Let everyone (or as many as you got time for) share one by one. Press play to start the timer. Re-start for each new sharing.\n\nThank you so much everyone."
           }
         ],
-        "id": "Sharing 1"
+        "id": "Sharing 1",
+        "content": {
+          "text": "O que significaria para si praticar movimentar-se entre as dificuldades na sua vida?"
+        }
       },
       {
         "type": "host",
@@ -242,7 +246,7 @@
       {
         "type": "instruction",
         "content": {
-          "text": "Well done. \n\nWe’ve just practised moving through difficulties instead of trying to avoid them. This technique can help us live more in line with our values and lead more meaningful lives.",
+          "text": "Acabámos de praticar a ultrapassagem de dificuldades em vez de tentar evitá-las. Esta técnica pode ajudar-nos a viver mais de acordo com os nossos valores e a ter uma vida com mais significado.",
           "image": {
             "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1737482507/Images/image_1_acceptance_practice_yjyabh.png"
           }
@@ -256,7 +260,7 @@
     "hidden": false,
     "locked": true,
     "name": "Estar com o que é",
-    "live": true,
+    "live": false,
     "published": true,
     "asyncDuration": 15,
     "card": {
@@ -277,7 +281,8 @@
       },
       {
         "name": "Florbela Silva, voice",
-        "url": "https://www.linkedin.com/in/florbela-silva/?originalSubdomain=pt"
+        "url": "https://www.linkedin.com/in/florbela-silva/?originalSubdomain=pt",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1727943392/FJN/People/Florbela_Silva_bd0qx9.jpg"
       }
     ],
     "outroPortal": {
