@@ -198,7 +198,13 @@
           }
         ],
         "content": {
-          "heading": "How did you experience to sky gaze?"
+          "heading": "How did you experience to sky gaze?",
+          "lottie": {
+            "durationTimer": true,
+            "duration": 60,
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1676642915/Lottie/default_1min_black_rosi2l.json",
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1740905959/Audio/random%20audio/2_ewhv61.mp3"
+          }
         }
       },
       {
@@ -246,8 +252,8 @@
     },
     "hidden": false,
     "locked": true,
-    "name": "Sky gazing",
-    "live": true,
+    "name": "pt Sky gazing",
+    "live": false,
     "published": true,
     "asyncDuration": 10,
     "card": {
@@ -281,7 +287,8 @@
         "p5JsScript": {
           "lang": "javascript"
         },
-        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1737192863/Video/portal1_sky_gazing_color_corection_qtq8bz.mp4"
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1737192863/Video/portal1_sky_gazing_color_corection_qtq8bz.mp4",
+        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1740905959/Audio/random%20audio/2_ewhv61.mp3"
       },
       "desktopOptimized": true
     },
