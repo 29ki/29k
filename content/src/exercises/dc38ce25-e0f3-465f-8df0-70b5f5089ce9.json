@@ -165,12 +165,36 @@
         ]
       },
       {
+        "type": "instruction",
+        "content": {
+          "text": "Neste exercício, vamos praticar experienciar emoções desafiantes ou difíceis, tal como elas são, como forma de gastar menos energia a tentar evitar o desconforto e mais naquilo que nos interessa a longo prazo.",
+          "image": {
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1737482599/Images/image_2_acceptance_practice_rfgk30.png"
+          }
+        }
+      },
+      {
         "type": "content",
         "hostNotes": [
           {
             "text": "Find a comfortable position. I will start the audio exercise and we'll meet back here afterwards. \n\n> Push play to start the audio exercise"
           }
-        ]
+        ],
+        "content": {
+          "lottie": {
+            "subtitles": "",
+            "audio": "",
+            "source": ""
+          },
+          "video": {
+            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1737616068/Video/audio_timer_acceptance_practice_1_cungu2.mp4",
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1741009113/Audio/PsyPal_Being_with_what_is_Pt_zqs7lz.mp3",
+            "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1741009130/SRT%20(captions)%20files/PsyPal_Being_with_what_is_Pt_byawoi.srt",
+            "durationTimer": false,
+            "autoPlayLoop": false,
+            "preview": ""
+          }
+        }
       },
       {
         "type": "reflection",
@@ -181,7 +205,11 @@
           {
             "text": "You can take notes on a piece of paper or just mental notes in your head. And there is no right or wrong here, our answers are our own. 1 minute starting now.\n\n> Press play to start the timer.\n\nThat’s 1 minute and it’s time to move on."
           }
-        ]
+        ],
+        "content": {
+          "heading": "",
+          "text": "O que significaria para si praticar movimentar-se entre as dificuldades na sua vida?"
+        }
       },
       {
         "type": "sharing",
@@ -196,7 +224,10 @@
             "text": "Who would like to start?\n\n> Let everyone (or as many as you got time for) share one by one. Press play to start the timer. Re-start for each new sharing.\n\nThank you so much everyone."
           }
         ],
-        "id": "Sharing 1"
+        "id": "Sharing 1",
+        "content": {
+          "text": "O que significaria para si praticar movimentar-se entre as dificuldades na sua vida?"
+        }
       },
       {
         "type": "host",
@@ -215,22 +246,50 @@
       {
         "type": "instruction",
         "content": {
-          "text": "Well done.\n\nSummary.\n\nIf you’re up for it, you can continue with this mission.\n\nmission description"
+          "text": "Acabámos de praticar a ultrapassagem de dificuldades em vez de tentar evitá-las. Esta técnica pode ajudar-nos a viver mais de acordo com os nossos valores e a ter uma vida com mais significado.",
+          "image": {
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1737482507/Images/image_1_acceptance_practice_yjyabh.png"
+          }
         }
       }
     ],
     "theme": {
-      "textColor": "#2AE2D7"
+      "textColor": "#F9F8F4",
+      "backgroundColor": "#cf400c"
     },
     "hidden": false,
     "locked": true,
     "name": "Estar com o que é",
-    "live": true,
-    "published": false,
+    "live": false,
+    "published": true,
     "asyncDuration": 15,
-    "card": {},
+    "card": {
+      "image": {
+        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1737188108/Images/image_5_acceptance_practice_trsysn.png"
+      }
+    },
+    "coCreators": [
+      {
+        "name": "Rachel Brathen, script",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1709567296/Contributors/Yoga_Girl_016895_color_oju3wq_-_Square_Post_mbemkp.png",
+        "url": "https://rachelbrathen.com/"
+      },
+      {
+        "name": "Ints Ivanovskis, art works",
+        "url": "https://www.linkedin.com/in/ints-ivanovskis-46ab0311a/",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413436/Contributors/Ints%20Ivanovskis.jpg"
+      },
+      {
+        "name": "Florbela Silva, voice",
+        "url": "https://www.linkedin.com/in/florbela-silva/?originalSubdomain=pt",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1727943392/FJN/People/Florbela_Silva_bd0qx9.jpg"
+      }
+    ],
+    "outroPortal": {
+      "desktopOptimized": true
+    },
     "introPortal": {
-      "textColor": "#2AE2D7",
+      "textColor": "#F9F8F4",
       "hostNotes": [
         {
           "text": "> Start the session when you're ready to go"
@@ -239,14 +298,17 @@
       "videoLoop": {
         "p5JsScript": {
           "lang": "javascript"
-        }
-      }
+        },
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1737479333/Video/portal_1_acceptance_practice_uf24np.mp4"
+      },
+      "desktopOptimized": true
     },
     "tags": [
       "34100e43-2eb8-4d35-8eb0-9fa9f78e4935"
     ],
     "id": "dc38ce25-e0f3-465f-8df0-70b5f5089ce9",
-    "async": false
+    "async": true,
+    "description": "Depararmo-nos com obstáculos é uma parte natural da vida. Com as coisas que queremos alcançar- como por exemplo amor, crescimento, um trabalho interessante - o.\n\nrisco de sermos magoados está sempre presente, embora raramente o reconheçamos, e muitas vezes tentemos evitá-lo.\n\nNo exercício desta semana, vamos praticar o oposto: ultrapassar as dificuldades."
   },
   "sv": {
     "liveDuration": 30,
