@@ -16,7 +16,10 @@ jobs:
     runs-on: ubuntu-latest
     environment: client-${{ inputs.environment }}
     env:
-      BUILD_DIR: ./build
+      IOS_BUNDLE_DIR: ./build/ios/bundle
+      IOS_SOURCEMAPS_DIR: ./build/ios/sourcemaps
+      ANDROID_BUNDLE_DIR: ./build/android/bundle
+      ANDROID_SOURCEMAPS_DIR: ./build/android/sourcemaps
 
       SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
       SENTRY_ORG: ${{ vars.SENTRY_ORG }}
@@ -96,9 +99,13 @@ jobs:
         working-directory: ./content
         run: yarn build
 
-      - name: Prepare Build Directory
+      - name: Prepare Build Directories
         working-directory: ./client
-        run: mkdir -p $BUILD_DIR
+        run: |
+          mkdir -p $IOS_BUNDLE_DIR
+          mkdir -p $IOS_SOURCEMAPS_DIR
+          mkdir -p $ANDROID_BUNDLE_DIR
+          mkdir -p $ANDROID_SOURCEMAPS_DIR
 
       - name: Prepare $GIT_COMMIT_SHORT
         working-directory: ./shared
@@ -114,8 +121,8 @@ jobs:
         run: >
           yarn revopush release-react $ANDROID_REVOPUSH_PROJECT android
           --deploymentName ${{ vars.ENVIRONMENT }}
-          --outputDir $BUILD_DIR
-          --sourcemapOutput $BUILD_DIR
+          --outputDir $ANDROID_BUNDLE_DIR
+          --sourcemapOutput $ANDROID_SOURCEMAPS_DIR
           --noDuplicateReleaseError
           --useHermes
 
@@ -127,8 +134,8 @@ jobs:
           --deploymentName ${{ vars.ENVIRONMENT }}
           --plistFile ./ios/Supporting/Info.plist
           --xcodeProjectFile ./ios/twentyninek.xcodeproj
-          --outputDir $BUILD_DIR
-          --sourcemapOutput $BUILD_DIR
+          --outputDir $IOS_BUNDLE_DIR
+          --sourcemapOutput $IOS_SOURCEMAPS_DIR
           --noDuplicateReleaseError
           --useHermes
 
@@ -141,8 +148,8 @@ jobs:
           --strip-prefix $PWD
           --dist ${{ vars.ENVIRONMENT }}
           --release $GIT_COMMIT_SHORT
-          $BUILD_DIR/index.android.bundle
-          $BUILD_DIR/index.android.bundle.map
+          $ANDROID_BUNDLE_DIR/index.android.bundle
+          $ANDROID_BUNDLE_DIR/index.android.bundle.map
 
       - name: Upload iOS Source Maps to Sentry
         working-directory: ./client
@@ -153,8 +160,8 @@ jobs:
           --strip-prefix $PWD
           --dist ${{ vars.ENVIRONMENT }}
           --release $GIT_COMMIT_SHORT
-          $BUILD_DIR/main.jsbundle
-          $BUILD_DIR/main.jsbundle.map
+          $IOS_SOURCEMAPS_DIR/main.jsbundle
+          $IOS_SOURCEMAPS_DIR/main.jsbundle.map
 
       - name: Associate Commits to Sentry Release
         working-directory: ./client

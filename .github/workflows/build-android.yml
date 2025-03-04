@@ -18,7 +18,8 @@ jobs:
     env:
       CI: github
 
-      BUILD_DIR: ./build
+      BUNDLE_DIR: ./build/android/bundle
+      SOURCEMAPS_DIR: ./build/android/sourcemaps
 
       SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
       SENTRY_ORG: ${{ vars.SENTRY_ORG }}
@@ -95,7 +96,9 @@ jobs:
 
       - name: Prepare Build Directory
         working-directory: ./client
-        run: mkdir -p $BUILD_DIR
+        run: |
+          mkdir -p $BUNDLE_DIR
+          mkdir -p $SOURCEMAPS_DIR
 
       - name: Prepare $GIT_COMMIT_SHORT
         working-directory: ./shared
@@ -172,8 +175,8 @@ jobs:
           --dev false
           --entry-file index.js
           --platform android
-          --bundle-output $BUILD_DIR/index.android.bundle
-          --sourcemap-output $BUILD_DIR/index.android.bundle.map
+          --bundle-output $BUNDLE_DIR/index.android.bundle
+          --sourcemap-output $SOURCEMAPS_DIR/index.android.bundle.map
 
       - name: Compile Hermes Bytecode
         working-directory: ./client
@@ -181,28 +184,28 @@ jobs:
           node_modules/react-native/sdks/hermesc/linux64-bin/hermesc
           -O -emit-binary
           -output-source-map
-          -out=$BUILD_DIR/index.android.bundle.hbc
-          $BUILD_DIR/index.android.bundle
+          -out=$BUNDLE_DIR/index.android.bundle.hbc
+          $BUNDLE_DIR/index.android.bundle
 
-          rm -f $BUILD_DIR/index.android.bundle
+          rm -f $BUNDLE_DIR/index.android.bundle
 
-          mv $BUILD_DIR/index.android.bundle.hbc $BUILD_DIR/index.android.bundle
+          mv $BUNDLE_DIR/index.android.bundle.hbc $BUNDLE_DIR/index.android.bundle
 
       - name: Compose Hermes Bytecode and Source Map
         working-directory: ./client
         run: >
-          mv $BUILD_DIR/index.android.bundle.map $BUILD_DIR/index.android.bundle.packager.map
+          mv $SOURCEMAPS_DIR/index.android.bundle.map $SOURCEMAPS_DIR/index.android.bundle.packager.map
 
           node node_modules/react-native/scripts/compose-source-maps.js
-          $BUILD_DIR/index.android.bundle.packager.map
-          $BUILD_DIR/index.android.bundle.hbc.map
-          -o $BUILD_DIR/index.android.bundle.map
+          $SOURCEMAPS_DIR/index.android.bundle.packager.map
+          $SOURCEMAPS_DIR/index.android.bundle.hbc.map
+          -o $SOURCEMAPS_DIR/index.android.bundle.map
 
           node node_modules/@sentry/react-native/scripts/copy-debugid.js
-          $BUILD_DIR/index.android.bundle.packager.map
-          $BUILD_DIR/index.android.bundle.map
+          $SOURCEMAPS_DIR/index.android.bundle.packager.map
+          $SOURCEMAPS_DIR/index.android.bundle.map
 
-          rm -f $BUILD_DIR/index.android.bundle.packager.map
+          rm -f $SOURCEMAPS_DIR/index.android.bundle.packager.map
 
       - name: Upload Source Map to Sentry
         working-directory: ./client
@@ -212,8 +215,8 @@ jobs:
           --strip-prefix $PWD
           --dist ${{ vars.ENVIRONMENT }}
           --release $GIT_COMMIT_SHORT
-          $BUILD_DIR/index.android.bundle
-          $BUILD_DIR/index.android.bundle.map
+          $BUNDLE_DIR/index.android.bundle
+          $SOURCEMAPS_DIR/index.android.bundle.map
 
       - name: Associate Commits to Sentry Release
         working-directory: ./client
