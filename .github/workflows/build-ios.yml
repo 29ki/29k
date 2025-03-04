@@ -18,7 +18,8 @@ jobs:
     env:
       CI: github
 
-      BUILD_DIR: ./build
+      BUNDLE_DIR: ./build/ios/bundle
+      SOURCEMAPS_DIR: ./build/ios/sourcemaps
 
       SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
       SENTRY_ORG: ${{ vars.SENTRY_ORG }}
@@ -88,7 +89,9 @@ jobs:
 
       - name: Prepare Build Directory
         working-directory: ./client
-        run: mkdir -p $BUILD_DIR
+        run: |
+          mkdir -p $BUNDLE_DIR
+          mkdir -p $SOURCEMAPS_DIR
 
       - name: Prepare $GIT_COMMIT_SHORT
         working-directory: ./shared
@@ -177,8 +180,8 @@ jobs:
           --dev false
           --entry-file index.js
           --platform ios
-          --bundle-output $BUILD_DIR/main.jsbundle
-          --sourcemap-output $BUILD_DIR/main.jsbundle.map
+          --bundle-output $BUNDLE_DIR/main.jsbundle
+          --sourcemap-output $SOURCEMAPS_DIR/main.jsbundle.map
 
       - name: Compile Hermes Bytecode
         working-directory: ./client
@@ -186,28 +189,28 @@ jobs:
           ios/Pods/hermes-engine/destroot/bin/hermesc
           -O -emit-binary
           -output-source-map
-          -out=$BUILD_DIR/main.jsbundle.hbc
-          $BUILD_DIR/main.jsbundle
+          -out=$BUNDLE_DIR/main.jsbundle.hbc
+          $BUNDLE_DIR/main.jsbundle
 
-          rm -f $BUILD_DIR/main.jsbundle
+          rm -f $BUNDLE_DIR/main.jsbundle
 
-          mv $BUILD_DIR/main.jsbundle.hbc $BUILD_DIR/main.jsbundle
+          mv $BUNDLE_DIR/main.jsbundle.hbc $BUNDLE_DIR/main.jsbundle
 
       - name: Compose Hermes Bytecode and Source Map
         working-directory: ./client
         run: >
-          mv $BUILD_DIR/main.jsbundle.map $BUILD_DIR/main.jsbundle.packager.map
+          mv $SOURCEMAPS_DIR/main.jsbundle.map $SOURCEMAPS_DIR/main.jsbundle.packager.map
 
           node node_modules/react-native/scripts/compose-source-maps.js
-          $BUILD_DIR/main.jsbundle.packager.map
-          $BUILD_DIR/main.jsbundle.hbc.map
-          -o $BUILD_DIR/main.jsbundle.map
+          $SOURCEMAPS_DIR/main.jsbundle.packager.map
+          $SOURCEMAPS_DIR/main.jsbundle.hbc.map
+          -o $SOURCEMAPS_DIR/main.jsbundle.map
 
           node node_modules/@sentry/react-native/scripts/copy-debugid.js
-          $BUILD_DIR/main.jsbundle.packager.map
-          $BUILD_DIR/main.jsbundle.map
+          $SOURCEMAPS_DIR/main.jsbundle.packager.map
+          $SOURCEMAPS_DIR/main.jsbundle.map
 
-          rm -f $BUILD_DIR/main.jsbundle.packager.map
+          rm -f $SOURCEMAPS_DIR/main.jsbundle.packager.map
 
       - name: Upload Source Map to Sentry
         working-directory: ./client
@@ -217,8 +220,8 @@ jobs:
           --strip-prefix $PWD
           --dist ${{ vars.ENVIRONMENT }}
           --release $GIT_COMMIT_SHORT
-          $BUILD_DIR/main.jsbundle
-          $BUILD_DIR/main.jsbundle.map
+          $BUNDLE_DIR/main.jsbundle
+          $SOURCEMAPS_DIR/main.jsbundle.map
 
       - name: Associate Commits to Sentry Release
         working-directory: ./client
