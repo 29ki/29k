@@ -77,6 +77,12 @@
           "heading": "What did this exercise awake in you?",
           "image": {
             "source": ""
+          },
+          "lottie": {
+            "durationTimer": true,
+            "duration": 60,
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1740905959/Audio/random%20audio/6_cjylse.mp3",
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1676642915/Lottie/default_1min_black_rosi2l.json"
           }
         }
       },
@@ -151,7 +157,8 @@
         "p5JsScript": {
           "lang": "javascript"
         },
-        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1737272009/Video/portal_1_Hope_music_exercise_II_njii38.mp4"
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1737272009/Video/portal_1_Hope_music_exercise_II_njii38.mp4",
+        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1740905959/Audio/random%20audio/6_cjylse.mp3"
       },
       "desktopOptimized": true
     },
@@ -208,7 +215,15 @@
             "text": "Who would like to start?\n\n> Let everyone (or as many as you got time for) share one by one. Press play to start the timer. Re-start for each new sharing.\n\nThank you so much everyone."
           }
         ],
-        "id": "Sharing 1"
+        "id": "Sharing 1",
+        "content": {
+          "lottie": {
+            "durationTimer": true,
+            "duration": 60,
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1740905959/Audio/random%20audio/6_cjylse.mp3",
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1676642915/Lottie/default_1min_black_rosi2l.json"
+          }
+        }
       },
       {
         "type": "host",
@@ -251,7 +266,8 @@
       "videoLoop": {
         "p5JsScript": {
           "lang": "javascript"
-        }
+        },
+        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1740905959/Audio/random%20audio/6_cjylse.mp3"
       }
     },
     "tags": [
@@ -502,7 +518,10 @@
           "heading": "Hvad følte du under denne øvelse?",
           "lottie": {
             "subtitles": "",
-            "audio": ""
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1740905959/Audio/random%20audio/6_cjylse.mp3",
+            "durationTimer": true,
+            "duration": 60,
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1676642915/Lottie/default_1min_black_rosi2l.json"
           }
         }
       },
@@ -598,7 +617,8 @@
         "p5JsScript": {
           "lang": "javascript"
         },
-        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1737272009/Video/portal_1_Hope_music_exercise_II_njii38.mp4"
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1737272009/Video/portal_1_Hope_music_exercise_II_njii38.mp4",
+        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1740905959/Audio/random%20audio/6_cjylse.mp3"
       },
       "desktopOptimized": true
     },
@@ -665,7 +685,10 @@
           "heading": "Jak jste se při tomto cvičení cítili?",
           "lottie": {
             "subtitles": "",
-            "audio": ""
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1740905959/Audio/random%20audio/6_cjylse.mp3",
+            "durationTimer": true,
+            "duration": 59,
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1676642915/Lottie/default_1min_black_rosi2l.json"
           }
         }
       },
@@ -761,7 +784,8 @@
         "p5JsScript": {
           "lang": "javascript"
         },
-        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1737272009/Video/portal_1_Hope_music_exercise_II_njii38.mp4"
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1737272009/Video/portal_1_Hope_music_exercise_II_njii38.mp4",
+        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1740905959/Audio/random%20audio/6_cjylse.mp3"
       },
       "desktopOptimized": true
     },
@@ -850,6 +874,12 @@
           "heading": "Hoe voelde je je tijdens deze oefening?",
           "image": {
             "source": ""
+          },
+          "lottie": {
+            "durationTimer": true,
+            "duration": 60,
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1740905959/Audio/random%20audio/6_cjylse.mp3",
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1676642915/Lottie/default_1min_black_rosi2l.json"
           }
         }
       },
@@ -924,7 +954,8 @@
         "p5JsScript": {
           "lang": "javascript"
         },
-        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1737272009/Video/portal_1_Hope_music_exercise_II_njii38.mp4"
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1737272009/Video/portal_1_Hope_music_exercise_II_njii38.mp4",
+        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1740905959/Audio/random%20audio/6_cjylse.mp3"
       },
       "desktopOptimized": true
     },
