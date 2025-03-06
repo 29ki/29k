@@ -361,7 +361,12 @@
         {
           "text": "> Start the session when you're ready to go"
         }
-      ]
+      ],
+      "videoLoop": {
+        "p5JsScript": {
+          "lang": "javascript"
+        }
+      }
     },
     "tags": [
       "8da0534a-5da9-430a-bdf3-242ace6460fb"
@@ -454,7 +459,12 @@
         {
           "text": "> Start the session when you're ready to go"
         }
-      ]
+      ],
+      "videoLoop": {
+        "p5JsScript": {
+          "lang": "javascript"
+        }
+      }
     },
     "tags": [
       "8da0534a-5da9-430a-bdf3-242ace6460fb"
@@ -576,7 +586,7 @@
     },
     "hidden": false,
     "locked": true,
-    "name": "Håb",
+    "name": "Håb!",
     "live": false,
     "published": true,
     "excludeFromWeb": false,
@@ -743,7 +753,7 @@
     },
     "hidden": false,
     "locked": true,
-    "name": "Naděje",
+    "name": "Naděje!",
     "live": false,
     "published": true,
     "excludeFromWeb": false,
@@ -913,7 +923,7 @@
     },
     "hidden": false,
     "locked": true,
-    "name": "Hoop",
+    "name": "Hoop!",
     "live": false,
     "published": true,
     "excludeFromWeb": false,
@@ -972,6 +982,13 @@
     "locked": true,
     "tags": [
       "8da0534a-5da9-430a-bdf3-242ace6460fb"
-    ]
+    ],
+    "introPortal": {
+      "videoLoop": {
+        "p5JsScript": {
+          "lang": "javascript"
+        }
+      }
+    }
   }
 }
