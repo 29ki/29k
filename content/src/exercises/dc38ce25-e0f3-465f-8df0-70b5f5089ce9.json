@@ -56,7 +56,12 @@
           }
         ],
         "content": {
-          "heading": "What would it mean to practice moving through difficulties, in your life?"
+          "heading": "What would it mean to practice moving through difficulties, in your life?",
+          "lottie": {
+            "durationTimer": true,
+            "duration": 60,
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1740905959/Audio/random%20audio/1_xsagb2.mp3"
+          }
         }
       },
       {
@@ -139,7 +144,8 @@
         "p5JsScript": {
           "lang": "javascript"
         },
-        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1737479333/Video/portal_1_acceptance_practice_uf24np.mp4"
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1737479333/Video/portal_1_acceptance_practice_uf24np.mp4",
+        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1740905959/Audio/random%20audio/1_xsagb2.mp3"
       },
       "desktopOptimized": true
     },
@@ -208,7 +214,12 @@
         ],
         "content": {
           "heading": "",
-          "text": "O que significaria para si praticar movimentar-se entre as dificuldades na sua vida?"
+          "text": "O que significaria para si praticar movimentar-se entre as dificuldades na sua vida?",
+          "lottie": {
+            "durationTimer": true,
+            "duration": 60,
+            "subtitles": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto,t_global/v1740905959/Audio/random%20audio/1_xsagb2.mp3"
+          }
         }
       },
       {
@@ -299,7 +310,8 @@
         "p5JsScript": {
           "lang": "javascript"
         },
-        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1737479333/Video/portal_1_acceptance_practice_uf24np.mp4"
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1737479333/Video/portal_1_acceptance_practice_uf24np.mp4",
+        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1740905959/Audio/random%20audio/1_xsagb2.mp3"
       },
       "desktopOptimized": true
     },
@@ -552,7 +564,12 @@
         ],
         "content": {
           "heading": "",
-          "text": "Hvordan ville det se ud i dit liv, hvis du skulle øve dig i at bevæge dig gennem det, som er svært?"
+          "text": "Hvordan ville det se ud i dit liv, hvis du skulle øve dig i at bevæge dig gennem det, som er svært?",
+          "lottie": {
+            "durationTimer": true,
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1740905959/Audio/random%20audio/1_xsagb2.mp3",
+            "duration": 60
+          }
         }
       },
       {
@@ -641,7 +658,8 @@
         "p5JsScript": {
           "lang": "javascript"
         },
-        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1737479333/Video/portal_1_acceptance_practice_uf24np.mp4"
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1737479333/Video/portal_1_acceptance_practice_uf24np.mp4",
+        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1740905959/Audio/random%20audio/1_xsagb2.mp3"
       },
       "desktopOptimized": true
     },
@@ -709,7 +727,12 @@
           }
         ],
         "content": {
-          "heading": "Co by pro váš život znamenalo učit se takto zvládat obtíže?"
+          "heading": "Co by pro váš život znamenalo učit se takto zvládat obtíže?",
+          "lottie": {
+            "durationTimer": true,
+            "duration": 60,
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1740905959/Audio/random%20audio/1_xsagb2.mp3"
+          }
         }
       },
       {
@@ -798,7 +821,8 @@
         "p5JsScript": {
           "lang": "javascript"
         },
-        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1737479333/Video/portal_1_acceptance_practice_uf24np.mp4"
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1737479333/Video/portal_1_acceptance_practice_uf24np.mp4",
+        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1740905959/Audio/random%20audio/1_xsagb2.mp3"
       },
       "desktopOptimized": true
     },
@@ -867,7 +891,13 @@
         ],
         "content": {
           "heading": "",
-          "text": "Wat zou het betekenen om te oefenen met door moeilijkheden heen gaan, in jouw leven?"
+          "text": "Wat zou het betekenen om te oefenen met door moeilijkheden heen gaan, in jouw leven?",
+          "lottie": {
+            "source": "",
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1740905959/Audio/random%20audio/1_xsagb2.mp3",
+            "durationTimer": true,
+            "duration": 60
+          }
         }
       },
       {
@@ -956,7 +986,8 @@
         "p5JsScript": {
           "lang": "javascript"
         },
-        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1737479333/Video/portal_1_acceptance_practice_uf24np.mp4"
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1737479333/Video/portal_1_acceptance_practice_uf24np.mp4",
+        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1740905959/Audio/random%20audio/1_xsagb2.mp3"
       },
       "desktopOptimized": true
     },
