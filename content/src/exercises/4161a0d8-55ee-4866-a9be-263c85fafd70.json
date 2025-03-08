@@ -48,7 +48,13 @@
           }
         ],
         "content": {
-          "text": "How did you experience this exercise?"
+          "text": "How did you experience this exercise?",
+          "lottie": {
+            "durationTimer": true,
+            "duration": 60,
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1740905960/Audio/random%20audio/9_vpkpv7.mp3",
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1676642915/Lottie/default_1min_white_wvgwma.json"
+          }
         }
       },
       {
@@ -135,7 +141,8 @@
         "p5JsScript": {
           "lang": "javascript"
         },
-        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1737274976/Video/portal_1_Difficult_conversation_mjexai.mp4"
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1737274976/Video/portal_1_Difficult_conversation_mjexai.mp4",
+        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1740905960/Audio/random%20audio/9_vpkpv7.mp3"
       },
       "desktopOptimized": true
     },
@@ -162,12 +169,43 @@
         ]
       },
       {
+        "type": "instruction",
+        "content": {
+          "image": {
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1737800766/Images/image_11_Difficult_conversation_fxast1.png"
+          }
+        }
+      },
+      {
         "type": "content",
         "hostNotes": [
           {
             "text": "Find a comfortable position. I will start the audio exercise and we'll meet back here afterwards. \n\n> Push play to start the audio exercise"
           }
-        ]
+        ],
+        "content": {
+          "image": {
+            "source": ""
+          },
+          "video": {
+            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1737616068/Video/audio_timer_acceptance_practice_1_cungu2.mp4",
+            "audio": "https://res.cloudinary.co…conversations_pumif5.mp3",
+            "autoPlayLoop": false,
+            "durationTimer": false
+          }
+        }
+      },
+      {
+        "type": "sharing",
+        "id": "sharing",
+        "content": {
+          "video": {
+            "durationTimer": true
+          },
+          "lottie": {
+            "durationTimer": true
+          }
+        }
       },
       {
         "type": "reflection",
@@ -178,7 +216,15 @@
           {
             "text": "You can take notes on a piece of paper or just mental notes in your head. And there is no right or wrong here, our answers are our own. 1 minute starting now.\n\n> Press play to start the timer.\n\nThat’s 1 minute and it’s time to move on."
           }
-        ]
+        ],
+        "content": {
+          "lottie": {
+            "durationTimer": true,
+            "duration": 60,
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1740905960/Audio/random%20audio/9_vpkpv7.mp3",
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1676642915/Lottie/default_1min_white_wvgwma.json"
+          }
+        }
       },
       {
         "type": "sharing",
@@ -212,20 +258,28 @@
       {
         "type": "instruction",
         "content": {
-          "text": "Well done.\n\nSummary.\n\nIf you’re up for it, you can continue with this mission.\n\nmission description"
+          "text": "Well done.\n\nSummary.\n\nIf you’re up for it, you can continue with this mission.\n\nmission description",
+          "image": {
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1737800767/Images/image_33_Difficult_conversation_h81lm9.png"
+          }
         }
       }
     ],
     "theme": {
-      "textColor": "#2AE2D7"
+      "textColor": "#F9F8F4",
+      "backgroundColor": "#cf400c"
     },
     "hidden": false,
     "locked": true,
-    "live": true,
-    "published": false,
+    "live": false,
+    "published": true,
     "excludeFromWeb": false,
     "asyncDuration": 15,
-    "card": {},
+    "card": {
+      "image": {
+        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1737188027/Images/image_2_Difficult_conversation_xroiqs.png"
+      }
+    },
     "introPortal": {
       "textColor": "#2AE2D7",
       "hostNotes": [
@@ -236,7 +290,9 @@
       "videoLoop": {
         "p5JsScript": {
           "lang": "javascript"
-        }
+        },
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1737274976/Video/portal_1_Difficult_conversation_mjexai.mp4",
+        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1740905960/Audio/random%20audio/9_vpkpv7.mp3"
       }
     },
     "tags": [
@@ -244,7 +300,7 @@
       "9c2c08a9-7dc6-4058-bc78-016d0eb00614"
     ],
     "id": "4161a0d8-55ee-4866-a9be-263c85fafd70",
-    "async": false
+    "async": true
   },
   "sv": {
     "liveDuration": 30,
@@ -484,7 +540,13 @@
         ],
         "content": {
           "text": "",
-          "heading": "Hvordan oplevede du dét at lave denne øvelse?"
+          "heading": "Hvordan oplevede du dét at lave denne øvelse?",
+          "lottie": {
+            "durationTimer": true,
+            "duration": 60,
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1740905960/Audio/random%20audio/9_vpkpv7.mp3",
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1676642915/Lottie/default_1min_white_wvgwma.json"
+          }
         }
       },
       {
@@ -577,7 +639,8 @@
         "p5JsScript": {
           "lang": "javascript"
         },
-        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1737274976/Video/portal_1_Difficult_conversation_mjexai.mp4"
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1737274976/Video/portal_1_Difficult_conversation_mjexai.mp4",
+        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1740905960/Audio/random%20audio/9_vpkpv7.mp3"
       },
       "desktopOptimized": true
     },
@@ -620,7 +683,15 @@
           {
             "text": "You can take notes on a piece of paper or just mental notes in your head. And there is no right or wrong here, our answers are our own. 1 minute starting now.\n\n> Press play to start the timer.\n\nThat’s 1 minute and it’s time to move on."
           }
-        ]
+        ],
+        "content": {
+          "lottie": {
+            "durationTimer": true,
+            "duration": 60,
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1740905960/Audio/random%20audio/9_vpkpv7.mp3",
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1676642915/Lottie/default_1min_white_wvgwma.json"
+          }
+        }
       },
       {
         "type": "sharing",
@@ -659,7 +730,8 @@
       }
     ],
     "theme": {
-      "textColor": "#2AE2D7"
+      "textColor": "#F9F8F4",
+      "backgroundColor": "#cf400c"
     },
     "hidden": false,
     "locked": true,
@@ -667,14 +739,25 @@
     "published": false,
     "excludeFromWeb": false,
     "asyncDuration": 15,
-    "card": {},
+    "card": {
+      "image": {
+        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1737188027/Images/image_2_Difficult_conversation_xroiqs.png"
+      }
+    },
     "introPortal": {
-      "textColor": "#2AE2D7",
+      "textColor": "#F9F8F4",
       "hostNotes": [
         {
           "text": "> Start the session when you're ready to go"
         }
-      ]
+      ],
+      "videoLoop": {
+        "p5JsScript": {
+          "lang": "javascript"
+        },
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1737274976/Video/portal_1_Difficult_conversation_mjexai.mp4",
+        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1740905960/Audio/random%20audio/9_vpkpv7.mp3"
+      }
     },
     "tags": [
       "34100e43-2eb8-4d35-8eb0-9fa9f78e4935",
@@ -732,7 +815,13 @@
           }
         ],
         "content": {
-          "text": "Hoe heb je het ervaren om deze oefening te doen?"
+          "text": "Hoe heb je het ervaren om deze oefening te doen?",
+          "lottie": {
+            "durationTimer": true,
+            "duration": 60,
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1740905960/Audio/random%20audio/9_vpkpv7.mp3",
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1676642915/Lottie/default_1min_white_wvgwma.json"
+          }
         }
       },
       {
@@ -824,7 +913,8 @@
         "p5JsScript": {
           "lang": "javascript"
         },
-        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1737274976/Video/portal_1_Difficult_conversation_mjexai.mp4"
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1737274976/Video/portal_1_Difficult_conversation_mjexai.mp4",
+        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1740905960/Audio/random%20audio/9_vpkpv7.mp3"
       },
       "desktopOptimized": true
     },
