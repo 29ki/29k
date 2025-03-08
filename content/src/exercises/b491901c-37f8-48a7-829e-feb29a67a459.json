@@ -139,7 +139,8 @@
         "p5JsScript": {
           "lang": "javascript"
         },
-        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1737274983/Video/portal_1_Deal_with_dying_xjxoqg.mp4"
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1737274983/Video/portal_1_Deal_with_dying_xjxoqg.mp4",
+        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1740905961/Audio/random%20audio/12_jbjrvt.mp3"
       },
       "desktopOptimized": true
     },
@@ -291,7 +292,8 @@
         "p5JsScript": {
           "lang": "javascript"
         },
-        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1737274983/Video/portal_1_Deal_with_dying_xjxoqg.mp4"
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1737274983/Video/portal_1_Deal_with_dying_xjxoqg.mp4",
+        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1740905961/Audio/random%20audio/12_jbjrvt.mp3"
       },
       "desktopOptimized": true
     },
@@ -631,7 +633,8 @@
         "p5JsScript": {
           "lang": "javascript"
         },
-        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1737274983/Video/portal_1_Deal_with_dying_xjxoqg.mp4"
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1737274983/Video/portal_1_Deal_with_dying_xjxoqg.mp4",
+        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1740905961/Audio/random%20audio/12_jbjrvt.mp3"
       },
       "desktopOptimized": true
     },
@@ -651,7 +654,14 @@
       "34100e43-2eb8-4d35-8eb0-9fa9f78e4935",
       "9c2c08a9-7dc6-4058-bc78-016d0eb00614"
     ],
-    "asyncDuration": 15
+    "asyncDuration": 15,
+    "introPortal": {
+      "videoLoop": {
+        "p5JsScript": {
+          "lang": "javascript"
+        }
+      }
+    }
   },
   "nl": {
     "slides": [
