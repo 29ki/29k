@@ -60,7 +60,8 @@
           "lottie": {
             "durationTimer": true,
             "duration": 60,
-            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1740905959/Audio/random%20audio/1_xsagb2.mp3"
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1740905959/Audio/random%20audio/1_xsagb2.mp3",
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1676642915/Lottie/default_1min_white_wvgwma.json"
           }
         }
       },
@@ -218,7 +219,9 @@
           "lottie": {
             "durationTimer": true,
             "duration": 60,
-            "subtitles": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto,t_global/v1740905959/Audio/random%20audio/1_xsagb2.mp3"
+            "subtitles": "",
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1676642915/Lottie/default_1min_white_wvgwma.json",
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1740905959/Audio/random%20audio/1_xsagb2.mp3"
           }
         }
       },
@@ -568,7 +571,8 @@
           "lottie": {
             "durationTimer": true,
             "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1740905959/Audio/random%20audio/1_xsagb2.mp3",
-            "duration": 60
+            "duration": 60,
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1676642915/Lottie/default_1min_white_wvgwma.json"
           }
         }
       },
@@ -731,7 +735,8 @@
           "lottie": {
             "durationTimer": true,
             "duration": 60,
-            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1740905959/Audio/random%20audio/1_xsagb2.mp3"
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1740905959/Audio/random%20audio/1_xsagb2.mp3",
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1676642915/Lottie/default_1min_white_wvgwma.json"
           }
         }
       },
@@ -893,7 +898,7 @@
           "heading": "",
           "text": "Wat zou het betekenen om te oefenen met door moeilijkheden heen gaan, in jouw leven?",
           "lottie": {
-            "source": "",
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1676642915/Lottie/default_1min_white_wvgwma.json",
             "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1740905959/Audio/random%20audio/1_xsagb2.mp3",
             "durationTimer": true,
             "duration": 60
