@@ -52,7 +52,13 @@
           }
         ],
         "content": {
-          "heading": "What was it like for you to reflect on life and death today?"
+          "heading": "What was it like for you to reflect on life and death today?",
+          "lottie": {
+            "durationTimer": true,
+            "duration": 60,
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1740905961/Audio/random%20audio/12_jbjrvt.mp3",
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1676642915/Lottie/default_1min_black_rosi2l.json"
+          }
         }
       },
       {
@@ -139,7 +145,8 @@
         "p5JsScript": {
           "lang": "javascript"
         },
-        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1737274983/Video/portal_1_Deal_with_dying_xjxoqg.mp4"
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1737274983/Video/portal_1_Deal_with_dying_xjxoqg.mp4",
+        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1740905961/Audio/random%20audio/12_jbjrvt.mp3"
       },
       "desktopOptimized": true
     },
@@ -204,7 +211,13 @@
           }
         ],
         "content": {
-          "heading": "What was it like for you to reflect on life and death today?"
+          "heading": "What was it like for you to reflect on life and death today?",
+          "lottie": {
+            "durationTimer": true,
+            "duration": 60,
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1740905961/Audio/random%20audio/12_jbjrvt.mp3",
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1676642915/Lottie/default_1min_black_rosi2l.json"
+          }
         }
       },
       {
@@ -291,7 +304,8 @@
         "p5JsScript": {
           "lang": "javascript"
         },
-        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1737274983/Video/portal_1_Deal_with_dying_xjxoqg.mp4"
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1737274983/Video/portal_1_Deal_with_dying_xjxoqg.mp4",
+        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1740905961/Audio/random%20audio/12_jbjrvt.mp3"
       },
       "desktopOptimized": true
     },
@@ -541,7 +555,13 @@
           }
         ],
         "content": {
-          "heading": "Hvordan var det for dig at reflektere over liv og død?"
+          "heading": "Hvordan var det for dig at reflektere over liv og død?",
+          "lottie": {
+            "durationTimer": true,
+            "duration": 60,
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1740905961/Audio/random%20audio/12_jbjrvt.mp3",
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1676642915/Lottie/default_1min_black_rosi2l.json"
+          }
         }
       },
       {
@@ -631,7 +651,8 @@
         "p5JsScript": {
           "lang": "javascript"
         },
-        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1737274983/Video/portal_1_Deal_with_dying_xjxoqg.mp4"
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1737274983/Video/portal_1_Deal_with_dying_xjxoqg.mp4",
+        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1740905961/Audio/random%20audio/12_jbjrvt.mp3"
       },
       "desktopOptimized": true
     },
@@ -651,7 +672,15 @@
       "34100e43-2eb8-4d35-8eb0-9fa9f78e4935",
       "9c2c08a9-7dc6-4058-bc78-016d0eb00614"
     ],
-    "asyncDuration": 15
+    "asyncDuration": 15,
+    "introPortal": {
+      "videoLoop": {
+        "p5JsScript": {
+          "lang": "javascript"
+        },
+        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1740905961/Audio/random%20audio/12_jbjrvt.mp3"
+      }
+    }
   },
   "nl": {
     "slides": [
@@ -706,7 +735,13 @@
         ],
         "content": {
           "heading": "",
-          "text": "Hoe was het voor jou om vandaag na te denken over leven en dood?"
+          "text": "Hoe was het voor jou om vandaag na te denken over leven en dood?",
+          "lottie": {
+            "durationTimer": true,
+            "duration": 60,
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1676642915/Lottie/default_1min_black_rosi2l.json",
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1740905961/Audio/random%20audio/12_jbjrvt.mp3"
+          }
         }
       },
       {
@@ -796,7 +831,8 @@
         "p5JsScript": {
           "lang": "javascript"
         },
-        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1737274983/Video/portal_1_Deal_with_dying_xjxoqg.mp4"
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1737274983/Video/portal_1_Deal_with_dying_xjxoqg.mp4",
+        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1740905961/Audio/random%20audio/12_jbjrvt.mp3"
       },
       "desktopOptimized": true
     },
@@ -816,6 +852,13 @@
       "34100e43-2eb8-4d35-8eb0-9fa9f78e4935",
       "9c2c08a9-7dc6-4058-bc78-016d0eb00614"
     ],
-    "asyncDuration": 15
+    "asyncDuration": 15,
+    "introPortal": {
+      "videoLoop": {
+        "p5JsScript": {
+          "lang": "javascript"
+        }
+      }
+    }
   }
 }
