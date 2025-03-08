@@ -56,7 +56,8 @@
           "lottie": {
             "durationTimer": true,
             "duration": 60,
-            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1740905961/Audio/random%20audio/12_jbjrvt.mp3"
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1740905961/Audio/random%20audio/12_jbjrvt.mp3",
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1676642915/Lottie/default_1min_black_rosi2l.json"
           }
         }
       },
@@ -214,7 +215,8 @@
           "lottie": {
             "durationTimer": true,
             "duration": 60,
-            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1740905961/Audio/random%20audio/12_jbjrvt.mp3"
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1740905961/Audio/random%20audio/12_jbjrvt.mp3",
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1676642915/Lottie/default_1min_black_rosi2l.json"
           }
         }
       },
@@ -557,7 +559,8 @@
           "lottie": {
             "durationTimer": true,
             "duration": 60,
-            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1740905961/Audio/random%20audio/12_jbjrvt.mp3"
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1740905961/Audio/random%20audio/12_jbjrvt.mp3",
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1676642915/Lottie/default_1min_black_rosi2l.json"
           }
         }
       },
@@ -736,7 +739,8 @@
           "lottie": {
             "durationTimer": true,
             "duration": 60,
-            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/v1740905961/Audio/random%20audio/12_jbjrvt.mp3"
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1676642915/Lottie/default_1min_black_rosi2l.json",
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1740905961/Audio/random%20audio/12_jbjrvt.mp3"
           }
         }
       },
