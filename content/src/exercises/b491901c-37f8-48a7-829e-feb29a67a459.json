@@ -52,7 +52,12 @@
           }
         ],
         "content": {
-          "heading": "What was it like for you to reflect on life and death today?"
+          "heading": "What was it like for you to reflect on life and death today?",
+          "lottie": {
+            "durationTimer": true,
+            "duration": 60,
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1740905961/Audio/random%20audio/12_jbjrvt.mp3"
+          }
         }
       },
       {
@@ -205,7 +210,12 @@
           }
         ],
         "content": {
-          "heading": "What was it like for you to reflect on life and death today?"
+          "heading": "What was it like for you to reflect on life and death today?",
+          "lottie": {
+            "durationTimer": true,
+            "duration": 60,
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1740905961/Audio/random%20audio/12_jbjrvt.mp3"
+          }
         }
       },
       {
@@ -543,7 +553,12 @@
           }
         ],
         "content": {
-          "heading": "Hvordan var det for dig at reflektere over liv og død?"
+          "heading": "Hvordan var det for dig at reflektere over liv og død?",
+          "lottie": {
+            "durationTimer": true,
+            "duration": 60,
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1740905961/Audio/random%20audio/12_jbjrvt.mp3"
+          }
         }
       },
       {
@@ -659,7 +674,8 @@
       "videoLoop": {
         "p5JsScript": {
           "lang": "javascript"
-        }
+        },
+        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1740905961/Audio/random%20audio/12_jbjrvt.mp3"
       }
     }
   },
@@ -716,7 +732,12 @@
         ],
         "content": {
           "heading": "",
-          "text": "Hoe was het voor jou om vandaag na te denken over leven en dood?"
+          "text": "Hoe was het voor jou om vandaag na te denken over leven en dood?",
+          "lottie": {
+            "durationTimer": true,
+            "duration": 60,
+            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/v1740905961/Audio/random%20audio/12_jbjrvt.mp3"
+          }
         }
       },
       {
@@ -827,6 +848,13 @@
       "34100e43-2eb8-4d35-8eb0-9fa9f78e4935",
       "9c2c08a9-7dc6-4058-bc78-016d0eb00614"
     ],
-    "asyncDuration": 15
+    "asyncDuration": 15,
+    "introPortal": {
+      "videoLoop": {
+        "p5JsScript": {
+          "lang": "javascript"
+        }
+      }
+    }
   }
 }
