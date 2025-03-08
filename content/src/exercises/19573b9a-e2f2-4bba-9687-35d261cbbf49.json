@@ -49,7 +49,13 @@
           }
         ],
         "content": {
-          "heading": "How did you experience expressing gratitude?"
+          "heading": "How did you experience expressing gratitude?",
+          "lottie": {
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1740905960/Audio/random%20audio/8_pmfxch.mp3",
+            "durationTimer": true,
+            "duration": 60,
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1676642915/Lottie/default_1min_black_rosi2l.json"
+          }
         }
       },
       {
@@ -135,7 +141,8 @@
         "p5JsScript": {
           "lang": "javascript"
         },
-        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1737274969/Video/portal_1_memory_box_pjpo47.mp4"
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1737274969/Video/portal_1_memory_box_pjpo47.mp4",
+        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1740905960/Audio/random%20audio/8_pmfxch.mp3"
       },
       "desktopOptimized": true
     },
@@ -197,7 +204,13 @@
           }
         ],
         "content": {
-          "heading": "Como foi expressar gratidão?"
+          "heading": "Como foi expressar gratidão?",
+          "lottie": {
+            "durationTimer": true,
+            "duration": 60,
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1740905960/Audio/random%20audio/8_pmfxch.mp3",
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1676642915/Lottie/default_1min_black_rosi2l.json"
+          }
         }
       },
       {
@@ -288,7 +301,8 @@
         "p5JsScript": {
           "lang": "javascript"
         },
-        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1737274969/Video/portal_1_memory_box_pjpo47.mp4"
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1737274969/Video/portal_1_memory_box_pjpo47.mp4",
+        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1740905960/Audio/random%20audio/8_pmfxch.mp3"
       },
       "desktopOptimized": true
     },
@@ -535,7 +549,13 @@
           }
         ],
         "content": {
-          "heading": "Hvordan oplevede du at udtrykke taknemmelighed?"
+          "heading": "Hvordan oplevede du at udtrykke taknemmelighed?",
+          "lottie": {
+            "durationTimer": true,
+            "duration": 60,
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1740905960/Audio/random%20audio/8_pmfxch.mp3",
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1676642915/Lottie/default_1min_black_rosi2l.json"
+          }
         }
       },
       {
@@ -624,7 +644,8 @@
         "p5JsScript": {
           "lang": "javascript"
         },
-        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1737274969/Video/portal_1_memory_box_pjpo47.mp4"
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1737274969/Video/portal_1_memory_box_pjpo47.mp4",
+        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1740905960/Audio/random%20audio/8_pmfxch.mp3"
       },
       "desktopOptimized": true
     },
@@ -685,7 +706,13 @@
           }
         ],
         "content": {
-          "heading": "Jak jste prožili vyjádření vděčnosti?"
+          "heading": "Jak jste prožili vyjádření vděčnosti?",
+          "lottie": {
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1740905960/Audio/random%20audio/8_pmfxch.mp3",
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1676642915/Lottie/default_1min_black_rosi2l.json",
+            "durationTimer": true,
+            "duration": 60
+          }
         }
       },
       {
@@ -774,7 +801,8 @@
         "p5JsScript": {
           "lang": "javascript"
         },
-        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1737274969/Video/portal_1_memory_box_pjpo47.mp4"
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1737274969/Video/portal_1_memory_box_pjpo47.mp4",
+        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1740905960/Audio/random%20audio/8_pmfxch.mp3"
       },
       "desktopOptimized": true
     },
@@ -835,7 +863,13 @@
           }
         ],
         "content": {
-          "heading": "Hoe voelde het om dankbaarheid te beoefenen?"
+          "heading": "Hoe voelde het om dankbaarheid te beoefenen?",
+          "lottie": {
+            "durationTimer": true,
+            "duration": 60,
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1740905960/Audio/random%20audio/8_pmfxch.mp3",
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1676642915/Lottie/default_1min_black_rosi2l.json"
+          }
         }
       },
       {
@@ -924,7 +958,8 @@
         "p5JsScript": {
           "lang": "javascript"
         },
-        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1737274969/Video/portal_1_memory_box_pjpo47.mp4"
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1737274969/Video/portal_1_memory_box_pjpo47.mp4",
+        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1740905960/Audio/random%20audio/8_pmfxch.mp3"
       },
       "desktopOptimized": true
     },
