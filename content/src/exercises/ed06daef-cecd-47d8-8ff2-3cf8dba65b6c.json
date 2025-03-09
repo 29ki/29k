@@ -187,12 +187,32 @@
         ]
       },
       {
+        "type": "instruction",
+        "content": {
+          "text": "Deixe a sua luz interior tornar-se esperança neste exercício de visualização, guiado pela música.",
+          "image": {
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1737788390/Images/image_11_Hope_music_exercise_II_y6rncz.png"
+          }
+        }
+      },
+      {
         "type": "content",
         "hostNotes": [
           {
             "text": "Find a comfortable position. I will start the audio exercise and we'll meet back here afterwards. \n\n> Push play to start the audio exercise"
           }
-        ]
+        ],
+        "content": {
+          "lottie": {
+            "subtitles": "",
+            "audio": ""
+          },
+          "video": {
+            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1737620719/Video/timer_Hope_music_exercise_II_yqpfp7.mp4",
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1741530568/Audio/PsyPal_Hope_Pt-Esperanca_10_55_qkm7ql.mp3",
+            "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1741530477/SRT%20(captions)%20files/PsyPal_Hope_pt-Esperanca_10_55_istadb.srt"
+          }
+        }
       },
       {
         "type": "reflection",
@@ -205,11 +225,13 @@
           }
         ],
         "content": {
+          "heading": "Como se sentiu a fazer este exercício?",
           "lottie": {
+            "subtitles": "",
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1740905959/Audio/random%20audio/6_cjylse.mp3",
             "durationTimer": true,
             "duration": 60,
-            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto/v1676642915/Lottie/default_1min_black_rosi2l.json",
-            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1740905959/Audio/random%20audio/6_cjylse.mp3"
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1676642915/Lottie/default_1min_black_rosi2l.json"
           }
         }
       },
@@ -228,11 +250,15 @@
         ],
         "id": "Sharing 1",
         "content": {
-          "lottie": {
-            "durationTimer": false,
-            "duration": "",
-            "audio": "",
+          "heading": "Como se sentiu a fazer este exercício?",
+          "image": {
             "source": ""
+          },
+          "lottie": {
+            "durationTimer": true,
+            "duration": 60,
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1740905959/Audio/random%20audio/6_cjylse.mp3",
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1676642915/Lottie/default_1min_black_rosi2l.json"
           }
         }
       },
@@ -253,7 +279,10 @@
       {
         "type": "instruction",
         "content": {
-          "text": "Well done.\n\nSummary.\n\nIf you’re up for it, you can continue with this mission.\n\nmission description"
+          "text": "Bem-vindo de volta. Exercícios de imagética com a ajuda da música podem-nos ajudar a ver as coisas sob uma luz diferente e influenciar o nosso humor positivamente.",
+          "image": {
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1737788390/Images/image_22_Hope_music_exercise_II_iand4w.png"
+          }
         }
       }
     ],
@@ -263,8 +292,9 @@
     },
     "hidden": false,
     "locked": true,
-    "live": true,
-    "published": false,
+    "name": "Esperança",
+    "live": false,
+    "published": true,
     "excludeFromWeb": false,
     "asyncDuration": 15,
     "card": {
@@ -272,8 +302,28 @@
         "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1737187860/Images/image_5_Hope_music_exercise_II_kgusv1.png"
       }
     },
+    "coCreators": [
+      {
+        "name": "Ints Ivanovskis, art works",
+        "url": "https://www.linkedin.com/in/ints-ivanovskis-46ab0311a/",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413436/Contributors/Ints%20Ivanovskis.jpg"
+      },
+      {
+        "name": "Dea Siggard Stenbæk, script",
+        "url": "https://researchprofiles.ku.dk/en/persons/dea-siggaard-stenb%C3%A6k",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1739354155/Contributors/Dea%20Siggard%20Stenb%C3%A6k.png"
+      },
+      {
+        "name": "Cristina Alves, voz",
+        "url": "https://www.instagram.com/meditar.com.cristina/",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1728375093/FJN/People/Cristina_Alves_zt1btx.png"
+      }
+    ],
+    "outroPortal": {
+      "desktopOptimized": true
+    },
     "introPortal": {
-      "textColor": "#2AE2D7",
+      "textColor": "#2E2E2E",
       "hostNotes": [
         {
           "text": "> Start the session when you're ready to go"
@@ -283,15 +333,17 @@
         "p5JsScript": {
           "lang": "javascript"
         },
-        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1740905959/Audio/random%20audio/6_cjylse.mp3",
-        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1737272009/Video/portal_1_Hope_music_exercise_II_njii38.mp4"
-      }
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1737272009/Video/portal_1_Hope_music_exercise_II_njii38.mp4",
+        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1740905959/Audio/random%20audio/6_cjylse.mp3"
+      },
+      "desktopOptimized": true
     },
     "tags": [
       "8da0534a-5da9-430a-bdf3-242ace6460fb"
     ],
     "id": "ed06daef-cecd-47d8-8ff2-3cf8dba65b6c",
-    "async": false
+    "async": true,
+    "description": "A música é uma aliada poderosa que pode guiar os nossos sentimentos e pensamentos, e ajudar-nos a imaginar as coisas de forma diferente.\n\nNo exercício de hoje, será guiado(a) a visualizar a esperança."
   },
   "sv": {
     "liveDuration": 30,
