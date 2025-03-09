@@ -175,7 +175,7 @@
       {
         "type": "instruction",
         "content": {
-          "text": "We all know that our life one day will end. Often we have difficulties facing this fact, but research shows that exposing ourselves to our own mortality can make our relationship to death more calm and accepting.",
+          "text": "Todos sabemos que a nossa vida um dia terminará. Por vezes, temos dificuldade em enfrentar esse facto, mas estudos mostram que expor-nos à ideia da nossa própria finitude pode tornar a nossa relação com a morte mais serena e aceite.",
           "image": {
             "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1737187985/Images/image_3_Deal_with_dying_dryehi.png"
           }
@@ -191,8 +191,8 @@
         "content": {
           "video": {
             "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1737799132/Video/timer_deal_with_dying_trhjuq.mp4",
-            "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1739199179/SRT%20(captions)%20files/PsyPal_Facing_mortality_infqet.srt",
-            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1739199226/Audio/PsyPal_Facing_mortality_yep3xm.mp3"
+            "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1741529829/SRT%20(captions)%20files/PsyPal_Facing%20mort_Pt-Finitude_tm71z5.srt",
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1741529779/Audio/PsyPal_Facing_mort_pt-Finitude_g6zqid.mp3"
           },
           "lottie": {
             "subtitles": "",
@@ -211,7 +211,7 @@
           }
         ],
         "content": {
-          "heading": "What was it like for you to reflect on life and death today?",
+          "heading": "Como foi para si refletir sobre vida e morte hoje?",
           "lottie": {
             "durationTimer": true,
             "duration": 60,
@@ -236,7 +236,7 @@
         "id": "Sharing 1",
         "content": {
           "text": "",
-          "heading": "What was it like for you to reflect on life and death today?"
+          "heading": "Como foi para si refletir sobre vida e morte hoje?"
         }
       },
       {
@@ -256,7 +256,7 @@
       {
         "type": "instruction",
         "content": {
-          "text": "Well done.\n\nYou might have realized something important, decided to reach out to someone or you may want to talk about your feelings with somebody.\n\nNote down anything that feels important to you.",
+          "text": "Bom trabalho.\n\nPode ter-se apercebido de algo importante ou decidido entrar em contato com alguém. Além disso, pode querer conversar sobre os seus sentimentos com alguém.\n\nAponte tudo aquilo que seja importante para si.",
           "image": {
             "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1737187987/Images/image_1_Deal_with_dying_vxj6ki.png"
           }
@@ -267,7 +267,7 @@
       "textColor": "#2E2E2E",
       "backgroundColor": "#1fabd2"
     },
-    "hidden": true,
+    "hidden": false,
     "locked": true,
     "name": "Finitude",
     "live": false,
