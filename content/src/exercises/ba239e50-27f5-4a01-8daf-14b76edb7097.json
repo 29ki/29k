@@ -252,7 +252,7 @@
     },
     "hidden": false,
     "locked": true,
-    "name": "pt Sky gazing",
+    "name": "PsyPal Sky gazing",
     "live": false,
     "published": true,
     "asyncDuration": 10,
@@ -263,7 +263,7 @@
     },
     "coCreators": [
       {
-        "name": "Jenny Rickardsson, script and voice",
+        "name": "Jenny Rickardsson, script",
         "url": "https://www.linkedin.com/in/jenny-rickardson-6770a959/",
         "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1682602411/Images/Jenny_Rickardsson_kopia_sdodwf.jpg"
       },
@@ -271,6 +271,11 @@
         "name": "Ints Ivanovskis, art works",
         "url": "https://www.linkedin.com/in/ints-ivanovskis-46ab0311a/?originalSubdomain=se",
         "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413436/Contributors/Ints%20Ivanovskis.jpg"
+      },
+      {
+        "name": "Cristina Alves, voz",
+        "url": "https://www.instagram.com/meditar.com.cristina/",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1728375093/FJN/People/Cristina_Alves_zt1btx.png"
       }
     ],
     "outroPortal": {
@@ -297,7 +302,7 @@
     ],
     "id": "ba239e50-27f5-4a01-8daf-14b76edb7097",
     "async": true,
-    "description": "A mindful exercise where you practice being with what is - in the sky right now. Note that you need to be outside or by a window to do this exercise."
+    "description": "Um exercício de atenção plena que pode ouvir sozinho ou em conjunto com outras pessoas."
   },
   "sv": {
     "liveDuration": 30,
