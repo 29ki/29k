@@ -269,7 +269,7 @@
     },
     "hidden": true,
     "locked": true,
-    "name": "PsyPal Facing mortality",
+    "name": "Finitude",
     "live": false,
     "published": true,
     "asyncDuration": 15,
@@ -285,9 +285,14 @@
         "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413436/Contributors/Ints%20Ivanovskis.jpg"
       },
       {
-        "name": "Jenny Rickardsson, script and voice",
+        "name": "Jenny Rickardsson, script",
         "url": "https://www.linkedin.com/in/jenny-rickardson-6770a959/",
         "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413228/Contributors/Jenny%20Rickardsson.jpg"
+      },
+      {
+        "name": "Florbela Silva, voz",
+        "url": "https://www.linkedin.com/in/florbela-silva/?originalSubdomain=pt",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1727943392/FJN/People/Florbela_Silva_bd0qx9.jpg"
       }
     ],
     "outroPortal": {
@@ -315,7 +320,7 @@
     ],
     "id": "b491901c-37f8-48a7-829e-feb29a67a459",
     "async": true,
-    "description": "All our lives will end, some day in the future. That may be an emotionally challenging thought. That is alright - feelings can’t harm us. Practicing letting them come and go is a part of the exercise. Facing our mortality can help us accept death and letting us focus on the most important thing in life - living it."
+    "description": "Bem-vindo de volta. Esta semana, é-lhe proposto um exercício sobre uma das condições fundamentais da vida - que um dia a nossa vida terminará. Pensar sobre a nossa própria finitude pode ser emocionalmente desafiante. Isso é normal - podemos tentar lidar com os nossos sentimentos. Praticar deixá-los surgir e ir é parte do exercício. No entanto, pode sempre decidir não fazer ou interromper este exercício.\n\nIrá precisar de:\n\n* 20 minutos de paz e tranquilidade\n* Material para fazer anotações"
   },
   "sv": {
     "liveDuration": 30,
