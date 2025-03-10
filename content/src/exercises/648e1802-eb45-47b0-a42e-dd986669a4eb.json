@@ -44,8 +44,7 @@
           "lottie": {
             "durationTimer": true,
             "duration": 60,
-            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1699611514/Lottie/1min_seeing_kindness_sqq5s1.json",
-            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1701419682/Audio/60_sec_seeing_kindness_rodych.mp3"
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1699611514/Lottie/1min_seeing_kindness_sqq5s1.json"
           }
         }
       },
@@ -145,9 +144,7 @@
         "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1699611475/Video/portal2_seeing_kindness_bu6lfb.mp4"
       }
     },
-    "tags": [
-      "43a6dc0d-d866-4b79-9453-13c44e906128"
-    ],
+    "tags": ["43a6dc0d-d866-4b79-9453-13c44e906128"],
     "link": "https://aware.29k.org/seeing-kindness",
     "id": "648e1802-eb45-47b0-a42e-dd986669a4eb",
     "async": true,
@@ -198,8 +195,7 @@
           "lottie": {
             "durationTimer": true,
             "duration": 60,
-            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1699611514/Lottie/1min_seeing_kindness_sqq5s1.json",
-            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1701419682/Audio/60_sec_seeing_kindness_rodych.mp3"
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1699611514/Lottie/1min_seeing_kindness_sqq5s1.json"
           }
         }
       },
@@ -305,9 +301,7 @@
         "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1699611475/Video/portal2_seeing_kindness_bu6lfb.mp4"
       }
     },
-    "tags": [
-      "43a6dc0d-d866-4b79-9453-13c44e906128"
-    ],
+    "tags": ["43a6dc0d-d866-4b79-9453-13c44e906128"],
     "link": "https://aware.29k.org/seeing-kindness",
     "id": "648e1802-eb45-47b0-a42e-dd986669a4eb",
     "async": true,
@@ -358,8 +352,7 @@
           "lottie": {
             "durationTimer": true,
             "duration": 60,
-            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto/v1699611514/Lottie/1min_seeing_kindness_sqq5s1.json",
-            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1699611545/Audio/portal_audio_seeing_kindness_s2j9wc.mp3"
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto/v1699611514/Lottie/1min_seeing_kindness_sqq5s1.json"
           }
         }
       },
@@ -456,9 +449,7 @@
         "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1699611475/Video/portal2_seeing_kindness_bu6lfb.mp4"
       }
     },
-    "tags": [
-      "43a6dc0d-d866-4b79-9453-13c44e906128"
-    ],
+    "tags": ["43a6dc0d-d866-4b79-9453-13c44e906128"],
     "link": "https://aware.29k.org/seeing-kindness",
     "id": "648e1802-eb45-47b0-a42e-dd986669a4eb",
     "async": true,
@@ -542,31 +533,23 @@
         }
       ]
     },
-    "tags": [
-      "43a6dc0d-d866-4b79-9453-13c44e906128"
-    ],
+    "tags": ["43a6dc0d-d866-4b79-9453-13c44e906128"],
     "link": "https://aware.29k.org/seeing-kindness",
     "id": "648e1802-eb45-47b0-a42e-dd986669a4eb",
     "async": false
   },
   "da": {
-    "tags": [
-      "43a6dc0d-d866-4b79-9453-13c44e906128"
-    ],
+    "tags": ["43a6dc0d-d866-4b79-9453-13c44e906128"],
     "asyncDuration": 4,
     "id": "648e1802-eb45-47b0-a42e-dd986669a4eb"
   },
   "cs": {
-    "tags": [
-      "43a6dc0d-d866-4b79-9453-13c44e906128"
-    ],
+    "tags": ["43a6dc0d-d866-4b79-9453-13c44e906128"],
     "asyncDuration": 4,
     "id": "648e1802-eb45-47b0-a42e-dd986669a4eb"
   },
   "nl": {
-    "tags": [
-      "43a6dc0d-d866-4b79-9453-13c44e906128"
-    ],
+    "tags": ["43a6dc0d-d866-4b79-9453-13c44e906128"],
     "asyncDuration": 4,
     "id": "648e1802-eb45-47b0-a42e-dd986669a4eb"
   },

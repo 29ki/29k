@@ -60,7 +60,6 @@
           "lottie": {
             "durationTimer": true,
             "duration": 60,
-            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1740905959/Audio/random%20audio/1_xsagb2.mp3",
             "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1676642915/Lottie/default_1min_white_wvgwma.json"
           }
         }
@@ -150,9 +149,7 @@
       },
       "desktopOptimized": true
     },
-    "tags": [
-      "34100e43-2eb8-4d35-8eb0-9fa9f78e4935"
-    ],
+    "tags": ["34100e43-2eb8-4d35-8eb0-9fa9f78e4935"],
     "id": "dc38ce25-e0f3-465f-8df0-70b5f5089ce9",
     "async": true,
     "description": "Running into obstacles is a natural part of life. With the things we want in life – like for example love, growth, interesting work – the risk of being hurt is always present. Even though we seldom acknowledge it, and often try to avoid it. In this week’s exercise we’ll practice the opposite: moving through difficulties."
@@ -220,8 +217,7 @@
             "durationTimer": true,
             "duration": 60,
             "subtitles": "",
-            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1676642915/Lottie/default_1min_white_wvgwma.json",
-            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1740905959/Audio/random%20audio/1_xsagb2.mp3"
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1676642915/Lottie/default_1min_white_wvgwma.json"
           }
         }
       },
@@ -318,9 +314,7 @@
       },
       "desktopOptimized": true
     },
-    "tags": [
-      "34100e43-2eb8-4d35-8eb0-9fa9f78e4935"
-    ],
+    "tags": ["34100e43-2eb8-4d35-8eb0-9fa9f78e4935"],
     "id": "dc38ce25-e0f3-465f-8df0-70b5f5089ce9",
     "async": true,
     "description": "Depararmo-nos com obstáculos é uma parte natural da vida. Com as coisas que queremos alcançar- como por exemplo amor, crescimento, um trabalho interessante - o.\n\nrisco de sermos magoados está sempre presente, embora raramente o reconheçamos, e muitas vezes tentemos evitá-lo.\n\nNo exercício desta semana, vamos praticar o oposto: ultrapassar as dificuldades."
@@ -411,9 +405,7 @@
         }
       ]
     },
-    "tags": [
-      "34100e43-2eb8-4d35-8eb0-9fa9f78e4935"
-    ],
+    "tags": ["34100e43-2eb8-4d35-8eb0-9fa9f78e4935"],
     "id": "dc38ce25-e0f3-465f-8df0-70b5f5089ce9",
     "async": false
   },
@@ -503,9 +495,7 @@
         }
       ]
     },
-    "tags": [
-      "34100e43-2eb8-4d35-8eb0-9fa9f78e4935"
-    ],
+    "tags": ["34100e43-2eb8-4d35-8eb0-9fa9f78e4935"],
     "id": "dc38ce25-e0f3-465f-8df0-70b5f5089ce9",
     "async": false
   },
@@ -570,7 +560,6 @@
           "text": "Hvordan ville det se ud i dit liv, hvis du skulle øve dig i at bevæge dig gennem det, som er svært?",
           "lottie": {
             "durationTimer": true,
-            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1740905959/Audio/random%20audio/1_xsagb2.mp3",
             "duration": 60,
             "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1676642915/Lottie/default_1min_white_wvgwma.json"
           }
@@ -667,9 +656,7 @@
       },
       "desktopOptimized": true
     },
-    "tags": [
-      "34100e43-2eb8-4d35-8eb0-9fa9f78e4935"
-    ],
+    "tags": ["34100e43-2eb8-4d35-8eb0-9fa9f78e4935"],
     "id": "dc38ce25-e0f3-465f-8df0-70b5f5089ce9",
     "async": true,
     "description": "At støde på forhindringer er en naturlig del af livet. Med de ting, vi ønsker i livet – som for eksempel kærlighed, udvikling, interessant arbejde – er risikoen for at blive såret altid til stede. Selvom vi sjældent anerkender det og ofte prøver at undgå det.\nI denne uges øvelse vil vi øve det modsatte: at bevæge os gennem vanskeligheder."
@@ -735,7 +722,6 @@
           "lottie": {
             "durationTimer": true,
             "duration": 60,
-            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1740905959/Audio/random%20audio/1_xsagb2.mp3",
             "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1676642915/Lottie/default_1min_white_wvgwma.json"
           }
         }
@@ -831,9 +817,7 @@
       },
       "desktopOptimized": true
     },
-    "tags": [
-      "34100e43-2eb8-4d35-8eb0-9fa9f78e4935"
-    ],
+    "tags": ["34100e43-2eb8-4d35-8eb0-9fa9f78e4935"],
     "id": "dc38ce25-e0f3-465f-8df0-70b5f5089ce9",
     "async": true,
     "description": "Potkávat překážky je přirozenou součástí života. U věcí, které v životě chceme – jako například láska, růst, zajímavá práce – je riziko obtíží vždy přítomné. I když to málokdy uznáváme a často se tomu snažíme vyhnout.\n\nVe cvičení pro tento týden vám nabídneme opačný přístup ke zvládání obtíží."
@@ -899,7 +883,6 @@
           "text": "Wat zou het betekenen om te oefenen met door moeilijkheden heen gaan, in jouw leven?",
           "lottie": {
             "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1676642915/Lottie/default_1min_white_wvgwma.json",
-            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1740905959/Audio/random%20audio/1_xsagb2.mp3",
             "durationTimer": true,
             "duration": 60
           }
@@ -996,18 +979,14 @@
       },
       "desktopOptimized": true
     },
-    "tags": [
-      "34100e43-2eb8-4d35-8eb0-9fa9f78e4935"
-    ],
+    "tags": ["34100e43-2eb8-4d35-8eb0-9fa9f78e4935"],
     "id": "dc38ce25-e0f3-465f-8df0-70b5f5089ce9",
     "async": true,
     "description": "Het tegenkomen van obstakels is een normaal onderdeel van het leven. Bij de dingen die we graag willen – zoals bijvoorbeeld liefde, groei, interessant werk – is er altijd een kans om gekwetst te worden. Ook al zien we dat niet vaak zo, en proberen we het vaak te vermijden.\n\nIn de oefening van deze week gaan we het tegenovergestelde oefenen: door moeilijkheden heen gaan."
   },
   "es": {
     "liveDuration": 30,
-    "tags": [
-      "34100e43-2eb8-4d35-8eb0-9fa9f78e4935"
-    ],
+    "tags": ["34100e43-2eb8-4d35-8eb0-9fa9f78e4935"],
     "id": "dc38ce25-e0f3-465f-8df0-70b5f5089ce9",
     "card": {},
     "locked": true,
