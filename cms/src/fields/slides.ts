@@ -174,7 +174,7 @@ export const INSTRUCTION_SLIDE: CmsFieldBase & CmsFieldObject = {
 };
 
 export const REFLECTION_SLIDE: CmsFieldBase & CmsFieldObject = {
-  label: '🤔 Reflection slide (Live only)',
+  label: '🤔 Reflection slide (Live & web only)',
   name: SLIDE_TYPES.REFLECTION,
   widget: 'object',
   collapsed: true,
