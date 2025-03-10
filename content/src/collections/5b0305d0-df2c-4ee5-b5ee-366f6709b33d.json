@@ -9,7 +9,7 @@
       {
         "name": "Funded by the European Union",
         "url": "https://palliativeprojects.eu/psypal/#info",
-        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1737532074/Contributors/EU-flag_imdgjs.png"
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/ar_1:1,b_rgb:262c35,bo_5px_solid_rgb:ff0000,c_fill,g_center,r_max,w_1000/v1737532074/Contributors/EU-flag_imdgjs.png"
       },
       {
         "name": "Ints Ivanovskis, art works",
@@ -20,6 +20,11 @@
         "name": "Jenny Rickardsson, editor",
         "url": "https://www.linkedin.com/in/jenny-rickardson-6770a959/",
         "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413228/Contributors/Jenny%20Rickardsson.jpg"
+      },
+      {
+        "name": "PsyPal",
+        "url": "https://palliativeprojects.eu/psypal/",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1741604592/Contributors/PsyPal_logo_qbstjc.png"
       }
     ],
     "tags": [
