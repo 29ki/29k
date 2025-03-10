@@ -55,8 +55,7 @@
           "lottie": {
             "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto/v1709133218/Lottie/IDG_lotties/1_min_IDG_e1tws9.json",
             "duration": 60,
-            "durationTimer": true,
-            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1709641630/Audio/Acting_bscikj.mp3"
+            "durationTimer": true
           },
           "text": "What will you do?"
         }
@@ -160,9 +159,7 @@
         "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1709204297/Acting_portal_2_qwwuhe.mp4"
       }
     },
-    "tags": [
-      "8da0534a-5da9-430a-bdf3-242ace6460fb"
-    ],
+    "tags": ["8da0534a-5da9-430a-bdf3-242ace6460fb"],
     "link": "https://aware.29k.org/bounce-back",
     "id": "9d2ae09f-274b-4fd6-bc3c-8a4576c45c37",
     "async": true,
@@ -170,25 +167,19 @@
   },
   "pt": {
     "id": "9d2ae09f-274b-4fd6-bc3c-8a4576c45c37",
-    "tags": [
-      "8da0534a-5da9-430a-bdf3-242ace6460fb"
-    ],
+    "tags": ["8da0534a-5da9-430a-bdf3-242ace6460fb"],
     "card": {},
     "locked": true
   },
   "sv": {
     "id": "9d2ae09f-274b-4fd6-bc3c-8a4576c45c37",
-    "tags": [
-      "8da0534a-5da9-430a-bdf3-242ace6460fb"
-    ],
+    "tags": ["8da0534a-5da9-430a-bdf3-242ace6460fb"],
     "card": {},
     "locked": true
   },
   "ja": {
     "id": "9d2ae09f-274b-4fd6-bc3c-8a4576c45c37",
-    "tags": [
-      "8da0534a-5da9-430a-bdf3-242ace6460fb"
-    ],
+    "tags": ["8da0534a-5da9-430a-bdf3-242ace6460fb"],
     "card": {},
     "locked": true
   },

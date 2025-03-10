@@ -51,7 +51,6 @@
         "content": {
           "heading": "How did you experience expressing gratitude?",
           "lottie": {
-            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1740905960/Audio/random%20audio/8_pmfxch.mp3",
             "durationTimer": true,
             "duration": 60,
             "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1676642915/Lottie/default_1min_black_rosi2l.json"
@@ -208,7 +207,6 @@
           "lottie": {
             "durationTimer": true,
             "duration": 60,
-            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1740905960/Audio/random%20audio/8_pmfxch.mp3",
             "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1676642915/Lottie/default_1min_black_rosi2l.json"
           }
         }
@@ -553,7 +551,6 @@
           "lottie": {
             "durationTimer": true,
             "duration": 60,
-            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1740905960/Audio/random%20audio/8_pmfxch.mp3",
             "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1676642915/Lottie/default_1min_black_rosi2l.json"
           }
         }
@@ -708,7 +705,6 @@
         "content": {
           "heading": "Jak jste prožili vyjádření vděčnosti?",
           "lottie": {
-            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1740905960/Audio/random%20audio/8_pmfxch.mp3",
             "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1676642915/Lottie/default_1min_black_rosi2l.json",
             "durationTimer": true,
             "duration": 60
@@ -867,7 +863,6 @@
           "lottie": {
             "durationTimer": true,
             "duration": 60,
-            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1740905960/Audio/random%20audio/8_pmfxch.mp3",
             "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1676642915/Lottie/default_1min_black_rosi2l.json"
           }
         }
