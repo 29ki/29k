@@ -141,7 +141,9 @@
       },
       "desktopOptimized": true
     },
-    "tags": ["566aeb1b-1649-4f5a-96a2-0c80be27efc0"],
+    "tags": [
+      "566aeb1b-1649-4f5a-96a2-0c80be27efc0"
+    ],
     "id": "ba239e50-27f5-4a01-8daf-14b76edb7097",
     "async": true,
     "description": "A mindful exercise where you practice being with what is - in the sky right now. Note that you need to be outside or by a window to do this exercise."
@@ -251,7 +253,7 @@
     },
     "hidden": false,
     "locked": true,
-    "name": "PsyPal Sky gazing",
+    "name": "Sky gazing",
     "live": false,
     "published": true,
     "asyncDuration": 10,
@@ -296,7 +298,9 @@
       },
       "desktopOptimized": true
     },
-    "tags": ["566aeb1b-1649-4f5a-96a2-0c80be27efc0"],
+    "tags": [
+      "566aeb1b-1649-4f5a-96a2-0c80be27efc0"
+    ],
     "id": "ba239e50-27f5-4a01-8daf-14b76edb7097",
     "async": true,
     "description": "Um exercício de atenção plena que pode ouvir sozinho ou em conjunto com outras pessoas."
@@ -392,7 +396,9 @@
         }
       }
     },
-    "tags": ["566aeb1b-1649-4f5a-96a2-0c80be27efc0"],
+    "tags": [
+      "566aeb1b-1649-4f5a-96a2-0c80be27efc0"
+    ],
     "id": "ba239e50-27f5-4a01-8daf-14b76edb7097",
     "async": false
   },
@@ -487,7 +493,9 @@
         }
       }
     },
-    "tags": ["566aeb1b-1649-4f5a-96a2-0c80be27efc0"],
+    "tags": [
+      "566aeb1b-1649-4f5a-96a2-0c80be27efc0"
+    ],
     "id": "ba239e50-27f5-4a01-8daf-14b76edb7097",
     "async": false
   },
@@ -639,7 +647,9 @@
       },
       "desktopOptimized": true
     },
-    "tags": ["566aeb1b-1649-4f5a-96a2-0c80be27efc0"],
+    "tags": [
+      "566aeb1b-1649-4f5a-96a2-0c80be27efc0"
+    ],
     "id": "ba239e50-27f5-4a01-8daf-14b76edb7097",
     "async": true,
     "description": "I dag starter vi med en mindfulness-øvelse, som du kan lytte til alene eller sammen med andre."
@@ -792,7 +802,9 @@
       },
       "desktopOptimized": true
     },
-    "tags": ["566aeb1b-1649-4f5a-96a2-0c80be27efc0"],
+    "tags": [
+      "566aeb1b-1649-4f5a-96a2-0c80be27efc0"
+    ],
     "id": "ba239e50-27f5-4a01-8daf-14b76edb7097",
     "async": true,
     "description": "Vítejte ve druhé fázi studie PsyPal. Každý druhý týden vám nabídneme online cvičení k procvičování dovedností jako je všímavost, zvládání obtížných pocitů nebo integrace vašich zkušeností z první fázi studie.\n\nDnes začneme cvičením všímavosti, které můžete poslouchat sami nebo společně s někým."
@@ -945,14 +957,18 @@
       },
       "desktopOptimized": true
     },
-    "tags": ["566aeb1b-1649-4f5a-96a2-0c80be27efc0"],
+    "tags": [
+      "566aeb1b-1649-4f5a-96a2-0c80be27efc0"
+    ],
     "id": "ba239e50-27f5-4a01-8daf-14b76edb7097",
     "async": true,
     "description": "Leun achterover en kijk naar de lucht in deze mindfulness-oefening."
   },
   "es": {
     "id": "ba239e50-27f5-4a01-8daf-14b76edb7097",
-    "tags": ["566aeb1b-1649-4f5a-96a2-0c80be27efc0"],
+    "tags": [
+      "566aeb1b-1649-4f5a-96a2-0c80be27efc0"
+    ],
     "card": {},
     "locked": true,
     "introPortal": {
