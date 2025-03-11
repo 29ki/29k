@@ -236,7 +236,11 @@
     "name": "PsyPal",
     "published": true,
     "sortOrder": 1,
-    "card": {},
+    "card": {
+      "image": {
+        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1741604592/Contributors/PsyPal_logo_qbstjc.png"
+      }
+    },
     "coCreators": [
       {
         "name": "Funded by the European Union",
@@ -252,11 +256,6 @@
         "name": "Jenny Rickardsson, editor",
         "url": "https://www.linkedin.com/in/jenny-rickardson-6770a959/",
         "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413228/Contributors/Jenny%20Rickardsson.jpg"
-      },
-      {
-        "name": "PsyPal",
-        "url": "https://palliativeprojects.eu/psypal/",
-        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1741604592/Contributors/PsyPal_logo_qbstjc.png"
       }
     ],
     "tags": [
@@ -275,7 +274,7 @@
       "4161a0d8-55ee-4866-a9be-263c85fafd70",
       "19573b9a-e2f2-4bba-9687-35d261cbbf49"
     ],
-    "description": "Self-help support for participants in the PsyPal trial. Practice mindfulness, dealing with emotions and doing what matters to you."
+    "description": "Zelfhulp ondersteuning voor deelnemers aan de PsyPal-studie. Oefen mindfulness, omgaan met emoties en doen wat voor jou belangrijk is."
   },
   "es": {
     "published": false,
