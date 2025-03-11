@@ -231,7 +231,7 @@
       "textColor": "#2E2E2E",
       "backgroundColor": "#e6cd44"
     },
-    "hidden": false,
+    "hidden": true,
     "locked": true,
     "name": "Ao amanhecer",
     "live": false,
@@ -555,7 +555,7 @@
       "textColor": "#2E2E2E",
       "backgroundColor": "#e6cd44"
     },
-    "hidden": false,
+    "hidden": true,
     "locked": true,
     "name": "Ved daggry",
     "live": false,
@@ -695,7 +695,7 @@
       "textColor": "#2E2E2E",
       "backgroundColor": "#e6cd44"
     },
-    "hidden": false,
+    "hidden": true,
     "locked": true,
     "name": "Za úsvitu",
     "live": false,
@@ -835,7 +835,7 @@
       "textColor": "#2E2E2E",
       "backgroundColor": "#e6cd44"
     },
-    "hidden": false,
+    "hidden": true,
     "locked": true,
     "name": "Bij het ochtendgloren",
     "live": false,
