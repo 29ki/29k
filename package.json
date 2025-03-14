@@ -6,6 +6,7 @@
     "node": "18"
   },
   "devDependencies": {
+    "all-contributors-cli": "^6.26.1",
     "firebase-tools": "^13.31.2"
   }
 }
