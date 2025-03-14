@@ -104,7 +104,7 @@
     {
       "login": "gewfy",
       "name": "Jakob Öhman",
-      "avatar_url": "https://res.cloudinary.com/cupcake-29k/image/upload/t_profile_picture_square/v1665413037/Contributors/Jakob%20%C3%96hman.jpg",
+      "avatar_url": "https://res.cloudinary.com/cupcake-29k/image/upload/t_profile_picture_square/v1741955999/Contributors/Jakob_O%CC%88hman_2_hvn4fr.jpg",
       "profile": "https://github.com/gewfy",
       "contributions": [
         "code",
@@ -511,6 +511,23 @@
       ],
       "avatar_url": "https://res.cloudinary.com/cupcake-29k/image/upload/t_profile_picture_square/v1669213656/Contributors/Alexandra%20S%C3%B6derlund.jpg",
       "profile": "https://alexandrasoderlund.wixsite.com/portfolio"
+    },
+    {
+      "name": "Moa Mörner",
+      "avatar_url": "https://res.cloudinary.com/cupcake-29k/image/upload/t_profile_picture_square/v1741956101/Contributors/moa_vszlya.png",
+      "profile": "https://www.linkedin.com/in/moamorner/",
+      "contributions": [
+        "doc"
+      ]
+    },
+    {
+      "name": "Núria Tous",
+      "avatar_url": "https://res.cloudinary.com/cupcake-29k/image/upload/t_profile_picture_square/v1741955947/Contributors/nuria_kcavrm.png",
+      "profile": "https://www.linkedin.com/in/nuriatous/",
+      "contributions": [
+        "audio",
+        "translation"
+      ]
     }
   ],
   "types": {
