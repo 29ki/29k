@@ -102,7 +102,7 @@
     "@react-native/metro-config": "0.74.85",
     "@react-native/typescript-config": "0.76.5",
     "@revopush/code-push-cli": "^0.0.3",
-    "@sentry/cli": "^2.37.0",
+    "@sentry/cli": "^2.42.4",
     "@testing-library/react-hooks": "^8.0.1",
     "@types/debug": "^4.1.12",
     "@types/i18next": "^13.0.0",
