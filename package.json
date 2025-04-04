@@ -7,6 +7,6 @@
   },
   "devDependencies": {
     "all-contributors-cli": "^6.26.1",
-    "firebase-tools": "^13.31.2"
+    "firebase-tools": "^14.0.1"
   }
 }
