@@ -528,6 +528,14 @@
         "audio",
         "translation"
       ]
+    },
+    {
+      "name": "Raul Jimenez",
+      "avatar_url": "https://res.cloudinary.com/cupcake-29k/image/upload/t_profile_picture_square/v1744310562/Contributors/Raul%20Jimenez.png",
+      "profile": "https://www.linkedin.com/in/granraul75/",
+      "contributions": [
+        "audio"
+      ]
     }
   ],
   "types": {
