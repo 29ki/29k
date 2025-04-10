@@ -585,6 +585,158 @@
     "id": "0d4c9833-6a11-4b1a-8d1e-4467db6f24ea"
   },
   "es": {
-    "id": "0d4c9833-6a11-4b1a-8d1e-4467db6f24ea"
+    "description": "Nuestras emociones contienen mucha sabiduría, ya que nos dan información sobre lo que es importante para nosotros/as y las cosas que nos preocupan. Los temas relacionados con el clima suelen asociarse principalmente con la ansiedad, pero en este ejercicio intentamos reconocer y apreciar un espectro más amplio de emociones ecológicas.",
+    "introPortal": {
+      "hostNotes": [
+        {
+          "text": "> Inicia la sesión cuando estés listo/a para comenzar"
+        }
+      ],
+      "videoLoop": {
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1701788655/Video/portal1_climateP_ab1nv1.mp4",
+        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1701788616/Audio/portal_audio_climatP_jthdg8.mp3",
+        "p5JsScript": {
+          "lang": "javascript"
+        }
+      },
+      "videoEnd": {
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1701788649/Video/portal2_climateP_u8wilo.mp4"
+      }
+    },
+    "name": "Explora las ecoemociones",
+    "slides": [
+      {
+        "hostNotes": [
+          {
+            "text": "Bienvenidos/as. Soy X y hoy trabajaremos durante unos 30 minutos en honrar nuestras ecoemociones.\n\nHaremos un ejercicio en audio, seguido de un momento para reflexionar y compartir entre nosotros/as."
+          },
+          {
+            "text": "Comencemos con una pequeña reflexión sobre cómo estamos. ¿Cómo te sientes en este momento? Por favor, responde en dos o tres palabras. X, ¿te gustaría empezar?\n\n> Permite que todos/as en la sesión, incluido tú, compartan uno a uno, una a una.\n\nGracias a todos/as por compartir. ¡Empecemos!"
+          }
+        ],
+        "type": "host"
+      },
+      {
+        "hostNotes": [
+          {
+            "text": "Encuentra una posición cómoda. Daré paso el ejercicio de audio y nos encontraremos de nuevo aquí cuando éste termine.\n\n> Pulsa play para comenzar el ejercicio"
+          }
+        ],
+        "type": "content",
+        "content": {
+          "lottie": {
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1701265161/Audio/2_EN_identify_and_honor_eco_emotions_equuau.mp3",
+            "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1701428422/SRT%20(captions)%20files/2_EN_identify_and_honor_eco_emotions_vrrap6.srt",
+            "durationTimer": true,
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto/v1676977421/Lottie/audio_meditation_default_white_default_mqfcuo.json"
+          }
+        }
+      },
+      {
+        "content": {
+          "heading": "¿Cómo fue para ti dar la bienvenida a tus ecoemociones?",
+          "lottie": {
+            "durationTimer": true,
+            "duration": 60,
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto/v1676642915/Lottie/default_1min_white_wvgwma.json"
+          }
+        },
+        "hostNotes": [
+          {
+            "text": "Ahora tomaremos 1 minuto para reflexionar por nuestra cuenta.\n\n¿Cómo fue para ti identificar, explorar y dar la bienvenida a tus ecoemociones?"
+          },
+          {
+            "text": "Puedes tomar notas en un papel o mentalmente. No hay respuestas correctas o incorrectas, cada uno/a tiene sus propias respuestas. 1 minuto, empezando ahora.\n\n> Pulsa play para iniciar el temporizador.\n\nHa pasado 1 minuto, vamos a continuar."
+          }
+        ],
+        "type": "reflection"
+      },
+      {
+        "content": {
+          "heading": "¿Cómo fue para ti dar la bienvenida a tus ecoemociones?",
+          "lottie": {
+            "durationTimer": true,
+            "duration": 120,
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1676639253/Lottie/default_2min_white_arvrf2.json"
+          }
+        },
+        "hostNotes": [
+          {
+            "text": "Ahora entramos en la parte de compartir. Tenemos tres reglas para compartir:\n\n1. **Lo que se diga aquí, se queda aquí.**\n2. **Todo lo que necesitas hacer es escuchar.** No se necesita arreglar, ayudar ni dar consejos. Solo estamos presentes y explorando lo que nosotros/as mismos/as y los/las demás estamos experimentando."
+          },
+          {
+            "text": "3. **Todo lo que sentimos dentro está bien.** Ira, amor, odio, tristeza. Lo que sea que surja. No hay correcto ni incorrecto. Simplemente es lo que es, hay lo que hay.\n\nSe establecerá un temporizador de 2 minutos como indicador. Si no deseas compartir, siempre puedes decir 'paso'."
+          },
+          {
+            "text": "¿Quién le gustaría empezar?\n\n> Deja que todos/as (o los/las que tengas tiempo) compartan uno a uno, una a una. Pulsa play para iniciar el temporizador. Reinicia el temporizador para cada nueva intervención.\n\nMuchas gracias a todos/as."
+          }
+        ],
+        "type": "sharing",
+        "id": "Sharing 1"
+      },
+      {
+        "hostNotes": [
+          {
+            "text": "Bien hecho. Si te animas, puedes continuar con una práctica para incorporar esto en tu vida diaria.\n\nDurante la próxima semana, presta atención cuando aparezcan ecoemociones y, cuando lo hagan, simplemente agradéceles por manifestarse y reflexiona sobre lo que quieren decirte. Observa si esto te hace sentir o actuar de una manera nueva o diferente."
+          },
+          {
+            "text": "Antes de salir de este espacio, hagamos una breve reflexión sobre qué ha cambiado.\n\n¿Cómo te sientes en este momento? ¿Ha cambiado algo? Por favor, responde en dos o tres palabras."
+          },
+          {
+            "text": "¿Quién le gustaría empezar?\n\n> Deja que todos/as en la sesión compartan y/o se despidan uno por uno, una por una.\n\nGracias a todos/as por compartir y por uniros hoy a esta sesión.\n\n> Finaliza la sesión para enviar a todos/as a la experiencia de salida."
+          }
+        ],
+        "type": "host"
+      },
+      {
+        "content": {
+          "heading": "Bien hecho",
+          "text": "Si te animas, puedes continuar con una práctica para incorporar esto en tu vida diaria.\n\nDurante la próxima semana, presta atención cuando aparezcan ecoemociones y, cuando lo hagan, simplemente agradéceles por manifestarse y reflexiona sobre lo que quieren decirte. Observa si esto te hace sentir o actuar de una manera nueva o diferente.",
+          "image": {
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1701788567/Images/Eco_emotions_card_image_climatP_e0z7sd.png"
+          }
+        },
+        "type": "instruction"
+      }
+    ],
+    "id": "0d4c9833-6a11-4b1a-8d1e-4467db6f24ea",
+    "liveDuration": 30,
+    "theme": {
+      "textColor": "#F9F8F4",
+      "backgroundColor": "#007961"
+    },
+    "hidden": false,
+    "live": true,
+    "published": false,
+    "asyncDuration": 6,
+    "card": {
+      "imageBackgroundColor": "#ebf4f3",
+      "image": {
+        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1701788567/Images/Eco_emotions_card_image_climatP_e0z7sd.png"
+      }
+    },
+    "coCreators": [
+      {
+        "name": "Kali Andersson, voice",
+        "url": "https://www.terrapi.se/",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1702029676/Images/Kali_Andersson_1_Klimatpsy_FotografJoakimAndre%CC%81n_zvvczk.jpg"
+      },
+      {
+        "name": "Terra-pi, script",
+        "url": "https://www.terrapi.se/",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1702029819/Images/terra-pi_zhwybj.png"
+      },
+      {
+        "name": "Ints Ivanovskis, artwork",
+        "url": "https://www.linkedin.com/in/ints-ivanovskis-46ab0311a/",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413436/Contributors/Ints%20Ivanovskis.jpg"
+      }
+    ],
+    "tags": [
+      "34100e43-2eb8-4d35-8eb0-9fa9f78e4935",
+      "566aeb1b-1649-4f5a-96a2-0c80be27efc0"
+    ],
+    "link": "https://aware.29k.org/explore-eco-emotions",
+    "async": true
   }
 }

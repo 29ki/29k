@@ -549,6 +549,148 @@
     "id": "12f448d2-39bc-4232-b8cf-b6cb570c7e00"
   },
   "es": {
-    "id": "12f448d2-39bc-4232-b8cf-b6cb570c7e00"
+    "introPortal": {
+      "hostNotes": [
+        {
+          "text": "Inicia la sesión cuando estés listo/a para comenzar"
+        }
+      ],
+      "videoLoop": {
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1697630712/Video/portal1_sky_gazing_nzvbyk.mp4",
+        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1697630682/Audio/portal_audio__sky_gazing_zjwzsc.mp3",
+        "p5JsScript": {
+          "lang": "javascript"
+        }
+      },
+      "videoEnd": {
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1697630707/Video/portal2_sky_gazing_nlgcbd.mp4"
+      }
+    },
+    "slides": [
+      {
+        "hostNotes": [
+          {
+            "text": "Bienvenidos/as. Soy X y hoy trabajaremos durante unos 30 minutos en honrar ***.\n\nHaremos un ejercicio en ***, seguido de un momento para reflexionar y compartir entre nosotros/as."
+          },
+          {
+            "text": "Comencemos con una pequeña reflexión sobre cómo estamos. ¿Cómo te sientes en este momento? Por favor, responde en dos o tres palabras. X, ¿te gustaría empezar?\n\n> Permite que todos/as en la sesión, incluido tú, compartan uno a uno, una a una.\n\nGracias a todos/as por compartir. ¡Empecemos!"
+          }
+        ],
+        "type": "host"
+      },
+      {
+        "type": "instruction",
+        "content": {
+          "text": "Sky gazing practises being here and now, looking up into the sky. Start the exercise when you are outside, ready to look up for around seven minutes.",
+          "image": {
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1697630657/Images/card_image_sky_gazing_wloxhk.png"
+          }
+        }
+      },
+      {
+        "type": "content",
+        "content": {
+          "lottie": {
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1696420104/Audio/Sky_gazing_ih7ox9.mp3",
+            "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1696420138/SRT%20(captions)%20files/Sky_gazing_rt4epi.srt",
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1676642915/Lottie/default_audio_white_sufmbz.json",
+            "durationTimer": true
+          }
+        },
+        "hostNotes": [
+          {
+            "text": "> Press play to start the audio file"
+          }
+        ]
+      },
+      {
+        "hostNotes": [
+          {
+            "text": "Now we’ll take 1 minute to reflect on our own.\n\nWhat did you discover during the exercise?"
+          },
+          {
+            "text": "Puedes tomar notas en un papel o mentalmente. No hay respuestas correctas o incorrectas, cada uno/a tiene sus propias respuestas. 1 minuto, empezando ahora.\n\n> Pulsa play para iniciar el temporizador.\n\nHa pasado 1 minuto, vamos a continuar."
+          }
+        ],
+        "type": "reflection",
+        "content": {
+          "heading": "What did you discover?",
+          "lottie": {
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1676642915/Lottie/default_1min_white_wvgwma.json",
+            "durationTimer": false
+          }
+        }
+      },
+      {
+        "hostNotes": [
+          {
+            "text": "Ahora entramos en la parte de compartir. Tenemos tres reglas para compartir:\n\n1. **Lo que se diga aquí, se queda aquí.**\n2. **Todo lo que necesitas hacer es escuchar.** No se necesita arreglar, ayudar ni dar consejos. Solo estamos presentes y explorando lo que nosotros/as mismos/as y los/las demás estamos experimentando."
+          },
+          {
+            "text": "3. **Todo lo que sentimos dentro está bien.** Ira, amor, odio, tristeza. Lo que sea que surja. No hay correcto ni incorrecto. Simplemente es lo que es, hay lo que hay.\n\nSe establecerá un temporizador de 2 minutos como indicador. Si no deseas compartir, siempre puedes decir 'paso'."
+          },
+          {
+            "text": "¿Quién le gustaría empezar?\n\n> Deja que todos/as (o los/las que tengas tiempo) compartan uno a uno, una a una. Pulsa play para iniciar el temporizador. Reinicia el temporizador para cada nueva intervención.\n\nMuchas gracias a todos/as."
+          }
+        ],
+        "type": "sharing",
+        "id": "1",
+        "content": {
+          "heading": "What did you discover?",
+          "lottie": {
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1676639253/Lottie/default_2min_white_arvrf2.json",
+            "durationTimer": true,
+            "duration": 120
+          }
+        }
+      },
+      {
+        "hostNotes": [
+          {
+            "text": "Well done. Noticing what’s here and now above us, can improve our sense of connection and presence. If you’re up for it, you can bring this into your everyday life with this mission:\n\nFor the next two days, take a few minutes each day and look up. Pay attention to what you see in the sky, letting things come and go as they are."
+          },
+          {
+            "text": "Antes de salir de este espacio, hagamos una breve reflexión sobre qué ha cambiado.\n\n¿Cómo te sientes en este momento? ¿Ha cambiado algo? Por favor, responde en dos o tres palabras."
+          },
+          {
+            "text": "¿Quién le gustaría empezar?\n\n> Deja que todos/as en la sesión compartan y/o se despidan uno por uno, una por una.\n\nGracias a todos/as por compartir y por uniros hoy a esta sesión.\n\n> Finaliza la sesión para enviar a todos/as a la experiencia de salida."
+          }
+        ],
+        "type": "host"
+      },
+      {
+        "type": "instruction",
+        "content": {
+          "text": "Well done. \n\nNoticing what’s here and now above us, can improve our sense of connection and presence. \n\nIf you’re up for it, you can continue with a mission to bring this into your everyday life.\n\nThe next two days, take a few minutes each day and look up. Pay attention to what you see in the sky, letting things come and go as they are.",
+          "image": {
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1697630657/Images/card_image_sky_gazing_wloxhk.png"
+          }
+        }
+      }
+    ],
+    "id": "12f448d2-39bc-4232-b8cf-b6cb570c7e00",
+    "liveDuration": 30,
+    "theme": {
+      "textColor": "#F9F8F4",
+      "backgroundColor": "#0e529c"
+    },
+    "hidden": false,
+    "name": "Sky gazing",
+    "live": true,
+    "published": true,
+    "asyncDuration": 8,
+    "card": {
+      "image": {
+        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1697630657/Images/card_image_sky_gazing_wloxhk.png"
+      }
+    },
+    "coCreators": [],
+    "tags": [
+      "cfc00217-f65b-4a4d-8b82-8ccc8f852dd6",
+      "43a6dc0d-d866-4b79-9453-13c44e906128"
+    ],
+    "link": "https://aware.29k.org/sky-gazing",
+    "async": true,
+    "description": "Noticing what’s above us, can improve our sense of being connected and present as well as inspire awe. Research has it that practising these skills can help us feel more fulfilled and satisfied with life. Please note that this exercise is best done outside."
   }
 }

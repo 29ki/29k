@@ -609,6 +609,164 @@
     "id": "a0600ebe-748d-481c-81af-dab25fa32b76"
   },
   "es": {
-    "id": "a0600ebe-748d-481c-81af-dab25fa32b76"
+    "description": "Encuentra un amigo interior compasivo o una amiga interior compasiva que pueda acompañarte en los momentos difíciles.",
+    "introPortal": {
+      "hostNotes": [
+        {
+          "text": "> Inicia la sesión cuando estés listo/a para comenzar"
+        }
+      ],
+      "textColor": "#2E2E2E",
+      "videoLoop": {
+        "p5JsScript": {
+          "lang": "javascript"
+        },
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1716379674/Video/inner_friend_portal1_mjpx0a.mp4",
+        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1716380093/Audio/inner_friend_portal_audio_dwntou.mp3"
+      },
+      "videoEnd": {
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1716379650/Video/inner_friend_portal2_xogxqo.mp4"
+      }
+    },
+    "name": "Amigo/a interior",
+    "slides": [
+      {
+        "hostNotes": [
+          {
+            "text": "Bienvenidos/as. Soy X y hoy trabajaremos durante unos 30 minutos en la autocompasión.\n\nHaremos un ejercicio en audio, seguido de un tiempo para reflexionar y compartir entre nosotros/as."
+          },
+          {
+            "text": "Comencemos con un breve chequeo inicial. ¿Cómo te sientes en este momento? Por favor, responde en dos o tres palabras. X, ¿te gustaría empezar?\n\n> Deja que todos/as en la sesión, incluido tú mismo/a, compartan uno a uno, una a una.\n\nGracias a todos/as por compartir. Comencemos."
+          }
+        ],
+        "type": "host"
+      },
+      {
+        "hostNotes": [
+          {
+            "text": "Encontrar una voz interior que sea autocompasiva puede ser un desafío. Encuentra una posición cómoda. Daré paso el ejercicio de audio y nos encontraremos de nuevo aquí cuando éste termine.\n\n> Pulsa play para comenzar el ejercicio"
+          }
+        ],
+        "type": "content",
+        "content": {
+          "lottie": {
+            "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1713530314/SRT%20%28captions%29%20files/Cupcake_inner_friend_obsdxk.srt",
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1713530383/Audio/Cupcake_inner_friend_b7ysza.mp3",
+            "durationTimer": true,
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto/v1676977421/Lottie/audio_meditation_default_black_default_omemwt.json"
+          }
+        }
+      },
+      {
+        "content": {
+          "heading": "¿Qué te hizo sentir o pensar esto?",
+          "lottie": {
+            "durationTimer": true,
+            "duration": "",
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto/v1676642915/Lottie/default_1min_black_rosi2l.json"
+          }
+        },
+        "hostNotes": [
+          {
+            "text": "Ahora tomaremos 1 minuto para reflexionar por nuestra cuenta.\n\n¿Qué despertó este ejercicio en ti?"
+          },
+          {
+            "text": "Puedes tomar notas en un papel o mentalmente. No hay respuestas correctas o incorrectas, cada uno/a tiene sus propias respuestas. 1 minuto, empezando ahora.\n\n> Pulsa play para iniciar el temporizador.\n\nHa pasado 1 minuto, vamos a continuar."
+          }
+        ],
+        "type": "reflection"
+      },
+      {
+        "content": {
+          "heading": "¿Qué te hizo sentir o pensar esto?",
+          "lottie": {
+            "durationTimer": true,
+            "duration": 120,
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto/v1676639253/Lottie/default_2min_black_o6egey.json"
+          }
+        },
+        "hostNotes": [
+          {
+            "text": "Ahora entramos en la parte de compartir. Tenemos tres reglas para compartir:\n\n1. **Lo que se diga aquí, se queda aquí.**\n2. **Todo lo que necesitas hacer es escuchar.** No se necesita arreglar, ayudar ni dar consejos. Solo estamos presentes y explorando lo que nosotros/as mismos/as y los/las demás estamos experimentando."
+          },
+          {
+            "text": "3. **Todo lo que sentimos dentro está bien.** Ira, amor, odio, tristeza. Lo que sea que surja. No hay correcto ni incorrecto. Simplemente es lo que es, hay lo que hay.\n\nSe establecerá un temporizador de 2 minutos como indicador. Si no deseas compartir, siempre puedes decir 'paso'."
+          },
+          {
+            "text": "¿Quién le gustaría empezar?\n\n> Deja que todos/as (o los/las que tengas tiempo) compartan uno a uno, una a una. Pulsa play para iniciar el temporizador. Reinicia el temporizador para cada nueva intervención.\n\nMuchas gracias a todos/as."
+          }
+        ],
+        "type": "sharing",
+        "id": "Sharing 1"
+      },
+      {
+        "hostNotes": [
+          {
+            "text": "Bien hecho. Si quieres conocer mejor a tu amigo/a interior, aquí tienes una misión: Durante los próximos dos días, presta atención cuando aparezca el crítico interior, y tómate un momento para ver qué te dice tu amigo/a interior."
+          },
+          {
+            "text": "Antes de salir de este espacio, hagamos una breve reflexión sobre qué ha cambiado.\n\n¿Cómo te sientes en este momento? ¿Ha cambiado algo? Por favor, responde en dos o tres palabras."
+          },
+          {
+            "text": "¿Quién le gustaría empezar?\n\n> Deja que todos/as en la sesión compartan y/o se despidan uno por uno, una por una.\n\nGracias a todos/as por compartir y por uniros hoy a esta sesión.\n\n> Finaliza la sesión para enviar a todos/as a la experiencia de salida."
+          }
+        ],
+        "type": "host"
+      },
+      {
+        "content": {
+          "heading": "Bien hecho",
+          "text": "Si quieres conocer más a tu amigo/a interior, aquí tienes una misión:\n\nDurante los próximos dos días, presta atención cuando aparezca el crítico interior y tómate un momento para ver qué te dice tu amigo/a interior.",
+          "image": {
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1716380005/Images/inner_friend_card_no_bg_rfo4kq.png"
+          }
+        },
+        "type": "instruction"
+      }
+    ],
+    "id": "a0600ebe-748d-481c-81af-dab25fa32b76",
+    "liveDuration": 30,
+    "theme": {
+      "textColor": "#2E2E2E",
+      "backgroundColor": "#e7dcc8"
+    },
+    "hidden": false,
+    "locked": false,
+    "live": true,
+    "published": true,
+    "asyncDuration": 6,
+    "card": {
+      "image": {
+        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1716379707/Images/inner_friend_card_lvgppt.png"
+      }
+    },
+    "coCreators": [
+      {
+        "name": "Kristin Neff, original research",
+        "url": "https://centerformsc.org/about/kristin-neff/",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1697723039/Images/Germer%2C%20Neff.png"
+      },
+      {
+        "name": "Ints Ivanovskis, artwork",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413436/Contributors/Ints%20Ivanovskis.jpg",
+        "url": "https://www.linkedin.com/in/ints-ivanovskis-46ab0311a/"
+      },
+      {
+        "url": "https://freemusicarchive.org/music/alena-smirnova/",
+        "name": "Alena Smirnova, music",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1716379749/Images/Alena_Smirnova_jed9k9.webp"
+      },
+      {
+        "name": "Tabitha, AI-generated voice",
+        "url": "https://www.descript.com/ai-voices",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1710239861/Contributors/descript_ps0olu.webp"
+      }
+    ],
+    "tags": [
+      "db34d82a-4c48-4ddd-9de5-f562d8aa1bc9",
+      "566aeb1b-1649-4f5a-96a2-0c80be27efc0"
+    ],
+    "link": "https://aware.29k.org/innerfriend",
+    "async": true
   }
 }

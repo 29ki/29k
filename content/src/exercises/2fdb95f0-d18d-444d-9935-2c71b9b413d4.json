@@ -578,6 +578,155 @@
     "id": "2fdb95f0-d18d-444d-9935-2c71b9b413d4"
   },
   "es": {
-    "id": "2fdb95f0-d18d-444d-9935-2c71b9b413d4"
+    "description": "Escucha en tu interior y deja que lo que encuentres simplemente esté ahí. Practicar el estar con lo que está presente aquí y ahora es una gran habilidad que puede ayudarnos a ser más compasivos/as con nosotros/as mismos/as y con los demás.",
+    "introPortal": {
+      "hostNotes": [
+        {
+          "text": "> Inicia la sesión cuando estés listo/a para comenzar"
+        }
+      ],
+      "textColor": "#F9F8F4",
+      "videoLoop": {
+        "p5JsScript": {
+          "lang": "javascript",
+          "code": "let t = 0;\nlet sh;\n\nfunction setup() {\n  // Set up canvas to fill the entire window and use WEBGL mode\n  createCanvas(windowWidth, windowHeight, WEBGL);\n  colorMode(RGB, 1, 1, 1, 1);\n\n  // Initialize the shader with vertex and fragment shaders\n  sh = createShader(vertexShaderSource, fragmentShaderSource);\n  shader(sh);\n}\n\nfunction draw() {\n  t += 0.00005 * deltaTime;\n  \n  // Update shader uniforms\n  sh.setUniform(\"t\", t % 1);\n  sh.setUniform(\"l\", t | 0);\n  sh.setUniform(\"aspectRatio\", width / height);\n  \n  // Draw a rectangle that covers the entire canvas\n  rect(-width / 2, -height / 2, width, height);\n}\n\nfunction windowResized() {\n  // Adjust the canvas size when the window is resized\n  resizeCanvas(windowWidth, windowHeight);\n}\n\n// Vertex shader code\nconst vertexShaderSource = `\nattribute vec3 aPosition;\nvarying vec2 uv;\nvoid main() {\n  gl_Position = vec4(aPosition * 2.0 - 1.0, 1.0);\n  uv = (vec2(aPosition.x, 1.0 - aPosition.y) + 1.0) * 0.5;\n}\n`;\n\n// Fragment shader code\nconst fragmentShaderSource = `\nprecision highp float;\n#define PI ` + Math.PI + `\nvarying vec2 uv;\nuniform float t, l;\nuniform float aspectRatio;\n\nmat2 rot(float a) {\n  return mat2(cos(a), -sin(a), sin(a), cos(a));\n}\n\nfloat map(vec3 p) {\n  p.xy *= p.z * mix(1.0, 2.0, (mod(l, 2.0) == 0.0) ? t : 1.0 - t);\n  p.xz *= rot(p.y * mix(.2, .8, sin(t * PI * 2.) * .5 + .5)) * rot(t * PI * 4.);\n  p.z -= 5.0;\n  return length(p) - .5 + sin(p.x) * sin(p.y) * sin(p.z * .5 * sin(t * PI * 2.) * .5 + .5) * .75;\n}\n\nvec3 norm(vec3 p) {\n  vec2 e = vec2(0.0001, 0.);\n  return normalize(map(p) - vec3(map(p - e.xyy), map(p - e.yxy), map(p - e.yyx)));\n}\n\nvoid main() {\n  vec2 adjustedUV = uv * vec2(aspectRatio, 1.0);\n  vec3 n = norm(vec3(adjustedUV, 0) + vec3(0, 0, 1) * map(vec3(adjustedUV, 0)));\n  gl_FragColor = vec4(vec3(.22, 0., .6) * n.x + vec3(1., .33, 0.) * (mix(n.x, n.y, sin(smoothstep(0., 1., t) * PI * 2.) * .5 + .5)) + vec3(1., .75, 0.) * mix(n.z, n.y, sin(smoothstep(0., 1., t) * PI * 2.) * .5 + .5), 1);\n}\n`;"
+        },
+        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1712905242/Audio/portal_audio_hear_your_inner_voice_pbsabm.mp3"
+      }
+    },
+    "name": "Escucha tu voz interior",
+    "slides": [
+      {
+        "hostNotes": [
+          {
+            "text": "Bienvenidos/as. Soy X y hoy trabajaremos durante unos 30 minutos en la autocompasión y la escucha interior.\n\nHaremos un ejercicio de meditación, seguido de un momento para la reflexión y, si nos apetece, para compartir entre nosotros/as."
+          },
+          {
+            "text": "Comencemos con una pequeña reflexión sobre cómo estamos. ¿Cómo te sientes en este momento? Por favor, responde en dos o tres palabras. X, ¿te gustaría empezar?\n\n> Permite que todos/as en la sesión, incluido tú, compartan uno a uno, una a una.\n\nGracias a todos/as por compartir. ¡Empecemos!"
+          }
+        ],
+        "type": "host"
+      },
+      {
+        "hostNotes": [
+          {
+            "text": "Encuentra una posición cómoda. Comenzaré el ejercicio de audio y nos reuniremos aquí después.  \n\n> Toca \"Reproducir\" para iniciar el ejercicio de audio."
+          }
+        ],
+        "type": "content",
+        "content": {
+          "lottie": {
+            "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1709566125/SRT%20(captions)%20files/Hear_your_inner_voice_wxuupk.srt",
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1709566050/Audio/Hear_your_inner_voice_i88iu1.mp3",
+            "durationTimer": true,
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/t_card_image/v1676977421/Lottie/audio_meditation_default_white_default_mqfcuo.json"
+          }
+        }
+      },
+      {
+        "content": {
+          "heading": "¿Cómo fue la experiencia de escuchar hacia adentro?",
+          "lottie": {
+            "durationTimer": true,
+            "duration": 60,
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/t_card_image/v1676642915/Lottie/default_1min_white_wvgwma.json"
+          }
+        },
+        "hostNotes": [
+          {
+            "text": "Ahora tomaremos 1 minuto para reflexionar por nuestra cuenta.  \n\n¿Cómo fue para ti adoptar esta postura de observación y simplemente escuchar?"
+          },
+          {
+            "text": "Puedes tomar notas en un papel o mentalmente. No hay respuestas correctas o incorrectas, cada uno/a tiene sus propias respuestas. 1 minuto, empezando ahora.\n\n> Pulsa play para iniciar el temporizador.\n\nHa pasado 1 minuto, vamos a continuar."
+          }
+        ],
+        "type": "reflection"
+      },
+      {
+        "content": {
+          "heading": "¿Cómo fue la experiencia de escuchar hacia adentro?",
+          "lottie": {
+            "durationTimer": true,
+            "duration": 120,
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/t_card_image/v1676639253/Lottie/default_2min_white_arvrf2.json"
+          }
+        },
+        "hostNotes": [
+          {
+            "text": "Ahora entramos en la parte de compartir. Tenemos tres reglas para compartir:\n\n1. **Lo que se diga aquí, se queda aquí.**\n2. **Todo lo que necesitas hacer es escuchar.** No se necesita arreglar, ayudar ni dar consejos. Solo estamos presentes y explorando lo que nosotros/as mismos/as y los/las demás estamos experimentando."
+          },
+          {
+            "text": "3. **Todo lo que sentimos dentro está bien.** Ira, amor, odio, tristeza. Lo que sea que surja. No hay correcto ni incorrecto. Simplemente es lo que es, hay lo que hay.\n\nSe establecerá un temporizador de 2 minutos como indicador. Si no deseas compartir, siempre puedes decir 'paso'."
+          },
+          {
+            "text": "¿Quién le gustaría empezar?\n\n> Deja que todos/as (o los/las que tengas tiempo) compartan uno a uno, una a una. Pulsa play para iniciar el temporizador. Reinicia el temporizador para cada nueva intervención.\n\nMuchas gracias a todos/as."
+          }
+        ],
+        "type": "sharing",
+        "id": "Sharing 1"
+      },
+      {
+        "hostNotes": [
+          {
+            "text": "Bien hecho. Estar presentes con nuestro interior, sin alejarnos de lo que vemos o escuchamos, puede ayudarnos a ser más compasivos/as con nosotros/as mismos/as y con los demás.  \n\nSi te animas, puedes continuar con esta práctica:  \n\nA lo largo del día de hoy, haz dos pausas, guarda silencio por un minuto y conecta con tu interior."
+          },
+          {
+            "text": "Antes de salir de este espacio, hagamos una breve reflexión sobre qué ha cambiado.\n\n¿Cómo te sientes en este momento? ¿Ha cambiado algo? Por favor, responde en dos o tres palabras."
+          },
+          {
+            "text": "¿Quién le gustaría empezar?\n\n> Deja que todos/as en la sesión compartan y/o se despidan uno por uno, una por una.\n\nGracias a todos/as por compartir y por uniros hoy a esta sesión.\n\n> Finaliza la sesión para enviar a todos/as a la experiencia de salida."
+          }
+        ],
+        "type": "host"
+      },
+      {
+        "content": {
+          "text": "Bien hecho.  \n\nEstar presentes con nuestro interior, sin alejarnos de lo que vemos o escuchamos, puede ayudarnos a ser más compasivos/as con nosotros/as mismos/as y con los demás.  \n\nSi te animas, puedes continuar con una práctica. A lo largo del día de hoy, haz dos pausas, guarda silencio por un minuto y conecta con tu interior. Observa lo que surja.",
+          "image": {
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1711547461/Images/card_Hear_your_inner_voice_qpvkza.png"
+          }
+        },
+        "type": "instruction"
+      }
+    ],
+    "id": "2fdb95f0-d18d-444d-9935-2c71b9b413d4",
+    "liveDuration": 30,
+    "theme": {
+      "textColor": "#F9F8F4",
+      "backgroundColor": "#09005e"
+    },
+    "hidden": false,
+    "locked": false,
+    "live": true,
+    "published": true,
+    "asyncDuration": 5,
+    "card": {
+      "image": {
+        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1711547461/Images/card_Hear_your_inner_voice_qpvkza.png"
+      }
+    },
+    "coCreators": [
+      {
+        "name": "Rachel Brathen, yoga girl, voice",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1709567296/Contributors/Yoga_Girl_016895_color_oju3wq_-_Square_Post_mbemkp.png",
+        "url": "https://www.yogagirl.com/rachels-corner/bio"
+      },
+      {
+        "name": "Erik Fernholm, editor",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665412608/Contributors/Erik%20Fernholm.png",
+        "url": "https://www.linkedin.com/in/lyckoaktivist/?originalSubdomain=se"
+      },
+      {
+        "name": "mattywillo_",
+        "url": "https://openprocessing.org/user/278169?view=sketches&o=7",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1713964290/Images/anonymous_xns0zu.png"
+      }
+    ],
+    "tags": [
+      "db34d82a-4c48-4ddd-9de5-f562d8aa1bc9",
+      "34100e43-2eb8-4d35-8eb0-9fa9f78e4935"
+    ],
+    "link": "https://aware.29k.org/hearyourinnervoice",
+    "async": true
   }
 }
