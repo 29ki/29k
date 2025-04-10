@@ -609,26 +609,7 @@
     "id": "a0600ebe-748d-481c-81af-dab25fa32b76"
   },
   "es": {
-    "description": "Encuentra un amigo interior compasivo o una amiga interior compasiva que pueda acompañarte en los momentos difíciles.",
-    "introPortal": {
-      "hostNotes": [
-        {
-          "text": "> Inicia la sesión cuando estés listo/a para comenzar"
-        }
-      ],
-      "textColor": "#2E2E2E",
-      "videoLoop": {
-        "p5JsScript": {
-          "lang": "javascript"
-        },
-        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1716379674/Video/inner_friend_portal1_mjpx0a.mp4",
-        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1716380093/Audio/inner_friend_portal_audio_dwntou.mp3"
-      },
-      "videoEnd": {
-        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1716379650/Video/inner_friend_portal2_xogxqo.mp4"
-      }
-    },
-    "name": "Amigo/a interior",
+    "liveDuration": 30,
     "slides": [
       {
         "hostNotes": [
@@ -650,8 +631,8 @@
         "type": "content",
         "content": {
           "lottie": {
-            "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1713530314/SRT%20%28captions%29%20files/Cupcake_inner_friend_obsdxk.srt",
-            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1713530383/Audio/Cupcake_inner_friend_b7ysza.mp3",
+            "subtitles": "",
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1744295625/Spanish/Audio%20MP3/Amigo_interior_xqoqnx.mp3",
             "durationTimer": true,
             "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto/v1676977421/Lottie/audio_meditation_default_black_default_omemwt.json"
           }
@@ -724,14 +705,13 @@
         "type": "instruction"
       }
     ],
-    "id": "a0600ebe-748d-481c-81af-dab25fa32b76",
-    "liveDuration": 30,
     "theme": {
       "textColor": "#2E2E2E",
       "backgroundColor": "#e7dcc8"
     },
     "hidden": false,
     "locked": false,
+    "name": "Amigo/a interior",
     "live": true,
     "published": true,
     "asyncDuration": 6,
@@ -757,16 +737,36 @@
         "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1716379749/Images/Alena_Smirnova_jed9k9.webp"
       },
       {
-        "name": "Tabitha, AI-generated voice",
-        "url": "https://www.descript.com/ai-voices",
-        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1710239861/Contributors/descript_ps0olu.webp"
+        "name": "Raul Jimenez - voz en Español",
+        "url": "https://www.linkedin.com/in/granraul75/",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1744310562/Contributors/Raul%20Jimenez.png"
       }
     ],
+    "introPortal": {
+      "hostNotes": [
+        {
+          "text": "> Inicia la sesión cuando estés listo/a para comenzar"
+        }
+      ],
+      "textColor": "#2E2E2E",
+      "videoLoop": {
+        "p5JsScript": {
+          "lang": "javascript"
+        },
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1716379674/Video/inner_friend_portal1_mjpx0a.mp4",
+        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1716380093/Audio/inner_friend_portal_audio_dwntou.mp3"
+      },
+      "videoEnd": {
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1716379650/Video/inner_friend_portal2_xogxqo.mp4"
+      }
+    },
     "tags": [
       "db34d82a-4c48-4ddd-9de5-f562d8aa1bc9",
       "566aeb1b-1649-4f5a-96a2-0c80be27efc0"
     ],
     "link": "https://aware.29k.org/innerfriend",
-    "async": true
+    "id": "a0600ebe-748d-481c-81af-dab25fa32b76",
+    "async": true,
+    "description": "Encuentra un amigo interior compasivo o una amiga interior compasiva que pueda acompañarte en los momentos difíciles."
   }
 }
