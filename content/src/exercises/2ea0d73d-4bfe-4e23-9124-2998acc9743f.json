@@ -573,23 +573,7 @@
     "id": "2ea0d73d-4bfe-4e23-9124-2998acc9743f"
   },
   "es": {
-    "description": "Explora tus valores en esta meditación centrada en el cuerpo. Vivir una vida basada en nuestros valores puede hacernos más felices y realizados/as.",
-    "introPortal": {
-      "hostNotes": [
-        {
-          "text": "> Inicia la sesión cuando estés listo/a para comenzar"
-        }
-      ],
-      "textColor": "#2E2E2E",
-      "videoLoop": {
-        "p5JsScript": {
-          "lang": "javascript",
-          "code": "\nlet particles=[]\n\n\n\nfunction setup() {\n\tlet w=min(windowWidth, windowHeight)\n\tcreateCanvas(windowWidth, windowHeight, WEBGL);\n\tcolorMode(HSB, 100)\n\tparticles.push(new particle())\n}\n\nfunction draw() {\n\tbackground(15, 10, 98);\n\tparticles.push(new particle())\n\tfor(let particle of particles){\n\t\tparticle.update()\n\t\tparticle.display()\n\t}\n}\n\nclass particle{\nconstructor(){\n\tthis.a=random(TAU)\n\tthis.size=1\n\tthis.hue=70\n\tthis.brightness=100\n\tthis.alpha=100\n\tthis.y=0\n}\n\t\nupdate(){\n\tthis.size+=0.15\n\tthis.hue-=0.05\n\tthis.brightness-=0.02\n\tthis.y+=0.2\n\tthis.alpha-=0.07\n\t\n\tif(this.alpha<0.1){\n\t\tlet index = particles.indexOf(this);\n\tparticles.splice(index, 1);\n\t}\n}\n\t\ndisplay() {\n    push();\n    noStroke();\n    // Removed unnecessary translate to the center\n    rotate(this.a); // Apply rotation\n    fill(this.hue % 100, 80, this.brightness, this.alpha); // Apply color with fading\n    ellipse(0, this.y, this.size); // Draw particle\n    pop();\n  }\n\t\n\t\n}"
-        },
-        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1712905249/Audio/portal_audio_lead_from_place_of_love_jl76zz.mp3"
-      }
-    },
-    "name": "Lidera desde el amor",
+    "liveDuration": 30,
     "slides": [
       {
         "hostNotes": [
@@ -611,8 +595,8 @@
         "type": "content",
         "content": {
           "lottie": {
-            "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1709573050/SRT%20(captions)%20files/Lead_from_a_place_of_love_nvraaj.srt",
-            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1709573004/Audio/Lead_from_a_place_of_love_ubqzwk.mp3",
+            "subtitles": "",
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1744295629/Spanish/Audio%20MP3/Lidera_desde_el_amor_ocxldx.mp3",
             "durationTimer": true,
             "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/t_card_image/v1676642915/Lottie/default_audio_black_zjrmu2.json"
           }
@@ -686,14 +670,13 @@
         "type": "instruction"
       }
     ],
-    "id": "2ea0d73d-4bfe-4e23-9124-2998acc9743f",
-    "liveDuration": 30,
     "theme": {
       "textColor": "#2E2E2E",
       "backgroundColor": "#faf7e3"
     },
     "hidden": false,
     "locked": false,
+    "name": "Lidera desde el amor",
     "live": true,
     "published": true,
     "asyncDuration": 6,
@@ -704,9 +687,9 @@
     },
     "coCreators": [
       {
-        "name": "Rachel Brathen, yoga girl, voice",
-        "url": "https://www.yogagirl.com/rachels-corner/bio",
-        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1709567296/Contributors/Yoga_Girl_016895_color_oju3wq_-_Square_Post_mbemkp.png"
+        "name": "Raul Jimenez - voz en Español",
+        "url": "https://www.linkedin.com/in/granraul75/",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1744310562/Contributors/Raul%20Jimenez.png"
       },
       {
         "name": "Erik Fernholm, editor",
@@ -719,11 +702,28 @@
         "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1713964400/Images/user183691_i74pfh.jpg"
       }
     ],
+    "introPortal": {
+      "hostNotes": [
+        {
+          "text": "> Inicia la sesión cuando estés listo/a para comenzar"
+        }
+      ],
+      "textColor": "#2E2E2E",
+      "videoLoop": {
+        "p5JsScript": {
+          "lang": "javascript",
+          "code": "\nlet particles=[]\n\n\n\nfunction setup() {\n\tlet w=min(windowWidth, windowHeight)\n\tcreateCanvas(windowWidth, windowHeight, WEBGL);\n\tcolorMode(HSB, 100)\n\tparticles.push(new particle())\n}\n\nfunction draw() {\n\tbackground(15, 10, 98);\n\tparticles.push(new particle())\n\tfor(let particle of particles){\n\t\tparticle.update()\n\t\tparticle.display()\n\t}\n}\n\nclass particle{\nconstructor(){\n\tthis.a=random(TAU)\n\tthis.size=1\n\tthis.hue=70\n\tthis.brightness=100\n\tthis.alpha=100\n\tthis.y=0\n}\n\t\nupdate(){\n\tthis.size+=0.15\n\tthis.hue-=0.05\n\tthis.brightness-=0.02\n\tthis.y+=0.2\n\tthis.alpha-=0.07\n\t\n\tif(this.alpha<0.1){\n\t\tlet index = particles.indexOf(this);\n\tparticles.splice(index, 1);\n\t}\n}\n\t\ndisplay() {\n    push();\n    noStroke();\n    // Removed unnecessary translate to the center\n    rotate(this.a); // Apply rotation\n    fill(this.hue % 100, 80, this.brightness, this.alpha); // Apply color with fading\n    ellipse(0, this.y, this.size); // Draw particle\n    pop();\n  }\n\t\n\t\n}"
+        },
+        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1712905249/Audio/portal_audio_lead_from_place_of_love_jl76zz.mp3"
+      }
+    },
     "tags": [
       "db34d82a-4c48-4ddd-9de5-f562d8aa1bc9",
       "9c2c08a9-7dc6-4058-bc78-016d0eb00614"
     ],
     "link": "https://aware.29k.org/leadfromaplaceoflove",
-    "async": true
+    "id": "2ea0d73d-4bfe-4e23-9124-2998acc9743f",
+    "async": true,
+    "description": "Explora tus valores en esta meditación centrada en el cuerpo. Vivir una vida basada en nuestros valores puede hacernos más felices y realizados/as."
   }
 }
