@@ -541,26 +541,7 @@
     "id": "e4bf8d17-a774-4702-abfe-c7452c3fee0f"
   },
   "es": {
-    "description": "La vergüenza es una emoción poderosa. En esta sesión exploraremos diferentes perspectivas sobre la vergüenza, investigando nuestra propia relación con ella. Esto puede ayudarnos a ganar perspectiva y ser más amables con nosotros/as mismos/as.",
-    "introPortal": {
-      "hostNotes": [
-        {
-          "text": "> Inicia la sesión cuando estés listo/a para comenzar"
-        }
-      ],
-      "textColor": "#2E2E2E",
-      "videoLoop": {
-        "p5JsScript": {
-          "lang": "javascript"
-        },
-        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1716468395/Video/portal1_exploring_shame_cedmj2.mp4",
-        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1716468088/Audio/portal_audio_exploring_shame_gtk9lf.mp3"
-      },
-      "videoEnd": {
-        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1716468199/Video/portal2_exploring_shame_wzelkz.mp4"
-      }
-    },
-    "name": "Explorando la vergüenza",
+    "liveDuration": 30,
     "slides": [
       {
         "hostNotes": [
@@ -582,8 +563,8 @@
         "type": "content",
         "content": {
           "lottie": {
-            "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1713532802/SRT%20(captions)%20files/Exploring_shame_Jenny_s_voice_smgdvr.srt",
-            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1713532860/Audio/Exploring_shame_Jenny_s_voice_n8dux8.mp3",
+            "subtitles": "",
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1744295665/Spanish/Audio%20MP3/Explorando_la_vergu%CC%88enza_cpam2t.mp3",
             "durationTimer": true,
             "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto/v1676977421/Lottie/audio_meditation_default_black_default_omemwt.json"
           }
@@ -655,14 +636,13 @@
         "type": "instruction"
       }
     ],
-    "id": "e4bf8d17-a774-4702-abfe-c7452c3fee0f",
-    "liveDuration": 30,
     "theme": {
       "textColor": "#2E2E2E",
       "backgroundColor": "#f3e2cd"
     },
     "hidden": false,
     "locked": false,
+    "name": "Explorando la vergüenza",
     "live": true,
     "published": true,
     "asyncDuration": 11,
@@ -673,7 +653,7 @@
     },
     "coCreators": [
       {
-        "name": "Jenny Rickardsson, editor and voice",
+        "name": "Jenny Rickardsson, editor",
         "url": "https://www.linkedin.com/in/jenny-rickardson-6770a959/",
         "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413228/Contributors/Jenny%20Rickardsson.jpg"
       },
@@ -691,13 +671,37 @@
         "name": "Ints Ivanovskis",
         "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413436/Contributors/Ints%20Ivanovskis.jpg",
         "url": "https://www.linkedin.com/in/ints-ivanovskis-46ab0311a/"
+      },
+      {
+        "name": "Raul Jimenez - voz en Español",
+        "url": "https://www.linkedin.com/in/granraul75/"
       }
     ],
+    "introPortal": {
+      "hostNotes": [
+        {
+          "text": "> Inicia la sesión cuando estés listo/a para comenzar"
+        }
+      ],
+      "textColor": "#2E2E2E",
+      "videoLoop": {
+        "p5JsScript": {
+          "lang": "javascript"
+        },
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1716468395/Video/portal1_exploring_shame_cedmj2.mp4",
+        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1716468088/Audio/portal_audio_exploring_shame_gtk9lf.mp3"
+      },
+      "videoEnd": {
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1716468199/Video/portal2_exploring_shame_wzelkz.mp4"
+      }
+    },
     "tags": [
       "db34d82a-4c48-4ddd-9de5-f562d8aa1bc9",
       "566aeb1b-1649-4f5a-96a2-0c80be27efc0"
     ],
     "link": "https://aware.29k.org/exploringshame",
-    "async": true
+    "id": "e4bf8d17-a774-4702-abfe-c7452c3fee0f",
+    "async": true,
+    "description": "La vergüenza es una emoción poderosa. En esta sesión exploraremos diferentes perspectivas sobre la vergüenza, investigando nuestra propia relación con ella. Esto puede ayudarnos a ganar perspectiva y ser más amables con nosotros/as mismos/as."
   }
 }
