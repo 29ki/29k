@@ -541,6 +541,163 @@
     "id": "e4bf8d17-a774-4702-abfe-c7452c3fee0f"
   },
   "es": {
-    "id": "e4bf8d17-a774-4702-abfe-c7452c3fee0f"
+    "description": "La vergüenza es una emoción poderosa. En esta sesión exploraremos diferentes perspectivas sobre la vergüenza, investigando nuestra propia relación con ella. Esto puede ayudarnos a ganar perspectiva y ser más amables con nosotros/as mismos/as.",
+    "introPortal": {
+      "hostNotes": [
+        {
+          "text": "> Inicia la sesión cuando estés listo/a para comenzar"
+        }
+      ],
+      "textColor": "#2E2E2E",
+      "videoLoop": {
+        "p5JsScript": {
+          "lang": "javascript"
+        },
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1716468395/Video/portal1_exploring_shame_cedmj2.mp4",
+        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1716468088/Audio/portal_audio_exploring_shame_gtk9lf.mp3"
+      },
+      "videoEnd": {
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1716468199/Video/portal2_exploring_shame_wzelkz.mp4"
+      }
+    },
+    "name": "Explorando la vergüenza",
+    "slides": [
+      {
+        "hostNotes": [
+          {
+            "text": "Bienvenidos/as. Soy X y hoy trabajaremos durante unos 30 minutos sobre la vergüenza y la autocompasión.\n\nHaremos un ejercicio en audio, seguido de un tiempo para reflexionar y compartir entre nosotros/as."
+          },
+          {
+            "text": "Comencemos con una pequeña reflexión sobre cómo estamos. ¿Cómo te sientes en este momento? Por favor, responde en dos o tres palabras. X, ¿te gustaría empezar?\n\n> Permite que todos/as en la sesión, incluido tú, compartan uno a uno, una a una.\n\nGracias a todos/as por compartir. ¡Empecemos!"
+          }
+        ],
+        "type": "host"
+      },
+      {
+        "hostNotes": [
+          {
+            "text": "Las emociones nos traen un mensaje, y la vergüenza es uno de los más poderosos. En todo caso, eso no significa que tengamos que hacer lo que nos dice. Encuentra una posición cómoda. Daré paso el ejercicio de audio y nos encontraremos de nuevo aquí cuando éste termine.\n\n> Pulsa play para comenzar el ejercicio"
+          }
+        ],
+        "type": "content",
+        "content": {
+          "lottie": {
+            "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1713532802/SRT%20(captions)%20files/Exploring_shame_Jenny_s_voice_smgdvr.srt",
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1713532860/Audio/Exploring_shame_Jenny_s_voice_n8dux8.mp3",
+            "durationTimer": true,
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto/v1676977421/Lottie/audio_meditation_default_black_default_omemwt.json"
+          }
+        }
+      },
+      {
+        "content": {
+          "heading": "¿Cómo fue esta experiencia? ¿Qué es lo que quiere la vergüenza?",
+          "lottie": {
+            "durationTimer": true,
+            "duration": "",
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto/v1676642915/Lottie/default_1min_black_rosi2l.json"
+          }
+        },
+        "hostNotes": [
+          {
+            "text": "Ahora tomaremos 1 minuto para reflexionar por nuestra cuenta.  \n\n¿Cómo fue esta experiencia, experimentando las tres perspectivas diferentes?  \n\n¿Qué es lo que quiere la vergüenza?"
+          },
+          {
+            "text": "Puedes tomar notas en un papel o mentalmente. No hay respuestas correctas o incorrectas, cada uno/a tiene sus propias respuestas. 1 minuto, empezando ahora.\n\n> Pulsa play para iniciar el temporizador.\n\nHa pasado 1 minuto, vamos a continuar."
+          }
+        ],
+        "type": "reflection"
+      },
+      {
+        "content": {
+          "heading": "¿Cómo fue esta experiencia? ¿Qué es lo que quiere la vergüenza?",
+          "lottie": {
+            "durationTimer": true,
+            "duration": 120,
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1676639253/Lottie/default_2min_black_o6egey.json"
+          }
+        },
+        "hostNotes": [
+          {
+            "text": "Ahora entramos en la parte de compartir. Tenemos tres reglas para compartir:\n\n1. **Lo que se diga aquí, se queda aquí.**\n2. **Todo lo que necesitas hacer es escuchar.** No se necesita arreglar, ayudar ni dar consejos. Solo estamos presentes y explorando lo que nosotros/as mismos/as y los/las demás estamos experimentando."
+          },
+          {
+            "text": "3. **Todo lo que sentimos dentro está bien.** Ira, amor, odio, tristeza. Lo que sea que surja. No hay correcto ni incorrecto. Simplemente es lo que es, hay lo que hay.\n\nSe establecerá un temporizador de 2 minutos como indicador. Si no deseas compartir, siempre puedes decir 'paso'."
+          },
+          {
+            "text": "¿Quién le gustaría empezar?\n\n> Deja que todos/as (o los/las que tengas tiempo) compartan uno a uno, una a una. Pulsa play para iniciar el temporizador. Reinicia el temporizador para cada nueva intervención.\n\nMuchas gracias a todos/as."
+          }
+        ],
+        "type": "sharing",
+        "id": "Sharing 1"
+      },
+      {
+        "hostNotes": [
+          {
+            "text": "Bien hecho por haber abordado valientemente diferentes perspectivas. Las emociones son mensajes poderosos, pero no siempre tenemos que hacer lo que sugieren. Si te animas, aquí tienes una práctica: Hoy, cuando notes que aparece la vergüenza, reconoce cómo te sientes, encuentra tu propia voz compasiva y luego, elige qué hacer."
+          },
+          {
+            "text": "Antes de salir de este espacio, hagamos una breve reflexión sobre qué ha cambiado.\n\n¿Cómo te sientes en este momento? ¿Ha cambiado algo? Por favor, responde en dos o tres palabras."
+          },
+          {
+            "text": "¿Quién le gustaría empezar?\n\n> Deja que todos/as en la sesión compartan y/o se despidan uno por uno, una por una.\n\nGracias a todos/as por compartir y por uniros hoy a esta sesión.\n\n> Finaliza la sesión para enviar a todos/as a la experiencia de salida."
+          }
+        ],
+        "type": "host"
+      },
+      {
+        "content": {
+          "text": "Bien hecho por haber abordado valientemente diferentes perspectivas. Las emociones son mensajes poderosos, pero no siempre tenemos que hacer lo que sugieren. Si te animas, aquí tienes una práctica: Hoy, cuando notes que aparece la vergüenza, reconoce cómo te sientes, encuentra tu propia voz compasiva y luego, elige qué hacer.",
+          "image": {
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1716468137/Images/card2_exploring_shame_eol9n7.png"
+          }
+        },
+        "type": "instruction"
+      }
+    ],
+    "id": "e4bf8d17-a774-4702-abfe-c7452c3fee0f",
+    "liveDuration": 30,
+    "theme": {
+      "textColor": "#2E2E2E",
+      "backgroundColor": "#f3e2cd"
+    },
+    "hidden": false,
+    "locked": false,
+    "live": true,
+    "published": true,
+    "asyncDuration": 11,
+    "card": {
+      "image": {
+        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1716468139/Images/card_exploring_shame_tmsztr.png"
+      }
+    },
+    "coCreators": [
+      {
+        "name": "Jenny Rickardsson, editor and voice",
+        "url": "https://www.linkedin.com/in/jenny-rickardson-6770a959/",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413228/Contributors/Jenny%20Rickardsson.jpg"
+      },
+      {
+        "name": "Agnes Branny, writing",
+        "url": "https://www.agnesbranny.com/",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665414181/Contributors/Agnes%20Branny.png"
+      },
+      {
+        "name": "Kristin Neff & Chris Germer, original research",
+        "url": "https://centerformsc.org/",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1697723039/Images/Germer%2C%20Neff.png"
+      },
+      {
+        "name": "Ints Ivanovskis",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413436/Contributors/Ints%20Ivanovskis.jpg",
+        "url": "https://www.linkedin.com/in/ints-ivanovskis-46ab0311a/"
+      }
+    ],
+    "tags": [
+      "db34d82a-4c48-4ddd-9de5-f562d8aa1bc9",
+      "566aeb1b-1649-4f5a-96a2-0c80be27efc0"
+    ],
+    "link": "https://aware.29k.org/exploringshame",
+    "async": true
   }
 }

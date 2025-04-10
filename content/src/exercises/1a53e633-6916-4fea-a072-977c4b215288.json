@@ -374,6 +374,8 @@
     "id": "1a53e633-6916-4fea-a072-977c4b215288"
   },
   "es": {
+    "description": "Una introducción a la práctica de la atención plena, la gratitud y cómo comenzar a usar la aplicación Aware.",
+    "name": "Empieza aquí",
     "slides": [
       {
         "type": "content",
@@ -392,37 +394,39 @@
         }
       },
       {
-        "type": "sharing",
-        "hostNotes": [],
         "content": {
           "heading": "¿Por qué estás aquí?",
           "text": ""
         },
+        "type": "sharing",
+        "hostNotes": [],
         "id": "1"
       },
       {
-        "type": "instruction",
         "content": {
           "text": "Acabas de completar la sesión introductoria. Bien hecho.\n\nAhora estás listo/a para continuar tu viaje, por tu cuenta, con tus amigos/as, o con nuevos contactos.",
           "heading": "Felicidades",
           "image": {
             "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1683790808/Images/journey_icon_ja3ug7.png"
           }
-        }
+        },
+        "type": "instruction"
       }
     ],
     "theme": {
       "textColor": "#F9F8F4",
       "backgroundColor": "#378d88"
     },
-    "name": "Para empezar",
     "live": false,
     "published": true,
     "card": {
       "lottie": {
         "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1683720732/Lottie/aware_logo_teal_qqweff.json"
       },
-      "imageBackgroundColor": ""
+      "imageBackgroundColor": "",
+      "image": {
+        "source": ""
+      }
     },
     "coCreators": [
       {
@@ -465,6 +469,10 @@
     ],
     "id": "1a53e633-6916-4fea-a072-977c4b215288",
     "async": true,
-    "description": "Una introducción a la práctica de la atención plena, la gratitud y cómo comenzar a usar la aplicación Aware."
+    "liveDuration": 5,
+    "hidden": false,
+    "excludeFromWeb": true,
+    "asyncDuration": 5,
+    "link": "https://aware.29k.org/dive-in"
   }
 }

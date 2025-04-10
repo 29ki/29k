@@ -38,6 +38,8 @@ const skipKeys = {
     'published',
     'tags',
     'p5JsScript',
+    'code',
+    'lang',
   ],
 };
 
