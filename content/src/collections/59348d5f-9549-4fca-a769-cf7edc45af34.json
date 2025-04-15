@@ -5,6 +5,11 @@
     "name": "Circle of growth",
     "published": true,
     "sortOrder": 1,
+    "card": {
+      "image": {
+        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1744727654/Images/Circleofgrowthill_d1obkb.jpg"
+      }
+    },
     "tags": [
       "8da0534a-5da9-430a-bdf3-242ace6460fb",
       "db34d82a-4c48-4ddd-9de5-f562d8aa1bc9"
@@ -41,7 +46,8 @@
       "c1c4da35-87af-4e10-a8d9-e6c58571f724",
       "c7911238-ca9f-4499-9cae-63dfcd0c79c5",
       "13dfd5b5-f0af-4783-9fe1-3ba7773bcb89"
-    ]
+    ],
+    "card": {}
   },
   "sv": {
     "published": false,
@@ -62,7 +68,8 @@
       "c1c4da35-87af-4e10-a8d9-e6c58571f724",
       "c7911238-ca9f-4499-9cae-63dfcd0c79c5",
       "13dfd5b5-f0af-4783-9fe1-3ba7773bcb89"
-    ]
+    ],
+    "card": {}
   },
   "ja": {
     "published": false,
@@ -83,7 +90,8 @@
       "c1c4da35-87af-4e10-a8d9-e6c58571f724",
       "c7911238-ca9f-4499-9cae-63dfcd0c79c5",
       "13dfd5b5-f0af-4783-9fe1-3ba7773bcb89"
-    ]
+    ],
+    "card": {}
   },
   "da": {
     "published": false,
@@ -104,7 +112,8 @@
       "c1c4da35-87af-4e10-a8d9-e6c58571f724",
       "c7911238-ca9f-4499-9cae-63dfcd0c79c5",
       "13dfd5b5-f0af-4783-9fe1-3ba7773bcb89"
-    ]
+    ],
+    "card": {}
   },
   "cs": {
     "published": false,
@@ -125,7 +134,8 @@
       "c1c4da35-87af-4e10-a8d9-e6c58571f724",
       "c7911238-ca9f-4499-9cae-63dfcd0c79c5",
       "13dfd5b5-f0af-4783-9fe1-3ba7773bcb89"
-    ]
+    ],
+    "card": {}
   },
   "nl": {
     "published": false,
@@ -146,7 +156,8 @@
       "c1c4da35-87af-4e10-a8d9-e6c58571f724",
       "c7911238-ca9f-4499-9cae-63dfcd0c79c5",
       "13dfd5b5-f0af-4783-9fe1-3ba7773bcb89"
-    ]
+    ],
+    "card": {}
   },
   "es": {
     "published": false,
@@ -167,6 +178,7 @@
       "c1c4da35-87af-4e10-a8d9-e6c58571f724",
       "c7911238-ca9f-4499-9cae-63dfcd0c79c5",
       "13dfd5b5-f0af-4783-9fe1-3ba7773bcb89"
-    ]
+    ],
+    "card": {}
   }
 }
