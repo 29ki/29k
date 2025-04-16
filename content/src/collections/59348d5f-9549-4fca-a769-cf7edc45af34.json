@@ -1,6 +1,6 @@
 {
   "en": {
-    "hidden": true,
+    "hidden": false,
     "locked": false,
     "name": "Navigating life together",
     "published": true,
@@ -50,7 +50,7 @@
     "card": {}
   },
   "sv": {
-    "hidden": true,
+    "hidden": false,
     "locked": false,
     "name": "Tillsammans i livet",
     "published": true,
