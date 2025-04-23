@@ -28,15 +28,21 @@
     "description": "Deepen your self-understanding, navigate challenges, and create more meaning. A group-based program to strengthen your relationship with yourself and each other."
   },
   "pt": {
-    "published": false,
     "hidden": false,
     "locked": false,
-    "id": "59348d5f-9549-4fca-a769-cf7edc45af34",
+    "name": "Percorrer a vida juntos",
+    "published": true,
+    "sortOrder": 1,
+    "card": {
+      "image": {
+        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1744727654/Images/Circleofgrowthill_d1obkb.jpg"
+      }
+    },
     "tags": [
       "8da0534a-5da9-430a-bdf3-242ace6460fb",
       "db34d82a-4c48-4ddd-9de5-f562d8aa1bc9"
     ],
-    "sortOrder": 1,
+    "id": "59348d5f-9549-4fca-a769-cf7edc45af34",
     "exercises": [
       "fff6f8da-f69c-458f-8905-acee04bd1a1d",
       "a0600ebe-748d-481c-81af-dab25fa32b76",
@@ -47,7 +53,7 @@
       "c7911238-ca9f-4499-9cae-63dfcd0c79c5",
       "13dfd5b5-f0af-4783-9fe1-3ba7773bcb89"
     ],
-    "card": {}
+    "description": "Aprofunda o teu autoconhecimento, ultrapassa desafios e cria mais significado. Um programa em grupo para fortalecer a tua relação contigo próprio e com os outros."
   },
   "sv": {
     "hidden": false,
