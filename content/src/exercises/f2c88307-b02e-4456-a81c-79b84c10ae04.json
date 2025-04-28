@@ -100,7 +100,9 @@
         "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1731849053/Video/portal_2_Music_I_music_only_mvxv0s.mp4"
       }
     },
-    "tags": ["566aeb1b-1649-4f5a-96a2-0c80be27efc0"],
+    "tags": [
+      "566aeb1b-1649-4f5a-96a2-0c80be27efc0"
+    ],
     "id": "f2c88307-b02e-4456-a81c-79b84c10ae04",
     "async": true,
     "description": "Let the music accompany you on a journey without guidance."
@@ -111,7 +113,7 @@
       {
         "type": "instruction",
         "content": {
-          "text": "Embarcar na sua própria viagem, guiado apenas pela música.\n\nA intenção é de praticar um estado alterado de consciência.",
+          "text": "Embarque na sua própria viagem, guiado apenas pela música.\n\nO objetivo é praticar um estado alterado de consciência.",
           "image": {
             "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1731849005/Images/visual_noBG_Music_I_music_only_ou4vlx.png"
           }
@@ -161,7 +163,7 @@
       {
         "type": "instruction",
         "content": {
-          "text": "Bem-vindo de volta e bom trabalho.\n\nA imersão na música pode ajudar os nossos cérebros a descansar e a reiniciar. Pode trazer-nos novos pensamentos, assim como oferecer um intervalo do ruído quotidiano.",
+          "text": "Bem-vindo de volta e bom trabalho.\n\nImergir na música pode ajudar os nossos cérebros a descansar e a reiniciar. Pode trazer-nos novos pensamentos, assim como oferecer um intervalo do ruído quotidiano.",
           "image": {
             "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1731849005/Images/visual_noBG_Music_I_music_only_ou4vlx.png"
           }
@@ -208,10 +210,12 @@
         "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1731849053/Video/portal_2_Music_I_music_only_mvxv0s.mp4"
       }
     },
-    "tags": ["566aeb1b-1649-4f5a-96a2-0c80be27efc0"],
+    "tags": [
+      "566aeb1b-1649-4f5a-96a2-0c80be27efc0"
+    ],
     "id": "f2c88307-b02e-4456-a81c-79b84c10ae04",
     "async": true,
-    "description": "Técnicas de mindfulness e de visualização/imagética pela música podem ajudar os nossos cérebros a praticar estados de consciência alterados. Podem ser uma forma de relaxarmos e nos situarmos nos nossos corpos."
+    "description": "Técnicas de *mindfulness* e imagética com recurso a música podem ajudar os nossos cérebros a praticar estados de consciência alterados."
   },
   "sv": {
     "liveDuration": 30,
@@ -299,7 +303,9 @@
         }
       ]
     },
-    "tags": ["566aeb1b-1649-4f5a-96a2-0c80be27efc0"],
+    "tags": [
+      "566aeb1b-1649-4f5a-96a2-0c80be27efc0"
+    ],
     "id": "f2c88307-b02e-4456-a81c-79b84c10ae04",
     "async": false
   },
@@ -389,7 +395,9 @@
         }
       ]
     },
-    "tags": ["566aeb1b-1649-4f5a-96a2-0c80be27efc0"],
+    "tags": [
+      "566aeb1b-1649-4f5a-96a2-0c80be27efc0"
+    ],
     "id": "f2c88307-b02e-4456-a81c-79b84c10ae04",
     "async": false
   },
@@ -495,7 +503,9 @@
         "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1731849053/Video/portal_2_Music_I_music_only_mvxv0s.mp4"
       }
     },
-    "tags": ["566aeb1b-1649-4f5a-96a2-0c80be27efc0"],
+    "tags": [
+      "566aeb1b-1649-4f5a-96a2-0c80be27efc0"
+    ],
     "id": "f2c88307-b02e-4456-a81c-79b84c10ae04",
     "async": true,
     "description": "Musik kan hjælpe os til at træde ind i en let ændret bevidsthedstilstand, samt slappe af, genstarte, og komme i kontakt med kroppen."
@@ -602,7 +612,9 @@
         "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1731849053/Video/portal_2_Music_I_music_only_mvxv0s.mp4"
       }
     },
-    "tags": ["566aeb1b-1649-4f5a-96a2-0c80be27efc0"],
+    "tags": [
+      "566aeb1b-1649-4f5a-96a2-0c80be27efc0"
+    ],
     "id": "f2c88307-b02e-4456-a81c-79b84c10ae04",
     "async": true,
     "description": "Vydejte se na cestu, vedeni pouze hudbou. Hudba nám může pomoci cvičit změněné stavy vědomí."
@@ -710,7 +722,9 @@
         "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1731849053/Video/portal_2_Music_I_music_only_mvxv0s.mp4"
       }
     },
-    "tags": ["566aeb1b-1649-4f5a-96a2-0c80be27efc0"],
+    "tags": [
+      "566aeb1b-1649-4f5a-96a2-0c80be27efc0"
+    ],
     "id": "f2c88307-b02e-4456-a81c-79b84c10ae04",
     "async": true,
     "description": "Muziek kunnen onze hersenen helpen oefenen in het ervaren van veranderde bewustzijnstoestanden. Het kan een manier zijn om te ontspannen, te resetten en onszelf te aarden in ons lichaam."
@@ -719,6 +733,8 @@
     "card": {},
     "id": "f2c88307-b02e-4456-a81c-79b84c10ae04",
     "locked": true,
-    "tags": ["566aeb1b-1649-4f5a-96a2-0c80be27efc0"]
+    "tags": [
+      "566aeb1b-1649-4f5a-96a2-0c80be27efc0"
+    ]
   }
 }
