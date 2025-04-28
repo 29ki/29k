@@ -241,7 +241,7 @@
       },
       {
         "content": {
-          "text": "Parabéns por ter concluído a exploração da sua vida. Refletir ativamente sobre eventos passados pode, por vezes, ajudar a ver as circunstâncias atuais de uma nova perspetiva.\n\nPor vezes, os períodos mais difíceis são aqueles em que mais aprendemos, e, em algumas situações, os desafios mais exigentes são seguidos por um tempo de profunda conexão e significado. Seja qual for a sua realidade, encorajamo-lo a continuar a conversa com alguém próximo de si.",
+          "text": "Parabéns por ter concluído este exercício de exploração da sua vida. Refletir ativamente sobre eventos passados pode, por vezes, ajudar a ver as circunstâncias atuais de uma nova perspetiva.\n\nPor vezes, os períodos mais difíceis são aqueles em que mais aprendemos, e, em algumas situações, os desafios mais exigentes poderão ser seguidos por um tempo de profundo significado. Seja qual for a sua realidade, encorajamo-lo(a) a continuar a conversa com alguém próximo de si.",
           "image": {
             "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1731909575/Images/visual_noBG_Life_exploration_ejdn1o.png"
           }
@@ -304,7 +304,7 @@
     ],
     "id": "b9001702-8502-46de-bc7b-3ebf2b812c0e",
     "async": true,
-    "description": "Faça uma síntese da sua vida até ao momento presente, e reflita sobre as suas experiências passadas. Para realizar este exercício, vai precisar de papel e caneta."
+    "description": "Faça uma síntese da sua vida até ao momento presente e reflita sobre as suas experiências passadas. Para realizar este exercício vai precisar de papel e caneta."
   },
   "sv": {
     "liveDuration": 30,
