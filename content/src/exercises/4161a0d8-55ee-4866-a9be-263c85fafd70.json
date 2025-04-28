@@ -247,7 +247,7 @@
       {
         "type": "instruction",
         "content": {
-          "text": "Aprendeu algumas competências para estar mais preparado para conversas difíceis:\n\n1. Repare e permita-se acolher emoções e pensamentos difíceis.\n2. Pergunte para compreender, não para persuadir.\n3. Escute, permita silêncios.\n4. Permita-se ser vulnerável e disponível.\n\nSe tiver uma conversa difícil em mente, faça um plano para quando e onde vai tê-la.",
+          "text": "Aprendeu algumas competências para estar mais preparado para conversas difíceis:\n\n1. Reparar e permitir-se acolher emoções e pensamentos difíceis. \n2. Perguntar para compreender, não para persuadir. \n3. Escutar e permitir-se a silêncios.\n4. Permitir-se a ser vulnerável e disponível. \n\nSe tiver uma conversa difícil em mente, faça um plano para quando e onde vai tê-la.",
           "image": {
             "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1737800767/Images/image_33_Difficult_conversation_h81lm9.png"
           }
@@ -260,7 +260,7 @@
     },
     "hidden": false,
     "locked": true,
-    "name": "Conversas dificeis",
+    "name": "Conversas difíceis",
     "live": false,
     "published": true,
     "excludeFromWeb": false,
@@ -312,7 +312,7 @@
     ],
     "id": "4161a0d8-55ee-4866-a9be-263c85fafd70",
     "async": true,
-    "description": "Por vezes, evitamos conversas difíceis porque sabemos que serão emocionalmente desafiantes. Contrariar este comportamento, enfrentando dificuldades com uma atitude de aceitação, pode ajudar-nos a lidar melhor com essas situações.\n\nIrá precisar de:\n\n* 20 minutos sem interrupções\n* Uma caneta e papel"
+    "description": "Por vezes evitamos conversas difíceis porque sabemos que serão emocionalmente desafiantes. Contrariar este comportamento, enfrentando dificuldades com uma atitude de aceitação, pode ajudar-nos a lidar melhor com essas situações.\n\nIrá precisar de:\n\n* 20 minutos sem interrupções\n* Uma caneta e papel"
   },
   "sv": {
     "liveDuration": 30,
