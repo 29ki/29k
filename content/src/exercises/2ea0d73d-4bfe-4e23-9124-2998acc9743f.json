@@ -595,7 +595,7 @@
         "type": "content",
         "content": {
           "lottie": {
-            "subtitles": "",
+            "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1745927436/Spanish/Subtitles%20SRT/Lidera_desde_el_amor_dc5o4u.srt",
             "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1744295629/Spanish/Audio%20MP3/Lidera_desde_el_amor_ocxldx.mp3",
             "durationTimer": true,
             "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/t_card_image/v1676642915/Lottie/default_audio_black_zjrmu2.json"
