@@ -563,7 +563,7 @@
         "type": "content",
         "content": {
           "lottie": {
-            "subtitles": "",
+            "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1745927436/Spanish/Subtitles%20SRT/Explorando_la_vergu%CC%88enza_l5ibqz.srt",
             "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1744295665/Spanish/Audio%20MP3/Explorando_la_vergu%CC%88enza_cpam2t.mp3",
             "durationTimer": true,
             "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto/v1676977421/Lottie/audio_meditation_default_black_default_omemwt.json"
