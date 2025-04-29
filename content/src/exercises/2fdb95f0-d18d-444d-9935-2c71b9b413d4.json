@@ -600,7 +600,7 @@
         "type": "content",
         "content": {
           "lottie": {
-            "subtitles": "",
+            "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1745927436/Spanish/Subtitles%20SRT/Escucha_tu_voz_interior_jxjhvy.srt",
             "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1744295641/Spanish/Audio%20MP3/Escucha_tu_voz_interior_l0umok.mp3",
             "durationTimer": true,
             "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/t_card_image/v1676977421/Lottie/audio_meditation_default_white_default_mqfcuo.json"
