@@ -615,7 +615,7 @@
         "type": "content",
         "content": {
           "lottie": {
-            "subtitles": "",
+            "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1745927436/Spanish/Subtitles%20SRT/Intencio%CC%81n_compasiva_jvc8fx.srt",
             "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1744295652/Spanish/Audio%20MP3/Intencio%CC%81n_compasiva_oisb6x.mp3",
             "durationTimer": true,
             "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/t_card_image/v1676977421/Lottie/audio_meditation_default_black_default_omemwt.json"
