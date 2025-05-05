@@ -19,7 +19,7 @@
     "ramda": "^0.30.1"
   },
   "devDependencies": {
-    "@babel/plugin-transform-modules-commonjs": "^7.26.3",
+    "@babel/plugin-transform-modules-commonjs": "^7.27.1",
     "@fast-csv/format": "^5.0.2",
     "@types/jest": "^29.5.14",
     "@types/node": "^22.13.5",
