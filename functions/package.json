@@ -47,7 +47,7 @@
     "semver": "^7.6.3",
     "stripe": "^16.11.0",
     "uuid": "^10.0.0",
-    "yup": "^1.4.0"
+    "yup": "^1.6.1"
   },
   "devDependencies": {
     "@sentry/cli": "^2.40.0",
