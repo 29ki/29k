@@ -29,6 +29,7 @@ export * from './Ellipsis/Ellipsis';
 export * from './Envelope/Envelope';
 export * from './Explore/Explore';
 export * from './ExploreFill/ExploreFill';
+export * from './Eye/Eye';
 export * from './Facebook/Facebook';
 export * from './FilmCamera/FilmCamera';
 export * from './FilmCameraCheck/FilmCameraCheck';

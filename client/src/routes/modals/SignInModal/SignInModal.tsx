@@ -17,6 +17,7 @@ import {ModalStackProps} from '../../../lib/navigation/constants/routes';
 import {Body16} from '../../../lib/components/Typography/Body/Body';
 import {COLORS} from '../../../../../shared/src/constants/colors';
 import TouchableOpacity from '../../../lib/components/TouchableOpacity/TouchableOpacity';
+import {EyeIcon, PrivateEyeIcon} from '../../../lib/components/Icons';
 
 const ActionRow = styled.View({
   flexDirection: 'row',
@@ -42,6 +43,7 @@ const SignInModal = () => {
     useNavigation<NativeStackNavigationProp<ModalStackProps>>();
 
   const [isSigningIn, setIsSigningIn] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
@@ -62,6 +64,19 @@ const SignInModal = () => {
     navigate('ForgotPasswordModal');
   }, [navigate]);
 
+  const toggleShowPassword = useCallback(() => {
+    setShowPassword(prev => !prev);
+  }, []);
+
+  const TogglePasswordVisibility = useCallback(
+    () => (
+      <TouchableOpacity onPress={toggleShowPassword}>
+        {showPassword ? <EyeIcon /> : <PrivateEyeIcon />}
+      </TouchableOpacity>
+    ),
+    [showPassword, toggleShowPassword],
+  );
+
   return (
     <SheetModal>
       <Gutters>
@@ -81,13 +96,14 @@ const SignInModal = () => {
           />
           <BottomSheetActionTextInput
             textContentType="password"
-            secureTextEntry
+            secureTextEntry={!showPassword}
             autoCapitalize="none"
             autoComplete="password"
             autoCorrect={false}
             onSubmitEditing={signIn}
             placeholder={t('password')}
             onChangeText={setPassword}
+            Icon={TogglePasswordVisibility}
           />
         </ActionList>
         <Spacer16 />
