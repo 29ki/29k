@@ -1399,13 +1399,11 @@
     base-64 "^1.0.0"
     react-native-url-polyfill "^1.1.2"
 
-"@daily-co/react-native-webrtc@118.0.3-daily.1":
-  version "118.0.3-daily.1"
-  resolved "https://registry.yarnpkg.com/@daily-co/react-native-webrtc/-/react-native-webrtc-118.0.3-daily.1.tgz#52c6a3d065cb3c7b964159d16a2d394205d3fbc1"
-  integrity sha512-NDBOV0JLZ+6UU8Ha8vwWYOdhb+P665PlogSi6zqYLVAihRKFpoFX15tpK9xvqIb9vr/kyNPAvG+EWFXFdwoMuQ==
+"@daily-co/react-native-webrtc@118.0.3-daily.3":
+  version "118.0.3-daily.3"
+  resolved "https://registry.yarnpkg.com/@daily-co/react-native-webrtc/-/react-native-webrtc-118.0.3-daily.3.tgz#341292ac9765d8d11ae5ae988df2f7562fe63028"
+  integrity sha512-vTYoOkle3ApxiflAuQUuhyEPkKILUHUtT7f9SELtctIxky/qxhaSzpQU9neDdp2BR86Gou/3tW7ajb/R29Su3Q==
   dependencies:
-    "@types/react" "17.0.40"
-    "@types/react-native" "0.67.3"
     base64-js "1.5.1"
     debug "4.3.4"
     event-target-shim "6.0.2"
@@ -3923,13 +3921,6 @@
     "@types/react" "*"
     react-native "*"
 
-"@types/react-native@0.67.3":
-  version "0.67.3"
-  resolved "https://registry.yarnpkg.com/@types/react-native/-/react-native-0.67.3.tgz#baba111c8ce1a45a6034c15f6f0ad98826239780"
-  integrity sha512-hF4uOZFl2PPQtGWOtLoafrlCJeU815X3PgfVePM+7EhOIZhYXKH7+p3R3cZSnwVnrU5Ep/JfiHimMDliY3o8oQ==
-  dependencies:
-    "@types/react" "*"
-
 "@types/react-test-renderer@^18.0.0":
   version "18.0.7"
   resolved "https://registry.yarnpkg.com/@types/react-test-renderer/-/react-test-renderer-18.0.7.tgz#2cfe657adb3688cdf543995eceb2e062b5a68728"
@@ -3944,20 +3935,6 @@
   dependencies:
     "@types/prop-types" "*"
     csstype "^3.0.2"
-
-"@types/react@17.0.40":
-  version "17.0.40"
-  resolved "https://registry.yarnpkg.com/@types/react/-/react-17.0.40.tgz#dc010cee6254d5239a138083f3799a16638e6bad"
-  integrity sha512-UrXhD/JyLH+W70nNSufXqMZNuUD2cXHu6UjCllC6pmOQgBX4SGXOH8fjRka0O0Ee0HrFxapDD8Bwn81Kmiz6jQ==
-  dependencies:
-    "@types/prop-types" "*"
-    "@types/scheduler" "*"
-    csstype "^3.0.2"
-
-"@types/scheduler@*":
-  version "0.16.2"
-  resolved "https://registry.yarnpkg.com/@types/scheduler/-/scheduler-0.16.2.tgz#1a62f89525723dde24ba1b01b092bf5df8ad4d39"
-  integrity sha512-hppQEBDmlwhFAXKJX2KnWLYu5yMfi91yazPb2l+lbJiwW+wdo1gNeRA+3RgNSO39WYX2euey41KEwnqesU2Jew==
 
 "@types/semver@^7.3.12":
   version "7.3.12"
