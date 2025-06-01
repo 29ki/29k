@@ -571,27 +571,7 @@
     "card": {}
   },
   "es": {
-    "description": "Esta es una meditación guiada para arraigarnos en el momento presente a través de nuestra respiración. La conciencia del momento presente puede ayudarnos a reducir los pensamientos recurrentes, el ruido mental y el estrés, así como a mejorar la toma de decisiones.",
-    "introPortal": {
-      "hostNotes": [
-        {
-          "text": "> Inicia la sesión cuando estés listo/a para comenzar"
-        }
-      ],
-      "videoLoop": {
-        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1678973899/Video/portal1_breathing_anchor_iv6ljo.mp4",
-        "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1678973955/Images/portal1_breathing_anchor_thumbnail_a9slfm.png",
-        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1678973982/Audio/portal_audio_breathing_anchor_ul2agi.mp3",
-        "p5JsScript": {
-          "lang": "javascript"
-        }
-      },
-      "videoEnd": {
-        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1678973897/Video/portal2_breathing_anchor_yzwgnb.mp4",
-        "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1678973955/Images/portal1_breathing_anchor_thumbnail_a9slfm.png"
-      }
-    },
-    "name": "Ancla de la respiración",
+    "liveDuration": 30,
     "slides": [
       {
         "hostNotes": [
@@ -624,7 +604,7 @@
           },
           "lottie": {
             "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1676977421/Lottie/audio_meditation_default_black_default_omemwt.json",
-            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1737570875/Spanish/Audio%20MP3/AnclaRespiracion_hjutex.mp3",
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1748788889/Spanish/Audio%20MP3/AnclaRespiracio%CC%81n_2_rs4zir.mp3",
             "durationTimer": true,
             "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1737624322/Spanish/Subtitles%20SRT/AnclaRespiracio%CC%81n_wj2ywc.srt"
           }
@@ -705,8 +685,11 @@
       "textColor": "#2E2E2E",
       "backgroundColor": "#f0c7d1"
     },
+    "hidden": false,
+    "name": "Ancla de la respiración",
     "live": true,
     "published": true,
+    "asyncDuration": 7,
     "card": {
       "image": {
         "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1678973954/Images/card_image_breathing_anchor_vibuvl.png"
@@ -724,15 +707,32 @@
         "image": ""
       }
     ],
+    "introPortal": {
+      "hostNotes": [
+        {
+          "text": "> Inicia la sesión cuando estés listo/a para comenzar"
+        }
+      ],
+      "videoLoop": {
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1678973899/Video/portal1_breathing_anchor_iv6ljo.mp4",
+        "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1678973955/Images/portal1_breathing_anchor_thumbnail_a9slfm.png",
+        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1678973982/Audio/portal_audio_breathing_anchor_ul2agi.mp3",
+        "p5JsScript": {
+          "lang": "javascript"
+        }
+      },
+      "videoEnd": {
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1678973897/Video/portal2_breathing_anchor_yzwgnb.mp4",
+        "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1678973955/Images/portal1_breathing_anchor_thumbnail_a9slfm.png"
+      }
+    },
     "tags": [
       "cfc00217-f65b-4a4d-8b82-8ccc8f852dd6",
       "8da0534a-5da9-430a-bdf3-242ace6460fb"
     ],
+    "link": "https://aware.29k.org/breathing-anchor",
     "id": "b18c1cff-bb43-44b1-81a1-2877cc018ab4",
     "async": true,
-    "liveDuration": 30,
-    "hidden": false,
-    "asyncDuration": 7,
-    "link": "https://aware.29k.org/breathing-anchor"
+    "description": "Esta es una meditación guiada para arraigarnos en el momento presente a través de nuestra respiración. La conciencia del momento presente puede ayudarnos a reducir los pensamientos recurrentes, el ruido mental y el estrés, así como a mejorar la toma de decisiones."
   }
 }
