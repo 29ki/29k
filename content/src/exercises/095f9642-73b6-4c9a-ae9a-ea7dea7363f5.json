@@ -696,27 +696,7 @@
     "card": {}
   },
   "es": {
-    "description": "Una meditación guiada que pone luz a un momento precioso. Practicar notar lo que sí ya está funcionando en nuestras vidas puede ayudarnos a sentirnos más felices y realizados, a la vez que nos ayuda a contrarrestar la tendencia natural de nuestro cerebro a enfocarse en lo negativo.",
-    "introPortal": {
-      "hostNotes": [
-        {
-          "text": "> Comienza la sesión cuando estés listo/a para empezar."
-        }
-      ],
-      "type": "video",
-      "videoLoop": {
-        "source": "https://res.cloudinary.com/twentyninek/video/upload/q_auto/v1663143395/temp/portal-intro_h7qccz.mp4",
-        "audio": "https://res.cloudinary.com/twentyninek/video/upload/v1664811123/temp/ocean_s3t5yy_mm2dgh.mp3",
-        "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1674554579/Images/thumb_portal_pure_simple_love_geibz4.png",
-        "p5JsScript": {
-          "lang": "javascript"
-        }
-      },
-      "videoEnd": {
-        "source": "https://res.cloudinary.com/twentyninek/video/upload/q_auto/v1663147750/temp/portal-intro-end_crzjih.mp4"
-      }
-    },
-    "name": "Amor puro y sencillo",
+    "liveDuration": 30,
     "slides": [
       {
         "hostNotes": [
@@ -749,7 +729,7 @@
           "lottie": {
             "durationTimer": true,
             "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1676977421/Lottie/audio_meditation_default_black_default_omemwt.json",
-            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1737570894/Spanish/Audio%20MP3/AmorPuroYSencillo_dallec.mp3",
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1748787006/Spanish/Audio%20MP3/AmorPuroYSencillo_2_undely.mp3",
             "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1737630296/Spanish/Subtitles%20SRT/Amor_Puro_y_Sencillo_ngytzn.srt"
           }
         },
@@ -839,8 +819,10 @@
         "type": "instruction"
       }
     ],
+    "name": "Amor puro y sencillo",
     "live": true,
     "published": true,
+    "asyncDuration": 4,
     "card": {
       "image": {
         "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1698256076/Images/pure-simple-love_vi9ura.png"
@@ -863,14 +845,32 @@
         "source": "https://res.cloudinary.com/twentyninek/video/upload/q_auto/v1664798564/temp/portal_outro_lpm80e.mp4"
       }
     },
+    "introPortal": {
+      "hostNotes": [
+        {
+          "text": "> Comienza la sesión cuando estés listo/a para empezar."
+        }
+      ],
+      "type": "video",
+      "videoLoop": {
+        "source": "https://res.cloudinary.com/twentyninek/video/upload/q_auto/v1663143395/temp/portal-intro_h7qccz.mp4",
+        "audio": "https://res.cloudinary.com/twentyninek/video/upload/v1664811123/temp/ocean_s3t5yy_mm2dgh.mp3",
+        "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1674554579/Images/thumb_portal_pure_simple_love_geibz4.png",
+        "p5JsScript": {
+          "lang": "javascript"
+        }
+      },
+      "videoEnd": {
+        "source": "https://res.cloudinary.com/twentyninek/video/upload/q_auto/v1663147750/temp/portal-intro-end_crzjih.mp4"
+      }
+    },
     "tags": [
       "cfc00217-f65b-4a4d-8b82-8ccc8f852dd6",
       "43a6dc0d-d866-4b79-9453-13c44e906128"
     ],
+    "link": "https://aware.29k.org/pure-simple-love",
     "id": "095f9642-73b6-4c9a-ae9a-ea7dea7363f5",
     "async": true,
-    "liveDuration": 30,
-    "asyncDuration": 4,
-    "link": "https://aware.29k.org/pure-simple-love"
+    "description": "Una meditación guiada que pone luz a un momento precioso. Practicar notar lo que sí ya está funcionando en nuestras vidas puede ayudarnos a sentirnos más felices y realizados, a la vez que nos ayuda a contrarrestar la tendencia natural de nuestro cerebro a enfocarse en lo negativo."
   }
 }
