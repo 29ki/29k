@@ -598,25 +598,7 @@
     "card": {}
   },
   "es": {
-    "description": "En este ejercicio de meditación practicaremos atravesar nuestras dificultades en lugar de intentar evitarlas. Permitirnos experimentar todo el espectro de emociones puede ayudarnos a llevar vidas más significativas y plenas.",
-    "introPortal": {
-      "hostNotes": [
-        {
-          "text": "> Inicia la sesión cuando estés listo/a para comenzar"
-        }
-      ],
-      "videoLoop": {
-        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1687856251/Video/way_out_is_through_portal1_rpqnfr.mp4",
-        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1687418774/Audio/way_out_is_through_portal_audio_doduhc.mp3",
-        "p5JsScript": {
-          "lang": "javascript"
-        }
-      },
-      "videoEnd": {
-        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1687856193/Video/way_out_is_through_portal_end_erxgxh.mp4"
-      }
-    },
-    "name": "Superar las dificultades",
+    "liveDuration": 30,
     "slides": [
       {
         "hostNotes": [
@@ -650,7 +632,7 @@
           "lottie": {
             "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1676977421/Lottie/audio_meditation_default_black_default_omemwt.json",
             "durationTimer": true,
-            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1738506643/Spanish/Audio%20MP3/SuperarLasDificultades_admlrh.mp3",
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1748791209/Spanish/Audio%20MP3/SuperarLasDificultades_2_anwoio.mp3",
             "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1738514117/Spanish/Subtitles%20SRT/Superar_las_dificultades_stbvoi.srt"
           }
         }
@@ -729,8 +711,11 @@
     "theme": {
       "textColor": "#2E2E2E"
     },
+    "hidden": false,
+    "name": "Superar las dificultades",
     "live": true,
     "published": true,
+    "asyncDuration": 8,
     "card": {
       "image": {
         "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1687406076/Images/card_image_way_out_is_through_qjpv4m.png"
@@ -755,15 +740,30 @@
         "audio": ""
       }
     },
+    "introPortal": {
+      "hostNotes": [
+        {
+          "text": "> Inicia la sesión cuando estés listo/a para comenzar"
+        }
+      ],
+      "videoLoop": {
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1687856251/Video/way_out_is_through_portal1_rpqnfr.mp4",
+        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1687418774/Audio/way_out_is_through_portal_audio_doduhc.mp3",
+        "p5JsScript": {
+          "lang": "javascript"
+        }
+      },
+      "videoEnd": {
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1687856193/Video/way_out_is_through_portal_end_erxgxh.mp4"
+      }
+    },
     "tags": [
       "34100e43-2eb8-4d35-8eb0-9fa9f78e4935",
       "cfc00217-f65b-4a4d-8b82-8ccc8f852dd6"
     ],
+    "link": "https://aware.29k.org/the-way-out-is-through",
     "id": "1e96f73b-8193-4aa6-a52c-31355eac3c08",
     "async": true,
-    "liveDuration": 30,
-    "hidden": false,
-    "asyncDuration": 8,
-    "link": "https://aware.29k.org/the-way-out-is-through"
+    "description": "En este ejercicio de meditación practicaremos atravesar nuestras dificultades en lugar de intentar evitarlas. Permitirnos experimentar todo el espectro de emociones puede ayudarnos a llevar vidas más significativas y plenas."
   }
 }
