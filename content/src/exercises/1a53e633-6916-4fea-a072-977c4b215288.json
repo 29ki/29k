@@ -374,8 +374,7 @@
     "id": "1a53e633-6916-4fea-a072-977c4b215288"
   },
   "es": {
-    "description": "Una introducción a la práctica de la atención plena, la gratitud y cómo comenzar a usar la aplicación Aware.",
-    "name": "Empieza aquí",
+    "liveDuration": 5,
     "slides": [
       {
         "type": "content",
@@ -388,8 +387,8 @@
             "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1683721090/Lottie/dive_in_audio_visual_white_vjvfjo.json",
             "durationTimer": true,
             "autoPlayLoop": false,
-            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1737570904/Spanish/Audio%20MP3/ParaEmpezar_2_f0xlvn.mp3",
-            "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1737624322/Spanish/Subtitles%20SRT/ParaEmpezar_2_syre0f.srt"
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1748782761/Spanish/Audio%20MP3/ParaEmpezar_3_ippolz.mp3",
+            "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1748783504/Spanish/Subtitles%20SRT/ParaEmpezar_3_ufwkpe.srt"
           }
         }
       },
@@ -417,8 +416,12 @@
       "textColor": "#F9F8F4",
       "backgroundColor": "#378d88"
     },
+    "hidden": false,
+    "name": "Empieza aquí",
     "live": false,
     "published": true,
+    "excludeFromWeb": true,
+    "asyncDuration": 5,
     "card": {
       "lottie": {
         "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1683720732/Lottie/aware_logo_teal_qqweff.json"
@@ -467,12 +470,9 @@
       "43a6dc0d-d866-4b79-9453-13c44e906128",
       "cfc00217-f65b-4a4d-8b82-8ccc8f852dd6"
     ],
+    "link": "https://aware.29k.org/dive-in",
     "id": "1a53e633-6916-4fea-a072-977c4b215288",
     "async": true,
-    "liveDuration": 5,
-    "hidden": false,
-    "excludeFromWeb": true,
-    "asyncDuration": 5,
-    "link": "https://aware.29k.org/dive-in"
+    "description": "Una introducción a la práctica de la atención plena, la gratitud y cómo comenzar a usar la aplicación Aware."
   }
 }
