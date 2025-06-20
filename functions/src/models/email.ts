@@ -24,6 +24,7 @@ const TO_HELP = {
   cs: 'help@29k.org',
   nl: 'help@29k.org',
   es: 'help@29k.org',
+  'pt-BR': 'help@29k.org',
 };
 
 const FROM_APP = {
@@ -35,6 +36,7 @@ const FROM_APP = {
   cs: 'app@29k.org',
   nl: 'app@29k.org',
   es: 'app@29k.org',
+  'pt-BR': 'app@29k.org',
 };
 
 const createReportEmail = (
