@@ -34,5 +34,6 @@
     },
     "message": "Abre la configuración para darnos permiso para enviarte notificaciones. Esto reiniciará la aplicación.",
     "title": "No tienes permiso."
-  }
+  },
+  "pt-BR": {}
 }

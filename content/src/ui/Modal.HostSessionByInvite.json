@@ -22,5 +22,6 @@
     "cancel": "Rechazar",
     "confirm": "Aceptar",
     "description": "{{hostName}} quiere que tú organices esta sesión en lugar de él/ella."
-  }
+  },
+  "pt-BR": {}
 }

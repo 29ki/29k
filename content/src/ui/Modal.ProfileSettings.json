@@ -116,5 +116,6 @@
     "save": "Guardar cambios",
     "setPassword": "Establecer una contraseña",
     "title": "Configuración del perfil"
-  }
+  },
+  "pt-BR": {}
 }

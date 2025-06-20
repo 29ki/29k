@@ -14,5 +14,6 @@
   "nl": {},
   "es": {
     "inMinutes": "{{minutes}}m {{seconds}}s"
-  }
+  },
+  "pt-BR": {}
 }

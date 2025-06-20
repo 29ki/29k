@@ -38,5 +38,6 @@
       "message": "{{language}} todavía está en desarrollo y puede que todavía no te ofrezca la mejor experiencia. ¿Quieres cambiar a {{language}} de todos modos?",
       "title": "Idioma soportado parcialmente"
     }
-  }
+  },
+  "pt-BR": {}
 }

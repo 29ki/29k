@@ -768,5 +768,8 @@
     "id": "a0600ebe-748d-481c-81af-dab25fa32b76",
     "async": true,
     "description": "Encuentra un amigo interior compasivo o una amiga interior compasiva que pueda acompañarte en los momentos difíciles."
+  },
+  "pt-BR": {
+    "id": "a0600ebe-748d-481c-81af-dab25fa32b76"
   }
 }

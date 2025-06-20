@@ -34,5 +34,6 @@
     },
     "header": "Deja una reseña",
     "text": "¡Gracias! ¿Te importaría puntuar nuestra aplicación en el {{storeType}}?"
-  }
+  },
+  "pt-BR": {}
 }

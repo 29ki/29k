@@ -84,5 +84,6 @@
       "message": "Permite que Aware acceda a tu micrófono para que puedas participar en la sesión. Esto reiniciará la aplicación.",
       "title": "Se denegó el permiso para el micrófono."
     }
-  }
+  },
+  "pt-BR": {}
 }

@@ -18,5 +18,6 @@
   "es": {
     "description": "Haz clic en el enlace para ver más detalles y decidir si quieres aceptarlo o no como anfitrión/a.",
     "title": "A {{hostName}} le gustaría que seas el/la anfitrión/a de {{sessionName}}."
-  }
+  },
+  "pt-BR": {}
 }

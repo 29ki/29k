@@ -146,7 +146,9 @@
       },
       "textColor": "#2E2E2E"
     },
-    "tags": ["9c2c08a9-7dc6-4058-bc78-016d0eb00614"],
+    "tags": [
+      "9c2c08a9-7dc6-4058-bc78-016d0eb00614"
+    ],
     "link": "https://aware.29k.org/set-smart-goals",
     "id": "33a188a2-6871-47d6-a754-f5c246bd6b9a",
     "async": true,
@@ -304,7 +306,9 @@
       },
       "textColor": "#2E2E2E"
     },
-    "tags": ["9c2c08a9-7dc6-4058-bc78-016d0eb00614"],
+    "tags": [
+      "9c2c08a9-7dc6-4058-bc78-016d0eb00614"
+    ],
     "link": "https://aware.29k.org/set-smart-goals",
     "id": "33a188a2-6871-47d6-a754-f5c246bd6b9a",
     "async": true,
@@ -456,7 +460,9 @@
       },
       "textColor": "#2E2E2E"
     },
-    "tags": ["9c2c08a9-7dc6-4058-bc78-016d0eb00614"],
+    "tags": [
+      "9c2c08a9-7dc6-4058-bc78-016d0eb00614"
+    ],
     "link": "https://aware.29k.org/set-smart-goals",
     "id": "33a188a2-6871-47d6-a754-f5c246bd6b9a",
     "async": true,
@@ -546,27 +552,38 @@
         }
       ]
     },
-    "tags": ["9c2c08a9-7dc6-4058-bc78-016d0eb00614"],
+    "tags": [
+      "9c2c08a9-7dc6-4058-bc78-016d0eb00614"
+    ],
     "link": "https://aware.29k.org/set-smart-goals",
     "id": "33a188a2-6871-47d6-a754-f5c246bd6b9a",
     "async": false
   },
   "da": {
-    "tags": ["9c2c08a9-7dc6-4058-bc78-016d0eb00614"],
+    "tags": [
+      "9c2c08a9-7dc6-4058-bc78-016d0eb00614"
+    ],
     "link": "https://aware.29k.org/set-smart-goals",
     "id": "33a188a2-6871-47d6-a754-f5c246bd6b9a"
   },
   "cs": {
-    "tags": ["9c2c08a9-7dc6-4058-bc78-016d0eb00614"],
+    "tags": [
+      "9c2c08a9-7dc6-4058-bc78-016d0eb00614"
+    ],
     "link": "https://aware.29k.org/set-smart-goals",
     "id": "33a188a2-6871-47d6-a754-f5c246bd6b9a"
   },
   "nl": {
-    "tags": ["9c2c08a9-7dc6-4058-bc78-016d0eb00614"],
+    "tags": [
+      "9c2c08a9-7dc6-4058-bc78-016d0eb00614"
+    ],
     "link": "https://aware.29k.org/set-smart-goals",
     "id": "33a188a2-6871-47d6-a754-f5c246bd6b9a"
   },
   "es": {
+    "id": "33a188a2-6871-47d6-a754-f5c246bd6b9a"
+  },
+  "pt-BR": {
     "id": "33a188a2-6871-47d6-a754-f5c246bd6b9a"
   }
 }

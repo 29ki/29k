@@ -18,5 +18,6 @@
   "es": {
     "description": "Con {{host}} - {{description}}",
     "title": "Sesión de Aware {{title}}"
-  }
+  },
+  "pt-BR": {}
 }

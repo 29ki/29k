@@ -34,5 +34,6 @@
     "privateLabel": "Solo yo",
     "publicLabel": "Cualquier persona, como {{displayName}}",
     "submitCta": "Publicar"
-  }
+  },
+  "pt-BR": {}
 }
