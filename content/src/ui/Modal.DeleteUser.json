@@ -11,7 +11,7 @@
       "auth/user-disabled": "Wrong e-mail and/or password"
     }
   },
-  "pt": {
+  "pt-PT": {
     "email": "Email",
     "password": "Password",
     "errors": {

@@ -3,7 +3,7 @@
     "title": "Aware session {{title}}",
     "description": "With {{host}} - {{description}}"
   },
-  "pt": {
+  "pt-PT": {
     "title": "Sessão Aware: {{title}}",
     "description": "Com {{host}} - {{description}}"
   },

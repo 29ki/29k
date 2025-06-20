@@ -159,7 +159,7 @@
     "async": true,
     "description": "Guided meditation for grounding ourselves in the present moment with our breathing. Present moment awareness can help us reduce rumination and stress as well as improve decision-making."
   },
-  "pt": {
+  "pt-PT": {
     "liveDuration": 30,
     "slides": [
       {

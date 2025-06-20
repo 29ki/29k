@@ -4,7 +4,7 @@
     "confirm": "Accept",
     "cancel": "Decline"
   },
-  "pt": {
+  "pt-PT": {
     "description": "{{hostName}} gostaria que moderasses esta sessão em sua vez.",
     "confirm": "Aceitar",
     "cancel": "Rejeitar"

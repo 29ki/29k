@@ -143,14 +143,12 @@
         "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1731909539/Video/portal_2_Life_exploration_ntjptt.mp4"
       }
     },
-    "tags": [
-      "566aeb1b-1649-4f5a-96a2-0c80be27efc0"
-    ],
+    "tags": ["566aeb1b-1649-4f5a-96a2-0c80be27efc0"],
     "id": "b9001702-8502-46de-bc7b-3ebf2b812c0e",
     "async": true,
     "description": "Create an overview of your life so far, and learn from your own past experiences. You'll need pen and paper to complete this exercise."
   },
-  "pt": {
+  "pt-PT": {
     "liveDuration": 30,
     "slides": [
       {
@@ -299,9 +297,7 @@
         "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1731909539/Video/portal_2_Life_exploration_ntjptt.mp4"
       }
     },
-    "tags": [
-      "566aeb1b-1649-4f5a-96a2-0c80be27efc0"
-    ],
+    "tags": ["566aeb1b-1649-4f5a-96a2-0c80be27efc0"],
     "id": "b9001702-8502-46de-bc7b-3ebf2b812c0e",
     "async": true,
     "description": "Faça uma síntese da sua vida até ao momento presente e reflita sobre as suas experiências passadas. Para realizar este exercício vai precisar de papel e caneta."
@@ -392,9 +388,7 @@
         }
       ]
     },
-    "tags": [
-      "566aeb1b-1649-4f5a-96a2-0c80be27efc0"
-    ],
+    "tags": ["566aeb1b-1649-4f5a-96a2-0c80be27efc0"],
     "id": "b9001702-8502-46de-bc7b-3ebf2b812c0e",
     "async": false
   },
@@ -484,9 +478,7 @@
         }
       ]
     },
-    "tags": [
-      "566aeb1b-1649-4f5a-96a2-0c80be27efc0"
-    ],
+    "tags": ["566aeb1b-1649-4f5a-96a2-0c80be27efc0"],
     "id": "b9001702-8502-46de-bc7b-3ebf2b812c0e",
     "async": false
   },
@@ -639,9 +631,7 @@
         "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1731909539/Video/portal_2_Life_exploration_ntjptt.mp4"
       }
     },
-    "tags": [
-      "566aeb1b-1649-4f5a-96a2-0c80be27efc0"
-    ],
+    "tags": ["566aeb1b-1649-4f5a-96a2-0c80be27efc0"],
     "id": "b9001702-8502-46de-bc7b-3ebf2b812c0e",
     "async": true,
     "description": "Lav en oversigt over dit livsforløb frem til nu, og lær af dine egne tidligere erfaringer. Du skal bruge pen og papir for at gennemføre denne øvelse."
@@ -795,9 +785,7 @@
         "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1731909539/Video/portal_2_Life_exploration_ntjptt.mp4"
       }
     },
-    "tags": [
-      "566aeb1b-1649-4f5a-96a2-0c80be27efc0"
-    ],
+    "tags": ["566aeb1b-1649-4f5a-96a2-0c80be27efc0"],
     "id": "b9001702-8502-46de-bc7b-3ebf2b812c0e",
     "async": true,
     "description": "Vytvořte přehled vašeho dosavadního života a poučte se z minulých zkušeností. K dokončení tohoto cvičení budete potřebovat pero a papír."
@@ -951,18 +939,14 @@
         "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1731909539/Video/portal_2_Life_exploration_ntjptt.mp4"
       }
     },
-    "tags": [
-      "566aeb1b-1649-4f5a-96a2-0c80be27efc0"
-    ],
+    "tags": ["566aeb1b-1649-4f5a-96a2-0c80be27efc0"],
     "id": "b9001702-8502-46de-bc7b-3ebf2b812c0e",
     "async": true,
     "description": "Maak een overzicht van je leven tot nu toe en leer van je eigen ervaringen uit het verleden. Je hebt pen en papier nodig om deze oefening te voltooien."
   },
   "es": {
     "id": "b9001702-8502-46de-bc7b-3ebf2b812c0e",
-    "tags": [
-      "566aeb1b-1649-4f5a-96a2-0c80be27efc0"
-    ],
+    "tags": ["566aeb1b-1649-4f5a-96a2-0c80be27efc0"],
     "locked": true
   },
   "pt-BR": {

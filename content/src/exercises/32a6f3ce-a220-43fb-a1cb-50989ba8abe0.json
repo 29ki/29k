@@ -156,7 +156,7 @@
     "async": true,
     "description": "Explore what work life values mean to you, to help guide you in an important area of life. Basing our behavior on values can help us feel a sense of purpose and promote long-term happiness."
   },
-  "pt": {
+  "pt-PT": {
     "liveDuration": 30,
     "slides": [
       {

@@ -4,7 +4,7 @@
     "notes": "{{name}}\nWith {{host}}\n{{url}}",
     "location": "Aware app"
   },
-  "pt": {
+  "pt-PT": {
     "title": "Aware - {{name}}",
     "notes": "{{name}}\nCom {{host}}\n{{url}}",
     "location": "Aware app"

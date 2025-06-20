@@ -147,15 +147,13 @@
         "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1698917804/Video/portal2_bounce_back_otpgvf.mp4"
       }
     },
-    "tags": [
-      "8da0534a-5da9-430a-bdf3-242ace6460fb"
-    ],
+    "tags": ["8da0534a-5da9-430a-bdf3-242ace6460fb"],
     "link": "https://aware.29k.org/bounce-back",
     "id": "c7911238-ca9f-4499-9cae-63dfcd0c79c5",
     "async": true,
     "description": "We all face setbacks and struggles in life. Resilience, or bouncing back, is a skill that improves with practice, and it can help us overcome or even grow from facing obstacles."
   },
-  "pt": {
+  "pt-PT": {
     "slides": [
       {
         "type": "host",
@@ -309,9 +307,7 @@
         "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1698917804/Video/portal2_bounce_back_otpgvf.mp4"
       }
     },
-    "tags": [
-      "8da0534a-5da9-430a-bdf3-242ace6460fb"
-    ],
+    "tags": ["8da0534a-5da9-430a-bdf3-242ace6460fb"],
     "link": "https://aware.29k.org/bounce-back",
     "id": "c7911238-ca9f-4499-9cae-63dfcd0c79c5",
     "async": true,
@@ -466,9 +462,7 @@
         "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1698917804/Video/portal2_bounce_back_otpgvf.mp4"
       }
     },
-    "tags": [
-      "8da0534a-5da9-430a-bdf3-242ace6460fb"
-    ],
+    "tags": ["8da0534a-5da9-430a-bdf3-242ace6460fb"],
     "link": "https://aware.29k.org/bounce-back",
     "id": "c7911238-ca9f-4499-9cae-63dfcd0c79c5",
     "async": true,
@@ -552,9 +546,7 @@
         }
       ]
     },
-    "tags": [
-      "8da0534a-5da9-430a-bdf3-242ace6460fb"
-    ],
+    "tags": ["8da0534a-5da9-430a-bdf3-242ace6460fb"],
     "link": "https://aware.29k.org/bounce-back",
     "id": "c7911238-ca9f-4499-9cae-63dfcd0c79c5",
     "async": false

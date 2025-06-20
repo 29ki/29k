@@ -27,7 +27,7 @@
     "setPassword": "Set a password",
     "save": "Save changes"
   },
-  "pt": {
+  "pt-PT": {
     "changePassword": "Alterar palavra passe",
     "errors": {
       "auth/invalid-display-name": "O valor escolhido para o teu nome é inválido.",

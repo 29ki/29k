@@ -152,7 +152,7 @@
     "async": true,
     "description": "Move values into actions with the “fan of cards”. Actions that are backed by values can make us feel better, also about the difficult choices we all face in life."
   },
-  "pt": {
+  "pt-PT": {
     "liveDuration": 30,
     "slides": [
       {

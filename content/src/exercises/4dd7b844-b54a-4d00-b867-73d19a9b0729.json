@@ -186,14 +186,12 @@
         "source": ""
       }
     },
-    "tags": [
-      "8da0534a-5da9-430a-bdf3-242ace6460fb"
-    ],
+    "tags": ["8da0534a-5da9-430a-bdf3-242ace6460fb"],
     "id": "4dd7b844-b54a-4d00-b867-73d19a9b0729",
     "async": true,
     "description": "Personal resources are internal, external, or imagined things, unique to each person, that bring about a sense of well-being, safety, or happiness when brought to present moment awareness."
   },
-  "pt": {
+  "pt-PT": {
     "liveDuration": 0,
     "slides": [
       {
@@ -281,9 +279,7 @@
         }
       ]
     },
-    "tags": [
-      "8da0534a-5da9-430a-bdf3-242ace6460fb"
-    ],
+    "tags": ["8da0534a-5da9-430a-bdf3-242ace6460fb"],
     "id": "4dd7b844-b54a-4d00-b867-73d19a9b0729",
     "async": false
   },
@@ -375,9 +371,7 @@
         }
       ]
     },
-    "tags": [
-      "8da0534a-5da9-430a-bdf3-242ace6460fb"
-    ],
+    "tags": ["8da0534a-5da9-430a-bdf3-242ace6460fb"],
     "id": "4dd7b844-b54a-4d00-b867-73d19a9b0729",
     "async": false
   },
@@ -469,30 +463,22 @@
         }
       ]
     },
-    "tags": [
-      "8da0534a-5da9-430a-bdf3-242ace6460fb"
-    ],
+    "tags": ["8da0534a-5da9-430a-bdf3-242ace6460fb"],
     "id": "4dd7b844-b54a-4d00-b867-73d19a9b0729",
     "async": false
   },
   "da": {
-    "tags": [
-      "8da0534a-5da9-430a-bdf3-242ace6460fb"
-    ],
+    "tags": ["8da0534a-5da9-430a-bdf3-242ace6460fb"],
     "liveDuration": 0,
     "id": "4dd7b844-b54a-4d00-b867-73d19a9b0729"
   },
   "cs": {
-    "tags": [
-      "8da0534a-5da9-430a-bdf3-242ace6460fb"
-    ],
+    "tags": ["8da0534a-5da9-430a-bdf3-242ace6460fb"],
     "liveDuration": 0,
     "id": "4dd7b844-b54a-4d00-b867-73d19a9b0729"
   },
   "nl": {
-    "tags": [
-      "8da0534a-5da9-430a-bdf3-242ace6460fb"
-    ],
+    "tags": ["8da0534a-5da9-430a-bdf3-242ace6460fb"],
     "liveDuration": 0,
     "id": "4dd7b844-b54a-4d00-b867-73d19a9b0729"
   },

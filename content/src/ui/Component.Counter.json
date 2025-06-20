@@ -2,7 +2,7 @@
   "en": {
     "inMinutes": "{{minutes}}m {{seconds}}s"
   },
-  "pt": {
+  "pt-PT": {
     "inMinutes": "{{minutes}}m {{seconds}}s"
   },
   "sv": {

@@ -17,7 +17,7 @@
       "recurring": "Monthly"
     }
   },
-  "pt": {
+  "pt-PT": {
     "monthlyAmount": "{{amount}} / mês",
     "merchantDisplayName": "Stiftelsen 29k Foundation",
     "customAmount": "Valor",

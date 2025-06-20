@@ -7,7 +7,7 @@
       "confirm": "Open Settings"
     }
   },
-  "pt": {
+  "pt-PT": {
     "title": "Não deste permissão.",
     "message": "Abre as configurações para nos dares permissão para enviar notificações. A app Aware será reiniciada.",
     "actions": {

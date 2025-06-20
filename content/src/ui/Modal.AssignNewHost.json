@@ -4,7 +4,7 @@
     "description": "Share the link with the new host.\n\nOnce they accept you will no longer be able to edit this session.",
     "button": "Assign new host"
   },
-  "pt": {
+  "pt-PT": {
     "heading": "Alterar o moderador",
     "description": "Partilha a ligação com o novo moderador. Quando for aceite já não poderás alterar esta sessão. ",
     "button": "Atribuir novo moderador"

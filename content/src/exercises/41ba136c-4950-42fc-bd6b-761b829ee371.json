@@ -99,13 +99,11 @@
         }
       ]
     },
-    "tags": [
-      "9c2c08a9-7dc6-4058-bc78-016d0eb00614"
-    ],
+    "tags": ["9c2c08a9-7dc6-4058-bc78-016d0eb00614"],
     "id": "41ba136c-4950-42fc-bd6b-761b829ee371",
     "description": "Sometimes we do things we regret. In this exercise we practice taking a step back, observe and choose which way to go. Choosing our actions can help us feel more true to ourselves and improve our relationships."
   },
-  "pt": {
+  "pt-PT": {
     "published": false,
     "hidden": false,
     "theme": {
@@ -176,9 +174,7 @@
     "id": "41ba136c-4950-42fc-bd6b-761b829ee371",
     "asyncDuration": 10,
     "liveDuration": 30,
-    "tags": [
-      "9c2c08a9-7dc6-4058-bc78-016d0eb00614"
-    ]
+    "tags": ["9c2c08a9-7dc6-4058-bc78-016d0eb00614"]
   },
   "sv": {
     "published": false,
@@ -251,9 +247,7 @@
     "id": "41ba136c-4950-42fc-bd6b-761b829ee371",
     "asyncDuration": 10,
     "liveDuration": 30,
-    "tags": [
-      "9c2c08a9-7dc6-4058-bc78-016d0eb00614"
-    ]
+    "tags": ["9c2c08a9-7dc6-4058-bc78-016d0eb00614"]
   },
   "ja": {
     "published": false,
@@ -326,9 +320,7 @@
     "id": "41ba136c-4950-42fc-bd6b-761b829ee371",
     "asyncDuration": 10,
     "liveDuration": 30,
-    "tags": [
-      "9c2c08a9-7dc6-4058-bc78-016d0eb00614"
-    ]
+    "tags": ["9c2c08a9-7dc6-4058-bc78-016d0eb00614"]
   },
   "da": {
     "id": "41ba136c-4950-42fc-bd6b-761b829ee371"

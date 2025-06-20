@@ -181,14 +181,12 @@
         "source": ""
       }
     },
-    "tags": [
-      "8da0534a-5da9-430a-bdf3-242ace6460fb"
-    ],
+    "tags": ["8da0534a-5da9-430a-bdf3-242ace6460fb"],
     "id": "4ade5d0d-6959-4ba6-9b0c-d98aef65b754",
     "async": true,
     "description": "The Resilient Zone introduces a way of understanding how our body (specifically our autonomic nervous system) operates by dividing our current state of body and mind into three zones. The three zones are the high zone, the low zone, and the resilient zone (or zone of well-being)."
   },
-  "pt": {
+  "pt-PT": {
     "liveDuration": 0,
     "slides": [
       {
@@ -276,9 +274,7 @@
         }
       ]
     },
-    "tags": [
-      "8da0534a-5da9-430a-bdf3-242ace6460fb"
-    ],
+    "tags": ["8da0534a-5da9-430a-bdf3-242ace6460fb"],
     "id": "4ade5d0d-6959-4ba6-9b0c-d98aef65b754",
     "async": false
   },
@@ -370,9 +366,7 @@
         }
       ]
     },
-    "tags": [
-      "8da0534a-5da9-430a-bdf3-242ace6460fb"
-    ],
+    "tags": ["8da0534a-5da9-430a-bdf3-242ace6460fb"],
     "id": "4ade5d0d-6959-4ba6-9b0c-d98aef65b754",
     "async": false
   },
@@ -464,30 +458,22 @@
         }
       ]
     },
-    "tags": [
-      "8da0534a-5da9-430a-bdf3-242ace6460fb"
-    ],
+    "tags": ["8da0534a-5da9-430a-bdf3-242ace6460fb"],
     "id": "4ade5d0d-6959-4ba6-9b0c-d98aef65b754",
     "async": false
   },
   "da": {
-    "tags": [
-      "8da0534a-5da9-430a-bdf3-242ace6460fb"
-    ],
+    "tags": ["8da0534a-5da9-430a-bdf3-242ace6460fb"],
     "liveDuration": 0,
     "id": "4ade5d0d-6959-4ba6-9b0c-d98aef65b754"
   },
   "cs": {
-    "tags": [
-      "8da0534a-5da9-430a-bdf3-242ace6460fb"
-    ],
+    "tags": ["8da0534a-5da9-430a-bdf3-242ace6460fb"],
     "liveDuration": 0,
     "id": "4ade5d0d-6959-4ba6-9b0c-d98aef65b754"
   },
   "nl": {
-    "tags": [
-      "8da0534a-5da9-430a-bdf3-242ace6460fb"
-    ],
+    "tags": ["8da0534a-5da9-430a-bdf3-242ace6460fb"],
     "liveDuration": 0,
     "id": "4ade5d0d-6959-4ba6-9b0c-d98aef65b754"
   },

@@ -177,7 +177,7 @@
     "async": true,
     "description": "A guided meditation that brings a precious moment into the limelight. Practicing noticing what's working can help us feel happier and more fulfilled, and counteract our brains natural tendency to focus on the negative."
   },
-  "pt": {
+  "pt-PT": {
     "liveDuration": 30,
     "slides": [
       {

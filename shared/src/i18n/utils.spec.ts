@@ -45,7 +45,7 @@ describe('utils', () => {
             categories: {},
             tags: {},
           },
-          pt: {
+          'pt-PT': {
             exercises: {
               'exercise-1': {},
               'exercise-2': {published: true},
@@ -71,7 +71,7 @@ describe('utils', () => {
           categories: {},
           tags: {},
         },
-        pt: {
+        'pt-PT': {
           exercises: {'exercise-2': {published: true}},
           collections: {'collection-2': {published: true}},
           categories: {},
@@ -101,7 +101,7 @@ describe('utils', () => {
               'collection-2': {hidden: true},
             },
           },
-          pt: {
+          'pt-PT': {
             exercises: {
               'exercise-1': {hidden: true},
               'exercise-2': {},
@@ -123,7 +123,7 @@ describe('utils', () => {
           exercises: {'exercise-1': {}},
           collections: {'collection-1': {}},
         },
-        pt: {
+        'pt-PT': {
           exercises: {'exercise-2': {}},
           collections: {'collection-2': {}},
         },

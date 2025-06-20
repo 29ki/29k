@@ -7,7 +7,7 @@
     "subscriptionTitle": "Problem getting progress updates",
     "subscriptionMessage": "It seems there is a problem getting updates to the session."
   },
-  "pt": {
+  "pt-PT": {
     "title": "Problema de ligação à internet",
     "message": "Parece que não tens nenhuma ligação à internet neste momento.",
     "requestTitle": "Falha ao atualizar sessão",

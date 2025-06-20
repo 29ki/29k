@@ -169,7 +169,7 @@
     "async": true,
     "description": "Guided meditation for a mindful break during busy days. Re-focusing and grounding ourselves can help reduce stress, reprioritize and give our minds a refreshing break."
   },
-  "pt": {
+  "pt-PT": {
     "liveDuration": 30,
     "slides": [
       {

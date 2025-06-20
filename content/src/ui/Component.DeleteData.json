@@ -7,7 +7,7 @@
       "confirm": "Yes, delete"
     }
   },
-  "pt": {
+  "pt-PT": {
     "title": "Remover utilizador e dados",
     "message": "Tens a certeza que queres remover o teu utilizador e os teus dados?",
     "actions": {

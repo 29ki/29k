@@ -10,7 +10,7 @@
       "confirm": "Yes"
     }
   },
-  "pt": {
+  "pt-PT": {
     "title_ios": "Registar minutos de utilização",
     "title_android": "Registar minutos de meditação",
     "message_ios": "Queres gravar os teus minutos de utilização na Apple Health?",

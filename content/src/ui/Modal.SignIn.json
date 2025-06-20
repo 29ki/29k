@@ -13,7 +13,7 @@
       "auth/network-request-failed": "Network request failed"
     }
   },
-  "pt": {
+  "pt-PT": {
     "title": "Entrar",
     "email": "Email",
     "password": "Password",

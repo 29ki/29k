@@ -17,7 +17,10 @@ describe('useReloadResourceBundles', () => {
 
     expect(i18n.removeResourceBundle).toHaveBeenCalledTimes(32);
     expect(i18n.removeResourceBundle).toHaveBeenCalledWith('en', 'categories');
-    expect(i18n.removeResourceBundle).toHaveBeenCalledWith('pt', 'categories');
+    expect(i18n.removeResourceBundle).toHaveBeenCalledWith(
+      'pt-PT',
+      'categories',
+    );
     expect(i18n.removeResourceBundle).toHaveBeenCalledWith('sv', 'categories');
     expect(i18n.removeResourceBundle).toHaveBeenCalledWith('ja', 'categories');
     expect(i18n.removeResourceBundle).toHaveBeenCalledWith('da', 'categories');
@@ -25,7 +28,10 @@ describe('useReloadResourceBundles', () => {
     expect(i18n.removeResourceBundle).toHaveBeenCalledWith('nl', 'categories');
     expect(i18n.removeResourceBundle).toHaveBeenCalledWith('es', 'categories');
     expect(i18n.removeResourceBundle).toHaveBeenCalledWith('en', 'collections');
-    expect(i18n.removeResourceBundle).toHaveBeenCalledWith('pt', 'collections');
+    expect(i18n.removeResourceBundle).toHaveBeenCalledWith(
+      'pt-PT',
+      'collections',
+    );
     expect(i18n.removeResourceBundle).toHaveBeenCalledWith('sv', 'collections');
     expect(i18n.removeResourceBundle).toHaveBeenCalledWith('ja', 'collections');
     expect(i18n.removeResourceBundle).toHaveBeenCalledWith('da', 'collections');
@@ -33,7 +39,7 @@ describe('useReloadResourceBundles', () => {
     expect(i18n.removeResourceBundle).toHaveBeenCalledWith('nl', 'collections');
     expect(i18n.removeResourceBundle).toHaveBeenCalledWith('es', 'collections');
     expect(i18n.removeResourceBundle).toHaveBeenCalledWith('en', 'tags');
-    expect(i18n.removeResourceBundle).toHaveBeenCalledWith('pt', 'tags');
+    expect(i18n.removeResourceBundle).toHaveBeenCalledWith('pt-PT', 'tags');
     expect(i18n.removeResourceBundle).toHaveBeenCalledWith('sv', 'tags');
     expect(i18n.removeResourceBundle).toHaveBeenCalledWith('ja', 'tags');
     expect(i18n.removeResourceBundle).toHaveBeenCalledWith('da', 'tags');
@@ -41,7 +47,10 @@ describe('useReloadResourceBundles', () => {
     expect(i18n.removeResourceBundle).toHaveBeenCalledWith('nl', 'tags');
     expect(i18n.removeResourceBundle).toHaveBeenCalledWith('es', 'tags');
     expect(i18n.removeResourceBundle).toHaveBeenCalledWith('en', 'exercises');
-    expect(i18n.removeResourceBundle).toHaveBeenCalledWith('pt', 'exercises');
+    expect(i18n.removeResourceBundle).toHaveBeenCalledWith(
+      'pt-PT',
+      'exercises',
+    );
     expect(i18n.removeResourceBundle).toHaveBeenCalledWith('sv', 'exercises');
     expect(i18n.removeResourceBundle).toHaveBeenCalledWith('ja', 'exercises');
     expect(i18n.removeResourceBundle).toHaveBeenCalledWith('da', 'exercises');

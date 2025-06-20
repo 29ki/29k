@@ -16,7 +16,7 @@
       "validateSession/user-not-found": "User not found for session."
     }
   },
-  "pt": {
+  "pt-PT": {
     "placeholder": "Por favor escreve o teu nome",
     "join_button": "Participar",
     "cameraOff": "A câmara está desligada",

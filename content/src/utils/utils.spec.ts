@@ -12,7 +12,7 @@ describe('utils', () => {
           sv: {
             translationKey: 'some translation',
           },
-          pt: {
+          'pt-PT': {
             translationKey: 'some other translation',
           },
           ja: {
@@ -43,7 +43,7 @@ describe('utils', () => {
             translationKey: 'some translation',
           },
         },
-        pt: {
+        'pt-PT': {
           Component: {
             translationKey: 'some other translation',
           },
@@ -90,7 +90,7 @@ describe('utils', () => {
             published: true,
           },
           sv: {published: false},
-          pt: {published: false},
+          'pt-PT': {published: false},
           ja: {published: false},
           da: {published: false},
           cs: {published: false},
@@ -109,7 +109,7 @@ describe('utils', () => {
             published: true,
           },
           sv: {published: false},
-          pt: {published: false},
+          'pt-PT': {published: false},
           ja: {published: false},
           da: {published: false},
           cs: {published: false},
@@ -130,7 +130,7 @@ describe('utils', () => {
             'some-other-exercise-id': {published: false},
           },
         },
-        pt: {
+        'pt-PT': {
           exercises: {
             'some-exercise-id': {published: false},
             'some-other-exercise-id': {published: false},

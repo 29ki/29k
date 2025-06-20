@@ -148,15 +148,13 @@
         "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1712905234/Audio/portal_audio_compassionate_intention_uniaec.mp3"
       }
     },
-    "tags": [
-      "db34d82a-4c48-4ddd-9de5-f562d8aa1bc9"
-    ],
+    "tags": ["db34d82a-4c48-4ddd-9de5-f562d8aa1bc9"],
     "link": "https://aware.29k.org/compassionateintention",
     "id": "13dfd5b5-f0af-4783-9fe1-3ba7773bcb89",
     "async": true,
     "description": "Learn about self-compassion, and how it can be useful in your life."
   },
-  "pt": {
+  "pt-PT": {
     "liveDuration": 30,
     "slides": [
       {
@@ -310,9 +308,7 @@
         "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1712905234/Audio/portal_audio_compassionate_intention_uniaec.mp3"
       }
     },
-    "tags": [
-      "db34d82a-4c48-4ddd-9de5-f562d8aa1bc9"
-    ],
+    "tags": ["db34d82a-4c48-4ddd-9de5-f562d8aa1bc9"],
     "link": "https://aware.29k.org/compassionateintention",
     "id": "13dfd5b5-f0af-4783-9fe1-3ba7773bcb89",
     "async": true,
@@ -467,9 +463,7 @@
         "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1712905234/Audio/portal_audio_compassionate_intention_uniaec.mp3"
       }
     },
-    "tags": [
-      "db34d82a-4c48-4ddd-9de5-f562d8aa1bc9"
-    ],
+    "tags": ["db34d82a-4c48-4ddd-9de5-f562d8aa1bc9"],
     "link": "https://aware.29k.org/compassionateintention",
     "id": "13dfd5b5-f0af-4783-9fe1-3ba7773bcb89",
     "async": true,
@@ -561,33 +555,25 @@
         }
       ]
     },
-    "tags": [
-      "db34d82a-4c48-4ddd-9de5-f562d8aa1bc9"
-    ],
+    "tags": ["db34d82a-4c48-4ddd-9de5-f562d8aa1bc9"],
     "link": "https://aware.29k.org/compassionateintention",
     "id": "13dfd5b5-f0af-4783-9fe1-3ba7773bcb89",
     "async": false
   },
   "da": {
-    "tags": [
-      "db34d82a-4c48-4ddd-9de5-f562d8aa1bc9"
-    ],
+    "tags": ["db34d82a-4c48-4ddd-9de5-f562d8aa1bc9"],
     "asyncDuration": 9,
     "link": "https://aware.29k.org/compassionateintention",
     "id": "13dfd5b5-f0af-4783-9fe1-3ba7773bcb89"
   },
   "cs": {
-    "tags": [
-      "db34d82a-4c48-4ddd-9de5-f562d8aa1bc9"
-    ],
+    "tags": ["db34d82a-4c48-4ddd-9de5-f562d8aa1bc9"],
     "asyncDuration": 9,
     "link": "https://aware.29k.org/compassionateintention",
     "id": "13dfd5b5-f0af-4783-9fe1-3ba7773bcb89"
   },
   "nl": {
-    "tags": [
-      "db34d82a-4c48-4ddd-9de5-f562d8aa1bc9"
-    ],
+    "tags": ["db34d82a-4c48-4ddd-9de5-f562d8aa1bc9"],
     "asyncDuration": 9,
     "link": "https://aware.29k.org/compassionateintention",
     "id": "13dfd5b5-f0af-4783-9fe1-3ba7773bcb89"
@@ -741,9 +727,7 @@
         "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1712905234/Audio/portal_audio_compassionate_intention_uniaec.mp3"
       }
     },
-    "tags": [
-      "db34d82a-4c48-4ddd-9de5-f562d8aa1bc9"
-    ],
+    "tags": ["db34d82a-4c48-4ddd-9de5-f562d8aa1bc9"],
     "link": "https://aware.29k.org/compassionateintention",
     "id": "13dfd5b5-f0af-4783-9fe1-3ba7773bcb89",
     "async": true,

@@ -5,7 +5,7 @@
     "removeYes": "Yes, remove",
     "removeNo": "Cancel"
   },
-  "pt": {
+  "pt-PT": {
     "removeTitle": "Remover {{displayName}} da sessão",
     "removeText": "Tens a certeza que queres remover a/o {{displayName}} da sessão? Não será possível juntar-se de novo à sessão.",
     "removeYes": "Sim, remover",
