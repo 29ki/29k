@@ -42,7 +42,8 @@ export const init = (language?: LANGUAGE_TAG) =>
       supportedLngs: LANGUAGE_TAGS,
       preload: LANGUAGE_TAGS,
       fallbackLng: {
-        pt: ['pt-PT'], // "pt-PT" was previously saved in the appState as "pt"
+        pt: ['pt-PT', DEFAULT_LANGUAGE_TAG], // "pt-PT" was previously saved in the appState as "pt"
+        'pt-BR': [DEFAULT_LANGUAGE_TAG], // "pt-BR" should not fall back to "pt-PT"
         default: [DEFAULT_LANGUAGE_TAG],
       },
       // To trigger the backend middleware to load publishable content they have to be removed first.
