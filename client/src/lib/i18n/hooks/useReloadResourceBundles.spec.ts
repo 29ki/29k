@@ -15,7 +15,7 @@ describe('useReloadResourceBundles', () => {
       await result.current();
     });
 
-    expect(i18n.removeResourceBundle).toHaveBeenCalledTimes(32);
+    expect(i18n.removeResourceBundle).toHaveBeenCalledTimes(36);
     expect(i18n.removeResourceBundle).toHaveBeenCalledWith('en', 'categories');
     expect(i18n.removeResourceBundle).toHaveBeenCalledWith(
       'pt-PT',
@@ -40,6 +40,7 @@ describe('useReloadResourceBundles', () => {
     expect(i18n.removeResourceBundle).toHaveBeenCalledWith('es', 'collections');
     expect(i18n.removeResourceBundle).toHaveBeenCalledWith('en', 'tags');
     expect(i18n.removeResourceBundle).toHaveBeenCalledWith('pt-PT', 'tags');
+    expect(i18n.removeResourceBundle).toHaveBeenCalledWith('pt-BR', 'tags');
     expect(i18n.removeResourceBundle).toHaveBeenCalledWith('sv', 'tags');
     expect(i18n.removeResourceBundle).toHaveBeenCalledWith('ja', 'tags');
     expect(i18n.removeResourceBundle).toHaveBeenCalledWith('da', 'tags');
@@ -49,6 +50,10 @@ describe('useReloadResourceBundles', () => {
     expect(i18n.removeResourceBundle).toHaveBeenCalledWith('en', 'exercises');
     expect(i18n.removeResourceBundle).toHaveBeenCalledWith(
       'pt-PT',
+      'exercises',
+    );
+    expect(i18n.removeResourceBundle).toHaveBeenCalledWith(
+      'pt-BR',
       'exercises',
     );
     expect(i18n.removeResourceBundle).toHaveBeenCalledWith('sv', 'exercises');

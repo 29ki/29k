@@ -52,7 +52,7 @@ describe('useLanguageFromRoute', () => {
 
   it('supports a comma separated list of languages', () => {
     mockGetCurrentRoute.mockReturnValueOnce({
-      params: {language: 'pt,sv'},
+      params: {language: 'pt-PT,sv'},
     });
 
     renderHook(() => useLanguageFromRoute());

@@ -15,6 +15,9 @@ describe('utils', () => {
           'pt-PT': {
             translationKey: 'some other translation',
           },
+          'pt-BR': {
+            translationKey: 'some other translation',
+          },
           ja: {
             translationKey: 'some other translation',
           },
@@ -44,6 +47,11 @@ describe('utils', () => {
           },
         },
         'pt-PT': {
+          Component: {
+            translationKey: 'some other translation',
+          },
+        },
+        'pt-BR': {
           Component: {
             translationKey: 'some other translation',
           },
@@ -91,6 +99,7 @@ describe('utils', () => {
           },
           sv: {published: false},
           'pt-PT': {published: false},
+          'pt-BR': {published: false},
           ja: {published: false},
           da: {published: false},
           cs: {published: false},
@@ -110,6 +119,7 @@ describe('utils', () => {
           },
           sv: {published: false},
           'pt-PT': {published: false},
+          'pt-BR': {published: false},
           ja: {published: false},
           da: {published: false},
           cs: {published: false},
@@ -131,6 +141,12 @@ describe('utils', () => {
           },
         },
         'pt-PT': {
+          exercises: {
+            'some-exercise-id': {published: false},
+            'some-other-exercise-id': {published: false},
+          },
+        },
+        'pt-BR': {
           exercises: {
             'some-exercise-id': {published: false},
             'some-other-exercise-id': {published: false},
