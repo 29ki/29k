@@ -35,5 +35,12 @@
     "publicLabel": "Cualquier persona, como {{displayName}}",
     "submitCta": "Publicar"
   },
-  "pt-BR": {}
+  "pt-BR": {
+    "anonymousLabel": "Todos, anonimamente",
+    "description": "Quem pode ver sua publicação?",
+    "header": "Sua reflexão",
+    "privateLabel": "Só eu",
+    "publicLabel": "Todos, como {{displayName}}",
+    "submitCta": "Publicar"
+  }
 }

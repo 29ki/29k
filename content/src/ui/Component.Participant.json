@@ -27,5 +27,10 @@
     "removeTitle": "Eliminar a {{displayName}} de la sesión",
     "removeYes": "Sí, eliminar"
   },
-  "pt-BR": {}
+  "pt-BR": {
+    "removeNo": "Cancelar",
+    "removeText": "Tem certeza de que deseja remover {{displayName}} desta sessão? Essa pessoa não poderá participar novamente.",
+    "removeTitle": "Remover {{displayName}} da sessão",
+    "removeYes": "Sim, remover"
+  }
 }

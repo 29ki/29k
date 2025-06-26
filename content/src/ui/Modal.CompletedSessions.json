@@ -31,5 +31,11 @@
     "private": "Con amigos/as",
     "public": "Con otras personas"
   },
-  "pt-BR": {}
+  "pt-BR": {
+    "async": "Só eu",
+    "meaningful": "Sessões significativas",
+    "notMeaningful": "Sessões não significativas",
+    "private": "Com amigos",
+    "public": "Com qualquer pessoa"
+  }
 }

@@ -19,5 +19,8 @@
     "interested": "Interesado/a",
     "myJourneyTag": "Interesado/a"
   },
-  "pt-BR": {}
+  "pt-BR": {
+    "interested": "Interessado",
+    "myJourneyTag": "Interessado"
+  }
 }

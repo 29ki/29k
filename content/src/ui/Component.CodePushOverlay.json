@@ -50,5 +50,15 @@
       "title": "Instalar actualización"
     }
   },
-  "pt-BR": {}
+  "pt-BR": {
+    "downloading": {
+      "text": "Por favor, aguarde um momento. Já estamos quase terminando.",
+      "title": "Baixando atualização"
+    },
+    "install": {
+      "dismiss_button": "Agora não",
+      "restart_button": "Reiniciar para instalar",
+      "title": "Instalar atualização"
+    }
+  }
 }

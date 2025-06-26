@@ -35,5 +35,12 @@
     "yourReview": "Revisión de tu sesión",
     "yourSharingPost": "Lo que dijiste"
   },
-  "pt-BR": {}
+  "pt-BR": {
+    "coCreatorsHeading": "Co-criado com",
+    "completed": "Concluído",
+    "doAgainButton": "Faça este exercício novamente",
+    "moreLikeThis": "Mais como este",
+    "yourReview": "Sua avaliação da sessão",
+    "yourSharingPost": "O que você disse"
+  }
 }

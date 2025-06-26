@@ -19,5 +19,8 @@
     "minutesAbbreviation": "min",
     "with": "con"
   },
-  "pt-BR": {}
+  "pt-BR": {
+    "minutesAbbreviation": "min",
+    "with": "com"
+  }
 }

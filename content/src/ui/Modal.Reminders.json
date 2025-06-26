@@ -71,5 +71,21 @@
     "updateButton": "Actualizar recordatorios",
     "weekday": "Día laborable"
   },
-  "pt-BR": {}
+  "pt-BR": {
+    "intervals": {
+      "daily": "Todos os dias",
+      "friday": "Sexta-feira",
+      "monday": "Segunda-feira",
+      "saturday": "Sábado",
+      "sunday": "Domingo",
+      "thursday": "Quinta-feira",
+      "tuesday": "Terça-feira",
+      "wednesday": "Quarta-feira"
+    },
+    "sessionRemindersText": "Lembra você sobre as próximas sessões 10 minutos antes de começarem.",
+    "time": "Horário",
+    "title": "Lembretes",
+    "updateButton": "Atualizar lembretes",
+    "weekday": "Dia da semana"
+  }
 }

@@ -19,5 +19,8 @@
     "cta": "Guardar",
     "displayName": "¿Cómo deberíamos llamarte?"
   },
-  "pt-BR": {}
+  "pt-BR": {
+    "cta": "Salvar",
+    "displayName": "Como devemos te chamar?"
+  }
 }

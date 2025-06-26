@@ -67,5 +67,20 @@
       "status": "La aplicación Aware está actualizada -"
     }
   },
-  "pt-BR": {}
+  "pt-BR": {
+    "checking": {
+      "status": "Verificando atualização"
+    },
+    "downloading": {
+      "status": "Baixando atualização"
+    },
+    "installed": {
+      "action": "reiniciar aplicativo",
+      "status": "Atualização disponível -"
+    },
+    "upToDate": {
+      "action": "verificar atualização",
+      "status": "Aware está atualizado -"
+    }
+  }
 }

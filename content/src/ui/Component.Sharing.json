@@ -23,5 +23,9 @@
     "othersHeading": "Lo que otros/as han dicho:",
     "reflectionLabel": "Tus reflexiones:"
   },
-  "pt-BR": {}
+  "pt-BR": {
+    "addReflectionCta": "Adicione sua reflexão",
+    "othersHeading": "O que outros disseram:",
+    "reflectionLabel": "Sua reflexão:"
+  }
 }

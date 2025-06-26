@@ -53,5 +53,15 @@
     "heading": "Cuida el planeta y siéntete bien mientras lo haces",
     "preamble__markdown": "Aware es una nueva app gratuita de la organización sin ánimo de lucro 29k, con sesiones para la salud mental, el bienestar y el desarrollo personal. Las sesiones se pueden experimentar en directo con un/a anfitrión/a, junto con nuevos contactos, con amigos y amigas, o por ti mismo/a. Todo para acelerar comportamientos sostenibles para las personas y el planeta."
   },
-  "pt-BR": {}
+  "pt-BR": {
+    "actions": {
+      "contact": "Entre em contato",
+      "privacyNotice": "Aviso de privacidade",
+      "publicHostAccess": "Acesso público de anfitrião",
+      "safetyToolkit": "Kit de segurança"
+    },
+    "body__markdown": "No aplicativo Aware você pode:\r\n\r\n* Obter apoio para saúde mental, bem-estar e desenvolvimento interior para acelerar comportamentos sustentáveis para pessoas e para o planeta.\r\n* Participar de sessões ao vivo abertas com anfitriões credenciados (psicólogos ou voluntários treinados).\r\n* Convidar sua comunidade, amigos ou colegas e hospedar suas próprias sessões privadas no app ou ao redor da mesa da cozinha.\r\n* Fazer sessões sozinho(a).\r\n* Se inspirar nas reflexões de outros e compartilhar as suas próprias.\r\n\r\nO Aware é firmemente fundamentado em pesquisas psicológicas para lidar com a vida nos altos e baixos, sentir-se bem e prosperar.\r\n\r\nSomos uma organização sem fins lucrativos com a missão de tornar toda a incrível pesquisa e ferramentas sobre saúde mental, mudança de comportamento, bem-estar e desenvolvimento interior acessíveis para todos.\r\n\r\n**Junte-se à nossa comunidade** no **[Slack](https://join.slack.com/t/29kcommunity/shared_invite/zt-1kedro4zn-wO0yLixyvVyxdukm0viiOA)** ou envie um **[e-mail](mailto:hello@29k.org)**:\r\n\r\n* Relate bugs.\r\n* Sugira melhorias.\r\n* Ideias para novos conteúdos ou funcionalidades.\r\n* Torne-se um anfitrião voluntário para sessões abertas.",
+    "heading": "Salve o planeta e sinta-se bem ao longo do caminho",
+    "preamble__markdown": "O Aware é um novo aplicativo gratuito da organização sem fins lucrativos 29k, com sessões para saúde mental, bem-estar e desenvolvimento interior. As sessões podem ser vivenciadas ao vivo com um anfitrião junto com novas conexões, com amigos ou sozinho(a). Tudo para acelerar comportamentos sustentáveis para pessoas e para o planeta."
+  }
 }

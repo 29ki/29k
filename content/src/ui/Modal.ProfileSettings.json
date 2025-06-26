@@ -117,5 +117,32 @@
     "setPassword": "Establecer una contraseña",
     "title": "Configuración del perfil"
   },
-  "pt-BR": {}
+  "pt-BR": {
+    "actions": {
+      "deleteData": "Excluir meus dados",
+      "language": "Idioma",
+      "mindfulMinutes_android": "Registrar minutos de meditação",
+      "mindfulMinutes_ios": "Registrar minutos de atenção plena no Health",
+      "reminders": "Lembretes",
+      "signIn": "Entrar",
+      "signOut": "Sair"
+    },
+    "changePassword": "Alterar senha",
+    "currentPassword": "Senha atual",
+    "description": "Adicione uma descrição que será exibida quando você hospedar uma sessão",
+    "displayName": "Como devemos te chamar?",
+    "email": "E-mail",
+    "errors": {
+      "auth/current-password-missing": "Para atualizar seu perfil, por favor, informe sua senha atual.",
+      "auth/email-already-in-use": "O e-mail fornecido já está em uso por outro usuário.",
+      "auth/invalid-display-name": "O valor fornecido para a propriedade displayName do usuário é inválido. Deve ser uma string não vazia.",
+      "auth/invalid-email": "O valor fornecido para a propriedade de e-mail do usuário é inválido. Deve ser um endereço de e-mail válido.",
+      "auth/password-missing": "Para definir um endereço de e-mail, você também precisa informar uma senha.",
+      "auth/weak-password": "O valor fornecido para a propriedade de senha do usuário é inválido. Deve ser uma string com pelo menos seis caracteres.",
+      "auth/wrong-password": "Senha incorreta, tente novamente."
+    },
+    "save": "Salvar alterações",
+    "setPassword": "Definir uma senha",
+    "title": "Configurações de perfil"
+  }
 }

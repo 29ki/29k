@@ -39,5 +39,13 @@
     "message": "¿Quieres que te recordemos cuándo van a empezar tus próximas sesiones?",
     "title": "Notificaciones de recordatorio"
   },
-  "pt-BR": {}
+  "pt-BR": {
+    "actions": {
+      "cancel": "Talvez mais tarde",
+      "confirm": "Sim",
+      "dismiss": "Não"
+    },
+    "message": "Você deseja ser lembrado quando suas próximas sessões estiverem prestes a começar?",
+    "title": "Notificações de lembrete"
+  }
 }

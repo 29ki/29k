@@ -27,5 +27,10 @@
     "collectionHeading": "Programa",
     "sessionsHeading": "Sesiones"
   },
-  "pt-BR": {}
+  "pt-BR": {
+    "addToJourney": "Minha jornada",
+    "coCreatorsHeading": "Co-criado com",
+    "collectionHeading": "Programa",
+    "sessionsHeading": "Sessões"
+  }
 }

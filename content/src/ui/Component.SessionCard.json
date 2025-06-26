@@ -51,5 +51,16 @@
     "join": "Entra",
     "minutesAbbreviation": "min"
   },
-  "pt-BR": {}
+  "pt-BR": {
+    "addToCalendar": "Adicionar ao calendário",
+    "counter": {
+      "started": "Iniciada"
+    },
+    "counterLabel": {
+      "starts": "Começa",
+      "startsIn": "Começa em"
+    },
+    "join": "Participar",
+    "minutesAbbreviation": "min"
+  }
 }

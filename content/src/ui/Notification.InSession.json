@@ -19,5 +19,8 @@
     "subtitle": "Estás en una sesión con {{host}}. Toca para abrirla.",
     "title": "En una sesión en directo"
   },
-  "pt-BR": {}
+  "pt-BR": {
+    "subtitle": "Você está em uma sessão com {{host}}. Toque para abrir.",
+    "title": "Em uma sessão ao vivo"
+  }
 }

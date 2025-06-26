@@ -39,5 +39,13 @@
     },
     "startHeading": "Hacer sesión..."
   },
-  "pt-BR": {}
+  "pt-BR": {
+    "coCreatorsHeading": "Co-criado com",
+    "mode": {
+      "async": "Sozinho(a)",
+      "live": "Como anfitrião"
+    },
+    "startCta": "Iniciar",
+    "startHeading": "Fazer sessão..."
+  }
 }

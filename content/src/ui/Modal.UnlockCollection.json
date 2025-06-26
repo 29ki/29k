@@ -27,5 +27,10 @@
     "heading2": "Has conseguido",
     "invalidLink": "¡Ups! Parece que abriste un enlace inválido."
   },
-  "pt-BR": {}
+  "pt-BR": {
+    "confirmButton": "OK",
+    "heading1": "Parabéns!",
+    "heading2": "Você desbloqueou",
+    "invalidLink": "Opa! Parece que você abriu um link inválido."
+  }
 }

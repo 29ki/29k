@@ -51,5 +51,16 @@
     "password": "Contraseña",
     "title": "Verifica tu identidad para eliminar tus datos"
   },
-  "pt-BR": {}
+  "pt-BR": {
+    "confirm": "Confirmar",
+    "email": "E-mail",
+    "errors": {
+      "auth/invalid-email": "E-mail e/ou senha incorretos",
+      "auth/user-disabled": "E-mail e/ou senha incorretos",
+      "auth/user-not-found": "E-mail e/ou senha incorretos",
+      "auth/wrong-password": "E-mail e/ou senha incorretos"
+    },
+    "password": "Senha",
+    "title": "Autentique-se para excluir seus dados"
+  }
 }

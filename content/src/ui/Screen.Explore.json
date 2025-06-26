@@ -31,5 +31,11 @@
     "sessionsHeading": "Sesiones",
     "skillsHeading": "Habilidades"
   },
-  "pt-BR": {}
+  "pt-BR": {
+    "collectionsHeading": "Programas",
+    "featuredHeading": "Novidades",
+    "liveSessionsHeading": "Sessões ao vivo",
+    "sessionsHeading": "Sessões",
+    "skillsHeading": "Habilidades"
+  }
 }

@@ -35,5 +35,12 @@
     "subscriptionTitle": "Problema para obtener actualizaciones de progreso.",
     "title": "Se ha perdido la conexión a internet"
   },
-  "pt-BR": {}
+  "pt-BR": {
+    "message": "Parece que você está sem conexão com a Internet no momento.",
+    "requestMessage": "Falha na solicitação de rede, tente novamente.",
+    "requestTitle": "Falha ao atualizar a sessão",
+    "subscriptionMessage": "Parece que há um problema ao obter atualizações da sessão.",
+    "subscriptionTitle": "Problema ao obter atualizações de progresso",
+    "title": "Conexão com a internet perdida"
+  }
 }

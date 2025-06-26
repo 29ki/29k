@@ -39,5 +39,13 @@
       "title": "Idioma soportado parcialmente"
     }
   },
-  "pt-BR": {}
+  "pt-BR": {
+    "title": "Idioma",
+    "unsupportedLanguage": {
+      "confirm": "Sim, mudar",
+      "dismiss": "Não, obrigado(a)",
+      "message": "{{language}} ainda está em desenvolvimento e pode não oferecer a melhor experiência neste momento. Você deseja mudar para {{language}} mesmo assim?",
+      "title": "Idioma não totalmente suportado"
+    }
+  }
 }

@@ -23,5 +23,9 @@
     "done": "Hecho",
     "time": "Hora"
   },
-  "pt-BR": {}
+  "pt-BR": {
+    "date": "Data",
+    "done": "Concluído",
+    "time": "Hora"
+  }
 }

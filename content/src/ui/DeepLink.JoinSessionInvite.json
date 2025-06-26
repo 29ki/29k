@@ -19,5 +19,8 @@
     "description": "Con {{host}} - {{description}}",
     "title": "Sesión de Aware {{title}}"
   },
-  "pt-BR": {}
+  "pt-BR": {
+    "description": "Com {{host}} - {{description}}",
+    "title": "Sessão Aware {{title}}"
+  }
 }

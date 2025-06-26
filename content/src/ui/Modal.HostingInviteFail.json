@@ -26,5 +26,9 @@
     "hostNameFallback": "el amfitrión / la amfitriona",
     "title": "No tienes permiso para organizar sesiones abiertas a todo el mundo."
   },
-  "pt-BR": {}
+  "pt-BR": {
+    "description": "Portanto, você não pode aceitar hospedar a sessão que {{hostName}} queria transferir para você.",
+    "hostNameFallback": "o anfitrião",
+    "title": "Você não tem permissão para hospedar sessões abertas para qualquer pessoa participar."
+  }
 }

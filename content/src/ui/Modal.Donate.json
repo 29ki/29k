@@ -75,5 +75,22 @@
       "recurring": "Mensual"
     }
   },
-  "pt-BR": {}
+  "pt-BR": {
+    "customAmount": "Valor personalizado",
+    "donate": "Doar",
+    "emailAddress": "Seu endereço de e-mail",
+    "errors": {
+      "generic": "Algo deu errado. Por favor, tente novamente mais tarde.",
+      "invalidEmail": "Endereço de e-mail inválido"
+    },
+    "merchantDisplayName": "Stiftelsen Fundação 29k",
+    "monthlyAmount": "{{amount}} / mês",
+    "receiptSentTo": "Recibo enviado para {{email}}",
+    "sendReceipt": "Enviar recibo",
+    "thankYou": "Obrigado(a) pela sua doação!",
+    "types": {
+      "one-time": "Uma vez",
+      "recurring": "Mensal"
+    }
+  }
 }

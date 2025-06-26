@@ -37,5 +37,11 @@
     "descriptionEjected": "Has sido eliminado de esta sesión por el/la anfitrión/a.",
     "infoEjected": "No podrás volver a unirte a la sesión."
   },
-  "pt-BR": {}
+  "pt-BR": {
+    "codeOfConductHere": "aqui",
+    "codeOfConductInfo": "Leia nosso código de conduta",
+    "description": "A sessão que você está procurando não está mais disponível.",
+    "descriptionEjected": "Você foi removido desta sessão pelo anfitrião.",
+    "infoEjected": "Você não poderá participar novamente."
+  }
 }

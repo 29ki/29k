@@ -45,5 +45,13 @@
     },
     "title": "Kit de seguridad"
   },
-  "pt-BR": {}
+  "pt-BR": {
+    "actions": {
+      "calmDown": "Acalme-se",
+      "faq": "Perguntas frequentes",
+      "helplines": "Linhas de ajuda de emergência",
+      "report": "Relatar"
+    },
+    "title": "Kit de segurança"
+  }
 }

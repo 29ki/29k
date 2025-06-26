@@ -35,5 +35,12 @@
     "message": "¿Estás seguro de que quieres eliminar tu cuenta de usuario y todos los datos?",
     "title": "Eliminar cuenta de usuario y datos"
   },
-  "pt-BR": {}
+  "pt-BR": {
+    "actions": {
+      "cancel": "Não",
+      "confirm": "Sim, excluir"
+    },
+    "message": "Tem certeza de que deseja excluir seu usuário e todos os dados?",
+    "title": "Excluir usuário e dados"
+  }
 }

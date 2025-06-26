@@ -27,5 +27,9 @@
     "home": "Hoy",
     "journey": "Mi viaje"
   },
-  "pt-BR": {}
+  "pt-BR": {
+    "explore": "Explorar",
+    "home": "Hoje",
+    "journey": "Minha Jornada"
+  }
 }

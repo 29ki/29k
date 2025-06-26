@@ -23,5 +23,9 @@
     "rejoinButton": "Vuelve a entrar",
     "title": "Error de sesión"
   },
-  "pt-BR": {}
+  "pt-BR": {
+    "message": "Por favor, entre novamente na sessão.",
+    "rejoinButton": "Entrar novamente",
+    "title": "Erro na sessão"
+  }
 }

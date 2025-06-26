@@ -183,5 +183,31 @@
     },
     "title": "Contactar"
   },
-  "pt-BR": {}
+  "pt-BR": {
+    "contactInformation": {
+      "chat": {
+        "label": "Chat da comunidade"
+      },
+      "email": {
+        "email": "hello@29k.org",
+        "label": "hello@29k.org",
+        "subject": "Olá do aplicativo Aware"
+      },
+      "facebook": {
+        "label": "Facebook"
+      },
+      "heading": "Fundação 29k",
+      "instagram": {
+        "label": "Instagram"
+      },
+      "www": {
+        "label": "29k.org"
+      }
+    },
+    "noEmailClientAlert": {
+      "message": "Você deseja copiar nosso e-mail para a área de transferência?",
+      "title": "Não foi possível detectar um cliente de e-mail no seu dispositivo"
+    },
+    "title": "Entre em contato"
+  }
 }

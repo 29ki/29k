@@ -31,5 +31,11 @@
     "item3": "Un buen consejo es usar unos auriculares y asegurarte de estar en un lugar donde puedas concentrarte y sentirte cómodo/a.",
     "title": "Cómo funciona"
   },
-  "pt-BR": {}
+  "pt-BR": {
+    "codeOfConduct": "Para mais detalhes, confira o [código de conduta do usuário.](https://wiki.29k.org/user-code-of-conduct)",
+    "item1": "Nesta sessão, faremos um exercício de meditação juntos.",
+    "item2": "Haverá um momento para reflexão individual e, se quiser, para compartilhar seus pensamentos com o grupo.",
+    "item3": "Uma dica útil é usar fones de ouvido e garantir que você esteja em um lugar onde possa se concentrar e se sentir confortável.",
+    "title": "Como funciona"
+  }
 }

@@ -36,5 +36,12 @@
     "journeyButton": "Interesado/a",
     "moreLikeThis": "Más como esta sesión"
   },
-  "pt-BR": {}
+  "pt-BR": {
+    "coCreatorsHeading": "Co-criado com",
+    "feedbackHeading": "Avaliações",
+    "howItWorks": "Como funciona",
+    "join": "Participar",
+    "journeyButton": "Interessado(a)",
+    "moreLikeThis": "Mais como este"
+  }
 }

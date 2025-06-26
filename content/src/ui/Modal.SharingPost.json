@@ -19,5 +19,8 @@
     "joinUpcoming": "Únete a una sesión futura",
     "moreLikeThis": "Más como esta sesión"
   },
-  "pt-BR": {}
+  "pt-BR": {
+    "joinUpcoming": "Participar de uma próxima sessão",
+    "moreLikeThis": "Mais como este"
+  }
 }

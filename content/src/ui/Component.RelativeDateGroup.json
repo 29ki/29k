@@ -31,5 +31,11 @@
     "tomorrow": "Mañana",
     "upcoming": "Próximamente"
   },
-  "pt-BR": {}
+  "pt-BR": {
+    "nextWeek": "Próxima semana",
+    "thisWeek": "Esta semana",
+    "today": "Hoje",
+    "tomorrow": "Amanhã",
+    "upcoming": "Próximos"
+  }
 }

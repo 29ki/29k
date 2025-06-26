@@ -47,5 +47,15 @@
     "meaninfulSessions": "Sesiones \nsignificativas",
     "totalSessions": "Todas\nlas sesiones"
   },
-  "pt-BR": {}
+  "pt-BR": {
+    "fallback": "🌱 Sua jornada está apenas começando",
+    "headings": {
+      "collections": "Programas",
+      "completed": "Concluído",
+      "planned": "Suas sessões planejadas"
+    },
+    "hostedSessions": "Sessões\r\nhospedadas",
+    "meaninfulSessions": "Sessões\r\nsignificativas",
+    "totalSessions": "Total de\r\nsessões"
+  }
 }

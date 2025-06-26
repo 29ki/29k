@@ -23,5 +23,9 @@
     "confirm": "Aceptar",
     "description": "{{hostName}} quiere que tú organices esta sesión en lugar de él/ella."
   },
-  "pt-BR": {}
+  "pt-BR": {
+    "cancel": "Recusar",
+    "confirm": "Aceitar",
+    "description": "{{hostName}} gostaria que você hospedasse esta sessão no lugar dele(a)."
+  }
 }

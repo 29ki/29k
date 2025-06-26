@@ -15,5 +15,7 @@
   "es": {
     "relate": "¿Te sientes identificado/a?"
   },
-  "pt-BR": {}
+  "pt-BR": {
+    "relate": "Você se identifica?"
+  }
 }

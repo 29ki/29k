@@ -39,5 +39,13 @@
     "reportPlaceholder": "Comparte tus pensamientos para que podamos mejorar",
     "title": "Informar"
   },
-  "pt-BR": {}
+  "pt-BR": {
+    "confirmButton": "Enviar relatório",
+    "confirmationText": "Obrigado por entrar em contato 🌱",
+    "emailHeading": "Responder para:",
+    "emailPlaceholder": "Digite o e-mail para o qual você deseja que respondamos.",
+    "reportHeading": "O que você gostaria de relatar?",
+    "reportPlaceholder": "Compartilhe suas ideias para que possamos melhorar",
+    "title": "Relatar"
+  }
 }

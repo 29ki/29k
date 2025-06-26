@@ -19,5 +19,8 @@
     "description": "Haz clic en el enlace para ver más detalles y decidir si quieres aceptarlo o no como anfitrión/a.",
     "title": "A {{hostName}} le gustaría que seas el/la anfitrión/a de {{sessionName}}."
   },
-  "pt-BR": {}
+  "pt-BR": {
+    "description": "Clique no link para ver mais detalhes e decidir se deseja aceitar hospedar ou não",
+    "title": "{{hostName}} gostaria que você hospedasse {{sessionName}}."
+  }
 }

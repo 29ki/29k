@@ -15,5 +15,7 @@
   "es": {
     "openHostControls": "Abrir vista de anfitrión/a"
   },
-  "pt-BR": {}
+  "pt-BR": {
+    "openHostControls": "Abrir visualização do anfitrião"
+  }
 }

@@ -43,5 +43,14 @@
     "title": "Desarrollador/a",
     "uiLib": "Biblioteca de UI"
   },
-  "pt-BR": {}
+  "pt-BR": {
+    "addDevUserEvents": "Adicionar eventos de usuário de desenvolvimento",
+    "checkUpdate": "Verificar atualização",
+    "clearUpdate": "Limpar atualização",
+    "logUserEvents": "Registrar eventos do usuário",
+    "showHiddenContent": "Mostrar conteúdo oculto",
+    "showLockedContent": "Mostrar conteúdo bloqueado",
+    "title": "Desenvolvedor",
+    "uiLib": "Biblioteca de UI"
+  }
 }

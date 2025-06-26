@@ -31,5 +31,11 @@
     "madeBy": "Creado por",
     "moreInfo__markdown": "Para más información visita: [www.awareapp.org](https://www.awareapp.org)"
   },
-  "pt-BR": {}
+  "pt-BR": {
+    "about__markdown": "Aware é uma organização sem fins lucrativos e uma comunidade com a missão de tornar o crescimento pessoal acessível para todos, gratuitamente.",
+    "downloadAppStore": "Baixe na App Store",
+    "downloadGooglePlay": "Disponível no Google Play",
+    "madeBy": "Feito por",
+    "moreInfo__markdown": "Para mais informações visite: [www.awareapp.org](https://www.awareapp.org)"
+  }
 }

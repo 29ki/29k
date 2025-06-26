@@ -15,5 +15,7 @@
   "es": {
     "completed": "Completado"
   },
-  "pt-BR": {}
+  "pt-BR": {
+    "completed": "Concluído"
+  }
 }

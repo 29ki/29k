@@ -31,5 +31,11 @@
     "text": "Gracias a estas maravillosas personas, ¡muchas gracias a cada una de ellas!",
     "title": "Colaboradores/as"
   },
-  "pt-BR": {}
+  "pt-BR": {
+    "contributors": "Colaboradores",
+    "coreTeam": "Equipe principal",
+    "founders": "Fundadores",
+    "text": "Agradecimento a essas pessoas maravilhosas, muito obrigado(a) a cada um de vocês!",
+    "title": "Colaboradores"
+  }
 }

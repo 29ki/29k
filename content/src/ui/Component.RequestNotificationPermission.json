@@ -35,5 +35,12 @@
     "message": "Abre la configuración para darnos permiso para enviarte notificaciones. Esto reiniciará la aplicación.",
     "title": "No tienes permiso."
   },
-  "pt-BR": {}
+  "pt-BR": {
+    "actions": {
+      "cancel": "Cancelar",
+      "confirm": "Abrir configurações"
+    },
+    "message": "Abra as configurações para nos dar permissão de enviar notificações para você. Isso irá reiniciar o aplicativo Aware.",
+    "title": "Você negou a permissão."
+  }
 }

@@ -53,5 +53,15 @@
     "takePhotoButtonTitle": "Hacer foto",
     "title": "Editar foto de perfil"
   },
-  "pt-BR": {}
+  "pt-BR": {
+    "alertCameraSettings": "Por favor, abra as configurações do sistema e conceda ao Aware acesso à sua câmera.",
+    "alertCameraTitle": "Permissão de câmera necessária",
+    "alertCameraWhy": "O Aware precisa usar sua câmera para tirar sua foto de perfil.",
+    "cancelButtonTitle": "Cancelar",
+    "chooseFromLibraryButtonTitle": "Escolher da Biblioteca",
+    "ok": "OK",
+    "removeButtonTitle": "Remover",
+    "takePhotoButtonTitle": "Tirar foto",
+    "title": "Editar foto de perfil"
+  }
 }

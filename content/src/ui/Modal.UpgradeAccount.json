@@ -27,5 +27,10 @@
     "password": "Contraseña",
     "title": "Regístrate como anfitrión/a para crear sesiones abiertas a todo el mundo"
   },
-  "pt-BR": {}
+  "pt-BR": {
+    "button": "Criar conta",
+    "email": "E-mail",
+    "password": "Senha",
+    "title": "Cadastre-se como anfitrião para criar sessões públicas"
+  }
 }

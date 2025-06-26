@@ -23,5 +23,9 @@
     "notes": "{{name}}\nCon {{host}}\n{{url}}",
     "title": "Aware - {{name}}"
   },
-  "pt-BR": {}
+  "pt-BR": {
+    "location": "Aplicativo Aware",
+    "notes": "{{name}}\r\nCom {{host}}\r\n{{url}}",
+    "title": "Aware - {{name}}"
+  }
 }

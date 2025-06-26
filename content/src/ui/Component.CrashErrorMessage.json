@@ -15,5 +15,7 @@
   "es": {
     "text__markdown": "# ¡Algo salió mal!\n\n¡Oh no! Cometimos un error. Estamos trabajando para solucionarlo lo antes posible.\n\nSi el problema persiste, por favor contáctanos a [help@29k.org](mailto:help@29k.org)."
   },
-  "pt-BR": {}
+  "pt-BR": {
+    "text__markdown": "# Algo deu errado!\r\n\r\nOh não! Cometemos um erro. Estamos trabalhando para corrigir isso o mais rápido possível.\r\n\r\nSe o problema persistir, por favor entre em contato com [help@29k.org](mailto:help@29k.org)."
+  }
 }

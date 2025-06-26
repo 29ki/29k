@@ -43,5 +43,14 @@
     },
     "title": "Unirme con un código de invitación"
   },
-  "pt-BR": {}
+  "pt-BR": {
+    "create": {
+      "cta": "Adicionar nova sessão",
+      "or": "ou"
+    },
+    "errors": {
+      "sessionNotFound": "Código incorreto, tente novamente"
+    },
+    "title": "Entrar com código de convite"
+  }
 }

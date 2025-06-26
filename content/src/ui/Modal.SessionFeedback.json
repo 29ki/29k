@@ -39,5 +39,13 @@
     "thankYou__text": "¡Muchas \ngracias \npor tus \ncomentarios!",
     "title": "Una última cosa..."
   },
-  "pt-BR": {}
+  "pt-BR": {
+    "comments": "Você tem algum comentário?",
+    "commentsPlaceholder": "Opcional...",
+    "note": "Seus comentários serão compartilhados anonimamente.",
+    "question": "Isso foi significativo para você?",
+    "submit": "Enviar",
+    "thankYou__text": "Muito obrigado(a)\r\npelo seu\r\nfeedback!",
+    "title": "Só mais uma coisa..."
+  }
 }

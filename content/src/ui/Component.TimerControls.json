@@ -21,5 +21,7 @@
   "es": {
     "text": "Inicia el temporizador y tómate un momento para reflexionar"
   },
-  "pt-BR": {}
+  "pt-BR": {
+    "text": "Inicie o temporizador para reservar um minuto para refletir"
+  }
 }

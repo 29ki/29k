@@ -35,5 +35,12 @@
     "signIn": "Iniciar sesión",
     "upgrade": "Actualizar"
   },
-  "pt-BR": {}
+  "pt-BR": {
+    "code": "Código",
+    "email": "E-mail",
+    "header": "Verificação",
+    "password": "Senha",
+    "signIn": "Entrar",
+    "upgrade": "Atualizar"
+  }
 }

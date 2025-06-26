@@ -27,5 +27,10 @@
     "text": "Gracias a estas maravillosas organizaciones, ¡muchas gracias!",
     "title": "Socios/as"
   },
-  "pt-BR": {}
+  "pt-BR": {
+    "corePartners": "Parceiros principais",
+    "partners": "Parceiros",
+    "text": "Agradecimento a essas organizações maravilhosas, muito obrigado(a)!",
+    "title": "Parceiros"
+  }
 }

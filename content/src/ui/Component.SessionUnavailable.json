@@ -15,5 +15,7 @@
   "es": {
     "description": "La sesión que estás buscando no está disponible en este momento."
   },
-  "pt-BR": {}
+  "pt-BR": {
+    "description": "A sessão que você está procurando não está mais disponível."
+  }
 }

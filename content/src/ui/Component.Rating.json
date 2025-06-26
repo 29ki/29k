@@ -35,5 +35,12 @@
     "header": "Deja una reseña",
     "text": "¡Gracias! ¿Te importaría puntuar nuestra aplicación en el {{storeType}}?"
   },
-  "pt-BR": {}
+  "pt-BR": {
+    "buttons": {
+      "cancel": "Não, obrigado(a)",
+      "confirm": "Sim, claro!"
+    },
+    "header": "Deixe uma avaliação",
+    "text": "Obrigado! Você se importaria de avaliar nosso app na {{storeType}}?"
+  }
 }

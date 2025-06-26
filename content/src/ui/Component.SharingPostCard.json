@@ -19,5 +19,8 @@
     "everyoneLabel": "Todo el mundo",
     "onlyMeLabel": "Solamente yo"
   },
-  "pt-BR": {}
+  "pt-BR": {
+    "everyoneLabel": "Todos",
+    "onlyMeLabel": "Somente eu"
+  }
 }

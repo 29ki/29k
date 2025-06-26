@@ -147,5 +147,40 @@
     "startCta": "Empieza",
     "typeHeading": "Hacer esta sesión con..."
   },
-  "pt-BR": {}
+  "pt-BR": {
+    "coCreatorsHeading": "Co-criado com",
+    "feedbackHeading": "Avaliações",
+    "joinByInviteCta": "Entrar com código de convite",
+    "moreLikeThis": "Mais como este",
+    "noUpcomingSessions": "🌱 Nenhuma sessão planejada.",
+    "or": "ou",
+    "orJoinUpcoming": "Ou participe de uma próxima sessão",
+    "profile": {
+      "text": "Para criar e hospedar uma sessão, você precisa de um nome de usuário e uma foto de perfil."
+    },
+    "selectContent": {
+      "title": "Escolher exercício"
+    },
+    "selectType": {
+      "async-public": {
+        "title": "Você mesmo(a)"
+      },
+      "live-private": {
+        "title": "Amigos"
+      },
+      "live-public": {
+        "title": "Qualquer pessoa"
+      }
+    },
+    "setDateTime": {
+      "cta": "Criar sessão",
+      "sessionType": {
+        "private": "Sessão com amigos",
+        "public": "Sessão com qualquer pessoa"
+      },
+      "title": "Escolha um horário"
+    },
+    "startCta": "Iniciar",
+    "typeHeading": "Fazer sessão com…"
+  }
 }
