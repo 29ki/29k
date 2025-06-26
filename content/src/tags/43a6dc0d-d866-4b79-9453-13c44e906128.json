@@ -45,6 +45,9 @@
     "published": true
   },
   "pt-BR": {
-    "id": "43a6dc0d-d866-4b79-9453-13c44e906128"
+    "name": "Gratidão",
+    "id": "43a6dc0d-d866-4b79-9453-13c44e906128",
+    "sortOrder": 1,
+    "published": true
   }
 }
