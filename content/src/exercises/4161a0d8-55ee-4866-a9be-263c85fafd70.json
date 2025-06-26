@@ -1078,6 +1078,159 @@
     "async": false
   },
   "pt-BR": {
-    "id": "4161a0d8-55ee-4866-a9be-263c85fafd70"
+    "description": "Frequentemente evitamos conversas difíceis porque sabemos que elas serão emocionalmente desafiadoras. Praticar o oposto — enfrentar o difícil com uma atitude de aceitação — pode ajudar a lidar melhor com essas situações. Para este exercício, você vai precisar de um lugar para fazer anotações.",
+    "introPortal": {
+      "hostNotes": [
+        {
+          "text": ">Comece a sessão quando estiver pronto para seguir"
+        }
+      ],
+      "textColor": "#F9F8F4",
+      "videoLoop": {
+        "p5JsScript": {
+          "lang": "javascript"
+        },
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1737274976/Video/portal_1_Difficult_conversation_mjexai.mp4",
+        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1740905960/Audio/random%20audio/9_vpkpv7.mp3"
+      },
+      "desktopOptimized": true
+    },
+    "name": "PsyPal Conversas difíceis",
+    "slides": [
+      {
+        "hostNotes": [
+          {
+            "text": "Bem-vindos. Eu sou X e hoje vamos trabalhar por cerca de 30 minutos em xx.\n\nFaremos xx, por exemplo, uma meditação, seguida de um tempo para reflexão e compartilhamento entre nós."
+          },
+          {
+            "text": "Vamos começar com um mini check-in. Como você está se sentindo agora? Por favor, responda em duas ou três palavras. X, você gostaria de começar?\n\n> Deixe todos na sessão, inclusive você, fazerem o check-in um por um.\n\nObrigado a todos por compartilharem. Vamos começar."
+          }
+        ],
+        "type": "host"
+      },
+      {
+        "content": {
+          "text": "Seguir o que realmente importa para nós nem sempre é fácil. Quando precisamos nos posicionar—seja ao lidar com um conflito ou ao compartilhar verdades difíceis com um amigo—frequentemente enfrentamos ansiedade, medo e culpa. Neste exercício, vamos aprender a aceitar esses sentimentos desafiadores para que possamos focar no que realmente importa.\n",
+          "image": {
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1737800766/Images/image_11_Difficult_conversation_fxast1.png"
+          }
+        },
+        "type": "instruction"
+      },
+      {
+        "hostNotes": [
+          {
+            "text": "Encontre uma posição confortável. Vou iniciar o exercício em áudio e nos encontraremos aqui novamente depois.\n\n> Aperte play para começar o exercício em áudio."
+          }
+        ],
+        "type": "content",
+        "content": {
+          "video": {
+            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1737616068/Video/audio_timer_acceptance_practice_1_cungu2.mp4",
+            "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1739805357/SRT%20(captions)%20files/PsyPal_Difficutl_conversations_nfzx1g.srt",
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1739805280/Audio/PsyPal_Difficult_conversations_pumif5.mp3"
+          }
+        }
+      },
+      {
+        "hostNotes": [
+          {
+            "text": "Agora vamos tirar 1 minuto para refletir individualmente.\n\nxxPergunta principal\n\nxxExplicações adicionais da pergunta principal, se necessário"
+          },
+          {
+            "text": "Você pode fazer anotações em um papel ou apenas mentalmente. Não existe certo ou errado aqui, nossas respostas são pessoais. 1 minuto começando agora.\n\n> Aperte play para iniciar o cronômetro.\n\nPassou 1 minuto, é hora de seguir em frente."
+          }
+        ],
+        "type": "reflection",
+        "content": {
+          "text": "",
+          "lottie": {
+            "durationTimer": true,
+            "duration": 60,
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1676642915/Lottie/default_1min_white_wvgwma.json"
+          },
+          "heading": ""
+        }
+      },
+      {
+        "content": {
+          "heading": "Como foi para você fazer este exercício?",
+          "text": ""
+        },
+        "hostNotes": [
+          {
+            "text": "Agora estamos entrando na parte de compartilhamento. Temos três regras para o compartilhamento:\n\n1. **O que é dito aqui, fica aqui.**\n2. **Tudo o que você precisa fazer é ouvir.** Não é necessário consertar, ajudar ou dar conselhos. Estamos apenas presentes e explorando o que nós e os outros estamos vivenciando."
+          },
+          {
+            "text": "3. **Tudo o que você sentir é válido.** Raiva, amor, ódio, tristeza. O que surgir. Não existe certo ou errado. \n\nO cronômetro será ajustado para 2 minutos como referência. Se você não quiser compartilhar, pode simplesmente dizer “passo”.\n\n"
+          },
+          {
+            "text": "Quem gostaria de começar?\n\n> Deixe todos (ou o maior número possível, conforme o tempo permitir) compartilharem um por um. Aperte play para iniciar o cronômetro. Reinicie para cada novo compartilhamento.\n\nMuito obrigado a todos.\n\n"
+          }
+        ],
+        "type": "sharing",
+        "id": "Sharing 1"
+      },
+      {
+        "hostNotes": [
+          {
+            "text": "Muito bem. Se quiser, você pode continuar o que começamos aqui hoje com uma sugestão para trazer isso para o seu dia a dia.\n\nxx descrição da sugestão"
+          },
+          {
+            "text": "Antes de sairmos deste espaço, vamos fazer um mini check-out.\n\nComo você está se sentindo agora? Algo mudou? Por favor, responda em duas ou três palavras."
+          },
+          {
+            "text": "Quem gostaria de começar?\n\n> Deixe todos (ou o maior número possível, conforme o tempo permitir) compartilharem um por um. Aperte play para iniciar o cronômetro. Reinicie para cada novo compartilhamento.\n\nMuito obrigado a todos.\n\n"
+          }
+        ],
+        "type": "host"
+      },
+      {
+        "content": {
+          "text": "Você aprendeu algumas habilidades para estar mais preparado para conversas difíceis:\n\n1. Perceber e permitir emoções difíceis.\n2. Perguntar para entender, não para convencer.\n3. Ouvir e permitir silêncios.\n4. Ser vulnerável e aberto.\n\nSe você tem uma conversa difícil em mente, faça um plano de quando e onde irá realizá-la.",
+          "image": {
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1737800767/Images/image_33_Difficult_conversation_h81lm9.png"
+          }
+        },
+        "type": "instruction"
+      }
+    ],
+    "id": "4161a0d8-55ee-4866-a9be-263c85fafd70",
+    "liveDuration": 30,
+    "theme": {
+      "textColor": "#F9F8F4",
+      "backgroundColor": "#cf400c"
+    },
+    "hidden": false,
+    "locked": true,
+    "live": false,
+    "published": false,
+    "excludeFromWeb": false,
+    "asyncDuration": 15,
+    "card": {
+      "image": {
+        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1737188027/Images/image_2_Difficult_conversation_xroiqs.png"
+      }
+    },
+    "coCreators": [
+      {
+        "name": "Jenny Rickardsson, script and voice",
+        "url": "https://www.linkedin.com/in/jenny-rickardson-6770a959/",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1682602411/Images/Jenny_Rickardsson_kopia_sdodwf.jpg"
+      },
+      {
+        "name": "Ints Ivanovskis, art works",
+        "url": "https://www.linkedin.com/in/ints-ivanovskis-46ab0311a/",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413436/Contributors/Ints%20Ivanovskis.jpg"
+      }
+    ],
+    "outroPortal": {
+      "desktopOptimized": true
+    },
+    "tags": [
+      "34100e43-2eb8-4d35-8eb0-9fa9f78e4935",
+      "9c2c08a9-7dc6-4058-bc78-016d0eb00614"
+    ],
+    "async": true
   }
 }

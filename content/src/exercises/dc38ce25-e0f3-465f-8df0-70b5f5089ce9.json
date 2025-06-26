@@ -149,7 +149,9 @@
       },
       "desktopOptimized": true
     },
-    "tags": ["34100e43-2eb8-4d35-8eb0-9fa9f78e4935"],
+    "tags": [
+      "34100e43-2eb8-4d35-8eb0-9fa9f78e4935"
+    ],
     "id": "dc38ce25-e0f3-465f-8df0-70b5f5089ce9",
     "async": true,
     "description": "Running into obstacles is a natural part of life. With the things we want in life – like for example love, growth, interesting work – the risk of being hurt is always present. Even though we seldom acknowledge it, and often try to avoid it. In this week’s exercise we’ll practice the opposite: moving through difficulties."
@@ -314,7 +316,9 @@
       },
       "desktopOptimized": true
     },
-    "tags": ["34100e43-2eb8-4d35-8eb0-9fa9f78e4935"],
+    "tags": [
+      "34100e43-2eb8-4d35-8eb0-9fa9f78e4935"
+    ],
     "id": "dc38ce25-e0f3-465f-8df0-70b5f5089ce9",
     "async": true,
     "description": "Depararmo-nos com obstáculos é uma parte natural da vida. Com as coisas que queremos alcançar - como por exemplo amor, crescimento, um trabalho interessante - o risco de sermos magoados está sempre presente, embora raramente o reconheçamos, e muitas vezes tentemos evitá-lo.\n\nNo exercício desta semana, vamos praticar o oposto: ultrapassar as dificuldades."
@@ -405,7 +409,9 @@
         }
       ]
     },
-    "tags": ["34100e43-2eb8-4d35-8eb0-9fa9f78e4935"],
+    "tags": [
+      "34100e43-2eb8-4d35-8eb0-9fa9f78e4935"
+    ],
     "id": "dc38ce25-e0f3-465f-8df0-70b5f5089ce9",
     "async": false
   },
@@ -495,7 +501,9 @@
         }
       ]
     },
-    "tags": ["34100e43-2eb8-4d35-8eb0-9fa9f78e4935"],
+    "tags": [
+      "34100e43-2eb8-4d35-8eb0-9fa9f78e4935"
+    ],
     "id": "dc38ce25-e0f3-465f-8df0-70b5f5089ce9",
     "async": false
   },
@@ -656,7 +664,9 @@
       },
       "desktopOptimized": true
     },
-    "tags": ["34100e43-2eb8-4d35-8eb0-9fa9f78e4935"],
+    "tags": [
+      "34100e43-2eb8-4d35-8eb0-9fa9f78e4935"
+    ],
     "id": "dc38ce25-e0f3-465f-8df0-70b5f5089ce9",
     "async": true,
     "description": "At støde på forhindringer er en naturlig del af livet. Med de ting, vi ønsker i livet – som for eksempel kærlighed, udvikling, interessant arbejde – er risikoen for at blive såret altid til stede. Selvom vi sjældent anerkender det og ofte prøver at undgå det.\nI denne uges øvelse vil vi øve det modsatte: at bevæge os gennem vanskeligheder."
@@ -817,7 +827,9 @@
       },
       "desktopOptimized": true
     },
-    "tags": ["34100e43-2eb8-4d35-8eb0-9fa9f78e4935"],
+    "tags": [
+      "34100e43-2eb8-4d35-8eb0-9fa9f78e4935"
+    ],
     "id": "dc38ce25-e0f3-465f-8df0-70b5f5089ce9",
     "async": true,
     "description": "Potkávat překážky je přirozenou součástí života. U věcí, které v životě chceme – jako například láska, růst, zajímavá práce – je riziko obtíží vždy přítomné. I když to málokdy uznáváme a často se tomu snažíme vyhnout.\n\nVe cvičení pro tento týden vám nabídneme opačný přístup ke zvládání obtíží."
@@ -979,20 +991,178 @@
       },
       "desktopOptimized": true
     },
-    "tags": ["34100e43-2eb8-4d35-8eb0-9fa9f78e4935"],
+    "tags": [
+      "34100e43-2eb8-4d35-8eb0-9fa9f78e4935"
+    ],
     "id": "dc38ce25-e0f3-465f-8df0-70b5f5089ce9",
     "async": true,
     "description": "Het tegenkomen van obstakels is een normaal onderdeel van het leven. Bij de dingen die we graag willen – zoals bijvoorbeeld liefde, groei, interessant werk – is er altijd een kans om gekwetst te worden. Ook al zien we dat niet vaak zo, en proberen we het vaak te vermijden.\n\nIn de oefening van deze week gaan we het tegenovergestelde oefenen: door moeilijkheden heen gaan."
   },
   "es": {
     "liveDuration": 30,
-    "tags": ["34100e43-2eb8-4d35-8eb0-9fa9f78e4935"],
+    "tags": [
+      "34100e43-2eb8-4d35-8eb0-9fa9f78e4935"
+    ],
     "id": "dc38ce25-e0f3-465f-8df0-70b5f5089ce9",
     "card": {},
     "locked": true,
     "asyncDuration": 15
   },
   "pt-BR": {
-    "id": "dc38ce25-e0f3-465f-8df0-70b5f5089ce9"
+    "description": "Encontrar obstáculos é uma parte natural da vida. Com as coisas que desejamos – como, por exemplo, amor, crescimento, trabalho interessante – o risco de se machucar está sempre presente. Mesmo que raramente reconheçamos isso e muitas vezes tentemos evitar. No exercício desta semana, vamos praticar o oposto: atravessar as dificuldades.",
+    "introPortal": {
+      "hostNotes": [
+        {
+          "text": ">Comece a sessão quando estiver pronto para seguir"
+        }
+      ],
+      "textColor": "#F9F8F4",
+      "videoLoop": {
+        "p5JsScript": {
+          "lang": "javascript"
+        },
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1737479333/Video/portal_1_acceptance_practice_uf24np.mp4",
+        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1740905959/Audio/random%20audio/1_xsagb2.mp3"
+      },
+      "desktopOptimized": true
+    },
+    "name": "PsyPal Estar com o que é",
+    "slides": [
+      {
+        "hostNotes": [
+          {
+            "text": "Bem-vindos. Eu sou X e hoje vamos trabalhar por cerca de 30 minutos em xx.\n\nFaremos xx, por exemplo, uma meditação, seguida de um tempo para reflexão e compartilhamento entre nós."
+          },
+          {
+            "text": "Vamos começar com um mini check-in. Como você está se sentindo agora? Por favor, responda em duas ou três palavras. X, você gostaria de começar?\n\n> Deixe todos na sessão, inclusive você, fazerem o check-in um por um.\n\nObrigado a todos por compartilharem. Vamos começar."
+          }
+        ],
+        "type": "host"
+      },
+      {
+        "content": {
+          "text": "Neste exercício, vamos praticar vivenciar emoções desafiadoras ou difíceis. Exatamente como elas são. Como uma forma de gastar menos energia tentando evitar o desconforto e mais energia naquilo que realmente importa para nós a longo prazo.",
+          "image": {
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1737482599/Images/image_2_acceptance_practice_rfgk30.png"
+          }
+        },
+        "type": "instruction"
+      },
+      {
+        "hostNotes": [
+          {
+            "text": "Encontre uma posição confortável. Vou iniciar o exercício em áudio e nos encontraremos aqui novamente depois.\n\n> Aperte play para começar o exercício em áudio."
+          }
+        ],
+        "type": "content",
+        "content": {
+          "lottie": {
+            "subtitles": "",
+            "audio": "",
+            "source": ""
+          },
+          "video": {
+            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1737616068/Video/audio_timer_acceptance_practice_1_cungu2.mp4",
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1734426164/Audio/PsyPal_acceptance_practice_audio_eng.mp3.mp3",
+            "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1734425967/SRT%20(captions)%20files/PsyPal%E2%80%93acceptance-practice.srt",
+            "durationTimer": false,
+            "autoPlayLoop": false,
+            "preview": ""
+          }
+        }
+      },
+      {
+        "content": {
+          "heading": "O que significaria para você praticar atravessar as dificuldades na sua vida?",
+          "lottie": {
+            "durationTimer": true,
+            "duration": 60,
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1676642915/Lottie/default_1min_white_wvgwma.json"
+          }
+        },
+        "hostNotes": [
+          {
+            "text": "Agora vamos tirar 1 minuto para refletir individualmente.\n\nxxPergunta principal\n\nxxExplicações adicionais da pergunta principal, se necessário"
+          },
+          {
+            "text": "Você pode fazer anotações em um papel ou apenas mentalmente. Não existe certo ou errado aqui, nossas respostas são pessoais. 1 minuto começando agora.\n\n> Aperte play para iniciar o cronômetro.\n\nPassou 1 minuto, é hora de seguir em frente."
+          }
+        ],
+        "type": "reflection"
+      },
+      {
+        "hostNotes": [
+          {
+            "text": "Agora estamos entrando na parte de compartilhamento. Temos três regras para o compartilhamento:\n\n1. **O que é dito aqui, fica aqui.**\n2. **Tudo o que você precisa fazer é ouvir.** Não é necessário consertar, ajudar ou dar conselhos. Estamos apenas presentes e explorando o que nós e os outros estamos vivenciando."
+          },
+          {
+            "text": "3. **Tudo o que você sentir é válido.** Raiva, amor, ódio, tristeza. O que surgir. Não existe certo ou errado. \n\nO cronômetro será ajustado para 2 minutos como referência. Se você não quiser compartilhar, pode simplesmente dizer “passo”.\n\n"
+          },
+          {
+            "text": "Quem gostaria de começar?\n\n> Deixe todos (ou o maior número possível, conforme o tempo permitir) compartilharem um por um. Aperte play para iniciar o cronômetro. Reinicie para cada novo compartilhamento.\n\nMuito obrigado a todos.\n\n"
+          }
+        ],
+        "type": "sharing",
+        "id": "Sharing 1"
+      },
+      {
+        "hostNotes": [
+          {
+            "text": "Muito bem. Se quiser, você pode continuar o que começamos aqui hoje com uma sugestão para trazer isso para o seu dia a dia.\n\nxx descrição da sugestão"
+          },
+          {
+            "text": "Antes de sairmos deste espaço, vamos fazer um mini check-out.\n\nComo você está se sentindo agora? Algo mudou? Por favor, responda em duas ou três palavras."
+          },
+          {
+            "text": "Quem gostaria de começar?\n\n> Deixe todos (ou o maior número possível, conforme o tempo permitir) compartilharem um por um. Aperte play para iniciar o cronômetro. Reinicie para cada novo compartilhamento.\n\nMuito obrigado a todos.\n\n"
+          }
+        ],
+        "type": "host"
+      },
+      {
+        "content": {
+          "text": "Muito bem.\n\nAcabamos de praticar atravessar as dificuldades em vez de tentar evitá-las. Essa técnica pode nos ajudar a viver mais alinhados com nossos valores e levar uma vida mais significativa.",
+          "image": {
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1737482507/Images/image_1_acceptance_practice_yjyabh.png"
+          }
+        },
+        "type": "instruction"
+      }
+    ],
+    "id": "dc38ce25-e0f3-465f-8df0-70b5f5089ce9",
+    "liveDuration": 30,
+    "theme": {
+      "textColor": "#F9F8F4",
+      "backgroundColor": "#cf400c"
+    },
+    "hidden": false,
+    "locked": true,
+    "live": false,
+    "published": false,
+    "asyncDuration": 15,
+    "card": {
+      "image": {
+        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1737188108/Images/image_5_acceptance_practice_trsysn.png"
+      }
+    },
+    "coCreators": [
+      {
+        "name": "Rachel Brathen, script and voice",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1709567296/Contributors/Yoga_Girl_016895_color_oju3wq_-_Square_Post_mbemkp.png",
+        "url": "https://rachelbrathen.com/"
+      },
+      {
+        "name": "Ints Ivanovskis, art works",
+        "url": "https://www.linkedin.com/in/ints-ivanovskis-46ab0311a/",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413436/Contributors/Ints%20Ivanovskis.jpg"
+      }
+    ],
+    "outroPortal": {
+      "desktopOptimized": true
+    },
+    "tags": [
+      "34100e43-2eb8-4d35-8eb0-9fa9f78e4935"
+    ],
+    "async": true
   }
 }

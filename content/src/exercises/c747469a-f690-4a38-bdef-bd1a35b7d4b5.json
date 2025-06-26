@@ -453,6 +453,174 @@
     "id": "c747469a-f690-4a38-bdef-bd1a35b7d4b5"
   },
   "pt-BR": {
-    "id": "c747469a-f690-4a38-bdef-bd1a35b7d4b5"
+    "description": "Interdependência refere-se ao fato de que tudo o que existe – incluindo todos os objetos, eventos ou pessoas – existe em dependência, conectado e em relação com outras coisas. Explorar a interdependência nos ajuda a apreciar a complexidade e a comunidade.",
+    "introPortal": {
+      "hostNotes": [
+        {
+          "text": ">Pressione play para iniciar o exercício"
+        }
+      ],
+      "textColor": "#2E2E2E",
+      "videoLoop": {
+        "p5JsScript": {
+          "lang": "javascript"
+        },
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1717469190/SEE/Video/SEELearning_AwareApp_IntroVideo_2024_V3_1_giheh7.mp4"
+      }
+    },
+    "name": "Teia de Conexão",
+    "slides": [
+      {
+        "content": {
+          "heading": "Bem-vindo(a)",
+          "text": "Nesta sessão, você irá trabalhar interdependência, conexão e pensamento sistêmico em relação aos outros.\n\nEncontre uma posição confortável e comece o exercício quando estiver pronto(a).",
+          "image": {
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1731441064/SEE/SEELearning_CompassionTree_Green_2024_hiqhwi.png"
+          }
+        },
+        "type": "instruction"
+      },
+      {
+        "type": "content",
+        "hostNotes": [],
+        "content": {
+          "lottie": {
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto/v1715668433/SEE/Lottie/Systems%20Thinking/SystemThinking1_sniz3i.json",
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1715663927/SEE/Audio/Systems%20Thinking/Web_of_Connections_l2ms8t.mp3"
+          }
+        }
+      },
+      {
+        "content": {
+          "heading": "Reflexão",
+          "text": "Você pode anotar em um papel ou apenas mentalmente. Não há certo ou errado aqui, nossas respostas são pessoais.",
+          "image": {
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1716951212/SEE/Icons/Reflection/Reflection_Awareness_CardImage_wgzwcf.png"
+          }
+        },
+        "type": "instruction"
+      },
+      {
+        "content": {
+          "heading": "Reflexão",
+          "text": "Como foi essa experiência para você?\n\nComo essas pessoas na sua teia de interdependência estão conectadas a você?\n\nComo elas impactam o seu bem-estar?\n\nA interdependência faz parte da nossa vida cotidiana, mas muitas vezes não a percebemos. Como podemos destacar mais a nossa interdependência?",
+          "image": {
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1716951212/SEE/Icons/Reflection/Reflection_Awareness_CardImage_wgzwcf.png"
+          }
+        },
+        "type": "instruction"
+      },
+      {
+        "content": {
+          "heading": "O que você percebeu sobre si mesmo durante esta atividade?",
+          "text": "",
+          "lottie": {
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1718146077/SEE/Lottie/Timer/2min_timer_yjuzls.json",
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1715663927/SEE/Audio/Systems%20Thinking/Web_of_Connections_l2ms8t.mp3"
+          }
+        },
+        "type": "sharing",
+        "hostNotes": [],
+        "id": "Sharing 1"
+      },
+      {
+        "content": {
+          "heading": "O que você descobriu sobre sua relação com os outros?",
+          "video": {
+            "durationTimer": true
+          },
+          "lottie": {
+            "durationTimer": true,
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1718146077/SEE/Lottie/Timer/2min_timer_yjuzls.json"
+          },
+          "text": ""
+        },
+        "type": "sharing",
+        "id": "sharing 2"
+      },
+      {
+        "content": {
+          "heading": "Como a interdependência pode informar suas decisões?",
+          "video": {
+            "durationTimer": true
+          },
+          "lottie": {
+            "durationTimer": true,
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1718146077/SEE/Lottie/Timer/2min_timer_yjuzls.json"
+          },
+          "text": ""
+        },
+        "type": "sharing",
+        "id": "sharing 3"
+      },
+      {
+        "content": {
+          "heading": "Como suas decisões podem impactar sistemas maiores?",
+          "video": {
+            "durationTimer": true
+          },
+          "lottie": {
+            "durationTimer": true,
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1718146077/SEE/Lottie/Timer/2min_timer_yjuzls.json"
+          },
+          "text": ""
+        },
+        "type": "sharing",
+        "id": "sharing 4"
+      },
+      {
+        "content": {
+          "heading": "Pensamento sistêmico",
+          "text": "Muito bem. Hoje, exploramos o pensamento sistêmico criando nossa própria teia de conexões.\n\nA interdependência pode nos ajudar a reconhecer como dependemos dos outros e como outros dependem de nós.\n\nIsso pode nos ajudar a sentir gratidão, compaixão e conexão com pessoas que talvez nunca venhamos a conhecer.",
+          "image": {
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1718143990/SEE/Icons/Systems%20Thinking/WebsofConnection_CardImage_uspqqz.png"
+          }
+        },
+        "type": "instruction"
+      },
+      {
+        "content": {
+          "heading": "Pensamento sistêmico",
+          "text": "Passe um tempo refletindo sobre a interdependência enquanto segue com seu dia. Como a interdependência pode impactar sua vida cotidiana?\n\nAo refletir sobre o que você pode levar dessa experiência para o restante do seu dia, aproveite a oportunidade para praticar abrir espaço para o que acontece dentro de você ao longo do dia e observe aonde isso te leva.",
+          "image": {
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1718143990/SEE/Icons/Systems%20Thinking/WebsofConnection_CardImage_uspqqz.png"
+          }
+        },
+        "type": "instruction"
+      },
+      {
+        "content": {
+          "heading": "Pensamento sistêmico",
+          "text": "Se você estiver disposto, pode continuar com esta sugestão.\n\nVocê pode criar uma segunda rede de conexões a partir de um novo ponto de partida para descobrir como nossa interconexão pode despertar maior consciência, apreciação e compaixão pelos outros.\n\nPlaneje o passo que você vai dar, considerando como o conceito de zona de resiliência pode ser útil no seu dia.",
+          "image": {
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1718143990/SEE/Icons/Systems%20Thinking/WebsofConnection_CardImage_uspqqz.png"
+          }
+        },
+        "type": "instruction"
+      }
+    ],
+    "id": "c747469a-f690-4a38-bdef-bd1a35b7d4b5",
+    "liveDuration": 0,
+    "theme": {
+      "textColor": "#2E2E2E"
+    },
+    "hidden": true,
+    "locked": true,
+    "live": false,
+    "published": false,
+    "asyncDuration": 10,
+    "card": {
+      "image": {
+        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1718143990/SEE/Icons/Systems%20Thinking/WebsofConnection_CardImage_uspqqz.png"
+      }
+    },
+    "coCreators": [
+      {
+        "name": "SEE Learning",
+        "url": "https://seelearning.emory.edu/en/home",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1713881366/SEE/see-logo_1_kewtlt.png"
+      }
+    ],
+    "async": true
   }
 }

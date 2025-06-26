@@ -664,6 +664,259 @@
     "id": "c5b1197a-4eec-4699-9dad-0e3d6323967b"
   },
   "pt-BR": {
-    "id": "c5b1197a-4eec-4699-9dad-0e3d6323967b"
+    "description": "Relacionamentos são essenciais para o nosso bem-estar, e às vezes é difícil estabelecer limites saudáveis. Neste exercício, praticamos comunicar nossas necessidades de forma assertiva. Definir limites pode nos ajudar a nos sentirmos melhor conosco, criar relacionamentos sustentáveis e nos tornar mais resilientes diante dos desafios nos relacionamentos.",
+    "introPortal": {
+      "hostNotes": [
+        {
+          "text": ">Comece a sessão quando estiver pronto para seguir"
+        }
+      ],
+      "videoLoop": {
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1672829134/Video/portal1_setting_boundaries_b3rx64.mp4",
+        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1674207970/Audio/portal_audio_setting_boundaries_mixdown_gapless_e33ufm.m4a",
+        "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1674554570/Images/thumb_portal_setting_boundaries_mlg0yv.png",
+        "p5JsScript": {
+          "lang": "javascript"
+        }
+      },
+      "videoEnd": {
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1672835034/Video/portal2_setting_boundaries_craqov.mp4"
+      },
+      "textColor": "#F9F8F4"
+    },
+    "name": "Estabelecer limites",
+    "slides": [
+      {
+        "hostNotes": [
+          {
+            "text": "Eu sou X e hoje vamos trabalhar por cerca de 30 minutos em relacionamentos e limites saudáveis.\n\nFaremos uma introdução, assistiremos a um vídeo e teremos duas rodadas de reflexões e compartilhamento dessas reflexões."
+          },
+          {
+            "text": "Antes de começarmos, vamos fazer algumas respirações conscientes.\n\n> Inspire e expire lentamente 3 vezes.\n\nVamos iniciar com um mini check-in.\n\nComo você está se sentindo agora? Por favor, responda em duas ou três palavras."
+          },
+          {
+            "text": "X, você gostaria de começar e depois passar para o próximo?\n\n> Permita que todos na sessão, inclusive você, façam o check-in um por um.\n\nObrigado a todos por compartilharem. Vamos começar."
+          }
+        ],
+        "type": "host",
+        "video": {
+          "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1679059022/Video/intro_setting_boundaries_1_hiivpp.mp4",
+          "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1679059308/Images/AsyncHostthumbSettingBoundaries.png"
+        }
+      },
+      {
+        "content": {
+          "heading": "Estabelecer limites",
+          "text": "– a base dos relacionamentos",
+          "video": {
+            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1672845530/Video/video_setting_boundaries_wt07na.mp4",
+            "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1672842495/Images/image_video_setting_boundaries_cmjbl2.png",
+            "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1689680884/SRT%20(captions)%20files/setting_boundaries_video_xyt55y.srt",
+            "durationTimer": true
+          }
+        },
+        "hostNotes": [
+          {
+            "text": "Relacionamentos são extremamente importantes para nós, humanos. Nossos cérebros evoluíram para ser sociais, e nossos sistemas de sobrevivência sabem muito bem que ser aceito pelos outros é essencial."
+          },
+          {
+            "text": "E, às vezes, esse mecanismo pode dificultar o estabelecimento de limites. Defender nossos próprios interesses. Comunicar o que precisamos. Vamos assistir a este vídeo para saber mais.\n\n> Aperte play para iniciar o vídeo"
+          }
+        ],
+        "type": "content"
+      },
+      {
+        "content": {
+          "heading": "Necessidades não atendidas são...\n",
+          "text": "Por que não?",
+          "video": {
+            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1672740667/Video/reflection_setting_boundaries_kqxuog.mp4",
+            "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1674554569/Images/thumb_timer2min_boundaries_mza6w9.png",
+            "durationTimer": true
+          }
+        },
+        "hostNotes": [
+          {
+            "text": "Reserve 2 minutos para refletir sozinho sobre estas duas perguntas.\n\n1. Quais das suas necessidades não estão sendo atendidas ou expressas no momento?  \n2. Por que essas necessidades não estão sendo atendidas ou expressas?"
+          },
+          {
+            "text": "Você pode fazer anotações em um pedaço de papel ou apenas mentalmente. E não existe certo ou errado aqui, nossas respostas são pessoais. 2 minutos começando agora.\n\n> Aperte play para iniciar o cronômetro.\n\nEsses foram 2 minutos, e é hora de seguir em frente."
+          }
+        ],
+        "type": "reflection"
+      },
+      {
+        "content": {
+          "heading": "Quais das suas necessidades não estão sendo atendidas ou expressas? Por quê?",
+          "text": "",
+          "video": {
+            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1672743559/Video/sharing_setting_boundaries_re9uln.mp4",
+            "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1674554569/Images/thumb_timer2min_2_boundaries_sazbko.png",
+            "durationTimer": true
+          }
+        },
+        "hostNotes": [
+          {
+            "text": "Agora estamos entrando na parte de compartilhamento. Temos três regras para o compartilhamento:\n\n1. **O que é dito aqui, fica aqui.**\n2. **Tudo o que você precisa fazer é ouvir.** Não é necessário consertar, ajudar ou dar conselhos. Estamos apenas presentes e explorando o que nós e os outros estamos vivenciando."
+          },
+          {
+            "text": "3. **Tudo o que você sentir é válido.** Raiva, amor, ódio, tristeza. O que surgir. Não existe certo ou errado. \n\nO cronômetro será ajustado para 2 minutos como referência. Se você não quiser compartilhar, pode simplesmente dizer “passo”.\n\n"
+          },
+          {
+            "text": "Quem gostaria de começar?\n\n> Deixe todos (ou o maior número possível, conforme o tempo permitir) compartilharem um por um. Aperte play para iniciar o cronômetro. Reinicie para cada novo compartilhamento.\n\nMuito obrigado a todos.\n\n"
+          }
+        ],
+        "type": "sharing",
+        "id": "sharing-1",
+        "sharingVideos": []
+      },
+      {
+        "content": {
+          "heading": "Quais limites, e para quem?",
+          "text": "Como vou me comunicar?",
+          "video": {
+            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1672740667/Video/reflection_setting_boundaries_kqxuog.mp4",
+            "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1674554569/Images/thumb_timer2min_boundaries_mza6w9.png",
+            "durationTimer": true
+          }
+        },
+        "hostNotes": [
+          {
+            "text": "Vamos voltar ao modo de reflexão. Reserve 2 minutos para refletir sozinho sobre estas perguntas:\n\n1. Onde seria útil para você estabelecer limites e em relação a quem?"
+          },
+          {
+            "text": "2. Como você poderia comunicar seus limites de maneira calma e assertiva?"
+          }
+        ],
+        "type": "reflection"
+      },
+      {
+        "content": {
+          "heading": "Quais limites você precisa estabelecer?",
+          "text": "Para quem? Como você vai se comunicar?",
+          "video": {
+            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1672743559/Video/sharing_setting_boundaries_re9uln.mp4",
+            "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1674554569/Images/thumb_timer2min_2_boundaries_sazbko.png",
+            "durationTimer": true
+          }
+        },
+        "hostNotes": [
+          {
+            "text": "E agora vamos para o momento de compartilhamento novamente.\n\n1. Onde seria útil para você estabelecer limites e em relação a quem?\n2. Como você poderia comunicar seus limites de maneira calma e assertiva?\n\nNovamente, haverá um cronômetro de 2 minutos. Se não quiser compartilhar, você pode sempre dizer ‘passar’."
+          },
+          {
+            "text": "Quem gostaria de começar?\n\n> Deixe todos (ou o maior número possível, conforme o tempo permitir) compartilharem um por um. Aperte play para iniciar o cronômetro. Reinicie para cada novo compartilhamento.\n\nMuito obrigado a todos.\n\n"
+          }
+        ],
+        "sharingVideos": [
+          {
+            "profile": {
+              "displayName": "Vanessa",
+              "photoURL": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1698942215/Images/vanessa_exercise1_Setting_boundaries-1_Image_eg85wb.jpg"
+            },
+            "video": {
+              "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1698755178/Video/vanessa_exercise2setting_boundaries.Sharing_s9apmr.mp4",
+              "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1699017591/SRT%20(captions)%20files/vanessa_exercise2setting_boundaries.Sharing_ijwdec.srt",
+              "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1698942215/Images/vanessa_exercise1_Setting_boundaries-1_Image_eg85wb.jpg"
+            }
+          },
+          {
+            "profile": {
+              "displayName": "Verão",
+              "photoURL": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1698942223/Images/summer_exercise2setting_boundaries_Image_qtiimj.jpg"
+            },
+            "video": {
+              "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1698755085/Video/summer_exercise2setting_boundaries.Sharing_nfbo1g.mp4",
+              "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1698942223/Images/summer_exercise2setting_boundaries_Image_qtiimj.jpg",
+              "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1699017585/SRT%20(captions)%20files/summer_exercise2setting_boundaries.Sharing_k0dbjk.srt"
+            }
+          }
+        ],
+        "type": "sharing",
+        "id": "sharing-2"
+      },
+      {
+        "content": {
+          "heading": "Hora de procurar apoio",
+          "lottie": {
+            "autoPlayLoop": true,
+            "description": "",
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1672843496/Lottie/mission_setting_boundaries_cwycbr.json"
+          }
+        },
+        "hostNotes": [
+          {
+            "text": "Parabéns pela sua abertura em explorar suas necessidades e pela disposição em estabelecer limites saudáveis para atendê-las."
+          },
+          {
+            "text": "Uma sugestão para você continuar o que começamos aqui hoje é seguir em frente e conversar com as pessoas que você identificou sobre suas intenções. Se isso não for possível agora, agende um horário esta semana para fazê-lo."
+          }
+        ],
+        "type": "reflection"
+      },
+      {
+        "content": {
+          "heading": "Hora de procurar apoio",
+          "text": "Parabéns pela sua abertura em explorar suas necessidades e pela disposição em estabelecer limites saudáveis para atendê-las.\n\nUma sugestão para você continuar o que começamos aqui hoje é conversar com as pessoas que você identificou sobre suas intenções. Se isso não for possível agora, agende um horário esta semana para fazê-lo.",
+          "image": {
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1674395860/Images/card_setting_boundaries_yrv35w.png"
+          }
+        },
+        "type": "instruction"
+      },
+      {
+        "hostNotes": [
+          {
+            "text": "Antes de encerrarmos este espaço, vamos fazer um mini check-out.\n\nO que significaria para você estabelecer limites saudáveis? Por favor, responda em duas ou três palavras."
+          },
+          {
+            "text": "Quem gostaria de começar?\n\n> Deixe todos (ou o maior número possível, conforme o tempo permitir) compartilharem um por um. Aperte play para iniciar o cronômetro. Reinicie para cada novo compartilhamento.\n\nMuito obrigado a todos.\n\n"
+          }
+        ],
+        "type": "host",
+        "video": {
+          "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1679059266/Video/AsyncOutroSettingBoundaries_qiedlk.mp4",
+          "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1679059308/Images/AsyncHostthumbSettingBoundaries.png"
+        }
+      }
+    ],
+    "id": "c5b1197a-4eec-4699-9dad-0e3d6323967b",
+    "liveDuration": 30,
+    "theme": {
+      "textColor": "#2E2E2E",
+      "backgroundColor": "#cdc9c7"
+    },
+    "hidden": false,
+    "live": true,
+    "published": false,
+    "asyncDuration": 2,
+    "card": {
+      "image": {
+        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1674395860/Images/card_setting_boundaries_yrv35w.png"
+      }
+    },
+    "coCreators": [
+      {
+        "name": "Ints ivanovskis, art works",
+        "url": "https://www.linkedin.com/in/ints-ivanovskis-46ab0311a/",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413436/Contributors/Ints%20Ivanovskis.jpg"
+      },
+      {
+        "name": "Jacqueline Levi, original script",
+        "url": "https://www.linkedin.com/in/jacqueline-levi-292065ab/",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665414232/Contributors/Jacqueline%20Levi.png"
+      },
+      {
+        "name": "Jenny Rickardsson, editor",
+        "url": "https://www.linkedin.com/in/jenny-rickardson-6770a959/",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413228/Contributors/Jenny%20Rickardsson.jpg"
+      }
+    ],
+    "tags": [
+      "8da0534a-5da9-430a-bdf3-242ace6460fb",
+      "cfc00217-f65b-4a4d-8b82-8ccc8f852dd6"
+    ],
+    "link": "https://aware.29k.org/setting-boundaries",
+    "async": true
   }
 }

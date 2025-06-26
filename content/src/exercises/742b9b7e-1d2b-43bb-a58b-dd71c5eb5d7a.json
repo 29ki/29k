@@ -458,6 +458,131 @@
     "id": "742b9b7e-1d2b-43bb-a58b-dd71c5eb5d7a"
   },
   "pt-BR": {
-    "id": "742b9b7e-1d2b-43bb-a58b-dd71c5eb5d7a"
+    "description": "Reflita sobre aquilo pelo qual você é grato na sua vida, em relação a si mesmo e às pessoas que você valoriza. Praticar a gratidão pode nos fazer sentir mais felizes e satisfeitos com a vida.",
+    "introPortal": {
+      "hostNotes": [
+        {
+          "text": ">Comece a sessão quando estiver pronto para seguir"
+        }
+      ],
+      "textColor": "#2AE2D7",
+      "videoLoop": {
+        "p5JsScript": {
+          "lang": "javascript"
+        }
+      }
+    },
+    "name": "Cartas de gratidão",
+    "slides": [
+      {
+        "hostNotes": [
+          {
+            "text": "Bem-vindo(a). Eu sou X e hoje vamos trabalhar durante cerca de 30 minutos sobre gratidão e autocompaixão.\n\nFaremos um exercício em áudio, seguido de um tempo para reflexão e compartilhamento entre todos. Aviso: será necessário papel e caneta para realizar o exercício."
+          },
+          {
+            "text": "Vamos começar com um mini check-in. Como você está se sentindo agora? Por favor, responda em duas ou três palavras. X, você gostaria de começar?\n\n> Deixe todos na sessão, inclusive você, fazerem o check-in um por um.\n\nObrigado a todos por compartilharem. Vamos começar."
+          }
+        ],
+        "type": "host"
+      },
+      {
+        "hostNotes": [
+          {
+            "text": "Encontre uma posição confortável. Vou iniciar o exercício em áudio e nos encontraremos aqui novamente depois.\n\n> Aperte play para começar o exercício em áudio."
+          }
+        ],
+        "type": "content",
+        "content": {
+          "lottie": {
+            "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1716890320/SRT%20(captions)%20files/Gratitude_letters_c9sb5u.srt",
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1716890277/Audio/Gratitude_letters_mqysdg.mp3"
+          }
+        }
+      },
+      {
+        "content": {
+          "heading": "Como foi expressar gratidão a outra pessoa? E a si mesmo?"
+        },
+        "hostNotes": [
+          {
+            "text": "Agora vamos tirar 1 minuto para refletir individualmente."
+          },
+          {
+            "text": "Você pode fazer anotações em um papel ou apenas mentalmente. Não existe certo ou errado aqui, nossas respostas são pessoais. 1 minuto começando agora.\n\n> Aperte play para iniciar o cronômetro.\n\nPassou 1 minuto, é hora de seguir em frente."
+          }
+        ],
+        "type": "reflection"
+      },
+      {
+        "content": {
+          "heading": "Como foi expressar gratidão a outra pessoa? E a você mesmo?"
+        },
+        "hostNotes": [
+          {
+            "text": "Agora estamos entrando na parte de compartilhamento. Temos três regras para o compartilhamento:\n\n1. **O que é dito aqui, fica aqui.**\n2. **Tudo o que você precisa fazer é ouvir.** Não é necessário consertar, ajudar ou dar conselhos. Estamos apenas presentes e explorando o que nós e os outros estamos vivenciando."
+          },
+          {
+            "text": "3. **Tudo o que você sentir é válido.** Raiva, amor, ódio, tristeza. O que surgir. Não existe certo ou errado. \n\nO cronômetro será ajustado para 2 minutos como referência. Se você não quiser compartilhar, pode simplesmente dizer “passo”.\n\n"
+          },
+          {
+            "text": "Quem gostaria de começar?\n\n> Deixe todos (ou o maior número possível, conforme o tempo permitir) compartilharem um por um. Aperte play para iniciar o cronômetro. Reinicie para cada novo compartilhamento.\n\nMuito obrigado a todos.\n\n"
+          }
+        ],
+        "type": "sharing",
+        "id": "Sharing 1"
+      },
+      {
+        "hostNotes": [
+          {
+            "text": "Muito bem. Praticar a gratidão pode nos fazer sentir mais felizes e satisfeitos com a vida.\n\nAqui vai uma sugestão, se você quiser: expresse sua gratidão à pessoa para quem escreveu a carta de gratidão, se isso for possível. Recomendo fazer isso pessoalmente, lendo sua carta em voz alta."
+          },
+          {
+            "text": "Antes de sairmos deste espaço, vamos fazer um mini check-out.\n\nComo você está se sentindo agora? Algo mudou? Por favor, responda em duas ou três palavras."
+          },
+          {
+            "text": "Quem gostaria de começar?\n\n> Deixe todos (ou o maior número possível, conforme o tempo permitir) compartilharem um por um. Aperte play para iniciar o cronômetro. Reinicie para cada novo compartilhamento.\n\nMuito obrigado a todos.\n\n"
+          }
+        ],
+        "type": "host"
+      },
+      {
+        "content": {
+          "text": "Muito bem.\n\nPraticar a gratidão pode nos fazer sentir mais felizes e satisfeitos com a vida.\n\nAqui vai uma sugestão, se você quiser: expresse sua gratidão à pessoa para quem escreveu a carta de gratidão, se isso for possível. Recomendamos fazer isso pessoalmente, lendo sua carta em voz alta."
+        },
+        "type": "instruction"
+      }
+    ],
+    "id": "742b9b7e-1d2b-43bb-a58b-dd71c5eb5d7a",
+    "theme": {
+      "textColor": "#2AE2D7"
+    },
+    "hidden": true,
+    "locked": false,
+    "live": true,
+    "published": false,
+    "coCreators": [
+      {
+        "name": "Agnes Branny, writing",
+        "url": "https://www.agnesbranny.com/",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665414181/Contributors/Agnes%20Branny.png"
+      },
+      {
+        "name": "Tabitha, AI-generated voice",
+        "url": "https://www.descript.com/tools/text-to-speech",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1710239861/Contributors/descript_ps0olu.webp"
+      },
+      {
+        "name": "Martin Seligman, original research",
+        "url": "https://ppc.sas.upenn.edu/people/martin-ep-seligman",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1716903776/Contributors/UPenn_logo-2_pzybf7.webp"
+      }
+    ],
+    "asyncDuration": 10,
+    "liveDuration": 29,
+    "tags": [
+      "43a6dc0d-d866-4b79-9453-13c44e906128",
+      "db34d82a-4c48-4ddd-9de5-f562d8aa1bc9"
+    ],
+    "async": true
   }
 }

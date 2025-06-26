@@ -186,7 +186,9 @@
         "source": ""
       }
     },
-    "tags": ["8da0534a-5da9-430a-bdf3-242ace6460fb"],
+    "tags": [
+      "8da0534a-5da9-430a-bdf3-242ace6460fb"
+    ],
     "id": "4dd7b844-b54a-4d00-b867-73d19a9b0729",
     "async": true,
     "description": "Personal resources are internal, external, or imagined things, unique to each person, that bring about a sense of well-being, safety, or happiness when brought to present moment awareness."
@@ -279,7 +281,9 @@
         }
       ]
     },
-    "tags": ["8da0534a-5da9-430a-bdf3-242ace6460fb"],
+    "tags": [
+      "8da0534a-5da9-430a-bdf3-242ace6460fb"
+    ],
     "id": "4dd7b844-b54a-4d00-b867-73d19a9b0729",
     "async": false
   },
@@ -371,7 +375,9 @@
         }
       ]
     },
-    "tags": ["8da0534a-5da9-430a-bdf3-242ace6460fb"],
+    "tags": [
+      "8da0534a-5da9-430a-bdf3-242ace6460fb"
+    ],
     "id": "4dd7b844-b54a-4d00-b867-73d19a9b0729",
     "async": false
   },
@@ -463,22 +469,30 @@
         }
       ]
     },
-    "tags": ["8da0534a-5da9-430a-bdf3-242ace6460fb"],
+    "tags": [
+      "8da0534a-5da9-430a-bdf3-242ace6460fb"
+    ],
     "id": "4dd7b844-b54a-4d00-b867-73d19a9b0729",
     "async": false
   },
   "da": {
-    "tags": ["8da0534a-5da9-430a-bdf3-242ace6460fb"],
+    "tags": [
+      "8da0534a-5da9-430a-bdf3-242ace6460fb"
+    ],
     "liveDuration": 0,
     "id": "4dd7b844-b54a-4d00-b867-73d19a9b0729"
   },
   "cs": {
-    "tags": ["8da0534a-5da9-430a-bdf3-242ace6460fb"],
+    "tags": [
+      "8da0534a-5da9-430a-bdf3-242ace6460fb"
+    ],
     "liveDuration": 0,
     "id": "4dd7b844-b54a-4d00-b867-73d19a9b0729"
   },
   "nl": {
-    "tags": ["8da0534a-5da9-430a-bdf3-242ace6460fb"],
+    "tags": [
+      "8da0534a-5da9-430a-bdf3-242ace6460fb"
+    ],
     "liveDuration": 0,
     "id": "4dd7b844-b54a-4d00-b867-73d19a9b0729"
   },
@@ -486,6 +500,197 @@
     "id": "4dd7b844-b54a-4d00-b867-73d19a9b0729"
   },
   "pt-BR": {
-    "id": "4dd7b844-b54a-4d00-b867-73d19a9b0729"
+    "description": "Recursos pessoais são elementos internos, externos ou imaginados, únicos para cada pessoa, que promovem uma sensação de bem-estar, segurança ou felicidade quando trazidos à consciência do momento presente. ",
+    "introPortal": {
+      "hostNotes": [
+        {
+          "text": ">Pressione play para iniciar o exercício"
+        }
+      ],
+      "textColor": "#2E2E2E",
+      "videoLoop": {
+        "p5JsScript": {
+          "lang": "javascript"
+        },
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1717469190/SEE/Video/SEELearning_AwareApp_IntroVideo_2024_V3_1_giheh7.mp4"
+      },
+      "videoEnd": {
+        "source": ""
+      }
+    },
+    "name": "Recursos pessoais",
+    "slides": [
+      {
+        "content": {
+          "heading": "Bem-vindo(a)",
+          "text": "Esta sessão explora a ativação de recursos internos (resourcing)\n\nEncontre uma posição confortável e comece o exercício quando estiver pronto(a).",
+          "image": {
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1731441064/SEE/SEELearning_CompassionTree_Green_2024_hiqhwi.png"
+          }
+        },
+        "type": "instruction"
+      },
+      {
+        "type": "content",
+        "hostNotes": [],
+        "content": {
+          "lottie": {
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1713881135/SEE/Audio/Resilience/Resource_l4csdr.mp3",
+            "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1715751610/SEE/SRT/Resilence/Resource_bgyxtx.srt",
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto/v1715663476/SEE/Lottie/Resiliance/VZ2zY0xSD4_zdbd4i.json"
+          }
+        }
+      },
+      {
+        "content": {
+          "heading": "Reflexão",
+          "text": "Você pode anotar em um papel ou apenas mentalmente. Não há certo ou errado aqui, nossas respostas são pessoais.",
+          "image": {
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1716951212/SEE/Icons/Reflection/Reflection_Awareness_CardImage_wgzwcf.png"
+          }
+        },
+        "type": "instruction"
+      },
+      {
+        "content": {
+          "heading": "Reflexão",
+          "text": "Como foi para você praticar o uso de recursos pessoais?\n\nComo você se sentiu antes e depois do exercício?\n\nPercebeu alguma mudança?",
+          "image": {
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1716951212/SEE/Icons/Reflection/Reflection_Awareness_CardImage_wgzwcf.png"
+          }
+        },
+        "type": "instruction"
+      },
+      {
+        "content": {
+          "heading": "O que descobrimos sobre recursos pessoais?",
+          "video": {
+            "durationTimer": true,
+            "source": ""
+          },
+          "lottie": {
+            "durationTimer": true,
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1718146077/SEE/Lottie/Timer/2min_timer_yjuzls.json"
+          },
+          "text": ""
+        },
+        "type": "sharing",
+        "id": "sharing 1",
+        "hostNotes": []
+      },
+      {
+        "content": {
+          "heading": "Que tipos de sensações surgiram quando usamos nossos recursos?",
+          "video": {
+            "durationTimer": true
+          },
+          "lottie": {
+            "durationTimer": true,
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1718146077/SEE/Lottie/Timer/2min_timer_yjuzls.json"
+          },
+          "text": ""
+        },
+        "type": "sharing",
+        "id": "sharing 2"
+      },
+      {
+        "content": {
+          "heading": "Em que parte do nosso corpo sentimos essas sensações?",
+          "video": {
+            "durationTimer": true
+          },
+          "lottie": {
+            "durationTimer": true,
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1718146077/SEE/Lottie/Timer/2min_timer_yjuzls.json"
+          },
+          "text": ""
+        },
+        "type": "sharing",
+        "id": "sharing 3"
+      },
+      {
+        "content": {
+          "heading": "Você acha que poderíamos encontrar mais recursos pessoais?",
+          "video": {
+            "durationTimer": true
+          },
+          "lottie": {
+            "durationTimer": true,
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1718146077/SEE/Lottie/Timer/2min_timer_yjuzls.json"
+          },
+          "text": ""
+        },
+        "type": "sharing",
+        "id": "sharing 4"
+      },
+      {
+        "content": {
+          "heading": "Você usaria recursos pessoais para ajudar a se sentir melhor?",
+          "video": {
+            "durationTimer": true
+          },
+          "lottie": {
+            "durationTimer": true,
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1718146077/SEE/Lottie/Timer/2min_timer_yjuzls.json"
+          },
+          "text": ""
+        },
+        "type": "sharing",
+        "id": "sharing 5"
+      },
+      {
+        "content": {
+          "heading": "Resiliência",
+          "text": "Muito bem. Hoje praticamos o uso de recursos pessoais. Essa prática nos permite desenvolver uma ou mais ferramentas para utilizar quando precisamos autorregular nossa mente e corpo",
+          "image": {
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1718143969/SEE/Icons/Resilience/Resourcing_CardImage_touvoh.png"
+          }
+        },
+        "type": "instruction"
+      },
+      {
+        "content": {
+          "heading": "Resiliência",
+          "text": "Se estivermos dispostos, podemos continuar com uma sugestão: pratique usar um dos seus recursos em três dias diferentes desta semana.\n\nPlaneje o passo que você vai dar, considerando momentos em que recorrer aos seus recursos pode ajudar a trazer calma e clareza.\n\n",
+          "image": {
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1718143969/SEE/Icons/Resilience/Resourcing_CardImage_touvoh.png"
+          }
+        },
+        "type": "instruction"
+      }
+    ],
+    "id": "4dd7b844-b54a-4d00-b867-73d19a9b0729",
+    "liveDuration": 0,
+    "theme": {
+      "textColor": "#2E2E2E",
+      "backgroundColor": "#f5f5f5"
+    },
+    "hidden": false,
+    "locked": true,
+    "live": false,
+    "published": false,
+    "asyncDuration": 10,
+    "card": {
+      "image": {
+        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1718143969/SEE/Icons/Resilience/Resourcing_CardImage_touvoh.png"
+      },
+      "imageBackgroundColor": ""
+    },
+    "coCreators": [
+      {
+        "url": "https://seelearning.emory.edu/en/home",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1713881366/SEE/see-logo_1_kewtlt.png",
+        "name": "SEE Learning"
+      }
+    ],
+    "outroPortal": {
+      "video": {
+        "source": ""
+      }
+    },
+    "tags": [
+      "8da0534a-5da9-430a-bdf3-242ace6460fb"
+    ],
+    "async": true
   }
 }

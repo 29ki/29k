@@ -176,7 +176,9 @@
         "source": ""
       }
     },
-    "tags": ["8da0534a-5da9-430a-bdf3-242ace6460fb"],
+    "tags": [
+      "8da0534a-5da9-430a-bdf3-242ace6460fb"
+    ],
     "id": "3843d06f-1c38-47b9-ad9b-5a780f364186",
     "async": true,
     "description": "Help Now! Strategies are easy actions that can be practiced to quickly return our bodies and minds to the present moment, and thus function as useful ways to bring our bodies and minds back to a place of balance."
@@ -272,7 +274,9 @@
         }
       }
     },
-    "tags": ["8da0534a-5da9-430a-bdf3-242ace6460fb"],
+    "tags": [
+      "8da0534a-5da9-430a-bdf3-242ace6460fb"
+    ],
     "id": "3843d06f-1c38-47b9-ad9b-5a780f364186",
     "async": false
   },
@@ -362,7 +366,9 @@
         }
       ]
     },
-    "tags": ["8da0534a-5da9-430a-bdf3-242ace6460fb"],
+    "tags": [
+      "8da0534a-5da9-430a-bdf3-242ace6460fb"
+    ],
     "id": "3843d06f-1c38-47b9-ad9b-5a780f364186",
     "async": false
   },
@@ -452,22 +458,30 @@
         }
       ]
     },
-    "tags": ["8da0534a-5da9-430a-bdf3-242ace6460fb"],
+    "tags": [
+      "8da0534a-5da9-430a-bdf3-242ace6460fb"
+    ],
     "id": "3843d06f-1c38-47b9-ad9b-5a780f364186",
     "async": false
   },
   "da": {
-    "tags": ["8da0534a-5da9-430a-bdf3-242ace6460fb"],
+    "tags": [
+      "8da0534a-5da9-430a-bdf3-242ace6460fb"
+    ],
     "liveDuration": 0,
     "id": "3843d06f-1c38-47b9-ad9b-5a780f364186"
   },
   "cs": {
-    "tags": ["8da0534a-5da9-430a-bdf3-242ace6460fb"],
+    "tags": [
+      "8da0534a-5da9-430a-bdf3-242ace6460fb"
+    ],
     "liveDuration": 0,
     "id": "3843d06f-1c38-47b9-ad9b-5a780f364186"
   },
   "nl": {
-    "tags": ["8da0534a-5da9-430a-bdf3-242ace6460fb"],
+    "tags": [
+      "8da0534a-5da9-430a-bdf3-242ace6460fb"
+    ],
     "liveDuration": 0,
     "id": "3843d06f-1c38-47b9-ad9b-5a780f364186"
   },
@@ -475,6 +489,187 @@
     "id": "3843d06f-1c38-47b9-ad9b-5a780f364186"
   },
   "pt-BR": {
-    "id": "3843d06f-1c38-47b9-ad9b-5a780f364186"
+    "description": "Estratégias de \"Ajuda Agora!\" são ações simples que podem ser praticadas para rapidamente trazer nossos corpos e mentes de volta ao momento presente, funcionando assim como formas úteis de restaurar o equilíbrio físico e mental.",
+    "introPortal": {
+      "hostNotes": [
+        {
+          "text": ">Pressione play para iniciar o exercício"
+        }
+      ],
+      "textColor": "#2E2E2E",
+      "videoLoop": {
+        "p5JsScript": {
+          "lang": "javascript"
+        },
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1717469190/SEE/Video/SEELearning_AwareApp_IntroVideo_2024_V3_1_giheh7.mp4"
+      },
+      "videoEnd": {
+        "source": ""
+      }
+    },
+    "name": "Ajuda Agora!",
+    "slides": [
+      {
+        "content": {
+          "heading": "Bem-vindo(a)",
+          "text": "Esta sessão explora o conceito de Estratégias Ajuda Agora!\n\nEncontre uma posição confortável e comece o exercício quando estiver pronto(a).",
+          "image": {
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1731441064/SEE/SEELearning_CompassionTree_Green_2024_hiqhwi.png"
+          }
+        },
+        "type": "instruction"
+      },
+      {
+        "type": "content",
+        "hostNotes": [],
+        "content": {
+          "lottie": {
+            "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1715752046/SEE/SRT/Resilence/HelpNow_l5zftv.srt",
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1713881007/SEE/Audio/Resilience/HelpNow_ma2psp.mp3",
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto/v1715663472/SEE/Lottie/Resiliance/15DRejE8Qk_hihnda.json"
+          },
+          "image": {
+            "source": ""
+          },
+          "video": {
+            "source": "",
+            "audio": ""
+          }
+        }
+      },
+      {
+        "content": {
+          "heading": "Reflexão",
+          "text": "Você pode anotar em um papel ou apenas mentalmente. Não há certo ou errado aqui, nossas respostas são pessoais.",
+          "image": {
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1716951212/SEE/Icons/Reflection/Reflection_Awareness_CardImage_wgzwcf.png"
+          }
+        },
+        "type": "instruction"
+      },
+      {
+        "content": {
+          "heading": "Reflexão",
+          "text": "Como você experimentou as Estratégias Ajuda Agora!?\n\nVocê percebeu que algumas tiveram efeitos diferentes em você em comparação com outras?",
+          "image": {
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1716951212/SEE/Icons/Reflection/Reflection_Awareness_CardImage_wgzwcf.png"
+          }
+        },
+        "type": "instruction"
+      },
+      {
+        "content": {
+          "heading": "Quais foram algumas coisas que você aprendeu hoje sobre sensações?",
+          "video": {
+            "durationTimer": true
+          },
+          "lottie": {
+            "durationTimer": true,
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1718146077/SEE/Lottie/Timer/2min_timer_yjuzls.json"
+          },
+          "text": ""
+        },
+        "type": "sharing",
+        "id": "sharing 1",
+        "hostNotes": []
+      },
+      {
+        "content": {
+          "heading": "Quais palavras descrevem sensações?",
+          "video": {
+            "durationTimer": true
+          },
+          "lottie": {
+            "durationTimer": true,
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1718146077/SEE/Lottie/Timer/2min_timer_yjuzls.json"
+          },
+          "text": ""
+        },
+        "type": "sharing",
+        "id": "sharing 2"
+      },
+      {
+        "content": {
+          "heading": "Como saber sobre sensações pode nos ajudar a ser mais felizes e gentis?",
+          "video": {
+            "durationTimer": true
+          },
+          "lottie": {
+            "durationTimer": true,
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1718146077/SEE/Lottie/Timer/2min_timer_yjuzls.json"
+          },
+          "text": ""
+        },
+        "type": "sharing",
+        "id": "sharing 3"
+      },
+      {
+        "content": {
+          "heading": "Quando você acha que pode ser útil usar essas estratégias?",
+          "video": {
+            "durationTimer": true
+          },
+          "lottie": {
+            "durationTimer": true,
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1718146077/SEE/Lottie/Timer/2min_timer_yjuzls.json"
+          },
+          "text": ""
+        },
+        "type": "sharing",
+        "id": "sharing 4"
+      },
+      {
+        "content": {
+          "heading": "Resiliência",
+          "text": "Muito bem. Hoje, exploramos e experimentamos as estratégias “Ajude Agora!”. São técnicas simples e imediatas para nos ajudar a voltar para a zona de resiliência quando somos “tirados” dessa zona.",
+          "image": {
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1718143970/SEE/Icons/Resilience/HelpNow_CardImage_u4w1ha.png"
+          }
+        },
+        "type": "instruction"
+      },
+      {
+        "content": {
+          "heading": "Resiliência",
+          "text": "Se quisermos, podemos continuar com uma sugestão: praticar três Estratégias Ajuda Agora! em três dias diferentes desta semana.\n\nPlaneje os passos que você vai tomar, considerando momentos em que as estratégias Ajuda Agora! possam te ajudar ao longo da semana",
+          "image": {
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1718143970/SEE/Icons/Resilience/HelpNow_CardImage_u4w1ha.png"
+          }
+        },
+        "type": "instruction"
+      }
+    ],
+    "id": "3843d06f-1c38-47b9-ad9b-5a780f364186",
+    "liveDuration": 0,
+    "theme": {
+      "textColor": "#2E2E2E",
+      "backgroundColor": "#f5f5f5"
+    },
+    "hidden": false,
+    "locked": true,
+    "live": false,
+    "published": false,
+    "asyncDuration": 10,
+    "card": {
+      "image": {
+        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1718143970/SEE/Icons/Resilience/HelpNow_CardImage_u4w1ha.png"
+      }
+    },
+    "coCreators": [
+      {
+        "name": "SEE Learning",
+        "url": "https://seelearning.emory.edu/en/home",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1713881366/SEE/see-logo_1_kewtlt.png"
+      }
+    ],
+    "outroPortal": {
+      "video": {
+        "source": ""
+      }
+    },
+    "tags": [
+      "8da0534a-5da9-430a-bdf3-242ace6460fb"
+    ],
+    "async": true
   }
 }

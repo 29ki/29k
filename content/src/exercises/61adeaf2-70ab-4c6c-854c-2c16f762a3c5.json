@@ -573,6 +573,155 @@
     "id": "61adeaf2-70ab-4c6c-854c-2c16f762a3c5"
   },
   "pt-BR": {
-    "id": "61adeaf2-70ab-4c6c-854c-2c16f762a3c5"
+    "description": "Seus valores pessoais podem te ajudar a navegar pela vida, tanto nos altos quanto nos baixos. Além disso, viver de acordo com seus valores comprovadamente aumenta o senso de propósito e a felicidade a longo prazo.\n\nEsta sessão irá te guiar na definição dos seus valores pessoais.\n\n",
+    "introPortal": {
+      "hostNotes": [
+        {
+          "text": ">Comece a sessão quando estiver pronto para seguir"
+        }
+      ],
+      "videoLoop": {
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1692872047/Video/portal1_personal_values_wdx446.mp4",
+        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1692871967/Audio/portal_audio_personal_values_iulluj.mp3",
+        "p5JsScript": {
+          "lang": "javascript"
+        }
+      },
+      "videoEnd": {
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1692872040/Video/portal2_personal_values_jqisfe.mp4"
+      }
+    },
+    "name": "Valores pessoais",
+    "slides": [
+      {
+        "hostNotes": [
+          {
+            "text": "Bem-vindo(a). Eu sou X e hoje vamos trabalhar durante cerca de 30 minutos sobre valores e propósito de vida.\n\nVamos ouvir um exercício em áudio, refletir individualmente e, por fim, compartilhar nossa experiência uns com os outros, se quisermos."
+          },
+          {
+            "text": "Vamos começar com um mini check-in. Como você está se sentindo agora? Por favor, responda em duas ou três palavras. X, você gostaria de começar?\n\n> Deixe todos na sessão, inclusive você, fazerem o check-in um por um.\n\nObrigado a todos por compartilharem. Vamos começar."
+          }
+        ],
+        "type": "host"
+      },
+      {
+        "hostNotes": [
+          {
+            "text": "Definir valores pessoais pode nos dar um senso de direção na vida. Atenção: você vai precisar anotar algumas coisas para este exercício.\n\nEncontre uma posição confortável. Vou apertar play e nos encontraremos aqui depois.\n\n> Aperte play para começar."
+          }
+        ],
+        "type": "content",
+        "content": {
+          "lottie": {
+            "durationTimer": true,
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1689850053/Audio/Personal_values_oupmck.mp3",
+            "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1689850195/SRT%20(captions)%20files/Personal_values_gvtyju.srt",
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1676977421/Lottie/audio_meditation_default_black_default_omemwt.json"
+          }
+        }
+      },
+      {
+        "content": {
+          "text": "O que você aprendeu sobre si mesmo?",
+          "lottie": {
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1676642915/Lottie/default_1min_black_rosi2l.json",
+            "durationTimer": true,
+            "duration": 60
+          }
+        },
+        "hostNotes": [
+          {
+            "text": "Agora vamos tirar 1 minuto para refletir individualmente.\n\nOlhando para os seus valores e suas pontuações, o que eles te dizem?\n\nO que você aprendeu sobre si mesmo(a)?"
+          },
+          {
+            "text": "Você pode fazer anotações em um papel ou apenas mentalmente. Não existe certo ou errado aqui, nossas respostas são pessoais. 1 minuto começando agora.\n\n> Aperte play para iniciar o cronômetro.\n\nPassou 1 minuto, é hora de seguir em frente."
+          }
+        ],
+        "type": "reflection"
+      },
+      {
+        "content": {
+          "heading": "O que você pode aprender sobre si mesmo(a)?",
+          "lottie": {
+            "durationTimer": true,
+            "duration": 120,
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1676639253/Lottie/default_2min_black_o6egey.json"
+          }
+        },
+        "hostNotes": [
+          {
+            "text": "Agora estamos entrando na parte de compartilhamento. Temos três regras para o compartilhamento:\n\n1. **O que é dito aqui, fica aqui.**\n2. **Tudo o que você precisa fazer é ouvir.** Não é necessário consertar, ajudar ou dar conselhos. Estamos apenas presentes e explorando o que nós e os outros estamos vivenciando."
+          },
+          {
+            "text": "3. **Tudo o que você sentir é válido.** Raiva, amor, ódio, tristeza. O que surgir. Não existe certo ou errado. \n\nO cronômetro será ajustado para 2 minutos como referência. Se você não quiser compartilhar, pode simplesmente dizer “passo”.\n\n"
+          },
+          {
+            "text": "Quem gostaria de começar?\n\n> Deixe todos (ou o maior número possível, conforme o tempo permitir) compartilharem um por um. Aperte play para iniciar o cronômetro. Reinicie para cada novo compartilhamento.\n\nMuito obrigado a todos.\n\n"
+          }
+        ],
+        "type": "sharing",
+        "id": "1"
+      },
+      {
+        "hostNotes": [
+          {
+            "text": "Parabéns por definir o que é importante para você na vida, para navegar tanto pelos altos quanto pelos baixos.\n\nVocê pode continuar com esta sugestão: escolha um valor com o qual sente mais dificuldade de viver em alinhamento. Defina um pequeno comportamento, alinhado a esse valor, que você possa colocar em prática hoje ou amanhã."
+          },
+          {
+            "text": "Antes de sairmos deste espaço, vamos fazer um mini check-out.\n\nComo você está se sentindo agora? Algo mudou? Por favor, responda em duas ou três palavras."
+          },
+          {
+            "text": "Quem gostaria de começar?\n\n> Deixe todos (ou o maior número possível, conforme o tempo permitir) compartilharem um por um. Aperte play para iniciar o cronômetro. Reinicie para cada novo compartilhamento.\n\nMuito obrigado a todos.\n\n"
+          }
+        ],
+        "type": "host"
+      },
+      {
+        "content": {
+          "heading": "Muito bem",
+          "text": "Agora você definiu o que é importante para você na vida, para navegar tanto pelos altos quanto pelos baixos.\n\nQue tal uma sugestão? \n\nSe topar, escolha um valor com o qual sente mais dificuldade de viver em alinhamento. Defina um pequeno comportamento, alinhado a esse valor, que você possa colocar em prática hoje ou amanhã.",
+          "image": {
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1692872012/Images/card_personal_values_xpcp9x.png"
+          }
+        },
+        "type": "instruction"
+      }
+    ],
+    "id": "61adeaf2-70ab-4c6c-854c-2c16f762a3c5",
+    "liveDuration": 30,
+    "theme": {
+      "textColor": "#2E2E2E",
+      "backgroundColor": "#b4a880"
+    },
+    "hidden": false,
+    "live": true,
+    "published": false,
+    "asyncDuration": 6,
+    "card": {
+      "image": {
+        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1692872012/Images/card_personal_values_xpcp9x.png"
+      }
+    },
+    "socialMeta": {
+      "image": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1692872012/Images/card_personal_values_xpcp9x.png"
+    },
+    "coCreators": [
+      {
+        "name": "Jenny Rickardsson, voice and editor",
+        "url": "https://www.linkedin.com/in/jenny-rickardson-6770a959/",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413228/Contributors/Jenny%20Rickardsson.jpg"
+      },
+      {
+        "name": "Ints Ivanovskis, art works",
+        "url": "https://www.linkedin.com/in/ints-ivanovskis-46ab0311a/",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413436/Contributors/Ints%20Ivanovskis.jpg"
+      }
+    ],
+    "tags": [
+      "9c2c08a9-7dc6-4058-bc78-016d0eb00614",
+      "8da0534a-5da9-430a-bdf3-242ace6460fb"
+    ],
+    "link": "https://aware.29k.org/personal-values",
+    "async": true
   }
 }

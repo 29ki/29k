@@ -705,6 +705,163 @@
     "description": "La vergüenza es una emoción poderosa. En esta sesión exploraremos diferentes perspectivas sobre la vergüenza, investigando nuestra propia relación con ella. Esto puede ayudarnos a ganar perspectiva y ser más amables con nosotros/as mismos/as."
   },
   "pt-BR": {
-    "id": "e4bf8d17-a774-4702-abfe-c7452c3fee0f"
+    "description": "A vergonha é uma emoção poderosa. Nesta sessão, vamos explorar diferentes perspectivas sobre a vergonha, investigando nossa própria relação com ela. Isso pode nos ajudar a ganhar perspectiva e a sermos mais gentis conosco.",
+    "introPortal": {
+      "hostNotes": [
+        {
+          "text": ">Comece a sessão quando estiver pronto para seguir"
+        }
+      ],
+      "textColor": "#2E2E2E",
+      "videoLoop": {
+        "p5JsScript": {
+          "lang": "javascript"
+        },
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1716468395/Video/portal1_exploring_shame_cedmj2.mp4",
+        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1716468088/Audio/portal_audio_exploring_shame_gtk9lf.mp3"
+      },
+      "videoEnd": {
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1716468199/Video/portal2_exploring_shame_wzelkz.mp4"
+      }
+    },
+    "name": "Explorando a vergonha",
+    "slides": [
+      {
+        "hostNotes": [
+          {
+            "text": "Bem-vindo(a). Eu sou X e hoje vamos trabalhar por cerca de 30 minutos sobre vergonha e autocompaixão.\n\nFaremos um exercício em áudio, seguido de um tempo para reflexão e compartilhamento entre nós."
+          },
+          {
+            "text": "Vamos começar com um mini check-in. Como você está se sentindo agora? Por favor, responda em duas ou três palavras. X, você gostaria de começar?\n\n> Deixe todos na sessão, inclusive você, fazerem o check-in um por um.\n\nObrigado a todos por compartilharem. Vamos começar."
+          }
+        ],
+        "type": "host"
+      },
+      {
+        "hostNotes": [
+          {
+            "text": "As emoções transmitem uma mensagem, e a vergonha é uma das mais poderosas. Mas isso não significa que precisamos fazer o que ela diz. Encontre uma posição confortável. Vou iniciar o exercício em áudio e nos encontraremos aqui depois.\n\n> Toque em play para começar o exercício em áudio."
+          }
+        ],
+        "type": "content",
+        "content": {
+          "lottie": {
+            "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1713532802/SRT%20(captions)%20files/Exploring_shame_Jenny_s_voice_smgdvr.srt",
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1713532860/Audio/Exploring_shame_Jenny_s_voice_n8dux8.mp3",
+            "durationTimer": true,
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto/v1676977421/Lottie/audio_meditation_default_black_default_omemwt.json"
+          }
+        }
+      },
+      {
+        "content": {
+          "heading": "Como foi essa experiência? O que o crítico interior deseja?",
+          "lottie": {
+            "durationTimer": true,
+            "duration": "",
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto/v1676642915/Lottie/default_1min_black_rosi2l.json"
+          }
+        },
+        "hostNotes": [
+          {
+            "text": "Agora vamos tirar 1 minuto para refletir individualmente.\n\nComo foi essa experiência, incorporando as três diferentes perspectivas?\n\nO que a vergonha está tentando comunicar?"
+          },
+          {
+            "text": "Você pode fazer anotações em um papel ou apenas mentalmente. Não existe certo ou errado aqui, nossas respostas são pessoais. 1 minuto começando agora.\n\n> Aperte play para iniciar o cronômetro.\n\nPassou 1 minuto, é hora de seguir em frente."
+          }
+        ],
+        "type": "reflection"
+      },
+      {
+        "content": {
+          "heading": "Como foi essa experiência? O que o crítico interior deseja?",
+          "lottie": {
+            "durationTimer": true,
+            "duration": 120,
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1676639253/Lottie/default_2min_black_o6egey.json"
+          }
+        },
+        "hostNotes": [
+          {
+            "text": "Agora estamos entrando na parte de compartilhamento. Temos três regras para o compartilhamento:\n\n1. **O que é dito aqui, fica aqui.**\n2. **Tudo o que você precisa fazer é ouvir.** Não é necessário consertar, ajudar ou dar conselhos. Estamos apenas presentes e explorando o que nós e os outros estamos vivenciando."
+          },
+          {
+            "text": "3. **Tudo o que você sentir é válido.** Raiva, amor, ódio, tristeza. O que surgir. Não existe certo ou errado. \n\nO cronômetro será ajustado para 2 minutos como referência. Se você não quiser compartilhar, pode simplesmente dizer “passo”.\n\n"
+          },
+          {
+            "text": "Quem gostaria de começar?\n\n> Deixe todos (ou o maior número possível, conforme o tempo permitir) compartilharem um por um. Aperte play para iniciar o cronômetro. Reinicie para cada novo compartilhamento.\n\nMuito obrigado a todos.\n\n"
+          }
+        ],
+        "type": "sharing",
+        "id": "Sharing 1"
+      },
+      {
+        "hostNotes": [
+          {
+            "text": "Parabéns por corajosamente incorporar diferentes perspectivas. As emoções são mensagens poderosas, mas não precisamos agir conforme elas sugerem. Se quiser, aqui vai uma sugestão: hoje, quando perceber o crítico interior aparecendo, reconheça como você se sente, busque sua própria voz compassiva e, então, escolha o que fazer a partir disso."
+          },
+          {
+            "text": "Antes de sairmos deste espaço, vamos fazer um mini check-out.\n\nComo você está se sentindo agora? Algo mudou? Por favor, responda em duas ou três palavras."
+          },
+          {
+            "text": "Quem gostaria de começar?\n\n> Deixe todos (ou o maior número possível, conforme o tempo permitir) compartilharem um por um. Aperte play para iniciar o cronômetro. Reinicie para cada novo compartilhamento.\n\nMuito obrigado a todos.\n\n"
+          }
+        ],
+        "type": "host"
+      },
+      {
+        "content": {
+          "text": "Parabéns por corajosamente incorporar diferentes perspectivas. As emoções são mensagens poderosas, mas não precisamos agir conforme elas sugerem. Se quiser, aqui vai uma sugestão: hoje, quando perceber o crítico interior aparecendo, reconheça como você se sente, busque sua própria voz compassiva e, então, escolha o que fazer a partir disso.",
+          "image": {
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1716468137/Images/card2_exploring_shame_eol9n7.png"
+          }
+        },
+        "type": "instruction"
+      }
+    ],
+    "id": "e4bf8d17-a774-4702-abfe-c7452c3fee0f",
+    "liveDuration": 30,
+    "theme": {
+      "textColor": "#2E2E2E",
+      "backgroundColor": "#f3e2cd"
+    },
+    "hidden": false,
+    "locked": false,
+    "live": true,
+    "published": false,
+    "asyncDuration": 11,
+    "card": {
+      "image": {
+        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1716468139/Images/card_exploring_shame_tmsztr.png"
+      }
+    },
+    "coCreators": [
+      {
+        "name": "Jenny Rickardsson, editor and voice",
+        "url": "https://www.linkedin.com/in/jenny-rickardson-6770a959/",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413228/Contributors/Jenny%20Rickardsson.jpg"
+      },
+      {
+        "name": "Agnes Branny, writing",
+        "url": "https://www.agnesbranny.com/",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665414181/Contributors/Agnes%20Branny.png"
+      },
+      {
+        "name": "Kristin Neff & Chris Germer, original research",
+        "url": "https://centerformsc.org/",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1697723039/Images/Germer%2C%20Neff.png"
+      },
+      {
+        "name": "Ints Ivanovskis",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413436/Contributors/Ints%20Ivanovskis.jpg",
+        "url": "https://www.linkedin.com/in/ints-ivanovskis-46ab0311a/"
+      }
+    ],
+    "tags": [
+      "db34d82a-4c48-4ddd-9de5-f562d8aa1bc9",
+      "566aeb1b-1649-4f5a-96a2-0c80be27efc0"
+    ],
+    "link": "https://aware.29k.org/exploringshame",
+    "async": true
   }
 }

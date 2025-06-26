@@ -99,7 +99,9 @@
         }
       ]
     },
-    "tags": ["9c2c08a9-7dc6-4058-bc78-016d0eb00614"],
+    "tags": [
+      "9c2c08a9-7dc6-4058-bc78-016d0eb00614"
+    ],
     "id": "41ba136c-4950-42fc-bd6b-761b829ee371",
     "description": "Sometimes we do things we regret. In this exercise we practice taking a step back, observe and choose which way to go. Choosing our actions can help us feel more true to ourselves and improve our relationships."
   },
@@ -174,7 +176,9 @@
     "id": "41ba136c-4950-42fc-bd6b-761b829ee371",
     "asyncDuration": 10,
     "liveDuration": 30,
-    "tags": ["9c2c08a9-7dc6-4058-bc78-016d0eb00614"]
+    "tags": [
+      "9c2c08a9-7dc6-4058-bc78-016d0eb00614"
+    ]
   },
   "sv": {
     "published": false,
@@ -247,7 +251,9 @@
     "id": "41ba136c-4950-42fc-bd6b-761b829ee371",
     "asyncDuration": 10,
     "liveDuration": 30,
-    "tags": ["9c2c08a9-7dc6-4058-bc78-016d0eb00614"]
+    "tags": [
+      "9c2c08a9-7dc6-4058-bc78-016d0eb00614"
+    ]
   },
   "ja": {
     "published": false,
@@ -320,7 +326,9 @@
     "id": "41ba136c-4950-42fc-bd6b-761b829ee371",
     "asyncDuration": 10,
     "liveDuration": 30,
-    "tags": ["9c2c08a9-7dc6-4058-bc78-016d0eb00614"]
+    "tags": [
+      "9c2c08a9-7dc6-4058-bc78-016d0eb00614"
+    ]
   },
   "da": {
     "id": "41ba136c-4950-42fc-bd6b-761b829ee371"
@@ -335,6 +343,109 @@
     "id": "41ba136c-4950-42fc-bd6b-761b829ee371"
   },
   "pt-BR": {
-    "id": "41ba136c-4950-42fc-bd6b-761b829ee371"
+    "description": "Às vezes fazemos coisas das quais nos arrependemos. Neste exercício, praticamos dar um passo para trás, observar e escolher qual caminho seguir. Escolher nossas ações pode nos ajudar a nos sentirmos mais fiéis a nós mesmos e a melhorar nossos relacionamentos.",
+    "introPortal": {
+      "hostNotes": [
+        {
+          "text": ">Comece a sessão quando estiver pronto para seguir"
+        }
+      ]
+    },
+    "name": "Habilidade STOP",
+    "slides": [
+      {
+        "hostNotes": [
+          {
+            "text": "Bem-vindo(a) a esta sessão, conduzida por mim, X. Vamos trabalhar durante cerca de 30 minutos sobre como escolher nossas ações de forma deliberada. Faremos uma introdução, assistiremos a um vídeo, refletiremos e, por fim, compartilharemos o que experimentamos."
+          },
+          {
+            "text": "Vamos começar com um momento de foco na respiração.\n\n> Inspire e expire lentamente 3 vezes.\n\nAgora é hora de um mini check-in. O que te trouxe aqui hoje? Por favor, responda em duas ou três palavras."
+          },
+          {
+            "text": "X, você gostaria de começar?\n\n> Deixe todos na sessão, incluindo você mesmo, fazerem o check-in um por um.\n\nObrigado a todos por compartilharem. Vamos seguir para o exercício."
+          }
+        ],
+        "type": "host"
+      },
+      {
+        "hostNotes": [
+          {
+            "text": "Grande parte do comportamento humano é composta por respostas automáticas. Isso explica por que, às vezes, dizemos e fazemos coisas das quais nos arrependemos depois — emoções e pensamentos podem ser tão intensos que sentimos que não conseguimos controlá-los."
+          },
+          {
+            "text": "Uma estratégia útil para agir de forma mais baseada em valores em qualquer situação é a habilidade STOP.\n\n* **STOP** consiste em:\n* **S** = pare  \n* **T** = tome distância  \n* **O** = observe  \n* **P** = prossiga com atenção plena"
+          },
+          {
+            "text": "Vamos assistir a este vídeo com a psicóloga Jenn da 29k\n\n> Aperte play para iniciar o vídeo."
+          }
+        ],
+        "type": "content"
+      },
+      {
+        "content": {
+          "heading": "Em que área da vida usar a habilidade STOP?",
+          "text": "Como?"
+        },
+        "hostNotes": [
+          {
+            "text": "Agora vamos tirar 2 minutos para refletir.\n\nEm que área da sua vida o uso da habilidade STOP poderia trazer benefícios?\n\nDe que forma, e como você pretende colocar isso em prática?"
+          },
+          {
+            "text": "Se quiser, você pode anotar em um papel ou apenas guardar mentalmente. E lembre-se: não existe certo ou errado.\n\n2 minutos a partir de agora.\n\n> Aperte play para iniciar o cronômetro."
+          },
+          {
+            "text": "Certo, passaram-se 2 minutos e é hora de seguir em frente."
+          }
+        ],
+        "type": "reflection"
+      },
+      {
+        "content": {
+          "heading": "Que diferença a habilidade STOP poderia fazer para você?"
+        },
+        "hostNotes": [
+          {
+            "text": "Agora estamos entrando na parte de compartilhamento. Temos três regras para o compartilhamento:\n\n1. **O que é dito aqui, fica aqui.**\n2. **Tudo o que você precisa fazer é ouvir.** Não é necessário consertar, ajudar ou dar conselhos. Estamos apenas presentes e explorando o que nós e os outros estamos vivenciando."
+          },
+          {
+            "text": "3. **Tudo o que você sentir é válido.** Raiva, amor, ódio, tristeza. O que surgir. Não existe certo ou errado. \n\nO cronômetro será ajustado para 2 minutos como referência. Se você não quiser compartilhar, pode simplesmente dizer “passo”.\n\n"
+          },
+          {
+            "text": "Quem gostaria de começar?\n\n> Deixe todos (ou o maior número possível, conforme o tempo permitir) compartilharem um por um. Aperte play para iniciar o cronômetro. Reinicie para cada novo compartilhamento.\n\nMuito obrigado a todos.\n\n"
+          }
+        ],
+        "type": "sharing",
+        "id": "sharing"
+      },
+      {
+        "hostNotes": [
+          {
+            "text": "Muito bem. Ao parar, dar um passo para trás, observar e seguir adiante de forma consciente, podemos escolher nossas ações. A habilidade STOP pode nos ajudar a ser menos impulsivos. Assim, conseguimos agir de acordo com o que realmente é importante para nós."
+          },
+          {
+            "text": "Se quiser, você pode continuar o que começamos aqui hoje com uma sugestão . Na próxima semana, sempre que perceber um impulso de reagir de forma impulsiva ou agressiva, tente se observar nesse momento e utilize a habilidade STOP. Veja se isso faz alguma diferença na sua vida."
+          },
+          {
+            "text": "Antes de encerrarmos este espaço, vamos fazer um mini check-out.\n\nComo você se sente agora em relação ao que te trouxe aqui hoje? Algo mudou? Por favor, responda em duas ou três palavras."
+          },
+          {
+            "text": "Quem gostaria de começar?\n\n> Deixe todos (ou o maior número possível, conforme o tempo permitir) compartilharem um por um. Aperte play para iniciar o cronômetro. Reinicie para cada novo compartilhamento.\n\nMuito obrigado a todos.\n\n"
+          }
+        ],
+        "type": "host"
+      }
+    ],
+    "id": "41ba136c-4950-42fc-bd6b-761b829ee371",
+    "theme": {
+      "textColor": "#2AE2D7"
+    },
+    "hidden": true,
+    "live": true,
+    "published": false,
+    "asyncDuration": 10,
+    "liveDuration": 30,
+    "tags": [
+      "9c2c08a9-7dc6-4058-bc78-016d0eb00614"
+    ]
   }
 }

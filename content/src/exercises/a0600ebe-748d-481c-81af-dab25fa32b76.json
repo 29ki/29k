@@ -770,6 +770,164 @@
     "description": "Encuentra un amigo interior compasivo o una amiga interior compasiva que pueda acompañarte en los momentos difíciles."
   },
   "pt-BR": {
-    "id": "a0600ebe-748d-481c-81af-dab25fa32b76"
+    "description": "Descubra dentro de si um amigo compassivo, pronto para te acolher nos momentos de dor.",
+    "introPortal": {
+      "hostNotes": [
+        {
+          "text": ">Comece a sessão quando estiver pronto para seguir"
+        }
+      ],
+      "textColor": "#2E2E2E",
+      "videoLoop": {
+        "p5JsScript": {
+          "lang": "javascript"
+        },
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1716379674/Video/inner_friend_portal1_mjpx0a.mp4",
+        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1716380093/Audio/inner_friend_portal_audio_dwntou.mp3"
+      },
+      "videoEnd": {
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1716379650/Video/inner_friend_portal2_xogxqo.mp4"
+      }
+    },
+    "name": "Amigo interior",
+    "slides": [
+      {
+        "hostNotes": [
+          {
+            "text": "Bem-vindos. Eu sou X e hoje vamos trabalhar por cerca de 30 minutos o tema da autocompaixão.\n\nFaremos um exercício em áudio, seguido de um tempo para reflexão e compartilhamento entre nós."
+          },
+          {
+            "text": "Vamos começar com um mini check-in. Como você está se sentindo agora? Por favor, responda em duas ou três palavras. X, você gostaria de começar?\n\n> Deixe todos na sessão, inclusive você, fazerem o check-in um por um.\n\nObrigado a todos por compartilharem. Vamos começar."
+          }
+        ],
+        "type": "host"
+      },
+      {
+        "hostNotes": [
+          {
+            "text": "Encontrar uma voz interior autocompassiva pode ser desafiador. Encontre uma posição confortável. Vou iniciar o exercício em áudio e nos encontraremos aqui depois.\n\n> Toque em play para começar o exercício em áudio."
+          }
+        ],
+        "type": "content",
+        "content": {
+          "lottie": {
+            "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1713530314/SRT%20%28captions%29%20files/Cupcake_inner_friend_obsdxk.srt",
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1713530383/Audio/Cupcake_inner_friend_b7ysza.mp3",
+            "durationTimer": true,
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto/v1676977421/Lottie/audio_meditation_default_black_default_omemwt.json"
+          }
+        }
+      },
+      {
+        "content": {
+          "heading": "O que isso despertou em você?",
+          "lottie": {
+            "durationTimer": true,
+            "duration": "",
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto/v1676642915/Lottie/default_1min_black_rosi2l.json"
+          }
+        },
+        "hostNotes": [
+          {
+            "text": "Agora vamos tirar 1 minuto para refletir individualmente.\n\nO que este exercício despertou em você?"
+          },
+          {
+            "text": "Você pode fazer anotações em um papel ou apenas mentalmente. Não existe certo ou errado aqui, nossas respostas são pessoais. 1 minuto começando agora.\n\n> Aperte play para iniciar o cronômetro.\n\nPassou 1 minuto, é hora de seguir em frente."
+          }
+        ],
+        "type": "reflection"
+      },
+      {
+        "content": {
+          "heading": "O que isso despertou em você?",
+          "lottie": {
+            "durationTimer": true,
+            "duration": 120,
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto/v1676639253/Lottie/default_2min_black_o6egey.json"
+          }
+        },
+        "hostNotes": [
+          {
+            "text": "Agora estamos entrando na parte de compartilhamento. Temos três regras para o compartilhamento:\n\n1. **O que é dito aqui, fica aqui.**\n2. **Tudo o que você precisa fazer é ouvir.** Não é necessário consertar, ajudar ou dar conselhos. Estamos apenas presentes e explorando o que nós e os outros estamos vivenciando."
+          },
+          {
+            "text": "3. **Tudo o que você sentir é válido.** Raiva, amor, ódio, tristeza. O que surgir. Não existe certo ou errado. \n\nO cronômetro será ajustado para 2 minutos como referência. Se você não quiser compartilhar, pode simplesmente dizer “passo”.\n\n"
+          },
+          {
+            "text": "Quem gostaria de começar?\n\n> Deixe todos (ou o maior número possível, conforme o tempo permitir) compartilharem um por um. Aperte play para iniciar o cronômetro. Reinicie para cada novo compartilhamento.\n\nMuito obrigado a todos.\n\n"
+          }
+        ],
+        "type": "sharing",
+        "id": "Sharing 1"
+      },
+      {
+        "hostNotes": [
+          {
+            "text": "Muito bem. Se quiser conhecer melhor o seu amigo interior, aqui vai uma sugestão: pelos próximos dois dias, perceba quando o crítico interno aparecer e reserve um tempo para ouvir o que o seu amigo interior tem a dizer."
+          },
+          {
+            "text": "Antes de sairmos deste espaço, vamos fazer um mini check-out.\n\nComo você está se sentindo agora? Algo mudou? Por favor, responda em duas ou três palavras."
+          },
+          {
+            "text": "Quem gostaria de começar?\n\n> Deixe todos (ou o maior número possível, conforme o tempo permitir) compartilharem um por um. Aperte play para iniciar o cronômetro. Reinicie para cada novo compartilhamento.\n\nMuito obrigado a todos.\n\n"
+          }
+        ],
+        "type": "host"
+      },
+      {
+        "content": {
+          "heading": "Muito bem",
+          "text": "Se quiser conhecer melhor o seu amigo interior, aqui vai uma sugestão:\n\nNos próximos dois dias, perceba quando o crítico interno aparecer e reserve um tempo para ouvir o que o seu amigo interior tem a dizer.",
+          "image": {
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1716380005/Images/inner_friend_card_no_bg_rfo4kq.png"
+          }
+        },
+        "type": "instruction"
+      }
+    ],
+    "id": "a0600ebe-748d-481c-81af-dab25fa32b76",
+    "liveDuration": 30,
+    "theme": {
+      "textColor": "#2E2E2E",
+      "backgroundColor": "#e7dcc8"
+    },
+    "hidden": false,
+    "locked": false,
+    "live": true,
+    "published": false,
+    "asyncDuration": 6,
+    "card": {
+      "image": {
+        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1716379707/Images/inner_friend_card_lvgppt.png"
+      }
+    },
+    "coCreators": [
+      {
+        "name": "Kristin Neff, original research",
+        "url": "https://centerformsc.org/about/kristin-neff/",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1697723039/Images/Germer%2C%20Neff.png"
+      },
+      {
+        "name": "Ints Ivanovskis, artwork",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413436/Contributors/Ints%20Ivanovskis.jpg",
+        "url": "https://www.linkedin.com/in/ints-ivanovskis-46ab0311a/"
+      },
+      {
+        "url": "https://freemusicarchive.org/music/alena-smirnova/",
+        "name": "Alena Smirnova, music",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1716379749/Images/Alena_Smirnova_jed9k9.webp"
+      },
+      {
+        "name": "Tabitha, AI-generated voice",
+        "url": "https://www.descript.com/ai-voices",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1710239861/Contributors/descript_ps0olu.webp"
+      }
+    ],
+    "tags": [
+      "db34d82a-4c48-4ddd-9de5-f562d8aa1bc9",
+      "566aeb1b-1649-4f5a-96a2-0c80be27efc0"
+    ],
+    "link": "https://aware.29k.org/innerfriend",
+    "async": true
   }
 }

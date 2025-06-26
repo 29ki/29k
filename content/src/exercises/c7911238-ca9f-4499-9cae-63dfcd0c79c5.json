@@ -147,7 +147,9 @@
         "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1698917804/Video/portal2_bounce_back_otpgvf.mp4"
       }
     },
-    "tags": ["8da0534a-5da9-430a-bdf3-242ace6460fb"],
+    "tags": [
+      "8da0534a-5da9-430a-bdf3-242ace6460fb"
+    ],
     "link": "https://aware.29k.org/bounce-back",
     "id": "c7911238-ca9f-4499-9cae-63dfcd0c79c5",
     "async": true,
@@ -307,7 +309,9 @@
         "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1698917804/Video/portal2_bounce_back_otpgvf.mp4"
       }
     },
-    "tags": ["8da0534a-5da9-430a-bdf3-242ace6460fb"],
+    "tags": [
+      "8da0534a-5da9-430a-bdf3-242ace6460fb"
+    ],
     "link": "https://aware.29k.org/bounce-back",
     "id": "c7911238-ca9f-4499-9cae-63dfcd0c79c5",
     "async": true,
@@ -462,7 +466,9 @@
         "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1698917804/Video/portal2_bounce_back_otpgvf.mp4"
       }
     },
-    "tags": ["8da0534a-5da9-430a-bdf3-242ace6460fb"],
+    "tags": [
+      "8da0534a-5da9-430a-bdf3-242ace6460fb"
+    ],
     "link": "https://aware.29k.org/bounce-back",
     "id": "c7911238-ca9f-4499-9cae-63dfcd0c79c5",
     "async": true,
@@ -546,7 +552,9 @@
         }
       ]
     },
-    "tags": ["8da0534a-5da9-430a-bdf3-242ace6460fb"],
+    "tags": [
+      "8da0534a-5da9-430a-bdf3-242ace6460fb"
+    ],
     "link": "https://aware.29k.org/bounce-back",
     "id": "c7911238-ca9f-4499-9cae-63dfcd0c79c5",
     "async": false
@@ -564,6 +572,159 @@
     "id": "c7911238-ca9f-4499-9cae-63dfcd0c79c5"
   },
   "pt-BR": {
-    "id": "c7911238-ca9f-4499-9cae-63dfcd0c79c5"
+    "description": "Todos nós enfrentamos contratempos e dificuldades na vida. Resiliência, ou a capacidade de se recuperar, é uma habilidade que melhora com a prática e pode nos ajudar a superar ou até mesmo crescer ao enfrentar obstáculos.",
+    "introPortal": {
+      "hostNotes": [
+        {
+          "text": ">Inicie a sessão quando estiver pronto para começar"
+        }
+      ],
+      "videoLoop": {
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1698917806/Video/portal1_bounce_back_mramav.mp4",
+        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1698917860/Audio/portal_audio_bouncing_back_myanbs.mp3",
+        "p5JsScript": {
+          "lang": "javascript"
+        }
+      },
+      "videoEnd": {
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1698917804/Video/portal2_bounce_back_otpgvf.mp4"
+      }
+    },
+    "name": "Dar a volta por cima",
+    "slides": [
+      {
+        "hostNotes": [
+          {
+            "text": "Bem-vindo(a)\n\nEu sou X e hoje vamos trabalhar por cerca de 30 minutos sobre resiliência.\n\nFaremos um exercício em áudio, seguido de um tempo para reflexão e compartilhamento entre nós."
+          },
+          {
+            "text": "Vamos começar com um mini check-in. Como você está se sentindo agora? Por favor, responda em duas ou três palavras. X, você gostaria de começar?\n\n> Deixe todos na sessão, inclusive você, fazerem o check-in um por um.\n\nObrigado a todos por compartilharem. Vamos começar."
+          }
+        ],
+        "type": "host"
+      },
+      {
+        "hostNotes": [
+          {
+            "text": ">Aperte play para começar o exercício em áudio"
+          }
+        ],
+        "type": "content",
+        "content": {
+          "lottie": {
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1696255947/Audio/Bounce_back_ejnsty.mp3",
+            "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1696256068/SRT%20(captions)%20files/Bounce_back_tvpujy.srt",
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto/v1676977421/Lottie/audio_meditation_default_black_default_omemwt.json",
+            "durationTimer": false
+          },
+          "video": {
+            "durationTimer": true
+          }
+        }
+      },
+      {
+        "content": {
+          "heading": "O que você aprendeu fazendo o modelo dos 4S?",
+          "lottie": {
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto/v1676642915/Lottie/default_1min_black_rosi2l.json",
+            "duration": 60,
+            "durationTimer": true
+          }
+        },
+        "hostNotes": [
+          {
+            "text": "Agora vamos tirar 1 minuto para refletir individualmente.\n\nO que você aprendeu ao fazer o modelo dos 4S?"
+          },
+          {
+            "text": "Você pode fazer anotações em um papel ou apenas mentalmente. Não existe certo ou errado aqui, nossas respostas são pessoais. 1 minuto começando agora.\n\n> Aperte play para iniciar o cronômetro.\n\nPassou 1 minuto, é hora de seguir em frente."
+          }
+        ],
+        "type": "reflection"
+      },
+      {
+        "content": {
+          "heading": "O que você aprendeu fazendo o modelo dos 4S?",
+          "lottie": {
+            "durationTimer": true,
+            "duration": 120,
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto/v1676639253/Lottie/default_2min_black_o6egey.json"
+          }
+        },
+        "hostNotes": [
+          {
+            "text": "Agora estamos entrando na parte de compartilhamento. Temos três regras para o compartilhamento:\n\n1. **O que é dito aqui, fica aqui.**\n2. **Tudo o que você precisa fazer é ouvir.** Não é necessário consertar, ajudar ou dar conselhos. Estamos apenas presentes e explorando o que nós e os outros estamos vivenciando."
+          },
+          {
+            "text": "3. **Tudo o que você sentir é válido.** Raiva, amor, ódio, tristeza. O que surgir. Não existe certo ou errado. \n\nO cronômetro será ajustado para 2 minutos como referência. Se você não quiser compartilhar, pode simplesmente dizer “passo”.\n\n"
+          },
+          {
+            "text": "Quem gostaria de começar?\n\n> Deixe todos (ou o maior número possível, conforme o tempo permitir) compartilharem um por um. Aperte play para iniciar o cronômetro. Reinicie para cada novo compartilhamento.\n\nMuito obrigado a todos.\n\n"
+          }
+        ],
+        "type": "sharing",
+        "id": "1"
+      },
+      {
+        "hostNotes": [
+          {
+            "text": "Muito bem. Se quiser, você pode continuar com uma sugestão .\n\nApós esta sessão, aplique um dos recursos que você identificou à sua situação atual e veja aonde isso te leva."
+          },
+          {
+            "text": "Antes de sairmos deste espaço, vamos fazer um mini check-out.\n\nComo você está se sentindo agora? Algo mudou? Por favor, responda em duas ou três palavras."
+          },
+          {
+            "text": "Quem gostaria de começar?\n\n> Deixe todos (ou o maior número possível, conforme o tempo permitir) compartilharem um por um. Aperte play para iniciar o cronômetro. Reinicie para cada novo compartilhamento.\n\nMuito obrigado a todos.\n\n"
+          }
+        ],
+        "type": "host"
+      },
+      {
+        "content": {
+          "text": "Muito bem. Se quiser, você pode continuar com uma sugestão .\n\nApós esta sessão, aplique um dos recursos que você identificou à sua situação atual e veja aonde isso te leva.\n\n1. Apoio  \n2. Estratégias  \n3. Inteligência  \n4. Busca por soluções",
+          "image": {
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1698917836/Images/card_image_bounce_back_m6yyaj.png"
+          }
+        },
+        "type": "instruction"
+      }
+    ],
+    "id": "c7911238-ca9f-4499-9cae-63dfcd0c79c5",
+    "theme": {
+      "textColor": "#2E2E2E",
+      "backgroundColor": "#349dff"
+    },
+    "hidden": false,
+    "live": true,
+    "published": false,
+    "card": {
+      "backgroundColor": "",
+      "image": {
+        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1698919598/Images/card_image_2_bounce_back_pkfg3y.png"
+      }
+    },
+    "coCreators": [
+      {
+        "name": "Jenny Rickardsson, voice and editor",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1682602411/Images/Jenny_Rickardsson_kopia_sdodwf.jpg",
+        "url": "https://www.linkedin.com/in/jenny-rickardson-6770a959/"
+      },
+      {
+        "name": "Ints Ivanovskis, art works",
+        "url": "https://www.linkedin.com/in/ints-ivanovskis-46ab0311a/",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413436/Contributors/Ints%20Ivanovskis.jpg"
+      },
+      {
+        "name": "Lucinda Poole & Hugo Alberts, research & inspiration",
+        "url": "https://positivepsychology.com/team/",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1700730311/Contributors/positivepsychology.com.logo.png_umldu5.png"
+      }
+    ],
+    "asyncDuration": 10,
+    "liveDuration": 30,
+    "tags": [
+      "8da0534a-5da9-430a-bdf3-242ace6460fb"
+    ],
+    "link": "https://aware.29k.org/bounce-back",
+    "async": true
   }
 }

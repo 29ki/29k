@@ -412,6 +412,183 @@
     "id": "b7f8731c-64d7-4c0f-9bc8-a3e50ec2eaf7"
   },
   "pt-BR": {
-    "id": "b7f8731c-64d7-4c0f-9bc8-a3e50ec2eaf7"
+    "description": "Nesta meditação, usamos todos os nossos sentidos para nos conectar conosco e com a natureza ao nosso redor — não importa se a natureza é uma rua, uma varanda ou o meio de uma floresta. Praticar a consciência da natureza pode nos ajudar a nos sentirmos mais felizes e mais conectados conosco e com os outros.",
+    "introPortal": {
+      "hostNotes": [
+        {
+          "text": ">Comece a sessão quando estiver pronto para seguir"
+        }
+      ],
+      "videoLoop": {
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1684314346/Video/outdoor_sensing_portal_e9cd0v.mp4",
+        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1684314370/Audio/outdoor_sensing_portal_audio_sm1ski.mp3",
+        "preview": "",
+        "p5JsScript": {
+          "lang": "javascript"
+        }
+      },
+      "videoEnd": {
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1684316170/Video/outdoor_sensing_portal_outro_f7amvf.mp4"
+      }
+    },
+    "name": "Percepção da natureza",
+    "slides": [
+      {
+        "hostNotes": [
+          {
+            "text": "Eu sou X e hoje vamos trabalhar por cerca de 40 minutos na conexão com o ambiente externo e conosco, usando todos os nossos sentidos.\n\nVocê pode participar de qualquer lugar onde tenha acesso ao ar livre: uma rua, uma varanda, um parque ou em meio à natureza."
+          },
+          {
+            "text": "Vamos ouvir juntos uma meditação de 20 minutos, seguida de um tempo para reflexão e compartilhamento entre nós.\n\nVamos começar com um mini check-in."
+          },
+          {
+            "text": "Como você está se sentindo agora? Por favor, responda em duas ou três palavras. X, você gostaria de começar?\n\n> Deixe todos na sessão, inclusive você, fazerem o check-in um por um.\n\nObrigado a todos por compartilharem. Vamos começar."
+          }
+        ],
+        "type": "host",
+        "video": {
+          "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1682070990/Video/Intro_Outdoor_sensing_guzdei.mp4",
+          "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1682070994/Images/host%20image%20outdoors%20sensing.jpg"
+        }
+      },
+      {
+        "hostNotes": [
+          {
+            "text": "A consciência do momento presente é uma das super habilidades da vida para aumentar a felicidade, a conexão e a satisfação com a vida. "
+          },
+          {
+            "text": "Nesta meditação ao ar livre, usaremos todos os nossos cinco sentidos — audição, olfato, visão, paladar e tato — para praticar absorver plenamente o que está ao nosso redor e dentro de nós neste momento."
+          },
+          {
+            "text": "Antes de começarmos, posicione-se em um lugar onde possa ficar confortavelmente em pé por 20 minutos. Respire um pouco mais fundo algumas vezes e apenas perceba a respiração por alguns segundos.\n\n> Aperte play para iniciar a meditação"
+          }
+        ],
+        "type": "content",
+        "content": {
+          "video": {
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1683795468/Audio/Outdoor_sensing_Jenny_x9ztl5.mp3",
+            "durationTimer": true,
+            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1684313677/Video/outdoor_sensing_meditation_visual_cbiepb.mp4",
+            "autoPlayLoop": false,
+            "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1689591586/SRT%20(captions)%20files/Outdoor_sensing_Jenny_hmqwou.srt"
+          }
+        }
+      },
+      {
+        "content": {
+          "heading": "Quais pensamentos, sentimentos e experiências surgiram?",
+          "text": "",
+          "lottie": {
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1676642915/Lottie/default_1min_black_rosi2l.json",
+            "durationTimer": true,
+            "duration": 60
+          }
+        },
+        "hostNotes": [
+          {
+            "text": "Agora vamos tirar 1 minuto para refletir individualmente.\n\nQuais pensamentos, sentimentos e experiências surgiram durante a meditação?"
+          },
+          {
+            "text": "Você pode fazer anotações em um papel ou apenas mentalmente. Não existe certo ou errado aqui, nossas respostas são pessoais. 1 minuto começando agora.\n\n> Aperte play para iniciar o cronômetro.\n\nPassou 1 minuto, é hora de seguir em frente."
+          }
+        ],
+        "type": "reflection"
+      },
+      {
+        "content": {
+          "heading": "Quais pensamentos, sentimentos e experiências surgiram?",
+          "text": "",
+          "lottie": {
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1676639253/Lottie/default_2min_black_o6egey.json",
+            "durationTimer": true,
+            "duration": 120
+          }
+        },
+        "hostNotes": [
+          {
+            "text": "Agora estamos entrando na parte de compartilhamento. Temos três regras para o compartilhamento:\n\n1. **O que é dito aqui, fica aqui.**\n2. **Tudo o que você precisa fazer é ouvir.** Não é necessário consertar, ajudar ou dar conselhos. Estamos apenas presentes e explorando o que nós e os outros estamos vivenciando."
+          },
+          {
+            "text": "3. **Tudo o que você sentir é válido.** Raiva, amor, ódio, tristeza. O que surgir. Não existe certo ou errado. \n\nO cronômetro será ajustado para 2 minutos como referência. Se você não quiser compartilhar, pode simplesmente dizer “passo”.\n\n"
+          },
+          {
+            "text": "Quem gostaria de começar?\n\n> Deixe todos (ou o maior número possível, conforme o tempo permitir) compartilharem um por um. Aperte play para iniciar o cronômetro. Reinicie para cada novo compartilhamento.\n\nMuito obrigado a todos.\n\n"
+          }
+        ],
+        "type": "sharing",
+        "id": "sharing"
+      },
+      {
+        "hostNotes": [
+          {
+            "text": "Muito bem. Se quiser, você pode continuar com uma sugestão para trazer isso para o seu dia a dia.\n\nPelos próximos dois dias, escolha um lugar agradável ao ar livre e reserve alguns minutos para perceber cada um dos seus sentidos, um por um.\n\n"
+          },
+          {
+            "text": "Veja se você consegue observar com atenção plena o que está acontecendo nesse local e dentro de você.\n\nAntes de encerrarmos este espaço, vamos fazer um mini check-out. Como você se sente agora, algo mudou? Por favor, responda em duas ou três palavras."
+          },
+          {
+            "text": "Quem gostaria de começar?\n\n> Deixe todos (ou o maior número possível, conforme o tempo permitir) compartilharem um por um. Aperte play para iniciar o cronômetro. Reinicie para cada novo compartilhamento.\n\nMuito obrigado a todos.\n\n"
+          }
+        ],
+        "type": "host",
+        "video": {
+          "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1682070992/Video/outro_outdoors_sensing_efei2u.mp4",
+          "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1682070994/Images/host%20image%20outdoors%20sensing.jpg"
+        }
+      },
+      {
+        "content": {
+          "heading": "Muito bem",
+          "text": "Se quiser, continue com esta sugestão:\n\nNos próximos dois dias, escolha um lugar especial ao ar livre e reserve alguns minutos para passar por todos os seus sentidos, um de cada vez.\n\nVeja se consegue observar, com atenção plena, o que está acontecendo nesse local e dentro de você mesmo.",
+          "image": {
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1684313656/Images/outdoor_sensing_thumb_q68hl4.png"
+          }
+        },
+        "type": "instruction"
+      }
+    ],
+    "id": "b7f8731c-64d7-4c0f-9bc8-a3e50ec2eaf7",
+    "liveDuration": 40,
+    "theme": {
+      "textColor": "#2E2E2E",
+      "backgroundColor": "#cdf9e6"
+    },
+    "hidden": false,
+    "live": true,
+    "published": false,
+    "asyncDuration": 23,
+    "card": {
+      "image": {
+        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1684313656/Images/outdoor_sensing_thumb_q68hl4.png"
+      }
+    },
+    "coCreators": [
+      {
+        "name": "Jenny Rickardsson, editor, voice",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413228/Contributors/Jenny%20Rickardsson.jpg",
+        "url": "https://www.linkedin.com/in/jenny-rickardson-6770a959/"
+      },
+      {
+        "name": "Göran Gennvi, original script and research",
+        "url": "https://www.gorangennvi.eu/nature-academy/",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1698408621/Contributors/Goran-Gennvi_ucyj82.jpg"
+      },
+      {
+        "name": "Ints Ivanovskis, art works",
+        "url": "https://www.linkedin.com/in/ints-ivanovskis-46ab0311a/",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413436/Contributors/Ints%20Ivanovskis.jpg"
+      }
+    ],
+    "outroPortal": {
+      "video": {
+        "source": ""
+      }
+    },
+    "tags": [
+      "43a6dc0d-d866-4b79-9453-13c44e906128",
+      "cfc00217-f65b-4a4d-8b82-8ccc8f852dd6"
+    ],
+    "link": "https://aware.29k.org/outdoor-sensing",
+    "async": true
   }
 }

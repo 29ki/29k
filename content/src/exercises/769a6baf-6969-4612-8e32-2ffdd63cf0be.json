@@ -401,6 +401,116 @@
     "id": "769a6baf-6969-4612-8e32-2ffdd63cf0be"
   },
   "pt-BR": {
-    "id": "769a6baf-6969-4612-8e32-2ffdd63cf0be"
+    "description": "Pratique estar no momento presente sem orientação. Observar tudo o que surgir é uma habilidade que pode nos tornar mais felizes e calmos a longo prazo.",
+    "introPortal": {
+      "hostNotes": [
+        {
+          "text": ">Comece a sessão quando estiver pronto para seguir"
+        }
+      ],
+      "textColor": "#2AE2D7",
+      "videoLoop": {
+        "p5JsScript": {
+          "lang": "javascript"
+        }
+      }
+    },
+    "name": "Atenção plena em silêncio",
+    "slides": [
+      {
+        "hostNotes": [
+          {
+            "text": "Bem-vindo(a). Eu sou X e hoje vamos trabalhar durante cerca de 30 minutos sobre estar presente.\n\nFaremos uma meditação silenciosa, seguida de um tempo para reflexão e, se quisermos, compartilhamento entre todos."
+          },
+          {
+            "text": "Vamos começar com um mini check-in. Como você está se sentindo agora? Por favor, responda em duas ou três palavras. X, você gostaria de começar?\n\n> Deixe todos na sessão, inclusive você, fazerem o check-in um por um.\n\nObrigado a todos por compartilharem. Vamos começar."
+          }
+        ],
+        "type": "host"
+      },
+      {
+        "hostNotes": [
+          {
+            "text": "Neste exercício, vamos simplesmente estar com o que vier. É uma prática de observar sem julgar. Nossa tarefa é notar quais pensamentos, sentimentos e sensações aparecem, e deixá-los ir. Repetidas vezes."
+          },
+          {
+            "text": "Este exercício de mindfulness não tem nenhuma orientação, apenas um sino de início e outro de término, então encontre uma posição confortável e prepare-se. Vou iniciar o exercício agora e nos encontraremos aqui novamente ao final.\n\n> Toque para iniciar o áudio."
+          }
+        ],
+        "type": "content",
+        "content": {
+          "lottie": {
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1718701440/Audio/silent_meditation_bell.mp3"
+          }
+        }
+      },
+      {
+        "content": {
+          "heading": "Como foi a experiência de observar em silêncio?"
+        },
+        "hostNotes": [
+          {
+            "text": "Agora vamos tirar 1 minuto para refletir individualmente.\n\nComo foi para você observar em silêncio hoje?\n\nO que você aprendeu?"
+          },
+          {
+            "text": "Você pode fazer anotações em um papel ou apenas mentalmente. Não existe certo ou errado aqui, nossas respostas são pessoais. 1 minuto começando agora.\n\n> Aperte play para iniciar o cronômetro.\n\nPassou 1 minuto, é hora de seguir em frente."
+          }
+        ],
+        "type": "reflection"
+      },
+      {
+        "content": {
+          "heading": "Como foi a experiência de observar em silêncio?"
+        },
+        "hostNotes": [
+          {
+            "text": "Agora estamos entrando na parte de compartilhamento. Temos três regras para o compartilhamento:\n\n1. **O que é dito aqui, fica aqui.**\n2. **Tudo o que você precisa fazer é ouvir.** Não é necessário consertar, ajudar ou dar conselhos. Estamos apenas presentes e explorando o que nós e os outros estamos vivenciando."
+          },
+          {
+            "text": "3. **Tudo o que você sentir é válido.** Raiva, amor, ódio, tristeza. O que surgir. Não existe certo ou errado. \n\nO cronômetro será ajustado para 2 minutos como referência. Se você não quiser compartilhar, pode simplesmente dizer “passo”.\n\n"
+          },
+          {
+            "text": "Quem gostaria de começar?\n\n> Deixe todos (ou o maior número possível, conforme o tempo permitir) compartilharem um por um. Aperte play para iniciar o cronômetro. Reinicie para cada novo compartilhamento.\n\nMuito obrigado a todos.\n\n"
+          }
+        ],
+        "type": "sharing",
+        "id": "Sharing 1"
+      },
+      {
+        "hostNotes": [
+          {
+            "text": "Muito bem. Se quiser, você pode continuar o que começamos aqui hoje com uma sugestão para trazer isso ao seu dia a dia.\n\nPelos próximos três dias, reserve 2 minutos por dia para fechar os olhos e observar em silêncio. Perceba se a experiência muda à medida que você pratica."
+          },
+          {
+            "text": "Antes de sairmos deste espaço, vamos fazer um mini check-out.\n\nComo você está se sentindo agora? Algo mudou? Por favor, responda em duas ou três palavras."
+          },
+          {
+            "text": "Quem gostaria de começar?\n\n> Deixe todos (ou o maior número possível, conforme o tempo permitir) compartilharem um por um. Aperte play para iniciar o cronômetro. Reinicie para cada novo compartilhamento.\n\nMuito obrigado a todos.\n\n"
+          }
+        ],
+        "type": "host"
+      },
+      {
+        "content": {
+          "text": "Muito bem. Se quiser, você pode continuar com uma sugestão para trazer isso ao seu dia a dia.\n\nPelos próximos três dias, reserve dois minutos por dia para fechar os olhos e observar em silêncio. Perceba se a experiência muda à medida que você pratica."
+        },
+        "type": "instruction"
+      }
+    ],
+    "id": "769a6baf-6969-4612-8e32-2ffdd63cf0be",
+    "theme": {
+      "textColor": "#2AE2D7"
+    },
+    "hidden": true,
+    "locked": false,
+    "live": true,
+    "published": false,
+    "asyncDuration": 10,
+    "liveDuration": 29,
+    "tags": [
+      "db34d82a-4c48-4ddd-9de5-f562d8aa1bc9",
+      "cfc00217-f65b-4a4d-8b82-8ccc8f852dd6"
+    ],
+    "async": true
   }
 }

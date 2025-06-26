@@ -430,6 +430,148 @@
     "id": "9451652d-444f-4e96-86cc-dcb774ab6c27"
   },
   "pt-BR": {
-    "id": "9451652d-444f-4e96-86cc-dcb774ab6c27"
+    "description": "Vamos explorar uma forma mais profunda de olhar para os acontecimentos, analisando como eles se apoiam em estruturas sistêmicas. Abordar essas estruturas mais profundas pode nos ajudar a compreender melhor os eventos e padrões de comportamento, além de oferecer insights que ajudam a agir de maneira mais eficaz para mudar esses padrões.",
+    "introPortal": {
+      "hostNotes": [
+        {
+          "text": ">Pressione play para iniciar o exercício"
+        }
+      ],
+      "textColor": "#2E2E2E",
+      "videoLoop": {
+        "p5JsScript": {
+          "lang": "javascript"
+        },
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1717469190/SEE/Video/SEELearning_AwareApp_IntroVideo_2024_V3_1_giheh7.mp4"
+      },
+      "videoEnd": {
+        "source": ""
+      }
+    },
+    "name": " Iceberg",
+    "slides": [
+      {
+        "content": {
+          "heading": "Bem-vindo(a)",
+          "text": "Esta sessão explora eventos e estruturas sistêmicas.\n\nEncontre uma posição confortável e inicie o exercício quando estiver pronto.",
+          "image": {
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1731441064/SEE/SEELearning_CompassionTree_Green_2024_hiqhwi.png"
+          }
+        },
+        "type": "instruction"
+      },
+      {
+        "type": "content",
+        "hostNotes": [],
+        "content": {
+          "lottie": {
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1715668430/SEE/Lottie/Systems%20Thinking/SystemThinking2_t0eula.json",
+            "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1716147371/SEE/SRT/Systems%20Thinking/Iceberg_k4wbbd.srt",
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1715663929/SEE/Audio/Systems%20Thinking/Iceberg_irbxnn.mp3"
+          }
+        }
+      },
+      {
+        "content": {
+          "heading": "Reflexão",
+          "text": "Você pode fazer anotações em um pedaço de papel ou apenas mentalmente. E não existe certo ou errado aqui, nossas respostas são pessoais. 1 minuto a partir de agora.",
+          "image": {
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1716951212/SEE/Icons/Reflection/Reflection_Awareness_CardImage_wgzwcf.png"
+          }
+        },
+        "type": "instruction"
+      },
+      {
+        "content": {
+          "heading": "Reflexão",
+          "text": "Como foi essa experiência para você?\n\nDe que forma analisar eventos e comportamentos dessa maneira pode nos ajudar a ter mais empatia pelos outros?\n\nComo isso pode nos ajudar a praticar a autocompaixão?",
+          "image": {
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1716951212/SEE/Icons/Reflection/Reflection_Awareness_CardImage_wgzwcf.png"
+          }
+        },
+        "type": "instruction"
+      },
+      {
+        "content": {
+          "heading": "Como isso pode nos ajudar a ter empatia com os outros e conosco?",
+          "text": "De que forma analisar eventos e comportamentos dessa maneira pode nos ajudar a ter mais empatia pelos outros?  \nComo isso pode nos ajudar a praticar a autocompaixão?",
+          "lottie": {
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1718146077/SEE/Lottie/Timer/2min_timer_yjuzls.json"
+          }
+        },
+        "type": "sharing",
+        "hostNotes": [],
+        "id": "Sharing 1"
+      },
+      {
+        "content": {
+          "heading": "Como o Iceberg pode ajudar a entender a interdependência?",
+          "video": {
+            "durationTimer": true
+          },
+          "lottie": {
+            "durationTimer": true,
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1718146077/SEE/Lottie/Timer/2min_timer_yjuzls.json"
+          },
+          "text": ""
+        },
+        "type": "sharing",
+        "id": "sharing 2"
+      },
+      {
+        "content": {
+          "heading": "Pensamento sistêmico",
+          "text": "Muito bem. Hoje exploramos o pensamento sistêmico usando a metáfora do iceberg.\n\nIsso pode nos ajudar a compreender mais profundamente uma ação ou evento ao considerar as muitas variáveis e fatores que levaram a ele, incluindo estruturas sistêmicas subjacentes.",
+          "image": {
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1718143991/SEE/Icons/Systems%20Thinking/SystemsThinking_CardImage_vq0o0c.png"
+          }
+        },
+        "type": "instruction"
+      },
+      {
+        "content": {
+          "heading": "Pensamento sistêmico",
+          "text": "Em vez de atribuir toda a culpa ou mérito a um indivíduo, podemos identificar como estruturas internas e externas, algumas das quais estão além do controle da pessoa, contribuem para os acontecimentos. Esse entendimento pode aprofundar a apreciação da interdependência e da humanidade comum.",
+          "image": {
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1718143991/SEE/Icons/Systems%20Thinking/SystemsThinking_CardImage_vq0o0c.png"
+          }
+        },
+        "type": "instruction"
+      },
+      {
+        "content": {
+          "heading": "Pensamento sistêmico",
+          "text": "Se quiser, você pode continuar com esta sugestão.\n\nReflita sobre uma situação em que você teve um encontro difícil com um pensamento ou com outra pessoa. Como o uso do modelo do iceberg poderia ajudar a incentivar a compaixão por si mesmo e pelos outros nesse pensamento ou situação?",
+          "image": {
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1718143991/SEE/Icons/Systems%20Thinking/SystemsThinking_CardImage_vq0o0c.png"
+          }
+        },
+        "type": "instruction"
+      }
+    ],
+    "id": "9451652d-444f-4e96-86cc-dcb774ab6c27",
+    "liveDuration": 0,
+    "theme": {
+      "textColor": "#2E2E2E"
+    },
+    "hidden": false,
+    "locked": true,
+    "live": false,
+    "published": false,
+    "asyncDuration": 10,
+    "card": {
+      "image": {
+        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1718143991/SEE/Icons/Systems%20Thinking/SystemsThinking_CardImage_vq0o0c.png"
+      }
+    },
+    "coCreators": [
+      {
+        "name": "SEE Learning",
+        "url": "learning.emory.edu/en/home",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1713881366/SEE/see-logo_1_kewtlt.png"
+      }
+    ],
+    "link": "",
+    "async": true
   }
 }

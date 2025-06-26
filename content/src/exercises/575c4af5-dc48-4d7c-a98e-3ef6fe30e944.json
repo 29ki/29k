@@ -399,6 +399,114 @@
     "id": "575c4af5-dc48-4d7c-a98e-3ef6fe30e944"
   },
   "pt-BR": {
-    "id": "575c4af5-dc48-4d7c-a98e-3ef6fe30e944"
+    "description": "Uma meditação para aumentar a consciência e a conexão com o nosso corpo. Praticar a atenção plena no momento presente pode ajudar a melhorar o bem-estar e reduzir o estresse.",
+    "introPortal": {
+      "hostNotes": [
+        {
+          "text": ">Comece a sessão quando estiver pronto para seguir"
+        }
+      ],
+      "textColor": "#2AE2D7",
+      "videoLoop": {
+        "p5JsScript": {
+          "lang": "javascript"
+        }
+      }
+    },
+    "name": "Escaneamento corporal",
+    "slides": [
+      {
+        "hostNotes": [
+          {
+            "text": "Bem-vindo(a). Eu sou X e hoje vamos trabalhar durante cerca de 30 minutos a consciência no momento presente.\n\nFaremos uma meditação com foco no corpo, seguida de um tempo para reflexão e compartilhamento entre todos."
+          },
+          {
+            "text": "Vamos começar com um mini check-in. Como você está se sentindo agora? Por favor, responda em duas ou três palavras. X, você gostaria de começar?\n\n> Deixe todos na sessão, inclusive você, fazerem o check-in um por um.\n\nObrigado a todos por compartilharem. Vamos começar."
+          }
+        ],
+        "type": "host"
+      },
+      {
+        "hostNotes": [
+          {
+            "text": "Encontre uma posição confortável, o exercício vai durar cerca de 17 minutos. Nos encontraremos aqui depois.\n\n> Toque em play para começar o exercício em áudio."
+          }
+        ],
+        "type": "content",
+        "content": {
+          "lottie": {
+            "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1724164002/SRT%20%28captions%29%20files/Body_scan_mtil7l.srt",
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1724164117/Audio/Body_scan_zuyoed.mp3"
+          }
+        }
+      },
+      {
+        "content": {
+          "heading": "O que você experimentou?"
+        },
+        "hostNotes": [
+          {
+            "text": "Agora vamos tirar 1 minuto para refletir individualmente.\n\nO que você experimentou durante o body scan?"
+          },
+          {
+            "text": "Você pode fazer anotações em um papel ou apenas mentalmente. Não existe certo ou errado aqui, nossas respostas são pessoais. 1 minuto começando agora.\n\n> Aperte play para iniciar o cronômetro.\n\nPassou 1 minuto, é hora de seguir em frente."
+          }
+        ],
+        "type": "reflection"
+      },
+      {
+        "content": {
+          "heading": "O que você experimentou?"
+        },
+        "hostNotes": [
+          {
+            "text": "Agora estamos entrando na parte de compartilhamento. Temos três regras para o compartilhamento:\n\n1. **O que é dito aqui, fica aqui.**\n2. **Tudo o que você precisa fazer é ouvir.** Não é necessário consertar, ajudar ou dar conselhos. Estamos apenas presentes e explorando o que nós e os outros estamos vivenciando."
+          },
+          {
+            "text": "3. **Tudo o que você sentir é válido.** Raiva, amor, ódio, tristeza. O que surgir. Não existe certo ou errado. \n\nO cronômetro será ajustado para 2 minutos como referência. Se você não quiser compartilhar, pode simplesmente dizer “passo”.\n\n"
+          },
+          {
+            "text": "Quem gostaria de começar?\n\n> Deixe todos (ou o maior número possível, conforme o tempo permitir) compartilharem um por um. Aperte play para iniciar o cronômetro. Reinicie para cada novo compartilhamento.\n\nMuito obrigado a todos.\n\n"
+          }
+        ],
+        "type": "sharing",
+        "id": "Sharing 1"
+      },
+      {
+        "hostNotes": [
+          {
+            "text": "Muito bem. Práticas de consciência como esta podem nos ajudar a desacelerar e aumentar o bem-estar.\n\nSe quiser, pode continuar o que começamos hoje com uma sugestão para trazer isso ao seu dia a dia: faça uma pequena pausa, uma vez por dia, nos próximos dois dias, respirando e sentindo uma parte do seu corpo por pelo menos um minuto."
+          },
+          {
+            "text": "Antes de sairmos deste espaço, vamos fazer um mini check-out.\n\nComo você está se sentindo agora? Algo mudou? Por favor, responda em duas ou três palavras."
+          },
+          {
+            "text": "Quem gostaria de começar?\n\n> Deixe todos (ou o maior número possível, conforme o tempo permitir) compartilharem um por um. Aperte play para iniciar o cronômetro. Reinicie para cada novo compartilhamento.\n\nMuito obrigado a todos.\n\n"
+          }
+        ],
+        "type": "host"
+      },
+      {
+        "content": {
+          "text": "Muito bem.\n\nSe quiser, pode continuar com uma sugestão: faça uma pequena pausa uma vez por dia, nos próximos dois dias, respirando e sentindo uma parte do seu corpo por pelo menos um minuto.\n\nPráticas de consciência como esta ajudam a desacelerar e aumentam o bem-estar."
+        },
+        "type": "instruction"
+      }
+    ],
+    "id": "575c4af5-dc48-4d7c-a98e-3ef6fe30e944",
+    "theme": {
+      "textColor": "#2E2E2E"
+    },
+    "hidden": true,
+    "locked": false,
+    "live": true,
+    "published": false,
+    "asyncDuration": 10,
+    "liveDuration": 29,
+    "tags": [
+      "cfc00217-f65b-4a4d-8b82-8ccc8f852dd6",
+      "8da0534a-5da9-430a-bdf3-242ace6460fb"
+    ],
+    "async": true
   }
 }
