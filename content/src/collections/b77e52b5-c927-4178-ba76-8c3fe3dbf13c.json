@@ -117,6 +117,27 @@
     ]
   },
   "pt-BR": {
-    "id": "b77e52b5-c927-4178-ba76-8c3fe3dbf13c"
+    "description": "Passe de valores abstratos para ações diárias. Aprenda a definir metas, amplie seu repertório de comportamentos e navegue pela vida com integridade.",
+    "name": "Valores III: aja pelo que importa",
+    "id": "b77e52b5-c927-4178-ba76-8c3fe3dbf13c",
+    "hidden": false,
+    "published": true,
+    "sortOrder": 2,
+    "card": {
+      "image": {
+        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1711521385/Images/card_Values_III_-_act_for_what_matters_rv6bld.png"
+      }
+    },
+    "tags": [
+      "9c2c08a9-7dc6-4058-bc78-016d0eb00614",
+      "8da0534a-5da9-430a-bdf3-242ace6460fb"
+    ],
+    "link": "https://aware.29k.org/values-act-for-what-matters",
+    "exercises": [
+      "33a188a2-6871-47d6-a754-f5c246bd6b9a",
+      "f59b7f66-43b0-4b50-9afe-91092d7dc469",
+      "5b0dea9f-c665-41ce-a779-601d0cfa433d",
+      "c1c4da35-87af-4e10-a8d9-e6c58571f724"
+    ]
   }
 }

@@ -117,6 +117,27 @@
     ]
   },
   "pt-BR": {
-    "id": "9739d765-08e4-401c-88e9-3318e75ce41a"
+    "description": "Viver uma vida baseada em valores fará com que enfrentemos obstáculos pelo caminho. Muitas vezes, eles aparecem como pensamentos e sentimentos. Aprenda a navegar por eles.",
+    "name": "Valores II: supere obstáculos",
+    "id": "9739d765-08e4-401c-88e9-3318e75ce41a",
+    "hidden": false,
+    "published": true,
+    "sortOrder": 2,
+    "card": {
+      "image": {
+        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1711521379/Images/card_Values_II_-_overcome_obstacles_jbefba.png"
+      }
+    },
+    "tags": [
+      "9c2c08a9-7dc6-4058-bc78-016d0eb00614",
+      "8da0534a-5da9-430a-bdf3-242ace6460fb"
+    ],
+    "link": "https://aware.29k.org/values-II-overcome-obstacles",
+    "exercises": [
+      "b1e6cc8e-03a4-4f74-8884-2896c391ab07",
+      "961656ea-021c-4faa-ae03-46d6ace4be4b",
+      "c4b1c360-88b8-4e05-915a-407e00aef898",
+      "1e96f73b-8193-4aa6-a52c-31355eac3c08"
+    ]
   }
 }

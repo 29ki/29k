@@ -91,6 +91,20 @@
     ]
   },
   "pt-BR": {
-    "id": "29b0e349-256d-44e7-b0e9-dc152339b4fc"
+    "description": "Dr. Thupten Jinpa, um renomado estudioso da compaixão, define compaixão como “um sentimento de preocupação que surge quando nos deparamos com o sofrimento de outra pessoa e sentimos motivação para aliviar esse sofrimento.” A compaixão depende da consciência da situação do outro e da capacidade de se colocar no lugar dele, combinada com um sentimento de afeto ou carinho por essa pessoa, mesmo no nível mais básico de conexão humana.",
+    "name": "VER Compaixão",
+    "id": "29b0e349-256d-44e7-b0e9-dc152339b4fc",
+    "published": true,
+    "hidden": false,
+    "locked": true,
+    "card": {
+      "image": {
+        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1731443189/SEE/FullCategories_CardImage-02_uvnevx.png"
+      }
+    },
+    "exercises": [
+      "a1da8d37-0330-4611-ad1b-f65d08f71d2e",
+      "9d86dfa5-c0ed-49bb-856d-8185a017785e"
+    ]
   }
 }

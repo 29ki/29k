@@ -112,6 +112,25 @@
     "sortOrder": 5
   },
   "pt-BR": {
-    "id": "af1c4ac9-1bae-4cb1-8c98-e1f98a8aea66"
+    "description": "Durante períodos de estresse, a recuperação é fundamental. Esta coleção pode nos ajudar a cuidar de nós mesmos e tirar algumas pausas merecidas.",
+    "name": "Encontre a calma",
+    "id": "af1c4ac9-1bae-4cb1-8c98-e1f98a8aea66",
+    "exercises": [
+      "3188a5ed-a1d6-451c-ae2a-f44f4df37495",
+      "b18c1cff-bb43-44b1-81a1-2877cc018ab4",
+      "185889ec-753b-4e2c-8322-3004013e8a6e",
+      "12f448d2-39bc-4232-b8cf-b6cb570c7e00",
+      "2fdb95f0-d18d-444d-9935-2c71b9b413d4",
+      "9ac0c561-ff26-45fc-b6d5-0a983432394e"
+    ],
+    "card": {
+      "image": {
+        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1682398819/Images/ease_stress_collection_cwrydu.png"
+      },
+      "imageBackgroundColor": "#25a5ec"
+    },
+    "published": true,
+    "link": "https://aware.29k.org/ease-stress",
+    "sortOrder": 5
   }
 }
