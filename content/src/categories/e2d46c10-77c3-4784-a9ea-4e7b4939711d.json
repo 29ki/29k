@@ -134,6 +134,28 @@
     }
   },
   "pt-BR": {
-    "id": "e2d46c10-77c3-4784-a9ea-4e7b4939711d"
+    "name": "Encontrar sentido",
+    "id": "e2d46c10-77c3-4784-a9ea-4e7b4939711d",
+    "collections": [
+      "d9897547-18a2-4404-b12b-324458021783",
+      "9739d765-08e4-401c-88e9-3318e75ce41a",
+      "b77e52b5-c927-4178-ba76-8c3fe3dbf13c"
+    ],
+    "exercises": [
+      "fff6f8da-f69c-458f-8905-acee04bd1a1d",
+      "640e4d9f-bb88-44af-a032-116a82f080f6",
+      "61adeaf2-70ab-4c6c-854c-2c16f762a3c5",
+      "0bcb6eb0-fdfe-466d-8603-ae6de15fcbc5",
+      "5b69ff57-10c4-4288-afc7-a6f6ed212531",
+      "095f9642-73b6-4c9a-ae9a-ea7dea7363f5",
+      "12f448d2-39bc-4232-b8cf-b6cb570c7e00",
+      "2ea0d73d-4bfe-4e23-9124-2998acc9743f",
+      "648e1802-eb45-47b0-a42e-dd986669a4eb",
+      "f59b7f66-43b0-4b50-9afe-91092d7dc469"
+    ],
+    "published": true,
+    "lottie": {
+      "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1702302654/Lottie/find_meaning_wta8nc.json"
+    }
   }
 }
