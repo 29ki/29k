@@ -30,7 +30,7 @@
     "continueButton": "Continue",
     "getStartedButton": "Get started"
   },
-  "pt": {
+  "pt-PT": {
     "privacyNotice": "Privacidade",
     "start": {
       "heading1": "",
@@ -123,6 +123,35 @@
     "skipButton": "Omitir",
     "start": {
       "heading2": "Descúbrete a ti mismo, conéctate con los demás."
+    }
+  },
+  "pt-BR": {
+    "continueButton": "Continuar",
+    "getStartedButton": "Começar",
+    "page1": {
+      "heading__text": "Ferramentas psicológicas\r\nbaseadas em ciência"
+    },
+    "page2": {
+      "heading__text": "Conexões\r\nsignificativas",
+      "name1": "Ints",
+      "name2": "Jenny",
+      "name3": "Lisa"
+    },
+    "page3": {
+      "card": {
+        "heading": "Sem fins lucrativos",
+        "text__markdown": "Somos gratuitos para uso pessoal.\\\r\nNão vendemos dados. Não fazemos anúncios.\\\r\nAssim, você pode focar em praticar o bem-estar, prosperar e contribuir para um futuro melhor para todos."
+      },
+      "heading__text": "Pelo\r\nbem maior"
+    },
+    "page4": {
+      "journey__text": "Seu próprio caminho pessoal\r\nrumo a uma vida mais plena.",
+      "sessions__text": "Experiências guiadas para\r\nnovas perspectivas sobre a vida.\r\n\r\nSozinho(a), com amigos ou novas conexões."
+    },
+    "privacyNotice": "Aviso de Privacidade",
+    "skipButton": "Pular",
+    "start": {
+      "heading2": "Descubra a si mesmo(a), conecte-se com os outros."
     }
   }
 }

@@ -7,7 +7,7 @@
       "confirm": "Yes, leave"
     }
   },
-  "pt": {
+  "pt-PT": {
     "header": "Sair da sessão",
     "text": "Tens a certeza que queres sair da sessão?",
     "buttons": {
@@ -34,5 +34,13 @@
     },
     "header": "Salir de la sesión",
     "text": "¿Estás seguro/a de que quieres salir de la sesión?"
+  },
+  "pt-BR": {
+    "buttons": {
+      "cancel": "Não, permanecer na sessão",
+      "confirm": "Sim, sair"
+    },
+    "header": "Sair da sessão",
+    "text": "Tem certeza de que deseja sair da sessão?"
   }
 }

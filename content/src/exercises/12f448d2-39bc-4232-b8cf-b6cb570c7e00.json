@@ -144,7 +144,7 @@
     "async": true,
     "description": "Noticing what’s above us, can improve our sense of being connected and present as well as inspire awe. Research has it that practising these skills can help us feel more fulfilled and satisfied with life. Please note that this exercise is best done outside."
   },
-  "pt": {
+  "pt-PT": {
     "liveDuration": 30,
     "slides": [
       {
@@ -692,5 +692,150 @@
     "link": "https://aware.29k.org/sky-gazing",
     "async": true,
     "description": "Noticing what’s above us, can improve our sense of being connected and present as well as inspire awe. Research has it that practising these skills can help us feel more fulfilled and satisfied with life. Please note that this exercise is best done outside."
+  },
+  "pt-BR": {
+    "description": "Notar o que está acima de nós pode melhorar nosso senso de conexão e presença, além de inspirar admiração. Pesquisas indicam que praticar essas habilidades pode nos ajudar a nos sentir mais realizados e satisfeitos com a vida. Vale lembrar que este exercício é melhor realizado ao ar livre, aproveitando o ambiente natural para potencializar a experiência.",
+    "introPortal": {
+      "hostNotes": [
+        {
+          "text": ">Inicie a sessão quando estiver pronto para começar"
+        }
+      ],
+      "videoLoop": {
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1697630712/Video/portal1_sky_gazing_nzvbyk.mp4",
+        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1697630682/Audio/portal_audio__sky_gazing_zjwzsc.mp3",
+        "p5JsScript": {
+          "lang": "javascript"
+        }
+      },
+      "videoEnd": {
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1697630707/Video/portal2_sky_gazing_nlgcbd.mp4"
+      }
+    },
+    "name": "Observação do céu",
+    "slides": [
+      {
+        "hostNotes": [
+          {
+            "text": "Bem-vindo(a). Eu sou X e hoje vamos trabalhar por cerca de 30 minutos em presença, atenção e admiração.\n\nFaremos um exercício de mindfulness, seguido de um tempo para reflexão e compartilhamento entre todos."
+          },
+          {
+            "text": "Vamos começar com um mini check-in. Como você está se sentindo agora? Por favor, responda em duas ou três palavras. X, você gostaria de começar?\n\n> Deixe todos na sessão, inclusive você, fazerem o check-in um por um.\n\nObrigado a todos por compartilharem. Vamos começar."
+          }
+        ],
+        "type": "host"
+      },
+      {
+        "content": {
+          "text": "A prática de observar o céu (sky gazing) consiste em estar aqui e agora, olhando para o céu. Inicie o exercício quando estiver ao ar livre, pronto para olhar para cima por cerca de sete minutos.",
+          "image": {
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1697630657/Images/card_image_sky_gazing_wloxhk.png"
+          }
+        },
+        "type": "instruction"
+      },
+      {
+        "hostNotes": [
+          {
+            "text": ">Aperte  play para iniciar o arquivo de áudio"
+          }
+        ],
+        "type": "content",
+        "content": {
+          "lottie": {
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1696420104/Audio/Sky_gazing_ih7ox9.mp3",
+            "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1696420138/SRT%20(captions)%20files/Sky_gazing_rt4epi.srt",
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1676642915/Lottie/default_audio_white_sufmbz.json",
+            "durationTimer": true
+          }
+        }
+      },
+      {
+        "content": {
+          "heading": "O que você descobriu?",
+          "lottie": {
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1676642915/Lottie/default_1min_white_wvgwma.json",
+            "durationTimer": false
+          }
+        },
+        "hostNotes": [
+          {
+            "text": "Agora vamos tirar 1 minuto para refletir individualmente.\n\nO que você descobriu durante o exercício?"
+          },
+          {
+            "text": "Você pode fazer anotações em um papel ou apenas mentalmente. Não existe certo ou errado aqui, nossas respostas são pessoais. 1 minuto começando agora.\n\n> Aperte play para iniciar o cronômetro.\n\nPassou 1 minuto, é hora de seguir em frente."
+          }
+        ],
+        "type": "reflection"
+      },
+      {
+        "content": {
+          "heading": "O que você descobriu?",
+          "lottie": {
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1676639253/Lottie/default_2min_white_arvrf2.json",
+            "durationTimer": true,
+            "duration": 120
+          }
+        },
+        "hostNotes": [
+          {
+            "text": "Agora estamos entrando na parte de compartilhamento. Temos três regras para o compartilhamento:\n\n1. **O que é dito aqui, fica aqui.**\n2. **Tudo o que você precisa fazer é ouvir.** Não é necessário consertar, ajudar ou dar conselhos. Estamos apenas presentes e explorando o que nós e os outros estamos vivenciando."
+          },
+          {
+            "text": "3. **Tudo o que você sentir é válido.** Raiva, amor, ódio, tristeza. O que surgir. Não existe certo ou errado. \n\nO cronômetro será ajustado para 2 minutos como referência. Se você não quiser compartilhar, pode simplesmente dizer “passo”.\n\n"
+          },
+          {
+            "text": "Quem gostaria de começar?\n\n> Deixe todos (ou o maior número possível, conforme o tempo permitir) compartilharem um por um. Aperte play para iniciar o cronômetro. Reinicie para cada novo compartilhamento.\n\nMuito obrigado a todos.\n\n"
+          }
+        ],
+        "type": "sharing",
+        "id": "1"
+      },
+      {
+        "hostNotes": [
+          {
+            "text": "Muito bem. Notar o que está aqui e agora acima de nós pode melhorar nosso senso de conexão e presença. Se quiser, você pode levar isso para o seu dia a dia com esta sugestão:\n\nPelos próximos dois dias, reserve alguns minutos a cada dia para olhar para cima. Preste atenção ao que vê no céu, deixando as coisas virem e irem como são."
+          },
+          {
+            "text": "Antes de sairmos deste espaço, vamos fazer um mini check-out.\n\nComo você está se sentindo agora? Algo mudou? Por favor, responda em duas ou três palavras."
+          },
+          {
+            "text": "Quem gostaria de começar?\n\n> Deixe todos (ou o maior número possível, conforme o tempo permitir) compartilharem um por um. Aperte play para iniciar o cronômetro. Reinicie para cada novo compartilhamento.\n\nMuito obrigado a todos.\n\n"
+          }
+        ],
+        "type": "host"
+      },
+      {
+        "content": {
+          "text": "Muito bem.\n\nNotar o que está aqui e agora acima de nós pode melhorar nosso senso de conexão e presença.\n\nSe quiser, você pode continuar com uma sugestão para trazer essa prática para o seu dia a dia.\n\nNos próximos dois dias, reserve alguns minutos a cada dia para olhar para cima. Preste atenção ao que vê no céu, deixando as coisas virem e irem como são.",
+          "image": {
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1697630657/Images/card_image_sky_gazing_wloxhk.png"
+          }
+        },
+        "type": "instruction"
+      }
+    ],
+    "id": "12f448d2-39bc-4232-b8cf-b6cb570c7e00",
+    "liveDuration": 30,
+    "theme": {
+      "textColor": "#F9F8F4",
+      "backgroundColor": "#0e529c"
+    },
+    "hidden": false,
+    "live": true,
+    "published": false,
+    "asyncDuration": 8,
+    "card": {
+      "image": {
+        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1697630657/Images/card_image_sky_gazing_wloxhk.png"
+      }
+    },
+    "coCreators": [],
+    "tags": [
+      "cfc00217-f65b-4a4d-8b82-8ccc8f852dd6",
+      "43a6dc0d-d866-4b79-9453-13c44e906128"
+    ],
+    "link": "https://aware.29k.org/sky-gazing",
+    "async": true
   }
 }

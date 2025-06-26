@@ -18,7 +18,8 @@ const languageResolver = () => async (ctx: LanguageContext, next: Next) => {
         ctx.acceptsLanguages([DEFAULT_LANGUAGE_TAG, ...LANGUAGE_TAGS]) ||
         DEFAULT_LANGUAGE_TAG;
 
-  ctx.language = language as LANGUAGE_TAG;
+  // pt is the old way of writing Portuguese, we use pt-PT now. Could be removed in the future.
+  ctx.language = (language === 'pt' ? 'pt-PT' : language) as LANGUAGE_TAG;
 
   await next();
 };

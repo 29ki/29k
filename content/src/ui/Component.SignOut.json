@@ -7,7 +7,7 @@
       "confirm": "Yes, sign out"
     }
   },
-  "pt": {
+  "pt-PT": {
     "title": "Sair",
     "message": "Tens a certeza que queres sair?",
     "actions": {
@@ -34,5 +34,13 @@
     },
     "message": "¿Estás seguro/a de que quieres cerrar la sesión?",
     "title": "Cerrar sesión."
+  },
+  "pt-BR": {
+    "actions": {
+      "cancel": "Não",
+      "confirm": "Sim, sair"
+    },
+    "message": "Tem certeza de que deseja sair?",
+    "title": "Sair"
   }
 }

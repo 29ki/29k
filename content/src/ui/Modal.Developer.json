@@ -9,7 +9,7 @@
     "addDevUserEvents": "Add development user events",
     "logUserEvents": "Log user events"
   },
-  "pt": {
+  "pt-PT": {
     "uiLib": "Biblioteca UI",
     "checkUpdate": "Verificar atualizações",
     "clearUpdate": "Limpar atualização",
@@ -41,6 +41,16 @@
     "showHiddenContent": "Mostrar contenido oculto",
     "showLockedContent": "Mostrar contenido bloqueado",
     "title": "Desarrollador/a",
+    "uiLib": "Biblioteca de UI"
+  },
+  "pt-BR": {
+    "addDevUserEvents": "Adicionar eventos de usuário de desenvolvimento",
+    "checkUpdate": "Verificar atualização",
+    "clearUpdate": "Limpar atualização",
+    "logUserEvents": "Registrar eventos do usuário",
+    "showHiddenContent": "Mostrar conteúdo oculto",
+    "showLockedContent": "Mostrar conteúdo bloqueado",
+    "title": "Desenvolvedor",
     "uiLib": "Biblioteca de UI"
   }
 }

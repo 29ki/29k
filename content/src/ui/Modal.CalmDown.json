@@ -8,7 +8,7 @@
       "durationTimer": true
     }
   },
-  "pt": {
+  "pt-PT": {
     "title": "Acalmar",
     "body__markdown": "Encontra um lugar tranquilo e confortável para te sentares, com os pés bem assentes no chão.\n\n* Lentamente, empurra os pés com força contra o chão.\n* Pressiona lentamente as pontas dos dedos.\n* Faz 10 respirações lentas e profundas.\n* Coloca uma mão no peito e outra na barriga e deixa a tua respiração fazer com que a mão da barriga se mova mais do que a mão do peito por um minuto.",
     "lottie": {
@@ -33,5 +33,9 @@
   "es": {
     "body__markdown": "Encuentra un lugar tranquilo y cómodo para sentarte, con los pies firmemente apoyados en el suelo.\n\n- Empuja tus pies lentamente y con fuerza contra el suelo.\n\n- Junta lentamente las puntas de los dedos.\n\n- Respira lenta y profundamente 10 veces.\n\nColoca una mano sobre tu pecho y la otra sobre tu abdomen, y durante un minuto, deja que la respiración haga que la mano en el abdomen se mueva más que la mano en el pecho.",
     "title": "Relájate"
+  },
+  "pt-BR": {
+    "body__markdown": "Encontre um lugar tranquilo e confortável para sentar, com os pés firmemente apoiados no chão.\n\n- Empurre lentamente os pés com força contra o chão.\n\n- Pressione lentamente as pontas dos dedos uma contra a outra.\n\n- Faça 10 respirações lentas e profundas.\n\n- Coloque uma mão no peito e outra na barriga e deixe sua respiração mover mais a mão da barriga do que a do peito por um minuto.",
+    "title": "Acalme-se"
   }
 }

@@ -6,7 +6,7 @@
     "nextWeek": "Next week",
     "upcoming": "Upcoming"
   },
-  "pt": {
+  "pt-PT": {
     "today": "Hoje",
     "tomorrow": "Amanhã",
     "thisWeek": "Esta semana",
@@ -30,5 +30,12 @@
     "today": "Hoy",
     "tomorrow": "Mañana",
     "upcoming": "Próximamente"
+  },
+  "pt-BR": {
+    "nextWeek": "Próxima semana",
+    "thisWeek": "Esta semana",
+    "today": "Hoje",
+    "tomorrow": "Amanhã",
+    "upcoming": "Próximos"
   }
 }

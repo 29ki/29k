@@ -3,7 +3,7 @@
     "myJourneyTag": "Interested",
     "interested": "Interested"
   },
-  "pt": {
+  "pt-PT": {
     "myJourneyTag": "Interessada/o",
     "interested": "Interessada/o"
   },
@@ -18,5 +18,9 @@
   "es": {
     "interested": "Interesado/a",
     "myJourneyTag": "Interesado/a"
+  },
+  "pt-BR": {
+    "interested": "Interessado",
+    "myJourneyTag": "Interessado"
   }
 }

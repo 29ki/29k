@@ -10,7 +10,7 @@
     "totalSessions": "Total\nsessions",
     "hostedSessions": "Hosted\nsessions"
   },
-  "pt": {
+  "pt-PT": {
     "headings": {
       "completed": "Concluídas",
       "planned": "Sessões planeadas",
@@ -46,5 +46,16 @@
     "hostedSessions": "Sesiones \norganizadas por mí",
     "meaninfulSessions": "Sesiones \nsignificativas",
     "totalSessions": "Todas\nlas sesiones"
+  },
+  "pt-BR": {
+    "fallback": "🌱 Sua jornada está apenas começando",
+    "headings": {
+      "collections": "Programas",
+      "completed": "Concluído",
+      "planned": "Suas sessões planejadas"
+    },
+    "hostedSessions": "Sessões\r\nhospedadas",
+    "meaninfulSessions": "Sessões\r\nsignificativas",
+    "totalSessions": "Total de\r\nsessões"
   }
 }

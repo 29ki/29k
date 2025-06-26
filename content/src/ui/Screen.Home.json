@@ -10,7 +10,7 @@
       "sharingPosts": "What others are doing"
     }
   },
-  "pt": {
+  "pt-PT": {
     "heading": "Sessões",
     "add": "Sessão",
     "sections": {
@@ -45,5 +45,16 @@
       "sharingPosts": "¿Qué están haciendo otros?"
     },
     "seeAll": "Ver todo"
+  },
+  "pt-BR": {
+    "add": "Sessão",
+    "heading": "Sessões",
+    "sections": {
+      "community": "Comunidade Aware",
+      "forYou": "Para você",
+      "liveSessions": "Sessões ao vivo",
+      "sharingPosts": "O que outros estão fazendo"
+    },
+    "seeAll": "Ver tudo"
   }
 }

@@ -2,7 +2,7 @@
   "en": {
     "anonymous": "anonymous"
   },
-  "pt": {
+  "pt-PT": {
     "anonymous": "anónimo"
   },
   "sv": {
@@ -14,5 +14,8 @@
   "nl": {},
   "es": {
     "anonymous": "anónimo"
+  },
+  "pt-BR": {
+    "anonymous": "anônimo"
   }
 }

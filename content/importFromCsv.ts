@@ -19,6 +19,7 @@ if (!CSV_FILE) {
 }
 
 const skipLanguageMergeForTypes = ['email', 'ui'];
+const overridePublishedFlagForTypes = ['exercises'];
 
 type Translation = {
   Type: string;
@@ -68,13 +69,14 @@ const main = async () => {
           [TO_LANGUAGE_TAG]: mergeDeepWith(
             mergeWithArrays,
             unflatten(fileTranslations),
-            mergeDeepWith(
-              mergeWithArrays,
-              content[TO_LANGUAGE_TAG],
-              skipLanguageMergeForTypes.includes(type)
+            mergeDeepWith(mergeWithArrays, content[TO_LANGUAGE_TAG], {
+              ...(skipLanguageMergeForTypes.includes(type)
                 ? {}
-                : content[FROM_LANGUAGE_TAG],
-            ),
+                : content[FROM_LANGUAGE_TAG]),
+              ...(overridePublishedFlagForTypes.includes(type)
+                ? {published: false}
+                : {}),
+            }),
           ),
         };
 

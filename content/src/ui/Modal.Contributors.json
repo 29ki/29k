@@ -6,7 +6,7 @@
     "coreTeam": "Core team",
     "contributors": "Contributors"
   },
-  "pt": {
+  "pt-PT": {
     "title": "Colaboradores",
     "text": "Muito obrigada a todas estas pessoas maravilhosas!",
     "founders": "Fundadores",
@@ -30,5 +30,12 @@
     "founders": "Fundadores/as",
     "text": "Gracias a estas maravillosas personas, ¡muchas gracias a cada una de ellas!",
     "title": "Colaboradores/as"
+  },
+  "pt-BR": {
+    "contributors": "Colaboradores",
+    "coreTeam": "Equipe principal",
+    "founders": "Fundadores",
+    "text": "Agradecimento a essas pessoas maravilhosas, muito obrigado(a) a cada um de vocês!",
+    "title": "Colaboradores"
   }
 }

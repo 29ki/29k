@@ -7,7 +7,7 @@
     "feedbackHeading": "Reviews",
     "moreLikeThis": "More like this"
   },
-  "pt": {
+  "pt-PT": {
     "join": "Participar",
     "coCreatorsHeading": "Co-criada com",
     "howItWorks": "Como funciona",
@@ -35,5 +35,13 @@
     "join": "Unirme",
     "journeyButton": "Interesado/a",
     "moreLikeThis": "Más como esta sesión"
+  },
+  "pt-BR": {
+    "coCreatorsHeading": "Co-criado com",
+    "feedbackHeading": "Avaliações",
+    "howItWorks": "Como funciona",
+    "join": "Participar",
+    "journeyButton": "Interessado(a)",
+    "moreLikeThis": "Mais como este"
   }
 }

@@ -52,15 +52,15 @@ describe('useLanguageFromRoute', () => {
 
   it('supports a comma separated list of languages', () => {
     mockGetCurrentRoute.mockReturnValueOnce({
-      params: {language: 'pt,sv'},
+      params: {language: 'pt-PT,sv'},
     });
 
     renderHook(() => useLanguageFromRoute());
 
     expect(mockFindBestLanguageTag).toHaveBeenCalledTimes(1);
-    expect(mockFindBestLanguageTag).toHaveBeenCalledWith(['pt', 'sv']);
+    expect(mockFindBestLanguageTag).toHaveBeenCalledWith(['pt-PT', 'sv']);
 
-    expect(useAppState.getState().settings.preferredLanguage).toEqual('pt');
+    expect(useAppState.getState().settings.preferredLanguage).toEqual('pt-PT');
   });
 
   it('does nothing if language param is not set', () => {

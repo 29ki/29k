@@ -3,7 +3,7 @@
     "onlyMeLabel": "Only me",
     "everyoneLabel": "Everyone"
   },
-  "pt": {
+  "pt-PT": {
     "onlyMeLabel": "Só para mim",
     "everyoneLabel": "Para todos"
   },
@@ -18,5 +18,9 @@
   "es": {
     "everyoneLabel": "Todo el mundo",
     "onlyMeLabel": "Solamente yo"
+  },
+  "pt-BR": {
+    "everyoneLabel": "Todos",
+    "onlyMeLabel": "Somente eu"
   }
 }

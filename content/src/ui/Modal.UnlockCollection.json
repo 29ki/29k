@@ -5,7 +5,7 @@
     "invalidLink": "Oops! Looks like you opened an invalid link.",
     "confirmButton": "OK"
   },
-  "pt": {
+  "pt-PT": {
     "heading1": "Parabéns!",
     "heading2": "Desbloqueaste",
     "invalidLink": "Oops! Parece que abriste uma ligação inválida.",
@@ -26,5 +26,11 @@
     "heading1": "¡Felicidades!",
     "heading2": "Has conseguido",
     "invalidLink": "¡Ups! Parece que abriste un enlace inválido."
+  },
+  "pt-BR": {
+    "confirmButton": "OK",
+    "heading1": "Parabéns!",
+    "heading2": "Você desbloqueou",
+    "invalidLink": "Opa! Parece que você abriu um link inválido."
   }
 }

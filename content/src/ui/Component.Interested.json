@@ -2,7 +2,7 @@
   "en": {
     "text": "Interested"
   },
-  "pt": {
+  "pt-PT": {
     "text": "Vou"
   },
   "sv": {
@@ -14,5 +14,8 @@
   "nl": {},
   "es": {
     "text": "Interesado/a"
+  },
+  "pt-BR": {
+    "text": "Interessado"
   }
 }

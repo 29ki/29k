@@ -41,7 +41,11 @@ export const init = (language?: LANGUAGE_TAG) =>
       lng: language || findBestLanguageTag(CLIENT_LANGUAGE_TAGS)?.languageTag,
       supportedLngs: LANGUAGE_TAGS,
       preload: LANGUAGE_TAGS,
-      fallbackLng: DEFAULT_LANGUAGE_TAG,
+      fallbackLng: {
+        pt: ['pt-PT', DEFAULT_LANGUAGE_TAG], // "pt-PT" was previously saved in the appState as "pt"
+        'pt-BR': [DEFAULT_LANGUAGE_TAG], // "pt-BR" should not fall back to "pt-PT"
+        default: [DEFAULT_LANGUAGE_TAG],
+      },
       // To trigger the backend middleware to load publishable content they have to be removed first.
       // Removing them in buildContent creates somewhat of a mess in backend adding them back.
       resources: omitPublishableContent(content.i18n),

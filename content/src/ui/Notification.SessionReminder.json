@@ -3,7 +3,7 @@
     "title": "{{exercise}} with {{host}}",
     "body": "The session is about to start"
   },
-  "pt": {
+  "pt-PT": {
     "title": "{{exercise}} com {{host}}",
     "body": "A sessão está prestes a começar"
   },
@@ -18,5 +18,9 @@
   "es": {
     "body": "La sesión está a punto de empezar",
     "title": "{{exercise}} con {{host}}"
+  },
+  "pt-BR": {
+    "body": "A sessão está prestes a começar",
+    "title": "{{exercise}} com {{host}}"
   }
 }

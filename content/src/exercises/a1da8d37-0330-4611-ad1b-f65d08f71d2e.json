@@ -156,7 +156,7 @@
     "async": true,
     "description": "Sometimes, it can be challenging at first to offer the same compassionate response to ourselves as we do to our friends. Self-compassion is when we show kindness and compassion to ourselves in the same way we do for others."
   },
-  "pt": {
+  "pt-PT": {
     "liveDuration": 0,
     "slides": [
       {
@@ -437,5 +437,162 @@
   },
   "es": {
     "id": "a1da8d37-0330-4611-ad1b-f65d08f71d2e"
+  },
+  "pt-BR": {
+    "description": "Às vezes, pode ser difícil, no começo, oferecer a nós mesmos a mesma compaixão que oferecemos aos nossos amigos. Autocompaixão é justamente tratar a si mesmo com a mesma gentileza e cuidado que você teria com outra pessoa.",
+    "introPortal": {
+      "hostNotes": [
+        {
+          "text": ">Pressione play para iniciar o exercício"
+        }
+      ],
+      "textColor": "#2E2E2E",
+      "videoLoop": {
+        "p5JsScript": {
+          "lang": "javascript"
+        },
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1717469190/SEE/Video/SEELearning_AwareApp_IntroVideo_2024_V3_1_giheh7.mp4"
+      }
+    },
+    "name": "Autocompaixão",
+    "slides": [
+      {
+        "content": {
+          "heading": "Bem-vindo(a)",
+          "text": "Esta sessão explora como cultivar mais atenção e consciência ao focar na nossa respiração.\n\nEncontre uma posição confortável e inicie o exercício quando estiver pronto.",
+          "image": {
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1731441064/SEE/SEELearning_CompassionTree_Green_2024_hiqhwi.png"
+          }
+        },
+        "type": "instruction"
+      },
+      {
+        "type": "content",
+        "hostNotes": [],
+        "content": {
+          "lottie": {
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto/v1715668477/SEE/Lottie/Compassion/Compassion3_p2v806.json",
+            "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1715753403/SEE/SRT/Compassion/Self_Compassion_jm8obd.srt",
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1715663871/SEE/Audio/Compassion/Self_Compassion_24_yclahi.mp3"
+          }
+        }
+      },
+      {
+        "content": {
+          "heading": "Reflexão",
+          "text": "Você pode anotar em um papel ou apenas mentalmente. Não há certo ou errado aqui, nossas respostas são pessoais.",
+          "image": {
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1718143927/SEE/Icons/Compassion/SelfCompassion_CardImage_gyeshn.png"
+          }
+        },
+        "type": "instruction"
+      },
+      {
+        "content": {
+          "heading": "Reflexão",
+          "text": "Como foi essa experiência para você?\n\nQual seria o benefício de praticar autocompaixão para você?\n\nComo você pode levar uma ou mais dessas reflexões para a sua vida?\n\nComo essas práticas ou reflexões poderiam ser aplicadas na forma como você se relaciona, pensa sobre e interage com os outros?",
+          "image": {
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1718143927/SEE/Icons/Compassion/SelfCompassion_CardImage_gyeshn.png"
+          }
+        },
+        "type": "instruction"
+      },
+      {
+        "content": {
+          "heading": "Qual seria o benefício da autocompaixão para você?",
+          "text": "",
+          "lottie": {
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1718146077/SEE/Lottie/Timer/2min_timer_yjuzls.json"
+          }
+        },
+        "type": "sharing",
+        "hostNotes": [],
+        "id": "Sharing 1"
+      },
+      {
+        "content": {
+          "heading": "Como você pode integrar a autocompaixão na sua vida?",
+          "video": {
+            "durationTimer": true
+          },
+          "lottie": {
+            "durationTimer": true,
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1718146077/SEE/Lottie/Timer/2min_timer_yjuzls.json"
+          },
+          "text": ""
+        },
+        "type": "sharing",
+        "id": "sharing 2"
+      },
+      {
+        "content": {
+          "heading": "Como a autocompaixão pode impactar a forma como você se relaciona com os outros?",
+          "video": {
+            "durationTimer": true
+          },
+          "lottie": {
+            "durationTimer": true,
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1718146077/SEE/Lottie/Timer/2min_timer_yjuzls.json"
+          },
+          "text": ""
+        },
+        "type": "sharing",
+        "id": "sharing 3"
+      },
+      {
+        "content": {
+          "heading": "Compaixão",
+          "text": "Muito bem. Hoje exploramos a autocompaixão.\n\nUm grande número de crianças e adultos enfrenta dificuldades com ansiedade, autoestima e autovalor. As expectativas da sociedade agravam esse quadro e podem ser internalizadas de forma prejudicial. Por isso, é especialmente importante praticar a autocompaixão.",
+          "image": {
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1718143927/SEE/Icons/Compassion/SelfCompassion_CardImage_gyeshn.png"
+          }
+        },
+        "type": "instruction"
+      },
+      {
+        "content": {
+          "heading": "Compaixão",
+          "text": "A autocompaixão pode nos oferecer um caminho para suavizar (ou aliviar) o nosso crítico interno, cultivar o perdão por nós mesmos e nos tratar com a ternura e a gentileza acolhedora de que precisamos e merecemos.",
+          "image": {
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1718143927/SEE/Icons/Compassion/SelfCompassion_CardImage_gyeshn.png",
+            "description": ""
+          }
+        },
+        "type": "instruction"
+      },
+      {
+        "content": {
+          "heading": "Compaixão",
+          "text": "Se quisermos, podemos continuar com uma sugestão: praticar a autocompaixão uma vez por dia, sempre que falharmos ou algo não sair como planejado, nos próximos três dias.\n\nPlaneje os passos que você irá tomar considerando o que precisa praticar para implementar a autocompaixão.",
+          "image": {
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1718143927/SEE/Icons/Compassion/SelfCompassion_CardImage_gyeshn.png"
+          }
+        },
+        "type": "instruction"
+      }
+    ],
+    "id": "a1da8d37-0330-4611-ad1b-f65d08f71d2e",
+    "liveDuration": 0,
+    "theme": {
+      "textColor": "#2E2E2E"
+    },
+    "hidden": false,
+    "locked": true,
+    "live": false,
+    "published": false,
+    "asyncDuration": 10,
+    "card": {
+      "image": {
+        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1718143927/SEE/Icons/Compassion/SelfCompassion_CardImage_gyeshn.png"
+      }
+    },
+    "coCreators": [
+      {
+        "name": "SEE Learning",
+        "url": "https://seelearning.emory.edu/en/home",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1713881366/SEE/see-logo_1_kewtlt.png"
+      }
+    ],
+    "async": true
   }
 }

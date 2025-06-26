@@ -7,7 +7,7 @@
       "developer": "Developer"
     }
   },
-  "pt": {
+  "pt-PT": {
     "settings": "Configurações",
     "community": "Comunidade",
     "actions": {
@@ -36,5 +36,13 @@
     },
     "community": "Comunidad",
     "settings": "Configuración"
+  },
+  "pt-BR": {
+    "about": "Sobre o Aware",
+    "actions": {
+      "developer": "Desenvolvedor"
+    },
+    "community": "Comunidade",
+    "settings": "Configurações"
   }
 }

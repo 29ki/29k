@@ -16,7 +16,7 @@
       "9451652d-444f-4e96-86cc-dcb774ab6c27"
     ]
   },
-  "pt": {
+  "pt-PT": {
     "published": false,
     "hidden": false,
     "locked": true,
@@ -80,6 +80,23 @@
     "hidden": false,
     "locked": true,
     "id": "6524d27e-2a79-48c0-b4aa-dea830231062",
+    "card": {
+      "image": {
+        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1731443350/SEE/FullCategories_CardImage-04_btrx7d.png"
+      }
+    },
+    "exercises": [
+      "c747469a-f690-4a38-bdef-bd1a35b7d4b5",
+      "9451652d-444f-4e96-86cc-dcb774ab6c27"
+    ]
+  },
+  "pt-BR": {
+    "description": "Todos os seres vivos vivem de forma interconectada e interdependente. Nós impactamos e somos impactados por todos os outros seres vivos dentro desses sistemas. “Nossa inteligência dos sistemas inata, assim como nossa capacidade inata de entender a nós mesmos e aos outros, precisa ser cultivada”, escreve Peter Senge, um dos principais pensadores de sistemas do mundo, em O Foco Triplo.",
+    "name": "VER pensamento sistêmico",
+    "id": "6524d27e-2a79-48c0-b4aa-dea830231062",
+    "published": true,
+    "hidden": false,
+    "locked": true,
     "card": {
       "image": {
         "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1731443350/SEE/FullCategories_CardImage-04_btrx7d.png"

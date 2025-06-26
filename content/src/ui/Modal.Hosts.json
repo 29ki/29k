@@ -3,7 +3,7 @@
     "title": "Session hosts",
     "text": "Thanks goes to these wonderful people for hosting our sessions for anyone, thank you so much!"
   },
-  "pt": {
+  "pt-PT": {
     "title": "Moderadores",
     "text": "Muito obrigada a todas as pessoas maravilhosas que moderam as nossas sessões públicas."
   },
@@ -18,5 +18,9 @@
   "es": {
     "text": "Gracias a estas maravillosas personas por organizar nuestras sesiones abiertas a todo el mundo, ¡muchas gracias!",
     "title": "Anfitriones/as de la sesión"
+  },
+  "pt-BR": {
+    "text": "Agradecimento a essas pessoas maravilhosas por hospedarem nossas sessões abertas para todos, muito obrigado(a)!",
+    "title": "Anfitriões da sessão"
   }
 }

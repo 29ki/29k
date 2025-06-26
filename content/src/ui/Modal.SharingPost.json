@@ -3,7 +3,7 @@
     "joinUpcoming": "Join an upcoming session",
     "moreLikeThis": "More like this"
   },
-  "pt": {
+  "pt-PT": {
     "joinUpcoming": "Junta-te a uma sessão futura",
     "moreLikeThis": "Semelhantes"
   },
@@ -18,5 +18,9 @@
   "es": {
     "joinUpcoming": "Únete a una sesión futura",
     "moreLikeThis": "Más como esta sesión"
+  },
+  "pt-BR": {
+    "joinUpcoming": "Participar de uma próxima sessão",
+    "moreLikeThis": "Mais como este"
   }
 }

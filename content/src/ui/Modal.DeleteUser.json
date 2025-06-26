@@ -11,7 +11,7 @@
       "auth/user-disabled": "Wrong e-mail and/or password"
     }
   },
-  "pt": {
+  "pt-PT": {
     "email": "Email",
     "password": "Password",
     "errors": {
@@ -50,5 +50,17 @@
     },
     "password": "Contraseña",
     "title": "Verifica tu identidad para eliminar tus datos"
+  },
+  "pt-BR": {
+    "confirm": "Confirmar",
+    "email": "E-mail",
+    "errors": {
+      "auth/invalid-email": "E-mail e/ou senha incorretos",
+      "auth/user-disabled": "E-mail e/ou senha incorretos",
+      "auth/user-not-found": "E-mail e/ou senha incorretos",
+      "auth/wrong-password": "E-mail e/ou senha incorretos"
+    },
+    "password": "Senha",
+    "title": "Autentique-se para excluir seus dados"
   }
 }

@@ -13,7 +13,7 @@
       "auth/network-request-failed": "Network request failed"
     }
   },
-  "pt": {
+  "pt-PT": {
     "title": "Entrar",
     "email": "Email",
     "password": "Password",
@@ -59,5 +59,19 @@
     "reset": "¿Olvidaste tu contraseña?",
     "signIn": "Iniciar sesión",
     "title": "Iniciar sesión"
+  },
+  "pt-BR": {
+    "email": "E-mail",
+    "errors": {
+      "auth/invalid-email": "E-mail e/ou senha incorretos",
+      "auth/network-request-failed": "Falha na solicitação de rede",
+      "auth/user-disabled": "E-mail e/ou senha incorretos",
+      "auth/user-not-found": "E-mail e/ou senha incorretos",
+      "auth/wrong-password": "E-mail e/ou senha incorretos"
+    },
+    "password": "Senha",
+    "reset": "Esqueceu a senha?",
+    "signIn": "Entrar",
+    "title": "Entrar"
   }
 }

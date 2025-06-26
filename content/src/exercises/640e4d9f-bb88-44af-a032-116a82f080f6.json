@@ -159,7 +159,7 @@
     "async": true,
     "description": "In this exercise we’ll explore what it means to feel purpose in life. Having a sense of purpose is related to happiness and life satisfaction."
   },
-  "pt": {
+  "pt-PT": {
     "liveDuration": 30,
     "slides": [
       {
@@ -752,5 +752,165 @@
     "id": "640e4d9f-bb88-44af-a032-116a82f080f6",
     "async": true,
     "description": "Neste exercício, iremos explorar o que significa sentir propósito na vida. Ter um sentido de propósito está relacionado com a felicidade e a satisfação com a vida.\n\nEncontra uma posição confortável e prepara-te para tomar algumas notas durante o exercício."
+  },
+  "pt-BR": {
+    "description": "Neste exercício, vamos explorar o que significa sentir propósito na vida. Ter um senso de propósito está relacionado à felicidade e à satisfação com a vida.",
+    "introPortal": {
+      "hostNotes": [
+        {
+          "text": ">Comece a sessão quando estiver pronto para seguir"
+        }
+      ],
+      "videoLoop": {
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1692793604/Video/portal1_feeling_purpose_vo3ws9.mp4",
+        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1692793663/Audio/portal_audio_feeling_purpose_gzijae.mp3",
+        "p5JsScript": {
+          "lang": "javascript"
+        }
+      },
+      "videoEnd": {
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1692793619/Video/portal2_feeling_purpose_gbk6tc.mp4"
+      }
+    },
+    "name": "Sentindo propósito",
+    "slides": [
+      {
+        "hostNotes": [
+          {
+            "text": "Bem-vindo(a). Eu sou X e hoje vamos trabalhar durante cerca de 30 minutos explorando o propósito.\\\n\nFaremos juntos um exercício em áudio e, em seguida, vamos compartilhar o que experimentamos.\\ Aviso: você vai precisar de papel e caneta."
+          },
+          {
+            "text": "Vamos começar com um mini check-in. Como você está se sentindo agora? Por favor, responda em duas ou três palavras. X, você gostaria de começar?\n\n> Deixe todos na sessão, inclusive você, fazerem o check-in um por um.\n\nObrigado a todos por compartilharem. Vamos começar."
+          }
+        ],
+        "type": "host",
+        "video": {
+          "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1682676013/Images/Feeling_purpose_thumb_uxkka7.png",
+          "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1682676567/Video/Intro_Feeling_purpose_r61bwd.mp4"
+        }
+      },
+      {
+        "hostNotes": [
+          {
+            "text": "Ótimo. Agora é hora de explorar como é a sensação de propósito.\n\n> Aperte play para começar o exercício em áudio."
+          }
+        ],
+        "type": "content",
+        "content": {
+          "lottie": {
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1676977421/Lottie/audio_meditation_default_white_default_mqfcuo.json",
+            "durationTimer": true,
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1700222910/Audio/Feeling_purpose_better_audio_fmpw8j.mp3",
+            "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1700222856/SRT%20%28captions%29%20files/Feeling_purpose_better_audio_ysviup.srt"
+          }
+        }
+      },
+      {
+        "content": {
+          "text": "O que você pode aprender com qualquer diferença entre hoje e aquele outro momento?",
+          "heading": "",
+          "lottie": {
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1676642915/Lottie/default_1min_white_wvgwma.json"
+          }
+        },
+        "hostNotes": [
+          {
+            "text": "Agora vamos tirar 1 minuto para refletir individualmente.\n\nExplore as diferenças entre aquele momento em que você sentiu propósito e o dia de hoje. O que você pode aprender com isso?"
+          },
+          {
+            "text": "Você pode fazer anotações em um pedaço de papel ou apenas mentalmente. E não existe resposta certa ou errada, nossas respostas são pessoais. 1 minuto começando agora.\n\n> Aperte play para iniciar o cronômetro.\n\nEsse foi 1 minuto, e é hora de seguir em frente."
+          }
+        ],
+        "type": "reflection"
+      },
+      {
+        "content": {
+          "heading": "O que você percebe ou aprende ao notar as diferenças entre esses dois momentos?",
+          "text": "",
+          "lottie": {
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1676639253/Lottie/default_2min_white_arvrf2.json"
+          }
+        },
+        "hostNotes": [
+          {
+            "text": "Agora estamos entrando na parte de compartilhamento. Temos três regras para o compartilhamento:\n\n1. **O que é dito aqui, fica aqui.**\n2. **Tudo o que você precisa fazer é ouvir.** Não é necessário consertar, ajudar ou dar conselhos. Estamos apenas presentes e explorando o que nós e os outros estamos vivenciando."
+          },
+          {
+            "text": "3. **Tudo o que você sentir é válido.** Raiva, amor, ódio, tristeza. O que surgir. Não existe certo ou errado. \n\nO cronômetro será ajustado para 2 minutos como referência. Se você não quiser compartilhar, pode simplesmente dizer “passo”.\n\n"
+          },
+          {
+            "text": "Quem gostaria de começar?\n\n> Deixe todos (ou o maior número possível, conforme o tempo permitir) compartilharem um por um. Aperte play para iniciar o cronômetro. Reinicie para cada novo compartilhamento.\n\nMuito obrigado a todos.\n\n"
+          }
+        ],
+        "type": "sharing",
+        "id": "1"
+      },
+      {
+        "hostNotes": [
+          {
+            "text": "Nossas emoções podem ser uma janela para o que realmente importa em nossas vidas. \\ Quando nos conectamos com aquilo que nos dá sentido e propósito, vivenciamos a vida de forma diferente do que quando estamos no piloto automático."
+          },
+          {
+            "text": "Isso nos ajuda a comparecer e agir de acordo com o que realmente importa.\n\nMuito bem. Se quiser uma sugestão, tire um momento a cada dia, durante três dias, para notar onde você está, como se sente, pensa e age, e veja como isso se conecta ao seu senso de propósito."
+          },
+          {
+            "text": "Antes de sairmos deste espaço, vamos fazer um mini check-out.\n\nComo você está se sentindo agora? Algo mudou? Por favor, responda em duas ou três palavras."
+          },
+          {
+            "text": "Quem gostaria de começar?\n\n> Deixe todos (ou o maior número possível, conforme o tempo permitir) compartilharem um por um. Aperte play para iniciar o cronômetro. Reinicie para cada novo compartilhamento.\n\nMuito obrigado a todos.\n\n"
+          }
+        ],
+        "type": "host",
+        "video": {
+          "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1682676013/Images/Feeling_purpose_thumb_uxkka7.png",
+          "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1682676566/Video/Outro_Feeling_purpose_kf5es3.mp4"
+        }
+      },
+      {
+        "content": {
+          "text": "Nossas emoções podem ser uma janela para o que realmente importa em nossas vidas.\n\nConectar-se com aquilo que nos dá senso de propósito nos ajuda a comparecer e agir de acordo com o que realmente importa.\n\nMuito bem. Se quiser uma sugestão, tire um momento a cada dia, durante três dias, para notar onde você está, como se sente, pensa e age, e veja como isso se conecta ao seu senso de propósito.",
+          "image": {
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1692964887/Images/asynk_image_feeling_purpose_ufgojw.png"
+          }
+        },
+        "type": "instruction"
+      }
+    ],
+    "id": "640e4d9f-bb88-44af-a032-116a82f080f6",
+    "liveDuration": 30,
+    "theme": {
+      "textColor": "#F9F8F4",
+      "backgroundColor": "#1f5b9e"
+    },
+    "hidden": false,
+    "live": true,
+    "published": false,
+    "asyncDuration": 5,
+    "card": {
+      "image": {
+        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1692793639/Images/card_image_feeling_purpose_ju8iea.png"
+      }
+    },
+    "socialMeta": {
+      "image": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1692793639/Images/card_image_feeling_purpose_ju8iea.png"
+    },
+    "coCreators": [
+      {
+        "name": "Jenny Rickardsson, voice and editor",
+        "url": "https://www.linkedin.com/in/jenny-rickardson-6770a959/",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413228/Contributors/Jenny%20Rickardsson.jpg"
+      },
+      {
+        "name": "Ints Ivanovskis, art works",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413436/Contributors/Ints%20Ivanovskis.jpg",
+        "url": "https://www.linkedin.com/in/ints-ivanovskis-46ab0311a/"
+      }
+    ],
+    "tags": [
+      "9c2c08a9-7dc6-4058-bc78-016d0eb00614",
+      "43a6dc0d-d866-4b79-9453-13c44e906128"
+    ],
+    "link": "https://aware.29k.org/feeling-purpose",
+    "async": true
   }
 }

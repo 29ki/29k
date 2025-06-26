@@ -7,7 +7,7 @@
       "confirm": "Yes, of course!"
     }
   },
-  "pt": {
+  "pt-PT": {
     "header": "Faz um comentário",
     "text": "Obrigada! Não te importas de classificar a nossa app na {{storeType}}?",
     "buttons": {
@@ -34,5 +34,13 @@
     },
     "header": "Deja una reseña",
     "text": "¡Gracias! ¿Te importaría puntuar nuestra aplicación en el {{storeType}}?"
+  },
+  "pt-BR": {
+    "buttons": {
+      "cancel": "Não, obrigado(a)",
+      "confirm": "Sim, claro!"
+    },
+    "header": "Deixe uma avaliação",
+    "text": "Obrigado! Você se importaria de avaliar nosso app na {{storeType}}?"
   }
 }

@@ -12,7 +12,7 @@
     },
     "leavePortal": "Leave"
   },
-  "pt": {
+  "pt-PT": {
     "participants": "Somos",
     "startSession": "Iniciar sessão",
     "sessionStarted": "A sessão está ativa",
@@ -63,5 +63,18 @@
     "sessionStarted": "La sesión está en curso",
     "skipPortal": "Omitir portal",
     "startSession": "Empezar sesión"
+  },
+  "pt-BR": {
+    "counterLabel": {
+      "shortly": "Em breve",
+      "started": "Agora",
+      "starts": "Começa",
+      "startsIn": "Começa em"
+    },
+    "leavePortal": "Sair",
+    "participants": "Nós somos",
+    "sessionStarted": "Sessão ativa",
+    "skipPortal": "Pular portal",
+    "startSession": "Iniciar sessão"
   }
 }

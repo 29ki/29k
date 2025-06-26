@@ -19,7 +19,7 @@
     ],
     "description": "We are creatures of habit – we tend to do what we're used to doing. That's a smart thing because it saves energy. And sometimes it can make us feel trapped. \\\nThis collection can give new perspectives and practices to change or challenge the way we usually go about life."
   },
-  "pt": {
+  "pt-PT": {
     "hidden": false,
     "name": "Novas perspetivas",
     "published": true,
@@ -86,6 +86,26 @@
     },
     "link": "https://aware.29k.org/new-perspectives",
     "id": "68172f5c-955a-43e0-9cef-ae3bc77c9593",
+    "exercises": [
+      "ea0b48c1-745e-418d-93e7-2d8a6cd72898",
+      "095f9642-73b6-4c9a-ae9a-ea7dea7363f5",
+      "5b0dea9f-c665-41ce-a779-601d0cfa433d",
+      "9ac0c561-ff26-45fc-b6d5-0a983432394e"
+    ]
+  },
+  "pt-BR": {
+    "description": "Somos criaturas de hábito – tendemos a fazer o que estamos acostumados. Isso é inteligente porque economiza energia. E às vezes pode nos fazer sentir presos. \\ Esta coleção pode trazer novas perspectivas e práticas para mudar ou desafiar a forma como normalmente levamos a vida.",
+    "name": "Ganhe novas perspectivas",
+    "id": "68172f5c-955a-43e0-9cef-ae3bc77c9593",
+    "hidden": false,
+    "published": true,
+    "sortOrder": 3,
+    "card": {
+      "image": {
+        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1702310278/Images/set_your_values_compas_lamtbm.png"
+      }
+    },
+    "link": "https://aware.29k.org/new-perspectives",
     "exercises": [
       "ea0b48c1-745e-418d-93e7-2d8a6cd72898",
       "095f9642-73b6-4c9a-ae9a-ea7dea7363f5",

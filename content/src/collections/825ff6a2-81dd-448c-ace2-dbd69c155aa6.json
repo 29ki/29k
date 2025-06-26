@@ -18,7 +18,7 @@
       "881edc87-02f4-4543-9f32-7c4b5ef34c94"
     ]
   },
-  "pt": {
+  "pt-PT": {
     "published": false,
     "hidden": false,
     "locked": true,
@@ -94,6 +94,25 @@
     "hidden": false,
     "locked": true,
     "id": "825ff6a2-81dd-448c-ace2-dbd69c155aa6",
+    "card": {
+      "image": {
+        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1731442992/SEE/FullCategories_CardImage-01_kvtjbl.png"
+      }
+    },
+    "exercises": [
+      "023ad824-8009-4667-b148-13d0e966ffd2",
+      "4ffe2765-995a-4afc-ae86-65d08088915b",
+      "85b2fb9a-68ca-4094-8645-c4bd17e43229",
+      "881edc87-02f4-4543-9f32-7c4b5ef34c94"
+    ]
+  },
+  "pt-BR": {
+    "description": "Consciência é estar atento ao que está acontecendo na mente, no corpo e ao redor no momento presente. Sem estar atento ao que acontece na própria mente, não se percebe quando se reage de forma prejudicial e, portanto, não se consegue manter a atenção plena ou agir com cautela.",
+    "name": "VER Consciência",
+    "id": "825ff6a2-81dd-448c-ace2-dbd69c155aa6",
+    "published": true,
+    "hidden": false,
+    "locked": true,
     "card": {
       "image": {
         "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1731442992/SEE/FullCategories_CardImage-01_kvtjbl.png"

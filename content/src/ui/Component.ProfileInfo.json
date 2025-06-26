@@ -7,7 +7,7 @@
     "displayName": "Vad ska vi kalla dig?",
     "cta": "Spara"
   },
-  "pt": {
+  "pt-PT": {
     "displayName": "Como te devemos chamar?",
     "cta": "Gravar"
   },
@@ -18,5 +18,9 @@
   "es": {
     "cta": "Guardar",
     "displayName": "¿Cómo deberíamos llamarte?"
+  },
+  "pt-BR": {
+    "cta": "Salvar",
+    "displayName": "Como devemos te chamar?"
   }
 }

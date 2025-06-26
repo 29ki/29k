@@ -103,7 +103,7 @@
     "id": "ce1c55da-2e23-4b1d-bc15-a30b27fd3e62",
     "async": true
   },
-  "pt": {
+  "pt-PT": {
     "slides": [
       {
         "type": "host",
@@ -390,5 +390,109 @@
   },
   "es": {
     "id": "ce1c55da-2e23-4b1d-bc15-a30b27fd3e62"
+  },
+  "pt-BR": {
+    "introPortal": {
+      "hostNotes": [
+        {
+          "text": ">Comece a sessão quando estiver pronto para seguir"
+        }
+      ],
+      "textColor": "#2AE2D7",
+      "videoLoop": {
+        "p5JsScript": {
+          "lang": "javascript"
+        }
+      }
+    },
+    "name": "Caixa de ferramentas de autocompaixão",
+    "slides": [
+      {
+        "hostNotes": [
+          {
+            "text": "Bem-vindo(a). Eu sou X e hoje vamos trabalhar por cerca de 30 minutos em xx.\n\nFaremos xx, por exemplo, uma meditação, seguida de um tempo para reflexão e compartilhamento entre nós."
+          },
+          {
+            "text": "Vamos começar com um check-in rápido. Como você está se sentindo agora? Responda em duas ou três palavras. X, você gostaria de começar?\n\nDeixe que cada pessoa do grupo, inclusive você, faça seu check-in, um de cada vez.\n\nObrigado a todos por compartilharem. Vamos começar."
+          }
+        ],
+        "type": "host"
+      },
+      {
+        "hostNotes": [
+          {
+            "text": "Encontre uma posição confortável. Vou iniciar o exercício em áudio e, depois, nos encontramos aqui novamente.\n\n>Aperte o play para começar o exercício em áudio."
+          }
+        ],
+        "type": "content",
+        "content": {
+          "lottie": {
+            "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1719844965/SRT%20(captions)%20files/Self-care_toolbox_kc4lxc.srt",
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1719844887/Audio/Self-care_toolbox_yq1ykr.mp3"
+          }
+        }
+      },
+      {
+        "hostNotes": [
+          {
+            "text": "Agora vamos tirar 1 minuto para refletir individualmente.\n\nxxPergunta principal\n\nxxExplicações adicionais sobre a pergunta, se necessário."
+          },
+          {
+            "text": "Você pode anotar suas ideias em um papel ou apenas mentalmente. Não existe certo ou errado aqui — cada resposta é pessoal. O tempo de 1 minuto começa agora.\n\nAperte o play para iniciar o cronômetro.\n\nPronto, 1 minuto se passou. Vamos seguir em frente."
+          }
+        ],
+        "type": "reflection"
+      },
+      {
+        "hostNotes": [
+          {
+            "text": "Agora vamos para a parte de compartilhamento. Temos três regras para esse momento:\n\n1. **O que é dito aqui, fica aqui.\n\n2. **Tudo o que você precisa fazer é ouvir. Não é preciso consertar, ajudar ou dar conselhos. Estamos aqui apenas para escutar e explorar juntos o que cada um está vivendo."
+          },
+          {
+            "text": "3. **Tudo o que sentimos por dentro é válido. Raiva, amor, ódio, tristeza — qualquer sentimento que surgir. Não existe certo ou errado. É o que é.\n\nVamos usar um cronômetro de 2 minutos como referência. Se você não quiser compartilhar, pode simplesmente dizer “passo”."
+          },
+          {
+            "text": "Quem gostaria de começar?\n\n>Deixe que cada pessoa compartilhe, uma de cada vez, conforme o tempo disponível. Aperte o play para iniciar o cronômetro e reinicie a cada nova partilha.\n\nMuito obrigado a todos."
+          }
+        ],
+        "type": "sharing",
+        "id": "Sharing 1"
+      },
+      {
+        "hostNotes": [
+          {
+            "text": "Muito bem! Se quiser, você pode levar o que começamos aqui hoje para a sua vida cotidiana, colocando em prática essa missão:\n\nxx descrição da missão"
+          },
+          {
+            "text": "Antes de encerrarmos, vamos fazer um check-out rápido.\n\nComo você está se sentindo agora? Algo mudou? Responda em duas ou três palavras."
+          },
+          {
+            "text": "Quem gostaria de começar?\n\nDeixe que cada pessoa faça seu check-out, uma de cada vez.\n\nObrigado a todos por compartilharem e por participarem da sessão de hoje.\n\nFinalize a sessão para encaminhar todos para a experiência de encerramento."
+          }
+        ],
+        "type": "host"
+      },
+      {
+        "content": {
+          "text": "Muito bem.\n\nResumo.\n\nSe quiser, você pode continuar com esta sugestão:\n\ndescrição da sugestão"
+        },
+        "type": "instruction"
+      }
+    ],
+    "id": "ce1c55da-2e23-4b1d-bc15-a30b27fd3e62",
+    "theme": {
+      "textColor": "#2AE2D7"
+    },
+    "hidden": true,
+    "locked": false,
+    "live": true,
+    "published": false,
+    "asyncDuration": 10,
+    "liveDuration": 30,
+    "tags": [
+      "db34d82a-4c48-4ddd-9de5-f562d8aa1bc9",
+      "8da0534a-5da9-430a-bdf3-242ace6460fb"
+    ],
+    "async": true
   }
 }

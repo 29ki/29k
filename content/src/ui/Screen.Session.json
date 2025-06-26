@@ -15,7 +15,7 @@
       "muted": "You are muted"
     }
   },
-  "pt": {
+  "pt-PT": {
     "nameSuffix": "Tu",
     "endButton": "Terminar sessão",
     "controls": {
@@ -89,6 +89,22 @@
       "left": "{{name}} ha salido",
       "muted": "Estás en silencio",
       "networkQuality": "Conexión de red inestable"
+    }
+  },
+  "pt-BR": {
+    "controls": {
+      "end": "Finalizar",
+      "next": "Próximo",
+      "prev": "Voltar",
+      "start": "Iniciar"
+    },
+    "endButton": "Finalizar sessão",
+    "nameSuffix": "Você",
+    "notifications": {
+      "joined": "{{name}} entrou",
+      "left": "{{name}} saiu",
+      "muted": "Você está no mudo",
+      "networkQuality": "Conexão de rede instável"
     }
   }
 }

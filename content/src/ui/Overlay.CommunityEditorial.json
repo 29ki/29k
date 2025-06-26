@@ -16,7 +16,7 @@
       "partners": "Partners"
     }
   },
-  "pt": {
+  "pt-PT": {
     "actions": {
       "donate": "Doar",
       "corporate": "Para utilização empresarial",
@@ -66,5 +66,18 @@
     "corporateLink": "mailto:partnerships@29k.org",
     "heading": "Apoya a Aware",
     "preamble__markdown": "Somos una organización sin ánimo de lucro.\nSomos gratuitos para uso personal.\nNo vendemos ningún dato.\nNo hacemos publicidad.\n\nNuestro único objetivo es construir la mejor app del mundo para ayudar al mayor número posible de personas a mejorar su bienestar mental, prosperar y contribuir a un futuro mejor para todos/as."
+  },
+  "pt-BR": {
+    "actions": {
+      "contribute": "Todas as formas de contribuir",
+      "contributors": "Colaboradores",
+      "corporate": "Para uso corporativo",
+      "donate": "Doar",
+      "hosts": "Anfitriões de sessão",
+      "partners": "Parceiros"
+    },
+    "corporateLink": "mailto:partnerships@29k.org",
+    "heading": "Apoie o Aware",
+    "preamble__markdown": "Somos uma organização sem fins lucrativos.\r\nSomos gratuitos para uso pessoal.\r\nNão vendemos nenhum dado.\r\nNão fazemos anúncios.\r\n\r\nNosso único foco é construir o melhor aplicativo do mundo, para ajudar o maior número possível de pessoas a melhorar o bem-estar mental, prosperar e contribuir para um futuro melhor para todos."
   }
 }

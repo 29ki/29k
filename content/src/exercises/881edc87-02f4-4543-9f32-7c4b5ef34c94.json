@@ -182,7 +182,7 @@
     "async": true,
     "description": "Developing an ability to watch thought processes in the mind is a great way to catch thinking traps. We can pause to remember: “I do not have to act on each emotional impulse or thought. I can navigate emotional experiences in healthy ways, to the benefit of myself and others.\""
   },
-  "pt": {
+  "pt-PT": {
     "liveDuration": 0,
     "slides": [
       {
@@ -481,5 +481,188 @@
   },
   "es": {
     "id": "881edc87-02f4-4543-9f32-7c4b5ef34c94"
+  },
+  "pt-BR": {
+    "description": "Desenvolver a habilidade de observar os processos de pensamento na mente é uma ótima maneira de identificar armadilhas do pensamento. Podemos pausar para lembrar: “Eu não preciso agir a cada impulso emocional ou pensamento. Posso navegar pelas experiências emocionais de formas saudáveis, para o benefício de mim mesmo e dos outros.”",
+    "introPortal": {
+      "hostNotes": [
+        {
+          "text": ">Pressione play para iniciar o exercício"
+        }
+      ],
+      "textColor": "#2E2E2E",
+      "videoLoop": {
+        "p5JsScript": {
+          "lang": "javascript"
+        },
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1717469190/SEE/Video/SEELearning_AwareApp_IntroVideo_2024_V3_1_giheh7.mp4"
+      }
+    },
+    "name": "Observando a mente",
+    "slides": [
+      {
+        "content": {
+          "heading": "Bem-vindo(a)",
+          "text": "Esta sessão explora como cultivar mais atenção e consciência ao focar na nossa respiração.\n\nEncontre uma posição confortável e inicie o exercício quando estiver pronto.",
+          "image": {
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1731441064/SEE/SEELearning_CompassionTree_Green_2024_hiqhwi.png"
+          }
+        },
+        "type": "instruction"
+      },
+      {
+        "type": "content",
+        "hostNotes": [],
+        "content": {
+          "lottie": {
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1715663484/SEE/Lottie/Awareness/Awareness1_hfm9bc.json",
+            "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1715752246/SEE/SRT/Awareness/Observing_the_Mind_1_hb8exu.srt",
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1715199487/SEE/Audio/Awareness/Observing_the_Mind_awvg00.mp3"
+          },
+          "video": {
+            "audio": "",
+            "subtitles": ""
+          }
+        }
+      },
+      {
+        "content": {
+          "heading": "Reflexão",
+          "text": "Você pode anotar em um papel ou apenas mentalmente. Não há certo ou errado aqui, nossas respostas são pessoais.",
+          "image": {
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1716951212/SEE/Icons/Reflection/Reflection_Awareness_CardImage_wgzwcf.png"
+          }
+        },
+        "type": "instruction"
+      },
+      {
+        "content": {
+          "heading": "Reflexão",
+          "text": "Como foi essa experiência para você?\n\nAlguém conseguiu observar alguns pensamentos indo e vindo? Como foi isso?\n\nAlguém percebeu um momento em que não havia pensamentos?",
+          "image": {
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1716951212/SEE/Icons/Reflection/Reflection_Awareness_CardImage_wgzwcf.png"
+          }
+        },
+        "type": "instruction"
+      },
+      {
+        "content": {
+          "heading": "Reflexão",
+          "text": "Talvez uma pausa, um intervalo ou um espaço entre os pensamentos?\n\nO que você aprendeu sobre a mente que achou mais interessante ou mais útil?\n\nComo isso poderia nos ajudar se aprendêssemos a observar nossa mente?",
+          "image": {
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1716951212/SEE/Icons/Reflection/Reflection_Awareness_CardImage_wgzwcf.png"
+          }
+        },
+        "type": "instruction"
+      },
+      {
+        "content": {
+          "heading": "O que você aprendeu sobre a mente?",
+          "video": {
+            "durationTimer": true
+          },
+          "lottie": {
+            "durationTimer": true,
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto/v1718146077/SEE/Lottie/Timer/2min_timer_yjuzls.json"
+          },
+          "text": ""
+        },
+        "type": "sharing",
+        "id": "sharing 1",
+        "hostNotes": []
+      },
+      {
+        "content": {
+          "heading": "Como isso pode nos ajudar se aprendermos a observar nossa mente?",
+          "video": {
+            "durationTimer": true
+          },
+          "lottie": {
+            "durationTimer": true,
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto/v1718146077/SEE/Lottie/Timer/2min_timer_yjuzls.json"
+          },
+          "text": ""
+        },
+        "type": "sharing",
+        "id": "sharing 2"
+      },
+      {
+        "content": {
+          "heading": "Você acha que conseguiria passar um momento observando sua mente?",
+          "video": {
+            "durationTimer": true
+          },
+          "lottie": {
+            "durationTimer": true,
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto/v1718146077/SEE/Lottie/Timer/2min_timer_yjuzls.json"
+          },
+          "text": ""
+        },
+        "type": "sharing",
+        "id": "sharing 3"
+      },
+      {
+        "content": {
+          "heading": "Consciência",
+          "text": "Muito bem. Hoje, exploramos a observação da mente.\n\nTodos nós temos poder pessoal sobre como reagimos a impulsos emocionais ou pensamentos desafiadores. Não precisamos agir a partir de cada impulso emocional.",
+          "image": {
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1718152376/SEE/Icons/Awareness/ObservingTheMind_CardImage_crvfoi.png"
+          }
+        },
+        "type": "instruction"
+      },
+      {
+        "content": {
+          "heading": "Consciência",
+          "text": "Podemos navegar por experiências emocionais de forma saudável, beneficiando a nós mesmos e aos outros.\n\nObservar a mente nos ajuda a perceber pensamentos e ideias que podem não ser úteis.",
+          "image": {
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1718152376/SEE/Icons/Awareness/ObservingTheMind_CardImage_crvfoi.png"
+          }
+        },
+        "type": "instruction"
+      },
+      {
+        "content": {
+          "heading": "Consciência",
+          "text": "Se quisermos, podemos continuar com uma sugestão: pratique observar sua mente uma vez por dia, durante 4 minutos, nos próximos dois dias.\n\nPlaneje os passos considerando um momento do seu dia em que isso possa ser útil ou oportuno.",
+          "image": {
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1718152376/SEE/Icons/Awareness/ObservingTheMind_CardImage_crvfoi.png"
+          }
+        },
+        "type": "instruction"
+      }
+    ],
+    "id": "881edc87-02f4-4543-9f32-7c4b5ef34c94",
+    "liveDuration": 0,
+    "theme": {
+      "textColor": "#2E2E2E",
+      "backgroundColor": "#f5f5f5"
+    },
+    "hidden": false,
+    "locked": true,
+    "live": false,
+    "published": false,
+    "asyncDuration": 10,
+    "card": {
+      "image": {
+        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1718152376/SEE/Icons/Awareness/ObservingTheMind_CardImage_crvfoi.png"
+      }
+    },
+    "coCreators": [
+      {
+        "name": "SEE Learning",
+        "url": "https://seelearning.emory.edu/en/home",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1713881366/SEE/see-logo_1_kewtlt.png"
+      }
+    ],
+    "outroPortal": {
+      "video": {
+        "source": ""
+      }
+    },
+    "tags": [
+      "cfc00217-f65b-4a4d-8b82-8ccc8f852dd6"
+    ],
+    "async": true
   }
 }

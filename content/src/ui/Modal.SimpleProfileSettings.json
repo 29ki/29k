@@ -2,7 +2,7 @@
   "en": {
     "text": "Add or update profile picture and display name"
   },
-  "pt": {
+  "pt-PT": {
     "text": "Adiciona ou altera a imagem de perfil e o nome"
   },
   "sv": {
@@ -14,5 +14,8 @@
   "nl": {},
   "es": {
     "text": "Añadir o actualizar la foto de perfil y el nombre de usuario"
+  },
+  "pt-BR": {
+    "text": "Adicionar ou atualizar foto de perfil e nome de exibição"
   }
 }

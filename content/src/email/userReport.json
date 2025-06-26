@@ -13,7 +13,7 @@
     "subject_tech_issue": "Ditt teknikproblem med Aware",
     "body": "Det här meddelandet skickades från Aware-appen:"
   },
-  "pt": {
+  "pt-PT": {
     "subject": "Os teus comentários para a Aware",
     "subject_feedback": "Os teus comentários para a Aware",
     "subject_misbehaviour": "O teu relatório de mau comportamento para a Aware",
@@ -36,5 +36,12 @@
     "subject_feedback": "Tu opinión para Aware",
     "subject_misbehaviour": "Tu informe para Aware",
     "subject_tech_issue": "Tu informe de problemas técnicos para Aware"
+  },
+  "pt-BR": {
+    "body": "Esta mensagem foi enviada pelo aplicativo Aware:",
+    "subject": "Seu feedback para o Aware",
+    "subject_feedback": "Seu feedback para o Aware",
+    "subject_misbehaviour": "Seu relatório para o Aware",
+    "subject_tech_issue": "Seu relatório de problema técnico para o Aware"
   }
 }

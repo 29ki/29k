@@ -11,7 +11,7 @@
       "restart_button": "Restart to install"
     }
   },
-  "pt": {
+  "pt-PT": {
     "downloading": {
       "title": "Descarregar atualização importante",
       "text": "Desculpa o incómodo - por favor aguarda."
@@ -48,6 +48,17 @@
       "dismiss_button": "Ahora no",
       "restart_button": "Reiniciar para instalar",
       "title": "Instalar actualización"
+    }
+  },
+  "pt-BR": {
+    "downloading": {
+      "text": "Por favor, aguarde um momento. Já estamos quase terminando.",
+      "title": "Baixando atualização"
+    },
+    "install": {
+      "dismiss_button": "Agora não",
+      "restart_button": "Reiniciar para instalar",
+      "title": "Instalar atualização"
     }
   }
 }

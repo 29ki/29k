@@ -3,7 +3,7 @@
     "title": "{{hostName}} would like you to host {{sessionName}}.",
     "description": "Click the link to view more details and decide if you want to accept hosting it or not"
   },
-  "pt": {
+  "pt-PT": {
     "title": "{{hostName}} gostaria que moderasses a sessão {{sessionName}}.",
     "description": "Clica na ligação para ver mais detalhes e decidir se aceitas moderar ou não a sessão"
   },
@@ -18,5 +18,9 @@
   "es": {
     "description": "Haz clic en el enlace para ver más detalles y decidir si quieres aceptarlo o no como anfitrión/a.",
     "title": "A {{hostName}} le gustaría que seas el/la anfitrión/a de {{sessionName}}."
+  },
+  "pt-BR": {
+    "description": "Clique no link para ver mais detalhes e decidir se deseja aceitar hospedar ou não",
+    "title": "{{hostName}} gostaria que você hospedasse {{sessionName}}."
   }
 }

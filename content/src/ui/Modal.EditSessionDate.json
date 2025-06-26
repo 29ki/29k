@@ -11,7 +11,7 @@
     },
     "deleteButton": "Delete session"
   },
-  "pt": {
+  "pt-PT": {
     "done": "Gravar",
     "deleteButton": "Remover sessão",
     "delete": {
@@ -50,5 +50,17 @@
     },
     "deleteButton": "Eliminar sesión",
     "done": "Guardar"
+  },
+  "pt-BR": {
+    "delete": {
+      "buttons": {
+        "cancel": "Cancelar",
+        "confirm": "Excluir"
+      },
+      "header": "Excluir sessão?",
+      "text": "Tem certeza de que deseja excluir a sessão?"
+    },
+    "deleteButton": "Excluir sessão",
+    "done": "Salvar"
   }
 }

@@ -2,7 +2,7 @@
   "en": {
     "description": "The session you're looking for is not available anymore."
   },
-  "pt": {
+  "pt-PT": {
     "description": "A sessão que estás a procurar já não está disponível."
   },
   "sv": {
@@ -14,5 +14,8 @@
   "nl": {},
   "es": {
     "description": "La sesión que estás buscando no está disponible en este momento."
+  },
+  "pt-BR": {
+    "description": "A sessão que você está procurando não está mais disponível."
   }
 }

@@ -5,7 +5,7 @@
     "sessionsHeading": "Sessions",
     "coCreatorsHeading": "Co-created with"
   },
-  "pt": {
+  "pt-PT": {
     "sessionsHeading": "Sessões",
     "collectionHeading": "Programa",
     "addToJourney": "Adicionar à minha jornada",
@@ -26,5 +26,11 @@
     "coCreatorsHeading": "Cocreado con",
     "collectionHeading": "Programa",
     "sessionsHeading": "Sesiones"
+  },
+  "pt-BR": {
+    "addToJourney": "Minha jornada",
+    "coCreatorsHeading": "Co-criado com",
+    "collectionHeading": "Programa",
+    "sessionsHeading": "Sessões"
   }
 }

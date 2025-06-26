@@ -4,7 +4,7 @@
     "name": "Self-compassion",
     "published": true
   },
-  "pt": {
+  "pt-PT": {
     "id": "db34d82a-4c48-4ddd-9de5-f562d8aa1bc9",
     "name": "Autocompaixão",
     "published": true
@@ -36,6 +36,11 @@
   },
   "es": {
     "name": "Autocompasión",
+    "id": "db34d82a-4c48-4ddd-9de5-f562d8aa1bc9",
+    "published": true
+  },
+  "pt-BR": {
+    "name": "Autocompaixão",
     "id": "db34d82a-4c48-4ddd-9de5-f562d8aa1bc9",
     "published": true
   }

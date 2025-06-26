@@ -7,7 +7,7 @@
       "confirm": "Open Settings"
     }
   },
-  "pt": {
+  "pt-PT": {
     "title": "Não deste permissão.",
     "actions": {
       "cancel": "Cancelar",
@@ -34,5 +34,13 @@
     },
     "message": "Abre la configuración para darnos permiso para agregar eventos a tu calendario. Esto reiniciará la aplicación.",
     "title": "No tienes permiso."
+  },
+  "pt-BR": {
+    "actions": {
+      "cancel": "Cancelar",
+      "confirm": "Abrir configurações"
+    },
+    "message": "Abra as configurações para nos dar permissão de adicionar eventos ao seu calendário. Isso irá reiniciar o aplicativo Aware.",
+    "title": "Você negou a permissão."
   }
 }

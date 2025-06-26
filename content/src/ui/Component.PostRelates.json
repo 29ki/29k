@@ -2,7 +2,7 @@
   "en": {
     "relate": "Can you relate?"
   },
-  "pt": {
+  "pt-PT": {
     "relate": "Identificas-te com isto?"
   },
   "sv": {
@@ -14,5 +14,8 @@
   "nl": {},
   "es": {
     "relate": "¿Te sientes identificado/a?"
+  },
+  "pt-BR": {
+    "relate": "Você se identifica?"
   }
 }

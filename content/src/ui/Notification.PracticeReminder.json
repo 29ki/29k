@@ -95,7 +95,7 @@
       }
     }
   },
-  "pt": {
+  "pt-PT": {
     "reminders": {
       "collection": {
         "0": {
@@ -383,6 +383,102 @@
           "personal": {
             "body": "Un último recordatorio para practicar, {{userName}}.",
             "title": "Recordatorio"
+          }
+        }
+      ]
+    }
+  },
+  "pt-BR": {
+    "reminders": {
+      "collection": [
+        {
+          "generic": {
+            "body": "Pronto(a) para praticar?",
+            "title": "{{collectionName}}"
+          },
+          "id": "reminder-1-v1",
+          "personal": {
+            "body": "Pronto(a) para praticar, {{userName}}?",
+            "title": "{{collectionName}}"
+          }
+        },
+        {
+          "generic": {
+            "body": "Não se esqueça de praticar.",
+            "title": "{{collectionName}}"
+          },
+          "id": "reminder-2-v1",
+          "personal": {
+            "body": "Não se esqueça de praticar, {{userName}}.",
+            "title": "{{collectionName}}"
+          }
+        },
+        {
+          "generic": {
+            "body": "Praticar ao longo do tempo faz a diferença.",
+            "title": "{{collectionName}}"
+          },
+          "id": "reminder-3-v1",
+          "personal": {
+            "body": "Praticar ao longo do tempo faz a diferença, {{userName}}.",
+            "title": "{{collectionName}}"
+          }
+        },
+        {
+          "generic": {
+            "body": "Um último lembrete para praticar.",
+            "title": "{{collectionName}}"
+          },
+          "id": "reminder-4-v1",
+          "personal": {
+            "body": "Um último lembrete para praticar, {{userName}}.",
+            "title": "{{collectionName}}"
+          }
+        }
+      ],
+      "general": [
+        {
+          "generic": {
+            "body": "Pronto(a) para praticar?",
+            "title": "Lembrete"
+          },
+          "id": "reminder-1-v1",
+          "personal": {
+            "body": "Pronto(a) para praticar, {{userName}}?",
+            "title": "Lembrete"
+          }
+        },
+        {
+          "generic": {
+            "body": "Não se esqueça de praticar.",
+            "title": "Lembrete"
+          },
+          "id": "reminder-2-v1",
+          "personal": {
+            "body": "Não se esqueça de praticar, {{userName}}.",
+            "title": "Lembrete"
+          }
+        },
+        {
+          "generic": {
+            "body": "Praticar ao longo do tempo faz a diferença.",
+            "title": "Lembrete"
+          },
+          "id": "reminder-3-v1",
+          "personal": {
+            "body": "Praticar ao longo do tempo faz a diferença, {{userName}}.",
+            "title": "Lembrete"
+          }
+        },
+        {
+          "generic": {
+            "body": "Um último lembrete para praticar.",
+            "title": "Lembrete"
+          },
+          "id": "reminder-4-v1",
+          "personal": {
+            "body": "Um último lembrete para praticar, {{userName}}.",
+            "title": "Lembrete"
           }
         }
       ]

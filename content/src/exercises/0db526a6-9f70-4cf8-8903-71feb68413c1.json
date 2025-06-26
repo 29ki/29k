@@ -236,7 +236,7 @@
     "async": true,
     "description": "We can learn to accept that not everything is within their control. Sometimes, even with the best efforts, we may not achieve what they had hoped for.. When we exercise self-compassion we can set expectations for ourselves out of a desire to be healthy and flourishing rather than from a place of self-criticism."
   },
-  "pt": {
+  "pt-PT": {
     "liveDuration": -2,
     "slides": [
       {
@@ -535,5 +535,242 @@
   },
   "es": {
     "id": "0db526a6-9f70-4cf8-8903-71feb68413c1"
+  },
+  "pt-BR": {
+    "description": "Podemos aprender a aceitar que nem tudo está sob nosso controle. Às vezes, mesmo com nossos melhores esforços, talvez não alcancemos aquilo que esperávamos. Ao praticar a autocompaixão, conseguimos estabelecer expectativas para nós mesmos a partir do desejo de sermos saudáveis e florescermos, em vez de partir da autocrítica.",
+    "introPortal": {
+      "hostNotes": [
+        {
+          "text": ">Pressione play para iniciar o exercício"
+        }
+      ],
+      "textColor": "#2E2E2E",
+      "videoLoop": {
+        "p5JsScript": {
+          "lang": "javascript"
+        },
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1717469190/SEE/Video/SEELearning_AwareApp_IntroVideo_2024_V3_1_giheh7.mp4"
+      }
+    },
+    "name": "Expectativas",
+    "slides": [
+      {
+        "hostNotes": [
+          {
+            "text": "Bem-vindo(a). Eu sou X e hoje vamos explorar equanimidade e expectativas por cerca de 20 minutos. Faremos um exercício em áudio, seguido de um tempo para reflexão e, por fim, compartilhamento entre nós — se estivermos dispostos."
+          },
+          {
+            "text": "Vamos começar com um mini check-in. Como você está se sentindo agora? Por favor, responda em duas ou três palavras. X, gostaria de começar?\n\n> Deixe cada pessoa na sessão, inclusive você, fazer seu check-in um por um.\n\nObrigado a todos por compartilharem. Vamos começar."
+          }
+        ],
+        "type": "host"
+      },
+      {
+        "content": {
+          "heading": "Bem-vindo(a)",
+          "text": "Esta sessão irá explorar equanimidade e expectativas."
+        },
+        "type": "instruction"
+      },
+      {
+        "hostNotes": [
+          {
+            "text": "Encontre uma posição confortável. Vou iniciar o exercício em áudio e nos encontraremos aqui novamente depois.\n\n> Aperte play para começar o exercício em áudio."
+          }
+        ],
+        "type": "content",
+        "content": {
+          "lottie": {
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1715668471/SEE/Lottie/Compassion/Compassion1_ts5bmj.json",
+            "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1715753405/SEE/SRT/Compassion/Expectations_cbifbx.srt",
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1715663867/SEE/Audio/Compassion/Expectations_bd6nlg.mp3"
+          }
+        }
+      },
+      {
+        "content": {
+          "heading": "Reflexão",
+          "text": "Você pode anotar em um papel ou apenas mentalmente. Não há certo ou errado aqui, nossas respostas são pessoais.",
+          "image": {
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1716951212/SEE/Icons/Reflection/Reflection_Awareness_CardImage_wgzwcf.png"
+          }
+        },
+        "type": "instruction"
+      },
+      {
+        "content": {
+          "heading": "Reflexão",
+          "text": "O que você percebe sobre sua lista de “expectativas úteis”?\nElas parecem realizáveis?\nVocê identifica algum tema ou padrão geral?\n\nO que você percebe sobre sua lista de “expectativas não úteis”?\n\n",
+          "image": {
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1716951212/SEE/Icons/Reflection/Reflection_Awareness_CardImage_wgzwcf.png"
+          }
+        },
+        "type": "instruction"
+      },
+      {
+        "content": {
+          "heading": "Reflexão",
+          "text": "O que os itens dessa lista têm em comum, se é que têm algo?  \n\nQue impacto essas “expectativas não úteis” podem estar causando em você?  \n\nO que você percebe sobre sentimentos ou sensações que surgem enquanto reflete cuidadosamente sobre essas expectativas que está mantendo para si hoje?  \n\n",
+          "image": {
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1716951212/SEE/Icons/Reflection/Reflection_Awareness_CardImage_wgzwcf.png"
+          }
+        },
+        "type": "instruction"
+      },
+      {
+        "hostNotes": [
+          {
+            "text": "Agora vamos tirar 1 minuto para refletir individualmente.\n\nComo foi essa experiência para você?\n\nO que você percebe sobre sua lista de “expectativas úteis”?\n\nElas parecem realizáveis?\n\nVocê identifica algum tema ou padrão geral?"
+          },
+          {
+            "text": "O que você percebe sobre sua lista de “expectativas não úteis”?\n\nO que os itens dessa lista têm em comum, se é que têm algo?\n\nQue impacto essas “expectativas não úteis” podem estar causando em você?"
+          },
+          {
+            "text": "O que você percebe sobre sentimentos ou sensações que surgem em você ao refletir cuidadosamente sobre essas expectativas que está mantendo para si hoje?"
+          },
+          {
+            "text": "Você pode fazer anotações em um pedaço de papel ou apenas mentalmente. E não existe certo ou errado aqui, nossas respostas são pessoais. 1 minuto começando agora.\n\n> Aperte play para iniciar o cronômetro.\n\nEsse foi 1 minuto, e é hora de seguir em frente."
+          }
+        ],
+        "type": "reflection",
+        "content": {
+          "video": {
+            "source": ""
+          },
+          "lottie": {
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1718146076/SEE/Lottie/Timer/1min_timer_ag9fyg.json"
+          }
+        }
+      },
+      {
+        "content": {
+          "heading": "O que você percebe sobre sua lista de “expectativas úteis”? Elas parecem realizáveis? Você identifica algum tema ou padrão geral?",
+          "text": "",
+          "lottie": {
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1718146077/SEE/Lottie/Timer/2min_timer_yjuzls.json"
+          }
+        },
+        "hostNotes": [
+          {
+            "text": "Agora estamos entrando na parte de compartilhamento. Temos três regras para o compartilhamento:\n\n1. **O que é dito aqui, fica aqui.**\n2. **Tudo o que você precisa fazer é ouvir.** Não é necessário consertar, ajudar ou dar conselhos. Estamos apenas presentes e explorando o que nós e os outros estamos vivenciando."
+          },
+          {
+            "text": "3. **Tudo o que você sentir é válido.** Raiva, amor, ódio, tristeza. O que surgir. Não existe certo ou errado. \n\nO cronômetro será ajustado para 2 minutos como referência. Se você não quiser compartilhar, pode simplesmente dizer “passo”.\n\n"
+          },
+          {
+            "text": "Quem gostaria de começar?\n\n> Deixe todos (ou o maior número possível, conforme o tempo permitir) compartilharem um por um. Aperte play para iniciar o cronômetro. Reinicie para cada novo compartilhamento.\n\nMuito obrigado a todos.\n\n"
+          }
+        ],
+        "type": "sharing",
+        "id": "Sharing 1"
+      },
+      {
+        "content": {
+          "heading": "O que você percebe sobre sua lista de “expectativas não úteis”?",
+          "video": {
+            "durationTimer": true
+          },
+          "lottie": {
+            "durationTimer": true,
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1718146077/SEE/Lottie/Timer/2min_timer_yjuzls.json"
+          },
+          "text": ""
+        },
+        "type": "sharing",
+        "id": "sharing 2",
+        "hostNotes": []
+      },
+      {
+        "content": {
+          "heading": "O que você percebe sobre sentimentos ou sensações que surgem?",
+          "video": {
+            "durationTimer": true
+          },
+          "lottie": {
+            "durationTimer": true,
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1718146077/SEE/Lottie/Timer/2min_timer_yjuzls.json"
+          },
+          "text": ""
+        },
+        "type": "sharing",
+        "id": "sharing 3"
+      },
+      {
+        "hostNotes": [
+          {
+            "text": "Muito bem. Hoje, exploramos equanimidade e expectativas. A equanimidade nos oferece a oportunidade de aceitar tudo o que a vida traz com calma e estabilidade."
+          },
+          {
+            "text": "Gerenciar nossas expectativas pode ser uma parte crucial desse processo, pois nos proporciona percepções realistas e metas, ajudando nossa capacidade de permanecer conectados com o que está presente para nós."
+          },
+          {
+            "text": "Se estivermos dispostos, podemos continuar com uma sugestão: praticar nossa consciência sobre as expectativas, observando se elas surgem nos próximos dois dias e analisando se são úteis ou não úteis."
+          },
+          {
+            "text": "Planeje os passos que você irá tomar considerando se há situações relacionadas a expectativas surgindo nos próximos dias. Antes de encerrarmos este espaço, vamos fazer um mini check-out: Como você está se sentindo agora? Algo mudou? Por favor, responda em duas ou três palavras."
+          },
+          {
+            "text": "Quem gostaria de começar?\n\n> Deixe cada pessoa na sessão fazer seu check-out um por um.\n\nObrigado a todos por fazerem o check-out e por participarem da sessão de hoje.\n\n> Finalize a sessão para encaminhar todos para a experiência de encerramento."
+          }
+        ],
+        "type": "host"
+      },
+      {
+        "content": {
+          "heading": "Compaixão",
+          "text": "Muito bem. Hoje, exploramos equanimidade e expectativas. A equanimidade nos oferece a oportunidade de aceitar tudo o que a vida traz com calma e estabilidade.",
+          "image": {
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1718143927/SEE/Icons/Compassion/Expectations_CardImage_jz2xnb.png"
+          }
+        },
+        "type": "instruction"
+      },
+      {
+        "content": {
+          "heading": "Compaixão",
+          "text": "Gerenciar nossas expectativas pode ser uma parte crucial desse processo, pois nos proporciona percepções realistas e metas, ajudando nossa capacidade de permanecer conectados com o que está presente para nós.",
+          "image": {
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1718143927/SEE/Icons/Compassion/Expectations_CardImage_jz2xnb.png"
+          }
+        },
+        "type": "instruction"
+      },
+      {
+        "content": {
+          "heading": "Compaixão",
+          "text": "Se estivermos dispostos, podemos continuar com uma sugestão: praticar a consciência das nossas expectativas, observando se elas surgem nos próximos dois dias e analisando se são úteis ou não.\n\nPlaneje os passos que você irá tomar, considerando se há situações relacionadas a expectativas surgindo nos próximos dias.",
+          "image": {
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1718143927/SEE/Icons/Compassion/Expectations_CardImage_jz2xnb.png"
+          }
+        },
+        "type": "instruction"
+      }
+    ],
+    "id": "0db526a6-9f70-4cf8-8903-71feb68413c1",
+    "liveDuration": -2,
+    "theme": {
+      "textColor": "#2E2E2E"
+    },
+    "hidden": true,
+    "locked": true,
+    "live": false,
+    "published": false,
+    "asyncDuration": 10,
+    "card": {
+      "image": {
+        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1718143927/SEE/Icons/Compassion/Expectations_CardImage_jz2xnb.png"
+      }
+    },
+    "coCreators": [
+      {
+        "name": "SEE Learning",
+        "url": "https://seelearning.emory.edu/en/home",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1713881366/SEE/see-logo_1_kewtlt.png"
+      }
+    ],
+    "tags": [
+      "db34d82a-4c48-4ddd-9de5-f562d8aa1bc9"
+    ],
+    "async": true
   }
 }

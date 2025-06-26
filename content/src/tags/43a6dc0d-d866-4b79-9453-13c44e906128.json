@@ -5,7 +5,7 @@
     "sortOrder": 1,
     "published": true
   },
-  "pt": {
+  "pt-PT": {
     "id": "43a6dc0d-d866-4b79-9453-13c44e906128",
     "sortOrder": 1,
     "name": "Gratidão",
@@ -40,6 +40,12 @@
   },
   "es": {
     "name": "Gratitud",
+    "id": "43a6dc0d-d866-4b79-9453-13c44e906128",
+    "sortOrder": 1,
+    "published": true
+  },
+  "pt-BR": {
+    "name": "Gratidão",
     "id": "43a6dc0d-d866-4b79-9453-13c44e906128",
     "sortOrder": 1,
     "published": true

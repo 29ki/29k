@@ -18,7 +18,7 @@
     "text": "Request a code to create public sessions",
     "requestCodeButton": "Request a code"
   },
-  "pt": {
+  "pt-PT": {
     "success": {
       "header": "Sucesso!",
       "text": "Já podes criar e moderar sessões para todos os utilizadores da Aware!"
@@ -78,5 +78,24 @@
       "text": "¡Ahora puedes crear y organizar sesiones abiertas para que cualquier usuario/a de Aware se una!"
     },
     "text": "Solicita un código para crear sesiones abiertas a todo el mundo"
+  },
+  "pt-BR": {
+    "activateButton": "Ativar configurações",
+    "enterCode": "Digite seu código",
+    "errors": {
+      "verificationAlreadyClaimed": "O código já foi utilizado.",
+      "verificationDeclined": "A solicitação não foi aceita.",
+      "verificationFailed": "Código incorreto, tente novamente.",
+      "verificationNotFound": "Não conseguimos encontrar nenhuma solicitação de sessão aberta para este usuário."
+    },
+    "haveCodeButton": "Tenho um código",
+    "or": "ou",
+    "requestCodeButton": "Solicitar um código",
+    "requestComplete": "Registramos sua solicitação. Assim que for aprovada, enviaremos um código de verificação para seu e-mail.",
+    "success": {
+      "header": "Sucesso!",
+      "text": "Agora você pode criar e hospedar sessões abertas para qualquer usuário do Aware participar!"
+    },
+    "text": "Solicite um código para criar sessões públicas"
   }
 }

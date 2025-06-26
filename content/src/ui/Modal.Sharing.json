@@ -7,7 +7,7 @@
     "privateLabel": "Only me",
     "submitCta": "Post"
   },
-  "pt": {
+  "pt-PT": {
     "header": "A tua reflexão",
     "description": "Quem pode ver a tua reflexão?",
     "privateLabel": "Só eu",
@@ -33,6 +33,14 @@
     "header": "Tu reflexión",
     "privateLabel": "Solo yo",
     "publicLabel": "Cualquier persona, como {{displayName}}",
+    "submitCta": "Publicar"
+  },
+  "pt-BR": {
+    "anonymousLabel": "Todos, anonimamente",
+    "description": "Quem pode ver sua publicação?",
+    "header": "Sua reflexão",
+    "privateLabel": "Só eu",
+    "publicLabel": "Todos, como {{displayName}}",
     "submitCta": "Publicar"
   }
 }

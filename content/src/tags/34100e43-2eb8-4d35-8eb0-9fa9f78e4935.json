@@ -4,7 +4,7 @@
     "name": "Acceptance",
     "published": true
   },
-  "pt": {
+  "pt-PT": {
     "id": "34100e43-2eb8-4d35-8eb0-9fa9f78e4935",
     "name": "Aceitação",
     "published": true
@@ -36,6 +36,11 @@
   },
   "es": {
     "name": "Aceptación",
+    "id": "34100e43-2eb8-4d35-8eb0-9fa9f78e4935",
+    "published": true
+  },
+  "pt-BR": {
+    "name": "Aceitação",
     "id": "34100e43-2eb8-4d35-8eb0-9fa9f78e4935",
     "published": true
   }

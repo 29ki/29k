@@ -9,7 +9,7 @@
       "sessionNotFound": "Incorrect code, try again"
     }
   },
-  "pt": {
+  "pt-PT": {
     "title": "Junta-te por código de convite",
     "create": {
       "or": "ou",
@@ -42,5 +42,15 @@
       "sessionNotFound": "Código incorrecto, pruébalo de nuevo"
     },
     "title": "Unirme con un código de invitación"
+  },
+  "pt-BR": {
+    "create": {
+      "cta": "Adicionar nova sessão",
+      "or": "ou"
+    },
+    "errors": {
+      "sessionNotFound": "Código incorreto, tente novamente"
+    },
+    "title": "Entrar com código de convite"
   }
 }

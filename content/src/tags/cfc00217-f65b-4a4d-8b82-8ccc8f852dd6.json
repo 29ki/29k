@@ -4,7 +4,7 @@
     "name": "Mindfulness",
     "published": true
   },
-  "pt": {
+  "pt-PT": {
     "id": "cfc00217-f65b-4a4d-8b82-8ccc8f852dd6",
     "name": "Presença",
     "published": true
@@ -36,6 +36,11 @@
   },
   "es": {
     "name": "Atención plena",
+    "id": "cfc00217-f65b-4a4d-8b82-8ccc8f852dd6",
+    "published": true
+  },
+  "pt-BR": {
+    "name": "Atenção plena",
     "id": "cfc00217-f65b-4a4d-8b82-8ccc8f852dd6",
     "published": true
   }

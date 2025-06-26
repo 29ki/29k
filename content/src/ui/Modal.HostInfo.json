@@ -5,7 +5,7 @@
     "sessions": "Upcoming sessions",
     "noUpcomingSessions": "🌱 No planned sessions."
   },
-  "pt": {
+  "pt-PT": {
     "privateSessions": "Com Amigos",
     "publicSessions": "Pública",
     "sessions": "Próximas sessões",
@@ -26,5 +26,11 @@
     "privateSessions": "Con amigos/as",
     "publicSessions": "Con otras personas",
     "sessions": "Próximas sesiones"
+  },
+  "pt-BR": {
+    "noUpcomingSessions": "🌱 Nenhuma sessão planejada.",
+    "privateSessions": "Com\r\nAmigos",
+    "publicSessions": "Com\r\nQualquer pessoa",
+    "sessions": "Próximas sessões"
   }
 }

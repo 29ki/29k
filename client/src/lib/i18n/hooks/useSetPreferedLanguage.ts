@@ -19,16 +19,16 @@ const useSetPreferredLanguage = () => {
       } else {
         const language = LANGUAGES[languageTag];
         Alert.alert(
-          t('unsupportedLanguage.title'),
-          t('unsupportedLanguage.message', {language}),
+          t('unsupportedLanguage.title', {lng: languageTag}),
+          t('unsupportedLanguage.message', {language, lng: languageTag}),
           [
             {
-              text: t('unsupportedLanguage.dismiss'),
+              text: t('unsupportedLanguage.dismiss', {lng: languageTag}),
               onPress: () => {},
               style: 'cancel',
             },
             {
-              text: t('unsupportedLanguage.confirm'),
+              text: t('unsupportedLanguage.confirm', {lng: languageTag}),
               onPress: () => setSettings({preferredLanguage: languageTag}),
             },
           ],

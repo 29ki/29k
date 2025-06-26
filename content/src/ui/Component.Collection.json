@@ -3,7 +3,7 @@
     "sessions": "sessions",
     "new": "New"
   },
-  "pt": {
+  "pt-PT": {
     "sessions": "sessões",
     "new": "Novo"
   },
@@ -18,5 +18,9 @@
   "es": {
     "new": "Nuevo",
     "sessions": "sesiones"
+  },
+  "pt-BR": {
+    "new": "Novo",
+    "sessions": "sessões"
   }
 }

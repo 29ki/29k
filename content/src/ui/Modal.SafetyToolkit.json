@@ -10,7 +10,7 @@
     "helplines_url": "https://wiki.29k.org/emergency-helplines",
     "faq_url": "https://wiki.29k.org/29k-sessions-faq"
   },
-  "pt": {
+  "pt-PT": {
     "title": "Kit de segurança",
     "actions": {
       "faq": "Perguntas frequentes",
@@ -44,5 +44,14 @@
       "report": "Informar"
     },
     "title": "Kit de seguridad"
+  },
+  "pt-BR": {
+    "actions": {
+      "calmDown": "Acalme-se",
+      "faq": "Perguntas frequentes",
+      "helplines": "Linhas de ajuda de emergência",
+      "report": "Relatar"
+    },
+    "title": "Kit de segurança"
   }
 }

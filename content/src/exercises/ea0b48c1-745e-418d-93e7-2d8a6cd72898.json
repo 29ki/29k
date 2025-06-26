@@ -177,7 +177,7 @@
     "async": true,
     "description": "How we talk to ourselves affect how we act. In this exercise we practice awareness of our self-talk, and try out how word-switching can be used to open new possibilities to act in meaningful ways."
   },
-  "pt": {
+  "pt-PT": {
     "liveDuration": 30,
     "slides": [
       {
@@ -561,5 +561,183 @@
   },
   "es": {
     "id": "ea0b48c1-745e-418d-93e7-2d8a6cd72898"
+  },
+  "pt-BR": {
+    "description": "A forma como falamos conosco afeta como agimos. Neste exercício, praticamos a consciência do nosso diálogo interno e experimentamos como a troca de palavras pode ser usada para abrir novas possibilidades de agir de maneiras significativas.",
+    "introPortal": {
+      "hostNotes": [
+        {
+          "text": ">Comece a sessão quando estiver pronto para seguir"
+        }
+      ],
+      "videoLoop": {
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1665480650/Temp/portal_no_sound_o7okas.mp4",
+        "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1674554597/Images/thumb_portal_bring_your_feel..._dthhdh.png",
+        "p5JsScript": {
+          "lang": "javascript"
+        }
+      },
+      "videoEnd": {
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1665469668/Temp/Comp_13_1_xmcpyo.mp4"
+      }
+    },
+    "name": "Mas / E",
+    "slides": [
+      {
+        "hostNotes": [
+          {
+            "text": "Bem-vindo(a).\n\nEu sou X e hoje vamos trabalhar por cerca de 30 minutos em nos abrirmos para nossos sentimentos com aceitação e escolher nossas ações de forma intencional. Faremos uma breve introdução, depois vamos refletir individualmente e compartilhar entre nós.\n\nE um aviso: você vai precisar de caneta e papel."
+          },
+          {
+            "text": "Antes de seguirmos para o exercício, vamos nos centrar no momento presente com três ciclos de respiração.\n\n> Inspire e expire lentamente 3 vezes"
+          },
+          {
+            "text": "Vamos começar com um mini check-in. Como você está se sentindo agora? Por favor, responda em duas ou três palavras. X, você gostaria de começar?\n\n> Deixe todos na sessão, inclusive você, fazerem o check-in um por um.\n\nObrigado a todos por compartilharem. Vamos começar."
+          }
+        ],
+        "type": "host",
+        "video": {
+          "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1679310089/Video/AsyncIntroBringYourFeelingsAlong.mp4",
+          "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1679310510/Images/AsyncThumbHostBringYourFeelingsAlong.png"
+        }
+      },
+      {
+        "content": {
+          "image": {
+            "description": "Quando o MAS atrapalha",
+            "source": "https://res.cloudinary.com/twentyninek/image/upload/q_auto,t_global/v1646061249/Illustrations_Tests/take-test_c4qa3u.png"
+          },
+          "video": {
+            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1665464756/Temp/Comp_8_jsv5jo.mp4",
+            "description": "",
+            "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1674554597/Images/thumb_content_bring_your_feel..._briny6.png",
+            "autoPlayLoop": false,
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1687856280/Audio/Bring_your_feelings_along_aeqeaw.mp3",
+            "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1689588283/SRT%20(captions)%20files/Bring_your_feelings_along_uvijsg.srt",
+            "durationTimer": true
+          },
+          "heading": ""
+        },
+        "hostNotes": [
+          {
+            "text": "Vamos ouvir este exercício juntos.\n\n> Aperte play para iniciar o áudio."
+          }
+        ],
+        "type": "content"
+      },
+      {
+        "content": {
+          "text": "O que aconteceu quando você trocou o 'mas' pelo 'e'?",
+          "video": {
+            "durationTimer": true,
+            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1665464773/Temp/Comp_9_bsizws.mp4",
+            "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1674554597/Images/thumb_timer_and_1min_bring_your_feel..._hbi0hy.png"
+          }
+        },
+        "hostNotes": [
+          {
+            "text": "Agora vamos tirar um minuto para refletir individualmente.\n\nO que acontece com as suas frases, e com *você*, quando você substitui o MAS por E? Você pode anotar no seu papel, se quiser, ou apenas fazer anotações mentais."
+          },
+          {
+            "text": "1 minuto começando agora.\n\n> Aperte play para iniciar o cronômetro.\n\nPronto, passou 1 minuto. Vamos seguir em frente."
+          }
+        ],
+        "type": "reflection"
+      },
+      {
+        "content": {
+          "heading": "O que aconteceu quando você passou a usar o E?",
+          "video": {
+            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1665464766/Temp/Comp_10_ababts.mp4",
+            "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1674554598/Images/thumb_timer2min_bring_your_feel..._b90j7h.png",
+            "durationTimer": true,
+            "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1687856451/SRT%20(captions)%20files/Bring_your_feelings_along_dwtkw6.srt"
+          }
+        },
+        "hostNotes": [
+          {
+            "text": "Agora estamos entrando na parte de compartilhamento. Temos três regras para o compartilhamento:\n\n1. **O que é dito aqui, fica aqui.**\n2. **Tudo o que você precisa fazer é ouvir.** Não é necessário consertar, ajudar ou dar conselhos. Estamos apenas presentes e explorando o que nós e os outros estamos vivenciando."
+          },
+          {
+            "text": "3. **Tudo o que você sentir é válido.** Raiva, amor, ódio, tristeza. O que surgir. Não existe certo ou errado. \n\nO cronômetro será ajustado para 2 minutos como referência. Se você não quiser compartilhar, pode simplesmente dizer “passo”.\n\n"
+          },
+          {
+            "text": "Quem gostaria de começar?\n\n> Deixe todos (ou o maior número possível, conforme o tempo permitir) compartilharem um por um. Aperte play para iniciar o cronômetro. Reinicie para cada novo compartilhamento.\n\nMuito obrigado a todos.\n\n"
+          }
+        ],
+        "type": "sharing",
+        "id": "sharing1"
+      },
+      {
+        "hostNotes": [
+          {
+            "text": "Muito bem. Quando esperamos que sentimentos indesejados desapareçam para então fazermos o que queremos, tendemos a colocar nossa vida em pausa. Às vezes por muito tempo. Uma estratégia mais útil pode ser nos abrirmos para nossos sentimentos com aceitação e escolher nossas ações de forma intencional."
+          },
+          {
+            "text": "Isso pode nos permitir dedicar tempo e energia ao que é importante para nós – mesmo quando isso vem acompanhado de emoções difíceis. Se quiser, você pode continuar com uma sugestão para trazer essa prática para o seu dia a dia."
+          },
+          {
+            "text": "Pelos próximos três dias, tente perceber quando você fala consigo mesmo usando frases do tipo “Eu quero fazer isso, MAS eu sou tão assim”. Quando perceber, substitua o MAS por E e veja se nota alguma diferença em como você se comporta."
+          },
+          {
+            "text": "Antes de encerrarmos este espaço, vamos fazer um mini check-out. Como você está se sentindo agora? Algo mudou? Por favor, responda em duas ou três palavras.\n\nQuem gostaria de começar?"
+          },
+          {
+            "text": "> Deixe cada pessoa fazer seu check-out, uma de cada vez.\n\nMuito obrigado a todos por participarem do check-out e por estarem presentes na sessão de hoje.\n\n> Encerrando a sessão, desejo a todos uma boa saída para a próxima experiência."
+          }
+        ],
+        "type": "host",
+        "video": {
+          "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1679310075/Video/OutroBringYourFeelingAlong_pakygt.mp4",
+          "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1679310510/Images/AsyncThumbHostBringYourFeelingsAlong.png"
+        }
+      },
+      {
+        "content": {
+          "heading": "Muito bem",
+          "text": "Se quiser, você pode continuar com esta sugestão:\n\nPelos próximos três dias, tente perceber quando você fala consigo mesmo usando frases do tipo *Eu quero fazer isso, MAS eu sou tão assim*. Quando isso acontecer, substitua o MAS por E e veja se nota alguma diferença na sua maneira de agir.",
+          "image": {
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1675416302/Images/card_bring_your_fee.._cs3oph.png"
+          }
+        },
+        "type": "instruction"
+      }
+    ],
+    "id": "ea0b48c1-745e-418d-93e7-2d8a6cd72898",
+    "liveDuration": 30,
+    "theme": {
+      "backgroundColor": "#f1d0b0",
+      "textColor": "#2E2E2E"
+    },
+    "live": true,
+    "published": false,
+    "asyncDuration": 4,
+    "card": {
+      "image": {
+        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1675416302/Images/card_bring_your_fee.._cs3oph.png"
+      },
+      "host": {
+        "displayName": "Jenny",
+        "photoURL": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1682602411/Images/Jenny_Rickardsson_kopia_sdodwf.jpg"
+      }
+    },
+    "coCreators": [
+      {
+        "name": "Jenny Rickardsson, script and voice",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413228/Contributors/Jenny%20Rickardsson.jpg",
+        "url": "https://www.linkedin.com/in/jenny-rickardson-6770a959/"
+      },
+      {
+        "name": "Ints Ivanovskis, art works",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413436/Contributors/Ints%20Ivanovskis.jpg",
+        "url": "https://www.linkedin.com/in/ints-ivanovskis-46ab0311a/"
+      }
+    ],
+    "tags": [
+      "34100e43-2eb8-4d35-8eb0-9fa9f78e4935",
+      "566aeb1b-1649-4f5a-96a2-0c80be27efc0"
+    ],
+    "link": "https://aware.29k.org/but-and",
+    "async": true
   }
 }

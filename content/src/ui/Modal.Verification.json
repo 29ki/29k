@@ -15,7 +15,7 @@
     "code": "Kod",
     "signIn": "Logga in"
   },
-  "pt": {
+  "pt-PT": {
     "header": "Validação",
     "email": "Email",
     "password": "Password",
@@ -34,5 +34,13 @@
     "password": "Contraseña",
     "signIn": "Iniciar sesión",
     "upgrade": "Actualizar"
+  },
+  "pt-BR": {
+    "code": "Código",
+    "email": "E-mail",
+    "header": "Verificação",
+    "password": "Senha",
+    "signIn": "Entrar",
+    "upgrade": "Atualizar"
   }
 }

@@ -7,7 +7,7 @@
     "with": "med",
     "minutesAbbreviation": "min"
   },
-  "pt": {
+  "pt-PT": {
     "with": "com",
     "minutesAbbreviation": "min"
   },
@@ -18,5 +18,9 @@
   "es": {
     "minutesAbbreviation": "min",
     "with": "con"
+  },
+  "pt-BR": {
+    "minutesAbbreviation": "min",
+    "with": "com"
   }
 }

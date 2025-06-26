@@ -19,7 +19,7 @@
       "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1702302654/Lottie/working_on_your.._yedzqe.json"
     }
   },
-  "pt": {
+  "pt-PT": {
     "id": "4fba05de-cc63-4613-9c84-a34f4cbbc58e",
     "name": "Trabalhar nas relações",
     "collections": [
@@ -90,6 +90,26 @@
   },
   "es": {
     "name": "Trabajar las relaciones",
+    "id": "4fba05de-cc63-4613-9c84-a34f4cbbc58e",
+    "collections": [
+      "716c2b31-612c-40c4-8e85-90f0a2af380e"
+    ],
+    "exercises": [
+      "648e1802-eb45-47b0-a42e-dd986669a4eb",
+      "c5b1197a-4eec-4699-9dad-0e3d6323967b",
+      "5b69ff57-10c4-4288-afc7-a6f6ed212531",
+      "095f9642-73b6-4c9a-ae9a-ea7dea7363f5",
+      "b1e6cc8e-03a4-4f74-8884-2896c391ab07",
+      "df2c5312-c869-4ab7-8ac1-1875a04e2229",
+      "c7911238-ca9f-4499-9cae-63dfcd0c79c5"
+    ],
+    "published": true,
+    "lottie": {
+      "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1702302654/Lottie/working_on_your.._yedzqe.json"
+    }
+  },
+  "pt-BR": {
+    "name": "Trabalhar nos seus relacionamentos",
     "id": "4fba05de-cc63-4613-9c84-a34f4cbbc58e",
     "collections": [
       "716c2b31-612c-40c4-8e85-90f0a2af380e"

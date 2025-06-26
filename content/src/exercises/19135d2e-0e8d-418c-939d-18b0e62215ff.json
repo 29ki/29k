@@ -158,7 +158,7 @@
     "async": true,
     "description": "Investigate where emotions are felt in your body, to practice self-compassion when we face difficult emotions and self-critical thoughts."
   },
-  "pt": {
+  "pt-PT": {
     "liveDuration": 30,
     "slides": [
       {
@@ -754,5 +754,164 @@
     "id": "19135d2e-0e8d-418c-939d-18b0e62215ff",
     "async": true,
     "description": "Investiga dónde se sienten las emociones en tu cuerpo para practicar la autocompasión, especialmente cuando enfrentamos emociones difíciles y/o pensamientos autocríticos."
+  },
+  "pt-BR": {
+    "description": "Investigue onde as emoções são sentidas em seu corpo, para praticar a autocompaixão quando enfrentamos emoções difíceis e pensamentos autocríticos.",
+    "introPortal": {
+      "hostNotes": [
+        {
+          "text": ">Comece a sessão quando estiver pronto para seguir"
+        }
+      ],
+      "textColor": "#2E2E2E",
+      "videoLoop": {
+        "p5JsScript": {
+          "lang": "javascript",
+          "code": "function loadScript(url, callback) {\n    const script = document.createElement(\"script\");\n    script.type = \"text/javascript\";\n    script.src = url;\n\n    // Optional: Provide a callback function to run once the script is loaded\n    script.onload = function() {\n        if (callback) callback();\n    };\n\n    // Append the script to the document's head\n    document.head.appendChild(script);\n}\n\n// URLs of the external JavaScript libraries\nconst simplexNoiseURL = \"https://openprocessing-usercontent.s3.amazonaws.com/files/user183691/visual2179025/h5636a7067b4b5f2d98624459645bf990/simplexNoise.js\";\nconst spectralURL = \"https://openprocessing-usercontent.s3.amazonaws.com/files/user183691/visual2179025/h5636a7067b4b5f2d98624459645bf990/spectral.min.js\";\n\n// Load the simplexNoise library first\nloadScript(simplexNoiseURL, function() {\n    console.log(\"simplexNoise.js loaded successfully!\");\n\n    // Load the spectral library next\n    loadScript(spectralURL, function() {\n        console.log(\"spectral.min.js loaded successfully!\");\n\n        // Now both libraries are loaded, you can safely use their functionality here\n        // For example, initialize your sketch or call a function that relies on these libraries\n    });\n});\n\n\n\nlet colors = [\"#c78b25\", \"#4e5b6d\", \"#636b4b\", \"#2b5c72\", \"#973535\", \"#ad9690\", \"#15171f\"]\n\nlet drops = []\nlet splatters = []\nlet straps = []\nlet simplex\n\nfunction setup() {\n\tcreateCanvas(windowWidth, windowHeight);\n\tsimplex = new openSimplexNoise(Date.now())\n\tbackground(210);\n\tlet x = random(width)\n\tlet s = noise(x / 100) * width / 50\n\tdrops.push(new drop(x, s))\n}\n\nfunction draw() {\n\tif (frameCount % 50 == 0 && frameCount < 2500) {\n\n\t\tlet x = map(simplex.noise2D(frameCount / 300, random()), -1, 1, -width / 4, width + width / 4)\n\t\tlet s = noise(x / 100) * width / 50\n\t\tdrops.push(new drop(x, s))\n    straps.push(new strap(random(width), random(height / 5, height / 2.5)))\n\t\tstraps.push(new strap(random(width), random(height / 5, height / 2.5)))\n\n\t}\n\n\n\tif (frameCount % 100 == 0 && frameCount > 500 && frameCount < 4000) {\n\t\tsplatters.push(new splatter(random(width), random(0, height * 0.66), random(height * 0.02, height * 0.1)))\n\t}\n\tfor (let d of drops) {\n\t\td.move();\n\t\td.show();\n\t\td.done();\n\t}\n\tfor (let s of splatters) {\n\t\ts.move();\n\t\ts.show();\n\t\ts.done();\n\t}\n\tfor (let st of straps) {\n\t\tst.move();\n\t\tst.show();\n\t\tst.done();\n\t}\n\n}\n\nclass splatter {\n\tconstructor(x, y, r) {\n\t\tthis.pos = createVector(x, y);\n\t\tthis.color1 = random(colors)\n\t\tthis.color2 = random(colors)\n\t\tthis.r = r\n\t\tthis.currentR = 0\n\t\tthis.runs = []\n\t\tlet amount = floor(random(15, 30))\n\t\tlet startAngle = random(TAU)\n\t\tfor (let a = 0; a < TAU; a += TAU / amount) {\n\t\t\tlet aOff = random(-TAU / 12, TAU / 12)\n\t\t\tlet sizeRange = this.r / (amount / 4)\n\t\t\tvar sp = {\n\t\t\t\tangle: a + aOff,\n\t\t\t\tsize: random(sizeRange * 0.75, sizeRange * 1.5)\n\t\t\t}\n\t\t\tthis.runs.push(sp)\n\t\t}\n\t\tthis.speed = this.r / 40\n\t}\n\n\tmove() {\n\t\tthis.currentR += this.speed\n\t}\n\n\tshow() {\n\t\tlet mixer = map(this.currentR, 0, this.r, 0, 1)\n\t\tlet filler = color(spectral.mix(this.color1, this.color2, mixer))\n\t\t// let alpha= map(this.currentR, 0, this.r, 2, 100)\n\t\t// filler.setAlpha(alpha)\n\t\tfill(filler)\n\n\t\t//probably need to add some jiggle\n\t\tfor (let r of this.runs) {\n\t\t\tlet quaver = simplex.noise2D(r.angle, this.currentR / (this.r / 3)) * r.size / 4\n\t\t\tlet xoff = simplex.noise2D(r.angle, this.currentR / 100, this.pos.x) * this.currentR / 5\n\t\t\tlet yoff = noise(r.angle, this.currentR / 100, this.pos.y) * this.currentR\n\t\t\tellipse(this.pos.x + cos(r.angle) * this.currentR + xoff, this.pos.y + sin(r.angle) * this.currentR + yoff, r.size + quaver)\n\t\t}\n\t}\n\n\tdone() {\n\t\tif (this.currentR >= this.r) {\n\t\t\tlet index = splatters.indexOf(this);\n\t\t\tsplatters.splice(index, 1);\n\t\t}\n\n\t}\n}\n\nclass drop {\n\tconstructor(x, s) {\n\t\tthis.pos = createVector(x, -s)\n\t\tthis.color1 = random(colors)\n\t\tthis.color2 = random(colors)\n\t\tthis.size = s\n\t\tthis.speed = random(1, 5)\n\t}\n\n\tmove() {\n\t\tlet xdrift = simplex.noise2D(this.pos.x / 100, frameCount / 50) * this.size / 10\n\t\tlet mover = createVector(xdrift, this.speed)\n\t\tthis.pos.add(mover)\n\n\t}\n\n\tshow() {\n\t\tnoStroke()\n\t\tlet quaver = simplex.noise3D(this.pos.y / 200, this.pos.x / 200, frameCount / 50) * this.size / 2\n\t\tlet m = map(this.pos.y, 0, height, 0, 1)\n\t\tlet mixer = color(spectral.mix(this.color1, this.color2, m))\n\t\tlet a = map(this.size, width / 100, width / 10, 75, 1)\n\t\tmixer.setAlpha(a)\n\t\tfill(mixer)\n\t\tellipse(this.pos.x, this.pos.y, this.size + quaver)\n\t}\n\n\tdone() {\n\t\tif (this.pos.y > this.size + height) {\n\t\t\tlet index = drops.indexOf(this);\n\t\t\tdrops.splice(index, 1);\n\t\t}\n\n\t}\n}\n\nclass strap {\n\tconstructor(x, h) {\n\t\tthis.h = h\n\t\tthis.w = random(width / 100, width / 40)\n\t\tthis.pos = createVector(x, height + this.w)\n\t\tthis.color1 = random(colors)\n\t\tthis.color2 = random(colors)\n\t}\n\n\tmove() {\n\t\tthis.pos.y -= 1\n\t}\n\n\tshow() {\n\t\tpush()\n\t\tlet mix = map(this.pos.y, height, height - this.h, 0, 1)\n\t\tlet filler = color(spectral.mix(this.color1, this.color2, mix))\n\t\tfill(filler)\n\t\tlet curve = map(this.pos.y, height, height - this.h, 0, this.h)\n\t\tlet xoff = simplex.noise3D(this.pos.x, this.pos.y / (this.h * 2), frameCount / 200) * curve\n\t\tlet sizing = map(this.pos.y, height, height - this.h, this.w, 1)\n\t\tellipse(this.pos.x + xoff, this.pos.y, sizing)\npop()\n\t}\n\n\tdone() {\n\t\tif (this.pos.y < height - this.h) {\n\t\t\tlet index = straps.indexOf(this);\n\t\t\tstraps.splice(index, 1);\n\t\t}\n\t}\n}"
+        },
+        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1712905258/Audio/portal_audio_open_up_to_compassion_jclox4.mp3"
+      }
+    },
+    "name": "Abra-se para a compaixão.",
+    "slides": [
+      {
+        "hostNotes": [
+          {
+            "text": "Bem-vindo(a). Eu sou X e hoje vamos trabalhar por cerca de 30 minutos sobre como as emoções são sentidas em nossos corpos e como podemos acolhê-las com autocompaixão.\n\nFaremos uma meditação, seguida de um tempo para reflexão e compartilhamento entre todos."
+          },
+          {
+            "text": "Vamos começar com um mini check-in. Como você está se sentindo agora? Por favor, responda em duas ou três palavras. X, você gostaria de começar?\n\n> Deixe todos na sessão, inclusive você, fazerem o check-in um por um.\n\nObrigado a todos por compartilharem. Vamos começar."
+          }
+        ],
+        "type": "host"
+      },
+      {
+        "hostNotes": [
+          {
+            "text": "Encontre uma posição confortável. Vou iniciar o exercício em áudio e nos encontraremos aqui novamente depois.\n\n> Aperte play para começar o exercício em áudio."
+          }
+        ],
+        "type": "content",
+        "content": {
+          "lottie": {
+            "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1709650541/SRT%20(captions)%20files/Open_up_to_compassion_dao5mx.srt",
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1709650589/Audio/Open_up_to_compassion_bgnuxu.mp3",
+            "durationTimer": true,
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/t_card_image/v1676977421/Lottie/audio_meditation_default_black_default_omemwt.json"
+          }
+        }
+      },
+      {
+        "content": {
+          "heading": "Como você experimentou fazer este exercício?",
+          "lottie": {
+            "durationTimer": true,
+            "duration": 59,
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/t_card_image/v1676642915/Lottie/default_1min_black_rosi2l.json"
+          }
+        },
+        "hostNotes": [
+          {
+            "text": "Agora vamos tirar 1 minuto para refletir individualmente.\n\nComo foi para você entrar em contato fisicamente com as emoções e acolhê-las com compaixão?"
+          },
+          {
+            "text": "Você pode fazer anotações em um papel ou apenas mentalmente. Não existe certo ou errado aqui, nossas respostas são pessoais. 1 minuto começando agora.\n\n> Aperte play para iniciar o cronômetro.\n\nPassou 1 minuto, é hora de seguir em frente."
+          }
+        ],
+        "type": "reflection"
+      },
+      {
+        "content": {
+          "heading": "Como você experimentou fazer este exercício?",
+          "lottie": {
+            "durationTimer": true,
+            "duration": 120,
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/t_card_image/v1676639253/Lottie/default_2min_black_o6egey.json"
+          }
+        },
+        "hostNotes": [
+          {
+            "text": "Agora estamos entrando na parte de compartilhamento. Temos três regras para o compartilhamento:\n\n1. **O que é dito aqui, fica aqui.**\n2. **Tudo o que você precisa fazer é ouvir.** Não é necessário consertar, ajudar ou dar conselhos. Estamos apenas presentes e explorando o que nós e os outros estamos vivenciando."
+          },
+          {
+            "text": "3. **Tudo o que você sentir é válido.** Raiva, amor, ódio, tristeza. O que surgir. Não existe certo ou errado. \n\nO cronômetro será ajustado para 2 minutos como referência. Se você não quiser compartilhar, pode simplesmente dizer “passo”.\n\n"
+          },
+          {
+            "text": "Quem gostaria de começar?\n\n> Deixe todos (ou o maior número possível, conforme o tempo permitir) compartilharem um por um. Aperte play para iniciar o cronômetro. Reinicie para cada novo compartilhamento.\n\nMuito obrigado a todos.\n\n"
+          }
+        ],
+        "type": "sharing",
+        "id": "Sharing 1"
+      },
+      {
+        "hostNotes": [
+          {
+            "text": "Muito bem. As emoções estão aqui para serem sentidas, e estar presente com elas nos permite agir com compaixão e autenticidade. Você pode continuar sua prática com uma sugestão:\n\nNo restante do dia, sempre que perceber uma emoção surgindo dentro de você, tire um momento para localizá-la no corpo e criar espaço para ela com compaixão."
+          },
+          {
+            "text": "Antes de sairmos deste espaço, vamos fazer um mini check-out.\n\nComo você está se sentindo agora? Algo mudou? Por favor, responda em duas ou três palavras."
+          },
+          {
+            "text": "Quem gostaria de começar?\n\n> Deixe todos (ou o maior número possível, conforme o tempo permitir) compartilharem um por um. Aperte play para iniciar o cronômetro. Reinicie para cada novo compartilhamento.\n\nMuito obrigado a todos.\n\n"
+          }
+        ],
+        "type": "host"
+      },
+      {
+        "content": {
+          "heading": "Muito bem",
+          "text": "As emoções estão aqui para serem sentidas, e estar presente com elas nos permite ser compassivos e autênticos.\n\nVocê pode seguir sua prática com uma sugestão:\n\nPelo restante do dia, sempre que sentir uma emoção surgindo dentro de você, tire um momento para localizá-la no corpo e abrir espaço para ela com compaixão.",
+          "image": {
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1711547476/Images/card_Open_up_to_compassion_xqbsa2.png"
+          }
+        },
+        "type": "instruction"
+      }
+    ],
+    "id": "19135d2e-0e8d-418c-939d-18b0e62215ff",
+    "liveDuration": 30,
+    "theme": {
+      "textColor": "#2E2E2E",
+      "backgroundColor": "#cacaca"
+    },
+    "hidden": false,
+    "locked": false,
+    "live": true,
+    "published": false,
+    "asyncDuration": 7,
+    "card": {
+      "imageBackgroundColor": "",
+      "image": {
+        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1711547476/Images/card_Open_up_to_compassion_xqbsa2.png"
+      }
+    },
+    "coCreators": [
+      {
+        "name": "Rachel Brathen, yoga girl, voice.",
+        "url": "https://www.yogagirl.com/rachels-corner/bio",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1709567296/Contributors/Yoga_Girl_016895_color_oju3wq_-_Square_Post_mbemkp.png"
+      },
+      {
+        "name": "Kristin Neff & Chris Germer, CMSC, original research",
+        "url": "https://centerformsc.org/",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1697723039/Images/Germer%2C%20Neff.png"
+      },
+      {
+        "name": "Erik Fernholm, editor",
+        "url": "https://www.linkedin.com/in/lyckoaktivist/?originalSubdomain=se",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665412608/Contributors/Erik%20Fernholm.png"
+      },
+      {
+        "url": "https://openprocessing.org/user/183691?view=sketches&o=228",
+        "name": "Aaron Reuland, artwork",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1713964400/Images/user183691_i74pfh.jpg"
+      }
+    ],
+    "tags": [
+      "db34d82a-4c48-4ddd-9de5-f562d8aa1bc9",
+      "34100e43-2eb8-4d35-8eb0-9fa9f78e4935"
+    ],
+    "link": "https://aware.29k.org/open-up-to-compassion",
+    "async": true
   }
 }

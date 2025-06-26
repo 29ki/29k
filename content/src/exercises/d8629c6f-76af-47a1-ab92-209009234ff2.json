@@ -163,7 +163,7 @@
     "async": true,
     "description": "The relationship to ourselves is in focus in the Being category. In this session we practice setting our inner compass, acting with integrity and authenticity, as we meet our future selves."
   },
-  "pt": {
+  "pt-PT": {
     "id": "d8629c6f-76af-47a1-ab92-209009234ff2",
     "tags": [
       "9c2c08a9-7dc6-4058-bc78-016d0eb00614",
@@ -226,5 +226,169 @@
   },
   "es": {
     "id": "d8629c6f-76af-47a1-ab92-209009234ff2"
+  },
+  "pt-BR": {
+    "description": "O relacionamento conosco é o foco na categoria Ser. Nesta sessão, praticamos definir nossa bússola interna, agir com integridade e autenticidade, enquanto encontramos nosso eu do futuro.",
+    "introPortal": {
+      "hostNotes": [
+        {
+          "text": ">Inicie a sessão quando estiver pronto para começar"
+        }
+      ],
+      "videoLoop": {
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1709149755/Video/Being_portal_1_dvuapz.mp4",
+        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1705651789/Audio/portal_audiio_relationship_values_wvxw6i.mp3",
+        "p5JsScript": {
+          "lang": "javascript"
+        }
+      },
+      "videoEnd": {
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1709201854/Video/Being_portal_2_ta4xyi.mp4"
+      }
+    },
+    "name": "Ser",
+    "slides": [
+      {
+        "hostNotes": [
+          {
+            "text": "Bem-vindo(a). Eu sou X e hoje vamos trabalhar por cerca de 30 minutos em bússola interna, integridade e autenticidade – alguns dos aspectos da categoria Ser.\n\nFaremos um exercício em áudio, seguido de um tempo para reflexão e compartilhamento entre nós."
+          },
+          {
+            "text": "Vamos começar com um mini check-in. Como você está se sentindo agora? Por favor, responda em duas ou três palavras. X, você gostaria de começar?\n\n> Deixe todos na sessão, inclusive você, fazerem o check-in um por um.\n\nObrigado a todos por compartilharem. Vamos começar."
+          }
+        ],
+        "type": "host"
+      },
+      {
+        "content": {
+          "heading": "Ser",
+          "text": "Uma bússola interna, integridade e autenticidade são algumas das habilidades da categoria Ser que vamos praticar neste exercício. Haverá um exercício em áudio, seguido de um tempo para reflexão e compartilhamento, se você quiser.\n\n",
+          "image": {
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1709149023/Images/Being_async_image_ayzooa.png"
+          }
+        },
+        "type": "instruction"
+      },
+      {
+        "hostNotes": [
+          {
+            "text": "Uma bússola interna, integridade e autenticidade são algumas das habilidades da categoria Ser que vamos praticar neste exercício.\nVamos ouvir este áudio e, em seguida, nos encontraremos aqui novamente.\n\n>Toque em play para iniciar o áudio."
+          }
+        ],
+        "type": "content",
+        "content": {
+          "lottie": {
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1698312877/Audio/The_future_you_lxcxvt.mp3",
+            "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1696324117/SRT%20(captions)%20files/The_future_you_gzkogk.srt",
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1709134304/Lottie/IDG_lotties/Being_meditation_pqkfgp.json",
+            "durationTimer": true
+          }
+        }
+      },
+      {
+        "content": {
+          "heading": "O que você gostaria que o seu “eu” do futuro dissesse para o seu “eu” de agora?",
+          "lottie": {
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1709133218/Lottie/IDG_lotties/1_min_IDG_e1tws9.json",
+            "durationTimer": true,
+            "duration": 60
+          }
+        },
+        "hostNotes": [
+          {
+            "text": "Agora vamos tirar 1 minuto para refletir individualmente.\n\nO que você gostaria que o seu “eu” do futuro dissesse para o seu “eu” de agora?"
+          },
+          {
+            "text": "Você pode fazer anotações em um papel ou apenas mentalmente. Não existe certo ou errado aqui, nossas respostas são pessoais. 1 minuto começando agora.\n\n> Aperte play para iniciar o cronômetro.\n\nPassou 1 minuto, é hora de seguir em frente."
+          }
+        ],
+        "type": "reflection"
+      },
+      {
+        "content": {
+          "heading": "O que você gostaria que o seu “eu” do futuro dissesse para o seu “eu” de agora?",
+          "lottie": {
+            "durationTimer": true,
+            "duration": 120,
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1709133219/Lottie/IDG_lotties/Being_2min_fyirru.json"
+          }
+        },
+        "hostNotes": [
+          {
+            "text": "Agora estamos entrando na parte de compartilhamento. Temos três regras para o compartilhamento:\n\n1. **O que é dito aqui, fica aqui.**\n2. **Tudo o que você precisa fazer é ouvir.** Não é necessário consertar, ajudar ou dar conselhos. Estamos apenas presentes e explorando o que nós e os outros estamos vivenciando."
+          },
+          {
+            "text": "3. **Tudo o que você sentir é válido.** Raiva, amor, ódio, tristeza. O que surgir. Não existe certo ou errado. \n\nO cronômetro será ajustado para 2 minutos como referência. Se você não quiser compartilhar, pode simplesmente dizer “passo”.\n\n"
+          },
+          {
+            "text": "Quem gostaria de começar?\n\n> Deixe todos (ou o maior número possível, conforme o tempo permitir) compartilharem um por um. Aperte play para iniciar o cronômetro. Reinicie para cada novo compartilhamento.\n\nMuito obrigado a todos.\n\n"
+          }
+        ],
+        "type": "sharing",
+        "id": "1"
+      },
+      {
+        "hostNotes": [
+          {
+            "text": "Muito bem. Se quiser, você pode continuar com uma sugestão para trazer isso para o seu dia a dia.\n\nDeixe que as palavras do seu “eu” do futuro guiem suas ações hoje e amanhã. Perceba como isso faz você se sentir e agir."
+          },
+          {
+            "text": "Antes de sairmos deste espaço, vamos fazer um mini check-out.\n\nComo você está se sentindo agora? Algo mudou? Por favor, responda em duas ou três palavras."
+          },
+          {
+            "text": "Quem gostaria de começar?\n\n> Deixe todos (ou o maior número possível, conforme o tempo permitir) compartilharem um por um. Aperte play para iniciar o cronômetro. Reinicie para cada novo compartilhamento.\n\nMuito obrigado a todos.\n\n"
+          }
+        ],
+        "type": "host"
+      },
+      {
+        "content": {
+          "text": "Muito bem. Se quiser, você pode continuar com uma sugestão para trazer isso para o seu dia a dia.\n\nDeixe que as palavras do seu “eu” do futuro guiem suas ações hoje e amanhã. Perceba como isso faz você se sentir e agir.",
+          "image": {
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1709149023/Images/Being_async_image_ayzooa.png"
+          }
+        },
+        "type": "instruction"
+      }
+    ],
+    "id": "d8629c6f-76af-47a1-ab92-209009234ff2",
+    "liveDuration": 30,
+    "theme": {
+      "textColor": "#F9F8F4",
+      "backgroundColor": "#d4b88c"
+    },
+    "hidden": false,
+    "locked": true,
+    "live": true,
+    "published": false,
+    "asyncDuration": 6,
+    "card": {
+      "image": {
+        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1709127077/Images/Being_card_image_vl36fq.png"
+      }
+    },
+    "coCreators": [
+      {
+        "name": "Jenny Rickardsson, script and voice",
+        "url": "https://www.linkedin.com/in/jenny-rickardson-6770a959/",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1682602411/Images/Jenny_Rickardsson_kopia_sdodwf.jpg"
+      },
+      {
+        "name": "Ints Ivanovskis, art works",
+        "url": "https://www.linkedin.com/in/ints-ivanovskis-46ab0311a/",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413436/Contributors/Ints%20Ivanovskis.jpg"
+      },
+      {
+        "name": "Steven Hayes, original research",
+        "url": "https://stevenchayes.com/about/",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1710157008/Contributors/Steven_Hayes_axpenl.jpg"
+      }
+    ],
+    "tags": [
+      "9c2c08a9-7dc6-4058-bc78-016d0eb00614",
+      "43a6dc0d-d866-4b79-9453-13c44e906128"
+    ],
+    "link": "https://aware.29k.org/the-future-you",
+    "async": true
   }
 }

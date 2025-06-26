@@ -4,7 +4,7 @@
     "explore": "Explore",
     "journey": "My Journey"
   },
-  "pt": {
+  "pt-PT": {
     "home": "Hoje",
     "journey": "Jornada",
     "explore": "Explora"
@@ -26,5 +26,10 @@
     "explore": "Explorar",
     "home": "Hoy",
     "journey": "Mi viaje"
+  },
+  "pt-BR": {
+    "explore": "Explorar",
+    "home": "Hoje",
+    "journey": "Minha Jornada"
   }
 }

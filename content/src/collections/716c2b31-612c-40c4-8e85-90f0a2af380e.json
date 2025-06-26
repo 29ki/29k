@@ -19,7 +19,7 @@
     "link": "https://aware.29k.org/aware-and-allow",
     "sortOrder": 4
   },
-  "pt": {
+  "pt-PT": {
     "hidden": false,
     "name": "Estar aqui e agora",
     "published": true,
@@ -83,6 +83,26 @@
   "es": {
     "description": "El amor, la gratitud y el estar en el aquí y ahora con lo que hay, con lo que es, son habilidades clave para sentirnos más felices y satisfechos con la vida. En este programa, practicaremos esas habilidades para que podamos enfocar nuestras acciones en hacer lo que es importante para nosotros/as a largo plazo.",
     "name": "Estar con lo que hay",
+    "id": "716c2b31-612c-40c4-8e85-90f0a2af380e",
+    "exercises": [
+      "095f9642-73b6-4c9a-ae9a-ea7dea7363f5",
+      "94575e97-fe03-4bfd-94a6-50aaf721d47e",
+      "b18c1cff-bb43-44b1-81a1-2877cc018ab4",
+      "9ac0c561-ff26-45fc-b6d5-0a983432394e"
+    ],
+    "card": {
+      "image": {
+        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1682398819/Images/aware_and_allowe_collection_ctyfxt.png"
+      },
+      "imageBackgroundColor": "#6393ad"
+    },
+    "published": true,
+    "link": "https://aware.29k.org/aware-and-allow",
+    "sortOrder": 4
+  },
+  "pt-BR": {
+    "description": "Amor, gratidão e estar aqui e agora com o que é, são habilidades essenciais para se sentir mais feliz e satisfeito com a vida. Nesta coleção, vamos praticar essas habilidades para que possamos focar nossas ações no que é importante para nós a longo prazo.",
+    "name": "Esteja com o que é",
     "id": "716c2b31-612c-40c4-8e85-90f0a2af380e",
     "exercises": [
       "095f9642-73b6-4c9a-ae9a-ea7dea7363f5",

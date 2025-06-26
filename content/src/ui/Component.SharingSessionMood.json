@@ -8,7 +8,7 @@
     "step_3": "Nervous",
     "answer_3": "Thanks for sharing. In this place, all of you is welcome. We're here to support. And it's okay to just listen in with the camera off - we appreciate your presence in any form."
   },
-  "pt": {
+  "pt-PT": {
     "question": "Como te estás a sentir por participares nesta sessão?",
     "step_1": "Entusiasmada/o",
     "answer_1": "Boa! Obrigada por estares aqui. A tua presença torna a sessão excelente.",
@@ -38,5 +38,14 @@
     "step_1": "Emocionado/a",
     "step_2": "Neutral",
     "step_3": "Nervioso/a"
+  },
+  "pt-BR": {
+    "answer_1": "Legal! Obrigado(a) por estar aqui. Sua presença torna a sessão especial.",
+    "answer_2": "Obrigado(a) por comparecer. Se você se sentir um pouco inseguro(a), está no lugar certo. Vamos te guiar pela experiência, então você pode apenas ouvir ou participar da forma que preferir.",
+    "answer_3": "Obrigado(a) por compartilhar. Neste espaço, todo o seu ser é bem-vindo. Estamos aqui para apoiar. E tudo bem apenas ouvir com a câmera desligada – apreciamos sua presença de qualquer forma.",
+    "question": "Como você se sente em participar desta sessão ao vivo?",
+    "step_1": "Animado(a)",
+    "step_2": "Neutro(a)",
+    "step_3": "Nervoso(a)"
   }
 }

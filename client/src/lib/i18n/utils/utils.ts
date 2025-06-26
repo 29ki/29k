@@ -9,9 +9,10 @@ export const omitPublishableContent = (resources: typeof content.i18n) => {
     string,
     Record<string, string>
   >; // Can't delete exercises in type content.i18n since it's not optional
+
   LANGUAGE_TAGS.forEach(language => {
     PUBLISHABLE_NAMESPACES.forEach(namespace => {
-      delete allResources[language][namespace];
+      delete allResources?.[language]?.[namespace];
     });
   });
 

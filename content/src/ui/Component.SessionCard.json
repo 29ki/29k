@@ -11,7 +11,7 @@
       "startsIn": "Starts in"
     }
   },
-  "pt": {
+  "pt-PT": {
     "addToCalendar": "Adicionar ao calendário",
     "counterLabel": {
       "starts": "Inicia",
@@ -49,6 +49,18 @@
       "startsIn": "Empieza en"
     },
     "join": "Entra",
+    "minutesAbbreviation": "min"
+  },
+  "pt-BR": {
+    "addToCalendar": "Adicionar ao calendário",
+    "counter": {
+      "started": "Iniciada"
+    },
+    "counterLabel": {
+      "starts": "Começa",
+      "startsIn": "Começa em"
+    },
+    "join": "Participar",
     "minutesAbbreviation": "min"
   }
 }

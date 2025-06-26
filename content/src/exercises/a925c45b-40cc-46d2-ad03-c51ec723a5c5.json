@@ -127,7 +127,7 @@
     "async": true,
     "description": "Practice taking a mindful and self-compassionate moment with your body. Recognising what's going on in our bodies can help us identify important matters and be in the present moment."
   },
-  "pt": {
+  "pt-PT": {
     "slides": [
       {
         "type": "host",
@@ -414,5 +414,133 @@
   },
   "es": {
     "id": "a925c45b-40cc-46d2-ad03-c51ec723a5c5"
+  },
+  "pt-BR": {
+    "description": "Pratique tirar um momento de atenção plena e autocompaixão com seu corpo. Reconhecer o que está acontecendo em nosso corpo pode nos ajudar a identificar questões importantes e estar no momento presente.",
+    "introPortal": {
+      "hostNotes": [
+        {
+          "text": ">Comece a sessão quando estiver pronto para seguir"
+        }
+      ],
+      "textColor": "#2AE2D7",
+      "videoLoop": {
+        "p5JsScript": {
+          "lang": "javascript"
+        }
+      }
+    },
+    "name": "Seu corpo, seu lar",
+    "slides": [
+      {
+        "hostNotes": [
+          {
+            "text": "Bem-vindo(a). Eu sou X e hoje vamos trabalhar por cerca de 30 minutos em estar presente em nossos corpos.\n\nFaremos um exercício em áudio, seguido de um tempo para reflexão e compartilhamento entre nós, se estivermos dispostos."
+          },
+          {
+            "text": "Vamos começar com um mini check-in. Como você está se sentindo agora? Por favor, responda em duas ou três palavras. X, você gostaria de começar?\n\n> Deixe todos na sessão, inclusive você, fazerem o check-in um por um.\n\nObrigado a todos por compartilharem. Vamos começar."
+          }
+        ],
+        "type": "host"
+      },
+      {
+        "hostNotes": [
+          {
+            "text": "Encontre uma posição confortável. Vou iniciar o exercício em áudio e nos encontraremos aqui novamente depois.\n\n> Aperte play para começar o exercício em áudio."
+          }
+        ],
+        "type": "content",
+        "content": {
+          "lottie": {
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1718784650/Audio/Your_body_your_home_Eng_ug6i4k.mp3",
+            "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1718784710/SRT%20(captions)%20files/Your_body_your_home_Eng_lohwpk.srt"
+          }
+        }
+      },
+      {
+        "content": {
+          "heading": "O que você encontrou em si mesmo hoje?"
+        },
+        "hostNotes": [
+          {
+            "text": "Agora vamos tirar 1 minuto para refletir individualmente.\n\nO que você encontrou dentro de si hoje?"
+          },
+          {
+            "text": "Você pode fazer anotações em um papel ou apenas mentalmente. Não existe certo ou errado aqui, nossas respostas são pessoais. 1 minuto começando agora.\n\n> Aperte play para iniciar o cronômetro.\n\nPassou 1 minuto, é hora de seguir em frente."
+          }
+        ],
+        "type": "reflection"
+      },
+      {
+        "content": {
+          "heading": "O que você encontrou em si mesmo hoje?"
+        },
+        "hostNotes": [
+          {
+            "text": "Agora estamos entrando na parte de compartilhamento. Temos três regras para o compartilhamento:\n\n1. **O que é dito aqui, fica aqui.**\n2. **Tudo o que você precisa fazer é ouvir.** Não é necessário consertar, ajudar ou dar conselhos. Estamos apenas presentes e explorando o que nós e os outros estamos vivenciando."
+          },
+          {
+            "text": "3. **Tudo o que você sentir é válido.** Raiva, amor, ódio, tristeza. O que surgir. Não existe certo ou errado. \n\nO cronômetro será ajustado para 2 minutos como referência. Se você não quiser compartilhar, pode simplesmente dizer “passo”.\n\n"
+          },
+          {
+            "text": "Quem gostaria de começar?\n\n> Deixe todos (ou o maior número possível, conforme o tempo permitir) compartilharem um por um. Aperte play para iniciar o cronômetro. Reinicie para cada novo compartilhamento.\n\nMuito obrigado a todos.\n\n"
+          }
+        ],
+        "type": "sharing",
+        "id": "Sharing 1"
+      },
+      {
+        "hostNotes": [
+          {
+            "text": "Muito bem. Estar presente no momento com o nosso corpo é uma habilidade essencial para apreciar a vida. Se quiser, aqui vai uma sugestão: programe um lembrete para um horário aleatório do dia, durante três dias. Quando o lembrete tocar, tire um momento consciente com o seu corpo para recarregar e se reconectar."
+          },
+          {
+            "text": "Antes de sairmos deste espaço, vamos fazer um mini check-out.\n\nComo você está se sentindo agora? Algo mudou? Por favor, responda em duas ou três palavras."
+          },
+          {
+            "text": "Quem gostaria de começar?\n\n> Deixe todos (ou o maior número possível, conforme o tempo permitir) compartilharem um por um. Aperte play para iniciar o cronômetro. Reinicie para cada novo compartilhamento.\n\nMuito obrigado a todos.\n\n"
+          }
+        ],
+        "type": "host"
+      },
+      {
+        "content": {
+          "text": "Muito bem. Estar presente no momento com o nosso corpo é uma habilidade poderosa para apreciar a vida.\n\nSe quiser, aqui vai uma sugestão: programe um lembrete para um horário aleatório do dia, durante três dias. Quando o lembrete tocar, tire um momento consciente com o seu corpo para recarregar e se reconectar.\n\nPerceba como isso faz você se sentir."
+        },
+        "type": "instruction"
+      }
+    ],
+    "id": "a925c45b-40cc-46d2-ad03-c51ec723a5c5",
+    "theme": {
+      "textColor": "#2E2E2E"
+    },
+    "hidden": true,
+    "locked": false,
+    "live": true,
+    "published": false,
+    "coCreators": [
+      {
+        "name": "Agnes Branny, voice",
+        "url": "https://www.agnesbranny.com/",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665414181/Contributors/Agnes%20Branny.png"
+      },
+      {
+        "name": "Jenny Rickardsson, editor",
+        "url": "https://www.linkedin.com/in/jenny-rickardson-6770a959/",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413228/Contributors/Jenny%20Rickardsson.jpg"
+      },
+      {
+        "name": "Kristin Neff & Chris Germer, original research",
+        "url": "https://centerformsc.org/",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1697723039/Images/Germer%2C%20Neff.png"
+      }
+    ],
+    "asyncDuration": 10,
+    "liveDuration": 30,
+    "tags": [
+      "db34d82a-4c48-4ddd-9de5-f562d8aa1bc9",
+      "cfc00217-f65b-4a4d-8b82-8ccc8f852dd6"
+    ],
+    "async": true
   }
 }

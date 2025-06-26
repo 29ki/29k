@@ -16,7 +16,7 @@
       "validateSession/user-not-found": "User not found for session."
     }
   },
-  "pt": {
+  "pt-PT": {
     "placeholder": "Por favor escreve o teu nome",
     "join_button": "Participar",
     "cameraOff": "A câmara está desligada",
@@ -70,5 +70,22 @@
       "title": "Prerápate para esta sesión"
     },
     "placeholder": "Por favor, escribe tu nombre"
+  },
+  "pt-BR": {
+    "cameraOff": "Câmera desligada",
+    "errorTitle": "Não foi possível entrar na sessão.",
+    "errors": {
+      "validateSession/not-found": "Não foi possível encontrar a sessão.",
+      "validateSession/user-not-found": "Usuário não encontrado para a sessão."
+    },
+    "join_button": "Participar",
+    "onboarding": {
+      "about": "Esta sessão é uma chamada de vídeo ao vivo. Você pode apenas ouvir ou compartilhar sua experiência com o grupo.",
+      "button": "Entendi",
+      "headset": "Use fones de ouvido e encontre um espaço confortável e tranquilo.",
+      "permissions": "Certifique-se de permitir o acesso à sua câmera e microfone.",
+      "title": "Vamos nos preparar para esta sessão"
+    },
+    "placeholder": "Por favor, digite seu nome"
   }
 }

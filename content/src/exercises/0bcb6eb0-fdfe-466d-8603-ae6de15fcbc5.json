@@ -179,7 +179,7 @@
     "async": true,
     "description": "Dreaming about our future can guide us in the present moment by shining a light on what’s important in the long run.\n\nThis can be extra helpful when we’re under pressure, when we tend to be short-sighted and out of touch with what truly matters."
   },
-  "pt": {
+  "pt-PT": {
     "liveDuration": 30,
     "slides": [
       {
@@ -839,5 +839,185 @@
     "id": "0bcb6eb0-fdfe-466d-8603-ae6de15fcbc5",
     "async": true,
     "description": "Soñar con nuestro futuro puede guiarnos en el momento presente, iluminando lo que es importante a largo plazo.\n\nEsto puede ser especialmente útil cuando estamos bajo presión, cuando tendemos a ser miopes y a perder el contacto con lo que realmente importa."
+  },
+  "pt-BR": {
+    "description": "Sonhar com o nosso futuro pode nos orientar no presente, iluminando o que realmente importa a longo prazo.\n\nIsso pode ser especialmente útil em momentos de pressão, quando tendemos a enxergar apenas o imediato e nos desconectamos do que é verdadeiramente importante",
+    "introPortal": {
+      "hostNotes": [
+        {
+          "text": ">Comece a sessão quando estiver pronto para seguir"
+        }
+      ],
+      "videoLoop": {
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1692855519/Video/portal1_90th_birthday_sjt1ao.mp4",
+        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1692855561/Audio/portal_audio_90th_birthday_e9ngzj.mp3",
+        "p5JsScript": {
+          "lang": "javascript"
+        }
+      },
+      "videoEnd": {
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1692855528/Video/portal2_90th_birthday_cofsf7.mp4"
+      },
+      "textColor": "#2E2E2E"
+    },
+    "name": "Seu aniversário de 90 anos",
+    "slides": [
+      {
+        "hostNotes": [
+          {
+            "text": "Bem-vindo. Eu sou x e hoje vamos trabalhar por cerca de 30 minutos sobre valores e encontrar nossa direção na vida. Faremos uma breve introdução, ouviremos um áudio e, em seguida, teremos um tempo para reflexão e compartilhamento entre nós."
+          },
+          {
+            "text": "Vamos começar com um mini check-in. Como você está se sentindo agora? Por favor, responda em duas ou três palavras. X, você gostaria de começar?\n\n> Deixe todos na sessão, inclusive você, fazerem o check-in um por um.\n\nObrigado a todos por compartilharem. Vamos começar."
+          }
+        ],
+        "type": "host"
+      },
+      {
+        "hostNotes": [
+          {
+            "text": "Às vezes, a vida pode passar diante de nós enquanto estamos ocupados fazendo outros planos. Dar um passo para trás e refletir sobre o que é mais importante para nós pode nos ajudar a encontrar direção."
+          },
+          {
+            "text": "E assim, isso pode nos ajudar a seguir em uma direção significativa pelos altos e baixos da vida.\n\nEncontre uma posição confortável. Vou apertar o play e nos encontramos aqui novamente depois.\n\n> Aperte play para iniciar o exercício em áudio"
+          }
+        ],
+        "type": "content",
+        "content": {
+          "video": {
+            "durationTimer": false,
+            "audio": "",
+            "subtitles": ""
+          },
+          "lottie": {
+            "durationTimer": true,
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1676977421/Lottie/audio_meditation_default_black_default_omemwt.json",
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1696260215/Audio/Who_are_you_at_90__edlsyx.mp3",
+            "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1696260315/SRT%20(captions)%20files/Who_are_you_at_90__fcw5ut.srt"
+          }
+        }
+      },
+      {
+        "content": {
+          "heading": "Como você gostaria de ser lembrado quando chegar aos 90 anos?",
+          "text": "",
+          "lottie": {
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1676642915/Lottie/default_1min_black_rosi2l.json",
+            "durationTimer": true,
+            "duration": 60
+          }
+        },
+        "hostNotes": [
+          {
+            "text": "Agora vamos tirar 1 minuto para refletir individualmente.\n\nQuais percepções você teve durante o exercício? Como você gostaria de ser lembrado quando chegar aos 90 anos?"
+          },
+          {
+            "text": "Você pode fazer anotações em um papel ou apenas mentalmente. Não existe certo ou errado aqui, nossas respostas são pessoais. 1 minuto começando agora.\n\n> Aperte play para iniciar o cronômetro.\n\nPassou 1 minuto, é hora de seguir em frente."
+          }
+        ],
+        "type": "reflection"
+      },
+      {
+        "content": {
+          "heading": "Como você gostaria de ser lembrado quando chegar aos 90 anos?",
+          "text": "",
+          "lottie": {
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1676639253/Lottie/default_2min_black_o6egey.json",
+            "durationTimer": true,
+            "duration": 120
+          },
+          "video": {
+            "source": "",
+            "preview": ""
+          }
+        },
+        "hostNotes": [
+          {
+            "text": "Agora vamos para a parte de compartilhamento. Temos três regras para compartilhar:\n\n1. **O que é dito aqui, fica aqui.**\n2. **Tudo o que você precisa fazer é ouvir.** Não é necessário consertar, ajudar ou dar conselhos. Estamos apenas presentes e explorando o que nós e os outros estamos vivenciando."
+          },
+          {
+            "text": "3. **Tudo o que você sentir é válido.** Raiva, amor, ódio, tristeza. O que surgir. Não existe certo ou errado. \n\nO cronômetro será ajustado para 2 minutos como referência. Se você não quiser compartilhar, pode simplesmente dizer “passo”.\n\n"
+          },
+          {
+            "text": "Quem gostaria de começar?\n\n> Deixe todos (ou o maior número possível, conforme o tempo permitir) compartilharem um por um. Aperte play para iniciar o cronômetro. Reinicie para cada novo compartilhamento.\n\nMuito obrigado a todos."
+          }
+        ],
+        "sharingVideos": [
+          {
+            "profile": {
+              "displayName": "Verão",
+              "photoURL": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1698942056/Images/summer_awp_exercise1_1-90th_birthday_Image_cuhqhv.jpg"
+            },
+            "video": {
+              "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1698746327/Video/summer_awp_exercise1_1-90th_birthday._Sharing_ajcory.mp4",
+              "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1698942056/Images/summer_awp_exercise1_1-90th_birthday_Image_cuhqhv.jpg",
+              "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1699018035/SRT%20(captions)%20files/summer_awp_exercise1_1-90th_birthday._Sharing_d16bqx.srt"
+            }
+          },
+          {
+            "profile": {
+              "displayName": "Vanessa",
+              "photoURL": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1698942071/Images/vanessa_exercise1_90th_birthday-1_Image_x25cms.jpg"
+            },
+            "video": {
+              "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1698755148/Video/vanessa_exercise1_90th_birthday-1.Sharing_ys6ol2.mp4",
+              "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1698942071/Images/vanessa_exercise1_90th_birthday-1_Image_x25cms.jpg",
+              "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1699018016/SRT%20(captions)%20files/vanessa_exercise1_90th_birthday-1.Sharing_dwbhvg.srt"
+            }
+          }
+        ],
+        "type": "sharing",
+        "id": "sharing1"
+      },
+      {
+        "hostNotes": [
+          {
+            "text": "Muito bem. Acabamos de nos imaginar no futuro, para ver o que podemos aprender com nosso eu do futuro, aqui e agora. Isso pode nos ajudar a identificar valores e nos dar um senso de direção e significado na vida.\n\nVocê topa uma sugestão? Se sim, escolha uma ação simples que você possa fazer hoje ou amanhã para se aproximar de como gostaria de ser lembrado."
+          },
+          {
+            "text": "Antes de sairmos deste espaço, vamos fazer um mini check-out.\n\nComo você está se sentindo agora? Algo mudou? Por favor, responda em duas ou três palavras."
+          },
+          {
+            "text": "Quem gostaria de começar?\n\n> Deixe todos (ou o maior número possível, conforme o tempo permitir) compartilharem um por um. Aperte play para iniciar o cronômetro. Reinicie para cada novo compartilhamento.\n\nMuito obrigado a todos.\n\n"
+          }
+        ],
+        "type": "host"
+      },
+      {
+        "content": {
+          "heading": "Muito bem",
+          "text": "Acabamos de nos imaginar no futuro, para ver o que podemos aprender com nosso eu do futuro, aqui e agora. Isso pode nos ajudar a identificar valores e nos dar um senso de direção e significado na vida.\n\nVocê topa uma a sugestão? Se sim, escolha uma ação simples que você possa fazer hoje ou amanhã para se aproximar de como gostaria de ser lembrado.",
+          "image": {
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1692855592/Images/card_image_90th_birthday_noi09y.png"
+          }
+        },
+        "type": "instruction"
+      }
+    ],
+    "id": "0bcb6eb0-fdfe-466d-8603-ae6de15fcbc5",
+    "liveDuration": 30,
+    "theme": {
+      "textColor": "#2E2E2E",
+      "backgroundColor": "#ffd788"
+    },
+    "hidden": false,
+    "live": true,
+    "published": false,
+    "asyncDuration": 8,
+    "card": {
+      "image": {
+        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1692855592/Images/card_image_90th_birthday_noi09y.png"
+      }
+    },
+    "socialMeta": {
+      "image": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1692855592/Images/card_image_90th_birthday_noi09y.png"
+    },
+    "coCreators": [],
+    "tags": [
+      "9c2c08a9-7dc6-4058-bc78-016d0eb00614",
+      "cfc00217-f65b-4a4d-8b82-8ccc8f852dd6"
+    ],
+    "link": "https://aware.29k.org/your-90th-birthday",
+    "async": true
   }
 }

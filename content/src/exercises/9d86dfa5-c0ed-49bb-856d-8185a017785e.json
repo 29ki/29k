@@ -133,7 +133,7 @@
     "async": true,
     "description": "Compassion depends on awareness of the other’s situation and an ability to empathize with them, combined with a sense of affection or endearment towards that person. Compassion goes deeper than just external actions and also refers to a state of mind and heart: one’s intention to bring help and happiness to another person."
   },
-  "pt": {
+  "pt-PT": {
     "liveDuration": 0,
     "slides": [
       {
@@ -432,5 +432,139 @@
   },
   "es": {
     "id": "9d86dfa5-c0ed-49bb-856d-8185a017785e"
+  },
+  "pt-BR": {
+    "description": "A compaixão depende da consciência da situação do outro e da capacidade de se colocar no lugar dele, combinadas com um sentimento de afeto ou carinho por essa pessoa. A compaixão vai além das ações externas e também se refere a um estado de mente e coração: a intenção de trazer ajuda e felicidade ao outro.",
+    "introPortal": {
+      "hostNotes": [
+        {
+          "text": ">Pressione play para iniciar o exercício"
+        }
+      ],
+      "textColor": "#2E2E2E",
+      "videoLoop": {
+        "p5JsScript": {
+          "lang": "javascript"
+        },
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1717469190/SEE/Video/SEELearning_AwareApp_IntroVideo_2024_V3_1_giheh7.mp4"
+      }
+    },
+    "name": "Compaixão pelos outros",
+    "slides": [
+      {
+        "content": {
+          "heading": "Bem-vindo(a)",
+          "text": "Nesta sessão, você irá praticar compaixão pelos outros.\n\nEncontre uma posição confortável e comece o exercício quando estiver pronto(a).",
+          "image": {
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1731441064/SEE/SEELearning_CompassionTree_Green_2024_hiqhwi.png"
+          }
+        },
+        "type": "instruction"
+      },
+      {
+        "type": "content",
+        "hostNotes": [],
+        "content": {
+          "lottie": {
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto/v1715668474/SEE/Lottie/Compassion/Compassion2_esarf0.json",
+            "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1715753400/SEE/SRT/Compassion/Compassion_for_Others_eyymym.srt",
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1715663869/SEE/Audio/Compassion/Compassion_for_Others_i5duy4.mp3"
+          }
+        }
+      },
+      {
+        "content": {
+          "heading": "Reflexão",
+          "text": "Você pode anotar em um papel ou apenas mentalmente. Não há certo ou errado aqui, nossas respostas são pessoais.",
+          "image": {
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1716951212/SEE/Icons/Reflection/Reflection_Awareness_CardImage_wgzwcf.png"
+          }
+        },
+        "type": "instruction"
+      },
+      {
+        "content": {
+          "heading": "Reflexão",
+          "text": "Como foi essa experiência para você?\n\nComo você pode cultivar a compaixão em sua vida pessoal e quais desafios prevê ao estender compaixão aos outros?\n\nComo podemos ampliar a compaixão que praticamos em nossa família e levá-la para a nossa comunidade?",
+          "image": {
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1716951212/SEE/Icons/Reflection/Reflection_Awareness_CardImage_wgzwcf.png"
+          }
+        },
+        "type": "instruction"
+      },
+      {
+        "content": {
+          "heading": "Como você pode cultivar compaixão na sua vida?",
+          "text": "",
+          "lottie": {
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1718146077/SEE/Lottie/Timer/2min_timer_yjuzls.json"
+          }
+        },
+        "type": "sharing",
+        "hostNotes": [],
+        "id": "Sharing 1"
+      },
+      {
+        "content": {
+          "heading": "Que desafios você espera ao ser compassivo com os outros?",
+          "video": {
+            "durationTimer": true
+          },
+          "lottie": {
+            "durationTimer": true,
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1718146077/SEE/Lottie/Timer/2min_timer_yjuzls.json"
+          },
+          "text": ""
+        },
+        "type": "sharing",
+        "id": "sharing 2"
+      },
+      {
+        "content": {
+          "heading": "Compaixão",
+          "text": "Bom trabalho. Hoje, exploramos e praticamos a compaixão pelos outros.\n\nAo praticar e cultivar a compaixão pelos outros, começamos a entender os sentimentos e reações das pessoas em relação às situações em que ocorrem, e percebemos que, assim como nós, os outros também têm sentimentos causados por necessidades.\n\n",
+          "image": {
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1718143927/SEE/Icons/Compassion/CompassionforOthers_CardImage_i0bt08.png"
+          }
+        },
+        "type": "instruction"
+      },
+      {
+        "content": {
+          "heading": "Compaixão",
+          "text": "Se você estiver disposto, pode continuar com esta sugestão.\n\nPlaneje o passo que você vai dar, considerando como o conceito de zona de resiliência pode ser útil no seu dia.",
+          "image": {
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1718143927/SEE/Icons/Compassion/CompassionforOthers_CardImage_i0bt08.png"
+          }
+        },
+        "type": "instruction"
+      }
+    ],
+    "id": "9d86dfa5-c0ed-49bb-856d-8185a017785e",
+    "liveDuration": 0,
+    "theme": {
+      "textColor": "#2E2E2E"
+    },
+    "hidden": false,
+    "locked": true,
+    "live": false,
+    "published": false,
+    "asyncDuration": 10,
+    "card": {
+      "image": {
+        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1718143927/SEE/Icons/Compassion/CompassionforOthers_CardImage_i0bt08.png"
+      }
+    },
+    "coCreators": [
+      {
+        "name": "SEE Learning",
+        "url": "https://seelearning.emory.edu/en/home",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1713881366/SEE/see-logo_1_kewtlt.png"
+      }
+    ],
+    "tags": [
+      "db34d82a-4c48-4ddd-9de5-f562d8aa1bc9"
+    ],
+    "async": true
   }
 }

@@ -10,7 +10,7 @@
       "confirm": "Yes"
     }
   },
-  "pt": {
+  "pt-PT": {
     "title_ios": "Registar minutos de utilização",
     "title_android": "Registar minutos de meditação",
     "message_ios": "Queres gravar os teus minutos de utilização na Apple Health?",
@@ -46,5 +46,16 @@
     "message_ios": "¿Quieres registrar tus minutos de mindfulness en Apple Health?",
     "title_android": "Registrar los minutos de meditación",
     "title_ios": "Registrar los minutos de mindfulness"
+  },
+  "pt-BR": {
+    "actions": {
+      "cancel": "Talvez mais tarde",
+      "confirm": "Sim",
+      "dismiss": "Não"
+    },
+    "message_android": "Você deseja registrar seus minutos de meditação no Google Fit?",
+    "message_ios": "Você deseja registrar seus minutos de atenção plena no Apple Health?",
+    "title_android": "Registrar minutos de meditação",
+    "title_ios": "Registrar minutos de atenção plena"
   }
 }

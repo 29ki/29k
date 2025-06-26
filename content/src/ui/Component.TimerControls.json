@@ -2,7 +2,7 @@
   "en": {
     "text": "Start the timer to take a minute to reflect"
   },
-  "pt": {
+  "pt-PT": {
     "text": "Inicie o cronómetro e tire um momento para refletir"
   },
   "sv": {
@@ -20,5 +20,8 @@
   },
   "es": {
     "text": "Inicia el temporizador y tómate un momento para reflexionar"
+  },
+  "pt-BR": {
+    "text": "Inicie o temporizador para reservar um minuto para refletir"
   }
 }

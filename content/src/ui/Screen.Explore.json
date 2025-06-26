@@ -6,7 +6,7 @@
     "liveSessionsHeading": "Live sessions",
     "skillsHeading": "Skills"
   },
-  "pt": {
+  "pt-PT": {
     "sessionsHeading": "Sessões",
     "collectionsHeading": "Programas",
     "featuredHeading": "Novos lançamentos",
@@ -29,6 +29,13 @@
     "featuredHeading": "Nuevos lanzamientos",
     "liveSessionsHeading": "Sesiones en directo",
     "sessionsHeading": "Sesiones",
+    "skillsHeading": "Habilidades"
+  },
+  "pt-BR": {
+    "collectionsHeading": "Programas",
+    "featuredHeading": "Novidades",
+    "liveSessionsHeading": "Sessões ao vivo",
+    "sessionsHeading": "Sessões",
     "skillsHeading": "Habilidades"
   }
 }

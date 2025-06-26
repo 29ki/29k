@@ -159,27 +159,35 @@
         "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1709204297/Acting_portal_2_qwwuhe.mp4"
       }
     },
-    "tags": ["8da0534a-5da9-430a-bdf3-242ace6460fb"],
+    "tags": [
+      "8da0534a-5da9-430a-bdf3-242ace6460fb"
+    ],
     "link": "https://aware.29k.org/bounce-back",
     "id": "9d2ae09f-274b-4fd6-bc3c-8a4576c45c37",
     "async": true,
     "description": "Enabling change both in others and ourselves entails skills as courage, creativity, perseverence and resilience. In this session we investigate our resources and inspire optimism, to act in a tough situation. You'll need somewhere to take notes for this session."
   },
-  "pt": {
+  "pt-PT": {
     "id": "9d2ae09f-274b-4fd6-bc3c-8a4576c45c37",
-    "tags": ["8da0534a-5da9-430a-bdf3-242ace6460fb"],
+    "tags": [
+      "8da0534a-5da9-430a-bdf3-242ace6460fb"
+    ],
     "card": {},
     "locked": true
   },
   "sv": {
     "id": "9d2ae09f-274b-4fd6-bc3c-8a4576c45c37",
-    "tags": ["8da0534a-5da9-430a-bdf3-242ace6460fb"],
+    "tags": [
+      "8da0534a-5da9-430a-bdf3-242ace6460fb"
+    ],
     "card": {},
     "locked": true
   },
   "ja": {
     "id": "9d2ae09f-274b-4fd6-bc3c-8a4576c45c37",
-    "tags": ["8da0534a-5da9-430a-bdf3-242ace6460fb"],
+    "tags": [
+      "8da0534a-5da9-430a-bdf3-242ace6460fb"
+    ],
     "card": {},
     "locked": true
   },
@@ -194,5 +202,173 @@
   },
   "es": {
     "id": "9d2ae09f-274b-4fd6-bc3c-8a4576c45c37"
+  },
+  "pt-BR": {
+    "description": "Promover mudanças tanto nos outros quanto em nós mesmos exige habilidades como coragem, criatividade, perseverança e resiliência. Nesta sessão, vamos investigar nossos recursos e inspirar otimismo para agir em situações difíceis. Você vai precisar de um local para fazer anotações durante esta sessão.",
+    "introPortal": {
+      "hostNotes": [
+        {
+          "text": ">Inicie a sessão quando estiver pronto para começar"
+        }
+      ],
+      "videoLoop": {
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1709149746/Video/Acting_portal_1_bid40x.mp4",
+        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1707994694/Audio/portal_audio-Open_up_i5gb79.mp3",
+        "p5JsScript": {
+          "lang": "javascript"
+        }
+      },
+      "videoEnd": {
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1709204297/Acting_portal_2_qwwuhe.mp4"
+      }
+    },
+    "name": "Ação",
+    "slides": [
+      {
+        "hostNotes": [
+          {
+            "text": "Bem-vindo(a)\n\nEu sou X e hoje vamos trabalhar por cerca de 30 minutos sobre resiliência e perseverança – habilidades importantes na categoria de Ação.\n\nFaremos um exercício em áudio, seguido de um tempo para reflexão e compartilhamento entre nós. Aviso: você vai precisar de um lugar para fazer anotações durante este exercício."
+          },
+          {
+            "text": "Vamos começar com um mini check-in. Como você está se sentindo agora? Por favor, responda em duas ou três palavras. X, você gostaria de começar?\n\n> Deixe todos na sessão, inclusive você, fazerem o check-in um por um.\n\nObrigado a todos por compartilharem. Vamos começar."
+          }
+        ],
+        "type": "host"
+      },
+      {
+        "content": {
+          "text": "Nesta sessão, vamos focar em resiliência e perseverança, duas habilidades da categoria de Ação. Vamos dar um passo atrás e investigar quais recursos temos para impulsionar as coisas adiante. Aviso: você vai precisar de um lugar para fazer anotações durante este exercício.",
+          "image": {
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1709149023/Images/Acting_async_image_wli32l.png"
+          }
+        },
+        "type": "instruction"
+      },
+      {
+        "hostNotes": [
+          {
+            "text": ">Aperte play para começar o exercício em áudio"
+          }
+        ],
+        "type": "content",
+        "content": {
+          "lottie": {
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1696255947/Audio/Bounce_back_ejnsty.mp3",
+            "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1696256068/SRT%20(captions)%20files/Bounce_back_tvpujy.srt",
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto/v1709134304/Lottie/IDG_lotties/Acting_meditation_kwxeuq.json",
+            "durationTimer": true
+          },
+          "video": {
+            "durationTimer": true
+          }
+        }
+      },
+      {
+        "content": {
+          "heading": "O que você aprendeu sobre si mesmo?",
+          "text": "O que você vai fazer?",
+          "lottie": {
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto/v1709133218/Lottie/IDG_lotties/1_min_IDG_e1tws9.json",
+            "duration": 60,
+            "durationTimer": true
+          }
+        },
+        "hostNotes": [
+          {
+            "text": "Agora vamos tirar 1 minuto para refletir individualmente.\n\nO que você descobriu sobre si mesmo e o que pretende fazer na situação atual sobre a qual refletiu?"
+          },
+          {
+            "text": "Você pode fazer anotações em um papel ou apenas mentalmente. Não existe certo ou errado aqui, nossas respostas são pessoais. 1 minuto começando agora.\n\n> Aperte play para iniciar o cronômetro.\n\nPassou 1 minuto, é hora de seguir em frente."
+          }
+        ],
+        "type": "reflection"
+      },
+      {
+        "content": {
+          "heading": "O que você aprendeu sobre si mesmo? O que você fará?",
+          "lottie": {
+            "durationTimer": true,
+            "duration": 120,
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto/v1709133219/Lottie/IDG_lotties/Acting_2min_ngrlch.json"
+          },
+          "text": ""
+        },
+        "hostNotes": [
+          {
+            "text": "Agora estamos entrando na parte de compartilhamento. Temos três regras para o compartilhamento:\n\n1. **O que é dito aqui, fica aqui.**\n2. **Tudo o que você precisa fazer é ouvir.** Não é necessário consertar, ajudar ou dar conselhos. Estamos apenas presentes e explorando o que nós e os outros estamos vivenciando."
+          },
+          {
+            "text": "3. **Tudo o que você sentir é válido.** Raiva, amor, ódio, tristeza. O que surgir. Não existe certo ou errado. \n\nO cronômetro será ajustado para 2 minutos como referência. Se você não quiser compartilhar, pode simplesmente dizer “passo”.\n\n"
+          },
+          {
+            "text": "Quem gostaria de começar?\n\n> Deixe todos (ou o maior número possível, conforme o tempo permitir) compartilharem um por um. Aperte play para iniciar o cronômetro. Reinicie para cada novo compartilhamento.\n\nMuito obrigado a todos.\n\n"
+          }
+        ],
+        "type": "sharing",
+        "id": "1"
+      },
+      {
+        "hostNotes": [
+          {
+            "text": "Muito bem. Se quiser, você pode continuar com uma sugestão .\n\nApós esta sessão, escolha um dos recursos que você identificou para a sua situação atual e coloque-o em prática. Daqui a alguns dias, avalie aonde isso te levou."
+          },
+          {
+            "text": "Antes de sairmos deste espaço, vamos fazer um mini check-out.\n\nComo você está se sentindo agora? Algo mudou? Por favor, responda em duas ou três palavras."
+          },
+          {
+            "text": "Quem gostaria de começar?\n\n> Deixe todos (ou o maior número possível, conforme o tempo permitir) compartilharem um por um. Aperte play para iniciar o cronômetro. Reinicie para cada novo compartilhamento.\n\nMuito obrigado a todos.\n\n"
+          }
+        ],
+        "type": "host"
+      },
+      {
+        "content": {
+          "text": "Muito bem.\n\nAgora você aprendeu os 4S:\n\n1. Suporte  \n2. Estratégias  \n3. Inteligência  \n4. Busca de Soluções  \n\nEscolha um dos recursos que você identificou para a sua situação atual e coloque-o em prática. Daqui a alguns dias, avalie aonde isso te levou.",
+          "image": {
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1709149023/Images/Acting_async_image_wli32l.png"
+          }
+        },
+        "type": "instruction"
+      }
+    ],
+    "id": "9d2ae09f-274b-4fd6-bc3c-8a4576c45c37",
+    "theme": {
+      "textColor": "#F9F8F4",
+      "backgroundColor": "#661a30"
+    },
+    "hidden": false,
+    "locked": true,
+    "live": true,
+    "published": false,
+    "card": {
+      "backgroundColor": "",
+      "image": {
+        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1709126728/Images/Acting_card_image_ekavj6.png"
+      }
+    },
+    "coCreators": [
+      {
+        "name": "Jenny Rickardsson, voice and editor",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1682602411/Images/Jenny_Rickardsson_kopia_sdodwf.jpg",
+        "url": "https://www.linkedin.com/in/jenny-rickardson-6770a959/"
+      },
+      {
+        "name": "Ints Ivanovskis, art works",
+        "url": "https://www.linkedin.com/in/ints-ivanovskis-46ab0311a/",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413436/Contributors/Ints%20Ivanovskis.jpg"
+      },
+      {
+        "name": "Lucinda Poole & Hugo Alberts, research & inspiration",
+        "url": "https://positivepsychology.com/team/",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1700730311/Contributors/positivepsychology.com.logo.png_umldu5.png"
+      }
+    ],
+    "asyncDuration": 10,
+    "liveDuration": 30,
+    "tags": [
+      "8da0534a-5da9-430a-bdf3-242ace6460fb"
+    ],
+    "link": "https://aware.29k.org/bounce-back",
+    "async": true
   }
 }

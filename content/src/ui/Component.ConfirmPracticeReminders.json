@@ -8,7 +8,7 @@
       "confirm": "Yes"
     }
   },
-  "pt": {
+  "pt-PT": {
     "title": "Faz disto um hábito",
     "message": "Queres definir um lembrete que te ajude a tornar esta prática um hábito?",
     "actions": {
@@ -38,5 +38,14 @@
     },
     "message": "¿Quieres establecer un recordatorio de práctica que te ayude a mantenerla?",
     "title": "Crea un hábito"
+  },
+  "pt-BR": {
+    "actions": {
+      "cancel": "Talvez mais tarde",
+      "confirm": "Sim",
+      "dismiss": "Não"
+    },
+    "message": "Você deseja definir um lembrete de prática para te ajudar a manter o hábito?",
+    "title": "Transforme isso em um hábito"
   }
 }

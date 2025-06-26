@@ -8,7 +8,7 @@
       "started": "Started"
     }
   },
-  "pt": {
+  "pt-PT": {
     "counterLabel": {
       "starts": "Inicia",
       "startsIn": "Inicia em"
@@ -37,6 +37,15 @@
     "counterLabel": {
       "starts": "Empieza",
       "startsIn": "Empieza en"
+    }
+  },
+  "pt-BR": {
+    "counter": {
+      "started": "Iniciada"
+    },
+    "counterLabel": {
+      "starts": "Começa",
+      "startsIn": "Começa em"
     }
   }
 }

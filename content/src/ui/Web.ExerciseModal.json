@@ -8,7 +8,7 @@
       "live": "As host"
     }
   },
-  "pt": {
+  "pt-PT": {
     "startHeading": "Fazer sessão...",
     "coCreatorsHeading": "Co-criada com",
     "startCta": "Iniciar",
@@ -38,5 +38,14 @@
       "live": "Como anfitrión/a"
     },
     "startHeading": "Hacer sesión..."
+  },
+  "pt-BR": {
+    "coCreatorsHeading": "Co-criado com",
+    "mode": {
+      "async": "Sozinho(a)",
+      "live": "Como anfitrião"
+    },
+    "startCta": "Iniciar",
+    "startHeading": "Fazer sessão..."
   }
 }

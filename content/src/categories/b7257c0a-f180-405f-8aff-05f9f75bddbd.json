@@ -29,7 +29,7 @@
       "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1702302654/Lottie/understand_myself_qeibfi.json"
     }
   },
-  "pt": {
+  "pt-PT": {
     "id": "b7257c0a-f180-405f-8aff-05f9f75bddbd",
     "collections": [
       "1d35e981-4b8e-47f0-887a-0c90d21fb991",
@@ -130,6 +130,36 @@
   },
   "es": {
     "name": "Conocerte",
+    "id": "b7257c0a-f180-405f-8aff-05f9f75bddbd",
+    "collections": [
+      "1d35e981-4b8e-47f0-887a-0c90d21fb991",
+      "dcb02b73-c515-44a1-bee3-850dbd5eb2a1",
+      "716c2b31-612c-40c4-8e85-90f0a2af380e",
+      "68172f5c-955a-43e0-9cef-ae3bc77c9593"
+    ],
+    "exercises": [
+      "185889ec-753b-4e2c-8322-3004013e8a6e",
+      "2d096e25-3f0b-48da-8557-3db607b98ef8",
+      "5b0dea9f-c665-41ce-a779-601d0cfa433d",
+      "c7911238-ca9f-4499-9cae-63dfcd0c79c5",
+      "c5b1197a-4eec-4699-9dad-0e3d6323967b",
+      "61adeaf2-70ab-4c6c-854c-2c16f762a3c5",
+      "f4f8a536-5683-40a3-a139-5e3031687cec",
+      "13dfd5b5-f0af-4783-9fe1-3ba7773bcb89",
+      "19135d2e-0e8d-418c-939d-18b0e62215ff",
+      "2ea0d73d-4bfe-4e23-9124-2998acc9743f",
+      "2fdb95f0-d18d-444d-9935-2c71b9b413d4",
+      "c1c4da35-87af-4e10-a8d9-e6c58571f724",
+      "c4b1c360-88b8-4e05-915a-407e00aef898",
+      "e4bf8d17-a774-4702-abfe-c7452c3fee0f"
+    ],
+    "published": true,
+    "lottie": {
+      "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1702302654/Lottie/understand_myself_qeibfi.json"
+    }
+  },
+  "pt-BR": {
+    "name": "Entender a si mesmo",
     "id": "b7257c0a-f180-405f-8aff-05f9f75bddbd",
     "collections": [
       "1d35e981-4b8e-47f0-887a-0c90d21fb991",

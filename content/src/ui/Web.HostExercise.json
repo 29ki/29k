@@ -2,7 +2,7 @@
   "en": {
     "openHostControls": "Open host view"
   },
-  "pt": {
+  "pt-PT": {
     "openHostControls": "Abrir vista de moderador/a"
   },
   "sv": {
@@ -14,5 +14,8 @@
   "nl": {},
   "es": {
     "openHostControls": "Abrir vista de anfitrión/a"
+  },
+  "pt-BR": {
+    "openHostControls": "Abrir visualização do anfitrião"
   }
 }

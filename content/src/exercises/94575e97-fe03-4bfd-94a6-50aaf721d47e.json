@@ -195,7 +195,7 @@
     "async": true,
     "description": "A guided meditation exercise on accepting what's going on inside. Practicing acceptance can help us do more of what matters, and has proven to be an effective way of dealing with inner experiences."
   },
-  "pt": {
+  "pt-PT": {
     "liveDuration": 30,
     "slides": [
       {
@@ -579,5 +579,201 @@
   },
   "es": {
     "id": "94575e97-fe03-4bfd-94a6-50aaf721d47e"
+  },
+  "pt-BR": {
+    "description": "Uma meditação guiada focada em aceitar o que está acontecendo dentro de você. Praticar a aceitação pode nos ajudar a fazer mais do que realmente importa e tem se mostrado uma forma eficaz de lidar com as experiências internas.\n\n",
+    "introPortal": {
+      "hostNotes": [
+        {
+          "text": ">Comece a sessão quando estiver pronto para seguir"
+        }
+      ],
+      "videoLoop": {
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1667376603/Video/portal1_Accepting_thoughts_and_feelings_upvkxb.mp4",
+        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1667317049/Audio/portal_Accepting_thoughts_and_feelings_ynb5i9.mp3",
+        "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1674554616/Images/thumb_portal_accepting_thoughts_and..._ozmmt2.png",
+        "p5JsScript": {
+          "lang": "javascript"
+        }
+      },
+      "videoEnd": {
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1667317594/Video/portal2_Accepting_thoughts_and_feelings_iyqnuk.mp4"
+      }
+    },
+    "name": "Permitir e aceitar.",
+    "slides": [
+      {
+        "hostNotes": [
+          {
+            "text": "Bem-vindo(a). Eu sou X e hoje vamos trabalhar por cerca de 30 minutos sobre aceitação.\n\nFaremos uma breve introdução, um exercício de meditação e, em seguida, teremos um tempo para reflexão e compartilhamento entre nós."
+          },
+          {
+            "text": "Vamos começar com um mini check-in. Como você está se sentindo agora? Por favor, responda em duas ou três palavras. X, você gostaria de começar?\n\n> Deixe todos na sessão, inclusive você, fazerem o check-in um por um.\n\nObrigado a todos por compartilharem. Vamos começar."
+          }
+        ],
+        "type": "host",
+        "video": {
+          "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1675960916/Video/async_intro_Accepting_thoughts_and_feelings_umuyry.mp4",
+          "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1675954575/Images/async_thumbnail_Accepting_thoughts_and_feelings_yaur8a.jpg"
+        }
+      },
+      {
+        "hostNotes": [
+          {
+            "text": "Praticar a aceitação inclui prestar atenção intencionalmente à realidade das coisas **sem tentar mudar, fugir ou consertá-las**. Apenas estar com o que surgir. O motivo para fazer isso é que lutar contra o que está dentro de nós geralmente consome muita energia — e, na maioria das vezes, não funciona."
+          },
+          {
+            "text": "As coisas das quais tentamos nos livrar tendem a ser ainda mais persistentes ou até mesmo a ditar cada vez mais a nossa vida com o tempo. Por isso, vamos dar um passo para trás e apenas observar. Vamos nos dar uma pausa da rotina diária.\n\n> Aperte play para iniciar a meditação"
+          }
+        ],
+        "type": "content",
+        "content": {
+          "video": {
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1667298005/Audio/Agnes_bell_kmwzos_eznpow.mp3",
+            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1667297532/Video/Accepting_thoughts_and_feelings_meditation_cn20lx.mp4",
+            "autoPlayLoop": false,
+            "durationTimer": true,
+            "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1674554615/Images/thumb_meditation_accepting_thoughts_and..._id4tgl.png",
+            "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1689588127/SRT%20%28captions%29%20files/Accepting_thoughts_and_feelings_npqmll.srt"
+          }
+        }
+      },
+      {
+        "content": {
+          "heading": "O que você percebeu?",
+          "video": {
+            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1667317097/Video/1min_Accepting_thoughts_and_feelings_xdvlcn.mp4",
+            "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1674554615/Images/thumb_timer1min_accepting_thoughts_and..._izhwhy.png",
+            "durationTimer": true
+          }
+        },
+        "hostNotes": [
+          {
+            "text": "Agora vamos tirar 1 minuto para refletir individualmente.\n\nO que você percebeu durante o exercício? O que pode levar desta experiência para o restante do seu dia?"
+          },
+          {
+            "text": "Você pode anotar em um pedaço de papel ou apenas fazer anotações mentais. E não existe certo ou errado aqui, as respostas são pessoais. 1 minuto começando agora.\n\n> Aperte play para iniciar o cronômetro.\n\nPronto, 1 minuto. Vamos seguir em frente."
+          }
+        ],
+        "type": "reflection"
+      },
+      {
+        "content": {
+          "heading": "O que você percebeu?",
+          "video": {
+            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1667317099/Video/2min_Accepting_thoughts_and_feelings_b9bxvx.mp4",
+            "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1674554616/Images/thumb_timer2min_accepting_thoughts_and..._lzejn1.png",
+            "durationTimer": true
+          }
+        },
+        "hostNotes": [
+          {
+            "text": "Agora estamos entrando na parte de compartilhamento. Temos três regras para o compartilhamento:\n\n1. **O que é dito aqui, fica aqui.**\n2. **Tudo o que você precisa fazer é ouvir.** Não é necessário consertar, ajudar ou dar conselhos. Estamos apenas presentes e explorando o que nós e os outros estamos vivenciando."
+          },
+          {
+            "text": "3. **Tudo o que você sentir é válido.** Raiva, amor, ódio, tristeza. O que surgir. Não existe certo ou errado. \n\nO cronômetro será ajustado para 2 minutos como referência. Se você não quiser compartilhar, pode simplesmente dizer “passo”.\n\n"
+          },
+          {
+            "text": "Quem gostaria de começar?\n\n> Deixe todos (ou o maior número possível, conforme o tempo permitir) compartilharem um por um. Aperte play para iniciar o cronômetro. Reinicie para cada novo compartilhamento.\n\nMuito obrigado a todos.\n\n"
+          }
+        ],
+        "sharingVideos": [
+          {
+            "profile": {
+              "displayName": "Lisa",
+              "photoURL": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1698941201/Images/lisa_exercise1_image_pn3u90.jpg"
+            },
+            "video": {
+              "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1698756079/Video/lisa_exercise2opening_up_acceptance.Sharing_gfehmr.mp4",
+              "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1698941201/Images/lisa_exercise1_image_pn3u90.jpg",
+              "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1699017569/SRT%20(captions)%20files/lisa_exercise2opening_up_acceptance.Sharing_ieulea.srt"
+            }
+          },
+          {
+            "profile": {
+              "displayName": "Sarmad",
+              "photoURL": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1698941541/Images/sarmad_exercise2_Image_o9qfgv.jpg"
+            },
+            "video": {
+              "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1698756119/Video/sarmad_exercise2opening_up_to_acceptance.Sharing_basq9p.mp4",
+              "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1698941541/Images/sarmad_exercise2_Image_o9qfgv.jpg",
+              "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1699017578/SRT%20(captions)%20files/sarmad_exercise2opening_up_to_acceptance.Sharing_tnerhu.srt"
+            }
+          }
+        ],
+        "type": "sharing",
+        "id": "sharing"
+      },
+      {
+        "hostNotes": [
+          {
+            "text": "Muito bem. Se quiser, você pode continuar o que começamos aqui hoje com uma sugestão .\n\nAo refletir sobre o que pode levar desta experiência para o restante do seu dia, aproveite a oportunidade para praticar criar espaço para as coisas internas ao longo do dia de hoje e observe aonde isso te leva."
+          },
+          {
+            "text": "Antes de sairmos deste espaço, vamos fazer um mini check-out.\n\nComo você está se sentindo agora? Algo mudou? Por favor, responda em duas ou três palavras."
+          },
+          {
+            "text": "Quem gostaria de começar?\n\n> Deixe todos (ou o maior número possível, conforme o tempo permitir) compartilharem um por um. Aperte play para iniciar o cronômetro. Reinicie para cada novo compartilhamento.\n\nMuito obrigado a todos.\n\n"
+          }
+        ],
+        "type": "host",
+        "video": {
+          "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1675960919/Video/async_outro_Accepting_thoughts_and_feelings_jpyrdo.mp4",
+          "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1675954575/Images/async_thumbnail_Accepting_thoughts_and_feelings_yaur8a.jpg"
+        }
+      },
+      {
+        "content": {
+          "heading": "Muito bem",
+          "text": "Se quiser, você pode continuar com esta sugestão:\n\nO que você pode levar disso para o restante do seu dia?\n\nAproveite esta oportunidade para praticar criar espaço para as coisas internas ao longo do dia de hoje e observe aonde isso te leva.",
+          "image": {
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1667318313/Images/cover_Accepting_thoughts_and_feelings_w323ui.png"
+          }
+        },
+        "type": "instruction"
+      }
+    ],
+    "id": "94575e97-fe03-4bfd-94a6-50aaf721d47e",
+    "liveDuration": 30,
+    "theme": {
+      "textColor": "#2E2E2E",
+      "backgroundColor": "#fcc9b7"
+    },
+    "live": true,
+    "published": false,
+    "asyncDuration": 5,
+    "card": {
+      "image": {
+        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1667318313/Images/cover_Accepting_thoughts_and_feelings_w323ui.png"
+      }
+    },
+    "coCreators": [
+      {
+        "name": "Agnes Branny, voice",
+        "url": "https://www.agnesbranny.com/",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665414181/Contributors/Agnes%20Branny.png"
+      },
+      {
+        "name": "Ints Ivanovskis, art works",
+        "url": "https://www.linkedin.com/in/ints-ivanovskis-46ab0311a/",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413436/Contributors/Ints%20Ivanovskis.jpg"
+      },
+      {
+        "name": "Jenny Rickardsson, script",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413228/Contributors/Jenny%20Rickardsson.jpg",
+        "url": "https://www.linkedin.com/in/jenny-rickardson-6770a959/"
+      }
+    ],
+    "outroPortal": {
+      "video": {
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1667376603/Video/portal1_Accepting_thoughts_and_feelings_upvkxb.mp4"
+      }
+    },
+    "tags": [
+      "34100e43-2eb8-4d35-8eb0-9fa9f78e4935",
+      "cfc00217-f65b-4a4d-8b82-8ccc8f852dd6"
+    ],
+    "link": "https://aware.29k.org/accepting-thoughts-and-feelings",
+    "async": true
   }
 }

@@ -56,9 +56,9 @@ postsRouter.get(
     response: yup.array().of(PostSchema),
   }),
   async ctx => {
-    const {response} = ctx;
+    const {response, language} = ctx;
     const {exerciseId, sharingId} = ctx.params;
-    const {limit, language} = ctx.request.query;
+    const {limit} = ctx.request.query;
 
     const languages = uniq([language, DEFAULT_LANGUAGE_TAG]);
     const posts = await getPosts(limit, languages, exerciseId, sharingId);

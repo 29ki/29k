@@ -5,7 +5,7 @@
     "image__image": "https://res.cloudinary.com/cupcake-29k/image/upload/v1683807355/Images/flowers_slijjk.png",
     "hostNameFallback": "the host"
   },
-  "pt": {
+  "pt-PT": {
     "title": "Não tens permissões para moderar sessões públicas.",
     "description": "Por isso não podes aceitar moderar a sessão que a/o {{hostName}} tentou transferir para ti.",
     "hostNameFallback": "o/a moderador/a",
@@ -25,5 +25,10 @@
     "description": "Por esto no puedes aceptar organizar la sesión que {{hostName}} quería transferirte.",
     "hostNameFallback": "el amfitrión / la amfitriona",
     "title": "No tienes permiso para organizar sesiones abiertas a todo el mundo."
+  },
+  "pt-BR": {
+    "description": "Portanto, você não pode aceitar hospedar a sessão que {{hostName}} queria transferir para você.",
+    "hostNameFallback": "o anfitrião",
+    "title": "Você não tem permissão para hospedar sessões abertas para qualquer pessoa participar."
   }
 }

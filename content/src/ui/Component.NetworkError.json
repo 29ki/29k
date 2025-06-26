@@ -7,7 +7,7 @@
     "subscriptionTitle": "Problem getting progress updates",
     "subscriptionMessage": "It seems there is a problem getting updates to the session."
   },
-  "pt": {
+  "pt-PT": {
     "title": "Problema de ligação à internet",
     "message": "Parece que não tens nenhuma ligação à internet neste momento.",
     "requestTitle": "Falha ao atualizar sessão",
@@ -34,5 +34,13 @@
     "subscriptionMessage": "Parece que hay un problema para obtener actualizaciones de la sesión.",
     "subscriptionTitle": "Problema para obtener actualizaciones de progreso.",
     "title": "Se ha perdido la conexión a internet"
+  },
+  "pt-BR": {
+    "message": "Parece que você está sem conexão com a Internet no momento.",
+    "requestMessage": "Falha na solicitação de rede, tente novamente.",
+    "requestTitle": "Falha ao atualizar a sessão",
+    "subscriptionMessage": "Parece que há um problema ao obter atualizações da sessão.",
+    "subscriptionTitle": "Problema ao obter atualizações de progresso",
+    "title": "Conexão com a internet perdida"
   }
 }

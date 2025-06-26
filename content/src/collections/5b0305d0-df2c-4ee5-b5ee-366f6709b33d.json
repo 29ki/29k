@@ -45,7 +45,7 @@
     ],
     "description": "Self-help support for participants in the PsyPal trial. Practice mindfulness, dealing with emotions and doing what matters to you."
   },
-  "pt": {
+  "pt-PT": {
     "hidden": false,
     "locked": true,
     "name": "PsyPal",
@@ -297,5 +297,51 @@
       "19573b9a-e2f2-4bba-9687-35d261cbbf49"
     ],
     "card": {}
+  },
+  "pt-BR": {
+    "description": "Apoio de autoajuda para participantes do estudo PsyPal. Pratique mindfulness, lide com emoções e faça o que é importante para você.",
+    "name": "PsyPal",
+    "id": "5b0305d0-df2c-4ee5-b5ee-366f6709b33d",
+    "hidden": false,
+    "locked": true,
+    "published": true,
+    "sortOrder": 1,
+    "card": {
+      "image": {
+        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1741604592/Contributors/PsyPal_logo_qbstjc.png"
+      }
+    },
+    "coCreators": [
+      {
+        "name": "Funded by the European Union",
+        "url": "https://palliativeprojects.eu/psypal/#info",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1741611266/Contributors/EU-flag_imdgjs_c_crop_ar_1_1_jzahpb.png"
+      },
+      {
+        "name": "Ints Ivanovskis, art works",
+        "url": "https://www.linkedin.com/in/ints-ivanovskis-46ab0311a",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413436/Contributors/Ints%20Ivanovskis.jpg"
+      },
+      {
+        "name": "Jenny Rickardsson, editor",
+        "url": "https://www.linkedin.com/in/jenny-rickardson-6770a959/",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413228/Contributors/Jenny%20Rickardsson.jpg"
+      }
+    ],
+    "tags": [
+      "566aeb1b-1649-4f5a-96a2-0c80be27efc0",
+      "34100e43-2eb8-4d35-8eb0-9fa9f78e4935"
+    ],
+    "exercises": [
+      "f2c88307-b02e-4456-a81c-79b84c10ae04",
+      "3adeb40b-b9f8-4b13-b1a8-02f6106df9e5",
+      "b9001702-8502-46de-bc7b-3ebf2b812c0e",
+      "ba239e50-27f5-4a01-8daf-14b76edb7097",
+      "ed06daef-cecd-47d8-8ff2-3cf8dba65b6c",
+      "b491901c-37f8-48a7-829e-feb29a67a459",
+      "dc38ce25-e0f3-465f-8df0-70b5f5089ce9",
+      "4161a0d8-55ee-4866-a9be-263c85fafd70",
+      "19573b9a-e2f2-4bba-9687-35d261cbbf49"
+    ]
   }
 }

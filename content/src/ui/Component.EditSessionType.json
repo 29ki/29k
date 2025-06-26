@@ -3,7 +3,7 @@
     "private": "Session with friends",
     "public": "Session with anyone"
   },
-  "pt": {
+  "pt-PT": {
     "private": "Sessão com amigos",
     "public": "Sessão pública"
   },
@@ -18,5 +18,9 @@
   "es": {
     "private": "Sesión con amigos/as",
     "public": "Sesión abierta a todo el mundo"
+  },
+  "pt-BR": {
+    "private": "Sessão com amigos",
+    "public": "Sessão com qualquer pessoa"
   }
 }

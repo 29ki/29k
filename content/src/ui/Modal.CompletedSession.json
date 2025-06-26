@@ -7,7 +7,7 @@
     "yourSharingPost": "What you said",
     "yourReview": "Your session review"
   },
-  "pt": {
+  "pt-PT": {
     "completed": "Concluídas",
     "doAgainButton": "Fazer exercício novamente",
     "coCreatorsHeading": "Co-criado com",
@@ -34,5 +34,13 @@
     "moreLikeThis": "Más como esta sesión",
     "yourReview": "Revisión de tu sesión",
     "yourSharingPost": "Lo que dijiste"
+  },
+  "pt-BR": {
+    "coCreatorsHeading": "Co-criado com",
+    "completed": "Concluído",
+    "doAgainButton": "Faça este exercício novamente",
+    "moreLikeThis": "Mais como este",
+    "yourReview": "Sua avaliação da sessão",
+    "yourSharingPost": "O que você disse"
   }
 }

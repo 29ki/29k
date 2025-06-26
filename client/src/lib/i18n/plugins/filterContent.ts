@@ -21,7 +21,7 @@ const filterContent: BackendModule = {
     namespace: I18nNamespace,
     callback: ReadCallback,
   ) {
-    let namespaceContent = content.i18n[language][namespace];
+    let namespaceContent = content.i18n?.[language]?.[namespace];
 
     if (PUBLISHABLE_NAMESPACES.includes(namespace)) {
       namespaceContent = filterPublishedContent(namespaceContent);
