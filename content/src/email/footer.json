@@ -47,5 +47,9 @@
       "text": "Darme de baja"
     }
   },
-  "pt-BR": {}
+  "pt-BR": {
+    "unsubscribe": {
+      "text": "Cancelar minha inscrição"
+    }
+  }
 }

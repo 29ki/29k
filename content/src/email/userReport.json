@@ -37,5 +37,11 @@
     "subject_misbehaviour": "Tu informe para Aware",
     "subject_tech_issue": "Tu informe de problemas técnicos para Aware"
   },
-  "pt-BR": {}
+  "pt-BR": {
+    "body": "Esta mensagem foi enviada pelo aplicativo Aware:",
+    "subject": "Seu feedback para o Aware",
+    "subject_feedback": "Seu feedback para o Aware",
+    "subject_misbehaviour": "Seu relatório para o Aware",
+    "subject_tech_issue": "Seu relatório de problema técnico para o Aware"
+  }
 }
