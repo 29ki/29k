@@ -1,4 +1,175 @@
 {
+  "sv": {
+    "liveDuration": 30,
+    "slides": [
+      {
+        "type": "host",
+        "hostNotes": [
+          {
+            "text": "Välkommen. Jag heter X och vi kommer att jobba tillsammans i ungefär 30 minuter med acceptans.\n\nVi kommer att lyssna på en ljudövning tillsammans, reflektera en stund för oss själva och sedan finns det möjlighet att dela sina erfarenheter."
+          },
+          {
+            "text": "Vi börjar med en mini-check-in. Hur känner du dig just nu? Svara gärna med två-tre ord. X, skulle du vilja börja?\n\n> Låt alla deltagare, inklusive dig själv, checka in en och en. \n\nTack för att ni checkade in. Då kör vi igång."
+          }
+        ],
+        "video": {
+          "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1675960916/Video/async_intro_Accepting_thoughts_and_feelings_umuyry.mp4",
+          "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1675954575/Images/async_thumbnail_Accepting_thoughts_and_feelings_yaur8a.jpg"
+        }
+      },
+      {
+        "type": "content",
+        "hostNotes": [
+          {
+            "text": "Att öva på acceptans handlar om att medvetet observera verkligheten utan att försöka ändra, fly från eller fixa den. Bara vara närvarande med allt det som händer. Att kämpa emot det som pågår tar mycket energi och dessutom brukar det inte fungera särskilt bra."
+          },
+          {
+            "text": "Det vi försöker bli av med tenderar att hamna i fokus. Kanske börjar det till och med diktera mer och mer i våra liv. Därför ska vi nu istället ta ett steg tillbaka och bara se på. Ge oss själva en paus från vardagens krav.\"\n\n> Tryck på play för att starta ljud-övningen."
+          }
+        ],
+        "content": {
+          "video": {
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1697548746/Audio/Accepting_thoughts_and_feelings_swe_yn6dsx.mp3",
+            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1667297532/Video/Accepting_thoughts_and_feelings_meditation_cn20lx.mp4",
+            "autoPlayLoop": false,
+            "durationTimer": true,
+            "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1674554615/Images/thumb_meditation_accepting_thoughts_and..._id4tgl.png",
+            "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1697548786/SRT%20(captions)%20files/Accepting_thoughts_and_feelings_swe_fpnk6x.srt"
+          }
+        }
+      },
+      {
+        "type": "reflection",
+        "hostNotes": [
+          {
+            "text": "Nästa steg är att tyst reflektera i en minut.\n\nVad la du märke till under övningen? Vad kan du ta med dig under resten av dagen idag?"
+          },
+          {
+            "text": "Om du vill kan du skriva ner dina funderingar på ett papper, eller bara tänka fritt. Det finns inga svar som är rätt eller fel här – vad som än dyker upp är okej.\n\n> Tryck på play för att starta timern.\n\nDå har det gått en minut och det är dags att gå vidare."
+          }
+        ],
+        "content": {
+          "heading": "Vad la du märke till?",
+          "video": {
+            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1667317097/Video/1min_Accepting_thoughts_and_feelings_xdvlcn.mp4",
+            "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1674554615/Images/thumb_timer1min_accepting_thoughts_and..._izhwhy.png",
+            "durationTimer": true
+          }
+        }
+      },
+      {
+        "type": "sharing",
+        "content": {
+          "heading": "Vad la du märke till?",
+          "video": {
+            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1667317099/Video/2min_Accepting_thoughts_and_feelings_b9bxvx.mp4",
+            "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1674554616/Images/thumb_timer2min_accepting_thoughts_and..._lzejn1.png",
+            "durationTimer": true
+          }
+        },
+        "hostNotes": [
+          {
+            "text": "Det här steget handlar om att dela med sig av sin upplevelse och lyssna på andras. Vi har tre regler:\n\n1. **Det som sägs här, stannar här.**\n2. **Allt som behövs är att vi lyssnar på varandra.** Inget fixande, ingen rådgivning eller annan hjälp behövs. Vi är bara här för att utforska våra egna och andras upplevelser."
+          },
+          {
+            "text": "3. **Allt som händer på insidan är okej.** Ilska, kärlek, smärta, glädje. Vad som än dyker upp, det finns inget rätt eller fel. Det bara är som det är.\n\nDet finns en timer på två minuter att hålla sig efter på ett ungefär. Om du inte vill dela med dig är det bara att säga 'pass'."
+          },
+          {
+            "text": "Vem vill börja?\n\n> Låt alla, eller så många som det finns tid för, dela en efter en. Tryck på play för att starta timern. Starta om för varje person.\n\nTack så mycket för att ni lyssnar och delar med er."
+          }
+        ],
+        "id": "sharing",
+        "sharingVideos": []
+      },
+      {
+        "type": "host",
+        "hostNotes": [
+          {
+            "text": "Bra jobbat. Om du vill kan du ta vidare det vi påbörjat här idag med en utmaning. Försök i så fall att under resten av dagen idag skapa mer utrymme för det som pågår på insidan och notera hur det påverkar dig."
+          },
+          {
+            "text": "Innan vi avslutar så gör vi en mini-utcheckning.\nHur känner du dig nu? Har något ändrats? Svara med två-tre ord.\n\nVem vill börja?"
+          },
+          {
+            "text": "> Låt alla checka ut en efter en.\n\nTack så mycket för era utcheckningar, och för att ni deltog i den här sessionen.\n\n> Avsluta sessionen för att skicka deltagarna till exit-upplevelsen."
+          }
+        ],
+        "video": {
+          "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1675960919/Video/async_outro_Accepting_thoughts_and_feelings_jpyrdo.mp4",
+          "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1675954575/Images/async_thumbnail_Accepting_thoughts_and_feelings_yaur8a.jpg"
+        }
+      },
+      {
+        "type": "instruction",
+        "content": {
+          "text": "Vill du anta en utmaning?\n\nFörsök i så fall att under resten av dagen idag skapa mer utrymme för det som pågår på insidan. Notera vad det får för effekter.",
+          "heading": "Bra jobbat",
+          "image": {
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1667318313/Images/cover_Accepting_thoughts_and_feelings_w323ui.png"
+          }
+        }
+      }
+    ],
+    "theme": {
+      "textColor": "#2E2E2E",
+      "backgroundColor": "#fcc9b7"
+    },
+    "hidden": false,
+    "name": "Tilllåt och acceptera",
+    "live": true,
+    "published": true,
+    "asyncDuration": 5,
+    "card": {
+      "image": {
+        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1667318313/Images/cover_Accepting_thoughts_and_feelings_w323ui.png"
+      }
+    },
+    "coCreators": [
+      {
+        "name": "Agnes Branny, röst",
+        "url": "https://www.agnesbranny.com/",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665414181/Contributors/Agnes%20Branny.png"
+      },
+      {
+        "name": "Ints Ivanovskis, illustrationer",
+        "url": "https://www.linkedin.com/in/ints-ivanovskis-46ab0311a/",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413436/Contributors/Ints%20Ivanovskis.jpg"
+      },
+      {
+        "name": "Jenny Rickardsson, manus",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413228/Contributors/Jenny%20Rickardsson.jpg",
+        "url": "https://www.linkedin.com/in/jenny-rickardson-6770a959/"
+      }
+    ],
+    "outroPortal": {
+      "video": {
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1667376603/Video/portal1_Accepting_thoughts_and_feelings_upvkxb.mp4"
+      }
+    },
+    "introPortal": {
+      "hostNotes": [
+        {
+          "text": "> Starta sessionen när ni är redo att börja"
+        }
+      ],
+      "videoLoop": {
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1667376603/Video/portal1_Accepting_thoughts_and_feelings_upvkxb.mp4",
+        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1667317049/Audio/portal_Accepting_thoughts_and_feelings_ynb5i9.mp3",
+        "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1674554616/Images/thumb_portal_accepting_thoughts_and..._ozmmt2.png"
+      },
+      "videoEnd": {
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1667317594/Video/portal2_Accepting_thoughts_and_feelings_iyqnuk.mp4"
+      }
+    },
+    "tags": [
+      "34100e43-2eb8-4d35-8eb0-9fa9f78e4935",
+      "cfc00217-f65b-4a4d-8b82-8ccc8f852dd6"
+    ],
+    "link": "https://aware.29k.org/accepting-thoughts-and-feelings",
+    "id": "94575e97-fe03-4bfd-94a6-50aaf721d47e",
+    "async": true,
+    "description": "En guidad meditationsövning om att acceptera det som pågår inuti oss. Att öva på acceptans kan hjälpa oss att göra mer av det som är viktigt för oss och har visat sig vara ett effektivt sätt att hantera inre upplevelser."
+  },
   "en": {
     "liveDuration": 30,
     "slides": [
@@ -372,176 +543,20 @@
     "async": true,
     "description": "Um exercício de meditação guiada para aceitar o que está a acontecer dentro de nós. Praticar a aceitação pode ajudar-nos a fazer mais o que é importante para nós e provou ser uma forma eficaz de lidar com as experiências interiores."
   },
-  "sv": {
-    "liveDuration": 30,
-    "slides": [
-      {
-        "type": "host",
-        "hostNotes": [
-          {
-            "text": "Välkommen. Jag heter X och vi kommer att jobba tillsammans i ungefär 30 minuter med acceptans.\n\nVi kommer att lyssna på en ljudövning tillsammans, reflektera en stund för oss själva och sedan finns det möjlighet att dela sina erfarenheter."
-          },
-          {
-            "text": "Vi börjar med en mini-check-in. Hur känner du dig just nu? Svara gärna med två-tre ord. X, skulle du vilja börja?\n\n> Låt alla deltagare, inklusive dig själv, checka in en och en. \n\nTack för att ni checkade in. Då kör vi igång."
-          }
-        ],
-        "video": {
-          "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1675960916/Video/async_intro_Accepting_thoughts_and_feelings_umuyry.mp4",
-          "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1675954575/Images/async_thumbnail_Accepting_thoughts_and_feelings_yaur8a.jpg"
-        }
-      },
-      {
-        "type": "content",
-        "hostNotes": [
-          {
-            "text": "Att öva på acceptans handlar om att medvetet observera verkligheten utan att försöka ändra, fly från eller fixa den. Bara vara närvarande med allt det som händer. Att kämpa emot det som pågår tar mycket energi och dessutom brukar det inte fungera särskilt bra."
-          },
-          {
-            "text": "Det vi försöker bli av med tenderar att hamna i fokus. Kanske börjar det till och med diktera mer och mer i våra liv. Därför ska vi nu istället ta ett steg tillbaka och bara se på. Ge oss själva en paus från vardagens krav.\"\n\n> Tryck på play för att starta ljud-övningen."
-          }
-        ],
-        "content": {
-          "video": {
-            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1697548746/Audio/Accepting_thoughts_and_feelings_swe_yn6dsx.mp3",
-            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1667297532/Video/Accepting_thoughts_and_feelings_meditation_cn20lx.mp4",
-            "autoPlayLoop": false,
-            "durationTimer": true,
-            "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1674554615/Images/thumb_meditation_accepting_thoughts_and..._id4tgl.png",
-            "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1697548786/SRT%20(captions)%20files/Accepting_thoughts_and_feelings_swe_fpnk6x.srt"
-          }
-        }
-      },
-      {
-        "type": "reflection",
-        "hostNotes": [
-          {
-            "text": "Nästa steg är att tyst reflektera i en minut.\n\nVad la du märke till under övningen? Vad kan du ta med dig under resten av dagen idag?"
-          },
-          {
-            "text": "Om du vill kan du skriva ner dina funderingar på ett papper, eller bara tänka fritt. Det finns inga svar som är rätt eller fel här – vad som än dyker upp är okej.\n\n> Tryck på play för att starta timern.\n\nDå har det gått en minut och det är dags att gå vidare."
-          }
-        ],
-        "content": {
-          "heading": "Vad la du märke till?",
-          "video": {
-            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1667317097/Video/1min_Accepting_thoughts_and_feelings_xdvlcn.mp4",
-            "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1674554615/Images/thumb_timer1min_accepting_thoughts_and..._izhwhy.png",
-            "durationTimer": true
-          }
-        }
-      },
-      {
-        "type": "sharing",
-        "content": {
-          "heading": "Vad la du märke till?",
-          "video": {
-            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1667317099/Video/2min_Accepting_thoughts_and_feelings_b9bxvx.mp4",
-            "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1674554616/Images/thumb_timer2min_accepting_thoughts_and..._lzejn1.png",
-            "durationTimer": true
-          }
-        },
-        "hostNotes": [
-          {
-            "text": "Det här steget handlar om att dela med sig av sin upplevelse och lyssna på andras. Vi har tre regler:\n\n1. **Det som sägs här, stannar här.**\n2. **Allt som behövs är att vi lyssnar på varandra.** Inget fixande, ingen rådgivning eller annan hjälp behövs. Vi är bara här för att utforska våra egna och andras upplevelser."
-          },
-          {
-            "text": "3. **Allt som händer på insidan är okej.** Ilska, kärlek, smärta, glädje. Vad som än dyker upp, det finns inget rätt eller fel. Det bara är som det är.\n\nDet finns en timer på två minuter att hålla sig efter på ett ungefär. Om du inte vill dela med dig är det bara att säga 'pass'."
-          },
-          {
-            "text": "Vem vill börja?\n\n> Låt alla, eller så många som det finns tid för, dela en efter en. Tryck på play för att starta timern. Starta om för varje person.\n\nTack så mycket för att ni lyssnar och delar med er."
-          }
-        ],
-        "id": "sharing",
-        "sharingVideos": []
-      },
-      {
-        "type": "host",
-        "hostNotes": [
-          {
-            "text": "Bra jobbat. Om du vill kan du ta vidare det vi påbörjat här idag med en utmaning. Försök i så fall att under resten av dagen idag skapa mer utrymme för det som pågår på insidan och notera hur det påverkar dig."
-          },
-          {
-            "text": "Innan vi avslutar så gör vi en mini-utcheckning.\nHur känner du dig nu? Har något ändrats? Svara med två-tre ord.\n\nVem vill börja?"
-          },
-          {
-            "text": "> Låt alla checka ut en efter en.\n\nTack så mycket för era utcheckningar, och för att ni deltog i den här sessionen.\n\n> Avsluta sessionen för att skicka deltagarna till exit-upplevelsen."
-          }
-        ],
-        "video": {
-          "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1675960919/Video/async_outro_Accepting_thoughts_and_feelings_jpyrdo.mp4",
-          "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1675954575/Images/async_thumbnail_Accepting_thoughts_and_feelings_yaur8a.jpg"
-        }
-      },
-      {
-        "type": "instruction",
-        "content": {
-          "text": "Vill du anta en utmaning?\n\nFörsök i så fall att under resten av dagen idag skapa mer utrymme för det som pågår på insidan. Notera vad det får för effekter.",
-          "heading": "Bra jobbat",
-          "image": {
-            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1667318313/Images/cover_Accepting_thoughts_and_feelings_w323ui.png"
-          }
-        }
-      }
-    ],
-    "theme": {
-      "textColor": "#2E2E2E",
-      "backgroundColor": "#fcc9b7"
-    },
-    "hidden": false,
-    "name": "Tilllåt och acceptera",
-    "live": true,
-    "published": true,
-    "asyncDuration": 5,
-    "card": {
-      "image": {
-        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1667318313/Images/cover_Accepting_thoughts_and_feelings_w323ui.png"
-      }
-    },
-    "coCreators": [
-      {
-        "name": "Agnes Branny, röst",
-        "url": "https://www.agnesbranny.com/",
-        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665414181/Contributors/Agnes%20Branny.png"
-      },
-      {
-        "name": "Ints Ivanovskis, illustrationer",
-        "url": "https://www.linkedin.com/in/ints-ivanovskis-46ab0311a/",
-        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413436/Contributors/Ints%20Ivanovskis.jpg"
-      },
-      {
-        "name": "Jenny Rickardsson, manus",
-        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413228/Contributors/Jenny%20Rickardsson.jpg",
-        "url": "https://www.linkedin.com/in/jenny-rickardson-6770a959/"
-      }
-    ],
-    "outroPortal": {
-      "video": {
-        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1667376603/Video/portal1_Accepting_thoughts_and_feelings_upvkxb.mp4"
-      }
-    },
-    "introPortal": {
-      "hostNotes": [
-        {
-          "text": "> Starta sessionen när ni är redo att börja"
-        }
-      ],
-      "videoLoop": {
-        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1667376603/Video/portal1_Accepting_thoughts_and_feelings_upvkxb.mp4",
-        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1667317049/Audio/portal_Accepting_thoughts_and_feelings_ynb5i9.mp3",
-        "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1674554616/Images/thumb_portal_accepting_thoughts_and..._ozmmt2.png"
-      },
-      "videoEnd": {
-        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1667317594/Video/portal2_Accepting_thoughts_and_feelings_iyqnuk.mp4"
-      }
-    },
+  "es": {
+    "id": "94575e97-fe03-4bfd-94a6-50aaf721d47e",
+    "tags": [
+      "34100e43-2eb8-4d35-8eb0-9fa9f78e4935",
+      "cfc00217-f65b-4a4d-8b82-8ccc8f852dd6"
+    ]
+  },
+  "cs": {
     "tags": [
       "34100e43-2eb8-4d35-8eb0-9fa9f78e4935",
       "cfc00217-f65b-4a4d-8b82-8ccc8f852dd6"
     ],
-    "link": "https://aware.29k.org/accepting-thoughts-and-feelings",
-    "id": "94575e97-fe03-4bfd-94a6-50aaf721d47e",
-    "async": true,
-    "description": "En guidad meditationsövning om att acceptera det som pågår inuti oss. Att öva på acceptans kan hjälpa oss att göra mer av det som är viktigt för oss och har visat sig vara ett effektivt sätt att hantera inre upplevelser."
+    "asyncDuration": 5,
+    "id": "94575e97-fe03-4bfd-94a6-50aaf721d47e"
   },
   "ja": {
     "id": "94575e97-fe03-4bfd-94a6-50aaf721d47e",
@@ -553,54 +568,8 @@
     ],
     "link": "https://aware.29k.org/accepting-thoughts-and-feelings"
   },
-  "da": {
-    "tags": [
-      "34100e43-2eb8-4d35-8eb0-9fa9f78e4935",
-      "cfc00217-f65b-4a4d-8b82-8ccc8f852dd6"
-    ],
-    "asyncDuration": 5,
-    "id": "94575e97-fe03-4bfd-94a6-50aaf721d47e"
-  },
-  "cs": {
-    "tags": [
-      "34100e43-2eb8-4d35-8eb0-9fa9f78e4935",
-      "cfc00217-f65b-4a4d-8b82-8ccc8f852dd6"
-    ],
-    "asyncDuration": 5,
-    "id": "94575e97-fe03-4bfd-94a6-50aaf721d47e"
-  },
-  "nl": {
-    "tags": [
-      "34100e43-2eb8-4d35-8eb0-9fa9f78e4935",
-      "cfc00217-f65b-4a4d-8b82-8ccc8f852dd6"
-    ],
-    "asyncDuration": 5,
-    "id": "94575e97-fe03-4bfd-94a6-50aaf721d47e"
-  },
-  "es": {
-    "id": "94575e97-fe03-4bfd-94a6-50aaf721d47e"
-  },
   "pt-BR": {
-    "description": "Uma meditação guiada focada em aceitar o que está acontecendo dentro de você. Praticar a aceitação pode nos ajudar a fazer mais do que realmente importa e tem se mostrado uma forma eficaz de lidar com as experiências internas.\n\n",
-    "introPortal": {
-      "hostNotes": [
-        {
-          "text": ">Comece a sessão quando estiver pronto para seguir"
-        }
-      ],
-      "videoLoop": {
-        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1667376603/Video/portal1_Accepting_thoughts_and_feelings_upvkxb.mp4",
-        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1667317049/Audio/portal_Accepting_thoughts_and_feelings_ynb5i9.mp3",
-        "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1674554616/Images/thumb_portal_accepting_thoughts_and..._ozmmt2.png",
-        "p5JsScript": {
-          "lang": "javascript"
-        }
-      },
-      "videoEnd": {
-        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1667317594/Video/portal2_Accepting_thoughts_and_feelings_iyqnuk.mp4"
-      }
-    },
-    "name": "Permitir e aceitar.",
+    "liveDuration": 30,
     "slides": [
       {
         "hostNotes": [
@@ -629,7 +598,7 @@
         "type": "content",
         "content": {
           "video": {
-            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1667298005/Audio/Agnes_bell_kmwzos_eznpow.mp3",
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1752139464/Portuguese%20%28Brazil%29/Audio/Accepting_thoughts_and_feelings_lztm7g.mp3",
             "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1667297532/Video/Accepting_thoughts_and_feelings_meditation_cn20lx.mp4",
             "autoPlayLoop": false,
             "durationTimer": true,
@@ -733,14 +702,13 @@
         "type": "instruction"
       }
     ],
-    "id": "94575e97-fe03-4bfd-94a6-50aaf721d47e",
-    "liveDuration": 30,
     "theme": {
       "textColor": "#2E2E2E",
       "backgroundColor": "#fcc9b7"
     },
+    "name": "Permitir e aceitar.",
     "live": true,
-    "published": false,
+    "published": true,
     "asyncDuration": 5,
     "card": {
       "image": {
@@ -769,11 +737,47 @@
         "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1667376603/Video/portal1_Accepting_thoughts_and_feelings_upvkxb.mp4"
       }
     },
+    "introPortal": {
+      "hostNotes": [
+        {
+          "text": ">Comece a sessão quando estiver pronto para seguir"
+        }
+      ],
+      "videoLoop": {
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1667376603/Video/portal1_Accepting_thoughts_and_feelings_upvkxb.mp4",
+        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1667317049/Audio/portal_Accepting_thoughts_and_feelings_ynb5i9.mp3",
+        "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1674554616/Images/thumb_portal_accepting_thoughts_and..._ozmmt2.png",
+        "p5JsScript": {
+          "lang": "javascript"
+        }
+      },
+      "videoEnd": {
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1667317594/Video/portal2_Accepting_thoughts_and_feelings_iyqnuk.mp4"
+      }
+    },
     "tags": [
       "34100e43-2eb8-4d35-8eb0-9fa9f78e4935",
       "cfc00217-f65b-4a4d-8b82-8ccc8f852dd6"
     ],
     "link": "https://aware.29k.org/accepting-thoughts-and-feelings",
-    "async": true
+    "id": "94575e97-fe03-4bfd-94a6-50aaf721d47e",
+    "async": true,
+    "description": "Uma meditação guiada focada em aceitar o que está acontecendo dentro de você. Praticar a aceitação pode nos ajudar a fazer mais do que realmente importa e tem se mostrado uma forma eficaz de lidar com as experiências internas.\n\n"
+  },
+  "da": {
+    "tags": [
+      "34100e43-2eb8-4d35-8eb0-9fa9f78e4935",
+      "cfc00217-f65b-4a4d-8b82-8ccc8f852dd6"
+    ],
+    "asyncDuration": 5,
+    "id": "94575e97-fe03-4bfd-94a6-50aaf721d47e"
+  },
+  "nl": {
+    "tags": [
+      "34100e43-2eb8-4d35-8eb0-9fa9f78e4935",
+      "cfc00217-f65b-4a4d-8b82-8ccc8f852dd6"
+    ],
+    "asyncDuration": 5,
+    "id": "94575e97-fe03-4bfd-94a6-50aaf721d47e"
   }
 }
