@@ -1,4 +1,88 @@
 {
+  "sv": {
+    "liveDuration": 5,
+    "slides": [
+      {
+        "type": "content",
+        "content": {
+          "video": {
+            "audio": "",
+            "durationTimer": false
+          },
+          "lottie": {
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1683721090/Lottie/dive_in_audio_visual_white_vjvfjo.json",
+            "durationTimer": true,
+            "autoPlayLoop": false,
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1709905303/Audio/Get_started_sv_w0qyuu.mp3",
+            "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1709905350/SRT%20(captions)%20files/Get_started_swe_gg8nbf.srt"
+          }
+        }
+      },
+      {
+        "type": "sharing",
+        "hostNotes": [],
+        "content": {
+          "heading": "Varför är du här?",
+          "text": ""
+        },
+        "id": "1"
+      },
+      {
+        "type": "instruction",
+        "content": {
+          "text": "Nu är du färdig med Dyk i. Bra gjort. Nu är du redo för att fortsätta ta hand om dig själv, på egen hand, med vänner eller med alla.",
+          "heading": "",
+          "image": {
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1683790808/Images/journey_icon_ja3ug7.png"
+          }
+        }
+      }
+    ],
+    "theme": {
+      "textColor": "#F9F8F4",
+      "backgroundColor": "#378d88"
+    },
+    "hidden": false,
+    "name": "Kom igång",
+    "published": true,
+    "excludeFromWeb": true,
+    "asyncDuration": 5,
+    "card": {
+      "lottie": {
+        "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1683720732/Lottie/aware_logo_teal_qqweff.json"
+      },
+      "image": {
+        "source": ""
+      },
+      "imageBackgroundColor": ""
+    },
+    "outroPortal": {
+      "video": {
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1683646038/Video/get_started_portal_q8xuck.mp4",
+        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1683646074/Audio/get_started_portal_audio_d9u6dy.mp3",
+        "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1683646986/Images/dive_in_thumb_v5iugn.png"
+      }
+    },
+    "introPortal": {
+      "hostNotes": [],
+      "videoLoop": {
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1683646038/Video/get_started_portal_q8xuck.mp4",
+        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1683646074/Audio/get_started_portal_audio_d9u6dy.mp3",
+        "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1683646986/Images/dive_in_thumb_v5iugn.png",
+        "p5JsScript": {
+          "lang": "javascript"
+        }
+      }
+    },
+    "tags": [
+      "43a6dc0d-d866-4b79-9453-13c44e906128",
+      "cfc00217-f65b-4a4d-8b82-8ccc8f852dd6"
+    ],
+    "link": "https://aware.29k.org/dive-in",
+    "id": "1a53e633-6916-4fea-a072-977c4b215288",
+    "async": true,
+    "description": "En introduktion till att träna mindfulness, tacksamhet och använda Aware-appen för att ta hand om dig själv, andra och planeten."
+  },
   "en": {
     "liveDuration": 5,
     "slides": [
@@ -192,187 +276,6 @@
     "async": true,
     "description": "Uma introdução à prática de atenção plena, gratidão e como começar a utilizar a Aware"
   },
-  "sv": {
-    "liveDuration": 5,
-    "slides": [
-      {
-        "type": "content",
-        "content": {
-          "video": {
-            "audio": "",
-            "durationTimer": false
-          },
-          "lottie": {
-            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1683721090/Lottie/dive_in_audio_visual_white_vjvfjo.json",
-            "durationTimer": true,
-            "autoPlayLoop": false,
-            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1709905303/Audio/Get_started_sv_w0qyuu.mp3",
-            "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1709905350/SRT%20(captions)%20files/Get_started_swe_gg8nbf.srt"
-          }
-        }
-      },
-      {
-        "type": "sharing",
-        "hostNotes": [],
-        "content": {
-          "heading": "Varför är du här?",
-          "text": ""
-        },
-        "id": "1"
-      },
-      {
-        "type": "instruction",
-        "content": {
-          "text": "Nu är du färdig med Dyk i. Bra gjort. Nu är du redo för att fortsätta ta hand om dig själv, på egen hand, med vänner eller med alla.",
-          "heading": "",
-          "image": {
-            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1683790808/Images/journey_icon_ja3ug7.png"
-          }
-        }
-      }
-    ],
-    "theme": {
-      "textColor": "#F9F8F4",
-      "backgroundColor": "#378d88"
-    },
-    "hidden": false,
-    "name": "Kom igång",
-    "published": true,
-    "excludeFromWeb": true,
-    "asyncDuration": 5,
-    "card": {
-      "lottie": {
-        "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1683720732/Lottie/aware_logo_teal_qqweff.json"
-      },
-      "image": {
-        "source": ""
-      },
-      "imageBackgroundColor": ""
-    },
-    "outroPortal": {
-      "video": {
-        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1683646038/Video/get_started_portal_q8xuck.mp4",
-        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1683646074/Audio/get_started_portal_audio_d9u6dy.mp3",
-        "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1683646986/Images/dive_in_thumb_v5iugn.png"
-      }
-    },
-    "introPortal": {
-      "hostNotes": [],
-      "videoLoop": {
-        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1683646038/Video/get_started_portal_q8xuck.mp4",
-        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1683646074/Audio/get_started_portal_audio_d9u6dy.mp3",
-        "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1683646986/Images/dive_in_thumb_v5iugn.png",
-        "p5JsScript": {
-          "lang": "javascript"
-        }
-      }
-    },
-    "tags": [
-      "43a6dc0d-d866-4b79-9453-13c44e906128",
-      "cfc00217-f65b-4a4d-8b82-8ccc8f852dd6"
-    ],
-    "link": "https://aware.29k.org/dive-in",
-    "id": "1a53e633-6916-4fea-a072-977c4b215288",
-    "async": true,
-    "description": "En introduktion till att träna mindfulness, tacksamhet och använda Aware-appen för att ta hand om dig själv, andra och planeten."
-  },
-  "ja": {
-    "liveDuration": 5,
-    "slides": [
-      null,
-      null,
-      {
-        "content": {
-          "text": "おめでとうございます！最初のセッションが終了しました。\n\nひとりでも、友人や新しい仲間と一緒でもよし。AWAREで旅を続けましょう！"
-        }
-      }
-    ],
-    "theme": {
-      "textColor": "#F9F8F4",
-      "backgroundColor": "#378d88"
-    },
-    "hidden": false,
-    "name": "はじめに",
-    "published": true,
-    "asyncDuration": 5,
-    "card": {
-      "lottie": {
-        "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1701357016/Lottie/aware_logo_2023_teal_margin_brpfnh.json"
-      },
-      "image": {
-        "source": ""
-      },
-      "imageBackgroundColor": ""
-    },
-    "coCreators": [
-      {
-        "name": "Jenny Rickardsson, script and voice",
-        "url": "https://www.linkedin.com/in/jenny-rickardson-6770a959/",
-        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413228/Contributors/Jenny%20Rickardsson.jpg"
-      },
-      {
-        "name": "Ints Ivanovskis, art works",
-        "url": "https://www.linkedin.com/in/ints-ivanovskis-46ab0311a/",
-        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413436/Contributors/Ints%20Ivanovskis.jpg"
-      }
-    ],
-    "outroPortal": {
-      "video": {
-        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1683646038/Video/get_started_portal_q8xuck.mp4",
-        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1683646074/Audio/get_started_portal_audio_d9u6dy.mp3",
-        "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1683646986/Images/dive_in_thumb_v5iugn.png"
-      }
-    },
-    "introPortal": {
-      "hostNotes": [],
-      "videoLoop": {
-        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1683646038/Video/get_started_portal_q8xuck.mp4",
-        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1683646074/Audio/get_started_portal_audio_d9u6dy.mp3",
-        "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1683646986/Images/dive_in_thumb_v5iugn.png"
-      }
-    },
-    "tags": [
-      "43a6dc0d-d866-4b79-9453-13c44e906128",
-      "cfc00217-f65b-4a4d-8b82-8ccc8f852dd6"
-    ],
-    "link": "https://aware.29k.org/dive-in",
-    "id": "1a53e633-6916-4fea-a072-977c4b215288",
-    "async": true,
-    "description": "アプリを使い始める前に 〜 マインドフルネスと感謝の瞑想"
-  },
-  "da": {
-    "tags": [
-      "43a6dc0d-d866-4b79-9453-13c44e906128",
-      "cfc00217-f65b-4a4d-8b82-8ccc8f852dd6"
-    ],
-    "asyncDuration": 5,
-    "card": {
-      "imageBackgroundColor": ""
-    },
-    "id": "1a53e633-6916-4fea-a072-977c4b215288"
-  },
-  "cs": {
-    "tags": [
-      "43a6dc0d-d866-4b79-9453-13c44e906128",
-      "cfc00217-f65b-4a4d-8b82-8ccc8f852dd6"
-    ],
-    "asyncDuration": 5,
-    "card": {
-      "imageBackgroundColor": ""
-    },
-    "id": "1a53e633-6916-4fea-a072-977c4b215288"
-  },
-  "nl": {
-    "tags": [
-      "43a6dc0d-d866-4b79-9453-13c44e906128",
-      "cfc00217-f65b-4a4d-8b82-8ccc8f852dd6"
-    ],
-    "asyncDuration": 5,
-    "card": {
-      "imageBackgroundColor": ""
-    },
-    "id": "1a53e633-6916-4fea-a072-977c4b215288"
-  },
   "es": {
     "liveDuration": 5,
     "slides": [
@@ -475,9 +378,83 @@
     "async": true,
     "description": "Una introducción a la práctica de la atención plena, la gratitud y cómo comenzar a usar la aplicación Aware."
   },
+  "cs": {
+    "tags": [
+      "43a6dc0d-d866-4b79-9453-13c44e906128",
+      "cfc00217-f65b-4a4d-8b82-8ccc8f852dd6"
+    ],
+    "asyncDuration": 5,
+    "card": {
+      "imageBackgroundColor": ""
+    },
+    "id": "1a53e633-6916-4fea-a072-977c4b215288"
+  },
+  "ja": {
+    "liveDuration": 5,
+    "slides": [
+      null,
+      null,
+      {
+        "content": {
+          "text": "おめでとうございます！最初のセッションが終了しました。\n\nひとりでも、友人や新しい仲間と一緒でもよし。AWAREで旅を続けましょう！"
+        }
+      }
+    ],
+    "theme": {
+      "textColor": "#F9F8F4",
+      "backgroundColor": "#378d88"
+    },
+    "hidden": false,
+    "name": "はじめに",
+    "published": true,
+    "asyncDuration": 5,
+    "card": {
+      "lottie": {
+        "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1701357016/Lottie/aware_logo_2023_teal_margin_brpfnh.json"
+      },
+      "image": {
+        "source": ""
+      },
+      "imageBackgroundColor": ""
+    },
+    "coCreators": [
+      {
+        "name": "Jenny Rickardsson, script and voice",
+        "url": "https://www.linkedin.com/in/jenny-rickardson-6770a959/",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413228/Contributors/Jenny%20Rickardsson.jpg"
+      },
+      {
+        "name": "Ints Ivanovskis, art works",
+        "url": "https://www.linkedin.com/in/ints-ivanovskis-46ab0311a/",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413436/Contributors/Ints%20Ivanovskis.jpg"
+      }
+    ],
+    "outroPortal": {
+      "video": {
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1683646038/Video/get_started_portal_q8xuck.mp4",
+        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1683646074/Audio/get_started_portal_audio_d9u6dy.mp3",
+        "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1683646986/Images/dive_in_thumb_v5iugn.png"
+      }
+    },
+    "introPortal": {
+      "hostNotes": [],
+      "videoLoop": {
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1683646038/Video/get_started_portal_q8xuck.mp4",
+        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1683646074/Audio/get_started_portal_audio_d9u6dy.mp3",
+        "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1683646986/Images/dive_in_thumb_v5iugn.png"
+      }
+    },
+    "tags": [
+      "43a6dc0d-d866-4b79-9453-13c44e906128",
+      "cfc00217-f65b-4a4d-8b82-8ccc8f852dd6"
+    ],
+    "link": "https://aware.29k.org/dive-in",
+    "id": "1a53e633-6916-4fea-a072-977c4b215288",
+    "async": true,
+    "description": "アプリを使い始める前に 〜 マインドフルネスと感謝の瞑想"
+  },
   "pt-BR": {
-    "description": "Uma introdução à prática de mindfulness, gratidão e ao início do uso do aplicativo Aware.",
-    "name": "Comece",
+    "liveDuration": 5,
     "slides": [
       {
         "type": "content",
@@ -490,7 +467,7 @@
             "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1683721090/Lottie/dive_in_audio_visual_white_vjvfjo.json",
             "durationTimer": true,
             "autoPlayLoop": false,
-            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1710240952/Audio/Get_started_Dive_in_ywzo5o.mp3",
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1752139329/Portuguese%20%28Brazil%29/Audio/Get_Started_udqzsj.mp3",
             "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1710240908/SRT%20(captions)%20files/Get_started_Dive_in_sxnkv5.srt"
           }
         }
@@ -515,14 +492,13 @@
         "type": "instruction"
       }
     ],
-    "id": "1a53e633-6916-4fea-a072-977c4b215288",
-    "liveDuration": 5,
     "theme": {
       "textColor": "#F9F8F4",
       "backgroundColor": "#378d88"
     },
     "hidden": false,
-    "published": false,
+    "name": "Comece",
+    "published": true,
     "excludeFromWeb": true,
     "asyncDuration": 5,
     "card": {
@@ -569,6 +545,30 @@
       "cfc00217-f65b-4a4d-8b82-8ccc8f852dd6"
     ],
     "link": "https://aware.29k.org/dive-in",
-    "async": true
+    "id": "1a53e633-6916-4fea-a072-977c4b215288",
+    "async": true,
+    "description": "Uma introdução à prática de mindfulness, gratidão e ao início do uso do aplicativo Aware."
+  },
+  "da": {
+    "tags": [
+      "43a6dc0d-d866-4b79-9453-13c44e906128",
+      "cfc00217-f65b-4a4d-8b82-8ccc8f852dd6"
+    ],
+    "asyncDuration": 5,
+    "card": {
+      "imageBackgroundColor": ""
+    },
+    "id": "1a53e633-6916-4fea-a072-977c4b215288"
+  },
+  "nl": {
+    "tags": [
+      "43a6dc0d-d866-4b79-9453-13c44e906128",
+      "cfc00217-f65b-4a4d-8b82-8ccc8f852dd6"
+    ],
+    "asyncDuration": 5,
+    "card": {
+      "imageBackgroundColor": ""
+    },
+    "id": "1a53e633-6916-4fea-a072-977c4b215288"
   }
 }
