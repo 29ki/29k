@@ -1,4 +1,5 @@
 import * as metricsModel from '../models/metrics';
+import * as sessionModel from '../models/session';
 import * as feedbackController from './feedback';
 import * as slack from '../models/slack';
 import {getExerciseById} from '../lib/exercise';
@@ -6,8 +7,10 @@ import {Exercise} from '../../../shared/src/types/generated/Exercise';
 import {SessionMode, SessionType} from '../../../shared/src/schemas/Session';
 import {Feedback} from '../../../shared/src/types/Feedback';
 import {LANGUAGE_TAG} from '../lib/i18n';
+import {LiveSessionRecord} from '../models/types/types';
 
 jest.mock('../models/metrics');
+jest.mock('../models/session');
 jest.mock('../models/slack');
 jest.mock('../lib/exercise');
 
@@ -222,6 +225,77 @@ describe('feedback - controller', () => {
           language: 'en',
         },
       ]);
+    });
+  });
+
+  describe('getSessionsFeedbackByHostId', () => {
+    it('returns sessions feedback for a host', async () => {
+      jest.mocked(sessionModel.getSessionsByHostId).mockResolvedValue([
+        {
+          id: 'some-session-id',
+        },
+        {
+          id: 'some-other-session-id',
+        },
+      ] as LiveSessionRecord[]);
+
+      jest.mocked(metricsModel.getFeedbackBySessionIds).mockResolvedValue([
+        {
+          sessionId: 'some-session-id',
+          comment: 'Some feedback comment',
+        },
+        {
+          sessionId: 'some-other-session-id',
+          comment: 'Some other feedback comment',
+        },
+      ] as Feedback[]);
+
+      const res = await feedbackController.getSessionsFeedbackByHostId(
+        'some-host-id',
+        20,
+      );
+
+      expect(sessionModel.getSessionsByHostId).toHaveBeenCalledTimes(1);
+      expect(sessionModel.getSessionsByHostId).toHaveBeenCalledWith(
+        'some-host-id',
+      );
+
+      expect(metricsModel.getFeedbackBySessionIds).toHaveBeenCalledTimes(1);
+      expect(metricsModel.getFeedbackBySessionIds).toHaveBeenCalledWith(
+        ['some-session-id', 'some-other-session-id'],
+        20,
+      );
+
+      expect(res).toEqual([
+        {
+          sessionId: 'some-session-id',
+          comment: 'Some feedback comment',
+        },
+        {
+          sessionId: 'some-other-session-id',
+          comment: 'Some other feedback comment',
+        },
+      ]);
+    });
+
+    it('returns empty array if user has no sessions', async () => {
+      jest
+        .mocked(sessionModel.getSessionsByHostId)
+        .mockResolvedValue([] as LiveSessionRecord[]);
+
+      const res = await feedbackController.getSessionsFeedbackByHostId(
+        'some-host-id',
+        20,
+      );
+
+      expect(sessionModel.getSessionsByHostId).toHaveBeenCalledTimes(1);
+      expect(sessionModel.getSessionsByHostId).toHaveBeenCalledWith(
+        'some-host-id',
+      );
+
+      expect(metricsModel.getFeedbackBySessionIds).toHaveBeenCalledTimes(0);
+
+      expect(res).toEqual([]);
     });
   });
 });

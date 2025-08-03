@@ -29,6 +29,7 @@ import validation from '../lib/validation';
 import {
   getApprovedFeedbackByExercise,
   getFeedbackCountByExercise,
+  getSessionsFeedbackByHostId,
 } from '../../controllers/feedback';
 import {FeedbackSchema} from '../../../../shared/src/schemas/Feedback';
 import {DEFAULT_LANGUAGE_TAG} from '../../lib/i18n';
@@ -183,6 +184,23 @@ sessionsRouter.get(
       }
       ctx.message = requestError.code;
     }
+  },
+);
+
+sessionsRouter.get(
+  '/hostFeedback',
+  validation({
+    query: yup.object({
+      limit: yup.number().positive().integer().required(),
+    }),
+    response: yup.array().of(FeedbackSchema),
+  }),
+  async ctx => {
+    const {user} = ctx;
+    const {limit} = ctx.request.query;
+    const feedback = await getSessionsFeedbackByHostId(user.id, limit);
+
+    ctx.body = feedback;
   },
 );
 

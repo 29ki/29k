@@ -107,6 +107,24 @@ export const getFeedbackByExercise = async (
   return snapshot.docs.map(getData<Feedback>);
 };
 
+export const getFeedbackBySessionIds = async (
+  sessionIds: string[],
+  limit?: number,
+) => {
+  let query = firestore()
+    .collection(FEEDBACK_COLLECTION)
+    .where('sessionId', 'in', sessionIds.slice(0, 30)) // Limit to 30 sessions to avoid Firestore query limits
+    .where('host', '!=', true) // Only get feedback from participants, not hosts
+    .orderBy('createdAt', 'desc');
+
+  if (limit) {
+    query = query.limit(limit);
+  }
+
+  const snapshot = await query.get();
+  return snapshot.docs.map(getData<Feedback>);
+};
+
 export const setFeedbackApproval = async (
   feedbackId: string,
   approved: boolean,

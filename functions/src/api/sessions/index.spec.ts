@@ -37,6 +37,8 @@ const mockGetSessionByHostingCode =
 const mockCreateSessionHostingLink =
   sessionsController.createSessionHostingLink as jest.Mock;
 const mockUpdateSessionHost = sessionsController.updateSessionHost as jest.Mock;
+const mockGetSessionsFeedbackByHostId =
+  feedbackController.getSessionsFeedbackByHostId as jest.Mock;
 const mockGetFeedbackCountByExercise =
   feedbackController.getFeedbackCountByExercise as jest.Mock;
 const mockGetApprovedFeedbackByExercise =
@@ -257,6 +259,85 @@ describe('/api/sessions', () => {
       const response2 = await request(mockServer).get('/sessions?limit=NaN');
       expect(mockGetSessionsByUserId).toHaveBeenCalledTimes(0);
       expect(response2.status).toBe(500);
+    });
+  });
+
+  describe('GET /hostFeedback', () => {
+    it('should return host feedback', async () => {
+      mockGetSessionsFeedbackByHostId.mockResolvedValueOnce([
+        {
+          id: 'some-id',
+          sessionId: 'some-session-id',
+          exerciseId: 'some-exercise-id',
+          language: 'en',
+          question: 'Some question?',
+          comment: 'Some feedback comment',
+          answer: true,
+          completed: true,
+          sessionType: SessionType.public,
+          sessionMode: SessionMode.live,
+          createdAt: Timestamp.fromDate(new Date('2024-10-08T07:24:00.000Z')),
+        },
+        {
+          id: 'some-other-id',
+          sessionId: 'some-other-session-id',
+          exerciseId: 'some-exercise-id',
+          language: 'en',
+          question: 'Some other question?',
+          comment: 'Some other feedback comment',
+          answer: true,
+          completed: true,
+          sessionType: SessionType.private,
+          sessionMode: SessionMode.live,
+          createdAt: Timestamp.fromDate(new Date('2024-10-08T07:24:00.000Z')),
+        },
+      ]);
+
+      const response = await request(mockServer).get(
+        '/sessions/hostFeedback?limit=10',
+      );
+
+      expect(mockGetSessionsFeedbackByHostId).toHaveBeenCalledTimes(1);
+      expect(mockGetSessionsFeedbackByHostId).toHaveBeenCalledWith(
+        'some-user-id',
+        10,
+      );
+
+      expect(response.status).toBe(200);
+      expect(response.body).toMatchObject([
+        {
+          id: 'some-id',
+          sessionId: 'some-session-id',
+          exerciseId: 'some-exercise-id',
+          question: 'Some question?',
+          comment: 'Some feedback comment',
+          answer: true,
+          completed: true,
+          sessionType: SessionType.public,
+          sessionMode: SessionMode.live,
+          createdAt: '2024-10-08T07:24:00.000Z',
+        },
+        {
+          id: 'some-other-id',
+          sessionId: 'some-other-session-id',
+          exerciseId: 'some-exercise-id',
+          question: 'Some other question?',
+          comment: 'Some other feedback comment',
+          answer: true,
+          completed: true,
+          sessionType: SessionType.private,
+          sessionMode: SessionMode.live,
+          createdAt: '2024-10-08T07:24:00.000Z',
+        },
+      ]);
+    });
+
+    it('should return 500 if no limit is set', async () => {
+      const response = await request(mockServer).get('/sessions/hostFeedback');
+
+      expect(mockGetSessionsFeedbackByHostId).toHaveBeenCalledTimes(0);
+
+      expect(response.status).toBe(500);
     });
   });
 
