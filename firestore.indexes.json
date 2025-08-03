@@ -9,11 +9,11 @@
           "order": "ASCENDING"
         },
         {
-          "fieldPath": "host",
+          "fieldPath": "createdAt",
           "order": "DESCENDING"
         },
         {
-          "fieldPath": "createdAt",
+          "fieldPath": "host",
           "order": "DESCENDING"
         }
       ]
