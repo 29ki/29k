@@ -42,6 +42,8 @@ import RecommendedSessions from './components/RecommendedSessions';
 import WelcomeBanner from './components/WelcomeBanner';
 import GetStartedBanner from './components/GetStartedBanner';
 import Gutters from '../../../lib/components/Gutters/Gutters';
+import useHostFeedback from '../../../lib/sessions/hooks/useHostFeedback';
+import HostFeedback from './components/HostFeedback';
 
 const Map = styled(AnimatedLottieView).attrs({
   source: todayMap,
@@ -92,6 +94,7 @@ const Home = () => {
   const [isLoading, setIsLoading] = useState(true);
   const recommendedSessions = useRecommendedSessions();
   const {fetchSessions, sessions} = useSessions();
+  const {fetchHostFeedback, hostFeedback} = useHostFeedback();
   const {fetchSharingPosts, sharingPosts} = useSharingPosts();
 
   const otherSessions = useMemo(
@@ -104,10 +107,14 @@ const Home = () => {
   );
 
   const fetch = useCallback(() => {
-    Promise.all([fetchSessions(), fetchSharingPosts()]).finally(() => {
+    Promise.all([
+      fetchSessions(),
+      fetchSharingPosts(),
+      fetchHostFeedback(),
+    ]).finally(() => {
       setIsLoading(false);
     });
-  }, [fetchSessions, fetchSharingPosts, setIsLoading]);
+  }, [fetchSessions, fetchSharingPosts, fetchHostFeedback, setIsLoading]);
 
   useThrottledFocusEffect(fetch);
 
@@ -156,6 +163,17 @@ const Home = () => {
         {!isLoading && otherSessions.length > 0 && (
           <>
             <LiveSessions sessions={otherSessions} />
+            <Spacer16 />
+          </>
+        )}
+        {!isLoading && hostFeedback.length > 0 && (
+          <StickyHeading>
+            <Heading16>{t('sections.hostFeedback')}</Heading16>
+          </StickyHeading>
+        )}
+        {!isLoading && hostFeedback.length > 0 && (
+          <>
+            <HostFeedback feedback={hostFeedback} />
             <Spacer16 />
           </>
         )}

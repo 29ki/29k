@@ -145,6 +145,21 @@ export const getSessionsByUserId = async (
   return snapshot.docs.map(doc => getData<LiveSessionRecord>(doc));
 };
 
+export const getSessionsByHostId = async (hostId: string, limit?: number) => {
+  let query = firestore()
+    .collection(SESSIONS_COLLECTION)
+    .where('hostId', '==', hostId)
+    .orderBy('closingTime', 'desc')
+    .orderBy('startTime', 'asc');
+
+  if (limit) {
+    query = query.limit(limit);
+  }
+
+  const snapshot = await query.get();
+  return snapshot.docs.map(doc => getData<LiveSessionRecord>(doc));
+};
+
 export const addSession = async ({
   id,
   url,

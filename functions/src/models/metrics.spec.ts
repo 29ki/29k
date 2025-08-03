@@ -19,6 +19,7 @@ import {
   mockCollection,
   mockDoc,
   mockGetTransaction,
+  mockLimit,
   mockRunTransaction,
   mockSet,
   mockUpdate,
@@ -31,6 +32,7 @@ import {
   getFeedbackByExercise,
   logEvent,
   setUserProperties,
+  getFeedbackBySessionIds,
 } from './metrics';
 
 afterEach(() => {
@@ -205,6 +207,109 @@ describe('metrics model', () => {
         'exercise-id-123',
       );
       expect(mockWhere).toHaveBeenCalledWith('sessionMode', '==', 'live');
+    });
+  });
+
+  describe('getFeedbackBySessionIds', () => {
+    it('queries feedback by session Ids', async () => {
+      await getFeedbackBySessionIds([
+        'some-session-id',
+        'some-other-session-id',
+      ]);
+
+      expect(mockCollection).toHaveBeenCalledWith('metricsFeedback');
+      expect(mockWhere).toHaveBeenCalledWith('sessionId', 'in', [
+        'some-session-id',
+        'some-other-session-id',
+      ]);
+      expect(mockWhere).toHaveBeenCalledWith('host', '!=', true);
+    });
+
+    it('supports limiting query result', async () => {
+      await getFeedbackBySessionIds(
+        ['some-session-id', 'some-other-session-id'],
+        20,
+      );
+
+      expect(mockLimit).toHaveBeenCalledWith(20);
+    });
+
+    it("limits session id's if it's more than 30", async () => {
+      await getFeedbackBySessionIds([
+        'some-session-id-1',
+        'some-session-id-2',
+        'some-session-id-3',
+        'some-session-id-4',
+        'some-session-id-5',
+        'some-session-id-6',
+        'some-session-id-7',
+        'some-session-id-8',
+        'some-session-id-9',
+        'some-session-id-10',
+        'some-session-id-11',
+        'some-session-id-12',
+        'some-session-id-13',
+        'some-session-id-14',
+        'some-session-id-15',
+        'some-session-id-16',
+        'some-session-id-17',
+        'some-session-id-18',
+        'some-session-id-19',
+        'some-session-id-20',
+        'some-session-id-21',
+        'some-session-id-22',
+        'some-session-id-23',
+        'some-session-id-24',
+        'some-session-id-25',
+        'some-session-id-26',
+        'some-session-id-27',
+        'some-session-id-28',
+        'some-session-id-29',
+        'some-session-id-30',
+        'some-session-id-31',
+        'some-session-id-32',
+        'some-session-id-33',
+        'some-session-id-34',
+        'some-session-id-35',
+        'some-session-id-36',
+        'some-session-id-37',
+        'some-session-id-38',
+        'some-session-id-39',
+      ]);
+
+      expect(mockCollection).toHaveBeenCalledWith('metricsFeedback');
+      expect(mockWhere).toHaveBeenCalledWith('sessionId', 'in', [
+        'some-session-id-1',
+        'some-session-id-2',
+        'some-session-id-3',
+        'some-session-id-4',
+        'some-session-id-5',
+        'some-session-id-6',
+        'some-session-id-7',
+        'some-session-id-8',
+        'some-session-id-9',
+        'some-session-id-10',
+        'some-session-id-11',
+        'some-session-id-12',
+        'some-session-id-13',
+        'some-session-id-14',
+        'some-session-id-15',
+        'some-session-id-16',
+        'some-session-id-17',
+        'some-session-id-18',
+        'some-session-id-19',
+        'some-session-id-20',
+        'some-session-id-21',
+        'some-session-id-22',
+        'some-session-id-23',
+        'some-session-id-24',
+        'some-session-id-25',
+        'some-session-id-26',
+        'some-session-id-27',
+        'some-session-id-28',
+        'some-session-id-29',
+        'some-session-id-30',
+      ]);
     });
   });
 

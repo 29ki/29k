@@ -39,6 +39,7 @@ import {
   updateInterestedCount,
   getUpcomingPublicSessions,
   getSessionByHostingCode,
+  getSessionsByHostId,
 } from './session';
 import {SessionType} from '../../../shared/src/schemas/Session';
 
@@ -241,6 +242,47 @@ describe('session model', () => {
         undefined,
         5,
       );
+      expect(mockLimit).toHaveBeenCalledWith(5);
+    });
+  });
+
+  describe('getSessionsByHostId', () => {
+    it('should get sessions', async () => {
+      const sessions = await getSessionsByHostId('some-user-id');
+      expect(sessions).toEqual([
+        {
+          hostId: 'some-user-id',
+          id: 'some-session-id',
+          name: 'some-name',
+          exerciseId: 'some-exercise-id',
+          startTime: expect.any(Timestamp),
+          closingTime: expect.any(Timestamp),
+          url: 'some-url',
+          type: 'public',
+          userIds: ['*'],
+          interestedCount: 0,
+          createdAt: expect.any(Timestamp),
+          updatedAt: expect.any(Timestamp),
+        },
+        {
+          hostId: 'some-other-user-id',
+          id: 'some-other-session-id',
+          name: 'some-other-name',
+          exerciseId: 'some-exercise-id',
+          startTime: expect.any(Timestamp),
+          closingTime: expect.any(Timestamp),
+          url: 'some-other-url',
+          type: 'public',
+          userIds: ['*'],
+          interestedCount: 1,
+          createdAt: expect.any(Timestamp),
+          updatedAt: expect.any(Timestamp),
+        },
+      ]);
+    });
+
+    it('supports limiting query result', async () => {
+      await getSessionsByHostId('some-user-id', 5);
       expect(mockLimit).toHaveBeenCalledWith(5);
     });
   });

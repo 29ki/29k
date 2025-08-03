@@ -1,4 +1,5 @@
 import * as metricsModel from '../models/metrics';
+import * as sessionModel from '../models/session';
 import {AddFeedbackBody} from '../../../shared/src/types/Feedback';
 import * as slack from '../models/slack';
 import {getExerciseById} from '../lib/exercise';
@@ -61,12 +62,31 @@ export const getApprovedFeedbackByExercise = async (
     true,
     limit,
   );
-  const sortedFeedback = feedback.sort((feedbackA, postB) =>
+  const sortedFeedback = feedback.sort((feedbackA, feedbackB) =>
     languages
       ? languages.findIndex(language => language === feedbackA.language) -
-        languages.findIndex(language => language === postB.language)
+        languages.findIndex(language => language === feedbackB.language)
       : 0,
   );
 
   return sortedFeedback;
+};
+
+export const getSessionsFeedbackByHostId = async (
+  hostId: string,
+  limit?: number,
+) => {
+  const sessions = await sessionModel.getSessionsByHostId(hostId);
+
+  if (!sessions.length) {
+    return [];
+  }
+
+  const sessionIds = sessions.map(session => session.id);
+  const feedback = await metricsModel.getFeedbackBySessionIds(
+    sessionIds,
+    limit,
+  );
+
+  return feedback;
 };
