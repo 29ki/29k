@@ -6,6 +6,7 @@
     "sections": {
       "forYou": "For you",
       "liveSessions": "Live sessions",
+      "hostFeedback": "Your session host feedback",
       "community": "Aware community",
       "sharingPosts": "What others are doing"
     }
@@ -28,6 +29,8 @@
     "sections": {
       "forYou": "För dig",
       "liveSessions": "Live-sessioner",
+      "hostFeedback": "Din sessionvärd-feedback",
+      "community": "Aware-communityn",
       "sharingPosts": "Vad andra gör"
     }
   },
