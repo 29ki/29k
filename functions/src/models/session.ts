@@ -149,8 +149,7 @@ export const getSessionsByHostId = async (hostId: string, limit?: number) => {
   let query = firestore()
     .collection(SESSIONS_COLLECTION)
     .where('hostId', '==', hostId)
-    .orderBy('closingTime', 'desc')
-    .orderBy('startTime', 'asc');
+    .orderBy('startTime', 'desc');
 
   if (limit) {
     query = query.limit(limit);

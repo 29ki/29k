@@ -249,6 +249,10 @@ describe('session model', () => {
   describe('getSessionsByHostId', () => {
     it('should get sessions', async () => {
       const sessions = await getSessionsByHostId('some-user-id');
+
+      expect(mockWhere).toHaveBeenCalledWith('hostId', '==', 'some-user-id');
+      expect(mockOrderBy).toHaveBeenCalledWith('startTime', 'desc');
+
       expect(sessions).toEqual([
         {
           hostId: 'some-user-id',
