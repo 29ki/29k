@@ -179,7 +179,20 @@
         }
       ]
     },
-
+    {
+      "collectionGroup": "sessions",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "hostId",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "startTime",
+          "order": "DESCENDING"
+        }
+      ]
+    },
     {
       "collectionGroup": "sessions",
       "queryScope": "COLLECTION",
