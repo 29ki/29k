@@ -81,3 +81,7 @@ google-play-service.json
 
 # react-native-config codegen
 ios/tmp.xcconfig
+
+# Airbridge
+android/app/src/main/assets/libraryInfo.json
+android/app/src/main/assets/airbridge.json
