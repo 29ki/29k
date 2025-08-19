@@ -4186,6 +4186,11 @@ agent-base@^7.0.2, agent-base@^7.1.0:
   dependencies:
     debug "^4.3.4"
 
+airbridge-react-native-sdk-restricted@^4.7.0:
+  version "4.7.0"
+  resolved "https://registry.yarnpkg.com/airbridge-react-native-sdk-restricted/-/airbridge-react-native-sdk-restricted-4.7.0.tgz#fe0d21ca21127484baa3d1b03882afce534966b1"
+  integrity sha512-6WipLLzpUVBLjgnihe+BvdtJaey0m7z4S1eVP7fKphnRdv1Z6dskGUxemhb7ZddFAm6/TZNmcrwkK2XKTL9ZHQ==
+
 ajv@^6.12.4:
   version "6.12.6"
   resolved "https://registry.yarnpkg.com/ajv/-/ajv-6.12.6.tgz#baf5a62e802b07d977034586f8c3baf5adf26df4"
@@ -5779,6 +5784,11 @@ event-target-shim@^5.0.0, event-target-shim@^5.0.1:
   version "5.0.1"
   resolved "https://registry.yarnpkg.com/event-target-shim/-/event-target-shim-5.0.1.tgz#5d4d3ebdf9583d63a5333ce2deb7480ab2b05789"
   integrity sha512-i/2XbnSz/uxRCU6+NdVJgKWDTM427+MqYbkQzD321DuCQJUqOuJKIA0IM2+W2xtYHdKOmZ4dR6fExsd4SXL+WQ==
+
+eventemitter3@^5.0.1:
+  version "5.0.1"
+  resolved "https://registry.yarnpkg.com/eventemitter3/-/eventemitter3-5.0.1.tgz#53f5ffd0a492ac800721bb42c66b841de96423c4"
+  integrity sha512-GWkBvjiSZK87ELrYOSESUYeVIc9mvLLf/nXalMOS5dYrgZq9o5OVkbZAVM06CVxYsCwH9BDZFPlQTlPA1j4ahA==
 
 events@^3.1.0:
   version "3.3.0"
@@ -9194,6 +9204,11 @@ react-native-code-push@^9.0.0:
     plist "^3.0.4"
     semver "^7.3.5"
     xcode "3.0.1"
+
+react-native-config@^1.5.6:
+  version "1.5.6"
+  resolved "https://registry.yarnpkg.com/react-native-config/-/react-native-config-1.5.6.tgz#78e250d769be74ac0eff0eccf99ef658f33dabbf"
+  integrity sha512-UB3LEco0FGGbbGvS+DfH2VmGKiP/y5C2MkmfBmfsIaxHSbM1KOTMKYG7YRf6xFhZbJ/01BedHG7SIny5i7N9BQ==
 
 react-native-device-info@^14.0.2:
   version "14.0.2"

@@ -1,0 +1,12 @@
+{
+  "sdkEnabled": true,
+  "autoStartTrackingEnabled": false,
+  "trackAirbridgeDeeplinkOnlyEnabled": true,
+  "trackInSessionLifecycleEventEnabled": false,
+  "hashUserInformationEnabled": true,
+  "trackingLinkCustomDomains": [
+    "open.awareapp.org",
+    "staging.open.awareapp.org",
+    "dev.open.awareapp.org"
+  ]
+}
