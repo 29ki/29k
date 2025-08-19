@@ -2,6 +2,7 @@ package org.twentyninek.app.cupcake;
 
 import android.app.Application
 
+import co.ab180.airbridge.reactnative.AirbridgeReactNative
 import com.microsoft.codepush.react.CodePush;
 import org.twentyninek.app.cupcake.newarchitecture.videoLooper.ReactVideoLooperPackage;
 
@@ -43,6 +44,9 @@ class MainApplication : Application(), ReactApplication {
 
   override fun onCreate() {
     super.onCreate()
+    val name = BuildConfig.AIRBRIDGE_APP_NAME
+    val token = BuildConfig.AIRBRIDGE_SDK_TOKEN
+    AirbridgeReactNative.initializeSDK(this, "awaredev", "4bfe3019388e492eb954f14da462c32d")
     // Do not support right-to-left layouting
     val sharedI18nUtilInstance = I18nUtil.getInstance()
     sharedI18nUtilInstance.allowRTL(applicationContext, false)

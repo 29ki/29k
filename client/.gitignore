@@ -78,3 +78,6 @@ google-play-service.json
 
 # Sentry
 /sentry.properties
+
+# react-native-config codegen
+ios/tmp.xcconfig
