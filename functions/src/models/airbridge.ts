@@ -2,7 +2,7 @@ import config from '../lib/config';
 import i18next, {LANGUAGE_TAG} from '../lib/i18n';
 import {getExerciseById} from '../lib/exercise';
 
-const {AIRBRIDGE_API_TOKEN, DEEP_LINK_DOMAIN_URI_PREFIX} = config;
+const {AIRBRIDGE_API_TOKEN, DEEP_LINK_SCHEME} = config;
 
 type LinkOgTag = {
   title?: string;
@@ -37,7 +37,7 @@ export const createTrackingLink = async (path: string, ogTag?: LinkOgTag) => {
         Authorization: `Bearer ${AIRBRIDGE_API_TOKEN}`,
       },
       body: JSON.stringify({
-        deeplinkUrl: `${DEEP_LINK_DOMAIN_URI_PREFIX}://${path}`,
+        deeplinkUrl: `${DEEP_LINK_SCHEME}://${path}`,
         channel: 'app',
         deeplinkOption: {
           showAlertForInitialDeeplinkingIssue: true,

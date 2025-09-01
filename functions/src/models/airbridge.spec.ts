@@ -88,7 +88,7 @@ describe('createTrackingLink', () => {
       'https://api.airbridge.io/v1/tracking-links',
       {
         body: JSON.stringify({
-          deeplinkUrl: 'some-deep-link-domain-uri-prefix://some/path',
+          deeplinkUrl: 'some.deep.link.scheme://some/path',
           channel: 'app',
           deeplinkOption: {showAlertForInitialDeeplinkingIssue: true},
           fallbackPaths: {android: 'google-play', ios: 'itunes-appstore'},
@@ -127,7 +127,7 @@ describe('createTrackingLink', () => {
       'https://api.airbridge.io/v1/tracking-links',
       {
         body: JSON.stringify({
-          deeplinkUrl: 'some-deep-link-domain-uri-prefix://some/path',
+          deeplinkUrl: 'some.deep.link.scheme://some/path',
           channel: 'app',
           deeplinkOption: {showAlertForInitialDeeplinkingIssue: true},
           fallbackPaths: {android: 'google-play', ios: 'itunes-appstore'},
@@ -184,8 +184,7 @@ describe('createSessionInviteLink', () => {
       'https://api.airbridge.io/v1/tracking-links',
       {
         body: JSON.stringify({
-          deeplinkUrl:
-            'some-deep-link-domain-uri-prefix://joinSessionInvite/123456',
+          deeplinkUrl: 'some.deep.link.scheme://joinSessionInvite/123456',
           channel: 'app',
           deeplinkOption: {showAlertForInitialDeeplinkingIssue: true},
           fallbackPaths: {android: 'google-play', ios: 'itunes-appstore'},
@@ -231,8 +230,7 @@ describe('createSessionInviteLink', () => {
       'https://api.airbridge.io/v1/tracking-links',
       {
         body: JSON.stringify({
-          deeplinkUrl:
-            'some-deep-link-domain-uri-prefix://joinSessionInvite/123456',
+          deeplinkUrl: 'some.deep.link.scheme://joinSessionInvite/123456',
           channel: 'app',
           deeplinkOption: {showAlertForInitialDeeplinkingIssue: true},
           fallbackPaths: {android: 'google-play', ios: 'itunes-appstore'},
@@ -278,8 +276,7 @@ describe('createSessionInviteLink', () => {
       'https://api.airbridge.io/v1/tracking-links',
       {
         body: JSON.stringify({
-          deeplinkUrl:
-            'some-deep-link-domain-uri-prefix://joinSessionInvite/123456',
+          deeplinkUrl: 'some.deep.link.scheme://joinSessionInvite/123456',
           channel: 'app',
           deeplinkOption: {showAlertForInitialDeeplinkingIssue: true},
           fallbackPaths: {android: 'google-play', ios: 'itunes-appstore'},
@@ -321,8 +318,7 @@ describe('createPublicHostCodeLink', () => {
       'https://api.airbridge.io/v1/tracking-links',
       {
         body: JSON.stringify({
-          deeplinkUrl:
-            'some-deep-link-domain-uri-prefix://verifyPublicHostCode/1337',
+          deeplinkUrl: 'some.deep.link.scheme://verifyPublicHostCode/1337',
           channel: 'app',
           deeplinkOption: {showAlertForInitialDeeplinkingIssue: true},
           fallbackPaths: {android: 'google-play', ios: 'itunes-appstore'},
