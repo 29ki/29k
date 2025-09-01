@@ -9,7 +9,7 @@ import {
   updateFeedbackMessageVisibility,
 } from '../../models/slack';
 import {generateVerificationCode} from '../../lib/utils';
-import {createPublicHostCodeLink} from '../../models/dynamicLinks';
+import {createPublicHostCodeLink} from '../../models/airbridge';
 import {updatePublicHostRequest} from '../../models/publicHostRequests';
 import {updatePost} from '../../models/post';
 import {setFeedbackApproval} from '../../models/metrics';

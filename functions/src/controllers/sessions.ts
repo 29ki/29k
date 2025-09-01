@@ -3,7 +3,7 @@ import dayjs from 'dayjs';
 import {
   createSessionHostTransferLink,
   createSessionInviteLink,
-} from '../models/dynamicLinks';
+} from '../models/airbridge';
 import {getUser} from './user';
 import * as sessionModel from '../models/session';
 import * as authModel from '../models/auth';
