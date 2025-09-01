@@ -19,6 +19,11 @@
           "source": "/",
           "destination": "https://29k.org",
           "type": 301
+        },
+        {
+          "source": "/pt/:path*",
+          "destination": "/pt-PT/:path",
+          "type": 301
         }
       ]
     }
