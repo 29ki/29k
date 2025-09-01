@@ -13,6 +13,7 @@ import 'dotenv/config';
 import {cleanEnv, str} from 'envalid';
 
 const configValidation = {
+  AIRBRIDGE_API_TOKEN: str(),
   BACKUPS_BUCKET: str(),
   DAILY_API_KEY: str(),
   DAILY_DOMAIN_ID: str(),
