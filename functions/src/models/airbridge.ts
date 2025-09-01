@@ -51,14 +51,14 @@ export const createTrackingLink = async (path: string, ogTag?: LinkOgTag) => {
     });
 
     if (!response.ok) {
-      throw new Error(`Failed to create link: ${await response.text()}`);
+      throw new Error(await response.text());
     }
 
     const result = (await response.json()) as LinkResponse;
 
-    return result.data.trackingLink.shortUrl ?? undefined;
+    return result.data.trackingLink.shortUrl;
   } catch (cause) {
-    throw new Error('Failed creating dynamic link', {cause});
+    throw new Error('Failed creating tracking link', {cause});
   }
 };
 
