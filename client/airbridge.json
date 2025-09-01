@@ -5,6 +5,9 @@
   "trackInSessionLifecycleEventEnabled": false,
   "hashUserInformationEnabled": true,
   "trackingLinkCustomDomains": [
+    "aware.29k.org",
+    "staging.aware.29k.org",
+    "dev.aware.29k.org",
     "open.awareapp.org",
     "staging.open.awareapp.org",
     "dev.open.awareapp.org"
