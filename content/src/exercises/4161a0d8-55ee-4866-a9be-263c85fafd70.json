@@ -1,4 +1,98 @@
 {
+  "sv": {
+    "liveDuration": 30,
+    "slides": [
+      {
+        "type": "host",
+        "hostNotes": [
+          {
+            "text": "Welcome. I am X and today we will work for around 30 minutes on xx\n\nWe’ll be doing xx ex. meditation followed by time for reflection and sharing with each other."
+          },
+          {
+            "text": "Let’s start with a mini check-in. How are you feeling right now? Please answer in two-three words. X, would you like to start?\n\n> Let everyone in the session, including yourself, check in one by one.\n\nThank you all for checking in. Let’s get started."
+          }
+        ]
+      },
+      {
+        "type": "content",
+        "hostNotes": [
+          {
+            "text": "Find a comfortable position. I will start the audio exercise and we'll meet back here afterwards. \n\n> Push play to start the audio exercise"
+          }
+        ]
+      },
+      {
+        "type": "reflection",
+        "hostNotes": [
+          {
+            "text": "Now we’ll take 1 minute to reflect on our own.\n\nxxMain question\n\nxxFurther explanations of main question if needed"
+          },
+          {
+            "text": "You can take notes on a piece of paper or just mental notes in your head. And there is no right or wrong here, our answers are our own. 1 minute starting now.\n\n> Press play to start the timer.\n\nThat’s 1 minute and it’s time to move on."
+          }
+        ]
+      },
+      {
+        "type": "sharing",
+        "hostNotes": [
+          {
+            "text": "Now we are getting into the sharing part. We have three rules for sharing:\n\n1. **What is said in here, stays in here.**\n2. **All you need to do is listen.** There is no fixing, helping or advice-giving needed. We are just showing up and exploring what ourselves and others are going through."
+          },
+          {
+            "text": "3. **Everything on the inside is okay.** Anger, love, hatred, sadness. Whatever shows up. No wrongs, no rights. It is what it is.\n\nThere will be a timer set for 2 minutes as an indicator. If you don’t want to share you can always say ‘pass’."
+          },
+          {
+            "text": "Who would like to start?\n\n> Let everyone (or as many as you got time for) share one by one. Press play to start the timer. Re-start for each new sharing.\n\nThank you so much everyone."
+          }
+        ],
+        "id": "Sharing 1"
+      },
+      {
+        "type": "host",
+        "hostNotes": [
+          {
+            "text": "Well done. If you’re up for it, you can continue what we started here today with a mission to bring this into your everyday life.\n\nxx mission description"
+          },
+          {
+            "text": "Before we leave this space let’s do a mini check-out. \n\nHow are you feeling right now? Has anything shifted? Please answer in two-three words."
+          },
+          {
+            "text": "Who would like to start?\n\n> Let everyone in the session check out one by one.\n\nThank you all for checking out and for joining this session today.\n\n> Finish session to send everyone off to the exit experience."
+          }
+        ]
+      },
+      {
+        "type": "instruction",
+        "content": {
+          "text": "Well done.\n\nSummary.\n\nIf you’re up for it, you can continue with this mission.\n\nmission description"
+        }
+      }
+    ],
+    "theme": {
+      "textColor": "#2AE2D7"
+    },
+    "hidden": false,
+    "locked": true,
+    "live": true,
+    "published": false,
+    "excludeFromWeb": false,
+    "asyncDuration": 15,
+    "card": {},
+    "introPortal": {
+      "textColor": "#2AE2D7",
+      "hostNotes": [
+        {
+          "text": "> Start the session when you're ready to go"
+        }
+      ]
+    },
+    "tags": [
+      "34100e43-2eb8-4d35-8eb0-9fa9f78e4935",
+      "9c2c08a9-7dc6-4058-bc78-016d0eb00614"
+    ],
+    "id": "4161a0d8-55ee-4866-a9be-263c85fafd70",
+    "async": false
+  },
   "en": {
     "liveDuration": 30,
     "slides": [
@@ -314,7 +408,7 @@
     "async": true,
     "description": "Por vezes evitamos conversas difíceis porque sabemos que serão emocionalmente desafiantes. Contrariar este comportamento, enfrentando dificuldades com uma atitude de aceitação, pode ajudar-nos a lidar melhor com essas situações.\n\nIrá precisar de:\n\n* 20 minutos sem interrupções\n* Uma caneta e papel"
   },
-  "sv": {
+  "es": {
     "liveDuration": 30,
     "slides": [
       {
@@ -407,261 +501,6 @@
     ],
     "id": "4161a0d8-55ee-4866-a9be-263c85fafd70",
     "async": false
-  },
-  "ja": {
-    "liveDuration": 30,
-    "slides": [
-      {
-        "type": "host",
-        "hostNotes": [
-          {
-            "text": "Welcome. I am X and today we will work for around 30 minutes on xx\n\nWe’ll be doing xx ex. meditation followed by time for reflection and sharing with each other."
-          },
-          {
-            "text": "Let’s start with a mini check-in. How are you feeling right now? Please answer in two-three words. X, would you like to start?\n\n> Let everyone in the session, including yourself, check in one by one.\n\nThank you all for checking in. Let’s get started."
-          }
-        ]
-      },
-      {
-        "type": "content",
-        "hostNotes": [
-          {
-            "text": "Find a comfortable position. I will start the audio exercise and we'll meet back here afterwards. \n\n> Push play to start the audio exercise"
-          }
-        ]
-      },
-      {
-        "type": "reflection",
-        "hostNotes": [
-          {
-            "text": "Now we’ll take 1 minute to reflect on our own.\n\nxxMain question\n\nxxFurther explanations of main question if needed"
-          },
-          {
-            "text": "You can take notes on a piece of paper or just mental notes in your head. And there is no right or wrong here, our answers are our own. 1 minute starting now.\n\n> Press play to start the timer.\n\nThat’s 1 minute and it’s time to move on."
-          }
-        ]
-      },
-      {
-        "type": "sharing",
-        "hostNotes": [
-          {
-            "text": "Now we are getting into the sharing part. We have three rules for sharing:\n\n1. **What is said in here, stays in here.**\n2. **All you need to do is listen.** There is no fixing, helping or advice-giving needed. We are just showing up and exploring what ourselves and others are going through."
-          },
-          {
-            "text": "3. **Everything on the inside is okay.** Anger, love, hatred, sadness. Whatever shows up. No wrongs, no rights. It is what it is.\n\nThere will be a timer set for 2 minutes as an indicator. If you don’t want to share you can always say ‘pass’."
-          },
-          {
-            "text": "Who would like to start?\n\n> Let everyone (or as many as you got time for) share one by one. Press play to start the timer. Re-start for each new sharing.\n\nThank you so much everyone."
-          }
-        ],
-        "id": "Sharing 1"
-      },
-      {
-        "type": "host",
-        "hostNotes": [
-          {
-            "text": "Well done. If you’re up for it, you can continue what we started here today with a mission to bring this into your everyday life.\n\nxx mission description"
-          },
-          {
-            "text": "Before we leave this space let’s do a mini check-out. \n\nHow are you feeling right now? Has anything shifted? Please answer in two-three words."
-          },
-          {
-            "text": "Who would like to start?\n\n> Let everyone in the session check out one by one.\n\nThank you all for checking out and for joining this session today.\n\n> Finish session to send everyone off to the exit experience."
-          }
-        ]
-      },
-      {
-        "type": "instruction",
-        "content": {
-          "text": "Well done.\n\nSummary.\n\nIf you’re up for it, you can continue with this mission.\n\nmission description"
-        }
-      }
-    ],
-    "theme": {
-      "textColor": "#2AE2D7"
-    },
-    "hidden": false,
-    "locked": true,
-    "live": true,
-    "published": false,
-    "excludeFromWeb": false,
-    "asyncDuration": 15,
-    "card": {},
-    "introPortal": {
-      "textColor": "#2AE2D7",
-      "hostNotes": [
-        {
-          "text": "> Start the session when you're ready to go"
-        }
-      ]
-    },
-    "tags": [
-      "34100e43-2eb8-4d35-8eb0-9fa9f78e4935",
-      "9c2c08a9-7dc6-4058-bc78-016d0eb00614"
-    ],
-    "id": "4161a0d8-55ee-4866-a9be-263c85fafd70",
-    "async": false
-  },
-  "da": {
-    "liveDuration": 30,
-    "slides": [
-      {
-        "type": "host",
-        "hostNotes": [
-          {
-            "text": "Welcome. I am X and today we will work for around 30 minutes on xx\n\nWe’ll be doing xx ex. meditation followed by time for reflection and sharing with each other."
-          },
-          {
-            "text": "Let’s start with a mini check-in. How are you feeling right now? Please answer in two-three words. X, would you like to start?\n\n> Let everyone in the session, including yourself, check in one by one.\n\nThank you all for checking in. Let’s get started."
-          }
-        ]
-      },
-      {
-        "type": "instruction",
-        "content": {
-          "text": "Det er ikke altid let at gøre det, som har stor betydning for os. Når vi har behov for at stå op for os selv—hvad enten det drejer sig om at håndtere en konflikt eller dele svære sandheder med en ven—møder vi ofte angst, frygt og skyldfølelse. I denne øvelse vil vi arbejde med at acceptere disse udfordrende følelser, så vi kan fokusere på det, der virkelig betyder noget.",
-          "image": {
-            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1737800766/Images/image_11_Difficult_conversation_fxast1.png"
-          }
-        }
-      },
-      {
-        "type": "content",
-        "hostNotes": [
-          {
-            "text": "Find a comfortable position. I will start the audio exercise and we'll meet back here afterwards. \n\n> Push play to start the audio exercise"
-          }
-        ],
-        "content": {
-          "video": {
-            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1737616068/Video/audio_timer_acceptance_practice_1_cungu2.mp4",
-            "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1740666729/SRT%20(captions)%20files/PsyPal_Difficult_conversations_Da_Sv%C3%A6re_samtaler_nyoyao.srt",
-            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1740666746/Audio/PsyPal_Difficult_conversations_Da_Sv%C3%A6re_samtaler_znwwnt.mp3"
-          }
-        }
-      },
-      {
-        "type": "reflection",
-        "hostNotes": [
-          {
-            "text": "Now we’ll take 1 minute to reflect on our own.\n\nxxMain question\n\nxxFurther explanations of main question if needed"
-          },
-          {
-            "text": "You can take notes on a piece of paper or just mental notes in your head. And there is no right or wrong here, our answers are our own. 1 minute starting now.\n\n> Press play to start the timer.\n\nThat’s 1 minute and it’s time to move on."
-          }
-        ],
-        "content": {
-          "text": "",
-          "heading": "Hvordan oplevede du dét at lave denne øvelse?",
-          "lottie": {
-            "durationTimer": true,
-            "duration": 60,
-            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1676642915/Lottie/default_1min_white_wvgwma.json"
-          }
-        }
-      },
-      {
-        "type": "sharing",
-        "hostNotes": [
-          {
-            "text": "Now we are getting into the sharing part. We have three rules for sharing:\n\n1. **What is said in here, stays in here.**\n2. **All you need to do is listen.** There is no fixing, helping or advice-giving needed. We are just showing up and exploring what ourselves and others are going through."
-          },
-          {
-            "text": "3. **Everything on the inside is okay.** Anger, love, hatred, sadness. Whatever shows up. No wrongs, no rights. It is what it is.\n\nThere will be a timer set for 2 minutes as an indicator. If you don’t want to share you can always say ‘pass’."
-          },
-          {
-            "text": "Who would like to start?\n\n> Let everyone (or as many as you got time for) share one by one. Press play to start the timer. Re-start for each new sharing.\n\nThank you so much everyone."
-          }
-        ],
-        "id": "Sharing 1",
-        "content": {
-          "text": "",
-          "heading": "Hvordan oplevede du dét at lave denne øvelse?"
-        }
-      },
-      {
-        "type": "host",
-        "hostNotes": [
-          {
-            "text": "Well done. If you’re up for it, you can continue what we started here today with a mission to bring this into your everyday life.\n\nxx mission description"
-          },
-          {
-            "text": "Before we leave this space let’s do a mini check-out. \n\nHow are you feeling right now? Has anything shifted? Please answer in two-three words."
-          },
-          {
-            "text": "Who would like to start?\n\n> Let everyone in the session check out one by one.\n\nThank you all for checking out and for joining this session today.\n\n> Finish session to send everyone off to the exit experience."
-          }
-        ]
-      },
-      {
-        "type": "instruction",
-        "content": {
-          "text": "Du har fået nogle færdigheder til at være mere forberedt på svære samtaler:\n\n1. Bemærk og tillad svære følelser og tanker.\n2. Spørg for at forstå, ikke for at overtale.\n3. Lyt, tillad stilhed.\n4. Vær sårbar og åben.\n\nHvis du har en svær samtale i tankerne, så læg en plan for hvornår og hvor du vil have den.",
-          "image": {
-            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1737800767/Images/image_33_Difficult_conversation_h81lm9.png"
-          }
-        }
-      }
-    ],
-    "theme": {
-      "textColor": "#F9F8F4",
-      "backgroundColor": "#cf400c"
-    },
-    "hidden": false,
-    "locked": true,
-    "name": "Svære samtaler",
-    "live": false,
-    "published": true,
-    "excludeFromWeb": false,
-    "asyncDuration": 15,
-    "card": {
-      "image": {
-        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1737188027/Images/image_2_Difficult_conversation_xroiqs.png"
-      }
-    },
-    "coCreators": [
-      {
-        "name": "Jenny Rickardsson, script",
-        "url": "https://www.linkedin.com/in/jenny-rickardson-6770a959/",
-        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1682602411/Images/Jenny_Rickardsson_kopia_sdodwf.jpg"
-      },
-      {
-        "name": "Ints Ivanovskis, art works",
-        "url": "https://www.linkedin.com/in/ints-ivanovskis-46ab0311a/",
-        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413436/Contributors/Ints%20Ivanovskis.jpg"
-      },
-      {
-        "name": "Catharina Messell, voice",
-        "url": "https://nru.dk/index.php/about-us/staff-list/98-other-research-staff/292-catharina-messell",
-        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1734343422/Contributors/Catharina_Messel_Da_PsyPal.png"
-      }
-    ],
-    "outroPortal": {
-      "desktopOptimized": true
-    },
-    "introPortal": {
-      "textColor": "#F9F8F4",
-      "hostNotes": [
-        {
-          "text": "> Start the session when you're ready to go"
-        }
-      ],
-      "videoLoop": {
-        "p5JsScript": {
-          "lang": "javascript"
-        },
-        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1737274976/Video/portal_1_Difficult_conversation_mjexai.mp4",
-        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1740905960/Audio/random%20audio/9_vpkpv7.mp3"
-      },
-      "desktopOptimized": true
-    },
-    "tags": [
-      "34100e43-2eb8-4d35-8eb0-9fa9f78e4935",
-      "9c2c08a9-7dc6-4058-bc78-016d0eb00614"
-    ],
-    "id": "4161a0d8-55ee-4866-a9be-263c85fafd70",
-    "async": true,
-    "description": "Vi undgår ofte svære samtaler, fordi vi ved, de vil være følelsesmæssigt udfordrende. At gøre det modsatte—at møde udfordringer med —kan hjælpe os med at håndtere disse situationer bedre.\n\nDu skal bruge:\n\n* 20 minutters uforstyrret tid\n* Pen og papir"
   },
   "cs": {
     "liveDuration": 30,
@@ -824,6 +663,417 @@
     "async": true,
     "description": "Často se vyhýbáme obtížným rozhovorům,  protože mouhou přinést náročné  emoce. náročné. Učit se opačnému přístupu, tedy čelit obtížím s přijímajícím postojem, nám může pomoci tyto situace lépe zvládat.\n\nBudete potřebovat:\n\n* 20 minut času bez vyrušování.\n* Tužku a papír."
   },
+  "ja": {
+    "liveDuration": 30,
+    "slides": [
+      {
+        "type": "host",
+        "hostNotes": [
+          {
+            "text": "Welcome. I am X and today we will work for around 30 minutes on xx\n\nWe’ll be doing xx ex. meditation followed by time for reflection and sharing with each other."
+          },
+          {
+            "text": "Let’s start with a mini check-in. How are you feeling right now? Please answer in two-three words. X, would you like to start?\n\n> Let everyone in the session, including yourself, check in one by one.\n\nThank you all for checking in. Let’s get started."
+          }
+        ]
+      },
+      {
+        "type": "content",
+        "hostNotes": [
+          {
+            "text": "Find a comfortable position. I will start the audio exercise and we'll meet back here afterwards. \n\n> Push play to start the audio exercise"
+          }
+        ]
+      },
+      {
+        "type": "reflection",
+        "hostNotes": [
+          {
+            "text": "Now we’ll take 1 minute to reflect on our own.\n\nxxMain question\n\nxxFurther explanations of main question if needed"
+          },
+          {
+            "text": "You can take notes on a piece of paper or just mental notes in your head. And there is no right or wrong here, our answers are our own. 1 minute starting now.\n\n> Press play to start the timer.\n\nThat’s 1 minute and it’s time to move on."
+          }
+        ]
+      },
+      {
+        "type": "sharing",
+        "hostNotes": [
+          {
+            "text": "Now we are getting into the sharing part. We have three rules for sharing:\n\n1. **What is said in here, stays in here.**\n2. **All you need to do is listen.** There is no fixing, helping or advice-giving needed. We are just showing up and exploring what ourselves and others are going through."
+          },
+          {
+            "text": "3. **Everything on the inside is okay.** Anger, love, hatred, sadness. Whatever shows up. No wrongs, no rights. It is what it is.\n\nThere will be a timer set for 2 minutes as an indicator. If you don’t want to share you can always say ‘pass’."
+          },
+          {
+            "text": "Who would like to start?\n\n> Let everyone (or as many as you got time for) share one by one. Press play to start the timer. Re-start for each new sharing.\n\nThank you so much everyone."
+          }
+        ],
+        "id": "Sharing 1"
+      },
+      {
+        "type": "host",
+        "hostNotes": [
+          {
+            "text": "Well done. If you’re up for it, you can continue what we started here today with a mission to bring this into your everyday life.\n\nxx mission description"
+          },
+          {
+            "text": "Before we leave this space let’s do a mini check-out. \n\nHow are you feeling right now? Has anything shifted? Please answer in two-three words."
+          },
+          {
+            "text": "Who would like to start?\n\n> Let everyone in the session check out one by one.\n\nThank you all for checking out and for joining this session today.\n\n> Finish session to send everyone off to the exit experience."
+          }
+        ]
+      },
+      {
+        "type": "instruction",
+        "content": {
+          "text": "Well done.\n\nSummary.\n\nIf you’re up for it, you can continue with this mission.\n\nmission description"
+        }
+      }
+    ],
+    "theme": {
+      "textColor": "#2AE2D7"
+    },
+    "hidden": false,
+    "locked": true,
+    "live": true,
+    "published": false,
+    "excludeFromWeb": false,
+    "asyncDuration": 15,
+    "card": {},
+    "introPortal": {
+      "textColor": "#2AE2D7",
+      "hostNotes": [
+        {
+          "text": "> Start the session when you're ready to go"
+        }
+      ]
+    },
+    "tags": [
+      "34100e43-2eb8-4d35-8eb0-9fa9f78e4935",
+      "9c2c08a9-7dc6-4058-bc78-016d0eb00614"
+    ],
+    "id": "4161a0d8-55ee-4866-a9be-263c85fafd70",
+    "async": false
+  },
+  "pt-BR": {
+    "liveDuration": 30,
+    "slides": [
+      {
+        "hostNotes": [
+          {
+            "text": "Bem-vindos. Eu sou X e hoje vamos trabalhar por cerca de 30 minutos em xx.\n\nFaremos xx, por exemplo, uma meditação, seguida de um tempo para reflexão e compartilhamento entre nós."
+          },
+          {
+            "text": "Vamos começar com um mini check-in. Como você está se sentindo agora? Por favor, responda em duas ou três palavras. X, você gostaria de começar?\n\n> Deixe todos na sessão, inclusive você, fazerem o check-in um por um.\n\nObrigado a todos por compartilharem. Vamos começar."
+          }
+        ],
+        "type": "host"
+      },
+      {
+        "content": {
+          "text": "Seguir o que realmente importa para nós nem sempre é fácil. Quando precisamos nos posicionar—seja ao lidar com um conflito ou ao compartilhar verdades difíceis com um amigo—frequentemente enfrentamos ansiedade, medo e culpa. Neste exercício, vamos aprender a aceitar esses sentimentos desafiadores para que possamos focar no que realmente importa.\n",
+          "image": {
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1737800766/Images/image_11_Difficult_conversation_fxast1.png"
+          }
+        },
+        "type": "instruction"
+      },
+      {
+        "hostNotes": [
+          {
+            "text": "Encontre uma posição confortável. Vou iniciar o exercício em áudio e nos encontraremos aqui novamente depois.\n\n> Aperte play para começar o exercício em áudio."
+          }
+        ],
+        "type": "content",
+        "content": {
+          "video": {
+            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1737616068/Video/audio_timer_acceptance_practice_1_cungu2.mp4",
+            "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1739805357/SRT%20(captions)%20files/PsyPal_Difficutl_conversations_nfzx1g.srt",
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1739805280/Audio/PsyPal_Difficult_conversations_pumif5.mp3"
+          }
+        }
+      },
+      {
+        "hostNotes": [
+          {
+            "text": "Agora vamos tirar 1 minuto para refletir individualmente.\n\nxxPergunta principal\n\nxxExplicações adicionais da pergunta principal, se necessário"
+          },
+          {
+            "text": "Você pode fazer anotações em um papel ou apenas mentalmente. Não existe certo ou errado aqui, nossas respostas são pessoais. 1 minuto começando agora.\n\n> Aperte play para iniciar o cronômetro.\n\nPassou 1 minuto, é hora de seguir em frente."
+          }
+        ],
+        "type": "reflection",
+        "content": {
+          "text": "",
+          "lottie": {
+            "durationTimer": true,
+            "duration": 60,
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1676642915/Lottie/default_1min_white_wvgwma.json"
+          },
+          "heading": ""
+        }
+      },
+      {
+        "content": {
+          "heading": "Como foi para você fazer este exercício?",
+          "text": ""
+        },
+        "hostNotes": [
+          {
+            "text": "Agora estamos entrando na parte de compartilhamento. Temos três regras para o compartilhamento:\n\n1. **O que é dito aqui, fica aqui.**\n2. **Tudo o que você precisa fazer é ouvir.** Não é necessário consertar, ajudar ou dar conselhos. Estamos apenas presentes e explorando o que nós e os outros estamos vivenciando."
+          },
+          {
+            "text": "3. **Tudo o que você sentir é válido.** Raiva, amor, ódio, tristeza. O que surgir. Não existe certo ou errado. \n\nO cronômetro será ajustado para 2 minutos como referência. Se você não quiser compartilhar, pode simplesmente dizer “passo”.\n\n"
+          },
+          {
+            "text": "Quem gostaria de começar?\n\n> Deixe todos (ou o maior número possível, conforme o tempo permitir) compartilharem um por um. Aperte play para iniciar o cronômetro. Reinicie para cada novo compartilhamento.\n\nMuito obrigado a todos.\n\n"
+          }
+        ],
+        "type": "sharing",
+        "id": "Sharing 1"
+      },
+      {
+        "hostNotes": [
+          {
+            "text": "Muito bem. Se quiser, você pode continuar o que começamos aqui hoje com uma sugestão para trazer isso para o seu dia a dia.\n\nxx descrição da sugestão"
+          },
+          {
+            "text": "Antes de sairmos deste espaço, vamos fazer um mini check-out.\n\nComo você está se sentindo agora? Algo mudou? Por favor, responda em duas ou três palavras."
+          },
+          {
+            "text": "Quem gostaria de começar?\n\n> Deixe todos (ou o maior número possível, conforme o tempo permitir) compartilharem um por um. Aperte play para iniciar o cronômetro. Reinicie para cada novo compartilhamento.\n\nMuito obrigado a todos.\n\n"
+          }
+        ],
+        "type": "host"
+      },
+      {
+        "content": {
+          "text": "Você aprendeu algumas habilidades para estar mais preparado para conversas difíceis:\n\n1. Perceber e permitir emoções difíceis.\n2. Perguntar para entender, não para convencer.\n3. Ouvir e permitir silêncios.\n4. Ser vulnerável e aberto.\n\nSe você tem uma conversa difícil em mente, faça um plano de quando e onde irá realizá-la.",
+          "image": {
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1737800767/Images/image_33_Difficult_conversation_h81lm9.png"
+          }
+        },
+        "type": "instruction"
+      }
+    ],
+    "theme": {
+      "textColor": "#F9F8F4",
+      "backgroundColor": "#cf400c"
+    },
+    "hidden": false,
+    "locked": true,
+    "name": "PsyPal Conversas difíceis",
+    "live": false,
+    "published": false,
+    "excludeFromWeb": false,
+    "asyncDuration": 15,
+    "card": {
+      "image": {
+        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1737188027/Images/image_2_Difficult_conversation_xroiqs.png"
+      }
+    },
+    "coCreators": [
+      {
+        "name": "Jenny Rickardsson, script and voice",
+        "url": "https://www.linkedin.com/in/jenny-rickardson-6770a959/",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1682602411/Images/Jenny_Rickardsson_kopia_sdodwf.jpg"
+      },
+      {
+        "name": "Ints Ivanovskis, art works",
+        "url": "https://www.linkedin.com/in/ints-ivanovskis-46ab0311a/",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413436/Contributors/Ints%20Ivanovskis.jpg"
+      }
+    ],
+    "outroPortal": {
+      "desktopOptimized": true
+    },
+    "introPortal": {
+      "hostNotes": [
+        {
+          "text": ">Comece a sessão quando estiver pronto para seguir"
+        }
+      ],
+      "textColor": "#F9F8F4",
+      "videoLoop": {
+        "p5JsScript": {
+          "lang": "javascript"
+        },
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1737274976/Video/portal_1_Difficult_conversation_mjexai.mp4",
+        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1740905960/Audio/random%20audio/9_vpkpv7.mp3"
+      },
+      "desktopOptimized": true
+    },
+    "tags": [
+      "34100e43-2eb8-4d35-8eb0-9fa9f78e4935",
+      "9c2c08a9-7dc6-4058-bc78-016d0eb00614"
+    ],
+    "id": "4161a0d8-55ee-4866-a9be-263c85fafd70",
+    "async": true,
+    "description": "Frequentemente evitamos conversas difíceis porque sabemos que elas serão emocionalmente desafiadoras. Praticar o oposto — enfrentar o difícil com uma atitude de aceitação — pode ajudar a lidar melhor com essas situações. Para este exercício, você vai precisar de um lugar para fazer anotações."
+  },
+  "da": {
+    "liveDuration": 30,
+    "slides": [
+      {
+        "type": "host",
+        "hostNotes": [
+          {
+            "text": "Welcome. I am X and today we will work for around 30 minutes on xx\n\nWe’ll be doing xx ex. meditation followed by time for reflection and sharing with each other."
+          },
+          {
+            "text": "Let’s start with a mini check-in. How are you feeling right now? Please answer in two-three words. X, would you like to start?\n\n> Let everyone in the session, including yourself, check in one by one.\n\nThank you all for checking in. Let’s get started."
+          }
+        ]
+      },
+      {
+        "type": "instruction",
+        "content": {
+          "text": "Det er ikke altid let at gøre det, som har stor betydning for os. Når vi har behov for at stå op for os selv—hvad enten det drejer sig om at håndtere en konflikt eller dele svære sandheder med en ven—møder vi ofte angst, frygt og skyldfølelse. I denne øvelse vil vi arbejde med at acceptere disse udfordrende følelser, så vi kan fokusere på det, der virkelig betyder noget.",
+          "image": {
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1737800766/Images/image_11_Difficult_conversation_fxast1.png"
+          }
+        }
+      },
+      {
+        "type": "content",
+        "hostNotes": [
+          {
+            "text": "Find a comfortable position. I will start the audio exercise and we'll meet back here afterwards. \n\n> Push play to start the audio exercise"
+          }
+        ],
+        "content": {
+          "video": {
+            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1737616068/Video/audio_timer_acceptance_practice_1_cungu2.mp4",
+            "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1740666729/SRT%20(captions)%20files/PsyPal_Difficult_conversations_Da_Sv%C3%A6re_samtaler_nyoyao.srt",
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1740666746/Audio/PsyPal_Difficult_conversations_Da_Sv%C3%A6re_samtaler_znwwnt.mp3"
+          }
+        }
+      },
+      {
+        "type": "reflection",
+        "hostNotes": [
+          {
+            "text": "Now we’ll take 1 minute to reflect on our own.\n\nxxMain question\n\nxxFurther explanations of main question if needed"
+          },
+          {
+            "text": "You can take notes on a piece of paper or just mental notes in your head. And there is no right or wrong here, our answers are our own. 1 minute starting now.\n\n> Press play to start the timer.\n\nThat’s 1 minute and it’s time to move on."
+          }
+        ],
+        "content": {
+          "text": "",
+          "heading": "Hvordan oplevede du dét at lave denne øvelse?",
+          "lottie": {
+            "durationTimer": true,
+            "duration": 60,
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1676642915/Lottie/default_1min_white_wvgwma.json"
+          }
+        }
+      },
+      {
+        "type": "sharing",
+        "hostNotes": [
+          {
+            "text": "Now we are getting into the sharing part. We have three rules for sharing:\n\n1. **What is said in here, stays in here.**\n2. **All you need to do is listen.** There is no fixing, helping or advice-giving needed. We are just showing up and exploring what ourselves and others are going through."
+          },
+          {
+            "text": "3. **Everything on the inside is okay.** Anger, love, hatred, sadness. Whatever shows up. No wrongs, no rights. It is what it is.\n\nThere will be a timer set for 2 minutes as an indicator. If you don’t want to share you can always say ‘pass’."
+          },
+          {
+            "text": "Who would like to start?\n\n> Let everyone (or as many as you got time for) share one by one. Press play to start the timer. Re-start for each new sharing.\n\nThank you so much everyone."
+          }
+        ],
+        "id": "Sharing 1",
+        "content": {
+          "text": "",
+          "heading": "Hvordan oplevede du dét at lave denne øvelse?"
+        }
+      },
+      {
+        "type": "host",
+        "hostNotes": [
+          {
+            "text": "Well done. If you’re up for it, you can continue what we started here today with a mission to bring this into your everyday life.\n\nxx mission description"
+          },
+          {
+            "text": "Before we leave this space let’s do a mini check-out. \n\nHow are you feeling right now? Has anything shifted? Please answer in two-three words."
+          },
+          {
+            "text": "Who would like to start?\n\n> Let everyone in the session check out one by one.\n\nThank you all for checking out and for joining this session today.\n\n> Finish session to send everyone off to the exit experience."
+          }
+        ]
+      },
+      {
+        "type": "instruction",
+        "content": {
+          "text": "Du har fået nogle færdigheder til at være mere forberedt på svære samtaler:\n\n1. Bemærk og tillad svære følelser og tanker.\n2. Spørg for at forstå, ikke for at overtale.\n3. Lyt, tillad stilhed.\n4. Vær sårbar og åben.\n\nHvis du har en svær samtale i tankerne, så læg en plan for hvornår og hvor du vil have den.",
+          "image": {
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1737800767/Images/image_33_Difficult_conversation_h81lm9.png"
+          }
+        }
+      }
+    ],
+    "theme": {
+      "textColor": "#F9F8F4",
+      "backgroundColor": "#cf400c"
+    },
+    "hidden": false,
+    "locked": true,
+    "name": "Svære samtaler",
+    "live": false,
+    "published": true,
+    "excludeFromWeb": false,
+    "asyncDuration": 15,
+    "card": {
+      "image": {
+        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1737188027/Images/image_2_Difficult_conversation_xroiqs.png"
+      }
+    },
+    "coCreators": [
+      {
+        "name": "Jenny Rickardsson, script",
+        "url": "https://www.linkedin.com/in/jenny-rickardson-6770a959/",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1682602411/Images/Jenny_Rickardsson_kopia_sdodwf.jpg"
+      },
+      {
+        "name": "Ints Ivanovskis, art works",
+        "url": "https://www.linkedin.com/in/ints-ivanovskis-46ab0311a/",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413436/Contributors/Ints%20Ivanovskis.jpg"
+      },
+      {
+        "name": "Catharina Messell, voice",
+        "url": "https://nru.dk/index.php/about-us/staff-list/98-other-research-staff/292-catharina-messell",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1734343422/Contributors/Catharina_Messel_Da_PsyPal.png"
+      }
+    ],
+    "outroPortal": {
+      "desktopOptimized": true
+    },
+    "introPortal": {
+      "textColor": "#F9F8F4",
+      "hostNotes": [
+        {
+          "text": "> Start the session when you're ready to go"
+        }
+      ],
+      "videoLoop": {
+        "p5JsScript": {
+          "lang": "javascript"
+        },
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1737274976/Video/portal_1_Difficult_conversation_mjexai.mp4",
+        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1740905960/Audio/random%20audio/9_vpkpv7.mp3"
+      },
+      "desktopOptimized": true
+    },
+    "tags": [
+      "34100e43-2eb8-4d35-8eb0-9fa9f78e4935",
+      "9c2c08a9-7dc6-4058-bc78-016d0eb00614"
+    ],
+    "id": "4161a0d8-55ee-4866-a9be-263c85fafd70",
+    "async": true,
+    "description": "Vi undgår ofte svære samtaler, fordi vi ved, de vil være følelsesmæssigt udfordrende. At gøre det modsatte—at møde udfordringer med —kan hjælpe os med at håndtere disse situationer bedre.\n\nDu skal bruge:\n\n* 20 minutters uforstyrret tid\n* Pen og papir"
+  },
   "nl": {
     "liveDuration": 30,
     "slides": [
@@ -841,7 +1091,7 @@
       {
         "type": "instruction",
         "content": {
-          "text": "Volgen wat belangrijk voor ons is, is niet altijd even makkelijk. Wanneer we voor onszelf moeten opkomen—of het nu gaat om een conflict of het delen van moeilijke waarheden met een vriend—worden we vaak geconfronteerd met angst, vrees en schuldgevoelens. In deze oefening leren we deze uitdagende gevoelens te accepteren zodat we ons kunnen concentreren op wat er echt toe doet.",
+          "text": "Doen wat voor ons belangrijk is, is niet altijd makkelijk. Wanneer we voor onszelf op moeten komen, voelen we ons vaak angstig of hebben we schuldgevoelens. Bijvoorbeeld als we ruzie hebben met iemand of als we een vriend de waarheid zeggen. \n\nIn deze oefening leren we dat deze gevoelens er mogen zijn. En we kijken naar wat er echt toe doet.",
           "image": {
             "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1737800766/Images/image_11_Difficult_conversation_fxast1.png"
           }
@@ -982,255 +1232,5 @@
     "id": "4161a0d8-55ee-4866-a9be-263c85fafd70",
     "async": true,
     "description": "We vermijden vaak moeilijke gesprekken omdat we weten dat ze emotioneel uitdagend zijn. Het tegenovergestelde oefenen—moeilijkheden met een accepterende houding tegemoet treden—kan ons helpen om beter met deze situaties om te gaan.\n\nJe hebt nodig:\n\n* 20 minuten ononderbroken tijd\n* Pen en papier"
-  },
-  "es": {
-    "liveDuration": 30,
-    "slides": [
-      {
-        "type": "host",
-        "hostNotes": [
-          {
-            "text": "Welcome. I am X and today we will work for around 30 minutes on xx\n\nWe’ll be doing xx ex. meditation followed by time for reflection and sharing with each other."
-          },
-          {
-            "text": "Let’s start with a mini check-in. How are you feeling right now? Please answer in two-three words. X, would you like to start?\n\n> Let everyone in the session, including yourself, check in one by one.\n\nThank you all for checking in. Let’s get started."
-          }
-        ]
-      },
-      {
-        "type": "content",
-        "hostNotes": [
-          {
-            "text": "Find a comfortable position. I will start the audio exercise and we'll meet back here afterwards. \n\n> Push play to start the audio exercise"
-          }
-        ]
-      },
-      {
-        "type": "reflection",
-        "hostNotes": [
-          {
-            "text": "Now we’ll take 1 minute to reflect on our own.\n\nxxMain question\n\nxxFurther explanations of main question if needed"
-          },
-          {
-            "text": "You can take notes on a piece of paper or just mental notes in your head. And there is no right or wrong here, our answers are our own. 1 minute starting now.\n\n> Press play to start the timer.\n\nThat’s 1 minute and it’s time to move on."
-          }
-        ]
-      },
-      {
-        "type": "sharing",
-        "hostNotes": [
-          {
-            "text": "Now we are getting into the sharing part. We have three rules for sharing:\n\n1. **What is said in here, stays in here.**\n2. **All you need to do is listen.** There is no fixing, helping or advice-giving needed. We are just showing up and exploring what ourselves and others are going through."
-          },
-          {
-            "text": "3. **Everything on the inside is okay.** Anger, love, hatred, sadness. Whatever shows up. No wrongs, no rights. It is what it is.\n\nThere will be a timer set for 2 minutes as an indicator. If you don’t want to share you can always say ‘pass’."
-          },
-          {
-            "text": "Who would like to start?\n\n> Let everyone (or as many as you got time for) share one by one. Press play to start the timer. Re-start for each new sharing.\n\nThank you so much everyone."
-          }
-        ],
-        "id": "Sharing 1"
-      },
-      {
-        "type": "host",
-        "hostNotes": [
-          {
-            "text": "Well done. If you’re up for it, you can continue what we started here today with a mission to bring this into your everyday life.\n\nxx mission description"
-          },
-          {
-            "text": "Before we leave this space let’s do a mini check-out. \n\nHow are you feeling right now? Has anything shifted? Please answer in two-three words."
-          },
-          {
-            "text": "Who would like to start?\n\n> Let everyone in the session check out one by one.\n\nThank you all for checking out and for joining this session today.\n\n> Finish session to send everyone off to the exit experience."
-          }
-        ]
-      },
-      {
-        "type": "instruction",
-        "content": {
-          "text": "Well done.\n\nSummary.\n\nIf you’re up for it, you can continue with this mission.\n\nmission description"
-        }
-      }
-    ],
-    "theme": {
-      "textColor": "#2AE2D7"
-    },
-    "hidden": false,
-    "locked": true,
-    "live": true,
-    "published": false,
-    "excludeFromWeb": false,
-    "asyncDuration": 15,
-    "card": {},
-    "introPortal": {
-      "textColor": "#2AE2D7",
-      "hostNotes": [
-        {
-          "text": "> Start the session when you're ready to go"
-        }
-      ]
-    },
-    "tags": [
-      "34100e43-2eb8-4d35-8eb0-9fa9f78e4935",
-      "9c2c08a9-7dc6-4058-bc78-016d0eb00614"
-    ],
-    "id": "4161a0d8-55ee-4866-a9be-263c85fafd70",
-    "async": false
-  },
-  "pt-BR": {
-    "description": "Frequentemente evitamos conversas difíceis porque sabemos que elas serão emocionalmente desafiadoras. Praticar o oposto — enfrentar o difícil com uma atitude de aceitação — pode ajudar a lidar melhor com essas situações. Para este exercício, você vai precisar de um lugar para fazer anotações.",
-    "introPortal": {
-      "hostNotes": [
-        {
-          "text": ">Comece a sessão quando estiver pronto para seguir"
-        }
-      ],
-      "textColor": "#F9F8F4",
-      "videoLoop": {
-        "p5JsScript": {
-          "lang": "javascript"
-        },
-        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1737274976/Video/portal_1_Difficult_conversation_mjexai.mp4",
-        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1740905960/Audio/random%20audio/9_vpkpv7.mp3"
-      },
-      "desktopOptimized": true
-    },
-    "name": "PsyPal Conversas difíceis",
-    "slides": [
-      {
-        "hostNotes": [
-          {
-            "text": "Bem-vindos. Eu sou X e hoje vamos trabalhar por cerca de 30 minutos em xx.\n\nFaremos xx, por exemplo, uma meditação, seguida de um tempo para reflexão e compartilhamento entre nós."
-          },
-          {
-            "text": "Vamos começar com um mini check-in. Como você está se sentindo agora? Por favor, responda em duas ou três palavras. X, você gostaria de começar?\n\n> Deixe todos na sessão, inclusive você, fazerem o check-in um por um.\n\nObrigado a todos por compartilharem. Vamos começar."
-          }
-        ],
-        "type": "host"
-      },
-      {
-        "content": {
-          "text": "Seguir o que realmente importa para nós nem sempre é fácil. Quando precisamos nos posicionar—seja ao lidar com um conflito ou ao compartilhar verdades difíceis com um amigo—frequentemente enfrentamos ansiedade, medo e culpa. Neste exercício, vamos aprender a aceitar esses sentimentos desafiadores para que possamos focar no que realmente importa.\n",
-          "image": {
-            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1737800766/Images/image_11_Difficult_conversation_fxast1.png"
-          }
-        },
-        "type": "instruction"
-      },
-      {
-        "hostNotes": [
-          {
-            "text": "Encontre uma posição confortável. Vou iniciar o exercício em áudio e nos encontraremos aqui novamente depois.\n\n> Aperte play para começar o exercício em áudio."
-          }
-        ],
-        "type": "content",
-        "content": {
-          "video": {
-            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1737616068/Video/audio_timer_acceptance_practice_1_cungu2.mp4",
-            "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1739805357/SRT%20(captions)%20files/PsyPal_Difficutl_conversations_nfzx1g.srt",
-            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1739805280/Audio/PsyPal_Difficult_conversations_pumif5.mp3"
-          }
-        }
-      },
-      {
-        "hostNotes": [
-          {
-            "text": "Agora vamos tirar 1 minuto para refletir individualmente.\n\nxxPergunta principal\n\nxxExplicações adicionais da pergunta principal, se necessário"
-          },
-          {
-            "text": "Você pode fazer anotações em um papel ou apenas mentalmente. Não existe certo ou errado aqui, nossas respostas são pessoais. 1 minuto começando agora.\n\n> Aperte play para iniciar o cronômetro.\n\nPassou 1 minuto, é hora de seguir em frente."
-          }
-        ],
-        "type": "reflection",
-        "content": {
-          "text": "",
-          "lottie": {
-            "durationTimer": true,
-            "duration": 60,
-            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1676642915/Lottie/default_1min_white_wvgwma.json"
-          },
-          "heading": ""
-        }
-      },
-      {
-        "content": {
-          "heading": "Como foi para você fazer este exercício?",
-          "text": ""
-        },
-        "hostNotes": [
-          {
-            "text": "Agora estamos entrando na parte de compartilhamento. Temos três regras para o compartilhamento:\n\n1. **O que é dito aqui, fica aqui.**\n2. **Tudo o que você precisa fazer é ouvir.** Não é necessário consertar, ajudar ou dar conselhos. Estamos apenas presentes e explorando o que nós e os outros estamos vivenciando."
-          },
-          {
-            "text": "3. **Tudo o que você sentir é válido.** Raiva, amor, ódio, tristeza. O que surgir. Não existe certo ou errado. \n\nO cronômetro será ajustado para 2 minutos como referência. Se você não quiser compartilhar, pode simplesmente dizer “passo”.\n\n"
-          },
-          {
-            "text": "Quem gostaria de começar?\n\n> Deixe todos (ou o maior número possível, conforme o tempo permitir) compartilharem um por um. Aperte play para iniciar o cronômetro. Reinicie para cada novo compartilhamento.\n\nMuito obrigado a todos.\n\n"
-          }
-        ],
-        "type": "sharing",
-        "id": "Sharing 1"
-      },
-      {
-        "hostNotes": [
-          {
-            "text": "Muito bem. Se quiser, você pode continuar o que começamos aqui hoje com uma sugestão para trazer isso para o seu dia a dia.\n\nxx descrição da sugestão"
-          },
-          {
-            "text": "Antes de sairmos deste espaço, vamos fazer um mini check-out.\n\nComo você está se sentindo agora? Algo mudou? Por favor, responda em duas ou três palavras."
-          },
-          {
-            "text": "Quem gostaria de começar?\n\n> Deixe todos (ou o maior número possível, conforme o tempo permitir) compartilharem um por um. Aperte play para iniciar o cronômetro. Reinicie para cada novo compartilhamento.\n\nMuito obrigado a todos.\n\n"
-          }
-        ],
-        "type": "host"
-      },
-      {
-        "content": {
-          "text": "Você aprendeu algumas habilidades para estar mais preparado para conversas difíceis:\n\n1. Perceber e permitir emoções difíceis.\n2. Perguntar para entender, não para convencer.\n3. Ouvir e permitir silêncios.\n4. Ser vulnerável e aberto.\n\nSe você tem uma conversa difícil em mente, faça um plano de quando e onde irá realizá-la.",
-          "image": {
-            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1737800767/Images/image_33_Difficult_conversation_h81lm9.png"
-          }
-        },
-        "type": "instruction"
-      }
-    ],
-    "id": "4161a0d8-55ee-4866-a9be-263c85fafd70",
-    "liveDuration": 30,
-    "theme": {
-      "textColor": "#F9F8F4",
-      "backgroundColor": "#cf400c"
-    },
-    "hidden": false,
-    "locked": true,
-    "live": false,
-    "published": false,
-    "excludeFromWeb": false,
-    "asyncDuration": 15,
-    "card": {
-      "image": {
-        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1737188027/Images/image_2_Difficult_conversation_xroiqs.png"
-      }
-    },
-    "coCreators": [
-      {
-        "name": "Jenny Rickardsson, script and voice",
-        "url": "https://www.linkedin.com/in/jenny-rickardson-6770a959/",
-        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1682602411/Images/Jenny_Rickardsson_kopia_sdodwf.jpg"
-      },
-      {
-        "name": "Ints Ivanovskis, art works",
-        "url": "https://www.linkedin.com/in/ints-ivanovskis-46ab0311a/",
-        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413436/Contributors/Ints%20Ivanovskis.jpg"
-      }
-    ],
-    "outroPortal": {
-      "desktopOptimized": true
-    },
-    "tags": [
-      "34100e43-2eb8-4d35-8eb0-9fa9f78e4935",
-      "9c2c08a9-7dc6-4058-bc78-016d0eb00614"
-    ],
-    "async": true
   }
 }
