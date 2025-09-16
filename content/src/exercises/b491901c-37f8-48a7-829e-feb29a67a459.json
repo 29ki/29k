@@ -1,4 +1,97 @@
 {
+  "sv": {
+    "liveDuration": 30,
+    "slides": [
+      {
+        "type": "host",
+        "hostNotes": [
+          {
+            "text": "Welcome. I am X and today we will work for around 30 minutes on xx\n\nWe’ll be doing xx ex. meditation followed by time for reflection and sharing with each other."
+          },
+          {
+            "text": "Let’s start with a mini check-in. How are you feeling right now? Please answer in two-three words. X, would you like to start?\n\n> Let everyone in the session, including yourself, check in one by one.\n\nThank you all for checking in. Let’s get started."
+          }
+        ]
+      },
+      {
+        "type": "content",
+        "hostNotes": [
+          {
+            "text": "Find a comfortable position. I will start the audio exercise and we'll meet back here afterwards. \n\n> Push play to start the audio exercise"
+          }
+        ]
+      },
+      {
+        "type": "reflection",
+        "hostNotes": [
+          {
+            "text": "Now we’ll take 1 minute to reflect on our own.\n\nxxMain question\n\nxxFurther explanations of main question if needed"
+          },
+          {
+            "text": "You can take notes on a piece of paper or just mental notes in your head. And there is no right or wrong here, our answers are our own. 1 minute starting now.\n\n> Press play to start the timer.\n\nThat’s 1 minute and it’s time to move on."
+          }
+        ]
+      },
+      {
+        "type": "sharing",
+        "hostNotes": [
+          {
+            "text": "Now we are getting into the sharing part. We have three rules for sharing:\n\n1. **What is said in here, stays in here.**\n2. **All you need to do is listen.** There is no fixing, helping or advice-giving needed. We are just showing up and exploring what ourselves and others are going through."
+          },
+          {
+            "text": "3. **Everything on the inside is okay.** Anger, love, hatred, sadness. Whatever shows up. No wrongs, no rights. It is what it is.\n\nThere will be a timer set for 2 minutes as an indicator. If you don’t want to share you can always say ‘pass’."
+          },
+          {
+            "text": "Who would like to start?\n\n> Let everyone (or as many as you got time for) share one by one. Press play to start the timer. Re-start for each new sharing.\n\nThank you so much everyone."
+          }
+        ],
+        "id": "Sharing 1"
+      },
+      {
+        "type": "host",
+        "hostNotes": [
+          {
+            "text": "Well done. If you’re up for it, you can continue what we started here today with a mission to bring this into your everyday life.\n\nxx mission description"
+          },
+          {
+            "text": "Before we leave this space let’s do a mini check-out. \n\nHow are you feeling right now? Has anything shifted? Please answer in two-three words."
+          },
+          {
+            "text": "Who would like to start?\n\n> Let everyone in the session check out one by one.\n\nThank you all for checking out and for joining this session today.\n\n> Finish session to send everyone off to the exit experience."
+          }
+        ]
+      },
+      {
+        "type": "instruction",
+        "content": {
+          "text": "Well done.\n\nSummary.\n\nIf you’re up for it, you can continue with this mission.\n\nmission description"
+        }
+      }
+    ],
+    "theme": {
+      "textColor": "#2AE2D7"
+    },
+    "hidden": false,
+    "locked": true,
+    "live": true,
+    "published": false,
+    "asyncDuration": 15,
+    "card": {},
+    "introPortal": {
+      "textColor": "#2AE2D7",
+      "hostNotes": [
+        {
+          "text": "> Start the session when you're ready to go"
+        }
+      ]
+    },
+    "tags": [
+      "34100e43-2eb8-4d35-8eb0-9fa9f78e4935",
+      "9c2c08a9-7dc6-4058-bc78-016d0eb00614"
+    ],
+    "id": "b491901c-37f8-48a7-829e-feb29a67a459",
+    "async": false
+  },
   "en": {
     "liveDuration": 30,
     "slides": [
@@ -320,351 +413,22 @@
     "async": true,
     "description": "Uma das condições fundamentais da vida é a de que um dia a nossa vida terminará. Pensar sobre a nossa própria finitude pode ser emocionalmente desafiante. Isso é normal - podemos tentar lidar com os nossos sentimentos. Praticar deixá-los surgir e ir é parte do exercício. No entanto, pode sempre decidir não fazer ou interromper este exercício.\n\nIrá precisar de:\n\n* 20 minutos de paz e tranquilidade\n* Material para fazer anotações"
   },
-  "sv": {
-    "liveDuration": 30,
-    "slides": [
-      {
-        "type": "host",
-        "hostNotes": [
-          {
-            "text": "Welcome. I am X and today we will work for around 30 minutes on xx\n\nWe’ll be doing xx ex. meditation followed by time for reflection and sharing with each other."
-          },
-          {
-            "text": "Let’s start with a mini check-in. How are you feeling right now? Please answer in two-three words. X, would you like to start?\n\n> Let everyone in the session, including yourself, check in one by one.\n\nThank you all for checking in. Let’s get started."
-          }
-        ]
-      },
-      {
-        "type": "content",
-        "hostNotes": [
-          {
-            "text": "Find a comfortable position. I will start the audio exercise and we'll meet back here afterwards. \n\n> Push play to start the audio exercise"
-          }
-        ]
-      },
-      {
-        "type": "reflection",
-        "hostNotes": [
-          {
-            "text": "Now we’ll take 1 minute to reflect on our own.\n\nxxMain question\n\nxxFurther explanations of main question if needed"
-          },
-          {
-            "text": "You can take notes on a piece of paper or just mental notes in your head. And there is no right or wrong here, our answers are our own. 1 minute starting now.\n\n> Press play to start the timer.\n\nThat’s 1 minute and it’s time to move on."
-          }
-        ]
-      },
-      {
-        "type": "sharing",
-        "hostNotes": [
-          {
-            "text": "Now we are getting into the sharing part. We have three rules for sharing:\n\n1. **What is said in here, stays in here.**\n2. **All you need to do is listen.** There is no fixing, helping or advice-giving needed. We are just showing up and exploring what ourselves and others are going through."
-          },
-          {
-            "text": "3. **Everything on the inside is okay.** Anger, love, hatred, sadness. Whatever shows up. No wrongs, no rights. It is what it is.\n\nThere will be a timer set for 2 minutes as an indicator. If you don’t want to share you can always say ‘pass’."
-          },
-          {
-            "text": "Who would like to start?\n\n> Let everyone (or as many as you got time for) share one by one. Press play to start the timer. Re-start for each new sharing.\n\nThank you so much everyone."
-          }
-        ],
-        "id": "Sharing 1"
-      },
-      {
-        "type": "host",
-        "hostNotes": [
-          {
-            "text": "Well done. If you’re up for it, you can continue what we started here today with a mission to bring this into your everyday life.\n\nxx mission description"
-          },
-          {
-            "text": "Before we leave this space let’s do a mini check-out. \n\nHow are you feeling right now? Has anything shifted? Please answer in two-three words."
-          },
-          {
-            "text": "Who would like to start?\n\n> Let everyone in the session check out one by one.\n\nThank you all for checking out and for joining this session today.\n\n> Finish session to send everyone off to the exit experience."
-          }
-        ]
-      },
-      {
-        "type": "instruction",
-        "content": {
-          "text": "Well done.\n\nSummary.\n\nIf you’re up for it, you can continue with this mission.\n\nmission description"
-        }
-      }
-    ],
-    "theme": {
-      "textColor": "#2AE2D7"
-    },
-    "hidden": false,
-    "locked": true,
-    "live": true,
-    "published": false,
-    "asyncDuration": 15,
+  "es": {
+    "id": "b491901c-37f8-48a7-829e-feb29a67a459",
     "card": {},
-    "introPortal": {
-      "textColor": "#2AE2D7",
-      "hostNotes": [
-        {
-          "text": "> Start the session when you're ready to go"
-        }
-      ]
-    },
+    "locked": true,
     "tags": [
       "34100e43-2eb8-4d35-8eb0-9fa9f78e4935",
       "9c2c08a9-7dc6-4058-bc78-016d0eb00614"
     ],
-    "id": "b491901c-37f8-48a7-829e-feb29a67a459",
-    "async": false
-  },
-  "ja": {
-    "liveDuration": 30,
-    "slides": [
-      {
-        "type": "host",
-        "hostNotes": [
-          {
-            "text": "Welcome. I am X and today we will work for around 30 minutes on xx\n\nWe’ll be doing xx ex. meditation followed by time for reflection and sharing with each other."
-          },
-          {
-            "text": "Let’s start with a mini check-in. How are you feeling right now? Please answer in two-three words. X, would you like to start?\n\n> Let everyone in the session, including yourself, check in one by one.\n\nThank you all for checking in. Let’s get started."
-          }
-        ]
-      },
-      {
-        "type": "content",
-        "hostNotes": [
-          {
-            "text": "Find a comfortable position. I will start the audio exercise and we'll meet back here afterwards. \n\n> Push play to start the audio exercise"
-          }
-        ]
-      },
-      {
-        "type": "reflection",
-        "hostNotes": [
-          {
-            "text": "Now we’ll take 1 minute to reflect on our own.\n\nxxMain question\n\nxxFurther explanations of main question if needed"
-          },
-          {
-            "text": "You can take notes on a piece of paper or just mental notes in your head. And there is no right or wrong here, our answers are our own. 1 minute starting now.\n\n> Press play to start the timer.\n\nThat’s 1 minute and it’s time to move on."
-          }
-        ]
-      },
-      {
-        "type": "sharing",
-        "hostNotes": [
-          {
-            "text": "Now we are getting into the sharing part. We have three rules for sharing:\n\n1. **What is said in here, stays in here.**\n2. **All you need to do is listen.** There is no fixing, helping or advice-giving needed. We are just showing up and exploring what ourselves and others are going through."
-          },
-          {
-            "text": "3. **Everything on the inside is okay.** Anger, love, hatred, sadness. Whatever shows up. No wrongs, no rights. It is what it is.\n\nThere will be a timer set for 2 minutes as an indicator. If you don’t want to share you can always say ‘pass’."
-          },
-          {
-            "text": "Who would like to start?\n\n> Let everyone (or as many as you got time for) share one by one. Press play to start the timer. Re-start for each new sharing.\n\nThank you so much everyone."
-          }
-        ],
-        "id": "Sharing 1"
-      },
-      {
-        "type": "host",
-        "hostNotes": [
-          {
-            "text": "Well done. If you’re up for it, you can continue what we started here today with a mission to bring this into your everyday life.\n\nxx mission description"
-          },
-          {
-            "text": "Before we leave this space let’s do a mini check-out. \n\nHow are you feeling right now? Has anything shifted? Please answer in two-three words."
-          },
-          {
-            "text": "Who would like to start?\n\n> Let everyone in the session check out one by one.\n\nThank you all for checking out and for joining this session today.\n\n> Finish session to send everyone off to the exit experience."
-          }
-        ]
-      },
-      {
-        "type": "instruction",
-        "content": {
-          "text": "Well done.\n\nSummary.\n\nIf you’re up for it, you can continue with this mission.\n\nmission description"
-        }
-      }
-    ],
-    "theme": {
-      "textColor": "#2AE2D7"
-    },
-    "hidden": false,
-    "locked": true,
-    "live": true,
-    "published": false,
     "asyncDuration": 15,
-    "card": {},
     "introPortal": {
-      "textColor": "#2AE2D7",
-      "hostNotes": [
-        {
-          "text": "> Start the session when you're ready to go"
-        }
-      ]
-    },
-    "tags": [
-      "34100e43-2eb8-4d35-8eb0-9fa9f78e4935",
-      "9c2c08a9-7dc6-4058-bc78-016d0eb00614"
-    ],
-    "id": "b491901c-37f8-48a7-829e-feb29a67a459",
-    "async": false
-  },
-  "da": {
-    "slides": [
-      {
-        "type": "host",
-        "hostNotes": [
-          {
-            "text": "Welcome. I am X and today we will work for around 30 minutes on xx\n\nWe’ll be doing xx ex. meditation followed by time for reflection and sharing with each other."
-          },
-          {
-            "text": "Let’s start with a mini check-in. How are you feeling right now? Please answer in two-three words. X, would you like to start?\n\n> Let everyone in the session, including yourself, check in one by one.\n\nThank you all for checking in. Let’s get started."
-          }
-        ]
-      },
-      {
-        "type": "instruction",
-        "content": {
-          "text": "Vi ved alle, at vores liv en dag vil slutte. Ofte har vi svært ved at se denne kendsgerning i øjnene, men forskning viser, at når vi konfronterer os selv med vores egen dødelighed, kan vores forhold til døden blive mere roligt og accepterende.",
-          "image": {
-            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1737187985/Images/image_3_Deal_with_dying_dryehi.png"
-          }
-        }
-      },
-      {
-        "type": "content",
-        "hostNotes": [
-          {
-            "text": "Find a comfortable position. I will start the audio exercise and we'll meet back here afterwards. \n\n> Push play to start the audio exercise"
-          }
-        ],
-        "content": {
-          "video": {
-            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1737799132/Video/timer_deal_with_dying_trhjuq.mp4",
-            "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1741013247/SRT%20(captions)%20files/Psypal-facing-mortality_Danish.srt",
-            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1741013077/Audio/PsyPal-facing%20mort-Danish.mp3.mp3"
-          },
-          "lottie": {
-            "subtitles": "",
-            "audio": ""
-          }
-        }
-      },
-      {
-        "type": "reflection",
-        "hostNotes": [
-          {
-            "text": "Now we’ll take 1 minute to reflect on our own.\n\nxxMain question\n\nxxFurther explanations of main question if needed"
-          },
-          {
-            "text": "You can take notes on a piece of paper or just mental notes in your head. And there is no right or wrong here, our answers are our own. 1 minute starting now.\n\n> Press play to start the timer.\n\nThat’s 1 minute and it’s time to move on."
-          }
-        ],
-        "content": {
-          "heading": "Hvordan var det for dig at reflektere over liv og død?",
-          "lottie": {
-            "durationTimer": true,
-            "duration": 60,
-            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1676642915/Lottie/default_1min_black_rosi2l.json"
-          }
-        }
-      },
-      {
-        "type": "sharing",
-        "hostNotes": [
-          {
-            "text": "Now we are getting into the sharing part. We have three rules for sharing:\n\n1. **What is said in here, stays in here.**\n2. **All you need to do is listen.** There is no fixing, helping or advice-giving needed. We are just showing up and exploring what ourselves and others are going through."
-          },
-          {
-            "text": "3. **Everything on the inside is okay.** Anger, love, hatred, sadness. Whatever shows up. No wrongs, no rights. It is what it is.\n\nThere will be a timer set for 2 minutes as an indicator. If you don’t want to share you can always say ‘pass’."
-          },
-          {
-            "text": "Who would like to start?\n\n> Let everyone (or as many as you got time for) share one by one. Press play to start the timer. Re-start for each new sharing.\n\nThank you so much everyone."
-          }
-        ],
-        "id": "Sharing 1",
-        "content": {
-          "text": "",
-          "heading": "Hvordan var det for dig at reflektere over liv og død?"
-        }
-      },
-      {
-        "type": "host",
-        "hostNotes": [
-          {
-            "text": "Well done. If you’re up for it, you can continue what we started here today with a mission to bring this into your everyday life.\n\nxx mission description"
-          },
-          {
-            "text": "Before we leave this space let’s do a mini check-out. \n\nHow are you feeling right now? Has anything shifted? Please answer in two-three words."
-          },
-          {
-            "text": "Who would like to start?\n\n> Let everyone in the session check out one by one.\n\nThank you all for checking out and for joining this session today.\n\n> Finish session to send everyone off to the exit experience."
-          }
-        ]
-      },
-      {
-        "type": "instruction",
-        "content": {
-          "text": "Godt arbejde.\n\nDu har måske indset noget vigtigt eller besluttet at række ud til nogen. Du kan også have lyst til at tale om dine følelser med nogen.\n\nSkriv alt ned, der føles vigtigt for dig.",
-          "image": {
-            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1737187987/Images/image_1_Deal_with_dying_vxj6ki.png"
-          }
-        }
-      }
-    ],
-    "theme": {
-      "textColor": "#2E2E2E",
-      "backgroundColor": "#1fabd2"
-    },
-    "locked": true,
-    "name": "At se sin dødelighed i øjnene",
-    "published": true,
-    "asyncDuration": 15,
-    "card": {
-      "image": {
-        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1737187988/Images/image_2_Deal_with_dying_sudw5r.png"
-      }
-    },
-    "coCreators": [
-      {
-        "name": "Ints Ivanovskis, art works",
-        "url": "https://www.linkedin.com/in/ints-ivanovskis-46ab0311a/",
-        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413436/Contributors/Ints%20Ivanovskis.jpg"
-      },
-      {
-        "name": "Jenny Rickardsson, script",
-        "url": "https://www.linkedin.com/in/jenny-rickardson-6770a959/",
-        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413228/Contributors/Jenny%20Rickardsson.jpg"
-      },
-      {
-        "name": "Catharina Messell, voice",
-        "url": "https://nru.dk/index.php/about-us/staff-list/98-other-research-staff/292-catharina-messell",
-        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1734343422/Contributors/Catharina_Messel_Da_PsyPal.png"
-      }
-    ],
-    "outroPortal": {
-      "desktopOptimized": true
-    },
-    "introPortal": {
-      "textColor": "#2E2E2E",
-      "hostNotes": [
-        {
-          "text": "> Start the session when you're ready to go"
-        }
-      ],
       "videoLoop": {
         "p5JsScript": {
           "lang": "javascript"
-        },
-        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1737274983/Video/portal_1_Deal_with_dying_xjxoqg.mp4",
-        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1740905961/Audio/random%20audio/12_jbjrvt.mp3"
-      },
-      "desktopOptimized": true
-    },
-    "tags": [
-      "34100e43-2eb8-4d35-8eb0-9fa9f78e4935",
-      "9c2c08a9-7dc6-4058-bc78-016d0eb00614"
-    ],
-    "id": "b491901c-37f8-48a7-829e-feb29a67a459",
-    "async": true,
-    "description": "En af livets mest grundlæggende betingelser er at vores liv en dag vil slutte. At tænke på vores egen dødelighed kan være følelsesmæssigt udfordrende. Det er helt i orden - følelser kan ikke skade os. At øve sig i at lade dem komme og gå er en del af øvelsen.\n\nDu skal bruge:\n\n* 20 minutters fred og ro.\n* Et sted at tage noter."
+        }
+      }
+    }
   },
   "cs": {
     "slides": [
@@ -827,6 +591,417 @@
     "async": true,
     "description": "Jedním ze základních aspektů života je to, že naše životy jednou skončí. Přemýšlení o vlastní smrtelnosti může být emocionálně náročné. To je v pořádku. V tomto cvičení se učíme, jak nechat pocity přicházet a odcházet.\n\nBudete potřebovat:\n\n* 20 minut klidu.\n* Něco na vaše poznámky."
   },
+  "ja": {
+    "liveDuration": 30,
+    "slides": [
+      {
+        "type": "host",
+        "hostNotes": [
+          {
+            "text": "Welcome. I am X and today we will work for around 30 minutes on xx\n\nWe’ll be doing xx ex. meditation followed by time for reflection and sharing with each other."
+          },
+          {
+            "text": "Let’s start with a mini check-in. How are you feeling right now? Please answer in two-three words. X, would you like to start?\n\n> Let everyone in the session, including yourself, check in one by one.\n\nThank you all for checking in. Let’s get started."
+          }
+        ]
+      },
+      {
+        "type": "content",
+        "hostNotes": [
+          {
+            "text": "Find a comfortable position. I will start the audio exercise and we'll meet back here afterwards. \n\n> Push play to start the audio exercise"
+          }
+        ]
+      },
+      {
+        "type": "reflection",
+        "hostNotes": [
+          {
+            "text": "Now we’ll take 1 minute to reflect on our own.\n\nxxMain question\n\nxxFurther explanations of main question if needed"
+          },
+          {
+            "text": "You can take notes on a piece of paper or just mental notes in your head. And there is no right or wrong here, our answers are our own. 1 minute starting now.\n\n> Press play to start the timer.\n\nThat’s 1 minute and it’s time to move on."
+          }
+        ]
+      },
+      {
+        "type": "sharing",
+        "hostNotes": [
+          {
+            "text": "Now we are getting into the sharing part. We have three rules for sharing:\n\n1. **What is said in here, stays in here.**\n2. **All you need to do is listen.** There is no fixing, helping or advice-giving needed. We are just showing up and exploring what ourselves and others are going through."
+          },
+          {
+            "text": "3. **Everything on the inside is okay.** Anger, love, hatred, sadness. Whatever shows up. No wrongs, no rights. It is what it is.\n\nThere will be a timer set for 2 minutes as an indicator. If you don’t want to share you can always say ‘pass’."
+          },
+          {
+            "text": "Who would like to start?\n\n> Let everyone (or as many as you got time for) share one by one. Press play to start the timer. Re-start for each new sharing.\n\nThank you so much everyone."
+          }
+        ],
+        "id": "Sharing 1"
+      },
+      {
+        "type": "host",
+        "hostNotes": [
+          {
+            "text": "Well done. If you’re up for it, you can continue what we started here today with a mission to bring this into your everyday life.\n\nxx mission description"
+          },
+          {
+            "text": "Before we leave this space let’s do a mini check-out. \n\nHow are you feeling right now? Has anything shifted? Please answer in two-three words."
+          },
+          {
+            "text": "Who would like to start?\n\n> Let everyone in the session check out one by one.\n\nThank you all for checking out and for joining this session today.\n\n> Finish session to send everyone off to the exit experience."
+          }
+        ]
+      },
+      {
+        "type": "instruction",
+        "content": {
+          "text": "Well done.\n\nSummary.\n\nIf you’re up for it, you can continue with this mission.\n\nmission description"
+        }
+      }
+    ],
+    "theme": {
+      "textColor": "#2AE2D7"
+    },
+    "hidden": false,
+    "locked": true,
+    "live": true,
+    "published": false,
+    "asyncDuration": 15,
+    "card": {},
+    "introPortal": {
+      "textColor": "#2AE2D7",
+      "hostNotes": [
+        {
+          "text": "> Start the session when you're ready to go"
+        }
+      ]
+    },
+    "tags": [
+      "34100e43-2eb8-4d35-8eb0-9fa9f78e4935",
+      "9c2c08a9-7dc6-4058-bc78-016d0eb00614"
+    ],
+    "id": "b491901c-37f8-48a7-829e-feb29a67a459",
+    "async": false
+  },
+  "pt-BR": {
+    "liveDuration": 30,
+    "slides": [
+      {
+        "hostNotes": [
+          {
+            "text": "Bem-vindos. Eu sou X e hoje vamos trabalhar por cerca de 30 minutos em xx.\n\nFaremos xx, por exemplo, uma meditação, seguida de um tempo para reflexão e compartilhamento entre nós."
+          },
+          {
+            "text": "Vamos começar com um mini check-in. Como você está se sentindo agora? Por favor, responda em duas ou três palavras. X, você gostaria de começar?\n\n> Deixe todos na sessão, inclusive você, fazerem o check-in um por um.\n\nObrigado a todos por compartilharem. Vamos começar."
+          }
+        ],
+        "type": "host"
+      },
+      {
+        "content": {
+          "text": "Todos sabemos que um dia nossa vida chegará ao fim. Muitas vezes temos dificuldade em encarar esse fato, mas pesquisas mostram que nos expor à nossa própria mortalidade pode tornar nossa relação com a morte mais tranquila e acolhedora.",
+          "image": {
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1737187985/Images/image_3_Deal_with_dying_dryehi.png"
+          }
+        },
+        "type": "instruction"
+      },
+      {
+        "hostNotes": [
+          {
+            "text": "Encontre uma posição confortável. Vou iniciar o exercício em áudio e nos encontraremos aqui novamente depois.\n\n> Aperte play para começar o exercício em áudio."
+          }
+        ],
+        "type": "content",
+        "content": {
+          "video": {
+            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1737799132/Video/timer_deal_with_dying_trhjuq.mp4",
+            "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1739199179/SRT%20(captions)%20files/PsyPal_Facing_mortality_infqet.srt",
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1739199226/Audio/PsyPal_Facing_mortality_yep3xm.mp3"
+          },
+          "lottie": {
+            "subtitles": "",
+            "audio": ""
+          }
+        }
+      },
+      {
+        "content": {
+          "heading": "Como foi para você refletir sobre a vida e a morte hoje?",
+          "lottie": {
+            "durationTimer": true,
+            "duration": 60,
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1676642915/Lottie/default_1min_black_rosi2l.json"
+          }
+        },
+        "hostNotes": [
+          {
+            "text": "Agora vamos tirar 1 minuto para refletir individualmente.\n\nxxPergunta principal\n\nxxExplicações adicionais da pergunta principal, se necessário"
+          },
+          {
+            "text": "Você pode fazer anotações em um papel ou apenas mentalmente. Não existe certo ou errado aqui, nossas respostas são pessoais. 1 minuto começando agora.\n\n> Aperte play para iniciar o cronômetro.\n\nPassou 1 minuto, é hora de seguir em frente."
+          }
+        ],
+        "type": "reflection"
+      },
+      {
+        "content": {
+          "heading": "Como foi para você refletir sobre a vida e a morte hoje?",
+          "text": ""
+        },
+        "hostNotes": [
+          {
+            "text": "Agora estamos entrando na parte de compartilhamento. Temos três regras para o compartilhamento:\n\n1. **O que é dito aqui, fica aqui.**\n2. **Tudo o que você precisa fazer é ouvir.** Não é necessário consertar, ajudar ou dar conselhos. Estamos apenas presentes e explorando o que nós e os outros estamos vivenciando."
+          },
+          {
+            "text": "3. **Tudo o que você sentir é válido.** Raiva, amor, ódio, tristeza. O que surgir. Não existe certo ou errado. \n\nO cronômetro será ajustado para 2 minutos como referência. Se você não quiser compartilhar, pode simplesmente dizer “passo”.\n\n"
+          },
+          {
+            "text": "Quem gostaria de começar?\n\n> Deixe todos (ou o maior número possível, conforme o tempo permitir) compartilharem um por um. Aperte play para iniciar o cronômetro. Reinicie para cada novo compartilhamento.\n\nMuito obrigado a todos.\n\n"
+          }
+        ],
+        "type": "sharing",
+        "id": "Sharing 1"
+      },
+      {
+        "hostNotes": [
+          {
+            "text": "Muito bem. Se quiser, você pode continuar o que começamos aqui hoje com uma sugestão para trazer isso para o seu dia a dia.\n\nxx descrição da sugestão"
+          },
+          {
+            "text": "Antes de sairmos deste espaço, vamos fazer um mini check-out.\n\nComo você está se sentindo agora? Algo mudou? Por favor, responda em duas ou três palavras."
+          },
+          {
+            "text": "Quem gostaria de começar?\n\n> Deixe todos (ou o maior número possível, conforme o tempo permitir) compartilharem um por um. Aperte play para iniciar o cronômetro. Reinicie para cada novo compartilhamento.\n\nMuito obrigado a todos.\n\n"
+          }
+        ],
+        "type": "host"
+      },
+      {
+        "content": {
+          "text": "Muito bem.\n\nVocê pode ter percebido algo importante, decidido procurar alguém ou talvez queira conversar sobre seus sentimentos com alguém.\n\nAnote tudo o que parecer importante para você.",
+          "image": {
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1737187987/Images/image_1_Deal_with_dying_vxj6ki.png"
+          }
+        },
+        "type": "instruction"
+      }
+    ],
+    "theme": {
+      "textColor": "#2E2E2E",
+      "backgroundColor": "#1fabd2"
+    },
+    "hidden": false,
+    "locked": true,
+    "name": "PsyPal Encarando a mortalidade",
+    "live": false,
+    "published": false,
+    "asyncDuration": 15,
+    "card": {
+      "image": {
+        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1737187988/Images/image_2_Deal_with_dying_sudw5r.png"
+      }
+    },
+    "coCreators": [
+      {
+        "name": "Ints Ivanovskis, art works",
+        "url": "https://www.linkedin.com/in/ints-ivanovskis-46ab0311a/",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413436/Contributors/Ints%20Ivanovskis.jpg"
+      },
+      {
+        "name": "Jenny Rickardsson, script and voice",
+        "url": "https://www.linkedin.com/in/jenny-rickardson-6770a959/",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413228/Contributors/Jenny%20Rickardsson.jpg"
+      }
+    ],
+    "outroPortal": {
+      "desktopOptimized": true
+    },
+    "introPortal": {
+      "hostNotes": [
+        {
+          "text": ">Comece a sessão quando estiver pronto para seguir"
+        }
+      ],
+      "textColor": "#2E2E2E",
+      "videoLoop": {
+        "p5JsScript": {
+          "lang": "javascript"
+        },
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1737274983/Video/portal_1_Deal_with_dying_xjxoqg.mp4",
+        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1740905961/Audio/random%20audio/12_jbjrvt.mp3"
+      },
+      "desktopOptimized": true
+    },
+    "tags": [
+      "34100e43-2eb8-4d35-8eb0-9fa9f78e4935",
+      "9c2c08a9-7dc6-4058-bc78-016d0eb00614"
+    ],
+    "id": "b491901c-37f8-48a7-829e-feb29a67a459",
+    "async": true,
+    "description": "Todas as nossas vidas chegarão ao fim, em algum momento no futuro. Esse pode ser um pensamento emocionalmente desafiador. E tudo bem – sentimentos não podem nos machucar. Praticar deixar que eles venham e vão faz parte do exercício. Encarar nossa mortalidade pode nos ajudar a aceitar a morte e nos permitir focar na coisa mais importante da vida – vivê-la."
+  },
+  "da": {
+    "slides": [
+      {
+        "type": "host",
+        "hostNotes": [
+          {
+            "text": "Welcome. I am X and today we will work for around 30 minutes on xx\n\nWe’ll be doing xx ex. meditation followed by time for reflection and sharing with each other."
+          },
+          {
+            "text": "Let’s start with a mini check-in. How are you feeling right now? Please answer in two-three words. X, would you like to start?\n\n> Let everyone in the session, including yourself, check in one by one.\n\nThank you all for checking in. Let’s get started."
+          }
+        ]
+      },
+      {
+        "type": "instruction",
+        "content": {
+          "text": "Vi ved alle, at vores liv en dag vil slutte. Ofte har vi svært ved at se denne kendsgerning i øjnene, men forskning viser, at når vi konfronterer os selv med vores egen dødelighed, kan vores forhold til døden blive mere roligt og accepterende.",
+          "image": {
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1737187985/Images/image_3_Deal_with_dying_dryehi.png"
+          }
+        }
+      },
+      {
+        "type": "content",
+        "hostNotes": [
+          {
+            "text": "Find a comfortable position. I will start the audio exercise and we'll meet back here afterwards. \n\n> Push play to start the audio exercise"
+          }
+        ],
+        "content": {
+          "video": {
+            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1737799132/Video/timer_deal_with_dying_trhjuq.mp4",
+            "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1741013247/SRT%20(captions)%20files/Psypal-facing-mortality_Danish.srt",
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1741013077/Audio/PsyPal-facing%20mort-Danish.mp3.mp3"
+          },
+          "lottie": {
+            "subtitles": "",
+            "audio": ""
+          }
+        }
+      },
+      {
+        "type": "reflection",
+        "hostNotes": [
+          {
+            "text": "Now we’ll take 1 minute to reflect on our own.\n\nxxMain question\n\nxxFurther explanations of main question if needed"
+          },
+          {
+            "text": "You can take notes on a piece of paper or just mental notes in your head. And there is no right or wrong here, our answers are our own. 1 minute starting now.\n\n> Press play to start the timer.\n\nThat’s 1 minute and it’s time to move on."
+          }
+        ],
+        "content": {
+          "heading": "Hvordan var det for dig at reflektere over liv og død?",
+          "lottie": {
+            "durationTimer": true,
+            "duration": 60,
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1676642915/Lottie/default_1min_black_rosi2l.json"
+          }
+        }
+      },
+      {
+        "type": "sharing",
+        "hostNotes": [
+          {
+            "text": "Now we are getting into the sharing part. We have three rules for sharing:\n\n1. **What is said in here, stays in here.**\n2. **All you need to do is listen.** There is no fixing, helping or advice-giving needed. We are just showing up and exploring what ourselves and others are going through."
+          },
+          {
+            "text": "3. **Everything on the inside is okay.** Anger, love, hatred, sadness. Whatever shows up. No wrongs, no rights. It is what it is.\n\nThere will be a timer set for 2 minutes as an indicator. If you don’t want to share you can always say ‘pass’."
+          },
+          {
+            "text": "Who would like to start?\n\n> Let everyone (or as many as you got time for) share one by one. Press play to start the timer. Re-start for each new sharing.\n\nThank you so much everyone."
+          }
+        ],
+        "id": "Sharing 1",
+        "content": {
+          "text": "",
+          "heading": "Hvordan var det for dig at reflektere over liv og død?"
+        }
+      },
+      {
+        "type": "host",
+        "hostNotes": [
+          {
+            "text": "Well done. If you’re up for it, you can continue what we started here today with a mission to bring this into your everyday life.\n\nxx mission description"
+          },
+          {
+            "text": "Before we leave this space let’s do a mini check-out. \n\nHow are you feeling right now? Has anything shifted? Please answer in two-three words."
+          },
+          {
+            "text": "Who would like to start?\n\n> Let everyone in the session check out one by one.\n\nThank you all for checking out and for joining this session today.\n\n> Finish session to send everyone off to the exit experience."
+          }
+        ]
+      },
+      {
+        "type": "instruction",
+        "content": {
+          "text": "Godt arbejde.\n\nDu har måske indset noget vigtigt eller besluttet at række ud til nogen. Du kan også have lyst til at tale om dine følelser med nogen.\n\nSkriv alt ned, der føles vigtigt for dig.",
+          "image": {
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1737187987/Images/image_1_Deal_with_dying_vxj6ki.png"
+          }
+        }
+      }
+    ],
+    "theme": {
+      "textColor": "#2E2E2E",
+      "backgroundColor": "#1fabd2"
+    },
+    "locked": true,
+    "name": "At se sin dødelighed i øjnene",
+    "published": true,
+    "asyncDuration": 15,
+    "card": {
+      "image": {
+        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1737187988/Images/image_2_Deal_with_dying_sudw5r.png"
+      }
+    },
+    "coCreators": [
+      {
+        "name": "Ints Ivanovskis, art works",
+        "url": "https://www.linkedin.com/in/ints-ivanovskis-46ab0311a/",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413436/Contributors/Ints%20Ivanovskis.jpg"
+      },
+      {
+        "name": "Jenny Rickardsson, script",
+        "url": "https://www.linkedin.com/in/jenny-rickardson-6770a959/",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413228/Contributors/Jenny%20Rickardsson.jpg"
+      },
+      {
+        "name": "Catharina Messell, voice",
+        "url": "https://nru.dk/index.php/about-us/staff-list/98-other-research-staff/292-catharina-messell",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1734343422/Contributors/Catharina_Messel_Da_PsyPal.png"
+      }
+    ],
+    "outroPortal": {
+      "desktopOptimized": true
+    },
+    "introPortal": {
+      "textColor": "#2E2E2E",
+      "hostNotes": [
+        {
+          "text": "> Start the session when you're ready to go"
+        }
+      ],
+      "videoLoop": {
+        "p5JsScript": {
+          "lang": "javascript"
+        },
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1737274983/Video/portal_1_Deal_with_dying_xjxoqg.mp4",
+        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1740905961/Audio/random%20audio/12_jbjrvt.mp3"
+      },
+      "desktopOptimized": true
+    },
+    "tags": [
+      "34100e43-2eb8-4d35-8eb0-9fa9f78e4935",
+      "9c2c08a9-7dc6-4058-bc78-016d0eb00614"
+    ],
+    "id": "b491901c-37f8-48a7-829e-feb29a67a459",
+    "async": true,
+    "description": "En af livets mest grundlæggende betingelser er at vores liv en dag vil slutte. At tænke på vores egen dødelighed kan være følelsesmæssigt udfordrende. Det er helt i orden - følelser kan ikke skade os. At øve sig i at lade dem komme og gå er en del af øvelsen.\n\nDu skal bruge:\n\n* 20 minutters fred og ro.\n* Et sted at tage noter."
+  },
   "nl": {
     "slides": [
       {
@@ -843,7 +1018,7 @@
       {
         "type": "instruction",
         "content": {
-          "text": "We weten allemaal dat ons leven ooit zal eindigen. Vaak hebben we moeite om dit feit onder ogen te zien, maar onderzoek toont aan dat  we een rustige en meer accepterende relatie met de dood kunnen krijgen als we nadenken over onze sterfelijkheid.",
+          "text": "We weten allemaal dat ons leven ooit zal eindigen. Vaak vinden we het moeilijk om dit onder ogen te zien. Tegelijk laat onderzoek zien dat we een rustige en meer accepterende relatie met de dood kunnen krijgen door na te denken over onze sterfelijkheid.",
           "image": {
             "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1737187985/Images/image_3_Deal_with_dying_dryehi.png"
           }
@@ -987,180 +1162,5 @@
     "id": "b491901c-37f8-48a7-829e-feb29a67a459",
     "async": true,
     "description": "Een van de belangrijkste onderwerpen in het leven is dat ons leven een keer stopt. Nadenken over onze eigen sterfelijkheid kan emotioneel uitdagend zijn. Dat is oké - gevoelens kunnen ons geen kwaad doen. Het oefenen om ze te laten komen en gaan is onderdeel van de oefening.\n\nJe hebt nodig:\n\n* 20 minuten rust en stilte.\n* Een plek om aantekeningen te maken."
-  },
-  "es": {
-    "id": "b491901c-37f8-48a7-829e-feb29a67a459",
-    "card": {},
-    "locked": true,
-    "tags": [
-      "34100e43-2eb8-4d35-8eb0-9fa9f78e4935",
-      "9c2c08a9-7dc6-4058-bc78-016d0eb00614"
-    ],
-    "asyncDuration": 15,
-    "introPortal": {
-      "videoLoop": {
-        "p5JsScript": {
-          "lang": "javascript"
-        }
-      }
-    }
-  },
-  "pt-BR": {
-    "description": "Todas as nossas vidas chegarão ao fim, em algum momento no futuro. Esse pode ser um pensamento emocionalmente desafiador. E tudo bem – sentimentos não podem nos machucar. Praticar deixar que eles venham e vão faz parte do exercício. Encarar nossa mortalidade pode nos ajudar a aceitar a morte e nos permitir focar na coisa mais importante da vida – vivê-la.",
-    "introPortal": {
-      "hostNotes": [
-        {
-          "text": ">Comece a sessão quando estiver pronto para seguir"
-        }
-      ],
-      "textColor": "#2E2E2E",
-      "videoLoop": {
-        "p5JsScript": {
-          "lang": "javascript"
-        },
-        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1737274983/Video/portal_1_Deal_with_dying_xjxoqg.mp4",
-        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1740905961/Audio/random%20audio/12_jbjrvt.mp3"
-      },
-      "desktopOptimized": true
-    },
-    "name": "PsyPal Encarando a mortalidade",
-    "slides": [
-      {
-        "hostNotes": [
-          {
-            "text": "Bem-vindos. Eu sou X e hoje vamos trabalhar por cerca de 30 minutos em xx.\n\nFaremos xx, por exemplo, uma meditação, seguida de um tempo para reflexão e compartilhamento entre nós."
-          },
-          {
-            "text": "Vamos começar com um mini check-in. Como você está se sentindo agora? Por favor, responda em duas ou três palavras. X, você gostaria de começar?\n\n> Deixe todos na sessão, inclusive você, fazerem o check-in um por um.\n\nObrigado a todos por compartilharem. Vamos começar."
-          }
-        ],
-        "type": "host"
-      },
-      {
-        "content": {
-          "text": "Todos sabemos que um dia nossa vida chegará ao fim. Muitas vezes temos dificuldade em encarar esse fato, mas pesquisas mostram que nos expor à nossa própria mortalidade pode tornar nossa relação com a morte mais tranquila e acolhedora.",
-          "image": {
-            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1737187985/Images/image_3_Deal_with_dying_dryehi.png"
-          }
-        },
-        "type": "instruction"
-      },
-      {
-        "hostNotes": [
-          {
-            "text": "Encontre uma posição confortável. Vou iniciar o exercício em áudio e nos encontraremos aqui novamente depois.\n\n> Aperte play para começar o exercício em áudio."
-          }
-        ],
-        "type": "content",
-        "content": {
-          "video": {
-            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1737799132/Video/timer_deal_with_dying_trhjuq.mp4",
-            "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1739199179/SRT%20(captions)%20files/PsyPal_Facing_mortality_infqet.srt",
-            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1739199226/Audio/PsyPal_Facing_mortality_yep3xm.mp3"
-          },
-          "lottie": {
-            "subtitles": "",
-            "audio": ""
-          }
-        }
-      },
-      {
-        "content": {
-          "heading": "Como foi para você refletir sobre a vida e a morte hoje?",
-          "lottie": {
-            "durationTimer": true,
-            "duration": 60,
-            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1676642915/Lottie/default_1min_black_rosi2l.json"
-          }
-        },
-        "hostNotes": [
-          {
-            "text": "Agora vamos tirar 1 minuto para refletir individualmente.\n\nxxPergunta principal\n\nxxExplicações adicionais da pergunta principal, se necessário"
-          },
-          {
-            "text": "Você pode fazer anotações em um papel ou apenas mentalmente. Não existe certo ou errado aqui, nossas respostas são pessoais. 1 minuto começando agora.\n\n> Aperte play para iniciar o cronômetro.\n\nPassou 1 minuto, é hora de seguir em frente."
-          }
-        ],
-        "type": "reflection"
-      },
-      {
-        "content": {
-          "heading": "Como foi para você refletir sobre a vida e a morte hoje?",
-          "text": ""
-        },
-        "hostNotes": [
-          {
-            "text": "Agora estamos entrando na parte de compartilhamento. Temos três regras para o compartilhamento:\n\n1. **O que é dito aqui, fica aqui.**\n2. **Tudo o que você precisa fazer é ouvir.** Não é necessário consertar, ajudar ou dar conselhos. Estamos apenas presentes e explorando o que nós e os outros estamos vivenciando."
-          },
-          {
-            "text": "3. **Tudo o que você sentir é válido.** Raiva, amor, ódio, tristeza. O que surgir. Não existe certo ou errado. \n\nO cronômetro será ajustado para 2 minutos como referência. Se você não quiser compartilhar, pode simplesmente dizer “passo”.\n\n"
-          },
-          {
-            "text": "Quem gostaria de começar?\n\n> Deixe todos (ou o maior número possível, conforme o tempo permitir) compartilharem um por um. Aperte play para iniciar o cronômetro. Reinicie para cada novo compartilhamento.\n\nMuito obrigado a todos.\n\n"
-          }
-        ],
-        "type": "sharing",
-        "id": "Sharing 1"
-      },
-      {
-        "hostNotes": [
-          {
-            "text": "Muito bem. Se quiser, você pode continuar o que começamos aqui hoje com uma sugestão para trazer isso para o seu dia a dia.\n\nxx descrição da sugestão"
-          },
-          {
-            "text": "Antes de sairmos deste espaço, vamos fazer um mini check-out.\n\nComo você está se sentindo agora? Algo mudou? Por favor, responda em duas ou três palavras."
-          },
-          {
-            "text": "Quem gostaria de começar?\n\n> Deixe todos (ou o maior número possível, conforme o tempo permitir) compartilharem um por um. Aperte play para iniciar o cronômetro. Reinicie para cada novo compartilhamento.\n\nMuito obrigado a todos.\n\n"
-          }
-        ],
-        "type": "host"
-      },
-      {
-        "content": {
-          "text": "Muito bem.\n\nVocê pode ter percebido algo importante, decidido procurar alguém ou talvez queira conversar sobre seus sentimentos com alguém.\n\nAnote tudo o que parecer importante para você.",
-          "image": {
-            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1737187987/Images/image_1_Deal_with_dying_vxj6ki.png"
-          }
-        },
-        "type": "instruction"
-      }
-    ],
-    "id": "b491901c-37f8-48a7-829e-feb29a67a459",
-    "liveDuration": 30,
-    "theme": {
-      "textColor": "#2E2E2E",
-      "backgroundColor": "#1fabd2"
-    },
-    "hidden": false,
-    "locked": true,
-    "live": false,
-    "published": false,
-    "asyncDuration": 15,
-    "card": {
-      "image": {
-        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1737187988/Images/image_2_Deal_with_dying_sudw5r.png"
-      }
-    },
-    "coCreators": [
-      {
-        "name": "Ints Ivanovskis, art works",
-        "url": "https://www.linkedin.com/in/ints-ivanovskis-46ab0311a/",
-        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413436/Contributors/Ints%20Ivanovskis.jpg"
-      },
-      {
-        "name": "Jenny Rickardsson, script and voice",
-        "url": "https://www.linkedin.com/in/jenny-rickardson-6770a959/",
-        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413228/Contributors/Jenny%20Rickardsson.jpg"
-      }
-    ],
-    "outroPortal": {
-      "desktopOptimized": true
-    },
-    "tags": [
-      "34100e43-2eb8-4d35-8eb0-9fa9f78e4935",
-      "9c2c08a9-7dc6-4058-bc78-016d0eb00614"
-    ],
-    "async": true
   }
 }
