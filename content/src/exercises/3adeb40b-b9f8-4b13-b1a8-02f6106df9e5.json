@@ -1,4 +1,97 @@
 {
+  "sv": {
+    "liveDuration": 30,
+    "slides": [
+      {
+        "type": "host",
+        "hostNotes": [
+          {
+            "text": "Welcome. I am X and today we will work for around 30 minutes on xx\n\nWe’ll be doing xx ex. meditation followed by time for reflection and sharing with each other."
+          },
+          {
+            "text": "Let’s start with a mini check-in. How are you feeling right now? Please answer in two-three words. X, would you like to start?\n\n> Let everyone in the session, including yourself, check in one by one.\n\nThank you all for checking in. Let’s get started."
+          }
+        ]
+      },
+      {
+        "type": "content",
+        "hostNotes": [
+          {
+            "text": "Find a comfortable position. I will start the audio exercise and we'll meet back here afterwards. \n\n> Push play to start the audio exercise"
+          }
+        ]
+      },
+      {
+        "type": "reflection",
+        "hostNotes": [
+          {
+            "text": "Now we’ll take 1 minute to reflect on our own.\n\nxxMain question\n\nxxFurther explanations of main question if needed"
+          },
+          {
+            "text": "You can take notes on a piece of paper or just mental notes in your head. And there is no right or wrong here, our answers are our own. 1 minute starting now.\n\n> Press play to start the timer.\n\nThat’s 1 minute and it’s time to move on."
+          }
+        ]
+      },
+      {
+        "type": "sharing",
+        "hostNotes": [
+          {
+            "text": "Now we are getting into the sharing part. We have three rules for sharing:\n\n1. **What is said in here, stays in here.**\n2. **All you need to do is listen.** There is no fixing, helping or advice-giving needed. We are just showing up and exploring what ourselves and others are going through."
+          },
+          {
+            "text": "3. **Everything on the inside is okay.** Anger, love, hatred, sadness. Whatever shows up. No wrongs, no rights. It is what it is.\n\nThere will be a timer set for 2 minutes as an indicator. If you don’t want to share you can always say ‘pass’."
+          },
+          {
+            "text": "Who would like to start?\n\n> Let everyone (or as many as you got time for) share one by one. Press play to start the timer. Re-start for each new sharing.\n\nThank you so much everyone."
+          }
+        ],
+        "id": "Sharing 1"
+      },
+      {
+        "type": "host",
+        "hostNotes": [
+          {
+            "text": "Well done. If you’re up for it, you can continue what we started here today with a mission to bring this into your everyday life.\n\nxx mission description"
+          },
+          {
+            "text": "Before we leave this space let’s do a mini check-out. \n\nHow are you feeling right now? Has anything shifted? Please answer in two-three words."
+          },
+          {
+            "text": "Who would like to start?\n\n> Let everyone in the session check out one by one.\n\nThank you all for checking out and for joining this session today.\n\n> Finish session to send everyone off to the exit experience."
+          }
+        ]
+      },
+      {
+        "type": "instruction",
+        "content": {
+          "text": "Well done.\n\nSummary.\n\nIf you’re up for it, you can continue with this mission.\n\nmission description"
+        }
+      }
+    ],
+    "theme": {
+      "textColor": "#2AE2D7"
+    },
+    "hidden": false,
+    "locked": true,
+    "live": true,
+    "published": false,
+    "asyncDuration": 15,
+    "card": {},
+    "introPortal": {
+      "textColor": "#2AE2D7",
+      "hostNotes": [
+        {
+          "text": "> Start the session when you're ready to go"
+        }
+      ]
+    },
+    "tags": [
+      "9c2c08a9-7dc6-4058-bc78-016d0eb00614",
+      "566aeb1b-1649-4f5a-96a2-0c80be27efc0"
+    ],
+    "id": "3adeb40b-b9f8-4b13-b1a8-02f6106df9e5",
+    "async": false
+  },
   "en": {
     "liveDuration": 30,
     "slides": [
@@ -318,353 +411,15 @@
     "async": true,
     "description": "Os nossos valores dizem respeito a quem desejamos ser na vida. Viver uma vida baseada em valores é frequentemente mais gratificante e tem mais significado para as pessoas."
   },
-  "sv": {
-    "liveDuration": 30,
-    "slides": [
-      {
-        "type": "host",
-        "hostNotes": [
-          {
-            "text": "Welcome. I am X and today we will work for around 30 minutes on xx\n\nWe’ll be doing xx ex. meditation followed by time for reflection and sharing with each other."
-          },
-          {
-            "text": "Let’s start with a mini check-in. How are you feeling right now? Please answer in two-three words. X, would you like to start?\n\n> Let everyone in the session, including yourself, check in one by one.\n\nThank you all for checking in. Let’s get started."
-          }
-        ]
-      },
-      {
-        "type": "content",
-        "hostNotes": [
-          {
-            "text": "Find a comfortable position. I will start the audio exercise and we'll meet back here afterwards. \n\n> Push play to start the audio exercise"
-          }
-        ]
-      },
-      {
-        "type": "reflection",
-        "hostNotes": [
-          {
-            "text": "Now we’ll take 1 minute to reflect on our own.\n\nxxMain question\n\nxxFurther explanations of main question if needed"
-          },
-          {
-            "text": "You can take notes on a piece of paper or just mental notes in your head. And there is no right or wrong here, our answers are our own. 1 minute starting now.\n\n> Press play to start the timer.\n\nThat’s 1 minute and it’s time to move on."
-          }
-        ]
-      },
-      {
-        "type": "sharing",
-        "hostNotes": [
-          {
-            "text": "Now we are getting into the sharing part. We have three rules for sharing:\n\n1. **What is said in here, stays in here.**\n2. **All you need to do is listen.** There is no fixing, helping or advice-giving needed. We are just showing up and exploring what ourselves and others are going through."
-          },
-          {
-            "text": "3. **Everything on the inside is okay.** Anger, love, hatred, sadness. Whatever shows up. No wrongs, no rights. It is what it is.\n\nThere will be a timer set for 2 minutes as an indicator. If you don’t want to share you can always say ‘pass’."
-          },
-          {
-            "text": "Who would like to start?\n\n> Let everyone (or as many as you got time for) share one by one. Press play to start the timer. Re-start for each new sharing.\n\nThank you so much everyone."
-          }
-        ],
-        "id": "Sharing 1"
-      },
-      {
-        "type": "host",
-        "hostNotes": [
-          {
-            "text": "Well done. If you’re up for it, you can continue what we started here today with a mission to bring this into your everyday life.\n\nxx mission description"
-          },
-          {
-            "text": "Before we leave this space let’s do a mini check-out. \n\nHow are you feeling right now? Has anything shifted? Please answer in two-three words."
-          },
-          {
-            "text": "Who would like to start?\n\n> Let everyone in the session check out one by one.\n\nThank you all for checking out and for joining this session today.\n\n> Finish session to send everyone off to the exit experience."
-          }
-        ]
-      },
-      {
-        "type": "instruction",
-        "content": {
-          "text": "Well done.\n\nSummary.\n\nIf you’re up for it, you can continue with this mission.\n\nmission description"
-        }
-      }
-    ],
-    "theme": {
-      "textColor": "#2AE2D7"
-    },
-    "hidden": false,
-    "locked": true,
-    "live": true,
-    "published": false,
+  "es": {
     "asyncDuration": 15,
     "card": {},
-    "introPortal": {
-      "textColor": "#2AE2D7",
-      "hostNotes": [
-        {
-          "text": "> Start the session when you're ready to go"
-        }
-      ]
-    },
-    "tags": [
-      "9c2c08a9-7dc6-4058-bc78-016d0eb00614",
-      "566aeb1b-1649-4f5a-96a2-0c80be27efc0"
-    ],
     "id": "3adeb40b-b9f8-4b13-b1a8-02f6106df9e5",
-    "async": false
-  },
-  "ja": {
-    "liveDuration": 30,
-    "slides": [
-      {
-        "type": "host",
-        "hostNotes": [
-          {
-            "text": "Welcome. I am X and today we will work for around 30 minutes on xx\n\nWe’ll be doing xx ex. meditation followed by time for reflection and sharing with each other."
-          },
-          {
-            "text": "Let’s start with a mini check-in. How are you feeling right now? Please answer in two-three words. X, would you like to start?\n\n> Let everyone in the session, including yourself, check in one by one.\n\nThank you all for checking in. Let’s get started."
-          }
-        ]
-      },
-      {
-        "type": "content",
-        "hostNotes": [
-          {
-            "text": "Find a comfortable position. I will start the audio exercise and we'll meet back here afterwards. \n\n> Push play to start the audio exercise"
-          }
-        ]
-      },
-      {
-        "type": "reflection",
-        "hostNotes": [
-          {
-            "text": "Now we’ll take 1 minute to reflect on our own.\n\nxxMain question\n\nxxFurther explanations of main question if needed"
-          },
-          {
-            "text": "You can take notes on a piece of paper or just mental notes in your head. And there is no right or wrong here, our answers are our own. 1 minute starting now.\n\n> Press play to start the timer.\n\nThat’s 1 minute and it’s time to move on."
-          }
-        ]
-      },
-      {
-        "type": "sharing",
-        "hostNotes": [
-          {
-            "text": "Now we are getting into the sharing part. We have three rules for sharing:\n\n1. **What is said in here, stays in here.**\n2. **All you need to do is listen.** There is no fixing, helping or advice-giving needed. We are just showing up and exploring what ourselves and others are going through."
-          },
-          {
-            "text": "3. **Everything on the inside is okay.** Anger, love, hatred, sadness. Whatever shows up. No wrongs, no rights. It is what it is.\n\nThere will be a timer set for 2 minutes as an indicator. If you don’t want to share you can always say ‘pass’."
-          },
-          {
-            "text": "Who would like to start?\n\n> Let everyone (or as many as you got time for) share one by one. Press play to start the timer. Re-start for each new sharing.\n\nThank you so much everyone."
-          }
-        ],
-        "id": "Sharing 1"
-      },
-      {
-        "type": "host",
-        "hostNotes": [
-          {
-            "text": "Well done. If you’re up for it, you can continue what we started here today with a mission to bring this into your everyday life.\n\nxx mission description"
-          },
-          {
-            "text": "Before we leave this space let’s do a mini check-out. \n\nHow are you feeling right now? Has anything shifted? Please answer in two-three words."
-          },
-          {
-            "text": "Who would like to start?\n\n> Let everyone in the session check out one by one.\n\nThank you all for checking out and for joining this session today.\n\n> Finish session to send everyone off to the exit experience."
-          }
-        ]
-      },
-      {
-        "type": "instruction",
-        "content": {
-          "text": "Well done.\n\nSummary.\n\nIf you’re up for it, you can continue with this mission.\n\nmission description"
-        }
-      }
-    ],
-    "theme": {
-      "textColor": "#2AE2D7"
-    },
-    "hidden": false,
     "locked": true,
-    "live": true,
-    "published": false,
-    "asyncDuration": 15,
-    "card": {},
-    "introPortal": {
-      "textColor": "#2AE2D7",
-      "hostNotes": [
-        {
-          "text": "> Start the session when you're ready to go"
-        }
-      ]
-    },
     "tags": [
       "9c2c08a9-7dc6-4058-bc78-016d0eb00614",
       "566aeb1b-1649-4f5a-96a2-0c80be27efc0"
-    ],
-    "id": "3adeb40b-b9f8-4b13-b1a8-02f6106df9e5",
-    "async": false
-  },
-  "da": {
-    "liveDuration": 30,
-    "slides": [
-      {
-        "type": "host",
-        "hostNotes": [
-          {
-            "text": "Welcome. I am X and today we will work for around 30 minutes on xx\n\nWe’ll be doing xx ex. meditation followed by time for reflection and sharing with each other."
-          },
-          {
-            "text": "Let’s start with a mini check-in. How are you feeling right now? Please answer in two-three words. X, would you like to start?\n\n> Let everyone in the session, including yourself, check in one by one.\n\nThank you all for checking in. Let’s get started."
-          }
-        ]
-      },
-      {
-        "content": {
-          "text": "Værdier er vores inderste ønsker, som indebærer de ting, der er vigtige for os - uanset hvad. I denne øvelse vil du øve dig i at formulere dine personlige værdier, så du bedre kan lade dem guide dig i din hverdag.",
-          "image": {
-            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1732713746/Images/visual_noBG_my_values_nf5tks.png"
-          }
-        },
-        "type": "instruction"
-      },
-      {
-        "type": "content",
-        "hostNotes": [
-          {
-            "text": "Find a comfortable position. I will start the audio exercise and we'll meet back here afterwards. \n\n> Push play to start the audio exercise"
-          }
-        ],
-        "content": {
-          "lottie": {
-            "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1743492570/SRT%20(captions)%20files/PsyPal_My_Values_Danish_rbcpri.srt",
-            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1743492589/Audio/PsyPal_My_Values_Danish_snffym.mp3",
-            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1676977421/Lottie/audio_meditation_default_black_default_omemwt.json"
-          }
-        }
-      },
-      {
-        "content": {
-          "heading": "Hvordan føltes det at reflektere over dine værdier på denne måde?",
-          "lottie": {
-            "durationTimer": true,
-            "duration": 60,
-            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1676642915/Lottie/default_1min_black_rosi2l.json"
-          }
-        },
-        "type": "reflection",
-        "hostNotes": [
-          {
-            "text": "Now we’ll take 1 minute to reflect on our own.\n\nWhat was your experience reflecting upon your values like this?"
-          },
-          {
-            "text": "You can take notes on a piece of paper or just mental notes in your head. And there is no right or wrong here, our answers are our own. 1 minute starting now.\n\n> Press play to start the timer.\n\nThat’s 1 minute and it’s time to move on."
-          }
-        ]
-      },
-      {
-        "content": {
-          "heading": "Hvordan føltes det at reflektere over dine værdier på denne måde?",
-          "lottie": {
-            "durationTimer": true,
-            "duration": 120,
-            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1676639253/Lottie/default_2min_black_o6egey.json"
-          }
-        },
-        "type": "sharing",
-        "hostNotes": [
-          {
-            "text": "Now we are getting into the sharing part. We have three rules for sharing:\n\n1. **What is said in here, stays in here.**\n2. **All you need to do is listen.** There is no fixing, helping or advice-giving needed. We are just showing up and exploring what ourselves and others are going through."
-          },
-          {
-            "text": "3. **Everything on the inside is okay.** Anger, love, hatred, sadness. Whatever shows up. No wrongs, no rights. It is what it is.\n\nThere will be a timer set for 2 minutes as an indicator. If you don’t want to share you can always say ‘pass’."
-          },
-          {
-            "text": "Who would like to start?\n\n> Let everyone (or as many as you got time for) share one by one. Press play to start the timer. Re-start for each new sharing.\n\nThank you so much everyone."
-          }
-        ],
-        "id": "Sharing 1"
-      },
-      {
-        "type": "host",
-        "hostNotes": [
-          {
-            "text": "Well done. If you’re up for it, you can continue what we started here today with a mission to bring this into your everyday life.\n\nxx mission description"
-          },
-          {
-            "text": "Before we leave this space let’s do a mini check-out. \n\nHow are you feeling right now? Has anything shifted? Please answer in two-three words."
-          },
-          {
-            "text": "Who would like to start?\n\n> Let everyone in the session check out one by one.\n\nThank you all for checking out and for joining this session today.\n\n> Finish session to send everyone off to the exit experience."
-          }
-        ]
-      },
-      {
-        "content": {
-          "text": "Godt klaret. \n\nNu har du indstillet dit personlige kompas.\n\nEr der noget, som du ønsker at ændre i dit liv efter at have gjort dette? Er der nogen af dine valgte ord eller sætninger, der kræver mere opmærksomhed fra dig? Planlæg én handling, som du kan udføre lige nu, i overensstemmelse med din værdi.",
-          "image": {
-            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1732713746/Images/visual_noBG_my_values_nf5tks.png"
-          }
-        },
-        "type": "instruction"
-      }
-    ],
-    "theme": {
-      "textColor": "#2E2E2E",
-      "backgroundColor": "#c7bea2"
-    },
-    "hidden": false,
-    "locked": true,
-    "name": "Mine værdier",
-    "live": false,
-    "published": true,
-    "asyncDuration": 15,
-    "card": {
-      "image": {
-        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1732713746/Images/card_my_values_pwtpxm.png"
-      }
-    },
-    "coCreators": [
-      {
-        "name": "Ints Ivanovskis, art works",
-        "url": "https://www.linkedin.com/in/ints-ivanovskis-46ab0311a/?originalSubdomain=se",
-        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413436/Contributors/Ints%20Ivanovskis.jpg"
-      },
-      {
-        "name": "Jenny Rickardsson, script, editor",
-        "url": "https://www.linkedin.com/in/jenny-rickardson-6770a959/",
-        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413228/Contributors/Jenny%20Rickardsson.jpg"
-      },
-      {
-        "name": "Catharina Messell, voice",
-        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1734343422/Contributors/Catharina_Messel_Da_PsyPal.png",
-        "url": "https://palliativeprojects.eu/psypal/university-of-copenhagen/"
-      }
-    ],
-    "introPortal": {
-      "textColor": "#2E2E2E",
-      "hostNotes": [
-        {
-          "text": "> Start the session when you're ready to go"
-        }
-      ],
-      "videoLoop": {
-        "p5JsScript": {
-          "lang": "javascript"
-        },
-        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1732713683/Video/portal_my_values_urbnjl.mp4",
-        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1732713715/Audio/portal_audio_my_values.png_yfzm2u.mp3"
-      },
-      "videoEnd": {
-        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1732713682/Video/portal_2_my_values_wzq6mm.mp4"
-      }
-    },
-    "tags": [
-      "9c2c08a9-7dc6-4058-bc78-016d0eb00614",
-      "566aeb1b-1649-4f5a-96a2-0c80be27efc0"
-    ],
-    "id": "3adeb40b-b9f8-4b13-b1a8-02f6106df9e5",
-    "async": true,
-    "description": "Vores indre værdier omhandler, hvem vi ønsker at være her i tilværelsen. Det er ofte mere tilfredsstillende og meningsfuldt for folk at leve i overensstemmelse med deres værdier."
+    ]
   },
   "cs": {
     "liveDuration": 30,
@@ -828,7 +583,7 @@
     "async": true,
     "description": "Naše vnitřní hodnoty jsou o tom, kým chceme být v životě. Život založený na hodnotách je pro lidi často naplňující a smysluplnější."
   },
-  "nl": {
+  "ja": {
     "liveDuration": 30,
     "slides": [
       {
@@ -843,42 +598,18 @@
         ]
       },
       {
-        "content": {
-          "text": "Waarden zijn onze diepste verlangens. De dingen die echt belangrijk voor ons zijn - hoe dan ook. In deze oefening ga je je persoonlijke waarden expliciet maken, zodat ze als gids kunnen dienen in jouw dagelijks leven.",
-          "image": {
-            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1732713746/Images/visual_noBG_my_values_nf5tks.png"
-          }
-        },
-        "type": "instruction"
-      },
-      {
         "type": "content",
         "hostNotes": [
           {
             "text": "Find a comfortable position. I will start the audio exercise and we'll meet back here afterwards. \n\n> Push play to start the audio exercise"
           }
-        ],
-        "content": {
-          "lottie": {
-            "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1737470173/SRT%20(captions)%20files/PsyPalMyValuesNl-Waarden_R1_NL_jdc50b.srt",
-            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1737470077/Audio/PsyPalMyValues%20Nl-Waarden_R1_NL_gtpx2b.mp3",
-            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1676977421/Lottie/audio_meditation_default_black_default_omemwt.json"
-          }
-        }
+        ]
       },
       {
-        "content": {
-          "heading": "Hoe heb je het ervaren om op deze manier over je waarden na te denken?",
-          "lottie": {
-            "durationTimer": true,
-            "duration": 60,
-            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1676642915/Lottie/default_1min_black_rosi2l.json"
-          }
-        },
         "type": "reflection",
         "hostNotes": [
           {
-            "text": "Now we’ll take 1 minute to reflect on our own.\n\nWhat was your experience reflecting upon your values like this?"
+            "text": "Now we’ll take 1 minute to reflect on our own.\n\nxxMain question\n\nxxFurther explanations of main question if needed"
           },
           {
             "text": "You can take notes on a piece of paper or just mental notes in your head. And there is no right or wrong here, our answers are our own. 1 minute starting now.\n\n> Press play to start the timer.\n\nThat’s 1 minute and it’s time to move on."
@@ -886,14 +617,6 @@
         ]
       },
       {
-        "content": {
-          "heading": "Hoe heb je het ervaren om op deze manier over je waarden na te denken?",
-          "lottie": {
-            "durationTimer": true,
-            "duration": 120,
-            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1676639253/Lottie/default_2min_black_o6egey.json"
-          }
-        },
         "type": "sharing",
         "hostNotes": [
           {
@@ -923,104 +646,38 @@
         ]
       },
       {
+        "type": "instruction",
         "content": {
-          "text": "Goed gedaan.\n\nJe hebt nu je persoonlijke kompas gekalibreerd.\n\nIs er iets dat je in je leven wilt veranderen na deze oefening? Zijn er gekozen woorden of zinnen die meer aandacht van je nodig hebben? Plan één actie dat je nu meteen kunt doen in lijn met je waarde.",
-          "image": {
-            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1732713746/Images/visual_noBG_my_values_nf5tks.png"
-          }
-        },
-        "type": "instruction"
+          "text": "Well done.\n\nSummary.\n\nIf you’re up for it, you can continue with this mission.\n\nmission description"
+        }
       }
     ],
     "theme": {
-      "textColor": "#2E2E2E",
-      "backgroundColor": "#c7bea2"
+      "textColor": "#2AE2D7"
     },
     "hidden": false,
     "locked": true,
-    "name": "Mijn waarden",
-    "live": false,
-    "published": true,
+    "live": true,
+    "published": false,
     "asyncDuration": 15,
-    "card": {
-      "image": {
-        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1732713746/Images/card_my_values_pwtpxm.png"
-      }
-    },
-    "coCreators": [
-      {
-        "name": "Ints Ivanovskis, art works",
-        "url": "https://www.linkedin.com/in/ints-ivanovskis-46ab0311a/?originalSubdomain=se",
-        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413436/Contributors/Ints%20Ivanovskis.jpg"
-      },
-      {
-        "name": "Jenny Rickardsson, script, editor",
-        "url": "https://www.linkedin.com/in/jenny-rickardson-6770a959/",
-        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413228/Contributors/Jenny%20Rickardsson.jpg"
-      },
-      {
-        "name": "Mila W, voice",
-        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/v1737469735/Contributors/MilaW_demgfw.jpg",
-        "url": "https://www.fiverr.com/s/LdlNLap"
-      }
-    ],
+    "card": {},
     "introPortal": {
-      "textColor": "#2E2E2E",
+      "textColor": "#2AE2D7",
       "hostNotes": [
         {
           "text": "> Start the session when you're ready to go"
         }
-      ],
-      "videoLoop": {
-        "p5JsScript": {
-          "lang": "javascript"
-        },
-        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1732713683/Video/portal_my_values_urbnjl.mp4",
-        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1732713715/Audio/portal_audio_my_values.png_yfzm2u.mp3"
-      },
-      "videoEnd": {
-        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1732713682/Video/portal_2_my_values_wzq6mm.mp4"
-      }
+      ]
     },
     "tags": [
       "9c2c08a9-7dc6-4058-bc78-016d0eb00614",
       "566aeb1b-1649-4f5a-96a2-0c80be27efc0"
     ],
     "id": "3adeb40b-b9f8-4b13-b1a8-02f6106df9e5",
-    "async": true,
-    "description": "Onze innerlijke waarden gaan over wie we willen zijn in het leven. Een waardengedreven leven leiden is vaak meer vervullend en betekenisvol voor mensen."
-  },
-  "es": {
-    "asyncDuration": 15,
-    "card": {},
-    "id": "3adeb40b-b9f8-4b13-b1a8-02f6106df9e5",
-    "locked": true,
-    "tags": [
-      "9c2c08a9-7dc6-4058-bc78-016d0eb00614",
-      "566aeb1b-1649-4f5a-96a2-0c80be27efc0"
-    ]
+    "async": false
   },
   "pt-BR": {
-    "description": "Nossos valores internos dizem respeito a quem queremos ser na vida. Viver de acordo com nossos valores costuma tornar a vida mais satisfatória e significativa para as pessoas.",
-    "introPortal": {
-      "hostNotes": [
-        {
-          "text": ">Comece a sessão quando estiver pronto para seguir"
-        }
-      ],
-      "textColor": "#2E2E2E",
-      "videoLoop": {
-        "p5JsScript": {
-          "lang": "javascript"
-        },
-        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1732713683/Video/portal_my_values_urbnjl.mp4",
-        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1732713715/Audio/portal_audio_my_values.png_yfzm2u.mp3"
-      },
-      "videoEnd": {
-        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1732713682/Video/portal_2_my_values_wzq6mm.mp4"
-      }
-    },
-    "name": "PsyPal Meus valores",
+    "liveDuration": 30,
     "slides": [
       {
         "hostNotes": [
@@ -1123,14 +780,13 @@
         "type": "instruction"
       }
     ],
-    "id": "3adeb40b-b9f8-4b13-b1a8-02f6106df9e5",
-    "liveDuration": 30,
     "theme": {
       "textColor": "#2E2E2E",
       "backgroundColor": "#c7bea2"
     },
     "hidden": false,
     "locked": true,
+    "name": "PsyPal Meus valores",
     "live": false,
     "published": false,
     "asyncDuration": 15,
@@ -1151,10 +807,354 @@
         "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413228/Contributors/Jenny%20Rickardsson.jpg"
       }
     ],
+    "introPortal": {
+      "hostNotes": [
+        {
+          "text": ">Comece a sessão quando estiver pronto para seguir"
+        }
+      ],
+      "textColor": "#2E2E2E",
+      "videoLoop": {
+        "p5JsScript": {
+          "lang": "javascript"
+        },
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1732713683/Video/portal_my_values_urbnjl.mp4",
+        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1732713715/Audio/portal_audio_my_values.png_yfzm2u.mp3"
+      },
+      "videoEnd": {
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1732713682/Video/portal_2_my_values_wzq6mm.mp4"
+      }
+    },
     "tags": [
       "9c2c08a9-7dc6-4058-bc78-016d0eb00614",
       "566aeb1b-1649-4f5a-96a2-0c80be27efc0"
     ],
-    "async": true
+    "id": "3adeb40b-b9f8-4b13-b1a8-02f6106df9e5",
+    "async": true,
+    "description": "Nossos valores internos dizem respeito a quem queremos ser na vida. Viver de acordo com nossos valores costuma tornar a vida mais satisfatória e significativa para as pessoas."
+  },
+  "da": {
+    "liveDuration": 30,
+    "slides": [
+      {
+        "type": "host",
+        "hostNotes": [
+          {
+            "text": "Welcome. I am X and today we will work for around 30 minutes on xx\n\nWe’ll be doing xx ex. meditation followed by time for reflection and sharing with each other."
+          },
+          {
+            "text": "Let’s start with a mini check-in. How are you feeling right now? Please answer in two-three words. X, would you like to start?\n\n> Let everyone in the session, including yourself, check in one by one.\n\nThank you all for checking in. Let’s get started."
+          }
+        ]
+      },
+      {
+        "content": {
+          "text": "Værdier er vores inderste ønsker, som indebærer de ting, der er vigtige for os - uanset hvad. I denne øvelse vil du øve dig i at formulere dine personlige værdier, så du bedre kan lade dem guide dig i din hverdag.",
+          "image": {
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1732713746/Images/visual_noBG_my_values_nf5tks.png"
+          }
+        },
+        "type": "instruction"
+      },
+      {
+        "type": "content",
+        "hostNotes": [
+          {
+            "text": "Find a comfortable position. I will start the audio exercise and we'll meet back here afterwards. \n\n> Push play to start the audio exercise"
+          }
+        ],
+        "content": {
+          "lottie": {
+            "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1743492570/SRT%20(captions)%20files/PsyPal_My_Values_Danish_rbcpri.srt",
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1743492589/Audio/PsyPal_My_Values_Danish_snffym.mp3",
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1676977421/Lottie/audio_meditation_default_black_default_omemwt.json"
+          }
+        }
+      },
+      {
+        "content": {
+          "heading": "Hvordan føltes det at reflektere over dine værdier på denne måde?",
+          "lottie": {
+            "durationTimer": true,
+            "duration": 60,
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1676642915/Lottie/default_1min_black_rosi2l.json"
+          }
+        },
+        "type": "reflection",
+        "hostNotes": [
+          {
+            "text": "Now we’ll take 1 minute to reflect on our own.\n\nWhat was your experience reflecting upon your values like this?"
+          },
+          {
+            "text": "You can take notes on a piece of paper or just mental notes in your head. And there is no right or wrong here, our answers are our own. 1 minute starting now.\n\n> Press play to start the timer.\n\nThat’s 1 minute and it’s time to move on."
+          }
+        ]
+      },
+      {
+        "content": {
+          "heading": "Hvordan føltes det at reflektere over dine værdier på denne måde?",
+          "lottie": {
+            "durationTimer": true,
+            "duration": 120,
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1676639253/Lottie/default_2min_black_o6egey.json"
+          }
+        },
+        "type": "sharing",
+        "hostNotes": [
+          {
+            "text": "Now we are getting into the sharing part. We have three rules for sharing:\n\n1. **What is said in here, stays in here.**\n2. **All you need to do is listen.** There is no fixing, helping or advice-giving needed. We are just showing up and exploring what ourselves and others are going through."
+          },
+          {
+            "text": "3. **Everything on the inside is okay.** Anger, love, hatred, sadness. Whatever shows up. No wrongs, no rights. It is what it is.\n\nThere will be a timer set for 2 minutes as an indicator. If you don’t want to share you can always say ‘pass’."
+          },
+          {
+            "text": "Who would like to start?\n\n> Let everyone (or as many as you got time for) share one by one. Press play to start the timer. Re-start for each new sharing.\n\nThank you so much everyone."
+          }
+        ],
+        "id": "Sharing 1"
+      },
+      {
+        "type": "host",
+        "hostNotes": [
+          {
+            "text": "Well done. If you’re up for it, you can continue what we started here today with a mission to bring this into your everyday life.\n\nxx mission description"
+          },
+          {
+            "text": "Before we leave this space let’s do a mini check-out. \n\nHow are you feeling right now? Has anything shifted? Please answer in two-three words."
+          },
+          {
+            "text": "Who would like to start?\n\n> Let everyone in the session check out one by one.\n\nThank you all for checking out and for joining this session today.\n\n> Finish session to send everyone off to the exit experience."
+          }
+        ]
+      },
+      {
+        "content": {
+          "text": "Godt klaret. \n\nNu har du indstillet dit personlige kompas.\n\nEr der noget, som du ønsker at ændre i dit liv efter at have gjort dette? Er der nogen af dine valgte ord eller sætninger, der kræver mere opmærksomhed fra dig? Planlæg én handling, som du kan udføre lige nu, i overensstemmelse med din værdi.",
+          "image": {
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1732713746/Images/visual_noBG_my_values_nf5tks.png"
+          }
+        },
+        "type": "instruction"
+      }
+    ],
+    "theme": {
+      "textColor": "#2E2E2E",
+      "backgroundColor": "#c7bea2"
+    },
+    "hidden": false,
+    "locked": true,
+    "name": "Mine værdier",
+    "live": false,
+    "published": true,
+    "asyncDuration": 15,
+    "card": {
+      "image": {
+        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1732713746/Images/card_my_values_pwtpxm.png"
+      }
+    },
+    "coCreators": [
+      {
+        "name": "Ints Ivanovskis, art works",
+        "url": "https://www.linkedin.com/in/ints-ivanovskis-46ab0311a/?originalSubdomain=se",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413436/Contributors/Ints%20Ivanovskis.jpg"
+      },
+      {
+        "name": "Jenny Rickardsson, script, editor",
+        "url": "https://www.linkedin.com/in/jenny-rickardson-6770a959/",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413228/Contributors/Jenny%20Rickardsson.jpg"
+      },
+      {
+        "name": "Catharina Messell, voice",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1734343422/Contributors/Catharina_Messel_Da_PsyPal.png",
+        "url": "https://palliativeprojects.eu/psypal/university-of-copenhagen/"
+      }
+    ],
+    "introPortal": {
+      "textColor": "#2E2E2E",
+      "hostNotes": [
+        {
+          "text": "> Start the session when you're ready to go"
+        }
+      ],
+      "videoLoop": {
+        "p5JsScript": {
+          "lang": "javascript"
+        },
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1732713683/Video/portal_my_values_urbnjl.mp4",
+        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1732713715/Audio/portal_audio_my_values.png_yfzm2u.mp3"
+      },
+      "videoEnd": {
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1732713682/Video/portal_2_my_values_wzq6mm.mp4"
+      }
+    },
+    "tags": [
+      "9c2c08a9-7dc6-4058-bc78-016d0eb00614",
+      "566aeb1b-1649-4f5a-96a2-0c80be27efc0"
+    ],
+    "id": "3adeb40b-b9f8-4b13-b1a8-02f6106df9e5",
+    "async": true,
+    "description": "Vores indre værdier omhandler, hvem vi ønsker at være her i tilværelsen. Det er ofte mere tilfredsstillende og meningsfuldt for folk at leve i overensstemmelse med deres værdier."
+  },
+  "nl": {
+    "liveDuration": 30,
+    "slides": [
+      {
+        "type": "host",
+        "hostNotes": [
+          {
+            "text": "Welcome. I am X and today we will work for around 30 minutes on xx\n\nWe’ll be doing xx ex. meditation followed by time for reflection and sharing with each other."
+          },
+          {
+            "text": "Let’s start with a mini check-in. How are you feeling right now? Please answer in two-three words. X, would you like to start?\n\n> Let everyone in the session, including yourself, check in one by one.\n\nThank you all for checking in. Let’s get started."
+          }
+        ]
+      },
+      {
+        "content": {
+          "text": "Waarden zijn onze diepste verlangens. De dingen die echt belangrijk voor ons zijn, hoe dan ook. In deze oefening ga je jouw persoonlijke waarden duidelijk voor je maken, zodat ze je kunnen helpen in je dagelijks leven.",
+          "image": {
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1732713746/Images/visual_noBG_my_values_nf5tks.png"
+          }
+        },
+        "type": "instruction"
+      },
+      {
+        "type": "content",
+        "hostNotes": [
+          {
+            "text": "Find a comfortable position. I will start the audio exercise and we'll meet back here afterwards. \n\n> Push play to start the audio exercise"
+          }
+        ],
+        "content": {
+          "lottie": {
+            "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1737470173/SRT%20(captions)%20files/PsyPalMyValuesNl-Waarden_R1_NL_jdc50b.srt",
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1737470077/Audio/PsyPalMyValues%20Nl-Waarden_R1_NL_gtpx2b.mp3",
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1676977421/Lottie/audio_meditation_default_black_default_omemwt.json"
+          }
+        }
+      },
+      {
+        "content": {
+          "heading": "Hoe heb je het ervaren om op deze manier over je waarden na te denken?",
+          "lottie": {
+            "durationTimer": true,
+            "duration": 60,
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1676642915/Lottie/default_1min_black_rosi2l.json"
+          }
+        },
+        "type": "reflection",
+        "hostNotes": [
+          {
+            "text": "Now we’ll take 1 minute to reflect on our own.\n\nWhat was your experience reflecting upon your values like this?"
+          },
+          {
+            "text": "You can take notes on a piece of paper or just mental notes in your head. And there is no right or wrong here, our answers are our own. 1 minute starting now.\n\n> Press play to start the timer.\n\nThat’s 1 minute and it’s time to move on."
+          }
+        ]
+      },
+      {
+        "content": {
+          "heading": "Hoe heb je het ervaren om op deze manier over je waarden na te denken?",
+          "lottie": {
+            "durationTimer": true,
+            "duration": 120,
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1676639253/Lottie/default_2min_black_o6egey.json"
+          }
+        },
+        "type": "sharing",
+        "hostNotes": [
+          {
+            "text": "Now we are getting into the sharing part. We have three rules for sharing:\n\n1. **What is said in here, stays in here.**\n2. **All you need to do is listen.** There is no fixing, helping or advice-giving needed. We are just showing up and exploring what ourselves and others are going through."
+          },
+          {
+            "text": "3. **Everything on the inside is okay.** Anger, love, hatred, sadness. Whatever shows up. No wrongs, no rights. It is what it is.\n\nThere will be a timer set for 2 minutes as an indicator. If you don’t want to share you can always say ‘pass’."
+          },
+          {
+            "text": "Who would like to start?\n\n> Let everyone (or as many as you got time for) share one by one. Press play to start the timer. Re-start for each new sharing.\n\nThank you so much everyone."
+          }
+        ],
+        "id": "Sharing 1"
+      },
+      {
+        "type": "host",
+        "hostNotes": [
+          {
+            "text": "Well done. If you’re up for it, you can continue what we started here today with a mission to bring this into your everyday life.\n\nxx mission description"
+          },
+          {
+            "text": "Before we leave this space let’s do a mini check-out. \n\nHow are you feeling right now? Has anything shifted? Please answer in two-three words."
+          },
+          {
+            "text": "Who would like to start?\n\n> Let everyone in the session check out one by one.\n\nThank you all for checking out and for joining this session today.\n\n> Finish session to send everyone off to the exit experience."
+          }
+        ]
+      },
+      {
+        "content": {
+          "text": "Goed gedaan. \n\nJe hebt nu je personlijke waarden duidelijke gemaakt. \n\nIs er iets in je leven wat je wilt veranderen na deze oefening? Zijn er woorden of zinnen die meer aandacht van je nodig hebben? Plan één actie die je nu meteen kunt doen. En een welke past bij jouw eigen waarden.",
+          "image": {
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1732713746/Images/visual_noBG_my_values_nf5tks.png"
+          }
+        },
+        "type": "instruction"
+      }
+    ],
+    "theme": {
+      "textColor": "#2E2E2E",
+      "backgroundColor": "#c7bea2"
+    },
+    "hidden": false,
+    "locked": true,
+    "name": "Mijn waarden",
+    "live": false,
+    "published": true,
+    "asyncDuration": 15,
+    "card": {
+      "image": {
+        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1732713746/Images/card_my_values_pwtpxm.png"
+      }
+    },
+    "coCreators": [
+      {
+        "name": "Ints Ivanovskis, art works",
+        "url": "https://www.linkedin.com/in/ints-ivanovskis-46ab0311a/?originalSubdomain=se",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413436/Contributors/Ints%20Ivanovskis.jpg"
+      },
+      {
+        "name": "Jenny Rickardsson, script, editor",
+        "url": "https://www.linkedin.com/in/jenny-rickardson-6770a959/",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413228/Contributors/Jenny%20Rickardsson.jpg"
+      },
+      {
+        "name": "Mila W, voice",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/v1737469735/Contributors/MilaW_demgfw.jpg",
+        "url": "https://www.fiverr.com/s/LdlNLap"
+      }
+    ],
+    "introPortal": {
+      "textColor": "#2E2E2E",
+      "hostNotes": [
+        {
+          "text": "> Start the session when you're ready to go"
+        }
+      ],
+      "videoLoop": {
+        "p5JsScript": {
+          "lang": "javascript"
+        },
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1732713683/Video/portal_my_values_urbnjl.mp4",
+        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1732713715/Audio/portal_audio_my_values.png_yfzm2u.mp3"
+      },
+      "videoEnd": {
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1732713682/Video/portal_2_my_values_wzq6mm.mp4"
+      }
+    },
+    "tags": [
+      "9c2c08a9-7dc6-4058-bc78-016d0eb00614",
+      "566aeb1b-1649-4f5a-96a2-0c80be27efc0"
+    ],
+    "id": "3adeb40b-b9f8-4b13-b1a8-02f6106df9e5",
+    "async": true,
+    "description": "Onze innerlijke waarden gaan over wie we willen zijn in het leven. Een waardengedreven leven leiden is vaak meer vervullend en betekenisvol voor mensen."
   }
 }
