@@ -1,6 +1,6 @@
 import {getAuth} from 'firebase-admin/auth';
 import {updatePublicHostRequest} from '../../models/publicHostRequests';
-import {createPublicHostCodeLink} from '../../models/dynamicLinks';
+import {createPublicHostCodeLink} from '../../models/airbridge';
 import {updatePost} from '../../models/post';
 import {setFeedbackApproval} from '../../models/metrics';
 import {RequestAction} from '../../lib/constants/requestAction';
@@ -15,7 +15,7 @@ import {SlackError, SlackErrorCode} from '../../controllers/errors/SlackError';
 
 jest.mock('../../models/slack');
 jest.mock('../../models/publicHostRequests');
-jest.mock('../../models/dynamicLinks');
+jest.mock('../../models/airbridge');
 jest.mock('../../models/post');
 jest.mock('../../models/metrics');
 

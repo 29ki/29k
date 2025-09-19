@@ -1,10 +1,10 @@
-const mockDynamicLinks = {
+const mockAirbridge = {
   createSessionInviteLink: jest
     .fn()
-    .mockResolvedValue('http://some.dynamic/link'),
+    .mockResolvedValue('http://some.tracking/link'),
   createSessionHostTransferLink: jest
     .fn()
-    .mockResolvedValue('http://some.dynamic/link'),
+    .mockResolvedValue('http://some.tracking/link'),
 };
 const mockDailyApi = {
   createRoom: jest.fn(() => ({
@@ -58,7 +58,7 @@ jest.mock('../lib/utils', () => ({
   generateVerificationCode: mockGenerateVerificationCode,
 }));
 jest.mock('../lib/dailyApi', () => mockDailyApi);
-jest.mock('../models/dynamicLinks', () => mockDynamicLinks);
+jest.mock('../models/airbridge', () => mockAirbridge);
 jest.mock('../models/session');
 jest.mock('./user');
 jest.mock('../models/auth');
@@ -496,7 +496,7 @@ describe('sessions - controller', () => {
       expect(mockDailyApi.createRoom).toHaveBeenCalledWith(expireDate);
     });
 
-    it('should create a dynamic link with correct path', async () => {
+    it('should create a tracking link with correct path', async () => {
       mockAddSession.mockResolvedValueOnce({
         hostId: 'some-user-id',
       });
@@ -507,7 +507,7 @@ describe('sessions - controller', () => {
         startTime: new Date('2022-10-10T10:00:00Z').toISOString(),
         language: 'en',
       });
-      expect(mockDynamicLinks.createSessionInviteLink).toHaveBeenCalledWith(
+      expect(mockAirbridge.createSessionInviteLink).toHaveBeenCalledWith(
         123456,
         'some-exercise-id',
         'some-name',
@@ -538,7 +538,7 @@ describe('sessions - controller', () => {
         dailyRoomName: 'some-fake-daily-room-name',
         hostId: 'some-user-id',
         id: 'some-fake-daily-id',
-        link: 'http://some.dynamic/link',
+        link: 'http://some.tracking/link',
         startTime: '2022-10-10T10:00:00.000Z',
         type: 'public',
         url: 'http://fake.daily/url',
@@ -593,7 +593,7 @@ describe('sessions - controller', () => {
         dailyRoomName: 'some-fake-daily-room-name',
         hostId: 'some-user-id',
         id: 'some-fake-daily-id',
-        link: 'http://some.dynamic/link',
+        link: 'http://some.tracking/link',
         startTime: '2022-10-10T10:00:00.000Z',
         type: 'public',
         url: 'http://fake.daily/url',
@@ -1055,9 +1055,12 @@ describe('sessions - controller', () => {
       expect(mockUpdateSession).toHaveBeenCalledWith('some-session-id', {
         hostingCode: 123456,
       });
-      expect(
-        mockDynamicLinks.createSessionHostTransferLink,
-      ).toHaveBeenCalledWith(123456, 'some-exercise-id', 'some-name', 'en');
+      expect(mockAirbridge.createSessionHostTransferLink).toHaveBeenCalledWith(
+        123456,
+        'some-exercise-id',
+        'some-name',
+        'en',
+      );
     });
 
     it('should fail when user is not the host', () => {

@@ -2,6 +2,7 @@ import {LinkingOptions, getStateFromPath} from '@react-navigation/native';
 import {DEEP_LINK_SCHEME, DEEP_LINK_PREFIX} from 'config';
 import {RootNavigationProps} from './constants/routes';
 
+import * as airbridge from '../linking/airbridge';
 import * as dynamicLinks from '../linking/dynamicLinks';
 import * as notifications from '../linking/notifications';
 import * as nativeLinks from '../linking/nativeLinks';
@@ -46,6 +47,11 @@ const linking: LinkingOptions<RootNavigationProps> = {
   prefixes: [`${DEEP_LINK_SCHEME}://`, ...DEEP_LINK_PREFIX.split(',')],
 
   async getInitialURL() {
+    const airbridgeURL = await airbridge.getInitialURL();
+    if (airbridgeURL) {
+      return airbridgeURL;
+    }
+
     const dynamicLinkURL = await dynamicLinks.getInitialURL();
     if (dynamicLinkURL) {
       return dynamicLinkURL;
@@ -63,6 +69,8 @@ const linking: LinkingOptions<RootNavigationProps> = {
   },
 
   subscribe(listener) {
+    const unsubscribeAirbridge = airbridge.addEventListener(listener);
+
     const unsubscribeDynamicLinks = dynamicLinks.addEventListener(listener);
 
     const unsubscribeNotifications = notifications.addEventListener(listener);
@@ -70,6 +78,7 @@ const linking: LinkingOptions<RootNavigationProps> = {
     const unsubscribeNativeLinks = nativeLinks.addEventListener(listener);
 
     return () => {
+      unsubscribeAirbridge();
       unsubscribeDynamicLinks();
       unsubscribeNotifications();
       unsubscribeNativeLinks();
