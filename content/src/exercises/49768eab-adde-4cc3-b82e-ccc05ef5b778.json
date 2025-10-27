@@ -118,7 +118,13 @@
           {
             "text": "Find a comfortable position. I will start the audio exercise and we'll meet back here afterwards. \n\n> Tap play to start the audio exercise"
           }
-        ]
+        ],
+        "content": {
+          "lottie": {
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1761572453/Audio/Sturdy_as_an_oak_kvq2r7.mp3",
+            "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1761572529/SRT%20(captions)%20files/Sturdy_as_an_oak_if2kkb.srt"
+          }
+        }
       },
       {
         "type": "reflection",
