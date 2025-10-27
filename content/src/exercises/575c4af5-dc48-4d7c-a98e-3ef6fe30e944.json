@@ -1,6 +1,6 @@
 {
   "sv": {
-    "liveDuration": 29,
+    "liveDuration": 40,
     "slides": [
       {
         "type": "host",
@@ -75,7 +75,7 @@
     "locked": false,
     "live": true,
     "published": false,
-    "asyncDuration": 10,
+    "asyncDuration": 20,
     "introPortal": {
       "textColor": "#2AE2D7",
       "hostNotes": [
@@ -92,7 +92,7 @@
     "async": false
   },
   "en": {
-    "liveDuration": 29,
+    "liveDuration": 40,
     "slides": [
       {
         "type": "host",
@@ -180,7 +180,7 @@
     "name": "Body scan ",
     "live": true,
     "published": true,
-    "asyncDuration": 10,
+    "asyncDuration": 20,
     "introPortal": {
       "textColor": "#2AE2D7",
       "hostNotes": [
@@ -203,7 +203,7 @@
     "description": "A meditation for increased awareness and connection to our bodies. Practising present moment awareness can help improve well-being and reduce stress."
   },
   "pt-PT": {
-    "liveDuration": 29,
+    "liveDuration": 40,
     "slides": [
       {
         "type": "host",
@@ -278,7 +278,7 @@
     "locked": false,
     "live": true,
     "published": false,
-    "asyncDuration": 10,
+    "asyncDuration": 20,
     "introPortal": {
       "textColor": "#2AE2D7",
       "hostNotes": [
@@ -299,17 +299,21 @@
     "tags": [
       "cfc00217-f65b-4a4d-8b82-8ccc8f852dd6",
       "8da0534a-5da9-430a-bdf3-242ace6460fb"
-    ]
+    ],
+    "asyncDuration": 20,
+    "liveDuration": 40
   },
   "cs": {
     "id": "575c4af5-dc48-4d7c-a98e-3ef6fe30e944",
     "tags": [
       "cfc00217-f65b-4a4d-8b82-8ccc8f852dd6",
       "8da0534a-5da9-430a-bdf3-242ace6460fb"
-    ]
+    ],
+    "asyncDuration": 20,
+    "liveDuration": 40
   },
   "ja": {
-    "liveDuration": 29,
+    "liveDuration": 40,
     "slides": [
       {
         "type": "host",
@@ -384,7 +388,7 @@
     "locked": false,
     "live": true,
     "published": false,
-    "asyncDuration": 10,
+    "asyncDuration": 20,
     "introPortal": {
       "textColor": "#2AE2D7",
       "hostNotes": [
@@ -401,7 +405,7 @@
     "async": false
   },
   "pt-BR": {
-    "liveDuration": 29,
+    "liveDuration": 40,
     "slides": [
       {
         "hostNotes": [
@@ -489,7 +493,7 @@
     "name": "Escaneamento corporal",
     "live": true,
     "published": false,
-    "asyncDuration": 10,
+    "asyncDuration": 20,
     "introPortal": {
       "hostNotes": [
         {
@@ -516,13 +520,17 @@
     "tags": [
       "cfc00217-f65b-4a4d-8b82-8ccc8f852dd6",
       "8da0534a-5da9-430a-bdf3-242ace6460fb"
-    ]
+    ],
+    "asyncDuration": 20,
+    "liveDuration": 40
   },
   "nl": {
     "id": "575c4af5-dc48-4d7c-a98e-3ef6fe30e944",
     "tags": [
       "cfc00217-f65b-4a4d-8b82-8ccc8f852dd6",
       "8da0534a-5da9-430a-bdf3-242ace6460fb"
-    ]
+    ],
+    "asyncDuration": 20,
+    "liveDuration": 40
   }
 }
