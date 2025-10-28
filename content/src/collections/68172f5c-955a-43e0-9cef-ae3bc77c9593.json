@@ -1,14 +1,35 @@
 {
+  "sv": {
+    "id": "68172f5c-955a-43e0-9cef-ae3bc77c9593",
+    "exercises": [
+      "ea0b48c1-745e-418d-93e7-2d8a6cd72898",
+      "095f9642-73b6-4c9a-ae9a-ea7dea7363f5",
+      "5b0dea9f-c665-41ce-a779-601d0cfa433d",
+      "9ac0c561-ff26-45fc-b6d5-0a983432394e"
+    ],
+    "published": false,
+    "link": "https://aware.29k.org/new-perspectives",
+    "sortOrder": -8,
+    "card": {},
+    "tags": [
+      "566aeb1b-1649-4f5a-96a2-0c80be27efc0",
+      "34100e43-2eb8-4d35-8eb0-9fa9f78e4935"
+    ]
+  },
   "en": {
     "hidden": false,
     "name": "Gain new perspectives",
     "published": true,
-    "sortOrder": 3,
+    "sortOrder": -8,
     "card": {
       "image": {
         "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1702310278/Images/set_your_values_compas_lamtbm.png"
       }
     },
+    "tags": [
+      "566aeb1b-1649-4f5a-96a2-0c80be27efc0",
+      "34100e43-2eb8-4d35-8eb0-9fa9f78e4935"
+    ],
     "link": "https://aware.29k.org/new-perspectives",
     "id": "68172f5c-955a-43e0-9cef-ae3bc77c9593",
     "exercises": [
@@ -23,12 +44,16 @@
     "hidden": false,
     "name": "Novas perspetivas",
     "published": true,
-    "sortOrder": 3,
+    "sortOrder": -8,
     "card": {
       "image": {
         "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1702310278/Images/set_your_values_compas_lamtbm.png"
       }
     },
+    "tags": [
+      "566aeb1b-1649-4f5a-96a2-0c80be27efc0",
+      "34100e43-2eb8-4d35-8eb0-9fa9f78e4935"
+    ],
     "link": "https://aware.29k.org/new-perspectives",
     "id": "68172f5c-955a-43e0-9cef-ae3bc77c9593",
     "exercises": [
@@ -39,7 +64,21 @@
     ],
     "description": "Somos criaturas de hábitos – tendemos a fazer aquilo a que estamos habituados. Isso é inteligente, pois poupa energia. Mas, por vezes, pode fazer-nos sentir presos.\n\nEsta coleção pode oferecer novas perspetivas e práticas para mudar ou desafiar a forma como geralmente vivemos a vida."
   },
-  "sv": {
+  "es": {
+    "hidden": false,
+    "name": "Adquiere nuevas perspectivas",
+    "published": true,
+    "sortOrder": -8,
+    "card": {
+      "image": {
+        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1702310278/Images/set_your_values_compas_lamtbm.png"
+      }
+    },
+    "tags": [
+      "566aeb1b-1649-4f5a-96a2-0c80be27efc0",
+      "34100e43-2eb8-4d35-8eb0-9fa9f78e4935"
+    ],
+    "link": "https://aware.29k.org/new-perspectives",
     "id": "68172f5c-955a-43e0-9cef-ae3bc77c9593",
     "exercises": [
       "ea0b48c1-745e-418d-93e7-2d8a6cd72898",
@@ -47,10 +86,21 @@
       "5b0dea9f-c665-41ce-a779-601d0cfa433d",
       "9ac0c561-ff26-45fc-b6d5-0a983432394e"
     ],
-    "published": false,
-    "link": "https://aware.29k.org/new-perspectives",
-    "sortOrder": 3,
-    "card": {}
+    "description": "Somos criaturas de hábitos: tendemos a hacer lo que estamos acostumbrados a hacer. Esta es una manera inteligente en la que nuestro cerebro ahorra energía. A la vez, puede hacernos sentir atrapados en algunas ocasiones.\nEste programa puede ofrecer nuevas perspectivas y prácticas para cambiar o desafiar la forma en que usualmente vivimos."
+  },
+  "cs": {
+    "id": "68172f5c-955a-43e0-9cef-ae3bc77c9593",
+    "exercises": [
+      "ea0b48c1-745e-418d-93e7-2d8a6cd72898",
+      "095f9642-73b6-4c9a-ae9a-ea7dea7363f5",
+      "5b0dea9f-c665-41ce-a779-601d0cfa433d",
+      "9ac0c561-ff26-45fc-b6d5-0a983432394e"
+    ],
+    "tags": [
+      "566aeb1b-1649-4f5a-96a2-0c80be27efc0",
+      "34100e43-2eb8-4d35-8eb0-9fa9f78e4935"
+    ],
+    "sortOrder": -8
   },
   "ja": {
     "id": "68172f5c-955a-43e0-9cef-ae3bc77c9593",
@@ -62,55 +112,62 @@
     ],
     "published": false,
     "link": "https://aware.29k.org/new-perspectives",
-    "sortOrder": 3
-  },
-  "da": {
-    "id": "68172f5c-955a-43e0-9cef-ae3bc77c9593"
-  },
-  "cs": {
-    "id": "68172f5c-955a-43e0-9cef-ae3bc77c9593"
-  },
-  "nl": {
-    "id": "68172f5c-955a-43e0-9cef-ae3bc77c9593"
-  },
-  "es": {
-    "description": "Somos criaturas de hábitos: tendemos a hacer lo que estamos acostumbrados a hacer. Esta es una manera inteligente en la que nuestro cerebro ahorra energía. A la vez, puede hacernos sentir atrapados en algunas ocasiones.\nEste programa puede ofrecer nuevas perspectivas y prácticas para cambiar o desafiar la forma en que usualmente vivimos.",
-    "name": "Adquiere nuevas perspectivas",
-    "hidden": false,
-    "published": true,
-    "sortOrder": 3,
-    "card": {
-      "image": {
-        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1702310278/Images/set_your_values_compas_lamtbm.png"
-      }
-    },
-    "link": "https://aware.29k.org/new-perspectives",
-    "id": "68172f5c-955a-43e0-9cef-ae3bc77c9593",
-    "exercises": [
-      "ea0b48c1-745e-418d-93e7-2d8a6cd72898",
-      "095f9642-73b6-4c9a-ae9a-ea7dea7363f5",
-      "5b0dea9f-c665-41ce-a779-601d0cfa433d",
-      "9ac0c561-ff26-45fc-b6d5-0a983432394e"
+    "sortOrder": -8,
+    "tags": [
+      "566aeb1b-1649-4f5a-96a2-0c80be27efc0",
+      "34100e43-2eb8-4d35-8eb0-9fa9f78e4935"
     ]
   },
   "pt-BR": {
-    "description": "Somos criaturas de hábito – tendemos a fazer o que estamos acostumados. Isso é inteligente porque economiza energia. E às vezes pode nos fazer sentir presos. \\ Esta coleção pode trazer novas perspectivas e práticas para mudar ou desafiar a forma como normalmente levamos a vida.",
-    "name": "Ganhe novas perspectivas",
-    "id": "68172f5c-955a-43e0-9cef-ae3bc77c9593",
     "hidden": false,
+    "name": "Ganhe novas perspectivas",
     "published": true,
-    "sortOrder": 3,
+    "sortOrder": -8,
     "card": {
       "image": {
         "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1702310278/Images/set_your_values_compas_lamtbm.png"
       }
     },
+    "tags": [
+      "566aeb1b-1649-4f5a-96a2-0c80be27efc0",
+      "34100e43-2eb8-4d35-8eb0-9fa9f78e4935"
+    ],
     "link": "https://aware.29k.org/new-perspectives",
+    "id": "68172f5c-955a-43e0-9cef-ae3bc77c9593",
     "exercises": [
       "ea0b48c1-745e-418d-93e7-2d8a6cd72898",
       "095f9642-73b6-4c9a-ae9a-ea7dea7363f5",
       "5b0dea9f-c665-41ce-a779-601d0cfa433d",
       "9ac0c561-ff26-45fc-b6d5-0a983432394e"
-    ]
+    ],
+    "description": "Somos criaturas de hábito – tendemos a fazer o que estamos acostumados. Isso é inteligente porque economiza energia. E às vezes pode nos fazer sentir presos. \\ Esta coleção pode trazer novas perspectivas e práticas para mudar ou desafiar a forma como normalmente levamos a vida."
+  },
+  "da": {
+    "id": "68172f5c-955a-43e0-9cef-ae3bc77c9593",
+    "exercises": [
+      "ea0b48c1-745e-418d-93e7-2d8a6cd72898",
+      "095f9642-73b6-4c9a-ae9a-ea7dea7363f5",
+      "5b0dea9f-c665-41ce-a779-601d0cfa433d",
+      "9ac0c561-ff26-45fc-b6d5-0a983432394e"
+    ],
+    "tags": [
+      "566aeb1b-1649-4f5a-96a2-0c80be27efc0",
+      "34100e43-2eb8-4d35-8eb0-9fa9f78e4935"
+    ],
+    "sortOrder": -8
+  },
+  "nl": {
+    "id": "68172f5c-955a-43e0-9cef-ae3bc77c9593",
+    "exercises": [
+      "ea0b48c1-745e-418d-93e7-2d8a6cd72898",
+      "095f9642-73b6-4c9a-ae9a-ea7dea7363f5",
+      "5b0dea9f-c665-41ce-a779-601d0cfa433d",
+      "9ac0c561-ff26-45fc-b6d5-0a983432394e"
+    ],
+    "tags": [
+      "566aeb1b-1649-4f5a-96a2-0c80be27efc0",
+      "34100e43-2eb8-4d35-8eb0-9fa9f78e4935"
+    ],
+    "sortOrder": -8
   }
 }
