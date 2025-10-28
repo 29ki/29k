@@ -115,13 +115,16 @@
         "type": "content",
         "hostNotes": [
           {
-            "text": "Find a comfortable position. I will start the audio exercise and we'll meet back here afterwards. \n\n> Push play to start the audio exercise"
+            "text": "Our brains have developed to focus on the negative - threats, dangers, things that need fixing. That has helped humans survive for tens of thousands of years - but is not very helpful for feeling good or happy. In this exercise you’ll practice paying attention to the things we tend to take for granted, the things we are grateful for."
+          },
+          {
+            "text": "Find a comfortable position and grab something to write on. I will start the audio exercise and we'll meet back here afterwards. \n\n> Tap play to start the audio exercise"
           }
         ],
         "content": {
           "lottie": {
-            "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1716890320/SRT%20(captions)%20files/Gratitude_letters_c9sb5u.srt",
-            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1716890277/Audio/Gratitude_letters_mqysdg.mp3"
+            "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1739460219/SRT%20(captions)%20files/PsyPal_Gratitude_letters_ud2uqg.srt",
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1739460180/Audio/PsyPal_Gratitude_letters_nd2o8r.mp3"
           }
         }
       },
@@ -161,7 +164,7 @@
         "type": "host",
         "hostNotes": [
           {
-            "text": "Well done. Practicing gratitude can help us feel happier and more satisfied with life. \n\nHere's a mission if you are up for it: Express your gratitude towards the person you wrote the gratitude letter to, if that is possible. I recommend doing it in person, reading your letter out loud."
+            "text": "Well done. Practicing gratitude can help us feel happier and more satisfied with life. \n\nIf it’s possible, your mission is to express your gratitude towards that someone you wrote the letter of gratitude to.\nWe recommend meeting them in person and read your letter out loud to them."
           },
           {
             "text": "Before we leave this space let’s do a mini check-out. \n\nHow are you feeling right now? Has anything shifted? Please answer in two-three words."
@@ -174,7 +177,7 @@
       {
         "type": "instruction",
         "content": {
-          "text": "Well done.\n\nPracticing gratitude can help us feel happier and more satisfied with life. \n\nHere's a mission if you want to: Express your gratitude towards the person you wrote the gratitude letter to, if that is possible. We recommend doing it in person, reading your letter out loud."
+          "text": "Well done for practicing gratitude and counteracting some of the negativity bias nature has equipped us with. \n\nIf it’s possible, your mission is to express your gratitude towards that someone you wrote the letter of gratitude to.\nWe recommend meeting them in person and read your letter out loud to them."
         }
       }
     ],
