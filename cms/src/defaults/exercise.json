@@ -12,10 +12,16 @@
       ]
     },
     {
+      "type": "instruction",
+      "content": {
+        "text": "In this exercise we'll practice xx."
+      }
+    },
+    {
       "type": "content",
       "hostNotes": [
         {
-          "text": "Find a comfortable position. I will start the audio exercise and we'll meet back here afterwards. \n\n> Push play to start the audio exercise"
+          "text": "Find a comfortable position. I will start the audio exercise and we'll meet back here afterwards. \n\n> Tap play to start the audio exercise"
         }
       ]
     },
@@ -71,6 +77,12 @@
       {
         "text": "> Start the session when you're ready to go"
       }
-    ]
+    ],
+    "videoLoop": {
+      "p5JsScript": {
+        "lang": "javascript"
+      }
+    },
+    "textColor": "#2E2E2E"
   }
 }
