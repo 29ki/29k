@@ -34,13 +34,7 @@
         "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1716386847/Images/Part_I_-_Discover_yourself_2_gxkfwm.png"
       }
     },
-    "coCreators": [
-      {
-        "name": "SPP",
-        "url": "spp.se",
-        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1716792486/Images/spp_logo_1_ikrheg.png"
-      }
-    ],
+    "coCreators": [],
     "tags": [],
     "link": "",
     "id": "74c65a83-449f-4ff1-97e1-e6f3c443e40b",
