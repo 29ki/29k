@@ -1,9 +1,39 @@
 {
+  "sv": {
+    "hidden": true,
+    "locked": false,
+    "name": "Våga drömma",
+    "published": true,
+    "card": {
+      "image": {
+        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1716386847/Images/Part_I_-_Discover_yourself_2_gxkfwm.png"
+      }
+    },
+    "coCreators": [
+      {
+        "name": "SPP",
+        "url": "spp.se",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1716792486/Images/spp_logo_1_ikrheg.png"
+      }
+    ],
+    "tags": [
+      "9c2c08a9-7dc6-4058-bc78-016d0eb00614",
+      "43a6dc0d-d866-4b79-9453-13c44e906128"
+    ],
+    "link": "https://aware.29k.org/vagadromma",
+    "id": "74c65a83-449f-4ff1-97e1-e6f3c443e40b",
+    "exercises": [
+      "fff6f8da-f69c-458f-8905-acee04bd1a1d",
+      "0bcb6eb0-fdfe-466d-8603-ae6de15fcbc5",
+      "61adeaf2-70ab-4c6c-854c-2c16f762a3c5"
+    ],
+    "description": "Våra hjärnor gillar att göra sånt som känns bra i stunden. Äta chips, till exempel. Långsiktiga beteenden, som att spara eller göra något utmanande, kräver en ansträngning men skapar samtidigt  mening och tillfredsställelse. I det här programmet får du drömma om framtiden och hitta de beteenden som kan ta dig dit."
+  },
   "en": {
     "hidden": true,
     "locked": false,
     "name": "Dare to dream",
-    "published": true,
+    "published": false,
     "card": {
       "image": {
         "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1716386847/Images/Part_I_-_Discover_yourself_2_gxkfwm.png"
@@ -59,10 +89,10 @@
     ],
     "description": "O nosso cérebro tende a preferir o que traz prazer imediato. Comer batatas fritas, por exemplo. Comportamentos de longo prazo, como poupar dinheiro ou enfrentar desafios, exigem esforço, mas é aí que encontramos significado e satisfação. Neste programa, irás sonhar com o futuro e identificar os comportamentos que te podem levar lá."
   },
-  "sv": {
+  "es": {
     "hidden": true,
     "locked": false,
-    "name": "Våga drömma",
+    "name": "Atrévete a soñar",
     "published": true,
     "card": {
       "image": {
@@ -87,7 +117,19 @@
       "0bcb6eb0-fdfe-466d-8603-ae6de15fcbc5",
       "61adeaf2-70ab-4c6c-854c-2c16f762a3c5"
     ],
-    "description": "Våra hjärnor gillar att göra sånt som känns bra i stunden. Äta chips, till exempel. Långsiktiga beteenden, som att spara eller göra något utmanande, kräver en ansträngning men skapar samtidigt  mening och tillfredsställelse. I det här programmet får du drömma om framtiden och hitta de beteenden som kan ta dig dit."
+    "description": "A nuestros cerebros les gusta hacer lo que se siente bien en el momento. Comer patatas fritas, por ejemplo. Los comportamientos a largo plazo, como ahorrar dinero o asumir desafíos, requieren esfuerzo, aunque es precisamente allí donde encontramos significado y satisfacción. En este programa, soñarás con el futuro e identificarás los comportamientos que pueden llevarte allí."
+  },
+  "cs": {
+    "id": "74c65a83-449f-4ff1-97e1-e6f3c443e40b",
+    "tags": [
+      "9c2c08a9-7dc6-4058-bc78-016d0eb00614",
+      "43a6dc0d-d866-4b79-9453-13c44e906128"
+    ],
+    "exercises": [
+      "fff6f8da-f69c-458f-8905-acee04bd1a1d",
+      "0bcb6eb0-fdfe-466d-8603-ae6de15fcbc5",
+      "61adeaf2-70ab-4c6c-854c-2c16f762a3c5"
+    ]
   },
   "ja": {
     "published": false,
@@ -106,20 +148,10 @@
     ],
     "link": "https://aware.29k.org/vagadromma"
   },
-  "da": {
-    "id": "74c65a83-449f-4ff1-97e1-e6f3c443e40b"
-  },
-  "cs": {
-    "id": "74c65a83-449f-4ff1-97e1-e6f3c443e40b"
-  },
-  "nl": {
-    "id": "74c65a83-449f-4ff1-97e1-e6f3c443e40b"
-  },
-  "es": {
-    "description": "A nuestros cerebros les gusta hacer lo que se siente bien en el momento. Comer patatas fritas, por ejemplo. Los comportamientos a largo plazo, como ahorrar dinero o asumir desafíos, requieren esfuerzo, aunque es precisamente allí donde encontramos significado y satisfacción. En este programa, soñarás con el futuro e identificarás los comportamientos que pueden llevarte allí.",
-    "name": "Atrévete a soñar",
+  "pt-BR": {
     "hidden": true,
     "locked": false,
+    "name": "Ouse sonhar",
     "published": true,
     "card": {
       "image": {
@@ -143,32 +175,27 @@
       "fff6f8da-f69c-458f-8905-acee04bd1a1d",
       "0bcb6eb0-fdfe-466d-8603-ae6de15fcbc5",
       "61adeaf2-70ab-4c6c-854c-2c16f762a3c5"
-    ]
-  },
-  "pt-BR": {
-    "description": "Nossos cérebros gostam de fazer o que é bom no momento. Comer batata frita, por exemplo. Comportamentos de longo prazo, como economizar dinheiro ou enfrentar algo desafiador, exigem esforço, mas também é onde encontramos sentido e satisfação. Neste programa, você vai sonhar com o futuro e identificar os comportamentos que podem te levar até lá.",
-    "name": "Ouse sonhar",
-    "id": "74c65a83-449f-4ff1-97e1-e6f3c443e40b",
-    "hidden": true,
-    "locked": false,
-    "published": true,
-    "card": {
-      "image": {
-        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1716386847/Images/Part_I_-_Discover_yourself_2_gxkfwm.png"
-      }
-    },
-    "coCreators": [
-      {
-        "name": "SPP",
-        "url": "spp.se",
-        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1716792486/Images/spp_logo_1_ikrheg.png"
-      }
     ],
+    "description": "Nossos cérebros gostam de fazer o que é bom no momento. Comer batata frita, por exemplo. Comportamentos de longo prazo, como economizar dinheiro ou enfrentar algo desafiador, exigem esforço, mas também é onde encontramos sentido e satisfação. Neste programa, você vai sonhar com o futuro e identificar os comportamentos que podem te levar até lá."
+  },
+  "da": {
+    "id": "74c65a83-449f-4ff1-97e1-e6f3c443e40b",
     "tags": [
       "9c2c08a9-7dc6-4058-bc78-016d0eb00614",
       "43a6dc0d-d866-4b79-9453-13c44e906128"
     ],
-    "link": "https://aware.29k.org/vagadromma",
+    "exercises": [
+      "fff6f8da-f69c-458f-8905-acee04bd1a1d",
+      "0bcb6eb0-fdfe-466d-8603-ae6de15fcbc5",
+      "61adeaf2-70ab-4c6c-854c-2c16f762a3c5"
+    ]
+  },
+  "nl": {
+    "id": "74c65a83-449f-4ff1-97e1-e6f3c443e40b",
+    "tags": [
+      "9c2c08a9-7dc6-4058-bc78-016d0eb00614",
+      "43a6dc0d-d866-4b79-9453-13c44e906128"
+    ],
     "exercises": [
       "fff6f8da-f69c-458f-8905-acee04bd1a1d",
       "0bcb6eb0-fdfe-466d-8603-ae6de15fcbc5",
