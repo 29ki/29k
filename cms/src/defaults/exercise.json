@@ -12,6 +12,12 @@
       ]
     },
     {
+      "type": "instruction",
+      "content": {
+        "text": "In this exercise we'll practice xx."
+      }
+    },
+    {
       "type": "content",
       "hostNotes": [
         {
@@ -71,6 +77,11 @@
       {
         "text": "> Start the session when you're ready to go"
       }
-    ]
+    ],
+    "videoLoop": {
+      "p5JsScript": {
+        "lang": "javascript"
+      }
+    }
   }
 }
