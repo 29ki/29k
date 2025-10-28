@@ -1,5 +1,98 @@
 {
+  "sv": {
+    "liveDuration": 40,
+    "slides": [
+      {
+        "type": "host",
+        "hostNotes": [
+          {
+            "text": "Welcome. I am X and today we will work for around 30 minutes on xx\n\nWe’ll be doing xx ex. meditation followed by time for reflection and sharing with each other."
+          },
+          {
+            "text": "Let’s start with a mini check-in. How are you feeling right now? Please answer in two-three words. X, would you like to start?\n\n> Let everyone in the session, including yourself, check in one by one.\n\nThank you all for checking in. Let’s get started."
+          }
+        ]
+      },
+      {
+        "type": "content",
+        "hostNotes": [
+          {
+            "text": "Find a comfortable position. I will start the audio exercise and we'll meet back here afterwards. \n\n> Push play to start the audio exercise"
+          }
+        ]
+      },
+      {
+        "type": "reflection",
+        "hostNotes": [
+          {
+            "text": "Now we’ll take 1 minute to reflect on our own.\n\nxxMain question\n\nxxFurther explanations of main question if needed"
+          },
+          {
+            "text": "You can take notes on a piece of paper or just mental notes in your head. And there is no right or wrong here, our answers are our own. 1 minute starting now.\n\n> Press play to start the timer.\n\nThat’s 1 minute and it’s time to move on."
+          }
+        ]
+      },
+      {
+        "type": "sharing",
+        "hostNotes": [
+          {
+            "text": "Now we are getting into the sharing part. We have three rules for sharing:\n\n1. **What is said in here, stays in here.**\n2. **All you need to do is listen.** There is no fixing, helping or advice-giving needed. We are just showing up and exploring what ourselves and others are going through."
+          },
+          {
+            "text": "3. **Everything on the inside is okay.** Anger, love, hatred, sadness. Whatever shows up. No wrongs, no rights. It is what it is.\n\nThere will be a timer set for 2 minutes as an indicator. If you don’t want to share you can always say ‘pass’."
+          },
+          {
+            "text": "Who would like to start?\n\n> Let everyone (or as many as you got time for) share one by one. Press play to start the timer. Re-start for each new sharing.\n\nThank you so much everyone."
+          }
+        ],
+        "id": "Sharing 1"
+      },
+      {
+        "type": "host",
+        "hostNotes": [
+          {
+            "text": "Well done. If you’re up for it, you can continue what we started here today with a mission to bring this into your everyday life.\n\nxx mission description"
+          },
+          {
+            "text": "Before we leave this space let’s do a mini check-out. \n\nHow are you feeling right now? Has anything shifted? Please answer in two-three words."
+          },
+          {
+            "text": "Who would like to start?\n\n> Let everyone in the session check out one by one.\n\nThank you all for checking out and for joining this session today.\n\n> Finish session to send everyone off to the exit experience."
+          }
+        ]
+      },
+      {
+        "type": "instruction",
+        "content": {
+          "text": "Well done.\n\nSummary.\n\nIf you’re up for it, you can continue with this mission.\n\nmission description"
+        }
+      }
+    ],
+    "theme": {
+      "textColor": "#2AE2D7"
+    },
+    "hidden": false,
+    "locked": false,
+    "live": true,
+    "published": false,
+    "asyncDuration": 20,
+    "introPortal": {
+      "textColor": "#2AE2D7",
+      "hostNotes": [
+        {
+          "text": "> Start the session when you're ready to go"
+        }
+      ]
+    },
+    "tags": [
+      "43a6dc0d-d866-4b79-9453-13c44e906128",
+      "db34d82a-4c48-4ddd-9de5-f562d8aa1bc9"
+    ],
+    "id": "742b9b7e-1d2b-43bb-a58b-dd71c5eb5d7a",
+    "async": false
+  },
   "en": {
+    "liveDuration": 40,
     "slides": [
       {
         "type": "host",
@@ -13,16 +106,25 @@
         ]
       },
       {
+        "type": "instruction",
+        "content": {
+          "text": "Our brains have developed to focus on the negative - threats, dangers, things that need fixing. That has helped humans survive for tens of thousands of years - but is not very helpful for feeling good or happy. In this exercise you’ll practice paying attention to the things we tend to take for granted, the things we are grateful for. \n\nMake sure to have somewhere to take notes for this exercise."
+        }
+      },
+      {
         "type": "content",
         "hostNotes": [
           {
-            "text": "Find a comfortable position. I will start the audio exercise and we'll meet back here afterwards. \n\n> Push play to start the audio exercise"
+            "text": "Our brains have developed to focus on the negative - threats, dangers, things that need fixing. That has helped humans survive for tens of thousands of years - but is not very helpful for feeling good or happy. In this exercise you’ll practice paying attention to the things we tend to take for granted, the things we are grateful for."
+          },
+          {
+            "text": "Find a comfortable position and grab something to write on. I will start the audio exercise and we'll meet back here afterwards. \n\n> Tap play to start the audio exercise"
           }
         ],
         "content": {
           "lottie": {
-            "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1716890320/SRT%20(captions)%20files/Gratitude_letters_c9sb5u.srt",
-            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1716890277/Audio/Gratitude_letters_mqysdg.mp3"
+            "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1739460219/SRT%20(captions)%20files/PsyPal_Gratitude_letters_ud2uqg.srt",
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1739460180/Audio/PsyPal_Gratitude_letters_nd2o8r.mp3"
           }
         }
       },
@@ -62,7 +164,7 @@
         "type": "host",
         "hostNotes": [
           {
-            "text": "Well done. Practicing gratitude can help us feel happier and more satisfied with life. \n\nHere's a mission if you are up for it: Express your gratitude towards the person you wrote the gratitude letter to, if that is possible. I recommend doing it in person, reading your letter out loud."
+            "text": "Well done. Practicing gratitude can help us feel happier and more satisfied with life. \n\nIf it’s possible, your mission is to express your gratitude towards that someone you wrote the letter of gratitude to.\nWe recommend meeting them in person and read your letter out loud to them."
           },
           {
             "text": "Before we leave this space let’s do a mini check-out. \n\nHow are you feeling right now? Has anything shifted? Please answer in two-three words."
@@ -75,7 +177,7 @@
       {
         "type": "instruction",
         "content": {
-          "text": "Well done.\n\nPracticing gratitude can help us feel happier and more satisfied with life. \n\nHere's a mission if you want to: Express your gratitude towards the person you wrote the gratitude letter to, if that is possible. We recommend doing it in person, reading your letter out loud."
+          "text": "Well done for practicing gratitude and counteracting some of the negativity bias nature has equipped us with. \n\nIf it’s possible, your mission is to express your gratitude towards that someone you wrote the letter of gratitude to.\nWe recommend meeting them in person and read your letter out loud to them."
         }
       }
     ],
@@ -87,6 +189,7 @@
     "name": "Gratitude letters",
     "live": true,
     "published": true,
+    "asyncDuration": 20,
     "coCreators": [
       {
         "name": "Agnes Branny, writing",
@@ -94,9 +197,9 @@
         "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665414181/Contributors/Agnes%20Branny.png"
       },
       {
-        "name": "Tabitha, AI-generated voice",
-        "url": "https://www.descript.com/tools/text-to-speech",
-        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1710239861/Contributors/descript_ps0olu.webp"
+        "name": "Jenny Rickardsson, editor & voice",
+        "url": "https://www.linkedin.com/in/jenny-rickardson-6770a959/",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413228/Contributors/Jenny%20Rickardsson.jpg"
       },
       {
         "name": "Martin Seligman, original research",
@@ -104,8 +207,6 @@
         "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1716903776/Contributors/UPenn_logo-2_pzybf7.webp"
       }
     ],
-    "asyncDuration": 10,
-    "liveDuration": 29,
     "introPortal": {
       "textColor": "#2AE2D7",
       "hostNotes": [
@@ -125,9 +226,10 @@
     ],
     "id": "742b9b7e-1d2b-43bb-a58b-dd71c5eb5d7a",
     "async": true,
-    "description": "Reflect on what you are grateful for in your life, with yourself and in those you cherish. Practising gratitude can make us feel happier and more satisfied with life."
+    "description": "Our minds are often set to focus on the negative. In this exercise we practice the opposite - expressing gratitude for some of the things in life we are grateful for. It can help us feel more fulfilled and happy, regardless of where we are in life. You need somewhere to write for this exercise."
   },
   "pt-PT": {
+    "liveDuration": 40,
     "slides": [
       {
         "type": "host",
@@ -216,6 +318,7 @@
     "name": "Cartas de gratidão",
     "live": true,
     "published": true,
+    "asyncDuration": 20,
     "coCreators": [
       {
         "name": "Agnes Branny, writing",
@@ -238,8 +341,6 @@
         "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1728375093/FJN/People/Cristina_Alves_zt1btx.png"
       }
     ],
-    "asyncDuration": 10,
-    "liveDuration": 29,
     "introPortal": {
       "textColor": "#2AE2D7",
       "hostNotes": [
@@ -261,218 +362,118 @@
     "async": true,
     "description": "Reflete sobre aquilo pelo qual estás grata/o na tua vida, contigo mesma/o e com as pessoas que mais estimas. Praticar a gratidão pode fazer-nos sentir mais felizes e satisfeitos com a vida.\n\nEncontra uma posição confortável e prepara-te para tomar algumas notas durante o exercício."
   },
-  "sv": {
-    "slides": [
-      {
-        "type": "host",
-        "hostNotes": [
-          {
-            "text": "Welcome. I am X and today we will work for around 30 minutes on xx\n\nWe’ll be doing xx ex. meditation followed by time for reflection and sharing with each other."
-          },
-          {
-            "text": "Let’s start with a mini check-in. How are you feeling right now? Please answer in two-three words. X, would you like to start?\n\n> Let everyone in the session, including yourself, check in one by one.\n\nThank you all for checking in. Let’s get started."
-          }
-        ]
-      },
-      {
-        "type": "content",
-        "hostNotes": [
-          {
-            "text": "Find a comfortable position. I will start the audio exercise and we'll meet back here afterwards. \n\n> Push play to start the audio exercise"
-          }
-        ]
-      },
-      {
-        "type": "reflection",
-        "hostNotes": [
-          {
-            "text": "Now we’ll take 1 minute to reflect on our own.\n\nxxMain question\n\nxxFurther explanations of main question if needed"
-          },
-          {
-            "text": "You can take notes on a piece of paper or just mental notes in your head. And there is no right or wrong here, our answers are our own. 1 minute starting now.\n\n> Press play to start the timer.\n\nThat’s 1 minute and it’s time to move on."
-          }
-        ]
-      },
-      {
-        "type": "sharing",
-        "hostNotes": [
-          {
-            "text": "Now we are getting into the sharing part. We have three rules for sharing:\n\n1. **What is said in here, stays in here.**\n2. **All you need to do is listen.** There is no fixing, helping or advice-giving needed. We are just showing up and exploring what ourselves and others are going through."
-          },
-          {
-            "text": "3. **Everything on the inside is okay.** Anger, love, hatred, sadness. Whatever shows up. No wrongs, no rights. It is what it is.\n\nThere will be a timer set for 2 minutes as an indicator. If you don’t want to share you can always say ‘pass’."
-          },
-          {
-            "text": "Who would like to start?\n\n> Let everyone (or as many as you got time for) share one by one. Press play to start the timer. Re-start for each new sharing.\n\nThank you so much everyone."
-          }
-        ],
-        "id": "Sharing 1"
-      },
-      {
-        "type": "host",
-        "hostNotes": [
-          {
-            "text": "Well done. If you’re up for it, you can continue what we started here today with a mission to bring this into your everyday life.\n\nxx mission description"
-          },
-          {
-            "text": "Before we leave this space let’s do a mini check-out. \n\nHow are you feeling right now? Has anything shifted? Please answer in two-three words."
-          },
-          {
-            "text": "Who would like to start?\n\n> Let everyone in the session check out one by one.\n\nThank you all for checking out and for joining this session today.\n\n> Finish session to send everyone off to the exit experience."
-          }
-        ]
-      },
-      {
-        "type": "instruction",
-        "content": {
-          "text": "Well done.\n\nSummary.\n\nIf you’re up for it, you can continue with this mission.\n\nmission description"
-        }
-      }
-    ],
-    "theme": {
-      "textColor": "#2AE2D7"
-    },
-    "hidden": false,
-    "locked": false,
-    "live": true,
-    "published": false,
-    "asyncDuration": 10,
-    "liveDuration": 29,
-    "introPortal": {
-      "textColor": "#2AE2D7",
-      "hostNotes": [
-        {
-          "text": "> Start the session when you're ready to go"
-        }
-      ]
-    },
+  "es": {
+    "id": "742b9b7e-1d2b-43bb-a58b-dd71c5eb5d7a",
     "tags": [
       "43a6dc0d-d866-4b79-9453-13c44e906128",
       "db34d82a-4c48-4ddd-9de5-f562d8aa1bc9"
     ],
-    "id": "742b9b7e-1d2b-43bb-a58b-dd71c5eb5d7a",
-    "async": false
-  },
-  "ja": {
-    "slides": [
-      {
-        "type": "host",
-        "hostNotes": [
-          {
-            "text": "Welcome. I am X and today we will work for around 30 minutes on xx\n\nWe’ll be doing xx ex. meditation followed by time for reflection and sharing with each other."
-          },
-          {
-            "text": "Let’s start with a mini check-in. How are you feeling right now? Please answer in two-three words. X, would you like to start?\n\n> Let everyone in the session, including yourself, check in one by one.\n\nThank you all for checking in. Let’s get started."
-          }
-        ]
-      },
-      {
-        "type": "content",
-        "hostNotes": [
-          {
-            "text": "Find a comfortable position. I will start the audio exercise and we'll meet back here afterwards. \n\n> Push play to start the audio exercise"
-          }
-        ]
-      },
-      {
-        "type": "reflection",
-        "hostNotes": [
-          {
-            "text": "Now we’ll take 1 minute to reflect on our own.\n\nxxMain question\n\nxxFurther explanations of main question if needed"
-          },
-          {
-            "text": "You can take notes on a piece of paper or just mental notes in your head. And there is no right or wrong here, our answers are our own. 1 minute starting now.\n\n> Press play to start the timer.\n\nThat’s 1 minute and it’s time to move on."
-          }
-        ]
-      },
-      {
-        "type": "sharing",
-        "hostNotes": [
-          {
-            "text": "Now we are getting into the sharing part. We have three rules for sharing:\n\n1. **What is said in here, stays in here.**\n2. **All you need to do is listen.** There is no fixing, helping or advice-giving needed. We are just showing up and exploring what ourselves and others are going through."
-          },
-          {
-            "text": "3. **Everything on the inside is okay.** Anger, love, hatred, sadness. Whatever shows up. No wrongs, no rights. It is what it is.\n\nThere will be a timer set for 2 minutes as an indicator. If you don’t want to share you can always say ‘pass’."
-          },
-          {
-            "text": "Who would like to start?\n\n> Let everyone (or as many as you got time for) share one by one. Press play to start the timer. Re-start for each new sharing.\n\nThank you so much everyone."
-          }
-        ],
-        "id": "Sharing 1"
-      },
-      {
-        "type": "host",
-        "hostNotes": [
-          {
-            "text": "Well done. If you’re up for it, you can continue what we started here today with a mission to bring this into your everyday life.\n\nxx mission description"
-          },
-          {
-            "text": "Before we leave this space let’s do a mini check-out. \n\nHow are you feeling right now? Has anything shifted? Please answer in two-three words."
-          },
-          {
-            "text": "Who would like to start?\n\n> Let everyone in the session check out one by one.\n\nThank you all for checking out and for joining this session today.\n\n> Finish session to send everyone off to the exit experience."
-          }
-        ]
-      },
-      {
-        "type": "instruction",
-        "content": {
-          "text": "Well done.\n\nSummary.\n\nIf you’re up for it, you can continue with this mission.\n\nmission description"
-        }
-      }
-    ],
-    "theme": {
-      "textColor": "#2AE2D7"
-    },
-    "hidden": false,
-    "locked": false,
-    "live": true,
-    "published": false,
-    "asyncDuration": 10,
-    "liveDuration": 29,
-    "introPortal": {
-      "textColor": "#2AE2D7",
-      "hostNotes": [
-        {
-          "text": "> Start the session when you're ready to go"
-        }
-      ]
-    },
-    "tags": [
-      "43a6dc0d-d866-4b79-9453-13c44e906128",
-      "db34d82a-4c48-4ddd-9de5-f562d8aa1bc9"
-    ],
-    "id": "742b9b7e-1d2b-43bb-a58b-dd71c5eb5d7a",
-    "async": false
-  },
-  "da": {
-    "id": "742b9b7e-1d2b-43bb-a58b-dd71c5eb5d7a"
+    "asyncDuration": 20,
+    "liveDuration": 40
   },
   "cs": {
-    "id": "742b9b7e-1d2b-43bb-a58b-dd71c5eb5d7a"
+    "id": "742b9b7e-1d2b-43bb-a58b-dd71c5eb5d7a",
+    "tags": [
+      "43a6dc0d-d866-4b79-9453-13c44e906128",
+      "db34d82a-4c48-4ddd-9de5-f562d8aa1bc9"
+    ],
+    "asyncDuration": 20,
+    "liveDuration": 40
   },
-  "nl": {
-    "id": "742b9b7e-1d2b-43bb-a58b-dd71c5eb5d7a"
-  },
-  "es": {
-    "id": "742b9b7e-1d2b-43bb-a58b-dd71c5eb5d7a"
-  },
-  "pt-BR": {
-    "description": "Reflita sobre aquilo pelo qual você é grato na sua vida, em relação a si mesmo e às pessoas que você valoriza. Praticar a gratidão pode nos fazer sentir mais felizes e satisfeitos com a vida.",
-    "introPortal": {
-      "hostNotes": [
-        {
-          "text": ">Comece a sessão quando estiver pronto para seguir"
-        }
-      ],
-      "textColor": "#2AE2D7",
-      "videoLoop": {
-        "p5JsScript": {
-          "lang": "javascript"
+  "ja": {
+    "liveDuration": 40,
+    "slides": [
+      {
+        "type": "host",
+        "hostNotes": [
+          {
+            "text": "Welcome. I am X and today we will work for around 30 minutes on xx\n\nWe’ll be doing xx ex. meditation followed by time for reflection and sharing with each other."
+          },
+          {
+            "text": "Let’s start with a mini check-in. How are you feeling right now? Please answer in two-three words. X, would you like to start?\n\n> Let everyone in the session, including yourself, check in one by one.\n\nThank you all for checking in. Let’s get started."
+          }
+        ]
+      },
+      {
+        "type": "content",
+        "hostNotes": [
+          {
+            "text": "Find a comfortable position. I will start the audio exercise and we'll meet back here afterwards. \n\n> Push play to start the audio exercise"
+          }
+        ]
+      },
+      {
+        "type": "reflection",
+        "hostNotes": [
+          {
+            "text": "Now we’ll take 1 minute to reflect on our own.\n\nxxMain question\n\nxxFurther explanations of main question if needed"
+          },
+          {
+            "text": "You can take notes on a piece of paper or just mental notes in your head. And there is no right or wrong here, our answers are our own. 1 minute starting now.\n\n> Press play to start the timer.\n\nThat’s 1 minute and it’s time to move on."
+          }
+        ]
+      },
+      {
+        "type": "sharing",
+        "hostNotes": [
+          {
+            "text": "Now we are getting into the sharing part. We have three rules for sharing:\n\n1. **What is said in here, stays in here.**\n2. **All you need to do is listen.** There is no fixing, helping or advice-giving needed. We are just showing up and exploring what ourselves and others are going through."
+          },
+          {
+            "text": "3. **Everything on the inside is okay.** Anger, love, hatred, sadness. Whatever shows up. No wrongs, no rights. It is what it is.\n\nThere will be a timer set for 2 minutes as an indicator. If you don’t want to share you can always say ‘pass’."
+          },
+          {
+            "text": "Who would like to start?\n\n> Let everyone (or as many as you got time for) share one by one. Press play to start the timer. Re-start for each new sharing.\n\nThank you so much everyone."
+          }
+        ],
+        "id": "Sharing 1"
+      },
+      {
+        "type": "host",
+        "hostNotes": [
+          {
+            "text": "Well done. If you’re up for it, you can continue what we started here today with a mission to bring this into your everyday life.\n\nxx mission description"
+          },
+          {
+            "text": "Before we leave this space let’s do a mini check-out. \n\nHow are you feeling right now? Has anything shifted? Please answer in two-three words."
+          },
+          {
+            "text": "Who would like to start?\n\n> Let everyone in the session check out one by one.\n\nThank you all for checking out and for joining this session today.\n\n> Finish session to send everyone off to the exit experience."
+          }
+        ]
+      },
+      {
+        "type": "instruction",
+        "content": {
+          "text": "Well done.\n\nSummary.\n\nIf you’re up for it, you can continue with this mission.\n\nmission description"
         }
       }
+    ],
+    "theme": {
+      "textColor": "#2AE2D7"
     },
-    "name": "Cartas de gratidão",
+    "hidden": false,
+    "locked": false,
+    "live": true,
+    "published": false,
+    "asyncDuration": 20,
+    "introPortal": {
+      "textColor": "#2AE2D7",
+      "hostNotes": [
+        {
+          "text": "> Start the session when you're ready to go"
+        }
+      ]
+    },
+    "tags": [
+      "43a6dc0d-d866-4b79-9453-13c44e906128",
+      "db34d82a-4c48-4ddd-9de5-f562d8aa1bc9"
+    ],
+    "id": "742b9b7e-1d2b-43bb-a58b-dd71c5eb5d7a",
+    "async": false
+  },
+  "pt-BR": {
+    "liveDuration": 40,
     "slides": [
       {
         "hostNotes": [
@@ -552,14 +553,15 @@
         "type": "instruction"
       }
     ],
-    "id": "742b9b7e-1d2b-43bb-a58b-dd71c5eb5d7a",
     "theme": {
       "textColor": "#2AE2D7"
     },
     "hidden": true,
     "locked": false,
+    "name": "Cartas de gratidão",
     "live": true,
     "published": false,
+    "asyncDuration": 20,
     "coCreators": [
       {
         "name": "Agnes Branny, writing",
@@ -577,12 +579,43 @@
         "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1716903776/Contributors/UPenn_logo-2_pzybf7.webp"
       }
     ],
-    "asyncDuration": 10,
-    "liveDuration": 29,
+    "introPortal": {
+      "hostNotes": [
+        {
+          "text": ">Comece a sessão quando estiver pronto para seguir"
+        }
+      ],
+      "textColor": "#2AE2D7",
+      "videoLoop": {
+        "p5JsScript": {
+          "lang": "javascript"
+        }
+      }
+    },
     "tags": [
       "43a6dc0d-d866-4b79-9453-13c44e906128",
       "db34d82a-4c48-4ddd-9de5-f562d8aa1bc9"
     ],
-    "async": true
+    "id": "742b9b7e-1d2b-43bb-a58b-dd71c5eb5d7a",
+    "async": true,
+    "description": "Reflita sobre aquilo pelo qual você é grato na sua vida, em relação a si mesmo e às pessoas que você valoriza. Praticar a gratidão pode nos fazer sentir mais felizes e satisfeitos com a vida."
+  },
+  "da": {
+    "id": "742b9b7e-1d2b-43bb-a58b-dd71c5eb5d7a",
+    "tags": [
+      "43a6dc0d-d866-4b79-9453-13c44e906128",
+      "db34d82a-4c48-4ddd-9de5-f562d8aa1bc9"
+    ],
+    "asyncDuration": 20,
+    "liveDuration": 40
+  },
+  "nl": {
+    "id": "742b9b7e-1d2b-43bb-a58b-dd71c5eb5d7a",
+    "tags": [
+      "43a6dc0d-d866-4b79-9453-13c44e906128",
+      "db34d82a-4c48-4ddd-9de5-f562d8aa1bc9"
+    ],
+    "asyncDuration": 20,
+    "liveDuration": 40
   }
 }
