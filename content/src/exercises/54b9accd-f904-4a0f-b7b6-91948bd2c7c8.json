@@ -1,5 +1,6 @@
 {
-  "en": {
+  "sv": {
+    "liveDuration": 40,
     "slides": [
       {
         "type": "host",
@@ -69,14 +70,128 @@
     ],
     "theme": {
       "textColor": "#2AE2D7"
+    },
+    "hidden": false,
+    "locked": false,
+    "live": true,
+    "published": false,
+    "asyncDuration": 20,
+    "introPortal": {
+      "textColor": "#2AE2D7",
+      "hostNotes": [
+        {
+          "text": "> Start the session when you're ready to go"
+        }
+      ]
+    },
+    "tags": [
+      "566aeb1b-1649-4f5a-96a2-0c80be27efc0"
+    ],
+    "id": "54b9accd-f904-4a0f-b7b6-91948bd2c7c8",
+    "async": false
+  },
+  "en": {
+    "liveDuration": 40,
+    "slides": [
+      {
+        "type": "host",
+        "hostNotes": [
+          {
+            "text": "Welcome. I am X and today we will work for around 30 minutes on taking perspective, practicing observing our own experiences, and ourselves as the observer of those experiences.\n\nWe’ll be doing an audio exercise for 15 minutes, followed by time for reflection and sharing with each other."
+          },
+          {
+            "text": "Let’s start with a mini check-in. How are you feeling right now? Please answer in two-three words. X, would you like to start?\n\n> Let everyone in the session, including yourself, check in one by one.\n\nThank you all for checking in. Let’s get started."
+          }
+        ]
+      },
+      {
+        "type": "content",
+        "hostNotes": [
+          {
+            "text": "We easily get carried away with the things that go on on the inside. Trying to fix, change or adjust our feelings or thoughts. In this exercise we will practice taking an observing stance. Find a comfortable position. I will start the audio and we'll meet back here afterwards. \n\n> Tap play to start the audio exercise"
+          }
+        ],
+        "content": {
+          "lottie": {
+            "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1761733035/SRT%20(captions)%20files/The_observing_self_at8of9.srt",
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1761733205/Audio/The_observing_self_kl1lv0.mp3"
+          }
+        }
+      },
+      {
+        "type": "reflection",
+        "hostNotes": [
+          {
+            "text": "Now we’ll take 1 minute to reflect on our own.\n\nHow did you experience being the observer, the constant \"me\" in your life?"
+          },
+          {
+            "text": "You can take notes on a piece of paper or just mental notes in your head. And there is no right or wrong here, our answers are our own. 1 minute starting now.\n\n> Press play to start the timer.\n\nThat’s 1 minute and it’s time to move on."
+          }
+        ],
+        "content": {
+          "heading": "How did you experience being the observer, the constant \"me\" in your life?"
+        }
+      },
+      {
+        "type": "sharing",
+        "hostNotes": [
+          {
+            "text": "Now we are getting into the sharing part. We have three rules for sharing:\n\n1. **What is said in here, stays in here.**\n2. **All you need to do is listen.** There is no fixing, helping or advice-giving needed. We are just showing up and exploring what ourselves and others are going through."
+          },
+          {
+            "text": "3. **Everything on the inside is okay.** Anger, love, hatred, sadness. Whatever shows up. No wrongs, no rights. It is what it is.\n\nThere will be a timer set for 2 minutes as an indicator. If you don’t want to share you can always say ‘pass’."
+          },
+          {
+            "text": "Who would like to start?\n\n> Let everyone (or as many as you got time for) share one by one. Press play to start the timer. Re-start for each new sharing.\n\nThank you so much everyone."
+          }
+        ],
+        "id": "Sharing 1",
+        "content": {
+          "heading": "How did you experience being the observer, the constant \"me\" in your life?"
+        }
+      },
+      {
+        "type": "host",
+        "hostNotes": [
+          {
+            "text": "Well done. \n\nWe've just practised taking an observing stance, and also noting that we ourselves are the constant, the one that observes our experiences. If you’re up for it, you can continue with a mission to bring this into your everyday life."
+          },
+          {
+            "text": "Set a reminder for a random time of the day for 3 days. When the reminder goes off, take 3 minutes to notice what's going on inside, and to notice who are the observer of the things going on.\n\nBefore we leave this space let’s do a mini check-out. \n\nHow are you feeling right now? Has anything shifted? Please answer in two-three words."
+          },
+          {
+            "text": "Who would like to start?\n\n> Let everyone in the session check out one by one.\n\nThank you all for checking out and for joining this session today.\n\n> Finish session to send everyone off to the exit experience."
+          }
+        ]
+      },
+      {
+        "type": "instruction",
+        "content": {
+          "text": "Well done. \n\nWe've just practised taking an observing stance, and also noting that we ourselves are the constant, the one that observes our experiences. If you’re up for it, you can continue with a mission to bring this into your everyday life.\n\nSet a reminder for a random time of the day for 3 days. When the reminder goes off, take 3 minutes to notice what's going on inside, and to notice who are the observer of the things going on."
+        }
+      }
+    ],
+    "theme": {
+      "textColor": "#2E2E2E"
     },
     "hidden": true,
     "locked": false,
-    "name": "New one with a nice title to come",
+    "name": "The observing self",
     "live": true,
     "published": true,
-    "asyncDuration": 10,
-    "liveDuration": 30,
+    "asyncDuration": 20,
+    "coCreators": [
+      {
+        "name": "Fredrik Livheim, script",
+        "url": "https://www.linkedin.com/in/fredrik-livheim-53692172/",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413198/Contributors/Fredrik%20Livheim.png"
+      },
+      {
+        "name": "Jenny Rickardsson, editor",
+        "url": "https://www.linkedin.com/in/jenny-rickardson-6770a959/",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413228/Contributors/Jenny%20Rickardsson.jpg"
+      }
+    ],
     "introPortal": {
       "textColor": "#2AE2D7",
       "hostNotes": [
@@ -90,10 +205,15 @@
         }
       }
     },
+    "tags": [
+      "566aeb1b-1649-4f5a-96a2-0c80be27efc0"
+    ],
     "id": "54b9accd-f904-4a0f-b7b6-91948bd2c7c8",
-    "async": true
+    "async": true,
+    "description": "We easily get entangled with our experiences, struggling with them or letting them define who we are. Practice observing what you experience from a different vantage point – you as the constant in a world of change and changing experiences."
   },
   "pt-PT": {
+    "liveDuration": 40,
     "slides": [
       {
         "type": "host",
@@ -168,8 +288,7 @@
     "locked": false,
     "live": true,
     "published": false,
-    "asyncDuration": 10,
-    "liveDuration": 30,
+    "asyncDuration": 20,
     "introPortal": {
       "textColor": "#2AE2D7",
       "hostNotes": [
@@ -178,212 +297,121 @@
         }
       ]
     },
-    "id": "54b9accd-f904-4a0f-b7b6-91948bd2c7c8",
-    "async": false
-  },
-  "sv": {
-    "slides": [
-      {
-        "type": "host",
-        "hostNotes": [
-          {
-            "text": "Welcome. I am X and today we will work for around 30 minutes on xx\n\nWe’ll be doing xx ex. meditation followed by time for reflection and sharing with each other."
-          },
-          {
-            "text": "Let’s start with a mini check-in. How are you feeling right now? Please answer in two-three words. X, would you like to start?\n\n> Let everyone in the session, including yourself, check in one by one.\n\nThank you all for checking in. Let’s get started."
-          }
-        ]
-      },
-      {
-        "type": "content",
-        "hostNotes": [
-          {
-            "text": "Find a comfortable position. I will start the audio exercise and we'll meet back here afterwards. \n\n> Push play to start the audio exercise"
-          }
-        ]
-      },
-      {
-        "type": "reflection",
-        "hostNotes": [
-          {
-            "text": "Now we’ll take 1 minute to reflect on our own.\n\nxxMain question\n\nxxFurther explanations of main question if needed"
-          },
-          {
-            "text": "You can take notes on a piece of paper or just mental notes in your head. And there is no right or wrong here, our answers are our own. 1 minute starting now.\n\n> Press play to start the timer.\n\nThat’s 1 minute and it’s time to move on."
-          }
-        ]
-      },
-      {
-        "type": "sharing",
-        "hostNotes": [
-          {
-            "text": "Now we are getting into the sharing part. We have three rules for sharing:\n\n1. **What is said in here, stays in here.**\n2. **All you need to do is listen.** There is no fixing, helping or advice-giving needed. We are just showing up and exploring what ourselves and others are going through."
-          },
-          {
-            "text": "3. **Everything on the inside is okay.** Anger, love, hatred, sadness. Whatever shows up. No wrongs, no rights. It is what it is.\n\nThere will be a timer set for 2 minutes as an indicator. If you don’t want to share you can always say ‘pass’."
-          },
-          {
-            "text": "Who would like to start?\n\n> Let everyone (or as many as you got time for) share one by one. Press play to start the timer. Re-start for each new sharing.\n\nThank you so much everyone."
-          }
-        ],
-        "id": "Sharing 1"
-      },
-      {
-        "type": "host",
-        "hostNotes": [
-          {
-            "text": "Well done. If you’re up for it, you can continue what we started here today with a mission to bring this into your everyday life.\n\nxx mission description"
-          },
-          {
-            "text": "Before we leave this space let’s do a mini check-out. \n\nHow are you feeling right now? Has anything shifted? Please answer in two-three words."
-          },
-          {
-            "text": "Who would like to start?\n\n> Let everyone in the session check out one by one.\n\nThank you all for checking out and for joining this session today.\n\n> Finish session to send everyone off to the exit experience."
-          }
-        ]
-      },
-      {
-        "type": "instruction",
-        "content": {
-          "text": "Well done.\n\nSummary.\n\nIf you’re up for it, you can continue with this mission.\n\nmission description"
-        }
-      }
+    "tags": [
+      "566aeb1b-1649-4f5a-96a2-0c80be27efc0"
     ],
-    "theme": {
-      "textColor": "#2AE2D7"
-    },
-    "hidden": false,
-    "locked": false,
-    "live": true,
-    "published": false,
-    "asyncDuration": 10,
-    "liveDuration": 30,
-    "introPortal": {
-      "textColor": "#2AE2D7",
-      "hostNotes": [
-        {
-          "text": "> Start the session when you're ready to go"
-        }
-      ]
-    },
     "id": "54b9accd-f904-4a0f-b7b6-91948bd2c7c8",
     "async": false
-  },
-  "ja": {
-    "slides": [
-      {
-        "type": "host",
-        "hostNotes": [
-          {
-            "text": "Welcome. I am X and today we will work for around 30 minutes on xx\n\nWe’ll be doing xx ex. meditation followed by time for reflection and sharing with each other."
-          },
-          {
-            "text": "Let’s start with a mini check-in. How are you feeling right now? Please answer in two-three words. X, would you like to start?\n\n> Let everyone in the session, including yourself, check in one by one.\n\nThank you all for checking in. Let’s get started."
-          }
-        ]
-      },
-      {
-        "type": "content",
-        "hostNotes": [
-          {
-            "text": "Find a comfortable position. I will start the audio exercise and we'll meet back here afterwards. \n\n> Push play to start the audio exercise"
-          }
-        ]
-      },
-      {
-        "type": "reflection",
-        "hostNotes": [
-          {
-            "text": "Now we’ll take 1 minute to reflect on our own.\n\nxxMain question\n\nxxFurther explanations of main question if needed"
-          },
-          {
-            "text": "You can take notes on a piece of paper or just mental notes in your head. And there is no right or wrong here, our answers are our own. 1 minute starting now.\n\n> Press play to start the timer.\n\nThat’s 1 minute and it’s time to move on."
-          }
-        ]
-      },
-      {
-        "type": "sharing",
-        "hostNotes": [
-          {
-            "text": "Now we are getting into the sharing part. We have three rules for sharing:\n\n1. **What is said in here, stays in here.**\n2. **All you need to do is listen.** There is no fixing, helping or advice-giving needed. We are just showing up and exploring what ourselves and others are going through."
-          },
-          {
-            "text": "3. **Everything on the inside is okay.** Anger, love, hatred, sadness. Whatever shows up. No wrongs, no rights. It is what it is.\n\nThere will be a timer set for 2 minutes as an indicator. If you don’t want to share you can always say ‘pass’."
-          },
-          {
-            "text": "Who would like to start?\n\n> Let everyone (or as many as you got time for) share one by one. Press play to start the timer. Re-start for each new sharing.\n\nThank you so much everyone."
-          }
-        ],
-        "id": "Sharing 1"
-      },
-      {
-        "type": "host",
-        "hostNotes": [
-          {
-            "text": "Well done. If you’re up for it, you can continue what we started here today with a mission to bring this into your everyday life.\n\nxx mission description"
-          },
-          {
-            "text": "Before we leave this space let’s do a mini check-out. \n\nHow are you feeling right now? Has anything shifted? Please answer in two-three words."
-          },
-          {
-            "text": "Who would like to start?\n\n> Let everyone in the session check out one by one.\n\nThank you all for checking out and for joining this session today.\n\n> Finish session to send everyone off to the exit experience."
-          }
-        ]
-      },
-      {
-        "type": "instruction",
-        "content": {
-          "text": "Well done.\n\nSummary.\n\nIf you’re up for it, you can continue with this mission.\n\nmission description"
-        }
-      }
-    ],
-    "theme": {
-      "textColor": "#2AE2D7"
-    },
-    "hidden": false,
-    "locked": false,
-    "live": true,
-    "published": false,
-    "asyncDuration": 10,
-    "liveDuration": 30,
-    "introPortal": {
-      "textColor": "#2AE2D7",
-      "hostNotes": [
-        {
-          "text": "> Start the session when you're ready to go"
-        }
-      ]
-    },
-    "id": "54b9accd-f904-4a0f-b7b6-91948bd2c7c8",
-    "async": false
-  },
-  "da": {
-    "id": "54b9accd-f904-4a0f-b7b6-91948bd2c7c8"
-  },
-  "cs": {
-    "id": "54b9accd-f904-4a0f-b7b6-91948bd2c7c8"
-  },
-  "nl": {
-    "id": "54b9accd-f904-4a0f-b7b6-91948bd2c7c8"
   },
   "es": {
-    "id": "54b9accd-f904-4a0f-b7b6-91948bd2c7c8"
+    "id": "54b9accd-f904-4a0f-b7b6-91948bd2c7c8",
+    "asyncDuration": 20,
+    "liveDuration": 40,
+    "tags": [
+      "566aeb1b-1649-4f5a-96a2-0c80be27efc0"
+    ]
   },
-  "pt-BR": {
-    "introPortal": {
-      "hostNotes": [
-        {
-          "text": ">Comece a sessão quando estiver pronto para seguir"
-        }
-      ],
-      "textColor": "#2AE2D7",
-      "videoLoop": {
-        "p5JsScript": {
-          "lang": "javascript"
+  "cs": {
+    "id": "54b9accd-f904-4a0f-b7b6-91948bd2c7c8",
+    "asyncDuration": 20,
+    "liveDuration": 40,
+    "tags": [
+      "566aeb1b-1649-4f5a-96a2-0c80be27efc0"
+    ]
+  },
+  "ja": {
+    "liveDuration": 40,
+    "slides": [
+      {
+        "type": "host",
+        "hostNotes": [
+          {
+            "text": "Welcome. I am X and today we will work for around 30 minutes on xx\n\nWe’ll be doing xx ex. meditation followed by time for reflection and sharing with each other."
+          },
+          {
+            "text": "Let’s start with a mini check-in. How are you feeling right now? Please answer in two-three words. X, would you like to start?\n\n> Let everyone in the session, including yourself, check in one by one.\n\nThank you all for checking in. Let’s get started."
+          }
+        ]
+      },
+      {
+        "type": "content",
+        "hostNotes": [
+          {
+            "text": "Find a comfortable position. I will start the audio exercise and we'll meet back here afterwards. \n\n> Push play to start the audio exercise"
+          }
+        ]
+      },
+      {
+        "type": "reflection",
+        "hostNotes": [
+          {
+            "text": "Now we’ll take 1 minute to reflect on our own.\n\nxxMain question\n\nxxFurther explanations of main question if needed"
+          },
+          {
+            "text": "You can take notes on a piece of paper or just mental notes in your head. And there is no right or wrong here, our answers are our own. 1 minute starting now.\n\n> Press play to start the timer.\n\nThat’s 1 minute and it’s time to move on."
+          }
+        ]
+      },
+      {
+        "type": "sharing",
+        "hostNotes": [
+          {
+            "text": "Now we are getting into the sharing part. We have three rules for sharing:\n\n1. **What is said in here, stays in here.**\n2. **All you need to do is listen.** There is no fixing, helping or advice-giving needed. We are just showing up and exploring what ourselves and others are going through."
+          },
+          {
+            "text": "3. **Everything on the inside is okay.** Anger, love, hatred, sadness. Whatever shows up. No wrongs, no rights. It is what it is.\n\nThere will be a timer set for 2 minutes as an indicator. If you don’t want to share you can always say ‘pass’."
+          },
+          {
+            "text": "Who would like to start?\n\n> Let everyone (or as many as you got time for) share one by one. Press play to start the timer. Re-start for each new sharing.\n\nThank you so much everyone."
+          }
+        ],
+        "id": "Sharing 1"
+      },
+      {
+        "type": "host",
+        "hostNotes": [
+          {
+            "text": "Well done. If you’re up for it, you can continue what we started here today with a mission to bring this into your everyday life.\n\nxx mission description"
+          },
+          {
+            "text": "Before we leave this space let’s do a mini check-out. \n\nHow are you feeling right now? Has anything shifted? Please answer in two-three words."
+          },
+          {
+            "text": "Who would like to start?\n\n> Let everyone in the session check out one by one.\n\nThank you all for checking out and for joining this session today.\n\n> Finish session to send everyone off to the exit experience."
+          }
+        ]
+      },
+      {
+        "type": "instruction",
+        "content": {
+          "text": "Well done.\n\nSummary.\n\nIf you’re up for it, you can continue with this mission.\n\nmission description"
         }
       }
+    ],
+    "theme": {
+      "textColor": "#2AE2D7"
     },
-    "name": "Um novo título interessante está a caminho! ",
+    "hidden": false,
+    "locked": false,
+    "live": true,
+    "published": false,
+    "asyncDuration": 20,
+    "introPortal": {
+      "textColor": "#2AE2D7",
+      "hostNotes": [
+        {
+          "text": "> Start the session when you're ready to go"
+        }
+      ]
+    },
+    "tags": [
+      "566aeb1b-1649-4f5a-96a2-0c80be27efc0"
+    ],
+    "id": "54b9accd-f904-4a0f-b7b6-91948bd2c7c8",
+    "async": false
+  },
+  "pt-BR": {
+    "liveDuration": 40,
     "slides": [
       {
         "hostNotes": [
@@ -451,16 +479,48 @@
         "type": "instruction"
       }
     ],
-    "id": "54b9accd-f904-4a0f-b7b6-91948bd2c7c8",
     "theme": {
       "textColor": "#2AE2D7"
     },
     "hidden": true,
     "locked": false,
+    "name": "Um novo título interessante está a caminho! ",
     "live": true,
     "published": false,
-    "asyncDuration": 10,
-    "liveDuration": 30,
+    "asyncDuration": 20,
+    "introPortal": {
+      "hostNotes": [
+        {
+          "text": ">Comece a sessão quando estiver pronto para seguir"
+        }
+      ],
+      "textColor": "#2AE2D7",
+      "videoLoop": {
+        "p5JsScript": {
+          "lang": "javascript"
+        }
+      }
+    },
+    "tags": [
+      "566aeb1b-1649-4f5a-96a2-0c80be27efc0"
+    ],
+    "id": "54b9accd-f904-4a0f-b7b6-91948bd2c7c8",
     "async": true
+  },
+  "da": {
+    "id": "54b9accd-f904-4a0f-b7b6-91948bd2c7c8",
+    "asyncDuration": 20,
+    "liveDuration": 40,
+    "tags": [
+      "566aeb1b-1649-4f5a-96a2-0c80be27efc0"
+    ]
+  },
+  "nl": {
+    "id": "54b9accd-f904-4a0f-b7b6-91948bd2c7c8",
+    "asyncDuration": 20,
+    "liveDuration": 40,
+    "tags": [
+      "566aeb1b-1649-4f5a-96a2-0c80be27efc0"
+    ]
   }
 }
