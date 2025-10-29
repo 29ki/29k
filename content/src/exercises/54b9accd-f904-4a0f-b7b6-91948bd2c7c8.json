@@ -105,6 +105,9 @@
         ]
       },
       {
+        "type": "instruction"
+      },
+      {
         "type": "content",
         "hostNotes": [
           {
