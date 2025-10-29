@@ -1,6 +1,6 @@
 {
   "sv": {
-    "liveDuration": 34,
+    "liveDuration": 35,
     "slides": [
       {
         "type": "host",
@@ -92,7 +92,7 @@
     "async": false
   },
   "en": {
-    "liveDuration": 34,
+    "liveDuration": 35,
     "slides": [
       {
         "type": "host",
@@ -104,6 +104,12 @@
             "text": "Let’s start with a mini check-in. How are you feeling right now? Please answer in two-three words. X, would you like to start?\n\n> Let everyone in the session, including yourself, check in one by one.\n\nThank you all for checking in. Let’s get started."
           }
         ]
+      },
+      {
+        "type": "instruction",
+        "content": {
+          "text": "Practice making a self-compassion toolbox – an action plan for when we are in need. \n\nHeads up that you'll need pen and paper for this exercise."
+        }
       },
       {
         "type": "content",
@@ -184,7 +190,7 @@
     "asyncDuration": 15,
     "coCreators": [
       {
-        "name": "Jenny Rickardsson, editor & voice",
+        "name": "Jenny Rickardsson, voice",
         "url": "https://www.linkedin.com/in/jenny-rickardson-6770a959/",
         "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413228/Contributors/Jenny%20Rickardsson.jpg"
       },
@@ -192,6 +198,11 @@
         "name": "Kristin Neff & Chris Germer, CMSC, original research",
         "url": "https://centerformsc.org/",
         "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1697723039/Images/Germer%2C%20Neff.png"
+      },
+      {
+        "name": "Erik Fernholm, editor",
+        "url": "https://www.linkedin.com/in/erikfernholm/?originalSubdomain=se",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665412608/Contributors/Erik%20Fernholm.png"
       }
     ],
     "introPortal": {
@@ -212,10 +223,11 @@
       "8da0534a-5da9-430a-bdf3-242ace6460fb"
     ],
     "id": "ce1c55da-2e23-4b1d-bc15-a30b27fd3e62",
-    "async": true
+    "async": true,
+    "description": "When we are under pressure it is easy to forget to be self-compassionate. Create a toolbox so that you have a clear to do-list for the times when you are in need. It can help us be more resilient in challenging situations."
   },
   "pt-PT": {
-    "liveDuration": 34,
+    "liveDuration": 35,
     "slides": [
       {
         "type": "host",
@@ -313,7 +325,7 @@
       "8da0534a-5da9-430a-bdf3-242ace6460fb"
     ],
     "asyncDuration": 15,
-    "liveDuration": 34
+    "liveDuration": 35
   },
   "cs": {
     "id": "ce1c55da-2e23-4b1d-bc15-a30b27fd3e62",
@@ -322,10 +334,10 @@
       "8da0534a-5da9-430a-bdf3-242ace6460fb"
     ],
     "asyncDuration": 15,
-    "liveDuration": 34
+    "liveDuration": 35
   },
   "ja": {
-    "liveDuration": 34,
+    "liveDuration": 35,
     "slides": [
       {
         "type": "host",
@@ -417,7 +429,7 @@
     "async": false
   },
   "pt-BR": {
-    "liveDuration": 34,
+    "liveDuration": 35,
     "slides": [
       {
         "hostNotes": [
@@ -527,7 +539,7 @@
       "8da0534a-5da9-430a-bdf3-242ace6460fb"
     ],
     "asyncDuration": 15,
-    "liveDuration": 34
+    "liveDuration": 35
   },
   "nl": {
     "id": "ce1c55da-2e23-4b1d-bc15-a30b27fd3e62",
@@ -536,6 +548,6 @@
       "8da0534a-5da9-430a-bdf3-242ace6460fb"
     ],
     "asyncDuration": 15,
-    "liveDuration": 34
+    "liveDuration": 35
   }
 }
