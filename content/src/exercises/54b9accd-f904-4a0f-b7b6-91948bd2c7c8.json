@@ -105,7 +105,10 @@
         ]
       },
       {
-        "type": "instruction"
+        "type": "instruction",
+        "content": {
+          "text": " taking perspective, practicing observing our own experiences, and ourselves as the observer of those experiences."
+        }
       },
       {
         "type": "content",
