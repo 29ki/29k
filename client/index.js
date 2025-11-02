@@ -1,4 +1,4 @@
-import {DEBUG} from 'config';
+import {CLIENT_DEBUG} from 'config';
 import debug from 'debug';
 import {AppRegistry, LogBox} from 'react-native';
 import auth from '@react-native-firebase/auth';
@@ -7,7 +7,7 @@ import storage from '@react-native-firebase/storage';
 
 import App from './src/App';
 
-debug.enable(DEBUG);
+debug.enable(CLIENT_DEBUG);
 // %O doesn't output new lines for some reason
 debug.formatters.p = value => JSON.stringify(value, null, 2);
 

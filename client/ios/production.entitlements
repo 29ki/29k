@@ -6,9 +6,10 @@
 	<string>production</string>
 	<key>com.apple.developer.associated-domains</key>
 	<array>
-		<string>applinks:app.cupcake.29k.org</string>
 		<string>applinks:aware.29k.org</string>
 		<string>applinks:open.awareapp.org</string>
+    <string>applinks:aware.airbridge.io</string>
+		<string>applinks:aware.abr.ge</string>
 	</array>
 	<key>com.apple.developer.healthkit</key>
 	<true/>

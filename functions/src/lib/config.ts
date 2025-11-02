@@ -13,16 +13,12 @@ import 'dotenv/config';
 import {cleanEnv, str} from 'envalid';
 
 const configValidation = {
+  AIRBRIDGE_API_TOKEN: str(),
   BACKUPS_BUCKET: str(),
   DAILY_API_KEY: str(),
   DAILY_DOMAIN_ID: str(),
   DAILY_ID_SALT: str(),
-  DEEP_LINK_ANDROID_PACKAGE_NAME: str(),
-  DEEP_LINK_API_KEY: str(),
-  DEEP_LINK_BASE_URL: str(),
-  DEEP_LINK_DOMAIN_URI_PREFIX: str(),
-  DEEP_LINK_IOS_APPSTORE_ID: str(),
-  DEEP_LINK_IOS_BUNDLE_ID: str(),
+  DEEP_LINK_SCHEME: str(),
   ENVIRONMENT: str(),
   GIT_COMMIT_SHORT: str(),
   OPENAI_API_KEY: str(),

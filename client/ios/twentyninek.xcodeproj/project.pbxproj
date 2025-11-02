@@ -471,6 +471,8 @@
 				786FA1DDC2AB4237AF02157E /* Upload Debug Symbols to Sentry */,
 				295A0821D3C4D649F2F1729C /* [CP] Embed Pods Frameworks */,
 				4B5EDAA717183314A6630AFE /* [CP] Copy Pods Resources */,
+				C099044574C5EDAC565DE7D3 /* [Airbridge] Copy airbridge.json */,
+				9097B3C4735305491C6704DD /* [Airbridge] Create LibraryInfo.json */,
 			);
 			buildRules = (
 			);
@@ -493,6 +495,8 @@
 				360B1B8728D305990072A0CC /* Upload Debug Symbols to Sentry */,
 				6F9B7AD5B8F1F6309EB1F48F /* [CP] Embed Pods Frameworks */,
 				CE978B095FD0568D919F7566 /* [CP] Copy Pods Resources */,
+				C099044574C5EDAC565DE7D3 /* [Airbridge] Copy airbridge.json */,
+				9097B3C4735305491C6704DD /* [Airbridge] Create LibraryInfo.json */,
 			);
 			buildRules = (
 			);
@@ -515,6 +519,8 @@
 				360B1B8628D305910072A0CC /* Upload Debug Symbols to Sentry */,
 				A14A16CEB3D0D24765417A31 /* [CP] Embed Pods Frameworks */,
 				177B1E92111AEEEFC4C1869D /* [CP] Copy Pods Resources */,
+				C099044574C5EDAC565DE7D3 /* [Airbridge] Copy airbridge.json */,
+				9097B3C4735305491C6704DD /* [Airbridge] Create LibraryInfo.json */,
 			);
 			buildRules = (
 			);
@@ -935,6 +941,24 @@
 			shellPath = /bin/sh;
 			shellScript = "export SENTRY_PROPERTIES=sentry.properties\nexport EXTRA_PACKAGER_ARGS=\"--sourcemap-output $DERIVED_FILE_DIR/main.jsbundle.map\"\nset -e\n\nWITH_ENVIRONMENT=\"$REACT_NATIVE_PATH/scripts/xcode/with-environment.sh\"\nREACT_NATIVE_XCODE=\"$REACT_NATIVE_PATH/scripts/react-native-xcode.sh\"\n\n/bin/sh -c \"$WITH_ENVIRONMENT \\\"../node_modules/@sentry/cli/bin/sentry-cli react-native xcode $REACT_NATIVE_XCODE\\\"\"\n";
 		};
+		9097B3C4735305491C6704DD /* [Airbridge] Create LibraryInfo.json */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "[Airbridge] Create LibraryInfo.json";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "echo '{\"wrapperName\": \"airbridge-react-native-sdk-restricted\", \"wrapperVersion\": \"4.7.0\"}' > \"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/LibraryInfo.json\"\n";
+		};
 		A14A16CEB3D0D24765417A31 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -951,6 +975,24 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-twentyninek-staging/Pods-twentyninek-staging-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		C099044574C5EDAC565DE7D3 /* [Airbridge] Copy airbridge.json */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "[Airbridge] Copy airbridge.json";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "ENVIRONMENT=$(echo \"${AIRBRIDGE_ENVIRONMENT:-}\" | tr '[:upper:]' '[:lower:]')\nENVIRONMENT=$(echo \"$ENVIRONMENT\" | grep -Eq '^[A-Za-z0-9_-]*$' && echo \"$ENVIRONMENT\" || echo \"\")\nFILENAME=\"${SRCROOT}/../airbridge.json\"\n\nCANDIDATE=\"${SRCROOT}/../airbridge.${ENVIRONMENT}.json\"\nif [ -r \"$CANDIDATE\" ]; then\n    FILENAME=\"$CANDIDATE\"\nfi\n\nif [ -r \"$FILENAME\" ]; then\n    cp \"$FILENAME\" \"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/airbridge.json\"\nfi";
 		};
 		CE978B095FD0568D919F7566 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
