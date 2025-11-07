@@ -505,6 +505,17 @@
       ]
     },
     {
+      "name": "Göran Gennvi",
+      "avatar_url": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1698408621/Contributors/Goran-Gennvi_ucyj82.jpg",
+      "profile": "https://www.linkedin.com/in/g%C3%B6ran-gennvi-81951b/",
+      "contributions": [
+        "content",
+        "community",
+        "fundingFinding",
+        "research"
+      ]
+    },
+    {
       "name": "Alexandra Söderlund",
       "contributions": [
         "design"
@@ -535,17 +546,6 @@
       "profile": "https://www.linkedin.com/in/granraul75/",
       "contributions": [
         "audio"
-      ]
-    },
-    {
-      "name": "Göran Gennvi",
-      "avatar_url": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1698408621/Contributors/Goran-Gennvi_ucyj82.jpg",
-      "profile": "https://www.linkedin.com/in/g%C3%B6ran-gennvi-81951b/",
-      "contributions": [
-        "content",
-        "community",
-        "fundingFinding",
-        "research"
       ]
     }
   ],
