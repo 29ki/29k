@@ -70,7 +70,6 @@
 
             <data android:scheme="https" android:host="${deepLinkHost1}" />
             <data android:scheme="https" android:host="${deepLinkHost2}" />
-            <data android:scheme="https" android:host="${deepLinkHost3}" />
         </intent-filter>
         <intent-filter>
             <action android:name="android.intent.action.VIEW" />

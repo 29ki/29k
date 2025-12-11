@@ -6,9 +6,10 @@
 	<string>development</string>
 	<key>com.apple.developer.associated-domains</key>
 	<array>
-		<string>applinks:dev.app.cupcake.29k.org</string>
 		<string>applinks:dev.aware.29k.org</string>
 		<string>applinks:dev.open.awareapp.org</string>
+		<string>applinks:awaredev.airbridge.io</string>
+		<string>applinks:awaredev.abr.ge</string>
 	</array>
 	<key>com.apple.developer.healthkit</key>
 	<true/>
