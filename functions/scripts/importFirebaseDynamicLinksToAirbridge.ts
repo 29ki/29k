@@ -47,19 +47,31 @@ async function readFileCsvFile(filePath: string): Promise<DynamicLink[]> {
   });
 }
 
+function channelSlugFromString(text: string): string {
+  return text
+    .toLowerCase()
+    .replace(/[^a-z0-9\s-\_\.]/g, '') // Remove invalid chars
+    .trim()
+    .replace(/\s+/g, '-') // Collapse whitespace
+    .replace(/-+/g, '-'); // Collapse multiple hyphens
+}
+
 const main = async () => {
   const links = await readFileCsvFile(CSV_FILE);
   const filteredLinks = links
     .filter(
       ({link, archived}) =>
+        !link.includes('/hostSessionInvite') &&
         !link.includes('/joinSessionInvite') &&
         !link.includes('/verifyPublicHostCode') &&
         archived === 'false',
     )
-    .slice(1, 2);
+    .slice(6, 10);
 
   for (const link of filteredLinks) {
-    console.log(`Migrating link: ${link.short_link}`);
+    console.log(
+      `Migrating link: ${link.short_link} -> ${link.link} (${link.name})`,
+    );
     const response = await fetch('https://api.airbridge.io/v1/tracking-links', {
       method: 'POST',
       headers: {
@@ -68,10 +80,10 @@ const main = async () => {
         Authorization: `Bearer ${process.env.AIRBRIDGE_API_TOKEN}`,
       },
       body: JSON.stringify({
-        deeplinkUrl: link.link.replace('https://aware.29k.org/', ''),
-        channel: link.utm_source || 'app',
+        deeplinkUrl: `${process.env.DEEP_LINK_SCHEME}://${link.link.replace('https://29k.org/', '')}`,
+        channel: channelSlugFromString(link.utm_source) || 'app',
         campaignParams: {
-          campaign: link.utm_campaign,
+          campaign: link.utm_campaign || link.name,
           content: link.utm_content,
           medium: link.utm_medium,
           term: link.utm_term,
@@ -82,18 +94,26 @@ const main = async () => {
         fallbackPaths: {
           android: 'google-play',
           ios: 'itunes-appstore',
-          desktop: link.ofl,
+          desktop:
+            link.ofl ||
+            link.link.replace('https://29k.org/', 'https://awareapp.org/'),
         },
         ogTag: {
           title: link.st,
           description: link.sd,
           imageUrl: link.si,
         },
-        customShortId: link.short_link.replace('https://aware.29k.org/', ''),
+        customShortId: link.short_link
+          .replace('https://aware.29k.org/', '')
+          .toLocaleLowerCase(),
       }),
     });
-    console.log('Ok', response.ok, await response.text());
+    if (!response.ok) {
+      console.error('Error', response.status, await response.text());
+      break;
+    }
   }
+
   console.log(
     `Found ${links.length} links, ${filteredLinks.length} of which are valid.`,
   );
