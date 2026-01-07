@@ -25,7 +25,7 @@ describe('user - controller', () => {
 
       const data = await getMe('some-user-id');
 
-      expect(mockedGetUser).toBeCalledTimes(1);
+      expect(mockedGetUser).toHaveBeenCalledTimes(1);
       expect(mockedGetUser).toHaveBeenCalledWith('some-user-id');
       expect(data).toEqual({
         description: 'some description',
@@ -40,7 +40,7 @@ describe('user - controller', () => {
 
       const data = await getMe('some-user-id');
 
-      expect(mockedGetUser).toBeCalledTimes(1);
+      expect(mockedGetUser).toHaveBeenCalledTimes(1);
       expect(mockedGetUser).toHaveBeenCalledWith('some-user-id');
       expect(data).toEqual({});
     });

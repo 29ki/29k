@@ -157,7 +157,9 @@ describe('createDynamicLink', () => {
     mockCreate.mockRejectedValueOnce(new Error('Some Error'));
 
     await expect(createDynamicLink('some/path')).rejects.toThrow(
-      new Error('Failed creating dynamic link'),
+      new Error('Failed creating dynamic link', {
+        cause: new Error('Some Error'),
+      }),
     );
   });
 });

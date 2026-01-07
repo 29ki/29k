@@ -26,6 +26,6 @@ describe('firebaseBodyParser', () => {
       },
     });
 
-    expect(next).toBeCalledTimes(1);
+    expect(next).toHaveBeenCalledTimes(1);
   });
 });

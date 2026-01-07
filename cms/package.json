@@ -4,7 +4,7 @@
   "private": true,
   "main": "index.js",
   "engines": {
-    "node": "18"
+    "node": "22"
   },
   "scripts": {
     "build:content": "yarn --cwd \"../content\" build",
@@ -42,7 +42,7 @@
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-import": "^2.31.0",
     "eslint-plugin-prettier": "^5.2.3",
-    "jest": "^29.7.0",
+    "jest": "^30.2.0",
     "netlify-ts": "^2.0.0",
     "prettier": "^3.4.2",
     "ts-jest": "^29.2.5",

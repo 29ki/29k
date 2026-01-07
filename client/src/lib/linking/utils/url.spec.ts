@@ -22,6 +22,8 @@ describe('appendOrigin', () => {
   });
 
   it('throws on invalid URL', () => {
-    expect(() => appendOrigin('', 'interwebz')).toThrowError('Invalid URL');
+    expect(() => appendOrigin('', 'interwebz')).toThrow(
+      new Error('Invalid URL'),
+    );
   });
 });
