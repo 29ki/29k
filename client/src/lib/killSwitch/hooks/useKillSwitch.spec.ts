@@ -292,7 +292,7 @@ describe('useKillSwitch', () => {
       await act(async () => {
         await expect(result.current.checkKillSwitch()).rejects.toThrow(
           new Error('Failed to read Kill Switch body', {
-            cause: new Error('Unexpected token o in JSON at position 1'),
+            cause: new Error('Unexpected token \'o\', "foo" is not valid JSON'),
           }),
         );
       });
