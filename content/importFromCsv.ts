@@ -20,6 +20,9 @@ if (!CSV_FILE) {
 
 const skipLanguageMergeForTypes = ['email', 'ui'];
 const overridePublishedFlagForTypes = ['exercises'];
+const doNotMergeKeys = {
+  exercises: ['coCreators'],
+};
 
 type Translation = {
   Type: string;
@@ -76,6 +79,16 @@ const main = async () => {
               ...(overridePublishedFlagForTypes.includes(type)
                 ? {published: false}
                 : {}),
+              ...doNotMergeKeys[type]?.reduce(
+                (acc, key) =>
+                  content[TO_LANGUAGE_TAG][key]
+                    ? {
+                        ...acc,
+                        [key]: content[TO_LANGUAGE_TAG][key],
+                      }
+                    : acc,
+                {},
+              ),
             }),
           ),
         };
