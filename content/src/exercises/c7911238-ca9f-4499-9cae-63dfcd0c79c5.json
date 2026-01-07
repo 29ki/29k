@@ -569,7 +569,160 @@
     "id": "c7911238-ca9f-4499-9cae-63dfcd0c79c5"
   },
   "es": {
-    "id": "c7911238-ca9f-4499-9cae-63dfcd0c79c5"
+    "description": "Todos/as enfrentamos contratiempos y dificultades en la vida. La resiliencia, o la capacidad de recuperarnos, es una habilidad que mejora con la práctica y puede ayudarnos a superar obstáculos e incluso a crecer al enfrentarlos.",
+    "introPortal": {
+      "hostNotes": [
+        {
+          "text": "> Inicia la sesión cuando estés listo/a para comenzar"
+        }
+      ],
+      "videoLoop": {
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1698917806/Video/portal1_bounce_back_mramav.mp4",
+        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1698917860/Audio/portal_audio_bouncing_back_myanbs.mp3",
+        "p5JsScript": {
+          "lang": "javascript"
+        }
+      },
+      "videoEnd": {
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1698917804/Video/portal2_bounce_back_otpgvf.mp4"
+      }
+    },
+    "name": "Volver a levantarse",
+    "slides": [
+      {
+        "hostNotes": [
+          {
+            "text": "Bienvenidos/as\n\nSoy X y hoy vamos a dedicar unos 30 minutos a trabajar la resiliencia.\n\nHaremos un ejercicio en audio, seguido de un tiempo para reflexionar y compartir entre nosotros/as."
+          },
+          {
+            "text": "Comencemos con una pequeña reflexión sobre cómo estamos. ¿Cómo te sientes en este momento? Por favor, responde en dos o tres palabras. X, ¿te gustaría empezar?\n\n> Permite que todos/as en la sesión, incluido tú, compartan uno a uno, una a una.\n\nGracias a todos/as por compartir. ¡Empecemos!"
+          }
+        ],
+        "type": "host"
+      },
+      {
+        "hostNotes": [
+          {
+            "text": "> Pulsa play para comenzar el ejercicio"
+          }
+        ],
+        "type": "content",
+        "content": {
+          "lottie": {
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1696255947/Audio/Bounce_back_ejnsty.mp3",
+            "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1696256068/SRT%20(captions)%20files/Bounce_back_tvpujy.srt",
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto/v1676977421/Lottie/audio_meditation_default_black_default_omemwt.json",
+            "durationTimer": false
+          },
+          "video": {
+            "durationTimer": true
+          }
+        }
+      },
+      {
+        "content": {
+          "heading": "¿Qué aprendiste al usar el modelo de las 4 Eses?",
+          "lottie": {
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto/v1676642915/Lottie/default_1min_black_rosi2l.json",
+            "duration": 60,
+            "durationTimer": true
+          }
+        },
+        "hostNotes": [
+          {
+            "text": "Ahora vamos a tomar 1 minuto para reflexionar por nuestra cuenta.\n\n¿Qué aprendiste al usar el modelo de las 4 Eses?"
+          },
+          {
+            "text": "Puedes tomar notas en un papel o mentalmente. No hay respuestas correctas o incorrectas, cada uno/a tiene sus propias respuestas. 1 minuto, empezando ahora.\n\n> Pulsa play para iniciar el temporizador.\n\nHa pasado 1 minuto, vamos a continuar."
+          }
+        ],
+        "type": "reflection"
+      },
+      {
+        "content": {
+          "heading": "¿Qué aprendiste al usar el modelo de las 4 Eses?",
+          "lottie": {
+            "durationTimer": true,
+            "duration": 120,
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto/v1676639253/Lottie/default_2min_black_o6egey.json"
+          }
+        },
+        "hostNotes": [
+          {
+            "text": "Ahora entramos en la parte de compartir. Tenemos tres reglas para compartir:\n\n1. **Lo que se diga aquí, se queda aquí.**\n2. **Todo lo que necesitas hacer es escuchar.** No se necesita arreglar, ayudar ni dar consejos. Solo estamos presentes y explorando lo que nosotros/as mismos/as y los/las demás estamos experimentando."
+          },
+          {
+            "text": "3. **Todo lo que sentimos dentro está bien.** Ira, amor, odio, tristeza. Lo que sea que surja. No hay correcto ni incorrecto. Simplemente es lo que es, hay lo que hay.\n\nSe establecerá un temporizador de 2 minutos como indicador. Si no deseas compartir, siempre puedes decir 'paso'."
+          },
+          {
+            "text": "¿Quién le gustaría empezar?\n\n> Deja que todos/as (o los/las que tengas tiempo) compartan uno a uno, una a una. Pulsa play para iniciar el temporizador. Reinicia el temporizador para cada nueva intervención.\n\nMuchas gracias a todos/as."
+          }
+        ],
+        "type": "sharing",
+        "id": "1"
+      },
+      {
+        "hostNotes": [
+          {
+            "text": "Bien hecho. Si quieres, puedes continuar con una práctica.\n\nDespués de esta sesión, aplica uno de los recursos que identificaste a tu situación actual y observa a dónde te lleva."
+          },
+          {
+            "text": "Antes de salir de este espacio, hagamos una breve reflexión sobre qué ha cambiado.\n\n¿Cómo te sientes en este momento? ¿Ha cambiado algo? Por favor, responde en dos o tres palabras."
+          },
+          {
+            "text": "¿Quién le gustaría empezar?\n\n> Deja que todos/as en la sesión compartan y/o se despidan uno por uno, una por una.\n\nGracias a todos/as por compartir y por uniros hoy a esta sesión.\n\n> Finaliza la sesión para enviar a todos/as a la experiencia de salida."
+          }
+        ],
+        "type": "host"
+      },
+      {
+        "content": {
+          "text": "Bien hecho. Si quieres, puedes continuar con una práctica.\n\nDespués de esta sesión, aplica uno de los recursos que identificaste a tu situación actual y observa a dónde te lleva.\n\n1. Apoyo\n2. Estrategias\n3. Inteligencia / Habilidad para actuar\n4. Búsqueda de soluciones",
+          "image": {
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1698917836/Images/card_image_bounce_back_m6yyaj.png"
+          }
+        },
+        "type": "instruction"
+      }
+    ],
+    "id": "c7911238-ca9f-4499-9cae-63dfcd0c79c5",
+    "theme": {
+      "textColor": "#2E2E2E",
+      "backgroundColor": "#349dff"
+    },
+    "hidden": false,
+    "live": true,
+    "published": false,
+    "card": {
+      "backgroundColor": "",
+      "image": {
+        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1698919598/Images/card_image_2_bounce_back_pkfg3y.png"
+      }
+    },
+    "coCreators": [
+      {
+        "name": "Jenny Rickardsson, voice and editor",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1682602411/Images/Jenny_Rickardsson_kopia_sdodwf.jpg",
+        "url": "https://www.linkedin.com/in/jenny-rickardson-6770a959/"
+      },
+      {
+        "name": "Ints Ivanovskis, art works",
+        "url": "https://www.linkedin.com/in/ints-ivanovskis-46ab0311a/",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413436/Contributors/Ints%20Ivanovskis.jpg"
+      },
+      {
+        "name": "Lucinda Poole & Hugo Alberts, research & inspiration",
+        "url": "https://positivepsychology.com/team/",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1700730311/Contributors/positivepsychology.com.logo.png_umldu5.png"
+      }
+    ],
+    "asyncDuration": 10,
+    "liveDuration": 30,
+    "tags": [
+      "8da0534a-5da9-430a-bdf3-242ace6460fb"
+    ],
+    "link": "https://aware.29k.org/bounce-back",
+    "async": true
   },
   "pt-BR": {
     "description": "Todos nós enfrentamos contratempos e dificuldades na vida. Resiliência, ou a capacidade de se recuperar, é uma habilidade que melhora com a prática e pode nos ajudar a superar ou até mesmo crescer ao enfrentar obstáculos.",

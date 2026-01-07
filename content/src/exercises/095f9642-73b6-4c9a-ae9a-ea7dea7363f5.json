@@ -696,7 +696,27 @@
     "card": {}
   },
   "es": {
-    "liveDuration": 30,
+    "description": "Una meditación guiada que pone luz a un momento precioso. Practicar notar lo que sí ya está funcionando en nuestras vidas puede ayudarnos a sentirnos más felices y realizados, a la vez que nos ayuda a contrarrestar la tendencia natural de nuestro cerebro a enfocarse en lo negativo.",
+    "introPortal": {
+      "hostNotes": [
+        {
+          "text": "> Comienza la sesión cuando estés listo/a para empezar."
+        }
+      ],
+      "type": "video",
+      "videoLoop": {
+        "source": "https://res.cloudinary.com/twentyninek/video/upload/q_auto/v1663143395/temp/portal-intro_h7qccz.mp4",
+        "audio": "https://res.cloudinary.com/twentyninek/video/upload/v1664811123/temp/ocean_s3t5yy_mm2dgh.mp3",
+        "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1674554579/Images/thumb_portal_pure_simple_love_geibz4.png",
+        "p5JsScript": {
+          "lang": "javascript"
+        }
+      },
+      "videoEnd": {
+        "source": "https://res.cloudinary.com/twentyninek/video/upload/q_auto/v1663147750/temp/portal-intro-end_crzjih.mp4"
+      }
+    },
+    "name": "Amor puro y sencillo",
     "slides": [
       {
         "hostNotes": [
@@ -819,7 +839,7 @@
         "type": "instruction"
       }
     ],
-    "name": "Amor puro y sencillo",
+    "liveDuration": 30,
     "live": true,
     "published": true,
     "asyncDuration": 4,
@@ -845,33 +865,13 @@
         "source": "https://res.cloudinary.com/twentyninek/video/upload/q_auto/v1664798564/temp/portal_outro_lpm80e.mp4"
       }
     },
-    "introPortal": {
-      "hostNotes": [
-        {
-          "text": "> Comienza la sesión cuando estés listo/a para empezar."
-        }
-      ],
-      "type": "video",
-      "videoLoop": {
-        "source": "https://res.cloudinary.com/twentyninek/video/upload/q_auto/v1663143395/temp/portal-intro_h7qccz.mp4",
-        "audio": "https://res.cloudinary.com/twentyninek/video/upload/v1664811123/temp/ocean_s3t5yy_mm2dgh.mp3",
-        "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1674554579/Images/thumb_portal_pure_simple_love_geibz4.png",
-        "p5JsScript": {
-          "lang": "javascript"
-        }
-      },
-      "videoEnd": {
-        "source": "https://res.cloudinary.com/twentyninek/video/upload/q_auto/v1663147750/temp/portal-intro-end_crzjih.mp4"
-      }
-    },
     "tags": [
       "cfc00217-f65b-4a4d-8b82-8ccc8f852dd6",
       "43a6dc0d-d866-4b79-9453-13c44e906128"
     ],
     "link": "https://aware.29k.org/pure-simple-love",
     "id": "095f9642-73b6-4c9a-ae9a-ea7dea7363f5",
-    "async": true,
-    "description": "Una meditación guiada que pone luz a un momento precioso. Practicar notar lo que sí ya está funcionando en nuestras vidas puede ayudarnos a sentirnos más felices y realizados, a la vez que nos ayuda a contrarrestar la tendencia natural de nuestro cerebro a enfocarse en lo negativo."
+    "async": true
   },
   "pt-BR": {
     "description": "Uma meditação guiada que traz um momento precioso para o centro das atenções. Praticar notar o que está funcionando pode nos ajudar a nos sentirmos mais felizes e realizados, além de contrariar a tendência natural do nosso cérebro de focar no negativo.",

@@ -656,7 +656,26 @@
     "card": {}
   },
   "es": {
-    "liveDuration": 30,
+    "description": "Soñar con nuestro futuro puede guiarnos en el momento presente, iluminando lo que es importante a largo plazo.\n\nEsto puede ser especialmente útil cuando estamos bajo presión, cuando tendemos a ser miopes y a perder el contacto con lo que realmente importa.",
+    "introPortal": {
+      "hostNotes": [
+        {
+          "text": "Inicia la sesión cuando estés listo/a para comenzar"
+        }
+      ],
+      "videoLoop": {
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1692855519/Video/portal1_90th_birthday_sjt1ao.mp4",
+        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1692855561/Audio/portal_audio_90th_birthday_e9ngzj.mp3",
+        "p5JsScript": {
+          "lang": "javascript"
+        }
+      },
+      "videoEnd": {
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1692855528/Video/portal2_90th_birthday_cofsf7.mp4"
+      },
+      "textColor": "#2E2E2E"
+    },
+    "name": "Tu 90 cumpleaños",
     "slides": [
       {
         "hostNotes": [
@@ -790,12 +809,12 @@
         "type": "instruction"
       }
     ],
+    "liveDuration": 30,
     "theme": {
       "textColor": "#2E2E2E",
       "backgroundColor": "#ffd788"
     },
     "hidden": false,
-    "name": "Tu 90 cumpleaños",
     "live": true,
     "published": true,
     "asyncDuration": 8,
@@ -813,32 +832,13 @@
         "url": "https://www.linkedin.com/in/nuriatous/"
       }
     ],
-    "introPortal": {
-      "hostNotes": [
-        {
-          "text": "Inicia la sesión cuando estés listo/a para comenzar"
-        }
-      ],
-      "videoLoop": {
-        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1692855519/Video/portal1_90th_birthday_sjt1ao.mp4",
-        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1692855561/Audio/portal_audio_90th_birthday_e9ngzj.mp3",
-        "p5JsScript": {
-          "lang": "javascript"
-        }
-      },
-      "videoEnd": {
-        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1692855528/Video/portal2_90th_birthday_cofsf7.mp4"
-      },
-      "textColor": "#2E2E2E"
-    },
     "tags": [
       "9c2c08a9-7dc6-4058-bc78-016d0eb00614",
       "cfc00217-f65b-4a4d-8b82-8ccc8f852dd6"
     ],
     "link": "https://aware.29k.org/your-90th-birthday",
     "id": "0bcb6eb0-fdfe-466d-8603-ae6de15fcbc5",
-    "async": true,
-    "description": "Soñar con nuestro futuro puede guiarnos en el momento presente, iluminando lo que es importante a largo plazo.\n\nEsto puede ser especialmente útil cuando estamos bajo presión, cuando tendemos a ser miopes y a perder el contacto con lo que realmente importa."
+    "async": true
   },
   "pt-BR": {
     "description": "Sonhar com o nosso futuro pode nos orientar no presente, iluminando o que realmente importa a longo prazo.\n\nIsso pode ser especialmente útil em momentos de pressão, quando tendemos a enxergar apenas o imediato e nos desconectamos do que é verdadeiramente importante",

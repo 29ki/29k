@@ -547,7 +547,25 @@
     "card": {}
   },
   "es": {
-    "liveDuration": 30,
+    "description": "Cuando estamos estresados/as, nuestra mente se desvía fácilmente hacia el futuro o se queda atrapada en experiencias del pasado. Una estrategia más útil es estar presentes con lo que está aquí y ahora. Este ejercicio nos permite practicar la presencia a través de tres de nuestros sentidos.",
+    "introPortal": {
+      "hostNotes": [
+        {
+          "text": "Inicia la sesión cuando estés listo/a para comenzar"
+        }
+      ],
+      "videoLoop": {
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1692965732/Video/2portal1_become_present_a6tjv1.mp4",
+        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1692898013/Audio/portal_audio_become_present_bgjavz.mp3",
+        "p5JsScript": {
+          "lang": "javascript"
+        }
+      },
+      "videoEnd": {
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1692965720/Video/2portal2_become_present_iddvnq.mp4"
+      }
+    },
+    "name": "Tres cosas",
     "slides": [
       {
         "hostNotes": [
@@ -644,12 +662,12 @@
         "type": "instruction"
       }
     ],
+    "liveDuration": 30,
     "theme": {
       "textColor": "#F9F8F4",
       "backgroundColor": "#263e54"
     },
     "hidden": false,
-    "name": "Tres cosas",
     "live": true,
     "published": true,
     "asyncDuration": 6,
@@ -672,31 +690,13 @@
         "url": "https://www.linkedin.com/in/nuriatous/"
       }
     ],
-    "introPortal": {
-      "hostNotes": [
-        {
-          "text": "Inicia la sesión cuando estés listo/a para comenzar"
-        }
-      ],
-      "videoLoop": {
-        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1692965732/Video/2portal1_become_present_a6tjv1.mp4",
-        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1692898013/Audio/portal_audio_become_present_bgjavz.mp3",
-        "p5JsScript": {
-          "lang": "javascript"
-        }
-      },
-      "videoEnd": {
-        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1692965720/Video/2portal2_become_present_iddvnq.mp4"
-      }
-    },
     "tags": [
       "cfc00217-f65b-4a4d-8b82-8ccc8f852dd6",
       "8da0534a-5da9-430a-bdf3-242ace6460fb"
     ],
     "link": "https://aware.29k.org/become-present",
     "id": "961656ea-021c-4faa-ae03-46d6ace4be4b",
-    "async": true,
-    "description": "Cuando estamos estresados/as, nuestra mente se desvía fácilmente hacia el futuro o se queda atrapada en experiencias del pasado. Una estrategia más útil es estar presentes con lo que está aquí y ahora. Este ejercicio nos permite practicar la presencia a través de tres de nuestros sentidos."
+    "async": true
   },
   "pt-BR": {
     "description": "Quando estamos estressados, nossa mente facilmente se perde pensando no futuro ou remoendo experiências passadas. Uma estratégia mais útil é estar presente com o que está aqui e agora. Este exercício nos permite praticar a presença usando três dos nossos sentidos.",
