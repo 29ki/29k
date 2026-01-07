@@ -541,7 +541,26 @@
     "id": "e4bf8d17-a774-4702-abfe-c7452c3fee0f"
   },
   "es": {
-    "liveDuration": 30,
+    "description": "La vergüenza es una emoción poderosa. En esta sesión exploraremos diferentes perspectivas sobre la vergüenza, investigando nuestra propia relación con ella. Esto puede ayudarnos a ganar perspectiva y ser más amables con nosotros/as mismos/as.",
+    "introPortal": {
+      "hostNotes": [
+        {
+          "text": "> Inicia la sesión cuando estés listo/a para comenzar"
+        }
+      ],
+      "textColor": "#2E2E2E",
+      "videoLoop": {
+        "p5JsScript": {
+          "lang": "javascript"
+        },
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1716468395/Video/portal1_exploring_shame_cedmj2.mp4",
+        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1716468088/Audio/portal_audio_exploring_shame_gtk9lf.mp3"
+      },
+      "videoEnd": {
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1716468199/Video/portal2_exploring_shame_wzelkz.mp4"
+      }
+    },
+    "name": "Explorando la vergüenza",
     "slides": [
       {
         "hostNotes": [
@@ -636,13 +655,13 @@
         "type": "instruction"
       }
     ],
+    "liveDuration": 30,
     "theme": {
       "textColor": "#2E2E2E",
       "backgroundColor": "#f3e2cd"
     },
     "hidden": false,
     "locked": false,
-    "name": "Explorando la vergüenza",
     "live": true,
     "published": true,
     "asyncDuration": 11,
@@ -677,32 +696,13 @@
         "url": "https://www.linkedin.com/in/granraul75/"
       }
     ],
-    "introPortal": {
-      "hostNotes": [
-        {
-          "text": "> Inicia la sesión cuando estés listo/a para comenzar"
-        }
-      ],
-      "textColor": "#2E2E2E",
-      "videoLoop": {
-        "p5JsScript": {
-          "lang": "javascript"
-        },
-        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1716468395/Video/portal1_exploring_shame_cedmj2.mp4",
-        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1716468088/Audio/portal_audio_exploring_shame_gtk9lf.mp3"
-      },
-      "videoEnd": {
-        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1716468199/Video/portal2_exploring_shame_wzelkz.mp4"
-      }
-    },
     "tags": [
       "db34d82a-4c48-4ddd-9de5-f562d8aa1bc9",
       "566aeb1b-1649-4f5a-96a2-0c80be27efc0"
     ],
     "link": "https://aware.29k.org/exploringshame",
     "id": "e4bf8d17-a774-4702-abfe-c7452c3fee0f",
-    "async": true,
-    "description": "La vergüenza es una emoción poderosa. En esta sesión exploraremos diferentes perspectivas sobre la vergüenza, investigando nuestra propia relación con ella. Esto puede ayudarnos a ganar perspectiva y ser más amables con nosotros/as mismos/as."
+    "async": true
   },
   "pt-BR": {
     "description": "A vergonha é uma emoção poderosa. Nesta sessão, vamos explorar diferentes perspectivas sobre a vergonha, investigando nossa própria relação com ela. Isso pode nos ajudar a ganhar perspectiva e a sermos mais gentis conosco.",

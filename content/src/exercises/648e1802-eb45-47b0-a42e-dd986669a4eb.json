@@ -568,7 +568,157 @@
     "id": "648e1802-eb45-47b0-a42e-dd986669a4eb"
   },
   "es": {
-    "id": "648e1802-eb45-47b0-a42e-dd986669a4eb"
+    "description": "Recuerda un momento de bondad y déjate inspirar por él. Ver actos de bondad puede generar emociones positivas e incluso despertar asombro. Los actos de bondad pueden fomentar la esperanza y la conexión con los demás, además de motivar que se transmitan a otros.",
+    "introPortal": {
+      "hostNotes": [
+        {
+          "text": "> Inicia la sesión cuando estés listo/a para comenzar"
+        }
+      ],
+      "videoLoop": {
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1699611480/Video/portal1_seeing_kindness_bnyu6v.mp4",
+        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1699611545/Audio/portal_audio_seeing_kindness_s2j9wc.mp3",
+        "p5JsScript": {
+          "lang": "javascript"
+        }
+      },
+      "videoEnd": {
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1699611475/Video/portal2_seeing_kindness_bu6lfb.mp4"
+      }
+    },
+    "name": "Percibir la bondad",
+    "slides": [
+      {
+        "hostNotes": [
+          {
+            "text": "Bienvenidos/as.\n\nSoy X y hoy vamos a dedicar unos 30 minutos a trabajar la bondad y la gratitud.\n\nHaremos un ejercicio en audio, seguido de un tiempo para reflexionar y compartir entre nosotros."
+          },
+          {
+            "text": "Comencemos con una pequeña reflexión sobre cómo estamos. ¿Cómo te sientes en este momento? Por favor, responde en dos o tres palabras. X, ¿te gustaría empezar?\n\n> Permite que todos/as en la sesión, incluido tú, compartan uno a uno, una a una.\n\nGracias a todos/as por compartir. ¡Empecemos!"
+          }
+        ],
+        "type": "host"
+      },
+      {
+        "hostNotes": [
+          {
+            "text": "> Pulsa play para comenzar el ejercicio"
+          }
+        ],
+        "type": "content",
+        "content": {
+          "lottie": {
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1710249978/Audio/Seeing_kindness_hvfgwv.mp3",
+            "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1699020183/SRT%20(captions)%20files/Seeing_kindness_jvjxtv.srt",
+            "durationTimer": true,
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1699620866/Lottie/meditation_visual_seeing_kindness_jyu33s.json"
+          }
+        }
+      },
+      {
+        "content": {
+          "heading": "¿Qué te motiva a hacer gracias a esa acción de bondad?",
+          "lottie": {
+            "durationTimer": true,
+            "duration": 60,
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1699611514/Lottie/1min_seeing_kindness_sqq5s1.json"
+          }
+        },
+        "hostNotes": [
+          {
+            "text": "Ahora tomaremos 1 minuto para reflexionar por nuestra cuenta.\n\nSi usas esa situación como inspiración aquí y ahora, ¿qué te motivaría a hacer?"
+          },
+          {
+            "text": "Puedes tomar notas en un papel o mentalmente. No hay respuestas correctas o incorrectas, cada uno/a tiene sus propias respuestas. 1 minuto, empezando ahora.\n\n> Pulsa play para iniciar el temporizador.\n\nHa pasado 1 minuto, vamos a continuar."
+          }
+        ],
+        "type": "reflection"
+      },
+      {
+        "content": {
+          "heading": "¿Qué te motiva a hacer gracias a esa acción de bondad?",
+          "lottie": {
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto/v1699611515/Lottie/2min_seeing_kindness_hp4bsp.json",
+            "duration": 120,
+            "durationTimer": true
+          }
+        },
+        "hostNotes": [
+          {
+            "text": "Ahora entramos en la parte de compartir. Tenemos tres reglas para compartir:\n\n1. **Lo que se diga aquí, se queda aquí.**\n2. **Todo lo que necesitas hacer es escuchar.** No se necesita arreglar, ayudar ni dar consejos. Solo estamos presentes y explorando lo que nosotros/as mismos/as y los/las demás estamos experimentando."
+          },
+          {
+            "text": "3. **Todo lo que sentimos dentro está bien.** Ira, amor, odio, tristeza. Lo que sea que surja. No hay correcto ni incorrecto. Simplemente es lo que es, hay lo que hay.\n\nSe establecerá un temporizador de 2 minutos como indicador. Si no deseas compartir, siempre puedes decir 'paso'."
+          },
+          {
+            "text": "¿Quién le gustaría empezar?\n\n> Deja que todos/as (o los/las que tengas tiempo) compartan uno a uno, una a una. Pulsa play para iniciar el temporizador. Reinicia el temporizador para cada nueva intervención.\n\nMuchas gracias a todos/as."
+          }
+        ],
+        "type": "sharing",
+        "id": "1"
+      },
+      {
+        "hostNotes": [
+          {
+            "text": "Bien hecho. Experimentar acciones de bondad puede hacernos sentir conectados/as y fomentar un sentido de pertenencia. Si quieres, puedes continuar con una práctica para llevar esto a tu vida diaria.\n\nPlanea un acto de bondad sencillo que puedas realizar durante el día y observa cómo afecta tanto a los demás como a ti mismo/a."
+          },
+          {
+            "text": "Antes de salir de este espacio, hagamos una breve reflexión sobre qué ha cambiado.\n\n¿Cómo te sientes en este momento? ¿Ha cambiado algo? Por favor, responde en dos o tres palabras."
+          },
+          {
+            "text": "¿Quién le gustaría empezar?\n\n> Deja que todos/as en la sesión compartan y/o se despidan uno por uno, una por una.\n\nGracias a todos/as por compartir y por uniros hoy a esta sesión.\n\n> Finaliza la sesión para enviar a todos/as a la experiencia de salida."
+          }
+        ],
+        "type": "host"
+      },
+      {
+        "content": {
+          "text": "Bien hecho. Experimentar acciones de bondad puede hacernos sentir conectados/as y fomentar un sentido de pertenencia. Si quieres, puedes continuar con una práctica para llevar esto a tu vida diaria.\n\nPlanea un acto de bondad sencillo que puedas realizar durante el día y observa cómo afecta tanto a los demás como a ti mismo/a.",
+          "image": {
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1699611439/Images/asynk_image_seeing_kindness_vfmrmu.png"
+          }
+        },
+        "type": "instruction"
+      }
+    ],
+    "id": "648e1802-eb45-47b0-a42e-dd986669a4eb",
+    "liveDuration": 30,
+    "theme": {
+      "textColor": "#2E2E2E",
+      "backgroundColor": "#f7dfc9"
+    },
+    "hidden": false,
+    "live": true,
+    "published": false,
+    "asyncDuration": 4,
+    "card": {
+      "backgroundColor": "",
+      "image": {
+        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1699611438/Images/card_image_seeing_kindness_haxh2q.png"
+      }
+    },
+    "coCreators": [
+      {
+        "name": "Jenny Rickardsson, voice and editor",
+        "url": "https://www.linkedin.com/in/jenny-rickardson-6770a959/",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413228/Contributors/Jenny%20Rickardsson.jpg"
+      },
+      {
+        "name": "Ints Ivanovskis, art works",
+        "url": "https://www.linkedin.com/in/ints-ivanovskis-46ab0311a/",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413436/Contributors/Ints%20Ivanovskis.jpg"
+      },
+      {
+        "name": "Jonathan Haidt & Sara Algoe, inspiration & research",
+        "url": "https://ggie.berkeley.edu/",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1700736672/Contributors/Greatergoodsciencelogo.png"
+      }
+    ],
+    "tags": [
+      "43a6dc0d-d866-4b79-9453-13c44e906128"
+    ],
+    "link": "https://aware.29k.org/seeing-kindness",
+    "async": true
   },
   "pt-BR": {
     "description": "Recordar um momento de gentileza pode ser uma fonte de inspiração. Ver atos de gentileza desperta respostas emocionais positivas e pode até trazer uma sensação de admiração. Essas ações promovem esperança e conexão, além de terem o potencial de se espalhar para outras pessoas",

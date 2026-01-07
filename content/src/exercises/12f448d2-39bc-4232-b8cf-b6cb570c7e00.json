@@ -549,10 +549,11 @@
     "id": "12f448d2-39bc-4232-b8cf-b6cb570c7e00"
   },
   "es": {
+    "description": "Prestar atención a lo que vemos cuando miramos hacia el cielo puede mejorar nuestra sensación de conexión y presencia, además de inspirar asombro. La investigación muestra que practicar estas habilidades puede ayudarnos a sentirnos más plenos y satisfechos con la vida. Ten en cuenta que este ejercicio es mejor hacerlo al aire libre.",
     "introPortal": {
       "hostNotes": [
         {
-          "text": "Inicia la sesión cuando estés listo/a para comenzar"
+          "text": "> Inicia la sesión cuando estés listo/a para comenzar"
         }
       ],
       "videoLoop": {
@@ -566,11 +567,12 @@
         "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1697630707/Video/portal2_sky_gazing_nlgcbd.mp4"
       }
     },
+    "name": "Contemplar el cielo",
     "slides": [
       {
         "hostNotes": [
           {
-            "text": "Bienvenidos/as. Soy X y hoy trabajaremos durante unos 30 minutos en honrar ***.\n\nHaremos un ejercicio en ***, seguido de un momento para reflexionar y compartir entre nosotros/as."
+            "text": "Bienvenidos/as. Soy X y hoy vamos a dedicar unos 30 minutos a trabajar la presencia, la atención y el asombro.\n\nEmpezaremos con un ejercicio de mindfulness y luego tendremos un momento para reflexionar y compartir entre nosotros/as."
           },
           {
             "text": "Comencemos con una pequeña reflexión sobre cómo estamos. ¿Cómo te sientes en este momento? Por favor, responde en dos o tres palabras. X, ¿te gustaría empezar?\n\n> Permite que todos/as en la sesión, incluido tú, compartan uno a uno, una a una.\n\nGracias a todos/as por compartir. ¡Empecemos!"
@@ -579,15 +581,20 @@
         "type": "host"
       },
       {
-        "type": "instruction",
         "content": {
-          "text": "Sky gazing practises being here and now, looking up into the sky. Start the exercise when you are outside, ready to look up for around seven minutes.",
+          "text": "Observar el cielo es un ejercicio para practicar estar plenamente aquí y ahora, simplemente mirando hacia arriba, hacia el cielo. Empieza cuando estés al aire libre y prepárate para pasar unos siete minutos contemplando el cielo.",
           "image": {
             "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1697630657/Images/card_image_sky_gazing_wloxhk.png"
           }
-        }
+        },
+        "type": "instruction"
       },
       {
+        "hostNotes": [
+          {
+            "text": "> Pulsa play para comenzar el ejercicio"
+          }
+        ],
         "type": "content",
         "content": {
           "lottie": {
@@ -596,32 +603,35 @@
             "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1676642915/Lottie/default_audio_white_sufmbz.json",
             "durationTimer": true
           }
+        }
+      },
+      {
+        "content": {
+          "heading": "¿Qué descubriste?",
+          "lottie": {
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1676642915/Lottie/default_1min_white_wvgwma.json",
+            "durationTimer": false
+          }
         },
         "hostNotes": [
           {
-            "text": "> Press play to start the audio file"
-          }
-        ]
-      },
-      {
-        "hostNotes": [
-          {
-            "text": "Now we’ll take 1 minute to reflect on our own.\n\nWhat did you discover during the exercise?"
+            "text": "Ahora tomaremos 1 minuto para reflexionar individualmente.\n\n¿Qué descubriste durante el ejercicio?"
           },
           {
             "text": "Puedes tomar notas en un papel o mentalmente. No hay respuestas correctas o incorrectas, cada uno/a tiene sus propias respuestas. 1 minuto, empezando ahora.\n\n> Pulsa play para iniciar el temporizador.\n\nHa pasado 1 minuto, vamos a continuar."
           }
         ],
-        "type": "reflection",
-        "content": {
-          "heading": "What did you discover?",
-          "lottie": {
-            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1676642915/Lottie/default_1min_white_wvgwma.json",
-            "durationTimer": false
-          }
-        }
+        "type": "reflection"
       },
       {
+        "content": {
+          "heading": "¿Qué descubriste?",
+          "lottie": {
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1676639253/Lottie/default_2min_white_arvrf2.json",
+            "durationTimer": true,
+            "duration": 120
+          }
+        },
         "hostNotes": [
           {
             "text": "Ahora entramos en la parte de compartir. Tenemos tres reglas para compartir:\n\n1. **Lo que se diga aquí, se queda aquí.**\n2. **Todo lo que necesitas hacer es escuchar.** No se necesita arreglar, ayudar ni dar consejos. Solo estamos presentes y explorando lo que nosotros/as mismos/as y los/las demás estamos experimentando."
@@ -634,20 +644,12 @@
           }
         ],
         "type": "sharing",
-        "id": "1",
-        "content": {
-          "heading": "What did you discover?",
-          "lottie": {
-            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1676639253/Lottie/default_2min_white_arvrf2.json",
-            "durationTimer": true,
-            "duration": 120
-          }
-        }
+        "id": "1"
       },
       {
         "hostNotes": [
           {
-            "text": "Well done. Noticing what’s here and now above us, can improve our sense of connection and presence. If you’re up for it, you can bring this into your everyday life with this mission:\n\nFor the next two days, take a few minutes each day and look up. Pay attention to what you see in the sky, letting things come and go as they are."
+            "text": "Bien hecho. Observar el cielo aquí y ahora puede mejorar nuestra sensación de conexión y presencia. Si quieres, puedes llevarlo a tu día a día con esta práctica:\n\nDurante los próximos dos días, dedica cada día unos minutos a contemplar el cielo. Fíjate en lo que ves en él y deja que todo ocurra tal como es."
           },
           {
             "text": "Antes de salir de este espacio, hagamos una breve reflexión sobre qué ha cambiado.\n\n¿Cómo te sientes en este momento? ¿Ha cambiado algo? Por favor, responde en dos o tres palabras."
@@ -659,13 +661,13 @@
         "type": "host"
       },
       {
-        "type": "instruction",
         "content": {
-          "text": "Well done. \n\nNoticing what’s here and now above us, can improve our sense of connection and presence. \n\nIf you’re up for it, you can continue with a mission to bring this into your everyday life.\n\nThe next two days, take a few minutes each day and look up. Pay attention to what you see in the sky, letting things come and go as they are.",
+          "text": "Bien hecho. \n\nObservar el cielo aquí y ahora puede mejorar nuestra sensación de conexión y presencia. \n\nSi quieres, puedes llevarlo a tu día a día con esta práctica:\n\nDurante los próximos dos días, dedica cada día unos minutos a contemplar el cielo. Fíjate en lo que ves en él y deja que todo ocurra tal como es.",
           "image": {
             "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1697630657/Images/card_image_sky_gazing_wloxhk.png"
           }
-        }
+        },
+        "type": "instruction"
       }
     ],
     "id": "12f448d2-39bc-4232-b8cf-b6cb570c7e00",
@@ -675,9 +677,8 @@
       "backgroundColor": "#0e529c"
     },
     "hidden": false,
-    "name": "Sky gazing",
     "live": true,
-    "published": true,
+    "published": false,
     "asyncDuration": 8,
     "card": {
       "image": {
@@ -690,8 +691,7 @@
       "43a6dc0d-d866-4b79-9453-13c44e906128"
     ],
     "link": "https://aware.29k.org/sky-gazing",
-    "async": true,
-    "description": "Noticing what’s above us, can improve our sense of being connected and present as well as inspire awe. Research has it that practising these skills can help us feel more fulfilled and satisfied with life. Please note that this exercise is best done outside."
+    "async": true
   },
   "pt-BR": {
     "description": "Notar o que está acima de nós pode melhorar nosso senso de conexão e presença, além de inspirar admiração. Pesquisas indicam que praticar essas habilidades pode nos ajudar a nos sentir mais realizados e satisfeitos com a vida. Vale lembrar que este exercício é melhor realizado ao ar livre, aproveitando o ambiente natural para potencializar a experiência.",
