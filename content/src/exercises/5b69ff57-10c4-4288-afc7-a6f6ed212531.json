@@ -1,318 +1,6 @@
 {
-  "en": {
-    "slides": [
-      {
-        "type": "host",
-        "hostNotes": [
-          {
-            "text": "Welcome\n\nI am X and today we will work for around 30 minutes on imagining different perspectives.\n\nWe’ll be doing an audio exercise, followed by time for reflection and then finally sharing what we experienced with each other if we’re up for it."
-          },
-          {
-            "text": "Let’s start with a mini check-in. How are you feeling right now? Please answer in two-three words. X, would you like to start?\n\n> Let everyone in the session, including yourself, check in one by one.\n\nThank you all for checking in. Let’s get started."
-          }
-        ]
-      },
-      {
-        "type": "content",
-        "content": {
-          "lottie": {
-            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1696255946/Audio/Switch_perspectives_i5herw.mp3",
-            "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1696256068/SRT%20(captions)%20files/Switch_perspectives_dlku4z.srt",
-            "durationTimer": true,
-            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1676977421/Lottie/audio_meditation_default_black_default_omemwt.json"
-          }
-        },
-        "hostNotes": [
-          {
-            "text": "> Press play to start the audio exercise"
-          }
-        ]
-      },
-      {
-        "type": "reflection",
-        "hostNotes": [
-          {
-            "text": "Now we’ll take 1 minute to reflect on our own.\n\nHow did you experience taking different perspectives?"
-          },
-          {
-            "text": "You can take notes on a piece of paper or just mental notes in your head. And there is no right or wrong here, our answers are our own. 1 minute starting now.\n\n> Press play to start the timer.\n\nThat’s 1 minute and it’s time to move on."
-          }
-        ],
-        "content": {
-          "heading": "How did you experience taking different perspectives?",
-          "lottie": {
-            "durationTimer": true,
-            "duration": 60,
-            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1676642915/Lottie/default_1min_black_rosi2l.json"
-          }
-        }
-      },
-      {
-        "type": "sharing",
-        "hostNotes": [
-          {
-            "text": "Now we are getting into the sharing part. We have three rules for sharing:\n\n1. **What is said in here, stays in here.**\n2. **All you need to do is listen.** There is no fixing, helping or advice-giving needed. We are just showing up and exploring what ourselves and others are going through."
-          },
-          {
-            "text": "3. **Everything on the inside is okay.** Anger, love, hatred, sadness. Whatever shows up. No wrongs, no rights. It is what it is.\n\nThere will be a timer set for 2 minutes as an indicator. If you don’t want to share you can always say ‘pass’."
-          },
-          {
-            "text": "Who would like to start?\n\n> Let everyone (or as many as you got time for) share one by one. Press play to start the timer. Re-start for each new sharing.\n\nThank you so much everyone."
-          }
-        ],
-        "id": "1",
-        "content": {
-          "heading": "How did you experience taking different perspectives?",
-          "lottie": {
-            "durationTimer": true,
-            "duration": 120,
-            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1676639253/Lottie/default_2min_black_o6egey.json"
-          }
-        }
-      },
-      {
-        "type": "host",
-        "hostNotes": [
-          {
-            "text": "Well done. If you’re up for it, you can continue with a mission to bring this into your everyday life.\n\nThe next time you face a problem, imagine a few different stake holders and actively take their perspective before deciding where to go. This can help us deal with complex issues and consider both logical and emotional aspects of the things we face in life."
-          },
-          {
-            "text": "Before we leave this space let’s do a mini check-out. \n\nHow are you feeling right now? Has anything shifted? Please answer in two-three words."
-          },
-          {
-            "text": "Who would like to start?\n\n> Let everyone in the session check out one by one.\n\nThank you all for checking out and for joining this session today.\n\n> Finish session to send everyone off to the exit experience."
-          }
-        ]
-      },
-      {
-        "type": "instruction",
-        "content": {
-          "text": "If you’re up for it, you can continue with a mission to bring this into your everyday life.\n\nThe next time you face a problem, imagine a few different stake holders and actively take their perspective before deciding where to go. \n\nThis can help us deal with complex issues and consider both logical and emotional aspects of the things we face in life.",
-          "image": {
-            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1699017217/Images/card_image_switch_perspective_dyn7uv.png"
-          },
-          "heading": "Well done"
-        }
-      }
-    ],
-    "theme": {
-      "textColor": "#2E2E2E",
-      "backgroundColor": "#f1e6dc"
-    },
-    "hidden": false,
-    "name": "Switch perspectives",
-    "live": true,
-    "published": true,
-    "card": {
-      "image": {
-        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1699017217/Images/card_image_switch_perspective_dyn7uv.png"
-      }
-    },
-    "coCreators": [
-      {
-        "name": "Jenny Rickardsson, script and voice",
-        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1682602411/Images/Jenny_Rickardsson_kopia_sdodwf.jpg",
-        "url": "https://www.linkedin.com/in/jenny-rickardson-6770a959/"
-      },
-      {
-        "name": "Ints Ivanovskis, art works",
-        "url": "https://www.linkedin.com/in/ints-ivanovskis-46ab0311a/",
-        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413436/Contributors/Ints%20Ivanovskis.jpg"
-      },
-      {
-        "name": "Anke de Vrieze, inspiration and research",
-        "url": "https://transitionmakers.nl/community/#tabpanel-Relating",
-        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1700730663/Contributors/transitionmakerstoolbox.logo.png"
-      }
-    ],
-    "asyncDuration": 10,
-    "liveDuration": 40,
-    "introPortal": {
-      "hostNotes": [
-        {
-          "text": "> Start the session when you're ready to go"
-        }
-      ],
-      "videoLoop": {
-        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1699017283/Video/portal1_switch_perspective_zgrfie.mp4",
-        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1699017325/Audio/portal_audio_switch_perspective_usivda.mp3",
-        "p5JsScript": {
-          "lang": "javascript"
-        }
-      },
-      "videoEnd": {
-        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1699017279/Video/portal2_switch_perspective_eclkl6.mp4"
-      }
-    },
-    "tags": [
-      "566aeb1b-1649-4f5a-96a2-0c80be27efc0",
-      "9c2c08a9-7dc6-4058-bc78-016d0eb00614"
-    ],
-    "link": "https://aware.29k.org/switch-perspectives",
-    "id": "5b69ff57-10c4-4288-afc7-a6f6ed212531",
-    "async": true,
-    "description": "Listen to a story and imagine you are different creatures facing a problem or an opportunity. Deliberately thinking from diverse perspectives can help us regulate emotions, inspire new ideas and make us act with others in mind."
-  },
-  "pt-PT": {
-    "slides": [
-      {
-        "type": "host",
-        "hostNotes": [
-          {
-            "text": "Bem-vindos. Eu sou X e hoje iremos trabalhar durante cerca de 30 minutos a imaginar diferentes perspetivas.\n\nVamos fazer um exercício de áudio, seguido de um tempo para reflexão e partilha entre nós."
-          },
-          {
-            "text": "Vamos começar com um pequeno check-in. Como te estás a sentir? Por favor, responde em duas ou três palavras. X, queres começar?\n\n> Deixa que todos na sessão, incluindo-te a ti, façam o check-in individualmente.\n\nObrigada/o a todos por fazerem o check-in. Vamos começar."
-          }
-        ]
-      },
-      {
-        "type": "content",
-        "content": {
-          "lottie": {
-            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1728289982/FJN/Meditations/Cristina/TROCAR_DE_PERSPECTIVAS_dh4kxm.mp3",
-            "subtitles": "",
-            "durationTimer": true,
-            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1676977421/Lottie/audio_meditation_default_black_default_omemwt.json"
-          }
-        },
-        "hostNotes": [
-          {
-            "text": "Encontra uma posição confortável. Vou iniciar o exercício de áudio e voltamos aqui depois.\n\n> Carrega em play para iniciar o exercício"
-          }
-        ]
-      },
-      {
-        "type": "reflection",
-        "hostNotes": [
-          {
-            "text": "Agora vamos tirar 1 minuto para refletir individualmente.\n\nComo foi para ti a experiência de assumir diferentes perspetivas?"
-          },
-          {
-            "text": "Podes tomar notas num pedaço de papel ou mentalmente. Não há certo ou errado, as nossas respostas são só nossas. 1 minuto a partir de agora.\n\n> Carrega em play para iniciar o cronómetro.\n\nPassou 1 minuto e é hora de avançar."
-          }
-        ],
-        "content": {
-          "heading": "Como foi para ti a experiência de assumir diferentes perspetivas?",
-          "lottie": {
-            "durationTimer": true,
-            "duration": 60,
-            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1676642915/Lottie/default_1min_black_rosi2l.json"
-          }
-        }
-      },
-      {
-        "type": "sharing",
-        "hostNotes": [
-          {
-            "text": "Agora passamos para a parte da partilha. Temos três regras para partilhar:\n\n1. **O que é dito aqui, fica aqui.**\n2. **Só precisas de ouvir.** Não é necessário corrigir, ajudar ou dar conselhos. Estamos apenas a explorar o que nós e os outros estão a passar."
-          },
-          {
-            "text": "3. **Tudo o que sentires é válido.** Raiva, amor, ódio, tristeza. O que quer que surja. Não há certo ou errado. É o que é.\n\nHaverá um cronómetro de 2 minutos como indicador. Se não quiseres partilhar, podes sempre dizer 'passo'."
-          },
-          {
-            "text": "Quem gostaria de começar?\n\n> Deixa que todos (ou os que houver tempo) partilhem individualmente. Carrega em play para iniciar o cronómetro. Reinicia para cada nova partilha.\n\nMuito obrigada/o a todos."
-          }
-        ],
-        "id": "1",
-        "content": {
-          "heading": "Como foi para ti a experiência de assumir diferentes perspetivas?",
-          "lottie": {
-            "durationTimer": true,
-            "duration": 120,
-            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1676639253/Lottie/default_2min_black_o6egey.json"
-          }
-        }
-      },
-      {
-        "type": "host",
-        "hostNotes": [
-          {
-            "text": "Muito bem. Se estiveres com disposição, podes continuar com a missão de trazer isto para o teu dia-a-dia.\n\nDa próxima vez que enfrentares um problema, imagina algumas partes interessadas e assume ativamente a perspetiva delas antes de decidires qual o caminho a seguir. Isto pode ajudar-nos a lidar com questões complexas e a considerar tanto os aspetos lógicos quanto emocionais das situações que enfrentamos na vida."
-          },
-          {
-            "text": "Antes de deixarmos este espaço, vamos fazer um pequeno check-out. \n\nComo te sentes agora? Alguma coisa mudou? Responde por favor em duas ou três palavras."
-          },
-          {
-            "text": "Quem gostaria de começar?\n\n> Deixa que todos na sessão façam o check-out individualmente.\n\nObrigada/o a todos por fazerem o check-out final e por participarem nesta sessão de hoje.\n\n> Termina a sessão e envia todos para a experiência de saída."
-          }
-        ]
-      },
-      {
-        "type": "instruction",
-        "content": {
-          "text": "Se estiveres com disposição, podes continuar com a missão de trazer isto para o teu dia-a-dia.\n\nDa próxima vez que enfrentares um problema, imagina algumas partes interessadas e assume ativamente a perspetiva delas antes de decidires qual o caminho a seguir.\n\nIsto pode ajudar-nos a lidar com questões complexas e a considerar tanto os aspetos lógicos quanto emocionais das situações que enfrentamos na vida.",
-          "image": {
-            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1699017217/Images/card_image_switch_perspective_dyn7uv.png"
-          },
-          "heading": "Parabéns"
-        }
-      }
-    ],
-    "theme": {
-      "textColor": "#2E2E2E",
-      "backgroundColor": "#f1e6dc"
-    },
-    "hidden": false,
-    "name": "Mudar de perspetivas",
-    "live": true,
-    "published": true,
-    "card": {
-      "image": {
-        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1699017217/Images/card_image_switch_perspective_dyn7uv.png"
-      }
-    },
-    "coCreators": [
-      {
-        "name": "Jenny Rickardsson, script and voice",
-        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1682602411/Images/Jenny_Rickardsson_kopia_sdodwf.jpg",
-        "url": "https://www.linkedin.com/in/jenny-rickardson-6770a959/"
-      },
-      {
-        "name": "Ints Ivanovskis, art works",
-        "url": "https://www.linkedin.com/in/ints-ivanovskis-46ab0311a/",
-        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413436/Contributors/Ints%20Ivanovskis.jpg"
-      },
-      {
-        "name": "Anke de Vrieze, inspiration and research",
-        "url": "https://transitionmakers.nl/community/#tabpanel-Relating",
-        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1700730663/Contributors/transitionmakerstoolbox.logo.png"
-      },
-      {
-        "name": "Cristina Alves, voz em Português",
-        "url": "https://www.instagram.com/meditar.com.cristina/profilecard/?igsh=cTg5dDNjZ2Y5aTU0",
-        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1728375093/FJN/People/Cristina_Alves_zt1btx.png"
-      }
-    ],
-    "asyncDuration": 10,
-    "liveDuration": 40,
-    "introPortal": {
-      "hostNotes": [
-        {
-          "text": "> Inicia a sessão quando estiveres pronta/o para começar"
-        }
-      ],
-      "videoLoop": {
-        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1699017283/Video/portal1_switch_perspective_zgrfie.mp4",
-        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1699017325/Audio/portal_audio_switch_perspective_usivda.mp3",
-        "p5JsScript": {
-          "lang": "javascript"
-        }
-      },
-      "videoEnd": {
-        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1699017279/Video/portal2_switch_perspective_eclkl6.mp4"
-      }
-    },
-    "tags": [
-      "566aeb1b-1649-4f5a-96a2-0c80be27efc0",
-      "9c2c08a9-7dc6-4058-bc78-016d0eb00614"
-    ],
-    "link": "https://aware.29k.org/switch-perspectives",
-    "id": "5b69ff57-10c4-4288-afc7-a6f6ed212531",
-    "async": true,
-    "description": "Ouve uma história e imagina que és uma criatura diferente a enfrentar um problema ou uma oportunidade. Pensar deliberadamente a partir de perspetivas diversas pode ajudar-nos a regular as emoções, inspirar novas ideias e a agir tendo os outros em mente."
-  },
   "sv": {
+    "liveDuration": 40,
     "slides": [
       {
         "type": "host",
@@ -416,6 +104,7 @@
     "name": "Ändra perspektiv",
     "live": true,
     "published": true,
+    "asyncDuration": 10,
     "card": {
       "image": {
         "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1699017217/Images/card_image_switch_perspective_dyn7uv.png"
@@ -438,8 +127,6 @@
         "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1700730663/Contributors/transitionmakerstoolbox.logo.png"
       }
     ],
-    "asyncDuration": 10,
-    "liveDuration": 40,
     "introPortal": {
       "hostNotes": [
         {
@@ -463,13 +150,14 @@
     "async": true,
     "description": "Lyssna på en historia och föreställ dig att du är olika varelser som funderar på samma problem. Att medvetet ta olika perspektiv kan hjälpa oss att reglera känslor, få nya idéer och ta beslut som inte bara utgår ifrån oss själva."
   },
-  "ja": {
+  "en": {
+    "liveDuration": 40,
     "slides": [
       {
         "type": "host",
         "hostNotes": [
           {
-            "text": "Welcome. I am X and today we will work for around 30 minutes on xx\n\nWe’ll be doing xx ex. meditation followed by time for reflection and sharing with each other."
+            "text": "Welcome\n\nI am X and today we will work for around 30 minutes on imagining different perspectives.\n\nWe’ll be doing an audio exercise, followed by time for reflection and then finally sharing what we experienced with each other if we’re up for it."
           },
           {
             "text": "Let’s start with a mini check-in. How are you feeling right now? Please answer in two-three words. X, would you like to start?\n\n> Let everyone in the session, including yourself, check in one by one.\n\nThank you all for checking in. Let’s get started."
@@ -477,18 +165,39 @@
         ]
       },
       {
-        "type": "content"
+        "type": "content",
+        "content": {
+          "lottie": {
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1696255946/Audio/Switch_perspectives_i5herw.mp3",
+            "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1696256068/SRT%20(captions)%20files/Switch_perspectives_dlku4z.srt",
+            "durationTimer": true,
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1676977421/Lottie/audio_meditation_default_black_default_omemwt.json"
+          }
+        },
+        "hostNotes": [
+          {
+            "text": "> Press play to start the audio exercise"
+          }
+        ]
       },
       {
         "type": "reflection",
         "hostNotes": [
           {
-            "text": "Now we’ll take 1 minute to reflect on our own.\n\nxxMain question\n\nxxFurther explanations of main question if needed"
+            "text": "Now we’ll take 1 minute to reflect on our own.\n\nHow did you experience taking different perspectives?"
           },
           {
             "text": "You can take notes on a piece of paper or just mental notes in your head. And there is no right or wrong here, our answers are our own. 1 minute starting now.\n\n> Press play to start the timer.\n\nThat’s 1 minute and it’s time to move on."
           }
-        ]
+        ],
+        "content": {
+          "heading": "How did you experience taking different perspectives?",
+          "lottie": {
+            "durationTimer": true,
+            "duration": 60,
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1676642915/Lottie/default_1min_black_rosi2l.json"
+          }
+        }
       },
       {
         "type": "sharing",
@@ -502,13 +211,22 @@
           {
             "text": "Who would like to start?\n\n> Let everyone (or as many as you got time for) share one by one. Press play to start the timer. Re-start for each new sharing.\n\nThank you so much everyone."
           }
-        ]
+        ],
+        "id": "1",
+        "content": {
+          "heading": "How did you experience taking different perspectives?",
+          "lottie": {
+            "durationTimer": true,
+            "duration": 120,
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1676639253/Lottie/default_2min_black_o6egey.json"
+          }
+        }
       },
       {
         "type": "host",
         "hostNotes": [
           {
-            "text": "Well done. If you’re up for it, you can continue what we started here today with a mission to bring this into your everyday life.\n\nxx mission description"
+            "text": "Well done. If you’re up for it, you can continue with a mission to bring this into your everyday life.\n\nThe next time you face a problem, imagine a few different stake holders and actively take their perspective before deciding where to go. This can help us deal with complex issues and consider both logical and emotional aspects of the things we face in life."
           },
           {
             "text": "Before we leave this space let’s do a mini check-out. \n\nHow are you feeling right now? Has anything shifted? Please answer in two-three words."
@@ -521,49 +239,49 @@
       {
         "type": "instruction",
         "content": {
-          "text": "Well done.\n\nSummary.\n\nIf you’re up for it, you can continue with this mission.\n\nmission description"
+          "text": "If you’re up for it, you can continue with a mission to bring this into your everyday life.\n\nThe next time you face a problem, imagine a few different stake holders and actively take their perspective before deciding where to go. \n\nThis can help us deal with complex issues and consider both logical and emotional aspects of the things we face in life.",
+          "image": {
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1699017217/Images/card_image_switch_perspective_dyn7uv.png"
+          },
+          "heading": "Well done"
         }
       }
     ],
     "theme": {
-      "textColor": "#2AE2D7"
+      "textColor": "#2E2E2E",
+      "backgroundColor": "#f1e6dc"
     },
     "hidden": false,
+    "name": "Switch perspectives",
     "live": true,
-    "published": false,
-    "card": {},
+    "published": true,
     "asyncDuration": 10,
-    "liveDuration": 40,
+    "card": {
+      "image": {
+        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1699017217/Images/card_image_switch_perspective_dyn7uv.png"
+      }
+    },
+    "coCreators": [
+      {
+        "name": "Jenny Rickardsson, script and voice",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1682602411/Images/Jenny_Rickardsson_kopia_sdodwf.jpg",
+        "url": "https://www.linkedin.com/in/jenny-rickardson-6770a959/"
+      },
+      {
+        "name": "Ints Ivanovskis, art works",
+        "url": "https://www.linkedin.com/in/ints-ivanovskis-46ab0311a/",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413436/Contributors/Ints%20Ivanovskis.jpg"
+      },
+      {
+        "name": "Anke de Vrieze, inspiration and research",
+        "url": "https://transitionmakers.nl/community/#tabpanel-Relating",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1700730663/Contributors/transitionmakerstoolbox.logo.png"
+      }
+    ],
     "introPortal": {
       "hostNotes": [
         {
           "text": "> Start the session when you're ready to go"
-        }
-      ]
-    },
-    "tags": [
-      "566aeb1b-1649-4f5a-96a2-0c80be27efc0",
-      "9c2c08a9-7dc6-4058-bc78-016d0eb00614"
-    ],
-    "link": "https://aware.29k.org/switch-perspectives",
-    "id": "5b69ff57-10c4-4288-afc7-a6f6ed212531",
-    "async": false
-  },
-  "da": {
-    "id": "5b69ff57-10c4-4288-afc7-a6f6ed212531"
-  },
-  "cs": {
-    "id": "5b69ff57-10c4-4288-afc7-a6f6ed212531"
-  },
-  "nl": {
-    "id": "5b69ff57-10c4-4288-afc7-a6f6ed212531"
-  },
-  "es": {
-    "description": "Escucha una historia e imagina ser distintas criaturas que se enfrentan a un problema o a una oportunidad.\nPensar deliberadamente desde perspectivas diversas puede ayudarnos a regular las emociones, inspirar nuevas ideas y hacernos actuar teniendo en cuenta a los demás.",
-    "introPortal": {
-      "hostNotes": [
-        {
-          "text": "> Inicia la sesión cuando estés listo/a para comenzar"
         }
       ],
       "videoLoop": {
@@ -577,7 +295,176 @@
         "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1699017279/Video/portal2_switch_perspective_eclkl6.mp4"
       }
     },
-    "name": "Cambio de perspectiva",
+    "tags": [
+      "566aeb1b-1649-4f5a-96a2-0c80be27efc0",
+      "9c2c08a9-7dc6-4058-bc78-016d0eb00614"
+    ],
+    "link": "https://aware.29k.org/switch-perspectives",
+    "id": "5b69ff57-10c4-4288-afc7-a6f6ed212531",
+    "async": true,
+    "description": "Listen to a story and imagine you are different creatures facing a problem or an opportunity. Deliberately thinking from diverse perspectives can help us regulate emotions, inspire new ideas and make us act with others in mind."
+  },
+  "pt-PT": {
+    "liveDuration": 40,
+    "slides": [
+      {
+        "type": "host",
+        "hostNotes": [
+          {
+            "text": "Bem-vindos. Eu sou X e hoje iremos trabalhar durante cerca de 30 minutos a imaginar diferentes perspetivas.\n\nVamos fazer um exercício de áudio, seguido de um tempo para reflexão e partilha entre nós."
+          },
+          {
+            "text": "Vamos começar com um pequeno check-in. Como te estás a sentir? Por favor, responde em duas ou três palavras. X, queres começar?\n\n> Deixa que todos na sessão, incluindo-te a ti, façam o check-in individualmente.\n\nObrigada/o a todos por fazerem o check-in. Vamos começar."
+          }
+        ]
+      },
+      {
+        "type": "content",
+        "content": {
+          "lottie": {
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1728289982/FJN/Meditations/Cristina/TROCAR_DE_PERSPECTIVAS_dh4kxm.mp3",
+            "subtitles": "",
+            "durationTimer": true,
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1676977421/Lottie/audio_meditation_default_black_default_omemwt.json"
+          }
+        },
+        "hostNotes": [
+          {
+            "text": "Encontra uma posição confortável. Vou iniciar o exercício de áudio e voltamos aqui depois.\n\n> Carrega em play para iniciar o exercício"
+          }
+        ]
+      },
+      {
+        "type": "reflection",
+        "hostNotes": [
+          {
+            "text": "Agora vamos tirar 1 minuto para refletir individualmente.\n\nComo foi para ti a experiência de assumir diferentes perspetivas?"
+          },
+          {
+            "text": "Podes tomar notas num pedaço de papel ou mentalmente. Não há certo ou errado, as nossas respostas são só nossas. 1 minuto a partir de agora.\n\n> Carrega em play para iniciar o cronómetro.\n\nPassou 1 minuto e é hora de avançar."
+          }
+        ],
+        "content": {
+          "heading": "Como foi para ti a experiência de assumir diferentes perspetivas?",
+          "lottie": {
+            "durationTimer": true,
+            "duration": 60,
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1676642915/Lottie/default_1min_black_rosi2l.json"
+          }
+        }
+      },
+      {
+        "type": "sharing",
+        "hostNotes": [
+          {
+            "text": "Agora passamos para a parte da partilha. Temos três regras para partilhar:\n\n1. **O que é dito aqui, fica aqui.**\n2. **Só precisas de ouvir.** Não é necessário corrigir, ajudar ou dar conselhos. Estamos apenas a explorar o que nós e os outros estão a passar."
+          },
+          {
+            "text": "3. **Tudo o que sentires é válido.** Raiva, amor, ódio, tristeza. O que quer que surja. Não há certo ou errado. É o que é.\n\nHaverá um cronómetro de 2 minutos como indicador. Se não quiseres partilhar, podes sempre dizer 'passo'."
+          },
+          {
+            "text": "Quem gostaria de começar?\n\n> Deixa que todos (ou os que houver tempo) partilhem individualmente. Carrega em play para iniciar o cronómetro. Reinicia para cada nova partilha.\n\nMuito obrigada/o a todos."
+          }
+        ],
+        "id": "1",
+        "content": {
+          "heading": "Como foi para ti a experiência de assumir diferentes perspetivas?",
+          "lottie": {
+            "durationTimer": true,
+            "duration": 120,
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1676639253/Lottie/default_2min_black_o6egey.json"
+          }
+        }
+      },
+      {
+        "type": "host",
+        "hostNotes": [
+          {
+            "text": "Muito bem. Se estiveres com disposição, podes continuar com a missão de trazer isto para o teu dia-a-dia.\n\nDa próxima vez que enfrentares um problema, imagina algumas partes interessadas e assume ativamente a perspetiva delas antes de decidires qual o caminho a seguir. Isto pode ajudar-nos a lidar com questões complexas e a considerar tanto os aspetos lógicos quanto emocionais das situações que enfrentamos na vida."
+          },
+          {
+            "text": "Antes de deixarmos este espaço, vamos fazer um pequeno check-out. \n\nComo te sentes agora? Alguma coisa mudou? Responde por favor em duas ou três palavras."
+          },
+          {
+            "text": "Quem gostaria de começar?\n\n> Deixa que todos na sessão façam o check-out individualmente.\n\nObrigada/o a todos por fazerem o check-out final e por participarem nesta sessão de hoje.\n\n> Termina a sessão e envia todos para a experiência de saída."
+          }
+        ]
+      },
+      {
+        "type": "instruction",
+        "content": {
+          "text": "Se estiveres com disposição, podes continuar com a missão de trazer isto para o teu dia-a-dia.\n\nDa próxima vez que enfrentares um problema, imagina algumas partes interessadas e assume ativamente a perspetiva delas antes de decidires qual o caminho a seguir.\n\nIsto pode ajudar-nos a lidar com questões complexas e a considerar tanto os aspetos lógicos quanto emocionais das situações que enfrentamos na vida.",
+          "image": {
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1699017217/Images/card_image_switch_perspective_dyn7uv.png"
+          },
+          "heading": "Parabéns"
+        }
+      }
+    ],
+    "theme": {
+      "textColor": "#2E2E2E",
+      "backgroundColor": "#f1e6dc"
+    },
+    "hidden": false,
+    "name": "Mudar de perspetivas",
+    "live": true,
+    "published": true,
+    "asyncDuration": 10,
+    "card": {
+      "image": {
+        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1699017217/Images/card_image_switch_perspective_dyn7uv.png"
+      }
+    },
+    "coCreators": [
+      {
+        "name": "Jenny Rickardsson, script and voice",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1682602411/Images/Jenny_Rickardsson_kopia_sdodwf.jpg",
+        "url": "https://www.linkedin.com/in/jenny-rickardson-6770a959/"
+      },
+      {
+        "name": "Ints Ivanovskis, art works",
+        "url": "https://www.linkedin.com/in/ints-ivanovskis-46ab0311a/",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413436/Contributors/Ints%20Ivanovskis.jpg"
+      },
+      {
+        "name": "Anke de Vrieze, inspiration and research",
+        "url": "https://transitionmakers.nl/community/#tabpanel-Relating",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1700730663/Contributors/transitionmakerstoolbox.logo.png"
+      },
+      {
+        "name": "Cristina Alves, voz em Português",
+        "url": "https://www.instagram.com/meditar.com.cristina/profilecard/?igsh=cTg5dDNjZ2Y5aTU0",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1728375093/FJN/People/Cristina_Alves_zt1btx.png"
+      }
+    ],
+    "introPortal": {
+      "hostNotes": [
+        {
+          "text": "> Inicia a sessão quando estiveres pronta/o para começar"
+        }
+      ],
+      "videoLoop": {
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1699017283/Video/portal1_switch_perspective_zgrfie.mp4",
+        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1699017325/Audio/portal_audio_switch_perspective_usivda.mp3",
+        "p5JsScript": {
+          "lang": "javascript"
+        }
+      },
+      "videoEnd": {
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1699017279/Video/portal2_switch_perspective_eclkl6.mp4"
+      }
+    },
+    "tags": [
+      "566aeb1b-1649-4f5a-96a2-0c80be27efc0",
+      "9c2c08a9-7dc6-4058-bc78-016d0eb00614"
+    ],
+    "link": "https://aware.29k.org/switch-perspectives",
+    "id": "5b69ff57-10c4-4288-afc7-a6f6ed212531",
+    "async": true,
+    "description": "Ouve uma história e imagina que és uma criatura diferente a enfrentar um problema ou uma oportunidade. Pensar deliberadamente a partir de perspetivas diversas pode ajudar-nos a regular as emoções, inspirar novas ideias e a agir tendo os outros em mente."
+  },
+  "es": {
+    "liveDuration": 40,
     "slides": [
       {
         "hostNotes": [
@@ -599,8 +486,8 @@
         "type": "content",
         "content": {
           "lottie": {
-            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1696255946/Audio/Switch_perspectives_i5herw.mp3",
-            "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1696256068/SRT%20(captions)%20files/Switch_perspectives_dlku4z.srt",
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1765452250/Spanish/Audio%20MP3/Cambio_de_perspectiva_AWARE_uyrvvv.mp3",
+            "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1765458573/Spanish/Subtitles%20SRT/Cambio_de_perspectiva_jjthpy.srt",
             "durationTimer": true,
             "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1676977421/Lottie/audio_meditation_default_black_default_omemwt.json"
           }
@@ -673,14 +560,15 @@
         "type": "instruction"
       }
     ],
-    "id": "5b69ff57-10c4-4288-afc7-a6f6ed212531",
     "theme": {
       "textColor": "#2E2E2E",
       "backgroundColor": "#f1e6dc"
     },
     "hidden": false,
+    "name": "Cambio de perspectiva",
     "live": true,
     "published": false,
+    "asyncDuration": 10,
     "card": {
       "image": {
         "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1699017217/Images/card_image_switch_perspective_dyn7uv.png"
@@ -688,7 +576,7 @@
     },
     "coCreators": [
       {
-        "name": "Jenny Rickardsson, script and voice",
+        "name": "Jenny Rickardsson, script",
         "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1682602411/Images/Jenny_Rickardsson_kopia_sdodwf.jpg",
         "url": "https://www.linkedin.com/in/jenny-rickardson-6770a959/"
       },
@@ -701,23 +589,17 @@
         "name": "Anke de Vrieze, inspiration and research",
         "url": "https://transitionmakers.nl/community/#tabpanel-Relating",
         "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1700730663/Contributors/transitionmakerstoolbox.logo.png"
+      },
+      {
+        "name": "Raul Jimenez - voz en Español",
+        "url": "https://www.linkedin.com/in/granraul75/",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1765455020/Spanish/Images/Raul_foto.jpg"
       }
     ],
-    "asyncDuration": 10,
-    "liveDuration": 40,
-    "tags": [
-      "566aeb1b-1649-4f5a-96a2-0c80be27efc0",
-      "9c2c08a9-7dc6-4058-bc78-016d0eb00614"
-    ],
-    "link": "https://aware.29k.org/switch-perspectives",
-    "async": true
-  },
-  "pt-BR": {
-    "description": "Ouça uma história e imagine-se como diferentes criaturas enfrentando um problema ou uma oportunidade. Refletir deliberadamente a partir de perspectivas diversas pode ajudar a regular emoções, inspirar novas ideias e incentivar você a agir levando os outros em consideração.",
     "introPortal": {
       "hostNotes": [
         {
-          "text": ">Comece a sessão quando estiver pronto para seguir"
+          "text": "> Inicia la sesión cuando estés listo/a para comenzar"
         }
       ],
       "videoLoop": {
@@ -731,7 +613,110 @@
         "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1699017279/Video/portal2_switch_perspective_eclkl6.mp4"
       }
     },
-    "name": "Mudar de perspectiva",
+    "tags": [
+      "566aeb1b-1649-4f5a-96a2-0c80be27efc0",
+      "9c2c08a9-7dc6-4058-bc78-016d0eb00614"
+    ],
+    "link": "https://aware.29k.org/switch-perspectives",
+    "id": "5b69ff57-10c4-4288-afc7-a6f6ed212531",
+    "async": true,
+    "description": "Escucha una historia e imagina ser distintas criaturas que se enfrentan a un problema o a una oportunidad.\nPensar deliberadamente desde perspectivas diversas puede ayudarnos a regular las emociones, inspirar nuevas ideas y hacernos actuar teniendo en cuenta a los demás."
+  },
+  "cs": {
+    "id": "5b69ff57-10c4-4288-afc7-a6f6ed212531",
+    "tags": [
+      "566aeb1b-1649-4f5a-96a2-0c80be27efc0",
+      "9c2c08a9-7dc6-4058-bc78-016d0eb00614"
+    ]
+  },
+  "ja": {
+    "liveDuration": 40,
+    "slides": [
+      {
+        "type": "host",
+        "hostNotes": [
+          {
+            "text": "Welcome. I am X and today we will work for around 30 minutes on xx\n\nWe’ll be doing xx ex. meditation followed by time for reflection and sharing with each other."
+          },
+          {
+            "text": "Let’s start with a mini check-in. How are you feeling right now? Please answer in two-three words. X, would you like to start?\n\n> Let everyone in the session, including yourself, check in one by one.\n\nThank you all for checking in. Let’s get started."
+          }
+        ]
+      },
+      {
+        "type": "content"
+      },
+      {
+        "type": "reflection",
+        "hostNotes": [
+          {
+            "text": "Now we’ll take 1 minute to reflect on our own.\n\nxxMain question\n\nxxFurther explanations of main question if needed"
+          },
+          {
+            "text": "You can take notes on a piece of paper or just mental notes in your head. And there is no right or wrong here, our answers are our own. 1 minute starting now.\n\n> Press play to start the timer.\n\nThat’s 1 minute and it’s time to move on."
+          }
+        ]
+      },
+      {
+        "type": "sharing",
+        "hostNotes": [
+          {
+            "text": "Now we are getting into the sharing part. We have three rules for sharing:\n\n1. **What is said in here, stays in here.**\n2. **All you need to do is listen.** There is no fixing, helping or advice-giving needed. We are just showing up and exploring what ourselves and others are going through."
+          },
+          {
+            "text": "3. **Everything on the inside is okay.** Anger, love, hatred, sadness. Whatever shows up. No wrongs, no rights. It is what it is.\n\nThere will be a timer set for 2 minutes as an indicator. If you don’t want to share you can always say ‘pass’."
+          },
+          {
+            "text": "Who would like to start?\n\n> Let everyone (or as many as you got time for) share one by one. Press play to start the timer. Re-start for each new sharing.\n\nThank you so much everyone."
+          }
+        ]
+      },
+      {
+        "type": "host",
+        "hostNotes": [
+          {
+            "text": "Well done. If you’re up for it, you can continue what we started here today with a mission to bring this into your everyday life.\n\nxx mission description"
+          },
+          {
+            "text": "Before we leave this space let’s do a mini check-out. \n\nHow are you feeling right now? Has anything shifted? Please answer in two-three words."
+          },
+          {
+            "text": "Who would like to start?\n\n> Let everyone in the session check out one by one.\n\nThank you all for checking out and for joining this session today.\n\n> Finish session to send everyone off to the exit experience."
+          }
+        ]
+      },
+      {
+        "type": "instruction",
+        "content": {
+          "text": "Well done.\n\nSummary.\n\nIf you’re up for it, you can continue with this mission.\n\nmission description"
+        }
+      }
+    ],
+    "theme": {
+      "textColor": "#2AE2D7"
+    },
+    "hidden": false,
+    "live": true,
+    "published": false,
+    "asyncDuration": 10,
+    "card": {},
+    "introPortal": {
+      "hostNotes": [
+        {
+          "text": "> Start the session when you're ready to go"
+        }
+      ]
+    },
+    "tags": [
+      "566aeb1b-1649-4f5a-96a2-0c80be27efc0",
+      "9c2c08a9-7dc6-4058-bc78-016d0eb00614"
+    ],
+    "link": "https://aware.29k.org/switch-perspectives",
+    "id": "5b69ff57-10c4-4288-afc7-a6f6ed212531",
+    "async": false
+  },
+  "pt-BR": {
+    "liveDuration": 40,
     "slides": [
       {
         "hostNotes": [
@@ -827,14 +812,15 @@
         "type": "instruction"
       }
     ],
-    "id": "5b69ff57-10c4-4288-afc7-a6f6ed212531",
     "theme": {
       "textColor": "#2E2E2E",
       "backgroundColor": "#f1e6dc"
     },
     "hidden": false,
+    "name": "Mudar de perspectiva",
     "live": true,
     "published": false,
+    "asyncDuration": 10,
     "card": {
       "image": {
         "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1699017217/Images/card_image_switch_perspective_dyn7uv.png"
@@ -857,13 +843,44 @@
         "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1700730663/Contributors/transitionmakerstoolbox.logo.png"
       }
     ],
-    "asyncDuration": 10,
-    "liveDuration": 40,
+    "introPortal": {
+      "hostNotes": [
+        {
+          "text": ">Comece a sessão quando estiver pronto para seguir"
+        }
+      ],
+      "videoLoop": {
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1699017283/Video/portal1_switch_perspective_zgrfie.mp4",
+        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1699017325/Audio/portal_audio_switch_perspective_usivda.mp3",
+        "p5JsScript": {
+          "lang": "javascript"
+        }
+      },
+      "videoEnd": {
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1699017279/Video/portal2_switch_perspective_eclkl6.mp4"
+      }
+    },
     "tags": [
       "566aeb1b-1649-4f5a-96a2-0c80be27efc0",
       "9c2c08a9-7dc6-4058-bc78-016d0eb00614"
     ],
     "link": "https://aware.29k.org/switch-perspectives",
-    "async": true
+    "id": "5b69ff57-10c4-4288-afc7-a6f6ed212531",
+    "async": true,
+    "description": "Ouça uma história e imagine-se como diferentes criaturas enfrentando um problema ou uma oportunidade. Refletir deliberadamente a partir de perspectivas diversas pode ajudar a regular emoções, inspirar novas ideias e incentivar você a agir levando os outros em consideração."
+  },
+  "da": {
+    "id": "5b69ff57-10c4-4288-afc7-a6f6ed212531",
+    "tags": [
+      "566aeb1b-1649-4f5a-96a2-0c80be27efc0",
+      "9c2c08a9-7dc6-4058-bc78-016d0eb00614"
+    ]
+  },
+  "nl": {
+    "id": "5b69ff57-10c4-4288-afc7-a6f6ed212531",
+    "tags": [
+      "566aeb1b-1649-4f5a-96a2-0c80be27efc0",
+      "9c2c08a9-7dc6-4058-bc78-016d0eb00614"
+    ]
   }
 }
