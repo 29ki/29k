@@ -1,4 +1,152 @@
 {
+  "sv": {
+    "liveDuration": 30,
+    "slides": [
+      {
+        "type": "host",
+        "hostNotes": [
+          {
+            "text": "Välkommen. Jag heter X och vi kommer att jobba tillsammans i ungefär 30 minuter med närvaro och uppmärksamhet.\n\nVi kommer att lyssna på en ljudövning tillsammans, reflektera en stund för oss själva och sedan finns det möjlighet att dela sina erfarenheter."
+          },
+          {
+            "text": "Vi börjar med en mini-check-in. Hur känner du dig just nu? Svara gärna med två-tre ord. X, skulle du vilja börja?\n\n> Låt alla deltagare, inklusive dig själv, checka in en och en. \n\nTack för att ni checkade in. Då kör vi igång."
+          }
+        ]
+      },
+      {
+        "type": "instruction",
+        "content": {
+          "text": "Sky gazing är en övning i att vara här och nu, medan vi tittar upp och lägger märke til det som pågår ovanför våra huvuden. Sätt igång med övningen när du är utomhus, redo att titta uppåt i ungefär sju minuter.",
+          "image": {
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1697630657/Images/card_image_sky_gazing_wloxhk.png"
+          }
+        }
+      },
+      {
+        "type": "content",
+        "content": {
+          "lottie": {
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1699016845/Audio/Sky_gazing_swe_bidua8.mp3",
+            "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1699016908/SRT%20(captions)%20files/Sky_gazing_swe_if347k.srt",
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1676642915/Lottie/default_audio_white_sufmbz.json",
+            "durationTimer": true
+          }
+        },
+        "hostNotes": [
+          {
+            "text": "> Tryck på play för att starta"
+          }
+        ]
+      },
+      {
+        "type": "reflection",
+        "hostNotes": [
+          {
+            "text": "Nästa steg är att tyst reflektera i en minut.\n\nVad upptäckte du (om dig själv) under övningen?"
+          },
+          {
+            "text": "Om du vill kan du skriva ner dina funderingar på ett papper, eller bara tänka fritt. Det finns inga svar som är rätt eller fel här – vad som än dyker upp är okej.\n\n> Tryck på play för att starta timern.\n\nDå har det gått en minut och det är dags att gå vidare."
+          }
+        ],
+        "content": {
+          "heading": "Vad upptäckte du?",
+          "lottie": {
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1676642915/Lottie/default_1min_white_wvgwma.json",
+            "durationTimer": false
+          }
+        }
+      },
+      {
+        "type": "sharing",
+        "hostNotes": [
+          {
+            "text": "Det här steget handlar om att dela med sig av sin upplevelse och lyssna på andras. Vi har tre regler:\n\n1. **Det som sägs här, stannar här.**\n2. **Allt som behövs är att vi lyssnar på varandra.** Inget fixande, ingen rådgivning eller annan hjälp behövs. Vi är bara här för att utforska våra egna och andras upplevelser."
+          },
+          {
+            "text": "3. **Allt som händer på insidan är okej.** Ilska, kärlek, smärta, glädje. Vad som än dyker upp, det finns inget rätt eller fel. Det bara är som det är.\n\nDet finns en timer på två minuter att hålla sig efter på ett ungefär. Om du inte vill dela med dig är det bara att säga 'pass'."
+          },
+          {
+            "text": "Vem vill börja?\n\n> Låt alla, eller så många som det finns tid för, dela en efter en. Tryck på play för att starta timern. Starta om för varje person.\n\nTack så mycket för att ni lyssnar och delar med er."
+          }
+        ],
+        "id": "1",
+        "content": {
+          "heading": "Vad upptäckte du?",
+          "lottie": {
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1676639253/Lottie/default_2min_white_arvrf2.json",
+            "durationTimer": true,
+            "duration": 120
+          }
+        }
+      },
+      {
+        "type": "host",
+        "hostNotes": [
+          {
+            "text": "Bra jobbat. Att lägga märke till vad som sker ovanför våra huvuden kan förbättra vår känsla av sammanhang och närvaro. Om du vill så finns det ett uppdrag för dig: \nDe kommande två dagarna, ta ett par minuter per dag och titta upp. Lägg märke till vad du ser i himlen och låt saker komma och gå, både på in- och utsida."
+          },
+          {
+            "text": "Innan vi avslutar så gör vi en mini-utcheckning.\nHur känner du dig nu? Har något ändrats? Svara med två-tre ord.\n\nVem vill börja?"
+          },
+          {
+            "text": "> Låt alla checka ut en efter en.\n\nTack så mycket för era utcheckningar, och för att ni deltog i den här sessionen.\n\n> Avsluta sessionen för att skicka deltagarna till exit-upplevelsen."
+          }
+        ]
+      },
+      {
+        "type": "instruction",
+        "content": {
+          "text": "Bra jobbat. \n\nAtt lägga märke till vad som sker ovanför våra huvuden kan förbättra vår känsla av sammanhang och närvaro. \n\nOm du vill så finns det ett uppdrag för dig: \nDe kommande två dagarna, ta ett par minuter per dag och titta upp. Lägg märke till vad du ser i himlen och låt saker komma och gå, både på in- och utsidan.",
+          "image": {
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1697630657/Images/card_image_sky_gazing_wloxhk.png"
+          }
+        }
+      }
+    ],
+    "theme": {
+      "textColor": "#F9F8F4",
+      "backgroundColor": "#0e529c"
+    },
+    "hidden": false,
+    "name": "Sky gazing",
+    "live": true,
+    "published": true,
+    "asyncDuration": 8,
+    "card": {
+      "image": {
+        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1697630657/Images/card_image_sky_gazing_wloxhk.png"
+      }
+    },
+    "coCreators": [
+      {
+        "name": "Jenny Rickardsson, manus och röst",
+        "url": "https://www.linkedin.com/in/jenny-rickardson-6770a959/",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413228/Contributors/Jenny%20Rickardsson.jpg"
+      }
+    ],
+    "introPortal": {
+      "hostNotes": [
+        {
+          "text": "> Starta sessionen när du är redo att börja."
+        }
+      ],
+      "videoLoop": {
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1697630712/Video/portal1_sky_gazing_nzvbyk.mp4",
+        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1697630682/Audio/portal_audio__sky_gazing_zjwzsc.mp3"
+      },
+      "videoEnd": {
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1697630707/Video/portal2_sky_gazing_nlgcbd.mp4"
+      }
+    },
+    "tags": [
+      "cfc00217-f65b-4a4d-8b82-8ccc8f852dd6",
+      "43a6dc0d-d866-4b79-9453-13c44e906128"
+    ],
+    "link": "https://aware.29k.org/sky-gazing",
+    "id": "12f448d2-39bc-4232-b8cf-b6cb570c7e00",
+    "async": true,
+    "description": "Att aktivt lägga märke till det som är ovanför oss kan få oss att känna oss närvarande och som en del av något större. Det kan i sin tur skapa en känsla av mening och göra oss mer nöjda med livet. Den här sessionen görs bäst utomhus."
+  },
   "en": {
     "liveDuration": 30,
     "slides": [
@@ -290,108 +438,108 @@
     "async": true,
     "description": "Contemplar o que está acima de nós pode melhorar o nosso sentido de conexão e presença, além de inspirar admiração. A pesquisa mostra que praticar estas habilidades pode ajudar-nos a sentirmo-nos mais realizados e satisfeitos com a vida. Nota que este exercício é melhor realizado ao ar livre."
   },
-  "sv": {
+  "es": {
     "liveDuration": 30,
     "slides": [
       {
-        "type": "host",
         "hostNotes": [
           {
-            "text": "Välkommen. Jag heter X och vi kommer att jobba tillsammans i ungefär 30 minuter med närvaro och uppmärksamhet.\n\nVi kommer att lyssna på en ljudövning tillsammans, reflektera en stund för oss själva och sedan finns det möjlighet att dela sina erfarenheter."
+            "text": "Bienvenidos/as. Soy X y hoy vamos a dedicar unos 30 minutos a trabajar la presencia, la atención y el asombro.\n\nEmpezaremos con un ejercicio de mindfulness y luego tendremos un momento para reflexionar y compartir entre nosotros/as."
           },
           {
-            "text": "Vi börjar med en mini-check-in. Hur känner du dig just nu? Svara gärna med två-tre ord. X, skulle du vilja börja?\n\n> Låt alla deltagare, inklusive dig själv, checka in en och en. \n\nTack för att ni checkade in. Då kör vi igång."
+            "text": "Comencemos con una pequeña reflexión sobre cómo estamos. ¿Cómo te sientes en este momento? Por favor, responde en dos o tres palabras. X, ¿te gustaría empezar?\n\n> Permite que todos/as en la sesión, incluido tú, compartan uno a uno, una a una.\n\nGracias a todos/as por compartir. ¡Empecemos!"
           }
-        ]
+        ],
+        "type": "host"
       },
       {
-        "type": "instruction",
         "content": {
-          "text": "Sky gazing är en övning i att vara här och nu, medan vi tittar upp och lägger märke til det som pågår ovanför våra huvuden. Sätt igång med övningen när du är utomhus, redo att titta uppåt i ungefär sju minuter.",
+          "text": "Observar el cielo es un ejercicio para practicar estar plenamente aquí y ahora, simplemente mirando hacia arriba, hacia el cielo. Empieza cuando estés al aire libre y prepárate para pasar unos siete minutos contemplando el cielo.",
           "image": {
             "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1697630657/Images/card_image_sky_gazing_wloxhk.png"
+          }
+        },
+        "type": "instruction"
+      },
+      {
+        "hostNotes": [
+          {
+            "text": "> Pulsa play para comenzar el ejercicio"
+          }
+        ],
+        "type": "content",
+        "content": {
+          "lottie": {
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1765452655/Spanish/Audio%20MP3/Contemplar_el_cielo_AWARE_cwe6n9.mp3",
+            "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1765458572/Spanish/Subtitles%20SRT/Contemplar_el_cielo_zufl4f.srt",
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1676642915/Lottie/default_audio_white_sufmbz.json",
+            "durationTimer": true
           }
         }
       },
       {
-        "type": "content",
         "content": {
-          "lottie": {
-            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1699016845/Audio/Sky_gazing_swe_bidua8.mp3",
-            "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1699016908/SRT%20(captions)%20files/Sky_gazing_swe_if347k.srt",
-            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1676642915/Lottie/default_audio_white_sufmbz.json",
-            "durationTimer": true
-          }
-        },
-        "hostNotes": [
-          {
-            "text": "> Tryck på play för att starta"
-          }
-        ]
-      },
-      {
-        "type": "reflection",
-        "hostNotes": [
-          {
-            "text": "Nästa steg är att tyst reflektera i en minut.\n\nVad upptäckte du (om dig själv) under övningen?"
-          },
-          {
-            "text": "Om du vill kan du skriva ner dina funderingar på ett papper, eller bara tänka fritt. Det finns inga svar som är rätt eller fel här – vad som än dyker upp är okej.\n\n> Tryck på play för att starta timern.\n\nDå har det gått en minut och det är dags att gå vidare."
-          }
-        ],
-        "content": {
-          "heading": "Vad upptäckte du?",
+          "heading": "¿Qué descubriste?",
           "lottie": {
             "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1676642915/Lottie/default_1min_white_wvgwma.json",
             "durationTimer": false
           }
-        }
-      },
-      {
-        "type": "sharing",
+        },
         "hostNotes": [
           {
-            "text": "Det här steget handlar om att dela med sig av sin upplevelse och lyssna på andras. Vi har tre regler:\n\n1. **Det som sägs här, stannar här.**\n2. **Allt som behövs är att vi lyssnar på varandra.** Inget fixande, ingen rådgivning eller annan hjälp behövs. Vi är bara här för att utforska våra egna och andras upplevelser."
+            "text": "Ahora tomaremos 1 minuto para reflexionar individualmente.\n\n¿Qué descubriste durante el ejercicio?"
           },
           {
-            "text": "3. **Allt som händer på insidan är okej.** Ilska, kärlek, smärta, glädje. Vad som än dyker upp, det finns inget rätt eller fel. Det bara är som det är.\n\nDet finns en timer på två minuter att hålla sig efter på ett ungefär. Om du inte vill dela med dig är det bara att säga 'pass'."
-          },
-          {
-            "text": "Vem vill börja?\n\n> Låt alla, eller så många som det finns tid för, dela en efter en. Tryck på play för att starta timern. Starta om för varje person.\n\nTack så mycket för att ni lyssnar och delar med er."
+            "text": "Puedes tomar notas en un papel o mentalmente. No hay respuestas correctas o incorrectas, cada uno/a tiene sus propias respuestas. 1 minuto, empezando ahora.\n\n> Pulsa play para iniciar el temporizador.\n\nHa pasado 1 minuto, vamos a continuar."
           }
         ],
-        "id": "1",
+        "type": "reflection"
+      },
+      {
         "content": {
-          "heading": "Vad upptäckte du?",
+          "heading": "¿Qué descubriste?",
           "lottie": {
             "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1676639253/Lottie/default_2min_white_arvrf2.json",
             "durationTimer": true,
             "duration": 120
           }
-        }
-      },
-      {
-        "type": "host",
+        },
         "hostNotes": [
           {
-            "text": "Bra jobbat. Att lägga märke till vad som sker ovanför våra huvuden kan förbättra vår känsla av sammanhang och närvaro. Om du vill så finns det ett uppdrag för dig: \nDe kommande två dagarna, ta ett par minuter per dag och titta upp. Lägg märke till vad du ser i himlen och låt saker komma och gå, både på in- och utsida."
+            "text": "Ahora entramos en la parte de compartir. Tenemos tres reglas para compartir:\n\n1. **Lo que se diga aquí, se queda aquí.**\n2. **Todo lo que necesitas hacer es escuchar.** No se necesita arreglar, ayudar ni dar consejos. Solo estamos presentes y explorando lo que nosotros/as mismos/as y los/las demás estamos experimentando."
           },
           {
-            "text": "Innan vi avslutar så gör vi en mini-utcheckning.\nHur känner du dig nu? Har något ändrats? Svara med två-tre ord.\n\nVem vill börja?"
+            "text": "3. **Todo lo que sentimos dentro está bien.** Ira, amor, odio, tristeza. Lo que sea que surja. No hay correcto ni incorrecto. Simplemente es lo que es, hay lo que hay.\n\nSe establecerá un temporizador de 2 minutos como indicador. Si no deseas compartir, siempre puedes decir 'paso'."
           },
           {
-            "text": "> Låt alla checka ut en efter en.\n\nTack så mycket för era utcheckningar, och för att ni deltog i den här sessionen.\n\n> Avsluta sessionen för att skicka deltagarna till exit-upplevelsen."
+            "text": "¿Quién le gustaría empezar?\n\n> Deja que todos/as (o los/las que tengas tiempo) compartan uno a uno, una a una. Pulsa play para iniciar el temporizador. Reinicia el temporizador para cada nueva intervención.\n\nMuchas gracias a todos/as."
           }
-        ]
+        ],
+        "type": "sharing",
+        "id": "1"
       },
       {
-        "type": "instruction",
+        "hostNotes": [
+          {
+            "text": "Bien hecho. Observar el cielo aquí y ahora puede mejorar nuestra sensación de conexión y presencia. Si quieres, puedes llevarlo a tu día a día con esta práctica:\n\nDurante los próximos dos días, dedica cada día unos minutos a contemplar el cielo. Fíjate en lo que ves en él y deja que todo ocurra tal como es."
+          },
+          {
+            "text": "Antes de salir de este espacio, hagamos una breve reflexión sobre qué ha cambiado.\n\n¿Cómo te sientes en este momento? ¿Ha cambiado algo? Por favor, responde en dos o tres palabras."
+          },
+          {
+            "text": "¿Quién le gustaría empezar?\n\n> Deja que todos/as en la sesión compartan y/o se despidan uno por uno, una por una.\n\nGracias a todos/as por compartir y por uniros hoy a esta sesión.\n\n> Finaliza la sesión para enviar a todos/as a la experiencia de salida."
+          }
+        ],
+        "type": "host"
+      },
+      {
         "content": {
-          "text": "Bra jobbat. \n\nAtt lägga märke till vad som sker ovanför våra huvuden kan förbättra vår känsla av sammanhang och närvaro. \n\nOm du vill så finns det ett uppdrag för dig: \nDe kommande två dagarna, ta ett par minuter per dag och titta upp. Lägg märke till vad du ser i himlen och låt saker komma och gå, både på in- och utsidan.",
+          "text": "Bien hecho. \n\nObservar el cielo aquí y ahora puede mejorar nuestra sensación de conexión y presencia. \n\nSi quieres, puedes llevarlo a tu día a día con esta práctica:\n\nDurante los próximos dos días, dedica cada día unos minutos a contemplar el cielo. Fíjate en lo que ves en él y deja que todo ocurra tal como es.",
           "image": {
             "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1697630657/Images/card_image_sky_gazing_wloxhk.png"
           }
-        }
+        },
+        "type": "instruction"
       }
     ],
     "theme": {
@@ -399,9 +547,9 @@
       "backgroundColor": "#0e529c"
     },
     "hidden": false,
-    "name": "Sky gazing",
+    "name": "Contemplar el cielo",
     "live": true,
-    "published": true,
+    "published": false,
     "asyncDuration": 8,
     "card": {
       "image": {
@@ -410,20 +558,23 @@
     },
     "coCreators": [
       {
-        "name": "Jenny Rickardsson, manus och röst",
-        "url": "https://www.linkedin.com/in/jenny-rickardson-6770a959/",
-        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413228/Contributors/Jenny%20Rickardsson.jpg"
+        "name": "Raul Jimenez - voz en Español",
+        "url": "https://www.linkedin.com/in/granraul75/",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1765455020/Spanish/Images/Raul_foto.jpg"
       }
     ],
     "introPortal": {
       "hostNotes": [
         {
-          "text": "> Starta sessionen när du är redo att börja."
+          "text": "> Inicia la sesión cuando estés listo/a para comenzar"
         }
       ],
       "videoLoop": {
         "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1697630712/Video/portal1_sky_gazing_nzvbyk.mp4",
-        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1697630682/Audio/portal_audio__sky_gazing_zjwzsc.mp3"
+        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1697630682/Audio/portal_audio__sky_gazing_zjwzsc.mp3",
+        "p5JsScript": {
+          "lang": "javascript"
+        }
       },
       "videoEnd": {
         "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1697630707/Video/portal2_sky_gazing_nlgcbd.mp4"
@@ -436,7 +587,15 @@
     "link": "https://aware.29k.org/sky-gazing",
     "id": "12f448d2-39bc-4232-b8cf-b6cb570c7e00",
     "async": true,
-    "description": "Att aktivt lägga märke till det som är ovanför oss kan få oss att känna oss närvarande och som en del av något större. Det kan i sin tur skapa en känsla av mening och göra oss mer nöjda med livet. Den här sessionen görs bäst utomhus."
+    "description": "Prestar atención a lo que vemos cuando miramos hacia el cielo puede mejorar nuestra sensación de conexión y presencia, además de inspirar asombro. La investigación muestra que practicar estas habilidades puede ayudarnos a sentirnos más plenos y satisfechos con la vida. Ten en cuenta que este ejercicio es mejor hacerlo al aire libre."
+  },
+  "cs": {
+    "tags": [
+      "cfc00217-f65b-4a4d-8b82-8ccc8f852dd6",
+      "43a6dc0d-d866-4b79-9453-13c44e906128"
+    ],
+    "asyncDuration": 8,
+    "id": "12f448d2-39bc-4232-b8cf-b6cb570c7e00"
   },
   "ja": {
     "liveDuration": 30,
@@ -524,195 +683,8 @@
     "id": "12f448d2-39bc-4232-b8cf-b6cb570c7e00",
     "async": false
   },
-  "da": {
-    "tags": [
-      "cfc00217-f65b-4a4d-8b82-8ccc8f852dd6",
-      "43a6dc0d-d866-4b79-9453-13c44e906128"
-    ],
-    "asyncDuration": 8,
-    "id": "12f448d2-39bc-4232-b8cf-b6cb570c7e00"
-  },
-  "cs": {
-    "tags": [
-      "cfc00217-f65b-4a4d-8b82-8ccc8f852dd6",
-      "43a6dc0d-d866-4b79-9453-13c44e906128"
-    ],
-    "asyncDuration": 8,
-    "id": "12f448d2-39bc-4232-b8cf-b6cb570c7e00"
-  },
-  "nl": {
-    "tags": [
-      "cfc00217-f65b-4a4d-8b82-8ccc8f852dd6",
-      "43a6dc0d-d866-4b79-9453-13c44e906128"
-    ],
-    "asyncDuration": 8,
-    "id": "12f448d2-39bc-4232-b8cf-b6cb570c7e00"
-  },
-  "es": {
-    "description": "Prestar atención a lo que vemos cuando miramos hacia el cielo puede mejorar nuestra sensación de conexión y presencia, además de inspirar asombro. La investigación muestra que practicar estas habilidades puede ayudarnos a sentirnos más plenos y satisfechos con la vida. Ten en cuenta que este ejercicio es mejor hacerlo al aire libre.",
-    "introPortal": {
-      "hostNotes": [
-        {
-          "text": "> Inicia la sesión cuando estés listo/a para comenzar"
-        }
-      ],
-      "videoLoop": {
-        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1697630712/Video/portal1_sky_gazing_nzvbyk.mp4",
-        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1697630682/Audio/portal_audio__sky_gazing_zjwzsc.mp3",
-        "p5JsScript": {
-          "lang": "javascript"
-        }
-      },
-      "videoEnd": {
-        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1697630707/Video/portal2_sky_gazing_nlgcbd.mp4"
-      }
-    },
-    "name": "Contemplar el cielo",
-    "slides": [
-      {
-        "hostNotes": [
-          {
-            "text": "Bienvenidos/as. Soy X y hoy vamos a dedicar unos 30 minutos a trabajar la presencia, la atención y el asombro.\n\nEmpezaremos con un ejercicio de mindfulness y luego tendremos un momento para reflexionar y compartir entre nosotros/as."
-          },
-          {
-            "text": "Comencemos con una pequeña reflexión sobre cómo estamos. ¿Cómo te sientes en este momento? Por favor, responde en dos o tres palabras. X, ¿te gustaría empezar?\n\n> Permite que todos/as en la sesión, incluido tú, compartan uno a uno, una a una.\n\nGracias a todos/as por compartir. ¡Empecemos!"
-          }
-        ],
-        "type": "host"
-      },
-      {
-        "content": {
-          "text": "Observar el cielo es un ejercicio para practicar estar plenamente aquí y ahora, simplemente mirando hacia arriba, hacia el cielo. Empieza cuando estés al aire libre y prepárate para pasar unos siete minutos contemplando el cielo.",
-          "image": {
-            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1697630657/Images/card_image_sky_gazing_wloxhk.png"
-          }
-        },
-        "type": "instruction"
-      },
-      {
-        "hostNotes": [
-          {
-            "text": "> Pulsa play para comenzar el ejercicio"
-          }
-        ],
-        "type": "content",
-        "content": {
-          "lottie": {
-            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1696420104/Audio/Sky_gazing_ih7ox9.mp3",
-            "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1696420138/SRT%20(captions)%20files/Sky_gazing_rt4epi.srt",
-            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1676642915/Lottie/default_audio_white_sufmbz.json",
-            "durationTimer": true
-          }
-        }
-      },
-      {
-        "content": {
-          "heading": "¿Qué descubriste?",
-          "lottie": {
-            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1676642915/Lottie/default_1min_white_wvgwma.json",
-            "durationTimer": false
-          }
-        },
-        "hostNotes": [
-          {
-            "text": "Ahora tomaremos 1 minuto para reflexionar individualmente.\n\n¿Qué descubriste durante el ejercicio?"
-          },
-          {
-            "text": "Puedes tomar notas en un papel o mentalmente. No hay respuestas correctas o incorrectas, cada uno/a tiene sus propias respuestas. 1 minuto, empezando ahora.\n\n> Pulsa play para iniciar el temporizador.\n\nHa pasado 1 minuto, vamos a continuar."
-          }
-        ],
-        "type": "reflection"
-      },
-      {
-        "content": {
-          "heading": "¿Qué descubriste?",
-          "lottie": {
-            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1676639253/Lottie/default_2min_white_arvrf2.json",
-            "durationTimer": true,
-            "duration": 120
-          }
-        },
-        "hostNotes": [
-          {
-            "text": "Ahora entramos en la parte de compartir. Tenemos tres reglas para compartir:\n\n1. **Lo que se diga aquí, se queda aquí.**\n2. **Todo lo que necesitas hacer es escuchar.** No se necesita arreglar, ayudar ni dar consejos. Solo estamos presentes y explorando lo que nosotros/as mismos/as y los/las demás estamos experimentando."
-          },
-          {
-            "text": "3. **Todo lo que sentimos dentro está bien.** Ira, amor, odio, tristeza. Lo que sea que surja. No hay correcto ni incorrecto. Simplemente es lo que es, hay lo que hay.\n\nSe establecerá un temporizador de 2 minutos como indicador. Si no deseas compartir, siempre puedes decir 'paso'."
-          },
-          {
-            "text": "¿Quién le gustaría empezar?\n\n> Deja que todos/as (o los/las que tengas tiempo) compartan uno a uno, una a una. Pulsa play para iniciar el temporizador. Reinicia el temporizador para cada nueva intervención.\n\nMuchas gracias a todos/as."
-          }
-        ],
-        "type": "sharing",
-        "id": "1"
-      },
-      {
-        "hostNotes": [
-          {
-            "text": "Bien hecho. Observar el cielo aquí y ahora puede mejorar nuestra sensación de conexión y presencia. Si quieres, puedes llevarlo a tu día a día con esta práctica:\n\nDurante los próximos dos días, dedica cada día unos minutos a contemplar el cielo. Fíjate en lo que ves en él y deja que todo ocurra tal como es."
-          },
-          {
-            "text": "Antes de salir de este espacio, hagamos una breve reflexión sobre qué ha cambiado.\n\n¿Cómo te sientes en este momento? ¿Ha cambiado algo? Por favor, responde en dos o tres palabras."
-          },
-          {
-            "text": "¿Quién le gustaría empezar?\n\n> Deja que todos/as en la sesión compartan y/o se despidan uno por uno, una por una.\n\nGracias a todos/as por compartir y por uniros hoy a esta sesión.\n\n> Finaliza la sesión para enviar a todos/as a la experiencia de salida."
-          }
-        ],
-        "type": "host"
-      },
-      {
-        "content": {
-          "text": "Bien hecho. \n\nObservar el cielo aquí y ahora puede mejorar nuestra sensación de conexión y presencia. \n\nSi quieres, puedes llevarlo a tu día a día con esta práctica:\n\nDurante los próximos dos días, dedica cada día unos minutos a contemplar el cielo. Fíjate en lo que ves en él y deja que todo ocurra tal como es.",
-          "image": {
-            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1697630657/Images/card_image_sky_gazing_wloxhk.png"
-          }
-        },
-        "type": "instruction"
-      }
-    ],
-    "id": "12f448d2-39bc-4232-b8cf-b6cb570c7e00",
-    "liveDuration": 30,
-    "theme": {
-      "textColor": "#F9F8F4",
-      "backgroundColor": "#0e529c"
-    },
-    "hidden": false,
-    "live": true,
-    "published": false,
-    "asyncDuration": 8,
-    "card": {
-      "image": {
-        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1697630657/Images/card_image_sky_gazing_wloxhk.png"
-      }
-    },
-    "coCreators": [],
-    "tags": [
-      "cfc00217-f65b-4a4d-8b82-8ccc8f852dd6",
-      "43a6dc0d-d866-4b79-9453-13c44e906128"
-    ],
-    "link": "https://aware.29k.org/sky-gazing",
-    "async": true
-  },
   "pt-BR": {
-    "description": "Notar o que está acima de nós pode melhorar nosso senso de conexão e presença, além de inspirar admiração. Pesquisas indicam que praticar essas habilidades pode nos ajudar a nos sentir mais realizados e satisfeitos com a vida. Vale lembrar que este exercício é melhor realizado ao ar livre, aproveitando o ambiente natural para potencializar a experiência.",
-    "introPortal": {
-      "hostNotes": [
-        {
-          "text": ">Inicie a sessão quando estiver pronto para começar"
-        }
-      ],
-      "videoLoop": {
-        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1697630712/Video/portal1_sky_gazing_nzvbyk.mp4",
-        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1697630682/Audio/portal_audio__sky_gazing_zjwzsc.mp3",
-        "p5JsScript": {
-          "lang": "javascript"
-        }
-      },
-      "videoEnd": {
-        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1697630707/Video/portal2_sky_gazing_nlgcbd.mp4"
-      }
-    },
-    "name": "Observação do céu",
+    "liveDuration": 30,
     "slides": [
       {
         "hostNotes": [
@@ -815,13 +787,12 @@
         "type": "instruction"
       }
     ],
-    "id": "12f448d2-39bc-4232-b8cf-b6cb570c7e00",
-    "liveDuration": 30,
     "theme": {
       "textColor": "#F9F8F4",
       "backgroundColor": "#0e529c"
     },
     "hidden": false,
+    "name": "Observação do céu",
     "live": true,
     "published": false,
     "asyncDuration": 8,
@@ -831,11 +802,46 @@
       }
     },
     "coCreators": [],
+    "introPortal": {
+      "hostNotes": [
+        {
+          "text": ">Inicie a sessão quando estiver pronto para começar"
+        }
+      ],
+      "videoLoop": {
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1697630712/Video/portal1_sky_gazing_nzvbyk.mp4",
+        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1697630682/Audio/portal_audio__sky_gazing_zjwzsc.mp3",
+        "p5JsScript": {
+          "lang": "javascript"
+        }
+      },
+      "videoEnd": {
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1697630707/Video/portal2_sky_gazing_nlgcbd.mp4"
+      }
+    },
     "tags": [
       "cfc00217-f65b-4a4d-8b82-8ccc8f852dd6",
       "43a6dc0d-d866-4b79-9453-13c44e906128"
     ],
     "link": "https://aware.29k.org/sky-gazing",
-    "async": true
+    "id": "12f448d2-39bc-4232-b8cf-b6cb570c7e00",
+    "async": true,
+    "description": "Notar o que está acima de nós pode melhorar nosso senso de conexão e presença, além de inspirar admiração. Pesquisas indicam que praticar essas habilidades pode nos ajudar a nos sentir mais realizados e satisfeitos com a vida. Vale lembrar que este exercício é melhor realizado ao ar livre, aproveitando o ambiente natural para potencializar a experiência."
+  },
+  "da": {
+    "tags": [
+      "cfc00217-f65b-4a4d-8b82-8ccc8f852dd6",
+      "43a6dc0d-d866-4b79-9453-13c44e906128"
+    ],
+    "asyncDuration": 8,
+    "id": "12f448d2-39bc-4232-b8cf-b6cb570c7e00"
+  },
+  "nl": {
+    "tags": [
+      "cfc00217-f65b-4a4d-8b82-8ccc8f852dd6",
+      "43a6dc0d-d866-4b79-9453-13c44e906128"
+    ],
+    "asyncDuration": 8,
+    "id": "12f448d2-39bc-4232-b8cf-b6cb570c7e00"
   }
 }
