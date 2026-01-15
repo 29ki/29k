@@ -540,7 +540,7 @@
     "hidden": false,
     "name": "Tu yo futuro",
     "live": true,
-    "published": false,
+    "published": true,
     "asyncDuration": 6,
     "card": {
       "image": {
