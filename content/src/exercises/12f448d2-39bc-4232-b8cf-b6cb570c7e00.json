@@ -549,7 +549,7 @@
     "hidden": false,
     "name": "Contemplar el cielo",
     "live": true,
-    "published": false,
+    "published": true,
     "asyncDuration": 8,
     "card": {
       "image": {
