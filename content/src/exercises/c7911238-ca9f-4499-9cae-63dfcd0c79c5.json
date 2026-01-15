@@ -580,7 +580,7 @@
     "hidden": false,
     "name": "Volver a levantarse",
     "live": true,
-    "published": false,
+    "published": true,
     "asyncDuration": 10,
     "card": {
       "backgroundColor": "",
