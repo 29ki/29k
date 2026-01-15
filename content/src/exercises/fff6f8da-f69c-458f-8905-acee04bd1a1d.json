@@ -1,4 +1,149 @@
 {
+  "sv": {
+    "liveDuration": 30,
+    "slides": [
+      {
+        "type": "host",
+        "hostNotes": [
+          {
+            "text": "Välkommen. Jag heter X och vi kommer att jobba tillsammans i ungefär 30 minuter med drömmar om framtiden och hur vi vill leva våra liv.\n\nVi kommer att lyssna på en ljudövning tillsammans, reflektera en stund för oss själva och sedan finns det möjlighet att dela sina erfarenheter."
+          },
+          {
+            "text": "Vi börjar med en mini-check-in. Hur känner du dig just nu? Svara gärna med två-tre ord. X, skulle du vilja börja?\n\n> Låt alla deltagare, inklusive dig själv, checka in en och en. \n\nTack för att ni checkade in. Då kör vi igång."
+          }
+        ]
+      },
+      {
+        "type": "content",
+        "hostNotes": [
+          {
+            "text": "> Tryck på play för att starta ljud-övningen."
+          }
+        ],
+        "content": {
+          "lottie": {
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1698938117/Audio/The_future_you_Swe_w0meqg.mp3",
+            "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1698938197/SRT%20(captions)%20files/The_future_you_Swe_b0bddr.srt",
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1676977421/Lottie/audio_meditation_default_black_default_omemwt.json"
+          }
+        }
+      },
+      {
+        "type": "reflection",
+        "hostNotes": [
+          {
+            "text": "Nästa steg är att tyst reflektera i en minut.\n\nVad skulle du vilja att ditt framtida jag berättade för dig här och nu?"
+          },
+          {
+            "text": "Om du vill kan du skriva ner dina funderingar på ett papper, eller bara tänka fritt. Det finns inga svar som är rätt eller fel här – vad som än dyker upp är okej.\n\n> Tryck på play för att starta timern.\n\nDå har det gått en minut och det är dags att gå vidare."
+          }
+        ],
+        "content": {
+          "heading": "Vad skulle du vilja att ditt framtida jag berättade för dig här och nu?",
+          "lottie": {
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1676642915/Lottie/default_1min_black_rosi2l.json"
+          }
+        }
+      },
+      {
+        "type": "sharing",
+        "hostNotes": [
+          {
+            "text": "Det här steget handlar om att dela med sig av sin upplevelse och lyssna på andras. Vi har tre regler:\n\n1. **Det som sägs här, stannar här.**\n2. **Allt som behövs är att vi lyssnar på varandra.** Inget fixande, ingen rådgivning eller annan hjälp behövs. Vi är bara här för att utforska våra egna och andras upplevelser."
+          },
+          {
+            "text": "3. **Allt som händer på insidan är okej.** Ilska, kärlek, smärta, glädje. Vad som än dyker upp, det finns inget rätt eller fel. Det bara är som det är.\n\nDet finns en timer på två minuter att hålla sig efter på ett ungefär. Om du inte vill dela med dig är det bara att säga 'pass'."
+          },
+          {
+            "text": "Vem vill börja?\n\n> Låt alla, eller så många som det finns tid för, dela en efter en. Tryck på play för att starta timern. Starta om för varje person.\n\nTack så mycket för att ni lyssnar och delar med er."
+          }
+        ],
+        "id": "1",
+        "content": {
+          "heading": "Vad skulle du vilja att ditt framtida jag berättade för dig här och nu?",
+          "lottie": {
+            "durationTimer": true,
+            "duration": 120,
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1676639253/Lottie/default_2min_black_o6egey.json"
+          }
+        }
+      },
+      {
+        "type": "host",
+        "hostNotes": [
+          {
+            "text": "Bra jobbat. Låt orden från ditt framtida jag styra dina beteenden i dag och i morgon. Lägg märke till hur det känns, och om det får dig att göra något annorlunda."
+          },
+          {
+            "text": "Innan vi avslutar så gör vi en mini-utcheckning.\nHur känner du dig nu? Har något ändrats? Svara med två-tre ord.\nVem vill börja?"
+          },
+          {
+            "text": "> Låt alla checka ut en efter en.\n\nTack så mycket för era utcheckningar, och för att ni deltog i den här sessionen.\n\n> Avsluta sessionen för att skicka deltagarna till exit-upplevelsen."
+          }
+        ]
+      },
+      {
+        "type": "instruction",
+        "content": {
+          "text": "Bra gjort.\n\nOm du vill så finns det ett uppdrag till dig:\n\nLåt orden från ditt framtida jag styra dina beteenden i dag och i morgon. Lägg märke till hur det känns, och om det får dig att göra något annorlunda.",
+          "image": {
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1698157752/Images/card_image_the_future_you_imvrwj.png"
+          }
+        }
+      }
+    ],
+    "theme": {
+      "textColor": "#2E2E2E",
+      "backgroundColor": "#a49c80"
+    },
+    "hidden": false,
+    "name": "Ditt framtida jag",
+    "live": true,
+    "published": true,
+    "asyncDuration": 6,
+    "card": {
+      "image": {
+        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1698390535/Images/card_image_the_future_you_mo0fgx.png"
+      }
+    },
+    "coCreators": [
+      {
+        "name": "Jenny Rickardsson, manus och röst",
+        "url": "https://www.linkedin.com/in/jenny-rickardson-6770a959/",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1682602411/Images/Jenny_Rickardsson_kopia_sdodwf.jpg"
+      },
+      {
+        "name": "Ints Ivanovskis, illustrationer",
+        "url": "https://www.linkedin.com/in/ints-ivanovskis-46ab0311a/",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413436/Contributors/Ints%20Ivanovskis.jpg"
+      }
+    ],
+    "introPortal": {
+      "hostNotes": [
+        {
+          "text": "> Starta sessionen när ni är redo att börja"
+        }
+      ],
+      "videoLoop": {
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1698157747/Video/portal1_the_future_you_ss8zxh.mp4",
+        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1698157732/Audio/portal_audio_the_future_you_ghxefe.mp3",
+        "p5JsScript": {
+          "lang": "javascript"
+        }
+      },
+      "videoEnd": {
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1698157742/Video/portal2_the_future_you_obfsqf.mp4"
+      }
+    },
+    "tags": [
+      "9c2c08a9-7dc6-4058-bc78-016d0eb00614",
+      "43a6dc0d-d866-4b79-9453-13c44e906128"
+    ],
+    "link": "https://aware.29k.org/the-future-you",
+    "id": "fff6f8da-f69c-458f-8905-acee04bd1a1d",
+    "async": true,
+    "description": "Att våga drömma och hitta riktning i livet kan vara svårt. I den här övningen föreställer vi oss oss själva i framtiden för att få vägledning. En känsla av vad som är viktigt i längden kan hjälpa oss att må bättre, nå våra mål och ge ökad livstillfredsställelse."
+  },
   "en": {
     "liveDuration": 30,
     "slides": [
@@ -295,97 +440,97 @@
     "async": true,
     "description": "Ousar sonhar e encontrar uma direção na vida pode ser desafiante. Neste exercício, vamos visualizar-nos no futuro para encontrar orientação. Ter um sentido de direção a longo prazo pode melhorar o nosso bem-estar, o cumprimento de objetivos e a satisfação com a vida."
   },
-  "sv": {
+  "es": {
     "liveDuration": 30,
     "slides": [
       {
-        "type": "host",
         "hostNotes": [
           {
-            "text": "Välkommen. Jag heter X och vi kommer att jobba tillsammans i ungefär 30 minuter med drömmar om framtiden och hur vi vill leva våra liv.\n\nVi kommer att lyssna på en ljudövning tillsammans, reflektera en stund för oss själva och sedan finns det möjlighet att dela sina erfarenheter."
+            "text": "Bienvenidos/as. Soy X y hoy vamos a dedicar unos 30 minutos a visualizar nuestro futuro y cómo queremos actuar en la vida.\n\nHaremos un ejercicio en audio, seguido de un tiempo para reflexionar y compartir entre nosotros/as."
           },
           {
-            "text": "Vi börjar med en mini-check-in. Hur känner du dig just nu? Svara gärna med två-tre ord. X, skulle du vilja börja?\n\n> Låt alla deltagare, inklusive dig själv, checka in en och en. \n\nTack för att ni checkade in. Då kör vi igång."
-          }
-        ]
-      },
-      {
-        "type": "content",
-        "hostNotes": [
-          {
-            "text": "> Tryck på play för att starta ljud-övningen."
+            "text": "Comencemos con una pequeña reflexión sobre cómo estamos. ¿Cómo te sientes en este momento? Por favor, responde en dos o tres palabras. X, ¿te gustaría empezar?\n\n> Permite que todos/as en la sesión, incluido tú, compartan uno a uno, una a una.\n\nGracias a todos/as por compartir. ¡Empecemos!"
           }
         ],
+        "type": "host"
+      },
+      {
+        "hostNotes": [
+          {
+            "text": "> Pulsa play para comenzar el ejercicio"
+          }
+        ],
+        "type": "content",
         "content": {
           "lottie": {
-            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1698938117/Audio/The_future_you_Swe_w0meqg.mp3",
-            "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1698938197/SRT%20(captions)%20files/The_future_you_Swe_b0bddr.srt",
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1765452962/Spanish/Audio%20MP3/Tu_yo_futuro_AWARE_q5ojiy.mp3",
+            "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1765458572/Spanish/Subtitles%20SRT/Tu_yo_futuro_ueznax.srt",
             "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1676977421/Lottie/audio_meditation_default_black_default_omemwt.json"
           }
         }
       },
       {
-        "type": "reflection",
-        "hostNotes": [
-          {
-            "text": "Nästa steg är att tyst reflektera i en minut.\n\nVad skulle du vilja att ditt framtida jag berättade för dig här och nu?"
-          },
-          {
-            "text": "Om du vill kan du skriva ner dina funderingar på ett papper, eller bara tänka fritt. Det finns inga svar som är rätt eller fel här – vad som än dyker upp är okej.\n\n> Tryck på play för att starta timern.\n\nDå har det gått en minut och det är dags att gå vidare."
-          }
-        ],
         "content": {
-          "heading": "Vad skulle du vilja att ditt framtida jag berättade för dig här och nu?",
+          "heading": "¿Qué te gustaría que tu yo futuro le dijera a tu yo actual?",
           "lottie": {
             "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1676642915/Lottie/default_1min_black_rosi2l.json"
           }
-        }
-      },
-      {
-        "type": "sharing",
+        },
         "hostNotes": [
           {
-            "text": "Det här steget handlar om att dela med sig av sin upplevelse och lyssna på andras. Vi har tre regler:\n\n1. **Det som sägs här, stannar här.**\n2. **Allt som behövs är att vi lyssnar på varandra.** Inget fixande, ingen rådgivning eller annan hjälp behövs. Vi är bara här för att utforska våra egna och andras upplevelser."
+            "text": "Ahora vamos a tomar 1 minuto para reflexionar por nuestra cuenta.\n\n¿Qué te gustaría que tu yo futuro le dijera a tu yo actual?"
           },
           {
-            "text": "3. **Allt som händer på insidan är okej.** Ilska, kärlek, smärta, glädje. Vad som än dyker upp, det finns inget rätt eller fel. Det bara är som det är.\n\nDet finns en timer på två minuter att hålla sig efter på ett ungefär. Om du inte vill dela med dig är det bara att säga 'pass'."
-          },
-          {
-            "text": "Vem vill börja?\n\n> Låt alla, eller så många som det finns tid för, dela en efter en. Tryck på play för att starta timern. Starta om för varje person.\n\nTack så mycket för att ni lyssnar och delar med er."
+            "text": "Puedes tomar notas en un papel o mentalmente. No hay respuestas correctas o incorrectas, cada uno/a tiene sus propias respuestas. 1 minuto, empezando ahora.\n\n> Pulsa play para iniciar el temporizador.\n\nHa pasado 1 minuto, vamos a continuar."
           }
         ],
-        "id": "1",
+        "type": "reflection"
+      },
+      {
         "content": {
-          "heading": "Vad skulle du vilja att ditt framtida jag berättade för dig här och nu?",
+          "heading": "¿Qué te gustaría que tu yo futuro le dijera a tu yo actual?",
           "lottie": {
             "durationTimer": true,
             "duration": 120,
             "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1676639253/Lottie/default_2min_black_o6egey.json"
           }
-        }
-      },
-      {
-        "type": "host",
+        },
         "hostNotes": [
           {
-            "text": "Bra jobbat. Låt orden från ditt framtida jag styra dina beteenden i dag och i morgon. Lägg märke till hur det känns, och om det får dig att göra något annorlunda."
+            "text": "Ahora entramos en la parte de compartir. Tenemos tres reglas para compartir:\n\n1. **Lo que se diga aquí, se queda aquí.**\n2. **Todo lo que necesitas hacer es escuchar.** No se necesita arreglar, ayudar ni dar consejos. Solo estamos presentes y explorando lo que nosotros/as mismos/as y los demás estamos experimentando."
           },
           {
-            "text": "Innan vi avslutar så gör vi en mini-utcheckning.\nHur känner du dig nu? Har något ändrats? Svara med två-tre ord.\nVem vill börja?"
+            "text": "3. **Todo lo que sentimos dentro está bien.** Ira, amor, odio, tristeza. Lo que sea que surja. No hay correcto ni incorrecto. Simplemente es lo que es, hay lo que hay.\n\nSe establecerá un temporizador de 2 minutos como indicador. Si no deseas compartir, siempre puedes decir 'paso'."
           },
           {
-            "text": "> Låt alla checka ut en efter en.\n\nTack så mycket för era utcheckningar, och för att ni deltog i den här sessionen.\n\n> Avsluta sessionen för att skicka deltagarna till exit-upplevelsen."
+            "text": "¿Quién le gustaría empezar?\n\n> Deja que todos/as (o los/las que tengas tiempo) compartan uno a uno, una a una. Pulsa play para iniciar el temporizador. Reinicia el temporizador para cada nueva intervención.\n\nMuchas gracias a todos/as."
           }
-        ]
+        ],
+        "type": "sharing",
+        "id": "1"
       },
       {
-        "type": "instruction",
+        "hostNotes": [
+          {
+            "text": "Bien hecho. Si quieres, puedes continuar con una práctica para llevar esto a tu vida diaria.\n\nDeja que las palabras de tu yo futuro guíen tus acciones hoy y mañana. Observa cómo te hace sentir y cómo influye en lo que haces."
+          },
+          {
+            "text": "Antes de salir de este espacio, hagamos una breve reflexión sobre qué ha cambiado.\n\n¿Cómo te sientes en este momento? ¿Ha cambiado algo? Por favor, responde en dos o tres palabras."
+          },
+          {
+            "text": "¿Quién le gustaría empezar?\n\n> Deja que todos/as en la sesión compartan y/o se despidan uno por uno, una por una.\n\nGracias a todos/as por compartir y por uniros hoy a esta sesión.\n\n> Finaliza la sesión para enviar a todos/as a la experiencia de salida."
+          }
+        ],
+        "type": "host"
+      },
+      {
         "content": {
-          "text": "Bra gjort.\n\nOm du vill så finns det ett uppdrag till dig:\n\nLåt orden från ditt framtida jag styra dina beteenden i dag och i morgon. Lägg märke till hur det känns, och om det får dig att göra något annorlunda.",
+          "text": "Bien hecho. Si quieres, puedes continuar con una práctica para llevar esto a tu vida diaria.\n\nDeja que las palabras de tu yo futuro guíen tus acciones hoy y mañana. Observa cómo te hace sentir y cómo influye en lo que haces.",
           "image": {
             "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1698157752/Images/card_image_the_future_you_imvrwj.png"
           }
-        }
+        },
+        "type": "instruction"
       }
     ],
     "theme": {
@@ -393,7 +538,7 @@
       "backgroundColor": "#a49c80"
     },
     "hidden": false,
-    "name": "Ditt framtida jag",
+    "name": "Tu yo futuro",
     "live": true,
     "published": true,
     "asyncDuration": 6,
@@ -404,20 +549,25 @@
     },
     "coCreators": [
       {
-        "name": "Jenny Rickardsson, manus och röst",
+        "name": "Jenny Rickardsson, script",
         "url": "https://www.linkedin.com/in/jenny-rickardson-6770a959/",
         "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1682602411/Images/Jenny_Rickardsson_kopia_sdodwf.jpg"
       },
       {
-        "name": "Ints Ivanovskis, illustrationer",
+        "name": "Ints Ivanovskis, art works",
         "url": "https://www.linkedin.com/in/ints-ivanovskis-46ab0311a/",
         "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413436/Contributors/Ints%20Ivanovskis.jpg"
+      },
+      {
+        "name": "Raul Jimenez - voz en Español",
+        "url": "https://www.linkedin.com/in/granraul75/",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1765455020/Spanish/Images/Raul_foto.jpg"
       }
     ],
     "introPortal": {
       "hostNotes": [
         {
-          "text": "> Starta sessionen när ni är redo att börja"
+          "text": "> Inicia la sesión cuando estés listo/a para comenzar"
         }
       ],
       "videoLoop": {
@@ -438,7 +588,15 @@
     "link": "https://aware.29k.org/the-future-you",
     "id": "fff6f8da-f69c-458f-8905-acee04bd1a1d",
     "async": true,
-    "description": "Att våga drömma och hitta riktning i livet kan vara svårt. I den här övningen föreställer vi oss oss själva i framtiden för att få vägledning. En känsla av vad som är viktigt i längden kan hjälpa oss att må bättre, nå våra mål och ge ökad livstillfredsställelse."
+    "description": "Atreverse a soñar y encontrar un rumbo en la vida puede, a veces, ser complicado. En este ejercicio, nos visualizaremos en el futuro para encontrar orientación. Tener un sentido de dirección a largo plazo puede mejorar nuestro bienestar, el cumplimiento de metas y la satisfacción con la vida."
+  },
+  "cs": {
+    "tags": [
+      "9c2c08a9-7dc6-4058-bc78-016d0eb00614",
+      "43a6dc0d-d866-4b79-9453-13c44e906128"
+    ],
+    "asyncDuration": 6,
+    "id": "fff6f8da-f69c-458f-8905-acee04bd1a1d"
   },
   "ja": {
     "liveDuration": 30,
@@ -526,195 +684,8 @@
     "id": "fff6f8da-f69c-458f-8905-acee04bd1a1d",
     "async": false
   },
-  "da": {
-    "tags": [
-      "9c2c08a9-7dc6-4058-bc78-016d0eb00614",
-      "43a6dc0d-d866-4b79-9453-13c44e906128"
-    ],
-    "asyncDuration": 6,
-    "id": "fff6f8da-f69c-458f-8905-acee04bd1a1d"
-  },
-  "cs": {
-    "tags": [
-      "9c2c08a9-7dc6-4058-bc78-016d0eb00614",
-      "43a6dc0d-d866-4b79-9453-13c44e906128"
-    ],
-    "asyncDuration": 6,
-    "id": "fff6f8da-f69c-458f-8905-acee04bd1a1d"
-  },
-  "nl": {
-    "tags": [
-      "9c2c08a9-7dc6-4058-bc78-016d0eb00614",
-      "43a6dc0d-d866-4b79-9453-13c44e906128"
-    ],
-    "asyncDuration": 6,
-    "id": "fff6f8da-f69c-458f-8905-acee04bd1a1d"
-  },
-  "es": {
-    "description": "Atreverse a soñar y encontrar un rumbo en la vida puede, a veces, ser complicado. En este ejercicio, nos visualizaremos en el futuro para encontrar orientación. Tener un sentido de dirección a largo plazo puede mejorar nuestro bienestar, el cumplimiento de metas y la satisfacción con la vida.",
-    "introPortal": {
-      "hostNotes": [
-        {
-          "text": "> Inicia la sesión cuando estés listo/a para comenzar"
-        }
-      ],
-      "videoLoop": {
-        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1698157747/Video/portal1_the_future_you_ss8zxh.mp4",
-        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1698157732/Audio/portal_audio_the_future_you_ghxefe.mp3",
-        "p5JsScript": {
-          "lang": "javascript"
-        }
-      },
-      "videoEnd": {
-        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1698157742/Video/portal2_the_future_you_obfsqf.mp4"
-      }
-    },
-    "name": "Tu yo futuro",
-    "slides": [
-      {
-        "hostNotes": [
-          {
-            "text": "Bienvenidos/as. Soy X y hoy vamos a dedicar unos 30 minutos a visualizar nuestro futuro y cómo queremos actuar en la vida.\n\nHaremos un ejercicio en audio, seguido de un tiempo para reflexionar y compartir entre nosotros/as."
-          },
-          {
-            "text": "Comencemos con una pequeña reflexión sobre cómo estamos. ¿Cómo te sientes en este momento? Por favor, responde en dos o tres palabras. X, ¿te gustaría empezar?\n\n> Permite que todos/as en la sesión, incluido tú, compartan uno a uno, una a una.\n\nGracias a todos/as por compartir. ¡Empecemos!"
-          }
-        ],
-        "type": "host"
-      },
-      {
-        "hostNotes": [
-          {
-            "text": "> Pulsa play para comenzar el ejercicio"
-          }
-        ],
-        "type": "content",
-        "content": {
-          "lottie": {
-            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1698312877/Audio/The_future_you_lxcxvt.mp3",
-            "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1696324117/SRT%20(captions)%20files/The_future_you_gzkogk.srt",
-            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1676977421/Lottie/audio_meditation_default_black_default_omemwt.json"
-          }
-        }
-      },
-      {
-        "content": {
-          "heading": "¿Qué te gustaría que tu yo futuro le dijera a tu yo actual?",
-          "lottie": {
-            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1676642915/Lottie/default_1min_black_rosi2l.json"
-          }
-        },
-        "hostNotes": [
-          {
-            "text": "Ahora vamos a tomar 1 minuto para reflexionar por nuestra cuenta.\n\n¿Qué te gustaría que tu yo futuro le dijera a tu yo actual?"
-          },
-          {
-            "text": "Puedes tomar notas en un papel o mentalmente. No hay respuestas correctas o incorrectas, cada uno/a tiene sus propias respuestas. 1 minuto, empezando ahora.\n\n> Pulsa play para iniciar el temporizador.\n\nHa pasado 1 minuto, vamos a continuar."
-          }
-        ],
-        "type": "reflection"
-      },
-      {
-        "content": {
-          "heading": "¿Qué te gustaría que tu yo futuro le dijera a tu yo actual?",
-          "lottie": {
-            "durationTimer": true,
-            "duration": 120,
-            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1676639253/Lottie/default_2min_black_o6egey.json"
-          }
-        },
-        "hostNotes": [
-          {
-            "text": "Ahora entramos en la parte de compartir. Tenemos tres reglas para compartir:\n\n1. **Lo que se diga aquí, se queda aquí.**\n2. **Todo lo que necesitas hacer es escuchar.** No se necesita arreglar, ayudar ni dar consejos. Solo estamos presentes y explorando lo que nosotros/as mismos/as y los demás estamos experimentando."
-          },
-          {
-            "text": "3. **Todo lo que sentimos dentro está bien.** Ira, amor, odio, tristeza. Lo que sea que surja. No hay correcto ni incorrecto. Simplemente es lo que es, hay lo que hay.\n\nSe establecerá un temporizador de 2 minutos como indicador. Si no deseas compartir, siempre puedes decir 'paso'."
-          },
-          {
-            "text": "¿Quién le gustaría empezar?\n\n> Deja que todos/as (o los/las que tengas tiempo) compartan uno a uno, una a una. Pulsa play para iniciar el temporizador. Reinicia el temporizador para cada nueva intervención.\n\nMuchas gracias a todos/as."
-          }
-        ],
-        "type": "sharing",
-        "id": "1"
-      },
-      {
-        "hostNotes": [
-          {
-            "text": "Bien hecho. Si quieres, puedes continuar con una práctica para llevar esto a tu vida diaria.\n\nDeja que las palabras de tu yo futuro guíen tus acciones hoy y mañana. Observa cómo te hace sentir y cómo influye en lo que haces."
-          },
-          {
-            "text": "Antes de salir de este espacio, hagamos una breve reflexión sobre qué ha cambiado.\n\n¿Cómo te sientes en este momento? ¿Ha cambiado algo? Por favor, responde en dos o tres palabras."
-          },
-          {
-            "text": "¿Quién le gustaría empezar?\n\n> Deja que todos/as en la sesión compartan y/o se despidan uno por uno, una por una.\n\nGracias a todos/as por compartir y por uniros hoy a esta sesión.\n\n> Finaliza la sesión para enviar a todos/as a la experiencia de salida."
-          }
-        ],
-        "type": "host"
-      },
-      {
-        "content": {
-          "text": "Bien hecho. Si quieres, puedes continuar con una práctica para llevar esto a tu vida diaria.\n\nDeja que las palabras de tu yo futuro guíen tus acciones hoy y mañana. Observa cómo te hace sentir y cómo influye en lo que haces.",
-          "image": {
-            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1698157752/Images/card_image_the_future_you_imvrwj.png"
-          }
-        },
-        "type": "instruction"
-      }
-    ],
-    "id": "fff6f8da-f69c-458f-8905-acee04bd1a1d",
-    "liveDuration": 30,
-    "theme": {
-      "textColor": "#2E2E2E",
-      "backgroundColor": "#a49c80"
-    },
-    "hidden": false,
-    "live": true,
-    "published": false,
-    "asyncDuration": 6,
-    "card": {
-      "image": {
-        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1698390535/Images/card_image_the_future_you_mo0fgx.png"
-      }
-    },
-    "coCreators": [
-      {
-        "name": "Jenny Rickardsson, script and voice",
-        "url": "https://www.linkedin.com/in/jenny-rickardson-6770a959/",
-        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1682602411/Images/Jenny_Rickardsson_kopia_sdodwf.jpg"
-      },
-      {
-        "name": "Ints Ivanovskis, art works",
-        "url": "https://www.linkedin.com/in/ints-ivanovskis-46ab0311a/",
-        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413436/Contributors/Ints%20Ivanovskis.jpg"
-      }
-    ],
-    "tags": [
-      "9c2c08a9-7dc6-4058-bc78-016d0eb00614",
-      "43a6dc0d-d866-4b79-9453-13c44e906128"
-    ],
-    "link": "https://aware.29k.org/the-future-you",
-    "async": true
-  },
   "pt-BR": {
-    "description": "Ousar sonhar e encontrar direção na vida pode ser desafiador. Neste exercício, vamos nos visualizar no futuro para buscar orientação. Ter um senso de direção a longo prazo pode melhorar nosso bem-estar, realização de objetivos e satisfação com a vida.",
-    "introPortal": {
-      "hostNotes": [
-        {
-          "text": ">Inicie a sessão quando estiver pronto para começar"
-        }
-      ],
-      "videoLoop": {
-        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1698157747/Video/portal1_the_future_you_ss8zxh.mp4",
-        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1698157732/Audio/portal_audio_the_future_you_ghxefe.mp3",
-        "p5JsScript": {
-          "lang": "javascript"
-        }
-      },
-      "videoEnd": {
-        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1698157742/Video/portal2_the_future_you_obfsqf.mp4"
-      }
-    },
-    "name": "O seu eu do futuro",
+    "liveDuration": 30,
     "slides": [
       {
         "hostNotes": [
@@ -806,13 +777,12 @@
         "type": "instruction"
       }
     ],
-    "id": "fff6f8da-f69c-458f-8905-acee04bd1a1d",
-    "liveDuration": 30,
     "theme": {
       "textColor": "#2E2E2E",
       "backgroundColor": "#a49c80"
     },
     "hidden": false,
+    "name": "O seu eu do futuro",
     "live": true,
     "published": false,
     "asyncDuration": 6,
@@ -833,11 +803,46 @@
         "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413436/Contributors/Ints%20Ivanovskis.jpg"
       }
     ],
+    "introPortal": {
+      "hostNotes": [
+        {
+          "text": ">Inicie a sessão quando estiver pronto para começar"
+        }
+      ],
+      "videoLoop": {
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1698157747/Video/portal1_the_future_you_ss8zxh.mp4",
+        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1698157732/Audio/portal_audio_the_future_you_ghxefe.mp3",
+        "p5JsScript": {
+          "lang": "javascript"
+        }
+      },
+      "videoEnd": {
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1698157742/Video/portal2_the_future_you_obfsqf.mp4"
+      }
+    },
     "tags": [
       "9c2c08a9-7dc6-4058-bc78-016d0eb00614",
       "43a6dc0d-d866-4b79-9453-13c44e906128"
     ],
     "link": "https://aware.29k.org/the-future-you",
-    "async": true
+    "id": "fff6f8da-f69c-458f-8905-acee04bd1a1d",
+    "async": true,
+    "description": "Ousar sonhar e encontrar direção na vida pode ser desafiador. Neste exercício, vamos nos visualizar no futuro para buscar orientação. Ter um senso de direção a longo prazo pode melhorar nosso bem-estar, realização de objetivos e satisfação com a vida."
+  },
+  "da": {
+    "tags": [
+      "9c2c08a9-7dc6-4058-bc78-016d0eb00614",
+      "43a6dc0d-d866-4b79-9453-13c44e906128"
+    ],
+    "asyncDuration": 6,
+    "id": "fff6f8da-f69c-458f-8905-acee04bd1a1d"
+  },
+  "nl": {
+    "tags": [
+      "9c2c08a9-7dc6-4058-bc78-016d0eb00614",
+      "43a6dc0d-d866-4b79-9453-13c44e906128"
+    ],
+    "asyncDuration": 6,
+    "id": "fff6f8da-f69c-458f-8905-acee04bd1a1d"
   }
 }
