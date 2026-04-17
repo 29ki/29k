@@ -1,4 +1,160 @@
 {
+  "sv": {
+    "liveDuration": 30,
+    "slides": [
+      {
+        "type": "host",
+        "hostNotes": [
+          {
+            "text": "Välkommen. Jag heter X och vi kommer att jobba tillsammans i ungefär 30 minuter med acceptans och tillåtande.\n\nVi kommer att lyssna på en ljudövning tillsammans, reflektera en stund för oss själva och sedan finns det möjlighet att dela sina erfarenheter."
+          },
+          {
+            "text": "Vi börjar med en mini-check-in. Hur känner du dig just nu? Svara gärna med två-tre ord. X, skulle du vilja börja?\n\n> Låt alla deltagare, inklusive dig själv, checka in en och en. \n\nTack för att ni checkade in. Då kör vi igång."
+          }
+        ],
+        "video": {
+          "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1682091066/Video/intro_willingness_stance_gerobl.mp4",
+          "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1682091070/Images/thumb%20host%20willingness%20stance.jpg"
+        }
+      },
+      {
+        "type": "content",
+        "hostNotes": [
+          {
+            "text": "Det pågår ofta mycket inuti oss. Tankar, känslor och sensationer uppstår utan att vi har alltför mycket att säga till om."
+          },
+          {
+            "text": "Vissa saker tenderar vi att vilja undvika. Ångest, oro, tankar om döden eller rädslor för framtiden är vanliga exempel. När de dyker upp försöker vi kanske skjuta bort dem. Tänka på något annat. Distrahera oss själva."
+          },
+          {
+            "text": "Men forskning visar att just det vi kämpar för att bli av med tenderar att komma tillbaks och knacka på om och om igen. Att istället välkomna sådana saker med vilja och öppenhet kan vara en smartare strategi i längden. Så låt oss prova det.\n\n> Tryck på play för att starta ljud-övningen."
+          }
+        ],
+        "content": {
+          "video": {
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1689604102/Audio/The_willingness_stance_isqgiy.mp3",
+            "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1689602338/SRT%20(captions)%20files/The_willingness_stance_kq9il9.srt"
+          },
+          "lottie": {
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1676977421/Lottie/audio_meditation_default_white_default_mqfcuo.json",
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1697552918/Audio/The_willingness_stance_swe_q0c0cp.mp3",
+            "durationTimer": true,
+            "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1697552965/SRT%20(captions)%20files/The_willingness_stance_swe_d4eefj.srt"
+          }
+        }
+      },
+      {
+        "type": "reflection",
+        "hostNotes": [
+          {
+            "text": "Nästa steg är att tyst reflektera i en minut.\n\nHur kändes det att använda en villig och öppen strategi för att hantera den stressande tanken? Märkte du någon skillnad vid de två olika tillfällena?"
+          },
+          {
+            "text": "Om du vill kan du skriva ner dina funderingar på ett papper, eller bara tänka fritt. Det finns inga svar som är rätt eller fel här – vad som än dyker upp är okej.\n\n> Tryck på play för att starta timern.\n\nDå har det gått en minut och det är dags att gå vidare."
+          }
+        ],
+        "content": {
+          "heading": "Hur upplevde du den öppna strategin?",
+          "text": "Vad var annorlunda?",
+          "lottie": {
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1676642915/Lottie/default_1min_white_wvgwma.json",
+            "durationTimer": true,
+            "duration": 60
+          }
+        }
+      },
+      {
+        "type": "sharing",
+        "hostNotes": [
+          {
+            "text": "Det här steget handlar om att dela med sig av sin upplevelse och lyssna på andras. Vi har tre regler:\n\n1. **Det som sägs här, stannar här.**\n2. **Allt som behövs är att vi lyssnar på varandra.** Inget fixande, ingen rådgivning eller annan hjälp behövs. Vi är bara här för att utforska våra egna och andras upplevelser."
+          },
+          {
+            "text": "3. **Allt som händer på insidan är okej.** Ilska, kärlek, smärta, glädje. Vad som än dyker upp, det finns inget rätt eller fel. Det bara är som det är.\n\nDet finns en timer på två minuter att hålla sig efter på ett ungefär. Om du inte vill dela med dig är det bara att säga 'pass'."
+          },
+          {
+            "text": "Vem vill börja?\n\n> Låt alla, eller så många som det finns tid för, dela en efter en. Tryck på play för att starta timern. Starta om för varje person.\n\nTack så mycket för att ni lyssnar och delar med er."
+          }
+        ],
+        "content": {
+          "heading": "Hur upplevde du den öppna strategin?",
+          "text": "Vad var annorlunda?",
+          "lottie": {
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1676639253/Lottie/default_2min_white_arvrf2.json",
+            "durationTimer": true,
+            "duration": 120
+          }
+        },
+        "id": "sharing"
+      },
+      {
+        "type": "host",
+        "hostNotes": [
+          {
+            "text": "Bra jobbat. Om du vill kan du anta en utmaning under resten av dagen idag.\n\nI så fall ska du så snart du märker att du undviker något på insidan använda din öppna strategi och istället försöka välkomna den upplevelsen."
+          },
+          {
+            "text": "Forskning visar att vi genom att tillåta svårigheter inuti oss kan öppna upp för nya möjligheter att välja våra handlingar och agera målinriktat.\n\nInnan vi avslutar så gör vi en mini-utcheckning. Hur känner du dig nu? Har något ändrats? Svara med två-tre ord."
+          },
+          {
+            "text": "Vem vill börja?\n\n> Låt alla checka ut en efter en.\n\nTack så mycket för era utcheckningar, och för att ni deltog i den här sessionen.\n\n> Avsluta sessionen för att skicka deltagarna till exit-upplevelsen."
+          }
+        ],
+        "video": {
+          "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1682091066/Video/outro_willingness_stance_ys21jp.mp4",
+          "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1682091070/Images/thumb%20host%20willingness%20stance.jpg"
+        }
+      },
+      {
+        "type": "instruction",
+        "content": {
+          "heading": "Bra jobbat",
+          "text": "Vill du anta en utmaning under resten av dagen?\n\nI så fall ska du så snart du märker att du undviker något på insidan använda din öppna strategi och istället försöka välkomna den upplevelsen.\n\nForskning visar att vi genom att tillåta svårigheter inuti oss kan öppna upp för nya möjligheter att välja våra handlingar och agera målinriktat.",
+          "image": {
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1684329936/Images/card_image_the_willingnes_stance_1_bcwhxk.png",
+            "description": ""
+          }
+        }
+      }
+    ],
+    "theme": {
+      "textColor": "#F9F8F4",
+      "backgroundColor": "#267ae4"
+    },
+    "hidden": false,
+    "name": "En öppen strategi",
+    "live": true,
+    "published": true,
+    "asyncDuration": 5,
+    "card": {
+      "image": {
+        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1684329936/Images/card_image_the_willingnes_stance_1_bcwhxk.png"
+      }
+    },
+    "introPortal": {
+      "hostNotes": [
+        {
+          "text": "> Starta sessionen när ni är redo att börja"
+        }
+      ],
+      "videoLoop": {
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1676991218/Video/portal1_the_willingnes_stance_cosgwx.mp4",
+        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1676972801/Audio/portal_audio_the_willingnes_stance_pxrzfe.mp3",
+        "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1676991354/Images/portal_the_willingnes_stance_thumbnail_hvcvof.png"
+      },
+      "videoEnd": {
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1676991218/Video/portal2_the_willingnes_stance_kti6ub.mp4"
+      }
+    },
+    "tags": [
+      "db34d82a-4c48-4ddd-9de5-f562d8aa1bc9",
+      "34100e43-2eb8-4d35-8eb0-9fa9f78e4935"
+    ],
+    "link": "https://aware.29k.org/the-willingness-stance",
+    "id": "9ac0c561-ff26-45fc-b6d5-0a983432394e",
+    "async": true,
+    "description": "En guidad meditationsövning för att sluta kämpa mot oönskade inre upplevelser och istället använda energin där det verkligen spelar roll. Att acceptera inre svårigheter kan hjälpa oss att omfördela vårt fokus och hjälpa oss till meningsfulla handlingar."
+  },
   "en": {
     "liveDuration": 30,
     "slides": [
@@ -306,17 +462,16 @@
     "async": true,
     "description": "Uma meditação guiada para parar a luta interior e canalizar a nossa energia para o que realmente importa. Aceitar os desafios internos pode ajudar-nos a redirecionar o nosso foco e impulsionar-nos para ações com significado."
   },
-  "sv": {
-    "liveDuration": 30,
+  "es": {
     "slides": [
       {
         "type": "host",
         "hostNotes": [
           {
-            "text": "Välkommen. Jag heter X och vi kommer att jobba tillsammans i ungefär 30 minuter med acceptans och tillåtande.\n\nVi kommer att lyssna på en ljudövning tillsammans, reflektera en stund för oss själva och sedan finns det möjlighet att dela sina erfarenheter."
+            "text": "Welcome. I am X, and today we will work for around 30 minutes on acceptance and willingness.\n\nWe’ll be doing a short introduction, followed by a meditation, time for reflection and then finally sharing our experiences."
           },
           {
-            "text": "Vi börjar med en mini-check-in. Hur känner du dig just nu? Svara gärna med två-tre ord. X, skulle du vilja börja?\n\n> Låt alla deltagare, inklusive dig själv, checka in en och en. \n\nTack för att ni checkade in. Då kör vi igång."
+            "text": "Let’s start with a mini check-in. What brought you here today? Please answer in two-three words. X, would you like to start?\n\n> Let everyone in the session, including yourself, check in one by one.\n\nThank you all for checking in. Let’s get started."
           }
         ],
         "video": {
@@ -328,13 +483,13 @@
         "type": "content",
         "hostNotes": [
           {
-            "text": "Det pågår ofta mycket inuti oss. Tankar, känslor och sensationer uppstår utan att vi har alltför mycket att säga till om."
+            "text": "There is often a lot going on inside of us: thoughts, feelings, and sensations pop up, without us having any control of their occurence."
           },
           {
-            "text": "Vissa saker tenderar vi att vilja undvika. Ångest, oro, tankar om döden eller rädslor för framtiden är vanliga exempel. När de dyker upp försöker vi kanske skjuta bort dem. Tänka på något annat. Distrahera oss själva."
+            "text": "Some things we tend to resist. Such as anxiety, worry, thoughts of death, and fears of the future. When they show up, we may try to push them away, think about something else, or distract ourselves."
           },
           {
-            "text": "Men forskning visar att just det vi kämpar för att bli av med tenderar att komma tillbaks och knacka på om och om igen. Att istället välkomna sådana saker med vilja och öppenhet kan vara en smartare strategi i längden. Så låt oss prova det.\n\n> Tryck på play för att starta ljud-övningen."
+            "text": "But science tells us that the things we try to get rid of have a tendency to come knocking over and over again. Welcoming those things with willingness and openness can be a smarter strategy in the long run. Let’s try it out.\n\n> Press play to start the meditation"
           }
         ],
         "content": {
@@ -344,9 +499,9 @@
           },
           "lottie": {
             "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1676977421/Lottie/audio_meditation_default_white_default_mqfcuo.json",
-            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1697552918/Audio/The_willingness_stance_swe_q0c0cp.mp3",
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1776423072/Spanish/Audio%20MP3/Ejercicio_La_actitud_de_aceptacio%CC%81n_jhsnmj.mp3",
             "durationTimer": true,
-            "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1697552965/SRT%20(captions)%20files/The_willingness_stance_swe_d4eefj.srt"
+            "subtitles": ""
           }
         }
       },
@@ -354,15 +509,15 @@
         "type": "reflection",
         "hostNotes": [
           {
-            "text": "Nästa steg är att tyst reflektera i en minut.\n\nHur kändes det att använda en villig och öppen strategi för att hantera den stressande tanken? Märkte du någon skillnad vid de två olika tillfällena?"
+            "text": "Now we’ll take 1 minute to reflect on our own.\n\nWhat was it like, taking a willing attitude towards your stressful thought? Did you notice any differences between the two occasions?"
           },
           {
-            "text": "Om du vill kan du skriva ner dina funderingar på ett papper, eller bara tänka fritt. Det finns inga svar som är rätt eller fel här – vad som än dyker upp är okej.\n\n> Tryck på play för att starta timern.\n\nDå har det gått en minut och det är dags att gå vidare."
+            "text": "You can take notes on a piece of paper or just mental notes in your head. And there is no right or wrong here, our answers are our own. 1 minute starting now.\n\n> Press play to start the timer.\n\nThat’s 1 minute and it’s time to move on."
           }
         ],
         "content": {
-          "heading": "Hur upplevde du den öppna strategin?",
-          "text": "Vad var annorlunda?",
+          "heading": "How did you experience the willingness stance? ",
+          "text": "Any difference?",
           "lottie": {
             "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1676642915/Lottie/default_1min_white_wvgwma.json",
             "durationTimer": true,
@@ -374,18 +529,18 @@
         "type": "sharing",
         "hostNotes": [
           {
-            "text": "Det här steget handlar om att dela med sig av sin upplevelse och lyssna på andras. Vi har tre regler:\n\n1. **Det som sägs här, stannar här.**\n2. **Allt som behövs är att vi lyssnar på varandra.** Inget fixande, ingen rådgivning eller annan hjälp behövs. Vi är bara här för att utforska våra egna och andras upplevelser."
+            "text": "Now we are getting into the sharing part. We have three rules for sharing:\n\n1. **What is said in here, stays in here.**\n2. **All you need to do is listen.** There is no fixing, helping or advice-giving needed. We are just showing up and exploring what ourselves and others are going through."
           },
           {
-            "text": "3. **Allt som händer på insidan är okej.** Ilska, kärlek, smärta, glädje. Vad som än dyker upp, det finns inget rätt eller fel. Det bara är som det är.\n\nDet finns en timer på två minuter att hålla sig efter på ett ungefär. Om du inte vill dela med dig är det bara att säga 'pass'."
+            "text": "3. **Everything on the inside is okay.** Anger, love, hatred, sadness. Whatever shows up. No wrongs, no rights. It is what it is.\n\nThere will be a timer set for 2 minutes as an indicator. If you don’t want to share you can always say ‘pass’."
           },
           {
-            "text": "Vem vill börja?\n\n> Låt alla, eller så många som det finns tid för, dela en efter en. Tryck på play för att starta timern. Starta om för varje person.\n\nTack så mycket för att ni lyssnar och delar med er."
+            "text": "Who would like to start?\n\n> Let everyone (or as many as you got time for) share one by one. Press play to start the timer. Re-start for each new sharing.\n\nThank you so much everyone."
           }
         ],
         "content": {
-          "heading": "Hur upplevde du den öppna strategin?",
-          "text": "Vad var annorlunda?",
+          "heading": "How did you experience the willingness stance?",
+          "text": "Any difference?",
           "lottie": {
             "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1676639253/Lottie/default_2min_white_arvrf2.json",
             "durationTimer": true,
@@ -398,13 +553,13 @@
         "type": "host",
         "hostNotes": [
           {
-            "text": "Bra jobbat. Om du vill kan du anta en utmaning under resten av dagen idag.\n\nI så fall ska du så snart du märker att du undviker något på insidan använda din öppna strategi och istället försöka välkomna den upplevelsen."
+            "text": "Well done. If you’re up for it, you can continue with a mission for the rest of this day.\n\nWhenever you notice you are resisting something on the inside, open up your willingness stance and try to instead welcome that experience."
           },
           {
-            "text": "Forskning visar att vi genom att tillåta svårigheter inuti oss kan öppna upp för nya möjligheter att välja våra handlingar och agera målinriktat.\n\nInnan vi avslutar så gör vi en mini-utcheckning. Hur känner du dig nu? Har något ändrats? Svara med två-tre ord."
+            "text": "Science tells us that allowing difficult things on the inside may open up new possibilities to choose our actions and act for purpose.\n\nBefore we leave this space, let’s do a mini check-out. How do you feel now, has anything shifted? Please answer in two-three words."
           },
           {
-            "text": "Vem vill börja?\n\n> Låt alla checka ut en efter en.\n\nTack så mycket för era utcheckningar, och för att ni deltog i den här sessionen.\n\n> Avsluta sessionen för att skicka deltagarna till exit-upplevelsen."
+            "text": "Who would like to start?\n\n> Let everyone in the session check out one by one.\n\nThank you all for checking out and for joining this session today.\n\n> Finish session to send everyone off to the exit experience."
           }
         ],
         "video": {
@@ -415,8 +570,8 @@
       {
         "type": "instruction",
         "content": {
-          "heading": "Bra jobbat",
-          "text": "Vill du anta en utmaning under resten av dagen?\n\nI så fall ska du så snart du märker att du undviker något på insidan använda din öppna strategi och istället försöka välkomna den upplevelsen.\n\nForskning visar att vi genom att tillåta svårigheter inuti oss kan öppna upp för nya möjligheter att välja våra handlingar och agera målinriktat.",
+          "heading": "Well done",
+          "text": "If you’re up for it, you can continue with this mission:\n\nDuring the rest of today, whenever you notice you are resisting something on the inside, open up your willingness stance and try to instead welcoming that experience.",
           "image": {
             "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1684329936/Images/card_image_the_willingnes_stance_1_bcwhxk.png",
             "description": ""
@@ -428,11 +583,9 @@
       "textColor": "#F9F8F4",
       "backgroundColor": "#267ae4"
     },
-    "hidden": false,
-    "name": "En öppen strategi",
+    "name": "The willingness stance",
     "live": true,
     "published": true,
-    "asyncDuration": 5,
     "card": {
       "image": {
         "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1684329936/Images/card_image_the_willingnes_stance_1_bcwhxk.png"
@@ -441,13 +594,16 @@
     "introPortal": {
       "hostNotes": [
         {
-          "text": "> Starta sessionen när ni är redo att börja"
+          "text": "> Start the session when you're ready to go"
         }
       ],
       "videoLoop": {
         "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1676991218/Video/portal1_the_willingnes_stance_cosgwx.mp4",
         "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1676972801/Audio/portal_audio_the_willingnes_stance_pxrzfe.mp3",
-        "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1676991354/Images/portal_the_willingnes_stance_thumbnail_hvcvof.png"
+        "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1676991354/Images/portal_the_willingnes_stance_thumbnail_hvcvof.png",
+        "p5JsScript": {
+          "lang": "javascript"
+        }
       },
       "videoEnd": {
         "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1676991218/Video/portal2_the_willingnes_stance_kti6ub.mp4"
@@ -457,10 +613,18 @@
       "db34d82a-4c48-4ddd-9de5-f562d8aa1bc9",
       "34100e43-2eb8-4d35-8eb0-9fa9f78e4935"
     ],
-    "link": "https://aware.29k.org/the-willingness-stance",
     "id": "9ac0c561-ff26-45fc-b6d5-0a983432394e",
     "async": true,
-    "description": "En guidad meditationsövning för att sluta kämpa mot oönskade inre upplevelser och istället använda energin där det verkligen spelar roll. Att acceptera inre svårigheter kan hjälpa oss att omfördela vårt fokus och hjälpa oss till meningsfulla handlingar."
+    "description": "Guided meditation to stop fighting unwanted inner experiences, and instead use our energy where it matters. Accepting inner hardships can help us redirect our focus, and propel us into meaningful action."
+  },
+  "cs": {
+    "tags": [
+      "db34d82a-4c48-4ddd-9de5-f562d8aa1bc9",
+      "34100e43-2eb8-4d35-8eb0-9fa9f78e4935"
+    ],
+    "asyncDuration": 5,
+    "id": "9ac0c561-ff26-45fc-b6d5-0a983432394e",
+    "card": {}
   },
   "ja": {
     "liveDuration": 30,
@@ -522,6 +686,7 @@
     "hidden": false,
     "published": false,
     "asyncDuration": 5,
+    "card": {},
     "introPortal": {
       "hostNotes": [
         {
@@ -536,54 +701,8 @@
     "link": "https://aware.29k.org/the-willingness-stance",
     "id": "9ac0c561-ff26-45fc-b6d5-0a983432394e"
   },
-  "da": {
-    "tags": [
-      "db34d82a-4c48-4ddd-9de5-f562d8aa1bc9",
-      "34100e43-2eb8-4d35-8eb0-9fa9f78e4935"
-    ],
-    "asyncDuration": 5,
-    "id": "9ac0c561-ff26-45fc-b6d5-0a983432394e"
-  },
-  "cs": {
-    "tags": [
-      "db34d82a-4c48-4ddd-9de5-f562d8aa1bc9",
-      "34100e43-2eb8-4d35-8eb0-9fa9f78e4935"
-    ],
-    "asyncDuration": 5,
-    "id": "9ac0c561-ff26-45fc-b6d5-0a983432394e"
-  },
-  "nl": {
-    "tags": [
-      "db34d82a-4c48-4ddd-9de5-f562d8aa1bc9",
-      "34100e43-2eb8-4d35-8eb0-9fa9f78e4935"
-    ],
-    "asyncDuration": 5,
-    "id": "9ac0c561-ff26-45fc-b6d5-0a983432394e"
-  },
-  "es": {
-    "id": "9ac0c561-ff26-45fc-b6d5-0a983432394e"
-  },
   "pt-BR": {
-    "description": "Meditação guiada para parar de lutar contra experiências internas indesejadas e, em vez disso, usar nossa energia onde realmente importa. Aceitar as dificuldades internas pode nos ajudar a redirecionar o foco e nos impulsionar para ações significativas.",
-    "introPortal": {
-      "hostNotes": [
-        {
-          "text": ">Comece a sessão quando estiver pronto para seguir"
-        }
-      ],
-      "videoLoop": {
-        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1676991218/Video/portal1_the_willingnes_stance_cosgwx.mp4",
-        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1676972801/Audio/portal_audio_the_willingnes_stance_pxrzfe.mp3",
-        "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1676991354/Images/portal_the_willingnes_stance_thumbnail_hvcvof.png",
-        "p5JsScript": {
-          "lang": "javascript"
-        }
-      },
-      "videoEnd": {
-        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1676991218/Video/portal2_the_willingnes_stance_kti6ub.mp4"
-      }
-    },
-    "name": "A postura de abertura",
+    "liveDuration": 30,
     "slides": [
       {
         "hostNotes": [
@@ -700,13 +819,12 @@
         "type": "instruction"
       }
     ],
-    "id": "9ac0c561-ff26-45fc-b6d5-0a983432394e",
-    "liveDuration": 30,
     "theme": {
       "textColor": "#F9F8F4",
       "backgroundColor": "#267ae4"
     },
     "hidden": false,
+    "name": "A postura de abertura",
     "live": true,
     "published": false,
     "asyncDuration": 5,
@@ -715,11 +833,49 @@
         "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1684329936/Images/card_image_the_willingnes_stance_1_bcwhxk.png"
       }
     },
+    "introPortal": {
+      "hostNotes": [
+        {
+          "text": ">Comece a sessão quando estiver pronto para seguir"
+        }
+      ],
+      "videoLoop": {
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1676991218/Video/portal1_the_willingnes_stance_cosgwx.mp4",
+        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1676972801/Audio/portal_audio_the_willingnes_stance_pxrzfe.mp3",
+        "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1676991354/Images/portal_the_willingnes_stance_thumbnail_hvcvof.png",
+        "p5JsScript": {
+          "lang": "javascript"
+        }
+      },
+      "videoEnd": {
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1676991218/Video/portal2_the_willingnes_stance_kti6ub.mp4"
+      }
+    },
     "tags": [
       "db34d82a-4c48-4ddd-9de5-f562d8aa1bc9",
       "34100e43-2eb8-4d35-8eb0-9fa9f78e4935"
     ],
     "link": "https://aware.29k.org/the-willingness-stance",
-    "async": true
+    "id": "9ac0c561-ff26-45fc-b6d5-0a983432394e",
+    "async": true,
+    "description": "Meditação guiada para parar de lutar contra experiências internas indesejadas e, em vez disso, usar nossa energia onde realmente importa. Aceitar as dificuldades internas pode nos ajudar a redirecionar o foco e nos impulsionar para ações significativas."
+  },
+  "da": {
+    "tags": [
+      "db34d82a-4c48-4ddd-9de5-f562d8aa1bc9",
+      "34100e43-2eb8-4d35-8eb0-9fa9f78e4935"
+    ],
+    "asyncDuration": 5,
+    "id": "9ac0c561-ff26-45fc-b6d5-0a983432394e",
+    "card": {}
+  },
+  "nl": {
+    "tags": [
+      "db34d82a-4c48-4ddd-9de5-f562d8aa1bc9",
+      "34100e43-2eb8-4d35-8eb0-9fa9f78e4935"
+    ],
+    "asyncDuration": 5,
+    "id": "9ac0c561-ff26-45fc-b6d5-0a983432394e",
+    "card": {}
   }
 }
