@@ -1,4 +1,151 @@
 {
+  "sv": {
+    "liveDuration": 30,
+    "slides": [
+      {
+        "type": "host",
+        "hostNotes": [
+          {
+            "text": "Välkommen. Jag heter X och vi kommer att jobba tillsammans i ungefär 30 minuter med att pausa från vardagsstressen.\n\nVi kommer att lyssna på en ljudövning tillsammans, reflektera en stund för oss själva och sedan finns det möjlighet att dela sina erfarenheter."
+          },
+          {
+            "text": "Vi börjar med en mini-check-in. Hur känner du dig just nu? Svara gärna med två-tre ord. Y, skulle du vilja börja?\n\n> Låt alla deltagare, även du själv, checka in en och en.\n\nTack för att ni checkade in. Då kör vi igång."
+          }
+        ],
+        "video": {
+          "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1676394656/Video/async_intro_drop_all_requirements_h7ah3c.mov",
+          "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1676455405/Images/async_intro_drop_all_requirements_h22e4v.png"
+        }
+      },
+      {
+        "type": "content",
+        "hostNotes": [
+          {
+            "text": "När vi är stressade räcker våra resurser inte till för att hanter de krav och förväntningar vi upplever. Det kan göra att vi känner oss överväldigade, med känslor och tankar som snurrar runt runt."
+          },
+          {
+            "text": "I den här meditationen tränar vi på att ta en paus från snurrandet och skapa lite distans till våra tankar. Det kan hjälpa oss att få perspektiv, slappna av och ändra vad vi prioriterar. \n\n>  Tryck på play för att starta övningen."
+          }
+        ],
+        "content": {
+          "video": {
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1693326108/Audio/Sla%CC%88pp_alla_krav_vovwep.mp3",
+            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1673974099/Video/meditation_Drop_all_requirements_a2a7ws.mp4",
+            "durationTimer": true,
+            "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1674554589/Images/thumb_meditation_drop_all_requirements_ve8rdm.png",
+            "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1693326150/SRT%20(captions)%20files/Sla%CC%88pp_alla_krav_noryka.srt"
+          }
+        }
+      },
+      {
+        "type": "reflection",
+        "hostNotes": [
+          {
+            "text": "Nästa steg är att tyst reflektera i en minut.\n\nVad lade du märke till när du bytte fokus till den korta listan?"
+          },
+          {
+            "text": "Om du vill kan du skriva ner dina funderingar på ett papper, eller bara tänka fritt. Det finns inga svar som är rätt eller fel här. Vad som än dyker upp är okej.\n\n> Tryck på play för att starta timern.\n\nDå har det gått en minut och det är dags att gå vidare."
+          }
+        ],
+        "content": {
+          "heading": "Vad lade du märke till?",
+          "video": {
+            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1673869507/Video/timer_1min_Drop_all_requirements_dahizb.mp4",
+            "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1674554589/Images/thumb_timer1min_drop_all_requirements_qebhbc.png",
+            "durationTimer": true
+          }
+        }
+      },
+      {
+        "type": "sharing",
+        "hostNotes": [
+          {
+            "text": "Det här steget handlar om att dela med sig av sin upplevelse och lyssna på andras. Vi har tre regler:\n\n1. **Det som sägs här, stannar här.**\n2. **Allt som behövs är att vi lyssnar på varandra.** Inget fixande, ingen rådgivning eller annan hjälp behövs. Vi är bara här för att utforska våra egna och andras upplevelser."
+          },
+          {
+            "text": "**3. Allt som händer på insidan är okej.** Ilska, kärlek, smärta, glädje. Vad som än dyker upp, det finns inget rätt eller fel. Det bara är som det är.\n\nDet finns en timer på två minuter att hålla sig efter på ett ungefär. Om du inte vill dela med dig är det bara att säga 'pass'."
+          },
+          {
+            "text": "Vem vill börja?\n\n> Låt alla, eller så många som det finns tid för, dela en efter en. Tryck på play för att starta timern. Starta om för varje person.\n\nTack så mycket för att ni lyssnar och delar med er."
+          }
+        ],
+        "content": {
+          "heading": "Vad lade du märke till när du bytte fokus till den korta listan?",
+          "video": {
+            "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1674383225/Video/meditation_2_Drop_all_requirements_jeizf0.mp4",
+            "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1674554589/Images/thumb_timer2min_drop_all_requirements_hzwrlc.png",
+            "durationTimer": true
+          }
+        },
+        "id": "sharing"
+      },
+      {
+        "type": "host",
+        "hostNotes": [
+          {
+            "text": "Bra jobbat. Om du vill så får du ett uppdrag: I stressiga perioder är återhämtning det viktigaste. Ge dig själv lite omtanke och skaffa perspektiv genom att ta ett steg tillbaka och bara andas, minst en gång om dagen den här veckan."
+          },
+          {
+            "text": "Innan vi avslutar så gör vi en mini-utcheckning. \n\nVad tar du med dig från den här övnignen till resten av den här dagen? Svara med två-tre ord."
+          },
+          {
+            "text": "Vem vill börja?\n\n> Låt alla checka ut en efter en.\n\nTack så mycket för era utcheckningar, och för att ni deltog i den här sessionen.\n\n> Avsluta sessionen för att skicka deltagarna till exit-upplevelsen."
+          }
+        ],
+        "video": {
+          "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1676394659/Video/async_outro_drop_all_requirements_kuxqiv.mov",
+          "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1676455405/Images/async_outro_drop_all_requirements_ntxvdp.png"
+        }
+      },
+      {
+        "type": "instruction",
+        "content": {
+          "heading": "",
+          "text": "Bra jobbat. Om du vill så får du ett uppdrag: I stressiga perioder är återhämtning det viktigaste. Ge dig själv lite omtanke och skaffa perspektiv genom att ta ett steg tillbaka och bara andas, minst en gång om dagen den här veckan.",
+          "image": {
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1674395876/Images/card2_Drop_all_requirements_vd3gwl.png"
+          }
+        }
+      }
+    ],
+    "theme": {
+      "textColor": "#F9F8F4",
+      "backgroundColor": "#d56245"
+    },
+    "hidden": false,
+    "name": "Att göra-listan",
+    "live": true,
+    "published": true,
+    "asyncDuration": 4,
+    "card": {
+      "image": {
+        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1674395876/Images/card2_Drop_all_requirements_vd3gwl.png"
+      }
+    },
+    "introPortal": {
+      "hostNotes": [
+        {
+          "text": "> Start the session when you're ready to go"
+        }
+      ],
+      "videoLoop": {
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1673869507/Video/portal1_Drop_all_requirements_HD_kb5m0d.mp4",
+        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1674207952/Audio/Drop_all_requirements_mixdown_gapless_mrnwhp.m4a",
+        "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1674554589/Images/thumb_portal_drop_all_requirements_ns9mqy.png"
+      },
+      "videoEnd": {
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1673869494/Video/portal2_Drop_all_requirements_HD_bzobeu.mp4"
+      }
+    },
+    "tags": [
+      "cfc00217-f65b-4a4d-8b82-8ccc8f852dd6",
+      "566aeb1b-1649-4f5a-96a2-0c80be27efc0"
+    ],
+    "link": "https://aware.29k.org/drop-all-requirements",
+    "id": "3188a5ed-a1d6-451c-ae2a-f44f4df37495",
+    "async": true,
+    "description": "När vi är stressade snurrar tankar och känslor ofta snabbt inuti huvudet och kroppen. I den här övningen tränar vi på att få en paus i vardagsstressen. Det kan hjälpa oss att minska stress, omvärdera och fylla på reserverna igen."
+  },
   "en": {
     "liveDuration": 30,
     "slides": [
@@ -343,17 +490,16 @@
     "async": true,
     "description": "Uma meditação guiada para uma pausa consciente nos dias mais atarefados. Re-focar a nossa atenção e ancorarmo-nos no presente pode ajudar-nos a reduzir o stress, compreender as prioridades e refrescar a mente."
   },
-  "sv": {
-    "liveDuration": 30,
+  "es": {
     "slides": [
       {
         "type": "host",
         "hostNotes": [
           {
-            "text": "Välkommen. Jag heter X och vi kommer att jobba tillsammans i ungefär 30 minuter med att pausa från vardagsstressen.\n\nVi kommer att lyssna på en ljudövning tillsammans, reflektera en stund för oss själva och sedan finns det möjlighet att dela sina erfarenheter."
+            "text": "Welcome. I am X and today we will work for around 30 minutes on dealing with stressful situations. We’ll be doing a short introduction, listen to a meditation exercise, followed by reflection and then finally sharing."
           },
           {
-            "text": "Vi börjar med en mini-check-in. Hur känner du dig just nu? Svara gärna med två-tre ord. Y, skulle du vilja börja?\n\n> Låt alla deltagare, även du själv, checka in en och en.\n\nTack för att ni checkade in. Då kör vi igång."
+            "text": "Let’s start with a mini check-in. How are you feeling right now? Please answer in two-three words. X, would you like to start?\n\n> Let everyone in the session, including yourself, check in one by one.\n\nThank you all for checking in. Let’s get started."
           }
         ],
         "video": {
@@ -365,19 +511,22 @@
         "type": "content",
         "hostNotes": [
           {
-            "text": "När vi är stressade räcker våra resurser inte till för att hanter de krav och förväntningar vi upplever. Det kan göra att vi känner oss överväldigade, med känslor och tankar som snurrar runt runt."
+            "text": "When we're stressed, our perceived expectations often exceed our resources. This can lead to a feeling of being overwhelmed, with thoughts and feelings spinning round and round in our heads and bodies."
           },
           {
-            "text": "I den här meditationen tränar vi på att ta en paus från snurrandet och skapa lite distans till våra tankar. Det kan hjälpa oss att få perspektiv, slappna av och ändra vad vi prioriterar. \n\n>  Tryck på play för att starta övningen."
+            "text": "In this meditation, we'll practice taking a break from the spinning wheel and gaining some distance from our thoughts. This can help us gain perspective, relax, and change our priorities.\n\n> Press play to start the meditation."
           }
         ],
         "content": {
           "video": {
-            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1693326108/Audio/Sla%CC%88pp_alla_krav_vovwep.mp3",
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1674481870/Audio/meditation-drop-all-requirements_i39o6u.mp3",
             "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1673974099/Video/meditation_Drop_all_requirements_a2a7ws.mp4",
             "durationTimer": true,
             "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1674554589/Images/thumb_meditation_drop_all_requirements_ve8rdm.png",
-            "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1693326150/SRT%20(captions)%20files/Sla%CC%88pp_alla_krav_noryka.srt"
+            "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1687878835/SRT%20(captions)%20files/Drop_all_requirements_zr2bgr.srt"
+          },
+          "lottie": {
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1776423071/Spanish/Audio%20MP3/Ejercicio_La_lista_de_tareas_aqyzyb.mp3"
           }
         }
       },
@@ -385,14 +534,14 @@
         "type": "reflection",
         "hostNotes": [
           {
-            "text": "Nästa steg är att tyst reflektera i en minut.\n\nVad lade du märke till när du bytte fokus till den korta listan?"
+            "text": "Now we’ll take 1 minute to reflect on our own.\n\nWhat did you notice as you changed focus to the short to do-list?"
           },
           {
-            "text": "Om du vill kan du skriva ner dina funderingar på ett papper, eller bara tänka fritt. Det finns inga svar som är rätt eller fel här. Vad som än dyker upp är okej.\n\n> Tryck på play för att starta timern.\n\nDå har det gått en minut och det är dags att gå vidare."
+            "text": "You can take notes on a piece of paper or just mental notes in your head. And there is no right or wrong here, our answers are our own. 1 minute starting now.\n\n> Press play to start the timer.\n\nThat’s 1 minute and it’s time to move on."
           }
         ],
         "content": {
-          "heading": "Vad lade du märke till?",
+          "heading": "What did you notice?",
           "video": {
             "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1673869507/Video/timer_1min_Drop_all_requirements_dahizb.mp4",
             "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1674554589/Images/thumb_timer1min_drop_all_requirements_qebhbc.png",
@@ -404,17 +553,17 @@
         "type": "sharing",
         "hostNotes": [
           {
-            "text": "Det här steget handlar om att dela med sig av sin upplevelse och lyssna på andras. Vi har tre regler:\n\n1. **Det som sägs här, stannar här.**\n2. **Allt som behövs är att vi lyssnar på varandra.** Inget fixande, ingen rådgivning eller annan hjälp behövs. Vi är bara här för att utforska våra egna och andras upplevelser."
+            "text": "Now we are getting into the sharing part. We have three rules for sharing:\n\n1. **What is said in here, stays in here.**\n2. **All you need to do is listen.** There is no fixing, helping or advice-giving needed. We are just showing up and exploring what ourselves and others are going through."
           },
           {
-            "text": "**3. Allt som händer på insidan är okej.** Ilska, kärlek, smärta, glädje. Vad som än dyker upp, det finns inget rätt eller fel. Det bara är som det är.\n\nDet finns en timer på två minuter att hålla sig efter på ett ungefär. Om du inte vill dela med dig är det bara att säga 'pass'."
+            "text": "3. **Everything on the inside is okay.** Anger, love, hatred, sadness. Whatever shows up. No wrongs, no rights. It is what it is.\n\nThere will be a timer set for  2 minutes as an indicator. If you don’t want to share you can always say ‘pass’."
           },
           {
-            "text": "Vem vill börja?\n\n> Låt alla, eller så många som det finns tid för, dela en efter en. Tryck på play för att starta timern. Starta om för varje person.\n\nTack så mycket för att ni lyssnar och delar med er."
+            "text": "Who would like to start?\n\n> Let everyone (or as many as you got time for) share one by one. Press play to start the timer. Re-start for each new sharing.\n\nThank you so much everyone."
           }
         ],
         "content": {
-          "heading": "Vad lade du märke till när du bytte fokus till den korta listan?",
+          "heading": "What did you notice?",
           "video": {
             "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1674383225/Video/meditation_2_Drop_all_requirements_jeizf0.mp4",
             "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1674554589/Images/thumb_timer2min_drop_all_requirements_hzwrlc.png",
@@ -427,13 +576,16 @@
         "type": "host",
         "hostNotes": [
           {
-            "text": "Bra jobbat. Om du vill så får du ett uppdrag: I stressiga perioder är återhämtning det viktigaste. Ge dig själv lite omtanke och skaffa perspektiv genom att ta ett steg tillbaka och bara andas, minst en gång om dagen den här veckan."
+            "text": "Well done. if you’re up for it, you can continue what we started here today with a mission to bring this into your everyday life."
           },
           {
-            "text": "Innan vi avslutar så gör vi en mini-utcheckning. \n\nVad tar du med dig från den här övnignen till resten av den här dagen? Svara med två-tre ord."
+            "text": "In stressful periods recovery is key. Let’s give ourselves some care and gain perspective by taking a step back and take a breathing break at least once a day for the coming week."
           },
           {
-            "text": "Vem vill börja?\n\n> Låt alla checka ut en efter en.\n\nTack så mycket för era utcheckningar, och för att ni deltog i den här sessionen.\n\n> Avsluta sessionen för att skicka deltagarna till exit-upplevelsen."
+            "text": "Before we leave this space let’s do a mini check-out. \n\nWhat will you bring for the rest of your day from this? Please answer in two-three words."
+          },
+          {
+            "text": "Who would like to start?\n\n> Let everyone in the session check out one by one.\n\nThank you all for checking out and for joining this session today.\n\n> Finish session to send everyone off to the exit experience."
           }
         ],
         "video": {
@@ -444,8 +596,8 @@
       {
         "type": "instruction",
         "content": {
-          "heading": "",
-          "text": "Bra jobbat. Om du vill så får du ett uppdrag: I stressiga perioder är återhämtning det viktigaste. Ge dig själv lite omtanke och skaffa perspektiv genom att ta ett steg tillbaka och bara andas, minst en gång om dagen den här veckan.",
+          "heading": "Well done",
+          "text": "If you’re up for it, you can continue with this mission:\n\nIn stressful periods recovery is key. Give yourself some care and gain perspective by taking a step back and take a breathing break at least once a day for the coming week.",
           "image": {
             "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1674395876/Images/card2_Drop_all_requirements_vd3gwl.png"
           }
@@ -456,16 +608,31 @@
       "textColor": "#F9F8F4",
       "backgroundColor": "#d56245"
     },
-    "hidden": false,
-    "name": "Att göra-listan",
+    "name": "The todo list",
     "live": true,
     "published": true,
-    "asyncDuration": 4,
     "card": {
       "image": {
         "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1674395876/Images/card2_Drop_all_requirements_vd3gwl.png"
       }
     },
+    "coCreators": [
+      {
+        "name": "Agnes Branny, voice",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665414181/Contributors/Agnes%20Branny.png",
+        "url": "https://www.agnesbranny.com/"
+      },
+      {
+        "name": "Ints Ivanovskis, Art works",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413436/Contributors/Ints%20Ivanovskis.jpg",
+        "url": "https://www.linkedin.com/in/ints-ivanovskis-46ab0311a/"
+      },
+      {
+        "name": "Jenny Rickardsson, editor",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413228/Contributors/Jenny%20Rickardsson.jpg",
+        "url": "https://www.linkedin.com/in/jenny-rickardson-6770a959/"
+      }
+    ],
     "introPortal": {
       "hostNotes": [
         {
@@ -475,7 +642,10 @@
       "videoLoop": {
         "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1673869507/Video/portal1_Drop_all_requirements_HD_kb5m0d.mp4",
         "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1674207952/Audio/Drop_all_requirements_mixdown_gapless_mrnwhp.m4a",
-        "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1674554589/Images/thumb_portal_drop_all_requirements_ns9mqy.png"
+        "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1674554589/Images/thumb_portal_drop_all_requirements_ns9mqy.png",
+        "p5JsScript": {
+          "lang": "javascript"
+        }
       },
       "videoEnd": {
         "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1673869494/Video/portal2_Drop_all_requirements_HD_bzobeu.mp4"
@@ -485,10 +655,18 @@
       "cfc00217-f65b-4a4d-8b82-8ccc8f852dd6",
       "566aeb1b-1649-4f5a-96a2-0c80be27efc0"
     ],
-    "link": "https://aware.29k.org/drop-all-requirements",
     "id": "3188a5ed-a1d6-451c-ae2a-f44f4df37495",
     "async": true,
-    "description": "När vi är stressade snurrar tankar och känslor ofta snabbt inuti huvudet och kroppen. I den här övningen tränar vi på att få en paus i vardagsstressen. Det kan hjälpa oss att minska stress, omvärdera och fylla på reserverna igen."
+    "description": "Guided meditation for a mindful break during busy days. Re-focusing and grounding ourselves can help reduce stress, reprioritize and give our minds a refreshing break."
+  },
+  "cs": {
+    "tags": [
+      "cfc00217-f65b-4a4d-8b82-8ccc8f852dd6",
+      "566aeb1b-1649-4f5a-96a2-0c80be27efc0"
+    ],
+    "asyncDuration": 4,
+    "id": "3188a5ed-a1d6-451c-ae2a-f44f4df37495",
+    "card": {}
   },
   "ja": {
     "liveDuration": 30,
@@ -550,6 +728,7 @@
     "hidden": false,
     "published": false,
     "asyncDuration": 4,
+    "card": {},
     "introPortal": {
       "hostNotes": [
         {
@@ -564,54 +743,8 @@
     "link": "https://aware.29k.org/drop-all-requirements",
     "id": "3188a5ed-a1d6-451c-ae2a-f44f4df37495"
   },
-  "da": {
-    "tags": [
-      "cfc00217-f65b-4a4d-8b82-8ccc8f852dd6",
-      "566aeb1b-1649-4f5a-96a2-0c80be27efc0"
-    ],
-    "asyncDuration": 4,
-    "id": "3188a5ed-a1d6-451c-ae2a-f44f4df37495"
-  },
-  "cs": {
-    "tags": [
-      "cfc00217-f65b-4a4d-8b82-8ccc8f852dd6",
-      "566aeb1b-1649-4f5a-96a2-0c80be27efc0"
-    ],
-    "asyncDuration": 4,
-    "id": "3188a5ed-a1d6-451c-ae2a-f44f4df37495"
-  },
-  "nl": {
-    "tags": [
-      "cfc00217-f65b-4a4d-8b82-8ccc8f852dd6",
-      "566aeb1b-1649-4f5a-96a2-0c80be27efc0"
-    ],
-    "asyncDuration": 4,
-    "id": "3188a5ed-a1d6-451c-ae2a-f44f4df37495"
-  },
-  "es": {
-    "id": "3188a5ed-a1d6-451c-ae2a-f44f4df37495"
-  },
   "pt-BR": {
-    "description": "Meditação guiada para uma pausa consciente durante dias corridos. Redirecionar a atenção e se ancorar no presente pode ajudar a reduzir o estresse, reorganizar prioridades e proporcionar um descanso revigorante à mente.",
-    "introPortal": {
-      "hostNotes": [
-        {
-          "text": ">Comece a sessão quando estiver pronto para seguir"
-        }
-      ],
-      "videoLoop": {
-        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1673869507/Video/portal1_Drop_all_requirements_HD_kb5m0d.mp4",
-        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1674207952/Audio/Drop_all_requirements_mixdown_gapless_mrnwhp.m4a",
-        "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1674554589/Images/thumb_portal_drop_all_requirements_ns9mqy.png",
-        "p5JsScript": {
-          "lang": "javascript"
-        }
-      },
-      "videoEnd": {
-        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1673869494/Video/portal2_Drop_all_requirements_HD_bzobeu.mp4"
-      }
-    },
-    "name": "Lista de tarefas",
+    "liveDuration": 30,
     "slides": [
       {
         "hostNotes": [
@@ -722,13 +855,12 @@
         "type": "instruction"
       }
     ],
-    "id": "3188a5ed-a1d6-451c-ae2a-f44f4df37495",
-    "liveDuration": 30,
     "theme": {
       "textColor": "#F9F8F4",
       "backgroundColor": "#d56245"
     },
     "hidden": false,
+    "name": "Lista de tarefas",
     "live": true,
     "published": false,
     "asyncDuration": 4,
@@ -754,11 +886,49 @@
         "url": "https://www.linkedin.com/in/jenny-rickardson-6770a959/"
       }
     ],
+    "introPortal": {
+      "hostNotes": [
+        {
+          "text": ">Comece a sessão quando estiver pronto para seguir"
+        }
+      ],
+      "videoLoop": {
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1673869507/Video/portal1_Drop_all_requirements_HD_kb5m0d.mp4",
+        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1674207952/Audio/Drop_all_requirements_mixdown_gapless_mrnwhp.m4a",
+        "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1674554589/Images/thumb_portal_drop_all_requirements_ns9mqy.png",
+        "p5JsScript": {
+          "lang": "javascript"
+        }
+      },
+      "videoEnd": {
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1673869494/Video/portal2_Drop_all_requirements_HD_bzobeu.mp4"
+      }
+    },
     "tags": [
       "cfc00217-f65b-4a4d-8b82-8ccc8f852dd6",
       "566aeb1b-1649-4f5a-96a2-0c80be27efc0"
     ],
     "link": "https://aware.29k.org/drop-all-requirements",
-    "async": true
+    "id": "3188a5ed-a1d6-451c-ae2a-f44f4df37495",
+    "async": true,
+    "description": "Meditação guiada para uma pausa consciente durante dias corridos. Redirecionar a atenção e se ancorar no presente pode ajudar a reduzir o estresse, reorganizar prioridades e proporcionar um descanso revigorante à mente."
+  },
+  "da": {
+    "tags": [
+      "cfc00217-f65b-4a4d-8b82-8ccc8f852dd6",
+      "566aeb1b-1649-4f5a-96a2-0c80be27efc0"
+    ],
+    "asyncDuration": 4,
+    "id": "3188a5ed-a1d6-451c-ae2a-f44f4df37495",
+    "card": {}
+  },
+  "nl": {
+    "tags": [
+      "cfc00217-f65b-4a4d-8b82-8ccc8f852dd6",
+      "566aeb1b-1649-4f5a-96a2-0c80be27efc0"
+    ],
+    "asyncDuration": 4,
+    "id": "3188a5ed-a1d6-451c-ae2a-f44f4df37495",
+    "card": {}
   }
 }
