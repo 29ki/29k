@@ -1,4 +1,161 @@
 {
+  "sv": {
+    "liveDuration": 30,
+    "slides": [
+      {
+        "type": "host",
+        "hostNotes": [
+          {
+            "text": "Välkommen. Jag heter X och vi kommer att jobba tillsammans i ungefär 30 minuter med våra personliga värderingar och att känna mening i livet.\n\nVi kommer att lyssna på en ljudövning tillsammans, reflektera en stund för oss själva och sedan finns det möjlighet att dela sina erfarenheter."
+          },
+          {
+            "text": "Vi börjar med en mini-check-in. Hur känner du dig just nu? Svara gärna med två-tre ord. X, skulle du vilja börja?\n\n> Låt alla deltagare, inklusive dig själv, checka in en och en. \n\nTack för att ni checkade in. Då kör vi igång."
+          }
+        ]
+      },
+      {
+        "type": "content",
+        "content": {
+          "lottie": {
+            "durationTimer": true,
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1712146506/Audio/Personal_values_swe_nkqie9.mp3",
+            "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1712146518/SRT%20(captions)%20files/Personal_values_swe_y7wrjm.srt",
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1676977421/Lottie/audio_meditation_default_black_default_omemwt.json"
+          }
+        },
+        "hostNotes": [
+          {
+            "text": "Att hitta våra värderingar kan hjälpa oss finna riktning i livet. För den här övningen är det bra om du har penna och papper nära till hands. Sätt dig bekvämt tillrätta så kör vi igång.  \n\n> Tryck på play för att starta."
+          }
+        ]
+      },
+      {
+        "type": "reflection",
+        "hostNotes": [
+          {
+            "text": "Nästa steg är att tyst reflektera i en minut.\n\nVad ser du när du tittar på dina värderingar och dina poäng?\nVad kan du lära dig om dig själv?"
+          },
+          {
+            "text": "Om du vill kan du skriva ner dina funderingar på ett papper, eller bara tänka fritt. Det finns inga svar som är rätt eller fel här – vad som än dyker upp är okej.\n\n> Tryck på play för att starta timern.\n\nDå har det gått en minut och det är dags att gå vidare."
+          }
+        ],
+        "content": {
+          "text": "Vad kan du lära dig om dig själv?",
+          "lottie": {
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1676642915/Lottie/default_1min_black_rosi2l.json",
+            "durationTimer": true,
+            "duration": 60
+          }
+        }
+      },
+      {
+        "type": "sharing",
+        "hostNotes": [
+          {
+            "text": "Det här steget handlar om att dela med sig av sin upplevelse och lyssna på andras. Vi har tre regler:\n\n1. **Det som sägs här, stannar här.**\n2. **Allt som behövs är att vi lyssnar på varandra.** Inget fixande, ingen rådgivning eller annan hjälp behövs. Vi är bara här för att utforska våra egna och andras upplevelser."
+          },
+          {
+            "text": "3. **Allt som händer på insidan är okej.** Ilska, kärlek, smärta, glädje. Vad som än dyker upp, det finns inget rätt eller fel. Det bara är som det är.\n\nDet finns en timer på två minuter att hålla sig efter på ett ungefär. Om du inte vill dela med dig är det bara att säga 'pass'."
+          },
+          {
+            "text": "Vem vill börja?\n\n> Låt alla, eller så många som det finns tid för, dela en efter en. Tryck på play för att starta timern. Starta om för varje person.\n\nTack så mycket för att ni lyssnar och delar med er."
+          }
+        ],
+        "content": {
+          "heading": "Vad kan du lära dig om dig själv?",
+          "lottie": {
+            "durationTimer": true,
+            "duration": 120,
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1676639253/Lottie/default_2min_black_o6egey.json"
+          }
+        },
+        "id": "1"
+      },
+      {
+        "type": "host",
+        "hostNotes": [
+          {
+            "text": "Bra jobbat. Du har nu satt ord på vad som är betydelsefullt för dig i livet, för att hantera både med- och motgångar. Om du vill så finns det ett uppdrag för dig:\n\nVälj en värdering som känns lite extra utmanande just nu. Välj ett beteende eller en aktivitet i linje med den värderingen som du kan utföra idag eller i morgon. "
+          },
+          {
+            "text": "Innan vi avslutar så gör vi en mini-utcheckning.\nHur känner du dig nu? Har något ändrats? Svara med två-tre ord.\n\nVem vill börja?"
+          },
+          {
+            "text": "> Låt alla checka ut en efter en.\n\nTack så mycket för era utcheckningar, och för att ni deltog i den här sessionen.\n\n> Avsluta sessionen för att skicka deltagarna till exit-upplevelsen."
+          }
+        ]
+      },
+      {
+        "type": "instruction",
+        "content": {
+          "text": "Du har nu satt ord på vad som är betydelsefullt för dig i livet, för att hantera både med- och motgångar. \n\nVill du ta dig an en utmaning?\n\nVälj i så fall en värdering som känns lite extra utmanande just nu. Välj ett beteende eller en aktivitet i linje med den värderingen som du kan utföra redan idag eller i morgon. ",
+          "image": {
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1692872012/Images/card_personal_values_xpcp9x.png"
+          },
+          "heading": "Bra jobbat."
+        }
+      }
+    ],
+    "theme": {
+      "textColor": "#2E2E2E",
+      "backgroundColor": "#b4a880"
+    },
+    "hidden": false,
+    "name": "Personliga värderingar",
+    "live": true,
+    "published": true,
+    "asyncDuration": 6,
+    "card": {
+      "image": {
+        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1692872012/Images/card_personal_values_xpcp9x.png"
+      }
+    },
+    "socialMeta": {
+      "image": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1692872012/Images/card_personal_values_xpcp9x.png"
+    },
+    "coCreators": [
+      {
+        "name": "Jenny Rickardsson, redaktör",
+        "url": "https://www.linkedin.com/in/jenny-rickardson-6770a959/",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413228/Contributors/Jenny%20Rickardsson.jpg"
+      },
+      {
+        "name": "Ints Ivanovskis, illustrationer",
+        "url": "https://www.linkedin.com/in/ints-ivanovskis-46ab0311a/",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413436/Contributors/Ints%20Ivanovskis.jpg"
+      },
+      {
+        "name": "Lisa Lööf, röst",
+        "url": "https://www.linkedin.com/in/lisaloof/",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413154/Contributors/Lisa%20L%C3%B6%C3%B6f.jpg"
+      }
+    ],
+    "introPortal": {
+      "hostNotes": [
+        {
+          "text": "> Starta sessionen när ni är redo"
+        }
+      ],
+      "videoLoop": {
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1692872047/Video/portal1_personal_values_wdx446.mp4",
+        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1692871967/Audio/portal_audio_personal_values_iulluj.mp3",
+        "p5JsScript": {
+          "lang": "javascript"
+        }
+      },
+      "videoEnd": {
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1692872040/Video/portal2_personal_values_jqisfe.mp4"
+      }
+    },
+    "tags": [
+      "9c2c08a9-7dc6-4058-bc78-016d0eb00614",
+      "8da0534a-5da9-430a-bdf3-242ace6460fb"
+    ],
+    "link": "https://aware.29k.org/personal-values",
+    "id": "61adeaf2-70ab-4c6c-854c-2c16f762a3c5",
+    "async": true,
+    "description": "Dina personliga värderingar kan hjälpa dig navigera livets med- och motgångar. Att leva i linje med sina värderingar har har visat sig ge en ökning av både upplevd mening och lycka.\n\nI den här sessionen kommer du få möjlighet att hitta fram till just dina personliga värderingar."
+  },
   "en": {
     "liveDuration": 30,
     "slides": [
@@ -308,17 +465,16 @@
     "async": true,
     "description": "Os teus valores pessoais podem ajudar-te a navegar pela vida, tanto nos momentos altos como nos baixos. Além disso, viver uma vida baseada em valores tem demonstrado aumentar o sentido de propósito e a felicidade a longo prazo.\n\nEsta sessão vai guiar-te na definição dos teus valores pessoais.\n\nEncontra uma posição confortável e prepara-te para tomar algumas notas durante o exercício."
   },
-  "sv": {
-    "liveDuration": 30,
+  "es": {
     "slides": [
       {
         "type": "host",
         "hostNotes": [
           {
-            "text": "Välkommen. Jag heter X och vi kommer att jobba tillsammans i ungefär 30 minuter med våra personliga värderingar och att känna mening i livet.\n\nVi kommer att lyssna på en ljudövning tillsammans, reflektera en stund för oss själva och sedan finns det möjlighet att dela sina erfarenheter."
+            "text": "Welcome. I am X and today we will work for around 30 minutes on values and purpose in life.\n\nWe’ll be listening to an audio exercise, reflect on our own, and then finally share our experience with each other if we're up for it."
           },
           {
-            "text": "Vi börjar med en mini-check-in. Hur känner du dig just nu? Svara gärna med två-tre ord. X, skulle du vilja börja?\n\n> Låt alla deltagare, inklusive dig själv, checka in en och en. \n\nTack för att ni checkade in. Då kör vi igång."
+            "text": "Let’s start with a mini check-in. How are you feeling right now? Please answer in two-three words. X, would you like to start?\n\n> Let everyone in the session, including yourself, check in one by one.\n\nThank you all for checking in. Let’s get started."
           }
         ]
       },
@@ -327,14 +483,14 @@
         "content": {
           "lottie": {
             "durationTimer": true,
-            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1712146506/Audio/Personal_values_swe_nkqie9.mp3",
-            "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1712146518/SRT%20(captions)%20files/Personal_values_swe_y7wrjm.srt",
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1776418593/Spanish/Audio%20MP3/SANTI_1_-_Valores_personales_imbzdf.mp3",
+            "subtitles": "",
             "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1676977421/Lottie/audio_meditation_default_black_default_omemwt.json"
           }
         },
         "hostNotes": [
           {
-            "text": "Att hitta våra värderingar kan hjälpa oss finna riktning i livet. För den här övningen är det bra om du har penna och papper nära till hands. Sätt dig bekvämt tillrätta så kör vi igång.  \n\n> Tryck på play för att starta."
+            "text": "Defining personal values can give us a sense of direction in life. Heads up you’ll need to take notes somewhere for this exercise. \n\nFind a comfortable position. I will push play and we'll meet back here afterwards. \n\n> Press play to start."
           }
         ]
       },
@@ -342,14 +498,14 @@
         "type": "reflection",
         "hostNotes": [
           {
-            "text": "Nästa steg är att tyst reflektera i en minut.\n\nVad ser du när du tittar på dina värderingar och dina poäng?\nVad kan du lära dig om dig själv?"
+            "text": "Now we’ll take 1 minute to reflect on our own.\n\nLooking at your values and your scores, what do they tell you?\n\nWhat did you learn about yourself?"
           },
           {
-            "text": "Om du vill kan du skriva ner dina funderingar på ett papper, eller bara tänka fritt. Det finns inga svar som är rätt eller fel här – vad som än dyker upp är okej.\n\n> Tryck på play för att starta timern.\n\nDå har det gått en minut och det är dags att gå vidare."
+            "text": "You can take notes on a piece of paper or just mental notes in your head. And there is no right or wrong here, our answers are our own. 1 minute starting now.\n\n> Press play to start the timer.\n\nThat’s 1 minute and it’s time to move on."
           }
         ],
         "content": {
-          "text": "Vad kan du lära dig om dig själv?",
+          "text": "What did you learn about yourself?",
           "lottie": {
             "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1676642915/Lottie/default_1min_black_rosi2l.json",
             "durationTimer": true,
@@ -361,17 +517,17 @@
         "type": "sharing",
         "hostNotes": [
           {
-            "text": "Det här steget handlar om att dela med sig av sin upplevelse och lyssna på andras. Vi har tre regler:\n\n1. **Det som sägs här, stannar här.**\n2. **Allt som behövs är att vi lyssnar på varandra.** Inget fixande, ingen rådgivning eller annan hjälp behövs. Vi är bara här för att utforska våra egna och andras upplevelser."
+            "text": "Now we are getting into the sharing part. We have three rules for sharing:\n\n1. **What is said in here, stays in here.**\n2. **All you need to do is listen.** There is no fixing, helping or advice-giving needed. We are just showing up and exploring what ourselves and others are going through."
           },
           {
-            "text": "3. **Allt som händer på insidan är okej.** Ilska, kärlek, smärta, glädje. Vad som än dyker upp, det finns inget rätt eller fel. Det bara är som det är.\n\nDet finns en timer på två minuter att hålla sig efter på ett ungefär. Om du inte vill dela med dig är det bara att säga 'pass'."
+            "text": "3. **Everything on the inside is okay.** Anger, love, hatred, sadness. Whatever shows up. No wrongs, no rights. It is what it is.\n\nThere will be a timer set for 2 minutes as an indicator. If you don’t want to share you can always say ‘pass’."
           },
           {
-            "text": "Vem vill börja?\n\n> Låt alla, eller så många som det finns tid för, dela en efter en. Tryck på play för att starta timern. Starta om för varje person.\n\nTack så mycket för att ni lyssnar och delar med er."
+            "text": "Who would like to start?\n\n> Let everyone (or as many as you got time for) share one by one. Press play to start the timer. Re-start for each new sharing.\n\nThank you so much everyone."
           }
         ],
         "content": {
-          "heading": "Vad kan du lära dig om dig själv?",
+          "heading": "What can you learn about yourself?",
           "lottie": {
             "durationTimer": true,
             "duration": 120,
@@ -384,24 +540,24 @@
         "type": "host",
         "hostNotes": [
           {
-            "text": "Bra jobbat. Du har nu satt ord på vad som är betydelsefullt för dig i livet, för att hantera både med- och motgångar. Om du vill så finns det ett uppdrag för dig:\n\nVälj en värdering som känns lite extra utmanande just nu. Välj ett beteende eller en aktivitet i linje med den värderingen som du kan utföra idag eller i morgon. "
+            "text": "Well done for defining what matters to you in life, to navigate through both ups and downs.\n\nYou can continue with this mission: Pick a value where it feels more difficult to live in line with it. Define a small behavior in line with this value, that you can do today or tomorrow."
           },
           {
-            "text": "Innan vi avslutar så gör vi en mini-utcheckning.\nHur känner du dig nu? Har något ändrats? Svara med två-tre ord.\n\nVem vill börja?"
+            "text": "Before we leave this space let’s do a mini check-out. \n\nHow are you feeling right now? Has anything shifted? Please answer in two-three words."
           },
           {
-            "text": "> Låt alla checka ut en efter en.\n\nTack så mycket för era utcheckningar, och för att ni deltog i den här sessionen.\n\n> Avsluta sessionen för att skicka deltagarna till exit-upplevelsen."
+            "text": "Who would like to start?\n\n> Let everyone in the session check out one by one.\n\nThank you all for checking out and for joining this session today.\n\n> Finish session to send everyone off to the exit experience."
           }
         ]
       },
       {
         "type": "instruction",
         "content": {
-          "text": "Du har nu satt ord på vad som är betydelsefullt för dig i livet, för att hantera både med- och motgångar. \n\nVill du ta dig an en utmaning?\n\nVälj i så fall en värdering som känns lite extra utmanande just nu. Välj ett beteende eller en aktivitet i linje med den värderingen som du kan utföra redan idag eller i morgon. ",
+          "text": "You have now defined what matters to you in life, to navigate through both ups and downs.\n\nAre you up for a mission? \n\nIf so, pick a value where it feels more difficult to live in line with it. Define a small behavior in line with this value, that you can do today or tomorrow.",
           "image": {
             "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1692872012/Images/card_personal_values_xpcp9x.png"
           },
-          "heading": "Bra jobbat."
+          "heading": "Well done"
         }
       }
     ],
@@ -409,11 +565,9 @@
       "textColor": "#2E2E2E",
       "backgroundColor": "#b4a880"
     },
-    "hidden": false,
-    "name": "Personliga värderingar",
+    "name": "Personal values",
     "live": true,
     "published": true,
-    "asyncDuration": 6,
     "card": {
       "image": {
         "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1692872012/Images/card_personal_values_xpcp9x.png"
@@ -424,25 +578,20 @@
     },
     "coCreators": [
       {
-        "name": "Jenny Rickardsson, redaktör",
+        "name": "Jenny Rickardsson, voice and editor",
         "url": "https://www.linkedin.com/in/jenny-rickardson-6770a959/",
         "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413228/Contributors/Jenny%20Rickardsson.jpg"
       },
       {
-        "name": "Ints Ivanovskis, illustrationer",
+        "name": "Ints Ivanovskis, art works",
         "url": "https://www.linkedin.com/in/ints-ivanovskis-46ab0311a/",
         "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413436/Contributors/Ints%20Ivanovskis.jpg"
-      },
-      {
-        "name": "Lisa Lööf, röst",
-        "url": "https://www.linkedin.com/in/lisaloof/",
-        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413154/Contributors/Lisa%20L%C3%B6%C3%B6f.jpg"
       }
     ],
     "introPortal": {
       "hostNotes": [
         {
-          "text": "> Starta sessionen när ni är redo"
+          "text": "> Start the session when you're ready to go"
         }
       ],
       "videoLoop": {
@@ -460,10 +609,18 @@
       "9c2c08a9-7dc6-4058-bc78-016d0eb00614",
       "8da0534a-5da9-430a-bdf3-242ace6460fb"
     ],
-    "link": "https://aware.29k.org/personal-values",
     "id": "61adeaf2-70ab-4c6c-854c-2c16f762a3c5",
     "async": true,
-    "description": "Dina personliga värderingar kan hjälpa dig navigera livets med- och motgångar. Att leva i linje med sina värderingar har har visat sig ge en ökning av både upplevd mening och lycka.\n\nI den här sessionen kommer du få möjlighet att hitta fram till just dina personliga värderingar."
+    "description": "Your personal values can help you navigate life in both ups and downs. Also, living a value-based life has been proven to increase sense of purpose and long term happiness.\n\nThis session will guide you to define your personal values."
+  },
+  "cs": {
+    "tags": [
+      "9c2c08a9-7dc6-4058-bc78-016d0eb00614",
+      "8da0534a-5da9-430a-bdf3-242ace6460fb"
+    ],
+    "asyncDuration": 6,
+    "id": "61adeaf2-70ab-4c6c-854c-2c16f762a3c5",
+    "card": {}
   },
   "ja": {
     "liveDuration": 30,
@@ -545,53 +702,8 @@
     "id": "61adeaf2-70ab-4c6c-854c-2c16f762a3c5",
     "async": false
   },
-  "da": {
-    "tags": [
-      "9c2c08a9-7dc6-4058-bc78-016d0eb00614",
-      "8da0534a-5da9-430a-bdf3-242ace6460fb"
-    ],
-    "asyncDuration": 6,
-    "id": "61adeaf2-70ab-4c6c-854c-2c16f762a3c5"
-  },
-  "cs": {
-    "tags": [
-      "9c2c08a9-7dc6-4058-bc78-016d0eb00614",
-      "8da0534a-5da9-430a-bdf3-242ace6460fb"
-    ],
-    "asyncDuration": 6,
-    "id": "61adeaf2-70ab-4c6c-854c-2c16f762a3c5"
-  },
-  "nl": {
-    "tags": [
-      "9c2c08a9-7dc6-4058-bc78-016d0eb00614",
-      "8da0534a-5da9-430a-bdf3-242ace6460fb"
-    ],
-    "asyncDuration": 6,
-    "id": "61adeaf2-70ab-4c6c-854c-2c16f762a3c5"
-  },
-  "es": {
-    "id": "61adeaf2-70ab-4c6c-854c-2c16f762a3c5"
-  },
   "pt-BR": {
-    "description": "Seus valores pessoais podem te ajudar a navegar pela vida, tanto nos altos quanto nos baixos. Além disso, viver de acordo com seus valores comprovadamente aumenta o senso de propósito e a felicidade a longo prazo.\n\nEsta sessão irá te guiar na definição dos seus valores pessoais.\n\n",
-    "introPortal": {
-      "hostNotes": [
-        {
-          "text": ">Comece a sessão quando estiver pronto para seguir"
-        }
-      ],
-      "videoLoop": {
-        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1692872047/Video/portal1_personal_values_wdx446.mp4",
-        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1692871967/Audio/portal_audio_personal_values_iulluj.mp3",
-        "p5JsScript": {
-          "lang": "javascript"
-        }
-      },
-      "videoEnd": {
-        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1692872040/Video/portal2_personal_values_jqisfe.mp4"
-      }
-    },
-    "name": "Valores pessoais",
+    "liveDuration": 30,
     "slides": [
       {
         "hostNotes": [
@@ -687,13 +799,12 @@
         "type": "instruction"
       }
     ],
-    "id": "61adeaf2-70ab-4c6c-854c-2c16f762a3c5",
-    "liveDuration": 30,
     "theme": {
       "textColor": "#2E2E2E",
       "backgroundColor": "#b4a880"
     },
     "hidden": false,
+    "name": "Valores pessoais",
     "live": true,
     "published": false,
     "asyncDuration": 6,
@@ -717,11 +828,48 @@
         "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413436/Contributors/Ints%20Ivanovskis.jpg"
       }
     ],
+    "introPortal": {
+      "hostNotes": [
+        {
+          "text": ">Comece a sessão quando estiver pronto para seguir"
+        }
+      ],
+      "videoLoop": {
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1692872047/Video/portal1_personal_values_wdx446.mp4",
+        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1692871967/Audio/portal_audio_personal_values_iulluj.mp3",
+        "p5JsScript": {
+          "lang": "javascript"
+        }
+      },
+      "videoEnd": {
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1692872040/Video/portal2_personal_values_jqisfe.mp4"
+      }
+    },
     "tags": [
       "9c2c08a9-7dc6-4058-bc78-016d0eb00614",
       "8da0534a-5da9-430a-bdf3-242ace6460fb"
     ],
     "link": "https://aware.29k.org/personal-values",
-    "async": true
+    "id": "61adeaf2-70ab-4c6c-854c-2c16f762a3c5",
+    "async": true,
+    "description": "Seus valores pessoais podem te ajudar a navegar pela vida, tanto nos altos quanto nos baixos. Além disso, viver de acordo com seus valores comprovadamente aumenta o senso de propósito e a felicidade a longo prazo.\n\nEsta sessão irá te guiar na definição dos seus valores pessoais.\n\n"
+  },
+  "da": {
+    "tags": [
+      "9c2c08a9-7dc6-4058-bc78-016d0eb00614",
+      "8da0534a-5da9-430a-bdf3-242ace6460fb"
+    ],
+    "asyncDuration": 6,
+    "id": "61adeaf2-70ab-4c6c-854c-2c16f762a3c5",
+    "card": {}
+  },
+  "nl": {
+    "tags": [
+      "9c2c08a9-7dc6-4058-bc78-016d0eb00614",
+      "8da0534a-5da9-430a-bdf3-242ace6460fb"
+    ],
+    "asyncDuration": 6,
+    "id": "61adeaf2-70ab-4c6c-854c-2c16f762a3c5",
+    "card": {}
   }
 }
