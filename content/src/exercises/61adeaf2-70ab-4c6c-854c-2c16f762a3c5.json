@@ -466,19 +466,43 @@
     "description": "Os teus valores pessoais podem ajudar-te a navegar pela vida, tanto nos momentos altos como nos baixos. Além disso, viver uma vida baseada em valores tem demonstrado aumentar o sentido de propósito e a felicidade a longo prazo.\n\nEsta sessão vai guiar-te na definição dos teus valores pessoais.\n\nEncontra uma posição confortável e prepara-te para tomar algumas notas durante o exercício."
   },
   "es": {
+    "description": "Tus valores personales pueden ayudarte a navegar por la vida tanto en los momentos buenos como en los difíciles. Además, vivir una vida basada en valores ha demostrado aumentar el sentido de propósito y la felicidad a largo plazo.\n\nEsta sesión te guiará para definir tus valores personales.",
+    "introPortal": {
+      "hostNotes": [
+        {
+          "text": "> Comienza la sesión cuando estés listo/a para empezar"
+        }
+      ],
+      "videoLoop": {
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1692872047/Video/portal1_personal_values_wdx446.mp4",
+        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1692871967/Audio/portal_audio_personal_values_iulluj.mp3",
+        "p5JsScript": {
+          "lang": "javascript"
+        }
+      },
+      "videoEnd": {
+        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1692872040/Video/portal2_personal_values_jqisfe.mp4"
+      }
+    },
+    "name": "Valores personales",
     "slides": [
       {
-        "type": "host",
         "hostNotes": [
           {
-            "text": "Welcome. I am X and today we will work for around 30 minutes on values and purpose in life.\n\nWe’ll be listening to an audio exercise, reflect on our own, and then finally share our experience with each other if we're up for it."
+            "text": "Bienvenidos/as. Soy X y hoy trabajaremos durante unos 30 minutos en los valores y el propósito en la vida.\n\nEscucharemos un ejercicio de audio, reflexionaremos de forma individual y luego compartiremos nuestra experiencia si nos apetece."
           },
           {
-            "text": "Let’s start with a mini check-in. How are you feeling right now? Please answer in two-three words. X, would you like to start?\n\n> Let everyone in the session, including yourself, check in one by one.\n\nThank you all for checking in. Let’s get started."
+            "text": "Comencemos con un pequeño chequeo sobre cómo estamos. ¿Cómo te sientes en este momento? Por favor, responde en dos o tres palabras. X, ¿te gustaría empezar?\n\n> Deja que todos en la sesión, incluido/a tú, hagan el check-in uno por uno.\n\nGracias a todos/as por compartir cómo estáis. ¡Empecemos!"
           }
-        ]
+        ],
+        "type": "host"
       },
       {
+        "hostNotes": [
+          {
+            "text": "Definir los valores personales puede darnos un sentido de dirección en la vida. Ten en cuenta que necesitarás tomar notas en algún lugar para este ejercicio.\n\nEncuentra una posición cómoda. Voy a pulsar play y nos reencontraremos aquí después.\n\n> Pulsa play para empezar."
+          }
+        ],
         "type": "content",
         "content": {
           "lottie": {
@@ -487,85 +511,79 @@
             "subtitles": "",
             "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1676977421/Lottie/audio_meditation_default_black_default_omemwt.json"
           }
-        },
-        "hostNotes": [
-          {
-            "text": "Defining personal values can give us a sense of direction in life. Heads up you’ll need to take notes somewhere for this exercise. \n\nFind a comfortable position. I will push play and we'll meet back here afterwards. \n\n> Press play to start."
-          }
-        ]
+        }
       },
       {
-        "type": "reflection",
-        "hostNotes": [
-          {
-            "text": "Now we’ll take 1 minute to reflect on our own.\n\nLooking at your values and your scores, what do they tell you?\n\nWhat did you learn about yourself?"
-          },
-          {
-            "text": "You can take notes on a piece of paper or just mental notes in your head. And there is no right or wrong here, our answers are our own. 1 minute starting now.\n\n> Press play to start the timer.\n\nThat’s 1 minute and it’s time to move on."
-          }
-        ],
         "content": {
-          "text": "What did you learn about yourself?",
+          "text": "¿Qué aprendiste sobre ti mismo/a?",
           "lottie": {
             "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1676642915/Lottie/default_1min_black_rosi2l.json",
             "durationTimer": true,
             "duration": 60
           }
-        }
-      },
-      {
-        "type": "sharing",
+        },
         "hostNotes": [
           {
-            "text": "Now we are getting into the sharing part. We have three rules for sharing:\n\n1. **What is said in here, stays in here.**\n2. **All you need to do is listen.** There is no fixing, helping or advice-giving needed. We are just showing up and exploring what ourselves and others are going through."
+            "text": "Ahora tomaremos 1 minuto para reflexionar de forma individual.\n\nMirando tus valores y tus puntuaciones, ¿qué te dicen?\n\n¿Qué aprendiste sobre ti mismo/a?"
           },
           {
-            "text": "3. **Everything on the inside is okay.** Anger, love, hatred, sadness. Whatever shows up. No wrongs, no rights. It is what it is.\n\nThere will be a timer set for 2 minutes as an indicator. If you don’t want to share you can always say ‘pass’."
-          },
-          {
-            "text": "Who would like to start?\n\n> Let everyone (or as many as you got time for) share one by one. Press play to start the timer. Re-start for each new sharing.\n\nThank you so much everyone."
+            "text": "Puedes tomar notas en un papel o mentalmente. No hay respuestas correctas o incorrectas, nuestras respuestas son nuestras. 1 minuto a partir de ahora.\n\n> Pulsa play para iniciar el temporizador.\n\nEso fue 1 minuto y es hora de avanzar."
           }
         ],
+        "type": "reflection"
+      },
+      {
         "content": {
-          "heading": "What can you learn about yourself?",
+          "heading": "¿Qué puedes aprender sobre ti mismo/a?",
           "lottie": {
             "durationTimer": true,
             "duration": 120,
             "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1676639253/Lottie/default_2min_black_o6egey.json"
           }
         },
+        "hostNotes": [
+          {
+            "text": "Ahora entramos en la parte de compartir. Tenemos tres reglas para compartir:\n\n1. **Lo que se dice aquí, se queda aquí.**\n2. **Todo lo que necesitas hacer es escuchar.** No hace falta arreglar, ayudar ni dar consejos. Solo estamos aquí y explorando lo que nosotros/as y los demás estamos viviendo."
+          },
+          {
+            "text": "3. **Todo lo que sentimos dentro está bien.** Ira, amor, odio, tristeza. Lo que sea que aparezca. Sin errores, sin aciertos. Es lo que es.\n\nHabrá un temporizador de 2 minutos como indicador. Si no quieres compartir, siempre puedes decir 'paso'."
+          },
+          {
+            "text": "¿Quién quiere empezar?\n\n> Deja que todos/as (o tantos/as como el tiempo permita) compartan uno por uno. Pulsa play para iniciar el temporizador. Reinicia para cada nueva intervención.\n\nMuchísimas gracias a todos/as."
+          }
+        ],
+        "type": "sharing",
         "id": "1"
       },
       {
-        "type": "host",
         "hostNotes": [
           {
-            "text": "Well done for defining what matters to you in life, to navigate through both ups and downs.\n\nYou can continue with this mission: Pick a value where it feels more difficult to live in line with it. Define a small behavior in line with this value, that you can do today or tomorrow."
+            "text": "¡Bien hecho por definir lo que importa en tu vida, para navegar tanto por los buenos como los malos momentos!\n\nPuedes continuar con esta misión: elige un valor con el que te resulte más difícil vivir en consonancia. Define un pequeño comportamiento alineado con este valor que puedas llevar a cabo hoy o mañana."
           },
           {
-            "text": "Before we leave this space let’s do a mini check-out. \n\nHow are you feeling right now? Has anything shifted? Please answer in two-three words."
+            "text": "Antes de salir de este espacio, hagamos un pequeño check-out.\n\n¿Cómo te sientes ahora mismo? ¿Ha cambiado algo? Por favor, responde en dos o tres palabras."
           },
           {
-            "text": "Who would like to start?\n\n> Let everyone in the session check out one by one.\n\nThank you all for checking out and for joining this session today.\n\n> Finish session to send everyone off to the exit experience."
+            "text": "¿Quién quiere empezar?\n\n> Deja que todos en la sesión hagan el check-out uno por uno.\n\nGracias a todos/as por hacer el check-out y por uniros a esta sesión hoy.\n\n> Finaliza la sesión para enviar a todos al experience de salida."
           }
-        ]
+        ],
+        "type": "host"
       },
       {
-        "type": "instruction",
         "content": {
-          "text": "You have now defined what matters to you in life, to navigate through both ups and downs.\n\nAre you up for a mission? \n\nIf so, pick a value where it feels more difficult to live in line with it. Define a small behavior in line with this value, that you can do today or tomorrow.",
+          "heading": "¡Bien hecho!",
+          "text": "Ahora has definido lo que importa en tu vida, para navegar tanto por los buenos como los malos momentos.\n\n¿Te animas con una misión?\n\nSi es así, elige un valor con el que te resulte más difícil vivir en consonancia. Define un pequeño comportamiento alineado con este valor que puedas llevar a cabo hoy o mañana.",
           "image": {
             "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1692872012/Images/card_personal_values_xpcp9x.png"
-          },
-          "heading": "Well done"
-        }
+          }
+        },
+        "type": "instruction"
       }
     ],
     "theme": {
       "textColor": "#2E2E2E",
       "backgroundColor": "#b4a880"
     },
-    "name": "Personal values",
     "live": true,
     "published": true,
     "card": {
@@ -588,30 +606,16 @@
         "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1665413436/Contributors/Ints%20Ivanovskis.jpg"
       }
     ],
-    "introPortal": {
-      "hostNotes": [
-        {
-          "text": "> Start the session when you're ready to go"
-        }
-      ],
-      "videoLoop": {
-        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1692872047/Video/portal1_personal_values_wdx446.mp4",
-        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1692871967/Audio/portal_audio_personal_values_iulluj.mp3",
-        "p5JsScript": {
-          "lang": "javascript"
-        }
-      },
-      "videoEnd": {
-        "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1692872040/Video/portal2_personal_values_jqisfe.mp4"
-      }
-    },
     "tags": [
       "9c2c08a9-7dc6-4058-bc78-016d0eb00614",
       "8da0534a-5da9-430a-bdf3-242ace6460fb"
     ],
     "id": "61adeaf2-70ab-4c6c-854c-2c16f762a3c5",
     "async": true,
-    "description": "Your personal values can help you navigate life in both ups and downs. Also, living a value-based life has been proven to increase sense of purpose and long term happiness.\n\nThis session will guide you to define your personal values."
+    "liveDuration": 30,
+    "hidden": false,
+    "asyncDuration": 6,
+    "link": "https://aware.29k.org/personal-values"
   },
   "cs": {
     "tags": [

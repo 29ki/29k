@@ -463,138 +463,11 @@
     "description": "Uma meditação guiada para parar a luta interior e canalizar a nossa energia para o que realmente importa. Aceitar os desafios internos pode ajudar-nos a redirecionar o nosso foco e impulsionar-nos para ações com significado."
   },
   "es": {
-    "slides": [
-      {
-        "type": "host",
-        "hostNotes": [
-          {
-            "text": "Welcome. I am X, and today we will work for around 30 minutes on acceptance and willingness.\n\nWe’ll be doing a short introduction, followed by a meditation, time for reflection and then finally sharing our experiences."
-          },
-          {
-            "text": "Let’s start with a mini check-in. What brought you here today? Please answer in two-three words. X, would you like to start?\n\n> Let everyone in the session, including yourself, check in one by one.\n\nThank you all for checking in. Let’s get started."
-          }
-        ],
-        "video": {
-          "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1682091066/Video/intro_willingness_stance_gerobl.mp4",
-          "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1682091070/Images/thumb%20host%20willingness%20stance.jpg"
-        }
-      },
-      {
-        "type": "content",
-        "hostNotes": [
-          {
-            "text": "There is often a lot going on inside of us: thoughts, feelings, and sensations pop up, without us having any control of their occurence."
-          },
-          {
-            "text": "Some things we tend to resist. Such as anxiety, worry, thoughts of death, and fears of the future. When they show up, we may try to push them away, think about something else, or distract ourselves."
-          },
-          {
-            "text": "But science tells us that the things we try to get rid of have a tendency to come knocking over and over again. Welcoming those things with willingness and openness can be a smarter strategy in the long run. Let’s try it out.\n\n> Press play to start the meditation"
-          }
-        ],
-        "content": {
-          "video": {
-            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1689604102/Audio/The_willingness_stance_isqgiy.mp3",
-            "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1689602338/SRT%20(captions)%20files/The_willingness_stance_kq9il9.srt"
-          },
-          "lottie": {
-            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1676977421/Lottie/audio_meditation_default_white_default_mqfcuo.json",
-            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1776423072/Spanish/Audio%20MP3/Ejercicio_La_actitud_de_aceptacio%CC%81n_jhsnmj.mp3",
-            "durationTimer": true,
-            "subtitles": ""
-          }
-        }
-      },
-      {
-        "type": "reflection",
-        "hostNotes": [
-          {
-            "text": "Now we’ll take 1 minute to reflect on our own.\n\nWhat was it like, taking a willing attitude towards your stressful thought? Did you notice any differences between the two occasions?"
-          },
-          {
-            "text": "You can take notes on a piece of paper or just mental notes in your head. And there is no right or wrong here, our answers are our own. 1 minute starting now.\n\n> Press play to start the timer.\n\nThat’s 1 minute and it’s time to move on."
-          }
-        ],
-        "content": {
-          "heading": "How did you experience the willingness stance? ",
-          "text": "Any difference?",
-          "lottie": {
-            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1676642915/Lottie/default_1min_white_wvgwma.json",
-            "durationTimer": true,
-            "duration": 60
-          }
-        }
-      },
-      {
-        "type": "sharing",
-        "hostNotes": [
-          {
-            "text": "Now we are getting into the sharing part. We have three rules for sharing:\n\n1. **What is said in here, stays in here.**\n2. **All you need to do is listen.** There is no fixing, helping or advice-giving needed. We are just showing up and exploring what ourselves and others are going through."
-          },
-          {
-            "text": "3. **Everything on the inside is okay.** Anger, love, hatred, sadness. Whatever shows up. No wrongs, no rights. It is what it is.\n\nThere will be a timer set for 2 minutes as an indicator. If you don’t want to share you can always say ‘pass’."
-          },
-          {
-            "text": "Who would like to start?\n\n> Let everyone (or as many as you got time for) share one by one. Press play to start the timer. Re-start for each new sharing.\n\nThank you so much everyone."
-          }
-        ],
-        "content": {
-          "heading": "How did you experience the willingness stance?",
-          "text": "Any difference?",
-          "lottie": {
-            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1676639253/Lottie/default_2min_white_arvrf2.json",
-            "durationTimer": true,
-            "duration": 120
-          }
-        },
-        "id": "sharing"
-      },
-      {
-        "type": "host",
-        "hostNotes": [
-          {
-            "text": "Well done. If you’re up for it, you can continue with a mission for the rest of this day.\n\nWhenever you notice you are resisting something on the inside, open up your willingness stance and try to instead welcome that experience."
-          },
-          {
-            "text": "Science tells us that allowing difficult things on the inside may open up new possibilities to choose our actions and act for purpose.\n\nBefore we leave this space, let’s do a mini check-out. How do you feel now, has anything shifted? Please answer in two-three words."
-          },
-          {
-            "text": "Who would like to start?\n\n> Let everyone in the session check out one by one.\n\nThank you all for checking out and for joining this session today.\n\n> Finish session to send everyone off to the exit experience."
-          }
-        ],
-        "video": {
-          "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1682091066/Video/outro_willingness_stance_ys21jp.mp4",
-          "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1682091070/Images/thumb%20host%20willingness%20stance.jpg"
-        }
-      },
-      {
-        "type": "instruction",
-        "content": {
-          "heading": "Well done",
-          "text": "If you’re up for it, you can continue with this mission:\n\nDuring the rest of today, whenever you notice you are resisting something on the inside, open up your willingness stance and try to instead welcoming that experience.",
-          "image": {
-            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1684329936/Images/card_image_the_willingnes_stance_1_bcwhxk.png",
-            "description": ""
-          }
-        }
-      }
-    ],
-    "theme": {
-      "textColor": "#F9F8F4",
-      "backgroundColor": "#267ae4"
-    },
-    "name": "The willingness stance",
-    "live": true,
-    "published": true,
-    "card": {
-      "image": {
-        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1684329936/Images/card_image_the_willingnes_stance_1_bcwhxk.png"
-      }
-    },
+    "description": "Meditación guiada para dejar de luchar contra las experiencias internas no deseadas y, en cambio, usar nuestra energía donde importa. Aceptar las dificultades internas puede ayudarnos a redirigir el foco y llevarnos hacia una acción significativa.",
     "introPortal": {
       "hostNotes": [
         {
-          "text": "> Start the session when you're ready to go"
+          "text": "> Comienza la sesión cuando estés listo/a para empezar"
         }
       ],
       "videoLoop": {
@@ -609,13 +482,144 @@
         "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1676991218/Video/portal2_the_willingnes_stance_kti6ub.mp4"
       }
     },
+    "name": "La actitud de aceptación",
+    "slides": [
+      {
+        "hostNotes": [
+          {
+            "text": "Bienvenidos/as. Soy X, y hoy trabajaremos durante unos 30 minutos en la aceptación y la apertura.\n\nHaremos una breve introducción, seguida de una meditación, tiempo para reflexionar y finalmente compartir nuestras experiencias."
+          },
+          {
+            "text": "Comencemos con un pequeño chequeo sobre cómo estamos. ¿Qué te trajo aquí hoy? Por favor, responde en dos o tres palabras. X, ¿te gustaría empezar?\n\n> Deja que todos en la sesión, incluido/a tú, hagan el check-in uno por uno.\n\nGracias a todos/as por compartir cómo estáis. ¡Empecemos!"
+          }
+        ],
+        "type": "host",
+        "video": {
+          "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1682091066/Video/intro_willingness_stance_gerobl.mp4",
+          "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1682091070/Images/thumb%20host%20willingness%20stance.jpg"
+        }
+      },
+      {
+        "hostNotes": [
+          {
+            "text": "A menudo hay mucho ocurriendo dentro de nosotros/as: pensamientos, sentimientos y sensaciones surgen sin que tengamos ningún control sobre su aparición."
+          },
+          {
+            "text": "Hay cosas que tendemos a resistir. Como la ansiedad, la preocupación, los pensamientos sobre la muerte o el miedo al futuro. Cuando aparecen, podemos intentar alejarlos, pensar en otra cosa o distraernos."
+          },
+          {
+            "text": "Pero la ciencia nos dice que las cosas de las que intentamos deshacernos tienden a volver una y otra vez. Acogerlas con apertura y disposición puede ser una estrategia más inteligente a largo plazo. Vamos a probarlo.\n\n> Pulsa play para iniciar la meditación"
+          }
+        ],
+        "type": "content",
+        "content": {
+          "video": {
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1689604102/Audio/The_willingness_stance_isqgiy.mp3",
+            "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1689602338/SRT%20(captions)%20files/The_willingness_stance_kq9il9.srt"
+          },
+          "lottie": {
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1676977421/Lottie/audio_meditation_default_white_default_mqfcuo.json",
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1776423072/Spanish/Audio%20MP3/Ejercicio_La_actitud_de_aceptacio%CC%81n_jhsnmj.mp3",
+            "durationTimer": true,
+            "subtitles": ""
+          }
+        }
+      },
+      {
+        "content": {
+          "heading": "¿Cómo experimentaste la actitud de aceptación?",
+          "text": "¿Notaste alguna diferencia?",
+          "lottie": {
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1676642915/Lottie/default_1min_white_wvgwma.json",
+            "durationTimer": true,
+            "duration": 60
+          }
+        },
+        "hostNotes": [
+          {
+            "text": "Ahora tomaremos 1 minuto para reflexionar de forma individual.\n\n¿Cómo fue adoptar una actitud abierta y de aceptación hacia tu pensamiento estresante? ¿Notaste alguna diferencia entre las dos ocasiones?"
+          },
+          {
+            "text": "Puedes tomar notas en un papel o mentalmente. No hay respuestas correctas o incorrectas, nuestras respuestas son nuestras. 1 minuto a partir de ahora.\n\n> Pulsa play para iniciar el temporizador.\n\nEso fue 1 minuto y es hora de avanzar."
+          }
+        ],
+        "type": "reflection"
+      },
+      {
+        "content": {
+          "heading": "¿Cómo experimentaste la actitud de aceptación?",
+          "text": "¿Notaste alguna diferencia?",
+          "lottie": {
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1676639253/Lottie/default_2min_white_arvrf2.json",
+            "durationTimer": true,
+            "duration": 120
+          }
+        },
+        "hostNotes": [
+          {
+            "text": "Ahora entramos en la parte de compartir. Tenemos tres reglas para compartir:\n\n1. **Lo que se dice aquí, se queda aquí.**\n2. **Todo lo que necesitas hacer es escuchar.** No hace falta arreglar, ayudar ni dar consejos. Solo estamos aquí y explorando lo que nosotros/as y los demás estamos viviendo."
+          },
+          {
+            "text": "3. **Todo lo que sentimos dentro está bien.** Ira, amor, odio, tristeza. Lo que sea que aparezca. Sin errores, sin aciertos. Es lo que es.\n\nHabrá un temporizador de 2 minutos como indicador. Si no quieres compartir, siempre puedes decir 'paso'."
+          },
+          {
+            "text": "¿Quién quiere empezar?\n\n> Deja que todos/as (o tantos/as como el tiempo permita) compartan uno por uno. Pulsa play para iniciar el temporizador. Reinicia para cada nueva intervención.\n\nMuchísimas gracias a todos/as."
+          }
+        ],
+        "type": "sharing",
+        "id": "sharing"
+      },
+      {
+        "hostNotes": [
+          {
+            "text": "¡Bien hecho! Si te animas, puedes continuar con una misión para el resto del día.\n\nCada vez que notes que estás resistiendo algo en tu interior, abre tu actitud de aceptación e intenta acoger esa experiencia."
+          },
+          {
+            "text": "La ciencia nos dice que permitir las cosas difíciles en nuestro interior puede abrir nuevas posibilidades para elegir nuestras acciones y actuar con propósito.\n\nAntes de salir de este espacio, hagamos un pequeño check-out. ¿Cómo te sientes ahora, ha cambiado algo? Por favor, responde en dos o tres palabras."
+          },
+          {
+            "text": "¿Quién quiere empezar?\n\n> Deja que todos en la sesión hagan el check-out uno por uno.\n\nGracias a todos/as por hacer el check-out y por uniros a esta sesión hoy.\n\n> Finaliza la sesión para enviar a todos al experience de salida."
+          }
+        ],
+        "type": "host",
+        "video": {
+          "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1682091066/Video/outro_willingness_stance_ys21jp.mp4",
+          "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1682091070/Images/thumb%20host%20willingness%20stance.jpg"
+        }
+      },
+      {
+        "content": {
+          "heading": "¡Bien hecho!",
+          "text": "Si te animas, puedes continuar con esta misión:\n\nDurante el resto del día, cada vez que notes que estás resistiendo algo en tu interior, abre tu actitud de aceptación e intenta acoger esa experiencia.",
+          "image": {
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1684329936/Images/card_image_the_willingnes_stance_1_bcwhxk.png",
+            "description": ""
+          }
+        },
+        "type": "instruction"
+      }
+    ],
+    "theme": {
+      "textColor": "#F9F8F4",
+      "backgroundColor": "#267ae4"
+    },
+    "live": true,
+    "published": true,
+    "card": {
+      "image": {
+        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1684329936/Images/card_image_the_willingnes_stance_1_bcwhxk.png"
+      }
+    },
     "tags": [
       "db34d82a-4c48-4ddd-9de5-f562d8aa1bc9",
       "34100e43-2eb8-4d35-8eb0-9fa9f78e4935"
     ],
     "id": "9ac0c561-ff26-45fc-b6d5-0a983432394e",
     "async": true,
-    "description": "Guided meditation to stop fighting unwanted inner experiences, and instead use our energy where it matters. Accepting inner hardships can help us redirect our focus, and propel us into meaningful action."
+    "liveDuration": 30,
+    "hidden": false,
+    "asyncDuration": 5,
+    "link": "https://aware.29k.org/the-willingness-stance"
   },
   "cs": {
     "tags": [

@@ -503,66 +503,66 @@
     "description": "Muitas vezes somos duros connosco e mais compassivos com os outros. Neste exercício vamos aprender a encontrar um aliado interior compassivo que nos acompanhe em situações difíceis. A autocompaixão pode ajudar-nos a sentir mais felizes e satisfeitos com nós mesmos.\n\nEncontra uma posição confortável e prepara-te para tomar algumas notas durante o exercício."
   },
   "es": {
+    "liveDuration": 30,
     "slides": [
       {
-        "type": "host",
         "hostNotes": [
           {
-            "text": "Welcome. I am X and today we will work for around 30 minutes on connecting with- and being kind to ourselves.\n\nWe’ll listen to an audio exercise together, there will be time for reflecting on our own and finally sharing with each other. Note that it can be useful to keep pen and paper near by."
+            "text": "Bienvenidos/as. Soy X y hoy trabajaremos durante unos 30 minutos en conectarnos con nosotros/as mismos/as y ser amables con nosotros/as mismos/as.\n\nEscucharemos juntos/as un ejercicio de audio, habrá tiempo para reflexionar individualmente y finalmente compartiremos. Puede ser útil tener papel y bolígrafo cerca."
           },
           {
-            "text": "Let’s start with a mini check-in. How are you feeling right now? Please answer in two-three words. X, would you like to start?\n\n> Let everyone in the session, including yourself, check in one by one.\n\nThank you all for checking in. Let’s get started."
+            "text": "Comencemos con un pequeño chequeo sobre cómo estamos. ¿Cómo te sientes en este momento? Por favor, responde en dos o tres palabras. X, ¿te gustaría empezar?\n\n> Deja que todos en la sesión, incluido/a tú, hagan el check-in uno por uno.\n\nGracias a todos/as por compartir cómo estáis. ¡Empecemos!"
           }
         ],
+        "type": "host",
         "video": {
           "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1677835713/Video/bekindtoyourself_async_intro_sqmu9o.mp4",
           "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1677835944/Images/thumb_host_bekindtoyourself_ysmcnz.png"
         }
       },
       {
-        "type": "content",
         "hostNotes": [
           {
-            "text": "Let's do this exercise together."
+            "text": "Hagamos este ejercicio juntos/as."
           }
         ],
+        "type": "content",
         "content": {
           "video": {
             "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1669043753/Video/content_Be_kind_to_yourself_qfhuch.mp4",
             "autoPlayLoop": false,
             "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1674554605/Images/thumb_content_be_kind_to_yourself_hn38hz.png",
-            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1710257093/Audio/The%20clothespins%20improved%20audio.mp3",
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1776423061/Spanish/Audio%20MP3/Ejercicio_Las_pinzas_de_la_ropa_s0avif.mp3",
             "durationTimer": true,
             "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1689598562/SRT%20(captions)%20files/Be_kind_to_yourself_i1ykx0.srt"
           },
           "lottie": {
-            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1776423061/Spanish/Audio%20MP3/Ejercicio_Las_pinzas_de_la_ropa_s0avif.mp3"
+            "audio": ""
           }
         }
       },
       {
-        "type": "reflection",
-        "hostNotes": [
-          {
-            "text": "Now we’ll take 1 minute to reflect on our own.\n\nWhat do you bring from this exercise? What did you notice or learn about yourself?"
-          },
-          {
-            "text": "You can take notes on a piece of paper or just mental notes in your head. And there is no right or wrong answer, our responses are our own. 1 minute starting now.\n\n> Press play to start the timer.\n\nThat’s 1 minute and it’s time to move on."
-          }
-        ],
         "content": {
-          "heading": "What do you bring from this exercise?",
+          "heading": "¿Qué te llevas de este ejercicio?",
           "video": {
             "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1669043760/Video/saring1_Be_kind_to_yourself_hokenn.mp4",
             "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1674554605/Images/thumb_timer2min_2_be_kind_to_yourself_pii45p.png",
             "durationTimer": true
           }
-        }
+        },
+        "hostNotes": [
+          {
+            "text": "Ahora tomaremos 1 minuto para reflexionar de forma individual.\n\n¿Qué te llevas de este ejercicio? ¿Qué notaste o aprendiste sobre ti mismo/a?"
+          },
+          {
+            "text": "Puedes tomar notas en un papel o mentalmente. No hay respuestas correctas o incorrectas, cada uno/a tiene sus propias respuestas. 1 minuto, empezando ahora.\n\n> Pulsa play para iniciar el temporizador.\n\nHa pasado 1 minuto, vamos a continuar."
+          }
+        ],
+        "type": "reflection"
       },
       {
-        "type": "sharing",
         "content": {
-          "heading": "What do you bring from this exercise?",
+          "heading": "¿Qué te llevas de este ejercicio?",
           "video": {
             "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1669043755/Video/sharing_timer_Be_kind_to_yourself_kwtwln.mp4",
             "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1674554605/Images/thumb_timer2min_3_be_kind_to_yourself_orn39r.png",
@@ -571,56 +571,58 @@
         },
         "hostNotes": [
           {
-            "text": "Now we are getting into the sharing part. We have three rules for sharing:\n\n1. **What is said in here, stays in here.**\n2. **All you need to do is listen.** There is no fixing, helping or advice-giving needed. We are just showing up and exploring what ourselves and others are going through."
+            "text": "Ahora entramos en la parte de compartir. Tenemos tres reglas para compartir:\n\n1. **Lo que se diga aquí, se queda aquí.**\n2. **Todo lo que necesitas hacer es escuchar.** No se necesita arreglar, ayudar ni dar consejos. Solo estamos presentes y explorando lo que nosotros/as mismos/as y los/las demás estamos experimentando."
           },
           {
-            "text": "3. **Everything on the inside is okay.** Anger, love, hatred, sadness. Whatever shows up. No wrongs, no rights. It is what it is.\n\nThere will be a timer set for 2 minutes as an indicator. If you don’t want to share you can always say ‘pass’."
+            "text": "3. **Todo lo que sentimos dentro está bien.** Ira, amor, odio, tristeza. Lo que sea que surja. No hay correcto ni incorrecto. Simplemente es lo que es, hay lo que hay.\n\nSe establecerá un temporizador de 2 minutos como indicador. Si no deseas compartir, siempre puedes decir 'paso'."
           },
           {
-            "text": "Who would like to start?\n\n> Let everyone (or as many as you got time for) share one by one. Press play to start the timer. Re-start for each new sharing.\n\nThank you so much everyone."
+            "text": "¿Quién quiere empezar?\n\n> Deja que todos/as (o tantos/as como el tiempo permita) compartan uno por uno. Pulsa play para iniciar el temporizador. Reinicia para cada nueva intervención.\n\nMuchísimas gracias a todos/as."
           }
         ],
+        "type": "sharing",
         "id": "sharing"
       },
       {
-        "type": "host",
         "hostNotes": [
           {
-            "text": "Well done. if you’re up for it, you can continue what we started here today with a mission to bring this into your everyday life."
+            "text": "¡Bien hecho! Si te animas, puedes continuar lo que comenzamos hoy con una misión para llevarlo a tu vida cotidiana."
           },
           {
-            "text": "In the coming days, be kind to yourself. Especially in difficult situations. Try using the idea of clothespins to become aware of your inner voice. Then, choose to talk and react to yourself in the same way you would if it were a friend. Notice how it makes you feel."
+            "text": "En los próximos días, sé amable contigo mismo/a. Especialmente en situaciones difíciles. Prueba a usar la idea de las pinzas de la ropa para tomar conciencia de tu voz interior. Luego, elige hablarte y reaccionar contigo mismo/a de la misma manera que lo harías con un amigo/a. Observa cómo te hace sentir."
           },
           {
-            "text": "Before we leave this space let’s do a mini check-out.\n\nHow are you feeling right now? Has anything shifted? Please answer in two-three words."
+            "text": "Antes de salir de este espacio, hagamos una breve reflexión sobre qué ha cambiado.\n\n¿Cómo te sientes en este momento? ¿Ha cambiado algo? Por favor, responde en dos o tres palabras."
           },
           {
-            "text": "Who would like to start?\n\n> Let everyone in the session check out one by one.\n\nThank you all for checking out and for joining this session today.\n\n> Finish session to send everyone off to the exit experience."
+            "text": "¿Quién quiere empezar?\n\n> Deja que todos en la sesión hagan el check-out uno por uno.\n\nGracias a todos/as por hacer el check-out y por uniros a esta sesión hoy.\n\n> Finaliza la sesión para enviar a todos al experience de salida."
           }
         ],
+        "type": "host",
         "video": {
           "source": "https://res.cloudinary.com/cupcake-29k/video/upload/q_auto/v1677835705/Video/bekindtoyourself_async_outro_aadtym.mp4",
           "preview": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1677835944/Images/thumb_host_bekindtoyourself_ysmcnz.png"
         }
       },
       {
-        "type": "instruction",
         "content": {
-          "heading": "Well done",
-          "text": "If you’re up for it, you can continue with this mission:\n\nIn the coming days, be kind to yourself. Especially in difficult situations. Try using the idea of clothespins to become aware of your inner voice. \n\nThen, choose to talk and react to yourself in the same way you would if it were a friend. Notice how it makes you feel.",
+          "heading": "¡Bien hecho!",
+          "text": "Si te animas, puedes continuar con esta misión:\n\nEn los próximos días, sé amable contigo mismo/a. Especialmente en situaciones difíciles. Prueba a usar la idea de las pinzas de la ropa para tomar conciencia de tu voz interior.\n\nLuego, elige hablarte y reaccionar contigo mismo/a de la misma manera que lo harías con un amigo/a. Observa cómo te hace sentir.",
           "image": {
             "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1669043690/Images/cover1_Be_kind_to_yourself_iqereg.png"
           }
-        }
+        },
+        "type": "instruction"
       }
     ],
     "theme": {
       "textColor": "#2E2E2E",
       "backgroundColor": "#ffffff"
     },
-    "name": "The clothespins",
+    "name": "Las pinzas de la ropa",
     "live": true,
     "published": true,
+    "asyncDuration": 4,
     "card": {
       "image": {
         "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1669043690/Images/cover1_Be_kind_to_yourself_iqereg.png"
@@ -646,7 +648,7 @@
     "introPortal": {
       "hostNotes": [
         {
-          "text": "> Start the session when you're ready to go"
+          "text": "Inicia la sesión cuando estés listo/a para comenzar"
         }
       ],
       "videoLoop": {
@@ -665,9 +667,10 @@
       "db34d82a-4c48-4ddd-9de5-f562d8aa1bc9",
       "566aeb1b-1649-4f5a-96a2-0c80be27efc0"
     ],
+    "link": "https://aware.29k.org/be-kind-to-yourself",
     "id": "185889ec-753b-4e2c-8322-3004013e8a6e",
     "async": true,
-    "description": "We are often harsh on ourselves, and more compassionate with others. In this exercise we'll practice finding a compassionate inner ally to accompany us in difficult situations. Self compassion can help us feel happier and more satisfied with ourselves."
+    "description": "A menudo somos duros/as con nosotros/as mismos/as y más compasivos/as con las demás personas. En este ejercicio practicaremos encontrar un aliado interior compasivo que nos acompañe en situaciones difíciles. La autocompasión puede ayudarnos a sentirnos más felices y satisfechos con nosotros/as mismos/as."
   },
   "cs": {
     "tags": [
