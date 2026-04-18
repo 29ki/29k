@@ -586,7 +586,157 @@
     "id": "f59b7f66-43b0-4b50-9afe-91092d7dc469"
   },
   "es": {
-    "id": "f59b7f66-43b0-4b50-9afe-91092d7dc469"
+    "description": "Convierte los valores en acciones con el \"abanico de cartas\". Las acciones respaldadas por valores pueden hacernos sentir mejor, también ante las decisiones difíciles que todos/as enfrentamos en la vida.",
+    "introPortal": {
+      "hostNotes": [
+        {
+          "text": "> Comienza la sesión cuando estés listo/a para empezar"
+        }
+      ],
+      "textColor": "#F9F8F4",
+      "videoLoop": {
+        "p5JsScript": {
+          "lang": "javascript",
+          "code": "// by SamuelYAN\n// more works //\n   // https://twitter.com/SamuelAnn0924\n   // https://www.instagram.com/samuel_yan_1990/\n// Lissajous figure(Lissajous curve)\n\nvar seed = Math.random() * 1000;\nvar a = 2,\n  b = 3;\nvar th = 0,\n  seg = 0.01;\nvar r;\nvar mySize;\nlet colors1 = \"f8f9fbBF-f9f6e040-45454cBF-ef9643b3-f0654380\"\n  .split(\"-\")\n  .map((a) => \"#\" + a);\nlet colors2 = \"f8f9fb-f9f6e0-45454c-ef9643-f06543\"\n  .split(\"-\")\n  .map((a) => \"#\" + a + \"00\");\nlet colorbg = \"f06543\".split(\"-\").map((a) => \"#\" + a);\nlet colorbg2 = \"e9ebfb80\".split(\"-\").map((a) => \"#\" + a);\n\nfunction setup() {\n  // frameRate(25);\n  mySize = min(windowWidth, windowHeight);\n  createCanvas(windowWidth, windowHeight);\n  colorMode(HSB, 360, 100, 100, 100);\n  // pixelDensity(5);\n  r = mySize / 2;\n  background(colorbg);\n  let filter = new makeFilter();\n}\n\nfunction draw() {\n  randomSeed(seed);\n  // background(colorbg2);\n  noFill();\n  strokeCap(SQUARE);\n  push();\n  translate(width / 2, height / 2);\n  for (let i = 0; i < 120; i += random(1)) {\n    a = random(1);\n    b = random(1);\n    strokeWeight(random(50));\n    rotate(random(TAU));\n    stroke(random(colors1));\n    ellipse(\n      random(-i * 50,i*50) + r * cos(a * th),\n      random(-i * 50,i*50) + r * sin(b * th),\n      r*cos(a * (th + seg)),\n      r*sin(b * (th + seg))\n    );\n  }\n  pop();\n  th += seg;\n  image(overAllTexture, 0, 0);\n}\n\n// by SamuelYAN\n// more works //\n// https://twitter.com/SamuelAnn0924\n// https://www.instagram.com/samuel_yan_1990/\n\nfunction makeFilter() {\n  randomSeed(seed);\n  // noiseのフィルターをつくる\n  colorMode(HSB, 360, 100, 100, 100);\n  drawingContext.shadowColor = color(0, 0, 5, 10);\n  overAllTexture = createGraphics(windowWidth, windowHeight);\n  overAllTexture.loadPixels();\n  for (var i = 0; i < width; i++) { // noprotect\n    for (var j = 0; j < height; j++) {\n      overAllTexture.set(\n        i,\n        j,\n        color(10, 90, 70, noise(i / 3, j / 3, (i * j) / 50) * random(1, 15))\n      );\n    }\n  }\n  overAllTexture.updatePixels();\n}\n\nfunction keyTyped() {\n  if (key === \"s\" || key === \"S\") {\n    //noLoop();\n    saveCanvas(\"DancingShapes_Tubes\", \"png\");\n  }\n}"
+        },
+        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1707994703/Audio/portal_audio-Daily_action_gznm91.mp3"
+      }
+    },
+    "name": "Acciones cotidianas",
+    "slides": [
+      {
+        "hostNotes": [
+          {
+            "text": "Bienvenidos/as. Soy X y hoy trabajaremos durante unos 30 minutos en hacer que los valores cobren vida con acciones cotidianas.\n\nHaremos un ejercicio de audio, seguido de tiempo para reflexionar y finalmente compartir, si nos apetece."
+          },
+          {
+            "text": "Comencemos con un pequeño chequeo sobre cómo estamos. ¿Cómo te sientes en este momento? Por favor, responde en dos o tres palabras. X, ¿te gustaría empezar?\n\n> Deja que todos en la sesión, incluido/a tú, hagan el check-in uno por uno.\n\nGracias a todos/as por compartir cómo estáis. ¡Empecemos!"
+          }
+        ],
+        "type": "host"
+      },
+      {
+        "hostNotes": [
+          {
+            "text": "Encuentra una posición cómoda. Voy a iniciar el ejercicio de audio y nos reencontraremos aquí después.\n\n> Pulsa play para iniciar el ejercicio de audio"
+          }
+        ],
+        "type": "content",
+        "content": {
+          "lottie": {
+            "subtitles": "https://res.cloudinary.com/cupcake-29k/raw/upload/q_auto,t_global/v1707214413/SRT%20(captions)%20files/Daily_actions_wwyfru.srt",
+            "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1707214366/Audio/Daily_actions_tcchxq.mp3",
+            "durationTimer": true,
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1676977421/Lottie/audio_meditation_default_white_default_mqfcuo.json"
+          }
+        }
+      },
+      {
+        "content": {
+          "heading": "¿Qué harás?",
+          "text": "¿Cuándo? ¿Por qué?",
+          "lottie": {
+            "durationTimer": true,
+            "duration": 60,
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1676642915/Lottie/default_1min_white_wvgwma.json"
+          }
+        },
+        "hostNotes": [
+          {
+            "text": "Ahora tomaremos 1 minuto para reflexionar de forma individual.\n\n¿Qué harás? ¿Cuándo?\n\n¿Y por qué es importante para ti?"
+          },
+          {
+            "text": "Puedes tomar notas en un papel o mentalmente. No hay respuestas correctas o incorrectas, nuestras respuestas son nuestras. 1 minuto a partir de ahora.\n\n> Pulsa play para iniciar el temporizador.\n\nEso fue 1 minuto y es hora de avanzar."
+          }
+        ],
+        "type": "reflection"
+      },
+      {
+        "content": {
+          "heading": "¿Qué harás?",
+          "text": "¿Cuándo? ¿Por qué?",
+          "lottie": {
+            "durationTimer": true,
+            "duration": 120,
+            "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1676639253/Lottie/default_2min_white_arvrf2.json"
+          }
+        },
+        "hostNotes": [
+          {
+            "text": "Ahora entramos en la parte de compartir. Tenemos tres reglas para compartir:\n\n1. **Lo que se dice aquí, se queda aquí.**\n2. **Todo lo que necesitas hacer es escuchar.** No hace falta arreglar, ayudar ni dar consejos. Solo estamos aquí y explorando lo que nosotros/as y los demás estamos viviendo."
+          },
+          {
+            "text": "3. **Todo lo que sentimos dentro está bien.** Ira, amor, odio, tristeza. Lo que sea que aparezca. Sin errores, sin aciertos. Es lo que es.\n\nHabrá un temporizador de 2 minutos como indicador. Si no quieres compartir, siempre puedes decir 'paso'."
+          },
+          {
+            "text": "¿Quién quiere empezar?\n\n> Deja que todos/as (o tantos/as como el tiempo permita) compartan uno por uno. Pulsa play para iniciar el temporizador. Reinicia para cada nueva intervención.\n\nMuchísimas gracias a todos/as."
+          }
+        ],
+        "type": "sharing",
+        "id": "Sharing 1"
+      },
+      {
+        "hostNotes": [
+          {
+            "text": "¡Bien hecho por ampliar tu abanico de cartas de valores, haciendo más fácil hacer lo que es importante para ti cada día! Asegúrate de cumplir tu compromiso de realizar las acciones cotidianas que has elegido. Evalúa y ajusta cuando sea necesario."
+          },
+          {
+            "text": "Antes de salir de este espacio, hagamos un pequeño check-out.\n\n¿Cómo te sientes ahora mismo? ¿Ha cambiado algo? Por favor, responde en dos o tres palabras."
+          },
+          {
+            "text": "¿Quién quiere empezar?\n\n> Deja que todos en la sesión hagan el check-out uno por uno.\n\nGracias a todos/as por hacer el check-out y por uniros a esta sesión hoy.\n\n> Finaliza la sesión para enviar a todos al experience de salida."
+          }
+        ],
+        "type": "host"
+      },
+      {
+        "content": {
+          "text": "¡Bien hecho por ampliar tu abanico de cartas de valores, haciendo más fácil hacer lo que es importante para ti cada día!\n\nAsegúrate de cumplir tu compromiso de realizar las acciones cotidianas que has elegido. Evalúa y ajusta cuando sea necesario.",
+          "image": {
+            "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1707994006/Contributors/card_daily_action_xpus8c.png"
+          }
+        },
+        "type": "instruction"
+      }
+    ],
+    "id": "f59b7f66-43b0-4b50-9afe-91092d7dc469",
+    "liveDuration": 30,
+    "theme": {
+      "textColor": "#F9F8F4",
+      "backgroundColor": "#e25735"
+    },
+    "hidden": false,
+    "live": true,
+    "published": false,
+    "asyncDuration": 7,
+    "card": {
+      "image": {
+        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1707994006/Contributors/card_daily_action_xpus8c.png"
+      }
+    },
+    "coCreators": [
+      {
+        "name": "Jenny Rickardsson, editor",
+        "url": "https://www.linkedin.com/in/jenny-rickardson-6770a959/",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/v1665413228/Contributors/Jenny%20Rickardsson.jpg"
+      },
+      {
+        "name": "Samuel Yan, art works",
+        "url": "https://openprocessing.org/user/293890?view=sketches&o=48",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1707993748/Contributors/SamuelYAN_vtyjjx.jpg"
+      },
+      {
+        "name": "Tabitha, AI-generated voice",
+        "url": "https://www.descript.com/ai-voices",
+        "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1710239861/Contributors/descript_ps0olu.webp"
+      }
+    ],
+    "tags": [
+      "9c2c08a9-7dc6-4058-bc78-016d0eb00614",
+      "8da0534a-5da9-430a-bdf3-242ace6460fb"
+    ],
+    "link": "https://aware.29k.org/dailyactions",
+    "async": true
   },
   "pt-BR": {
     "description": "Transforme valores em ações com o “leque de cartas”. Ações fundamentadas em valores podem nos fazer sentir melhor, inclusive em relação às escolhas difíceis que todos enfrentamos na vida.",

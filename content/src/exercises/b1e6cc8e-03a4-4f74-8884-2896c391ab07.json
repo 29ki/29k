@@ -453,25 +453,42 @@
     "description": "Algumas emoções são fáceis de desfrutar, enquanto outras são mais difíceis. Viver uma vida baseada em valores exige que estejamos abertos a todas as emoções. Sem o risco de rejeição, não é possível criar relações com significado. Sem o risco de falhar, não podemos enfrentar desafios emocionantes. Nesta sessão, vamos praticar a abertura a todas as cores da vida."
   },
   "es": {
+    "description": "Algunas emociones son fáciles de disfrutar mientras que otras son más difíciles. Vivir una vida basada en valores requiere que estemos abiertos/as a todas las emociones. Sin el riesgo de rechazo, no es posible crear relaciones significativas. Sin el riesgo de fracaso, no podemos asumir desafíos emocionantes. En esta sesión practicamos abrimos a todos los colores de la vida.",
+    "introPortal": {
+      "hostNotes": [
+        {
+          "text": "> Comienza la sesión cuando estés listo/a para empezar"
+        }
+      ],
+      "videoLoop": {
+        "p5JsScript": {
+          "lang": "javascript",
+          "code": "let global_n = 0;\nlet palette;\n\nfunction setup() {\n  createCanvas(windowWidth, windowHeight);\n  palette = shuffle(random(colorScheme).colors.concat());\n}\n\nfunction draw() {\n  background(220);\n  randomSeed(0);\n  let w = sqrt(sq(width) + sq(height));\n  // Adjusted for slower animation\n  let d2 = w + 200 * map(cos(frameCount / 1000), -1, 1, 0, 1);\n  let d1 = 0 + 100 * map(sin(frameCount / 1000), -1, 1, 0, 1);\n  let depth = 4;\n  // Adjusted for slower noise variation\n  let n = noise(frameCount / 8000) * TWO_PI;\n\n  push();\n  translate(width / 2, height / 2);\n  recursiveCircle(d1, d2, n, TWO_PI + n, depth);\n  pop();\n}\n\nfunction recursiveCircle(minD, maxD, minA, maxA, depth) {\n  push();\n  // Adjusted for slower animation within recursiveCircle\n  let aA = map(\n    sin(abs(-minD + maxD) / 2000 + frameCount / 5000),\n    -1,\n    1,\n    0.1,\n    0.9\n  );\n  let dA = map(\n    cos(degrees(minA + maxA) / 100 + (aA * PI) / 2 + frameCount / 400),\n    -1,\n    1,\n    0.1,\n    0.9\n  );\n  aA = global_n % 4 >= 2 ? aA : 1 - aA;\n  dA = global_n % 2 == 0 ? dA : 1 - dA;\n\n  let aB = 1 - aA;\n  let dB = 1 - dA;\n  let d = abs(maxD - minD);\n  let a = abs(maxA - minA);\n\n  if (depth > 0) {\n    recursiveCircle(minD, minD + d * dA, minA, minA + a * aA, depth - 1);\n    recursiveCircle(minD + d * dA, maxD, minA + a * aA, maxA, depth - 1);\n    recursiveCircle(minD, minD + d * dA, minA + a * aA, maxA, depth - 1);\n    recursiveCircle(minD + d * dA, maxD, minA, minA + a * aA, depth - 1);\n  } else {\n    drawArc(minD, minD + d * dA, minA, minA + a * aA, aB);\n    drawArc(minD + d * dA, maxD, minA + a * aA, maxA, dB);\n    drawArc(minD, minD + d * dA, minA + a * aA, maxA, aA);\n    drawArc(minD + d * dA, maxD, minA, minA + a * aA, dA);\n  }\n\n  pop();\n}\n\nfunction drawArc(minD, maxD, startAngle, endAngle, n) {\n  global_n++;\n  if (\n    startAngle < 0 ||\n    endAngle - startAngle < 0 ||\n    minD < 0 ||\n    maxD - minD < 0\n  )\n    return;\n  let colors = shuffle(palette.concat());\n  let g = drawingContext.createConicGradient(startAngle, 0, 0);\n  g.addColorStop(0, colors[0]);\n  g.addColorStop((n * (endAngle - startAngle)) / TWO_PI, colors[2]);\n  g.addColorStop((endAngle - startAngle) / TWO_PI, colors[1]);\n  drawingContext.strokeStyle = g;\n  let d = minD + (maxD - minD) / 2;\n  strokeWeight((maxD - minD) / 2);\n  noFill();\n  strokeCap(SQUARE);\n  arc(0, 0, d, d, startAngle, endAngle);\n}\n\nfunction windowResized() {\n  resizeCanvas(windowWidth, windowHeight);\n}\n\n// Color schemes array remains unchanged\nlet colorScheme = [\n  {\n    name: \"Benedictus\",\n    colors: [\"#F27EA9\", \"#366CD9\", \"#5EADF2\", \"#636E73\", \"#F2E6D8\"],\n  },\n  {\n    name: \"Cross\",\n    colors: [\"#D962AF\", \"#58A6A6\", \"#8AA66F\", \"#F29F05\", \"#F26D6D\"],\n  },\n  {\n    name: \"Demuth\",\n    colors: [\"#222940\", \"#D98E04\", \"#F2A950\", \"#BF3E21\", \"#F2F2F2\"],\n  },\n  {\n    name: \"Hiroshige\",\n    colors: [\"#1B618C\", \"#55CCD9\", \"#F2BC57\", \"#F2DAAC\", \"#F24949\"],\n  },\n  {\n    name: \"Hokusai\",\n    colors: [\"#074A59\", \"#F2C166\", \"#F28241\", \"#F26B5E\", \"#F2F2F2\"],\n  },\n  {\n    name: \"Hokusai Blue\",\n    colors: [\"#023059\", \"#459DBF\", \"#87BF60\", \"#D9D16A\", \"#F2F2F2\"],\n  },\n  {\n    name: \"Java\",\n    colors: [\"#632973\", \"#02734A\", \"#F25C05\", \"#F29188\", \"#F2E0DF\"],\n  },\n  {\n    name: \"Kandinsky\",\n    colors: [\"#8D95A6\", \"#0A7360\", \"#F28705\", \"#D98825\", \"#F2F2F2\"],\n  },\n  {\n    name: \"Monet\",\n    colors: [\"#4146A6\", \"#063573\", \"#5EC8F2\", \"#8C4E03\", \"#D98A29\"],\n  },\n  {\n    name: \"Nizami\",\n    colors: [\"#034AA6\", \"#72B6F2\", \"#73BFB1\", \"#F2A30F\", \"#F26F63\"],\n  },\n  {\n    name: \"Renoir\",\n    colors: [\"#303E8C\", \"#F2AE2E\", \"#F28705\", \"#D91414\", \"#F2F2F2\"],\n  },\n  {\n    name: \"VanGogh\",\n    colors: [\"#424D8C\", \"#84A9BF\", \"#C1D9CE\", \"#F2B705\", \"#F25C05\"],\n  },\n  {\n    name: \"Mono\",\n    colors: [\"#D9D7D8\", \"#3B5159\", \"#5D848C\", \"#7CA2A6\", \"#262321\"],\n  },\n  {\n    name: \"RiverSide\",\n    colors: [\"#906FA6\", \"#025951\", \"#252625\", \"#D99191\", \"#F2F2F2\"],\n  },\n];\nfunction windowResized() {\n  resizeCanvas(windowWidth, windowHeight);\n}\n"
+        },
+        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1707994694/Audio/portal_audio-Open_up_i5gb79.mp3"
+      },
+      "textColor": "#2E2E2E"
+    },
+    "name": "Abrirse",
     "slides": [
       {
-        "type": "host",
         "hostNotes": [
           {
-            "text": "Welcome. I am X and today we will work for around 30 minutes on being open to all colors of life, even the ones we don't like.\n\nWe’ll be doing an audio exercise followed by time for reflection and finally sharing with each other, if we're up for it"
+            "text": "Bienvenidos/as. Soy X y hoy trabajaremos durante unos 30 minutos en estar abiertos/as a todos los colores de la vida, incluso los que no nos gustan.\n\nHaremos un ejercicio de audio seguido de tiempo para reflexionar y finalmente compartir, si nos apetece."
           },
           {
-            "text": "Let’s start with a mini check-in. How are you feeling right now? Please answer in two-three words. X, would you like to start?\n\n> Let everyone in the session, including yourself, check in one by one.\n\nThank you all for checking in. Let’s get started."
-          }
-        ]
-      },
-      {
-        "type": "content",
-        "hostNotes": [
-          {
-            "text": "Find a comfortable position. I will start the audio exercise and we'll meet back here afterwards. \n\n> Tap play to start the audio exercise"
+            "text": "Comencemos con un pequeño chequeo sobre cómo estamos. ¿Cómo te sientes en este momento? Por favor, responde en dos o tres palabras. X, ¿te gustaría empezar?\n\n> Deja que todos en la sesión, incluido/a tú, hagan el check-in uno por uno.\n\nGracias a todos/as por compartir cómo estáis. ¡Empecemos!"
           }
         ],
+        "type": "host"
+      },
+      {
+        "hostNotes": [
+          {
+            "text": "Encuentra una posición cómoda. Voy a iniciar el ejercicio de audio y nos reencontraremos aquí después.\n\n> Pulsa play para iniciar el ejercicio de audio"
+          }
+        ],
+        "type": "content",
         "content": {
           "lottie": {
             "durationTimer": true,
@@ -482,77 +499,76 @@
         }
       },
       {
-        "type": "reflection",
-        "hostNotes": [
-          {
-            "text": "Now we’ll take 1 minute to reflect on our own.\n\nHow did you feel about the two different scenarios?"
-          },
-          {
-            "text": "You can take notes on a piece of paper or just mental notes in your head. And there is no right or wrong here, our answers are our own. 1 minute starting now.\n\n> Press play to start the timer.\n\nThat’s 1 minute and it’s time to move on."
-          }
-        ],
         "content": {
-          "heading": "How did you feel about the two different scenarios?",
+          "heading": "¿Cómo te sentiste ante los dos escenarios diferentes?",
           "lottie": {
             "durationTimer": true,
             "duration": 60,
             "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1676642915/Lottie/default_1min_black_rosi2l.json",
             "audio": ""
           }
-        }
-      },
-      {
-        "type": "sharing",
+        },
         "hostNotes": [
           {
-            "text": "Now we are getting into the sharing part. We have three rules for sharing:\n\n1. **What is said in here, stays in here.**\n2. **All you need to do is listen.** There is no fixing, helping or advice-giving needed. We are just showing up and exploring what ourselves and others are going through."
+            "text": "Ahora tomaremos 1 minuto para reflexionar de forma individual.\n\n¿Cómo te sentiste ante los dos escenarios diferentes?"
           },
           {
-            "text": "3. **Everything on the inside is okay.** Anger, love, hatred, sadness. Whatever shows up. No wrongs, no rights. It is what it is.\n\nThere will be a timer set for 2 minutes as an indicator. If you don’t want to share you can always say ‘pass’."
-          },
-          {
-            "text": "Who would like to start?\n\n> Let everyone (or as many as you got time for) share one by one. Press play to start the timer. Re-start for each new sharing.\n\nThank you so much everyone."
+            "text": "Puedes tomar notas en un papel o mentalmente. No hay respuestas correctas o incorrectas, nuestras respuestas son nuestras. 1 minuto a partir de ahora.\n\n> Pulsa play para iniciar el temporizador.\n\nEso fue 1 minuto y es hora de avanzar."
           }
         ],
-        "id": "Sharing 1",
+        "type": "reflection"
+      },
+      {
         "content": {
-          "heading": "How did you feel about the two different scenarios?",
+          "heading": "¿Cómo te sentiste ante los dos escenarios diferentes?",
           "lottie": {
             "durationTimer": true,
             "duration": 120,
             "source": "https://res.cloudinary.com/cupcake-29k/raw/upload/v1676639253/Lottie/default_2min_black_o6egey.json"
           }
-        }
-      },
-      {
-        "type": "host",
+        },
         "hostNotes": [
           {
-            "text": "Well done for imagining follow or neglecting a value of yours. Emotions are there to be felt, but they only provide guidance. It’s up to us to choose where we want to go in life."
+            "text": "Ahora entramos en la parte de compartir. Tenemos tres reglas para compartir:\n\n1. **Lo que se dice aquí, se queda aquí.**\n2. **Todo lo que necesitas hacer es escuchar.** No hace falta arreglar, ayudar ni dar consejos. Solo estamos aquí y explorando lo que nosotros/as y los demás estamos viviendo."
           },
           {
-            "text": "Before we leave this space let’s do a mini check-out. \n\nHow are you feeling right now? Has anything shifted? Please answer in two-three words."
+            "text": "3. **Todo lo que sentimos dentro está bien.** Ira, amor, odio, tristeza. Lo que sea que aparezca. Sin errores, sin aciertos. Es lo que es.\n\nHabrá un temporizador de 2 minutos como indicador. Si no quieres compartir, siempre puedes decir 'paso'."
           },
           {
-            "text": "Who would like to start?\n\n> Let everyone in the session check out one by one.\n\nThank you all for checking out and for joining this session today.\n\n> Finish session to send everyone off to the exit experience."
+            "text": "¿Quién quiere empezar?\n\n> Deja que todos/as (o tantos/as como el tiempo permita) compartan uno por uno. Pulsa play para iniciar el temporizador. Reinicia para cada nueva intervención.\n\nMuchísimas gracias a todos/as."
           }
-        ]
+        ],
+        "type": "sharing",
+        "id": "Sharing 1"
       },
       {
-        "type": "instruction",
+        "hostNotes": [
+          {
+            "text": "¡Bien hecho por imaginar seguir o ignorar uno de tus valores! Las emociones están ahí para sentirse, pero solo nos dan orientación. Depende de nosotros/as elegir hacia dónde queremos ir en la vida."
+          },
+          {
+            "text": "Antes de salir de este espacio, hagamos un pequeño check-out.\n\n¿Cómo te sientes ahora mismo? ¿Ha cambiado algo? Por favor, responde en dos o tres palabras."
+          },
+          {
+            "text": "¿Quién quiere empezar?\n\n> Deja que todos en la sesión hagan el check-out uno por uno.\n\nGracias a todos/as por hacer el check-out y por uniros a esta sesión hoy.\n\n> Finaliza la sesión para enviar a todos al experience de salida."
+          }
+        ],
+        "type": "host"
+      },
+      {
         "content": {
-          "text": "Well done for imagining following or neglecting a value of yours. \n\nEmotions are there to be felt, but they only provide guidance. \n\nIt’s up to us to choose where we want to go in life.",
+          "text": "¡Bien hecho por imaginar seguir o ignorar uno de tus valores!\n\nLas emociones están ahí para sentirse, pero solo nos dan orientación.\n\nDepende de nosotros/as elegir hacia dónde queremos ir en la vida",
           "image": {
             "source": "https://res.cloudinary.com/cupcake-29k/image/upload/q_auto,t_global/v1707994012/Contributors/card_open_up_fy1wm5.png"
           }
-        }
+        },
+        "type": "instruction"
       }
     ],
     "theme": {
       "textColor": "#2E2E2E",
       "backgroundColor": "#e9b797"
     },
-    "name": "Open up",
     "live": true,
     "published": true,
     "card": {
@@ -572,28 +588,16 @@
         "image": "https://res.cloudinary.com/cupcake-29k/image/upload/t_cocreator_image/v1707993843/Contributors/takawo_brtiex.jpg"
       }
     ],
-    "introPortal": {
-      "hostNotes": [
-        {
-          "text": "> Start the session when you're ready to go"
-        }
-      ],
-      "videoLoop": {
-        "p5JsScript": {
-          "lang": "javascript",
-          "code": "let global_n = 0;\nlet palette;\n\nfunction setup() {\n  createCanvas(windowWidth, windowHeight);\n  palette = shuffle(random(colorScheme).colors.concat());\n}\n\nfunction draw() {\n  background(220);\n  randomSeed(0);\n  let w = sqrt(sq(width) + sq(height));\n  // Adjusted for slower animation\n  let d2 = w + 200 * map(cos(frameCount / 1000), -1, 1, 0, 1);\n  let d1 = 0 + 100 * map(sin(frameCount / 1000), -1, 1, 0, 1);\n  let depth = 4;\n  // Adjusted for slower noise variation\n  let n = noise(frameCount / 8000) * TWO_PI;\n\n  push();\n  translate(width / 2, height / 2);\n  recursiveCircle(d1, d2, n, TWO_PI + n, depth);\n  pop();\n}\n\nfunction recursiveCircle(minD, maxD, minA, maxA, depth) {\n  push();\n  // Adjusted for slower animation within recursiveCircle\n  let aA = map(\n    sin(abs(-minD + maxD) / 2000 + frameCount / 5000),\n    -1,\n    1,\n    0.1,\n    0.9\n  );\n  let dA = map(\n    cos(degrees(minA + maxA) / 100 + (aA * PI) / 2 + frameCount / 400),\n    -1,\n    1,\n    0.1,\n    0.9\n  );\n  aA = global_n % 4 >= 2 ? aA : 1 - aA;\n  dA = global_n % 2 == 0 ? dA : 1 - dA;\n\n  let aB = 1 - aA;\n  let dB = 1 - dA;\n  let d = abs(maxD - minD);\n  let a = abs(maxA - minA);\n\n  if (depth > 0) {\n    recursiveCircle(minD, minD + d * dA, minA, minA + a * aA, depth - 1);\n    recursiveCircle(minD + d * dA, maxD, minA + a * aA, maxA, depth - 1);\n    recursiveCircle(minD, minD + d * dA, minA + a * aA, maxA, depth - 1);\n    recursiveCircle(minD + d * dA, maxD, minA, minA + a * aA, depth - 1);\n  } else {\n    drawArc(minD, minD + d * dA, minA, minA + a * aA, aB);\n    drawArc(minD + d * dA, maxD, minA + a * aA, maxA, dB);\n    drawArc(minD, minD + d * dA, minA + a * aA, maxA, aA);\n    drawArc(minD + d * dA, maxD, minA, minA + a * aA, dA);\n  }\n\n  pop();\n}\n\nfunction drawArc(minD, maxD, startAngle, endAngle, n) {\n  global_n++;\n  if (\n    startAngle < 0 ||\n    endAngle - startAngle < 0 ||\n    minD < 0 ||\n    maxD - minD < 0\n  )\n    return;\n  let colors = shuffle(palette.concat());\n  let g = drawingContext.createConicGradient(startAngle, 0, 0);\n  g.addColorStop(0, colors[0]);\n  g.addColorStop((n * (endAngle - startAngle)) / TWO_PI, colors[2]);\n  g.addColorStop((endAngle - startAngle) / TWO_PI, colors[1]);\n  drawingContext.strokeStyle = g;\n  let d = minD + (maxD - minD) / 2;\n  strokeWeight((maxD - minD) / 2);\n  noFill();\n  strokeCap(SQUARE);\n  arc(0, 0, d, d, startAngle, endAngle);\n}\n\nfunction windowResized() {\n  resizeCanvas(windowWidth, windowHeight);\n}\n\n// Color schemes array remains unchanged\nlet colorScheme = [\n  {\n    name: \"Benedictus\",\n    colors: [\"#F27EA9\", \"#366CD9\", \"#5EADF2\", \"#636E73\", \"#F2E6D8\"],\n  },\n  {\n    name: \"Cross\",\n    colors: [\"#D962AF\", \"#58A6A6\", \"#8AA66F\", \"#F29F05\", \"#F26D6D\"],\n  },\n  {\n    name: \"Demuth\",\n    colors: [\"#222940\", \"#D98E04\", \"#F2A950\", \"#BF3E21\", \"#F2F2F2\"],\n  },\n  {\n    name: \"Hiroshige\",\n    colors: [\"#1B618C\", \"#55CCD9\", \"#F2BC57\", \"#F2DAAC\", \"#F24949\"],\n  },\n  {\n    name: \"Hokusai\",\n    colors: [\"#074A59\", \"#F2C166\", \"#F28241\", \"#F26B5E\", \"#F2F2F2\"],\n  },\n  {\n    name: \"Hokusai Blue\",\n    colors: [\"#023059\", \"#459DBF\", \"#87BF60\", \"#D9D16A\", \"#F2F2F2\"],\n  },\n  {\n    name: \"Java\",\n    colors: [\"#632973\", \"#02734A\", \"#F25C05\", \"#F29188\", \"#F2E0DF\"],\n  },\n  {\n    name: \"Kandinsky\",\n    colors: [\"#8D95A6\", \"#0A7360\", \"#F28705\", \"#D98825\", \"#F2F2F2\"],\n  },\n  {\n    name: \"Monet\",\n    colors: [\"#4146A6\", \"#063573\", \"#5EC8F2\", \"#8C4E03\", \"#D98A29\"],\n  },\n  {\n    name: \"Nizami\",\n    colors: [\"#034AA6\", \"#72B6F2\", \"#73BFB1\", \"#F2A30F\", \"#F26F63\"],\n  },\n  {\n    name: \"Renoir\",\n    colors: [\"#303E8C\", \"#F2AE2E\", \"#F28705\", \"#D91414\", \"#F2F2F2\"],\n  },\n  {\n    name: \"VanGogh\",\n    colors: [\"#424D8C\", \"#84A9BF\", \"#C1D9CE\", \"#F2B705\", \"#F25C05\"],\n  },\n  {\n    name: \"Mono\",\n    colors: [\"#D9D7D8\", \"#3B5159\", \"#5D848C\", \"#7CA2A6\", \"#262321\"],\n  },\n  {\n    name: \"RiverSide\",\n    colors: [\"#906FA6\", \"#025951\", \"#252625\", \"#D99191\", \"#F2F2F2\"],\n  },\n];\nfunction windowResized() {\n  resizeCanvas(windowWidth, windowHeight);\n}\n"
-        },
-        "audio": "https://res.cloudinary.com/cupcake-29k/video/upload/v1707994694/Audio/portal_audio-Open_up_i5gb79.mp3"
-      },
-      "textColor": "#2E2E2E"
-    },
     "tags": [
       "9c2c08a9-7dc6-4058-bc78-016d0eb00614",
       "566aeb1b-1649-4f5a-96a2-0c80be27efc0"
     ],
     "id": "b1e6cc8e-03a4-4f74-8884-2896c391ab07",
     "async": true,
-    "description": "Some emotions are easy to enjoy while others are more difficult. Living a value-based life requires us to be open to all emotions. Without the risk of rejection, it is not possible create meaningful relationships. Without the risk of failure, we cannot take on exciting challenges. In this session we practice opening up to all colors of life."
+    "liveDuration": 30,
+    "hidden": false,
+    "asyncDuration": 7,
+    "link": "https://aware.29k.org/openup"
   },
   "cs": {
     "tags": [
