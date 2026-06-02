@@ -1,4 +1,27 @@
 {
+  "sv": {
+    "hidden": true,
+    "name": "Find calm",
+    "published": true,
+    "sortOrder": 5,
+    "card": {
+      "image": {
+        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1682398819/Images/ease_stress_collection_cwrydu.png"
+      },
+      "imageBackgroundColor": "#25a5ec"
+    },
+    "link": "https://aware.29k.org/ease-stress",
+    "id": "af1c4ac9-1bae-4cb1-8c98-e1f98a8aea66",
+    "exercises": [
+      "3188a5ed-a1d6-451c-ae2a-f44f4df37495",
+      "b18c1cff-bb43-44b1-81a1-2877cc018ab4",
+      "185889ec-753b-4e2c-8322-3004013e8a6e",
+      "12f448d2-39bc-4232-b8cf-b6cb570c7e00",
+      "2fdb95f0-d18d-444d-9935-2c71b9b413d4",
+      "9ac0c561-ff26-45fc-b6d5-0a983432394e"
+    ],
+    "description": "During stressful times, recovery is key. This collection can help us take care of ourselves and get some well-deserved breaks."
+  },
   "en": {
     "id": "af1c4ac9-1bae-4cb1-8c98-e1f98a8aea66",
     "description": "During stressful times, recovery is key. This collection can help us take care of ourselves and get some well-deserved breaks.",
@@ -44,51 +67,6 @@
     ],
     "description": "Em tempos de stress, a recuperação é fundamental. Esta coleção pode ajudar-nos a cuidar de nós mesmos e a obter algumas pausas merecidas."
   },
-  "sv": {
-    "id": "af1c4ac9-1bae-4cb1-8c98-e1f98a8aea66",
-    "exercises": [
-      "3188a5ed-a1d6-451c-ae2a-f44f4df37495",
-      "b18c1cff-bb43-44b1-81a1-2877cc018ab4",
-      "185889ec-753b-4e2c-8322-3004013e8a6e",
-      "12f448d2-39bc-4232-b8cf-b6cb570c7e00",
-      "2fdb95f0-d18d-444d-9935-2c71b9b413d4",
-      "9ac0c561-ff26-45fc-b6d5-0a983432394e"
-    ],
-    "published": false,
-    "link": "https://aware.29k.org/ease-stress",
-    "hidden": true,
-    "card": {
-      "imageBackgroundColor": "#25a5ec"
-    },
-    "sortOrder": 5
-  },
-  "ja": {
-    "id": "af1c4ac9-1bae-4cb1-8c98-e1f98a8aea66",
-    "exercises": [
-      "3188a5ed-a1d6-451c-ae2a-f44f4df37495",
-      "b18c1cff-bb43-44b1-81a1-2877cc018ab4",
-      "185889ec-753b-4e2c-8322-3004013e8a6e",
-      "12f448d2-39bc-4232-b8cf-b6cb570c7e00",
-      "2fdb95f0-d18d-444d-9935-2c71b9b413d4",
-      "9ac0c561-ff26-45fc-b6d5-0a983432394e"
-    ],
-    "published": false,
-    "link": "https://aware.29k.org/ease-stress",
-    "hidden": true,
-    "card": {
-      "imageBackgroundColor": "#25a5ec"
-    },
-    "sortOrder": 5
-  },
-  "da": {
-    "id": "af1c4ac9-1bae-4cb1-8c98-e1f98a8aea66"
-  },
-  "cs": {
-    "id": "af1c4ac9-1bae-4cb1-8c98-e1f98a8aea66"
-  },
-  "nl": {
-    "id": "af1c4ac9-1bae-4cb1-8c98-e1f98a8aea66"
-  },
   "es": {
     "description": "Durante momentos de estrés, los momentos de descanso y recuperación son clave. Este programa puede ayudarnos a cuidar de nosotros/as mismos/as y a tomar merecidos descansos.",
     "name": "Encuentra la calma",
@@ -109,6 +87,38 @@
     },
     "published": true,
     "link": "https://aware.29k.org/ease-stress",
+    "sortOrder": 5
+  },
+  "cs": {
+    "id": "af1c4ac9-1bae-4cb1-8c98-e1f98a8aea66",
+    "exercises": [
+      "3188a5ed-a1d6-451c-ae2a-f44f4df37495",
+      "b18c1cff-bb43-44b1-81a1-2877cc018ab4",
+      "185889ec-753b-4e2c-8322-3004013e8a6e",
+      "12f448d2-39bc-4232-b8cf-b6cb570c7e00",
+      "2fdb95f0-d18d-444d-9935-2c71b9b413d4",
+      "9ac0c561-ff26-45fc-b6d5-0a983432394e"
+    ],
+    "card": {
+      "imageBackgroundColor": "#25a5ec"
+    }
+  },
+  "ja": {
+    "id": "af1c4ac9-1bae-4cb1-8c98-e1f98a8aea66",
+    "exercises": [
+      "3188a5ed-a1d6-451c-ae2a-f44f4df37495",
+      "b18c1cff-bb43-44b1-81a1-2877cc018ab4",
+      "185889ec-753b-4e2c-8322-3004013e8a6e",
+      "12f448d2-39bc-4232-b8cf-b6cb570c7e00",
+      "2fdb95f0-d18d-444d-9935-2c71b9b413d4",
+      "9ac0c561-ff26-45fc-b6d5-0a983432394e"
+    ],
+    "published": false,
+    "link": "https://aware.29k.org/ease-stress",
+    "hidden": true,
+    "card": {
+      "imageBackgroundColor": "#25a5ec"
+    },
     "sortOrder": 5
   },
   "pt-BR": {
@@ -132,5 +142,33 @@
     "published": true,
     "link": "https://aware.29k.org/ease-stress",
     "sortOrder": 5
+  },
+  "da": {
+    "id": "af1c4ac9-1bae-4cb1-8c98-e1f98a8aea66",
+    "exercises": [
+      "3188a5ed-a1d6-451c-ae2a-f44f4df37495",
+      "b18c1cff-bb43-44b1-81a1-2877cc018ab4",
+      "185889ec-753b-4e2c-8322-3004013e8a6e",
+      "12f448d2-39bc-4232-b8cf-b6cb570c7e00",
+      "2fdb95f0-d18d-444d-9935-2c71b9b413d4",
+      "9ac0c561-ff26-45fc-b6d5-0a983432394e"
+    ],
+    "card": {
+      "imageBackgroundColor": "#25a5ec"
+    }
+  },
+  "nl": {
+    "id": "af1c4ac9-1bae-4cb1-8c98-e1f98a8aea66",
+    "exercises": [
+      "3188a5ed-a1d6-451c-ae2a-f44f4df37495",
+      "b18c1cff-bb43-44b1-81a1-2877cc018ab4",
+      "185889ec-753b-4e2c-8322-3004013e8a6e",
+      "12f448d2-39bc-4232-b8cf-b6cb570c7e00",
+      "2fdb95f0-d18d-444d-9935-2c71b9b413d4",
+      "9ac0c561-ff26-45fc-b6d5-0a983432394e"
+    ],
+    "card": {
+      "imageBackgroundColor": "#25a5ec"
+    }
   }
 }
