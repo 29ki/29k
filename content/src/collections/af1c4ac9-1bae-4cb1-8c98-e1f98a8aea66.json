@@ -10,6 +10,10 @@
       },
       "imageBackgroundColor": "#25a5ec"
     },
+    "tags": [
+      "8da0534a-5da9-430a-bdf3-242ace6460fb",
+      "cfc00217-f65b-4a4d-8b82-8ccc8f852dd6"
+    ],
     "link": "https://aware.29k.org/ease-stress",
     "id": "af1c4ac9-1bae-4cb1-8c98-e1f98a8aea66",
     "exercises": [
@@ -23,8 +27,21 @@
     "description": "När livet är stressigt behöver vi återhämtning. I det här programmet får du träna på att ta hand om dig själv och ta några välförtjänta pauser."
   },
   "en": {
+    "name": "Find calm",
+    "published": true,
+    "sortOrder": 5,
+    "card": {
+      "image": {
+        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1682398819/Images/ease_stress_collection_cwrydu.png"
+      },
+      "imageBackgroundColor": "#25a5ec"
+    },
+    "tags": [
+      "8da0534a-5da9-430a-bdf3-242ace6460fb",
+      "cfc00217-f65b-4a4d-8b82-8ccc8f852dd6"
+    ],
+    "link": "https://aware.29k.org/ease-stress",
     "id": "af1c4ac9-1bae-4cb1-8c98-e1f98a8aea66",
-    "description": "During stressful times, recovery is key. This collection can help us take care of ourselves and get some well-deserved breaks.",
     "exercises": [
       "3188a5ed-a1d6-451c-ae2a-f44f4df37495",
       "b18c1cff-bb43-44b1-81a1-2877cc018ab4",
@@ -33,16 +50,7 @@
       "2fdb95f0-d18d-444d-9935-2c71b9b413d4",
       "9ac0c561-ff26-45fc-b6d5-0a983432394e"
     ],
-    "name": "Find calm",
-    "card": {
-      "image": {
-        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1682398819/Images/ease_stress_collection_cwrydu.png"
-      },
-      "imageBackgroundColor": "#25a5ec"
-    },
-    "published": true,
-    "link": "https://aware.29k.org/ease-stress",
-    "sortOrder": 5
+    "description": "During stressful times, recovery is key. This collection can help us take care of ourselves and get some well-deserved breaks."
   },
   "pt-PT": {
     "hidden": false,
@@ -55,6 +63,10 @@
       },
       "imageBackgroundColor": "#25a5ec"
     },
+    "tags": [
+      "8da0534a-5da9-430a-bdf3-242ace6460fb",
+      "cfc00217-f65b-4a4d-8b82-8ccc8f852dd6"
+    ],
     "link": "https://aware.29k.org/ease-stress",
     "id": "af1c4ac9-1bae-4cb1-8c98-e1f98a8aea66",
     "exercises": [
@@ -68,8 +80,20 @@
     "description": "Em tempos de stress, a recuperação é fundamental. Esta coleção pode ajudar-nos a cuidar de nós mesmos e a obter algumas pausas merecidas."
   },
   "es": {
-    "description": "Durante momentos de estrés, los momentos de descanso y recuperación son clave. Este programa puede ayudarnos a cuidar de nosotros/as mismos/as y a tomar merecidos descansos.",
     "name": "Encuentra la calma",
+    "published": true,
+    "sortOrder": 5,
+    "card": {
+      "image": {
+        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1682398819/Images/ease_stress_collection_cwrydu.png"
+      },
+      "imageBackgroundColor": "#25a5ec"
+    },
+    "tags": [
+      "8da0534a-5da9-430a-bdf3-242ace6460fb",
+      "cfc00217-f65b-4a4d-8b82-8ccc8f852dd6"
+    ],
+    "link": "https://aware.29k.org/ease-stress",
     "id": "af1c4ac9-1bae-4cb1-8c98-e1f98a8aea66",
     "exercises": [
       "3188a5ed-a1d6-451c-ae2a-f44f4df37495",
@@ -79,15 +103,7 @@
       "2fdb95f0-d18d-444d-9935-2c71b9b413d4",
       "9ac0c561-ff26-45fc-b6d5-0a983432394e"
     ],
-    "card": {
-      "image": {
-        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1682398819/Images/ease_stress_collection_cwrydu.png"
-      },
-      "imageBackgroundColor": "#25a5ec"
-    },
-    "published": true,
-    "link": "https://aware.29k.org/ease-stress",
-    "sortOrder": 5
+    "description": "Durante momentos de estrés, los momentos de descanso y recuperación son clave. Este programa puede ayudarnos a cuidar de nosotros/as mismos/as y a tomar merecidos descansos."
   },
   "cs": {
     "id": "af1c4ac9-1bae-4cb1-8c98-e1f98a8aea66",
@@ -101,7 +117,11 @@
     ],
     "card": {
       "imageBackgroundColor": "#25a5ec"
-    }
+    },
+    "tags": [
+      "8da0534a-5da9-430a-bdf3-242ace6460fb",
+      "cfc00217-f65b-4a4d-8b82-8ccc8f852dd6"
+    ]
   },
   "ja": {
     "id": "af1c4ac9-1bae-4cb1-8c98-e1f98a8aea66",
@@ -119,11 +139,27 @@
     "card": {
       "imageBackgroundColor": "#25a5ec"
     },
-    "sortOrder": 5
+    "sortOrder": 5,
+    "tags": [
+      "8da0534a-5da9-430a-bdf3-242ace6460fb",
+      "cfc00217-f65b-4a4d-8b82-8ccc8f852dd6"
+    ]
   },
   "pt-BR": {
-    "description": "Durante períodos de estresse, a recuperação é fundamental. Esta coleção pode nos ajudar a cuidar de nós mesmos e tirar algumas pausas merecidas.",
     "name": "Encontre a calma",
+    "published": true,
+    "sortOrder": 5,
+    "card": {
+      "image": {
+        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1682398819/Images/ease_stress_collection_cwrydu.png"
+      },
+      "imageBackgroundColor": "#25a5ec"
+    },
+    "tags": [
+      "8da0534a-5da9-430a-bdf3-242ace6460fb",
+      "cfc00217-f65b-4a4d-8b82-8ccc8f852dd6"
+    ],
+    "link": "https://aware.29k.org/ease-stress",
     "id": "af1c4ac9-1bae-4cb1-8c98-e1f98a8aea66",
     "exercises": [
       "3188a5ed-a1d6-451c-ae2a-f44f4df37495",
@@ -133,15 +169,7 @@
       "2fdb95f0-d18d-444d-9935-2c71b9b413d4",
       "9ac0c561-ff26-45fc-b6d5-0a983432394e"
     ],
-    "card": {
-      "image": {
-        "source": "https://res.cloudinary.com/cupcake-29k/image/upload/t_card_image/v1682398819/Images/ease_stress_collection_cwrydu.png"
-      },
-      "imageBackgroundColor": "#25a5ec"
-    },
-    "published": true,
-    "link": "https://aware.29k.org/ease-stress",
-    "sortOrder": 5
+    "description": "Durante períodos de estresse, a recuperação é fundamental. Esta coleção pode nos ajudar a cuidar de nós mesmos e tirar algumas pausas merecidas."
   },
   "da": {
     "id": "af1c4ac9-1bae-4cb1-8c98-e1f98a8aea66",
@@ -155,7 +183,11 @@
     ],
     "card": {
       "imageBackgroundColor": "#25a5ec"
-    }
+    },
+    "tags": [
+      "8da0534a-5da9-430a-bdf3-242ace6460fb",
+      "cfc00217-f65b-4a4d-8b82-8ccc8f852dd6"
+    ]
   },
   "nl": {
     "id": "af1c4ac9-1bae-4cb1-8c98-e1f98a8aea66",
@@ -169,6 +201,10 @@
     ],
     "card": {
       "imageBackgroundColor": "#25a5ec"
-    }
+    },
+    "tags": [
+      "8da0534a-5da9-430a-bdf3-242ace6460fb",
+      "cfc00217-f65b-4a4d-8b82-8ccc8f852dd6"
+    ]
   }
 }
