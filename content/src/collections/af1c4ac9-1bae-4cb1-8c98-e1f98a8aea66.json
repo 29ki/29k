@@ -1,7 +1,7 @@
 {
   "sv": {
-    "hidden": true,
-    "name": "Find calm",
+    "hidden": false,
+    "name": "Hitta lugnet",
     "published": true,
     "sortOrder": 5,
     "card": {
@@ -20,7 +20,7 @@
       "2fdb95f0-d18d-444d-9935-2c71b9b413d4",
       "9ac0c561-ff26-45fc-b6d5-0a983432394e"
     ],
-    "description": "During stressful times, recovery is key. This collection can help us take care of ourselves and get some well-deserved breaks."
+    "description": "När livet är stressigt behöver vi återhämtning. I det här programmet får du träna på att ta hand om dig själv och ta några välförtjänta pauser."
   },
   "en": {
     "id": "af1c4ac9-1bae-4cb1-8c98-e1f98a8aea66",
