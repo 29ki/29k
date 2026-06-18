@@ -88,7 +88,7 @@
     "rvfc-polyfill": "^1.0.7",
     "srt-parser-2": "^1.2.3",
     "styled-components": "^6.1.12",
-    "uuid": "^10.0.0",
+    "uuid": "^11.1.0",
     "vtt-to-json": "^0.1.1",
     "yup": "^1.6.1",
     "zustand": "^4.5.5"
