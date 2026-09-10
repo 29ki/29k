@@ -65,7 +65,7 @@ Our infrastructure would not be possible without sponsorship from these services
 * [Revopush](https://revopush.org/) - The Ultimate React Native OTA
 * [Cloudinary](https://cloudinary.com/) - Image and Video API platform
 * [PostHog](https://posthog.com/) - Make your product self-driving
-* [Daily.com](https://www.daily.co/) - Realtime voice, video, and AI at global scale
+* [Daily.co](https://www.daily.co/) - Realtime voice, video, and AI at global scale
 
 Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
 
