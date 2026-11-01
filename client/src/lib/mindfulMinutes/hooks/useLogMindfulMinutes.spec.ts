@@ -1,4 +1,4 @@
-import {renderHook} from '@testing-library/react-hooks';
+import {act, renderHook} from '@testing-library/react-hooks';
 import useLogMindfulMinutes from './useLogMindfulMinutes';
 import * as mindfulMinutes from '../lib/logMindfulMinutes';
 import useUserState from '../../user/state/state';
@@ -23,11 +23,9 @@ describe('useLogMindfulMinutes', () => {
     it('sets mindfulMinutesAvailable to true when available', async () => {
       mockIsAvailable.mockResolvedValueOnce(true);
 
-      const {result, waitForNextUpdate} = renderHook(() =>
-        useLogMindfulMinutes(),
-      );
+      const {result} = renderHook(() => useLogMindfulMinutes());
 
-      await waitForNextUpdate();
+      await act(async () => {});
 
       expect(result.current.mindfulMinutesAvailable).toBe(true);
     });
@@ -53,11 +51,9 @@ describe('useLogMindfulMinutes', () => {
         },
       });
 
-      const {result, waitForNextUpdate} = renderHook(() =>
-        useLogMindfulMinutes(),
-      );
+      const {result} = renderHook(() => useLogMindfulMinutes());
 
-      await waitForNextUpdate();
+      await act(async () => {});
 
       expect(result.current.mindfulMinutesEnabled).toBe(true);
     });
@@ -73,11 +69,9 @@ describe('useLogMindfulMinutes', () => {
         },
       });
 
-      const {result, waitForNextUpdate} = renderHook(() =>
-        useLogMindfulMinutes(),
-      );
+      const {result} = renderHook(() => useLogMindfulMinutes());
 
-      await waitForNextUpdate();
+      await act(async () => {});
 
       expect(result.current.mindfulMinutesEnabled).toBe(false);
     });
@@ -93,11 +87,9 @@ describe('useLogMindfulMinutes', () => {
         },
       });
 
-      const {result, waitForNextUpdate} = renderHook(() =>
-        useLogMindfulMinutes(),
-      );
+      const {result} = renderHook(() => useLogMindfulMinutes());
 
-      await waitForNextUpdate();
+      await act(async () => {});
 
       expect(result.current.mindfulMinutesEnabled).toBe(false);
     });
@@ -113,11 +105,9 @@ describe('useLogMindfulMinutes', () => {
         },
       });
 
-      const {result, waitForNextUpdate} = renderHook(() =>
-        useLogMindfulMinutes(),
-      );
+      const {result} = renderHook(() => useLogMindfulMinutes());
 
-      await waitForNextUpdate();
+      await act(async () => {});
 
       expect(result.current.mindfulMinutesEnabled).toBe(false);
     });
@@ -133,11 +123,9 @@ describe('useLogMindfulMinutes', () => {
         },
       });
 
-      const {result, waitForNextUpdate} = renderHook(() =>
-        useLogMindfulMinutes(),
-      );
+      const {result} = renderHook(() => useLogMindfulMinutes());
 
-      await waitForNextUpdate();
+      await act(async () => {});
 
       expect(result.current.mindfulMinutesEnabled).toBe(undefined);
     });
@@ -191,11 +179,9 @@ describe('useLogMindfulMinutes', () => {
         },
       });
 
-      const {result, waitForNextUpdate} = renderHook(() =>
-        useLogMindfulMinutes(),
-      );
+      const {result} = renderHook(() => useLogMindfulMinutes());
 
-      await waitForNextUpdate();
+      await act(async () => {});
 
       await result.current.logMindfulMinutes(
         new Date('2001-01-01T01:01:01Z'),
@@ -220,11 +206,9 @@ describe('useLogMindfulMinutes', () => {
         },
       });
 
-      const {result, waitForNextUpdate} = renderHook(() =>
-        useLogMindfulMinutes(),
-      );
+      const {result} = renderHook(() => useLogMindfulMinutes());
 
-      await waitForNextUpdate();
+      await act(async () => {});
 
       await result.current.logMindfulMinutes(
         new Date('2001-01-01T01:01:01Z'),

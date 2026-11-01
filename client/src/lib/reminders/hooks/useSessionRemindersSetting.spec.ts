@@ -62,11 +62,9 @@ describe('useSessionRemindersSetting', () => {
         userState: {'some-uid': {sessionReminderNotifications: true}},
       });
 
-      const {result, waitForNextUpdate} = renderHook(() =>
-        useSessionRemindersSetting(),
-      );
+      const {result} = renderHook(() => useSessionRemindersSetting());
 
-      await waitForNextUpdate();
+      await act(async () => {});
 
       expect(mockCheckPermission).toHaveBeenCalledTimes(1);
       expect(result.current.sessionRemindersEnabled).toBe(false);

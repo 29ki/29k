@@ -1,5 +1,5 @@
 import {FirebaseAuthTypes} from '@react-native-firebase/auth';
-import {renderHook} from '@testing-library/react-hooks';
+import {act, renderHook} from '@testing-library/react-hooks';
 import {getUser} from '../api/user';
 
 import useUserState from '../state/state';
@@ -25,11 +25,9 @@ describe('useUserProfile', () => {
       } as FirebaseAuthTypes.User,
     });
 
-    const {result, waitForNextUpdate} = renderHook(() =>
-      useUserProfile('some-user-id'),
-    );
+    const {result} = renderHook(() => useUserProfile('some-user-id'));
 
-    await waitForNextUpdate();
+    await act(async () => {});
     expect(result.current).toEqual({
       displayName: 'some-display-name',
       photoURL: 'some-photo-url',
