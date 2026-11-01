@@ -2,8 +2,6 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>RCTAsyncStorageExcludeFromBackup</key>
-	<false/>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleDisplayName</key>
@@ -39,10 +37,26 @@
 	</array>
 	<key>CFBundleVersion</key>
 	<string>195</string>
+	<key>CodePushServerURL</key>
+	<string>https://api.revopush.org</string>
+	<key>FirebaseDeepLinkPasteboardRetrievalEnabled</key>
+	<true/>
+	<key>FirebaseDynamicLinksCustomDomains</key>
+	<array>
+		<string>https://app.cupcake.29k.org/</string>
+		<string>https://staging.app.cupcake.29k.org/</string>
+		<string>https://dev.app.cupcake.29k.org/</string>
+		<string>https://aware.29k.org/</string>
+		<string>https://staging.aware.29k.org/</string>
+		<string>https://dev.aware.29k.org/</string>
+		<string>https://open.awareapp.org/</string>
+		<string>https://staging.open.awareapp.org/</string>
+		<string>https://dev.open.awareapp.org/</string>
+	</array>
 	<key>ITSAppUsesNonExemptEncryption</key>
 	<false/>
 	<key>LSApplicationCategoryType</key>
-	<string/>
+	<string></string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSAppTransportSecurity</key>
@@ -58,16 +72,24 @@
 	<string>This allows us to add sessions to your calendar.</string>
 	<key>NSCameraUsageDescription</key>
 	<string>This allows us to take a profile picture of you. It also allows us to stream your video during video sharing.</string>
-	<key>NSPhotoLibraryUsageDescription</key>
-	<string>This allows you to upload a profile picture of you from your library</string>
 	<key>NSContactsUsageDescription</key>
 	<string>This allows us to add sessions to your calendar.</string>
-	<key>NSMicrophoneUsageDescription</key>
-	<string>This allows us to stream your audio during video sharing.</string>
 	<key>NSHealthShareUsageDescription</key>
 	<string>You should not see this message as Aware does not read your health data</string>
 	<key>NSHealthUpdateUsageDescription</key>
 	<string>Allows us to log Health mindful minutes when you complete Aware sessions</string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>This allows us to stream your audio during video sharing.</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>This allows you to upload a profile picture of you from your library</string>
+	<key>NSUserActivityTypes</key>
+	<array>
+		<string>INSendMessageIntent</string>
+	</array>
+	<key>RCTAsyncStorageExcludeFromBackup</key>
+	<false/>
+	<key>RCTNewArchEnabled</key>
+	<false/>
 	<key>UIAppFonts</key>
 	<array>
 		<string>HKGrotesk-Black.otf</string>
@@ -146,25 +168,5 @@
 	<string>Light</string>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
-	<key>FirebaseDynamicLinksCustomDomains</key>
-	<array>
-		<string>https://app.cupcake.29k.org/</string>
-		<string>https://staging.app.cupcake.29k.org/</string>
-		<string>https://dev.app.cupcake.29k.org/</string>
-		<string>https://aware.29k.org/</string>
-		<string>https://staging.aware.29k.org/</string>
-		<string>https://dev.aware.29k.org/</string>
-		<string>https://open.awareapp.org/</string>
-		<string>https://staging.open.awareapp.org/</string>
-		<string>https://dev.open.awareapp.org/</string>
-	</array>
-	<key>FirebaseDeepLinkPasteboardRetrievalEnabled</key>
-	<true/>
-	<key>NSUserActivityTypes</key>
-	<array>
-		<string>INSendMessageIntent</string>
-	</array>
-  <key>CodePushServerURL</key>
-  <string>https://api.revopush.org</string>
 </dict>
 </plist>

@@ -54,7 +54,7 @@ const renderScreens = (imports: any, parentName: string) => {
 const DrawerContent: (
   items: ComponentList,
   onClose: () => void,
-) => React.FunctionComponent<DrawerContentComponentProps> =
+) => (props: DrawerContentComponentProps) => React.ReactElement =
   (items, onClose) =>
   ({navigation}) => {
     const navState = navigation.getState();
