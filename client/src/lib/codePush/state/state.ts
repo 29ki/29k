@@ -1,4 +1,4 @@
-import CodePush from 'react-native-code-push';
+import CodePush from '@revopush/react-native-code-push';
 import {create} from 'zustand';
 
 type State = {

@@ -1,7 +1,7 @@
 import debug from 'debug';
 import {useCallback} from 'react';
 import {Platform} from 'react-native';
-import codePush, {DownloadProgress} from 'react-native-code-push';
+import codePush, {DownloadProgress} from '@revopush/react-native-code-push';
 import {
   IOS_REVOPUSH_DEPLOYMENT_KEY,
   ANDROID_REVOPUSH_DEPLOYMENT_KEY,
