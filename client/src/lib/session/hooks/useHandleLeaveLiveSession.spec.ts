@@ -52,15 +52,13 @@ describe('useHandleLeaveLiveSession', () => {
     });
     mockedLeaveSession.mockResolvedValueOnce({});
 
-    await act(async () => {
-      const {waitForNextUpdate} = renderHook(useTestHook);
-      await waitForNextUpdate();
+    renderHook(useTestHook);
+    await act(async () => {});
 
-      expect(mockedLeaveSession).toHaveBeenCalledTimes(1);
-      expect(mockedNavigate).toHaveBeenCalledTimes(1);
-      expect(mockedNavigate).toHaveBeenCalledWith('SessionErrorModal', {
-        hasEjected: true,
-      });
+    expect(mockedLeaveSession).toHaveBeenCalledTimes(1);
+    expect(mockedNavigate).toHaveBeenCalledTimes(1);
+    expect(mockedNavigate).toHaveBeenCalledWith('SessionErrorModal', {
+      hasEjected: true,
     });
   });
 
@@ -70,22 +68,19 @@ describe('useHandleLeaveLiveSession', () => {
       hasEjected: false,
     });
 
-    await act(async () => {
-      const {waitForNextUpdate} = renderHook(useTestHook);
-      await waitForNextUpdate();
+    renderHook(useTestHook);
 
-      expect(mockedShowError).toHaveBeenCalledTimes(1);
-      expect(mockedShowError).toHaveBeenCalledWith(
-        expect.any(String),
-        expect.any(String),
-        {
-          disableAutoClose: true,
-          actionConfig: {
-            text: expect.any(String),
-            action: expect.any(Function),
-          },
+    expect(mockedShowError).toHaveBeenCalledTimes(1);
+    expect(mockedShowError).toHaveBeenCalledWith(
+      expect.any(String),
+      expect.any(String),
+      {
+        disableAutoClose: true,
+        actionConfig: {
+          text: expect.any(String),
+          action: expect.any(Function),
         },
-      );
-    });
+      },
+    );
   });
 });

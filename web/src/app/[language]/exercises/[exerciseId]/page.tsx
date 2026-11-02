@@ -23,7 +23,7 @@ import {
   Spacer60,
 } from '../../../../../../client/src/lib/components/Spacers/Spacer';
 import Gutters from '../../../../../../client/src/lib/components/Gutters/Gutters';
-import {useRouter, useSearchParams} from 'next/navigation';
+import {useParams, useRouter, useSearchParams} from 'next/navigation';
 import Wrapper from './components/Wrapper';
 import Title from './components/Title';
 import ProgressBar from '../../../../../../client/src/lib/session/components/ProgressBar/ProgressBar';
@@ -77,11 +77,11 @@ const RightGradient = styled.div<{color?: string}>(({color}) => ({
   )} 100%)`,
 }));
 
-export default function ExercisePage({
-  params: {language, exerciseId},
-}: {
-  params: {language: LANGUAGE_TAG; exerciseId: string};
-}) {
+export default function ExercisePage() {
+  const {language, exerciseId} = useParams<{
+    language: LANGUAGE_TAG;
+    exerciseId: string;
+  }>();
   const searchParams = useSearchParams();
   const noBack = searchParams.has('noBack');
   const returnTo = searchParams.get('returnTo');

@@ -1,4 +1,4 @@
-import codePush from 'react-native-code-push';
+import codePush from '@revopush/react-native-code-push';
 import CodePushOverlay from './components/CodePushOverlay';
 
 export {CodePushOverlay};

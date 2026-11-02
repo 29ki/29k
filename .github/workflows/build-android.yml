@@ -198,7 +198,7 @@ jobs:
 
           node node_modules/react-native/scripts/compose-source-maps.js
           $SOURCEMAPS_DIR/index.android.bundle.packager.map
-          $SOURCEMAPS_DIR/index.android.bundle.hbc.map
+          $BUNDLE_DIR/index.android.bundle.hbc.map
           -o $SOURCEMAPS_DIR/index.android.bundle.map
 
           node node_modules/@sentry/react-native/scripts/copy-debugid.js

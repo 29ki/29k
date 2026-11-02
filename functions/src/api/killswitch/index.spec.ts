@@ -1,9 +1,9 @@
 import request from 'supertest';
 
-import {killSwitchRouter} from './index';
+import { killSwitchRouter } from './index';
 import createMockServer from '../lib/createMockServer';
 
-import {createApiAuthRouter} from '../../lib/routers';
+import { createApiAuthRouter } from '../../lib/routers';
 
 jest.mock('../../../../content/content.json', () => ({
   i18n: {
@@ -66,7 +66,7 @@ describe('/api/killswitch', () => {
       message: expect.any(String),
       permanent: true,
     });
-    const bundleUpdate = {requiresBundleUpdate: true};
+    const bundleUpdate = { requiresBundleUpdate: true };
     it.each([
       ////// native version //////////////////////////////////////////////////
       // older native versions currently kill-switched
@@ -75,8 +75,8 @@ describe('/api/killswitch', () => {
       [403, nativeUpdate, '1.0.0', undefined, 'ios', 'en'],
 
       // current native minimum version
-      [200, {}, '2.60.0', '59', 'ios', 'en'],
-      [200, {}, '2.60.0', '58', 'android', 'en'],
+      [200, {}, '2.61.0', '59', 'ios', 'en'],
+      [200, {}, '2.61.0', '58', 'android', 'en'],
 
       // some future version
       [200, {}, '3.0.0', undefined, 'ios', 'en'],
@@ -88,12 +88,12 @@ describe('/api/killswitch', () => {
       [403, nativeUpdate, '1.0.0', '1', 'ios', 'en'],
 
       // older bundle versions currently kill-switched
-      [200, bundleUpdate, '2.60.0', '10', 'ios', 'en'],
-      [200, bundleUpdate, '2.60.0', '10', 'android', 'en'],
+      [200, bundleUpdate, '2.61.0', '10', 'ios', 'en'],
+      [200, bundleUpdate, '2.61.0', '10', 'android', 'en'],
 
       // current bundle minimum version
-      [200, {}, '2.60.0', '59', 'ios', 'en'],
-      [200, {}, '2.60.0', '58', 'android', 'en'],
+      [200, {}, '2.61.0', '59', 'ios', 'en'],
+      [200, {}, '2.61.0', '58', 'android', 'en'],
 
       /////// miscellaneous //////////////////////////////////////////////////
       // accepts partially broken input

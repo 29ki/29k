@@ -38,7 +38,7 @@ type RelatesProps = {
   style?: ViewStyle;
 };
 const Relates = ({count = 0, style}: RelatesProps) => {
-  const prevCount = useRef<number | undefined>();
+  const prevCount = useRef<number | undefined>(undefined);
 
   const gemScale = useSharedValue(1);
   const gemStyle = useAnimatedStyle(() => ({

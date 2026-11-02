@@ -1,4 +1,5 @@
 import dns from 'dns';
+import path from 'path';
 import {defineConfig} from 'vite';
 import react from '@vitejs/plugin-react';
 
@@ -75,6 +76,12 @@ export default defineConfig({
     alias: {
       'react-native': 'react-native-web',
       'react-native-linear-gradient': 'react-native-web-linear-gradient',
+      // lottie-react-native's web entry imports this optional peer. It is
+      // resolved from the client package, so it has to be aliased to the
+      // copy installed in this package.
+      '@lottiefiles/dotlottie-react': path.resolve(
+        'node_modules/@lottiefiles/dotlottie-react',
+      ),
     },
   },
   define: {
