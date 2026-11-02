@@ -1,9 +1,16 @@
 import path from 'path';
+import {fileURLToPath} from 'url';
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   output: 'export',
   distDir: 'dist',
+  // The repo root also has a yarn.lock. Without this, Next treats that
+  // directory as the project root.
+  outputFileTracingRoot: path.dirname(fileURLToPath(import.meta.url)),
+  // Reanimated ships JSX in .js files. Next 15 does not parse that unless
+  // the package is opted into transpilation.
+  transpilePackages: ['react-native-reanimated'],
   trailingSlash: true,
   compiler: {
     styledComponents: true,
@@ -24,6 +31,9 @@ const nextConfig = {
       'react-i18next': path.resolve('../client/node_modules/react-i18next'),
       'react-native-linear-gradient': 'react-native-web-linear-gradient',
       'react-native-svg': path.resolve('node_modules/react-native-svg'),
+      '@lottiefiles/dotlottie-react': path.resolve(
+        'node_modules/@lottiefiles/dotlottie-react',
+      ),
     };
     config.resolve.extensions = [
       '.web.js',

@@ -26,12 +26,14 @@ export default async function RootLayout({
   params,
 }: Readonly<{
   children: React.ReactNode;
-  params: {language: LANGUAGE_TAG};
+  params: Promise<{language: string}>;
 }>) {
+  const {language} = await params;
+
   return (
-    <html lang={params.language}>
+    <html lang={language}>
       <body>
-        <I18nProvider language={params.language}>
+        <I18nProvider language={language as LANGUAGE_TAG}>
           <StyleSheetRegistry>{children}</StyleSheetRegistry>
         </I18nProvider>
       </body>
