@@ -1131,7 +1131,7 @@ PODS:
   - hermes-engine (0.81.6):
     - hermes-engine/Pre-built (= 0.81.6)
   - hermes-engine/Pre-built (0.81.6)
-  - JitsiWebRTC (118.0.0)
+  - JitsiWebRTC (124.0.2)
   - JWT (3.0.0-beta.14):
     - Base64 (~> 1.1.2)
   - kingstinct-react-native-healthkit (8.5.0):
@@ -2920,7 +2920,7 @@ PODS:
     - React-Core
   - react-native-background-timer (2.4.1):
     - React-Core
-  - react-native-daily-js (0.71.0):
+  - react-native-daily-js (0.89.0):
     - React-Core
     - ReactNativeDailyJSScreenShareExtension (= 0.0.1)
   - react-native-get-random-values (1.11.0):
@@ -2934,8 +2934,8 @@ PODS:
   - react-native-volume-manager (1.10.0):
     - Mute
     - React-Core
-  - react-native-webrtc (118.0.3-daily.4):
-    - JitsiWebRTC (~> 118.0.0)
+  - react-native-webrtc (124.0.6-daily.2):
+    - JitsiWebRTC (~> 124.0.0)
     - React-Core
   - react-native-webview (13.17.0):
     - boost
@@ -3755,7 +3755,7 @@ PODS:
     - ReactCommon/turbomodule/core
     - SocketRocket
     - Yoga
-  - RNSentry (5.33.1):
+  - RNSentry (5.36.0):
     - boost
     - DoubleConversion
     - fast_float
@@ -3782,12 +3782,12 @@ PODS:
     - ReactCodegen
     - ReactCommon/turbomodule/bridging
     - ReactCommon/turbomodule/core
-    - Sentry/HybridSDK (= 8.36.0)
+    - Sentry/HybridSDK (= 8.41.0)
     - SocketRocket
     - Yoga
   - RNSVG (15.16.0):
     - React-Core
-  - Sentry/HybridSDK (8.36.0)
+  - Sentry/HybridSDK (8.41.0)
   - SocketRocket (0.7.1)
   - SSZipArchive (2.5.5)
   - Stripe (26.9.0):
@@ -4240,7 +4240,7 @@ SPEC CHECKSUMS:
   gRPC-Core: eee4be35df218649fe66d721a05a7f27a28f069b
   GTMSessionFetcher: 5aea5ba6bd522a239e236100971f10cb71b96ab6
   hermes-engine: 7219f6e751ad6ec7f3d7ec121830ee34dae40749
-  JitsiWebRTC: 3a41671ef65a51d7204323814b055a2690b921c7
+  JitsiWebRTC: b47805ab5668be38e7ee60e2258f49badfe8e1d0
   JWT: ef71dfb03e1f842081e64dc42eef0e164f35d251
   kingstinct-react-native-healthkit: babece516f80df2fadd211143595052b7368dbb6
   leveldb-library: cc8b8f8e013647a295ad3f8cd2ddf49a6f19be19
@@ -4285,13 +4285,13 @@ SPEC CHECKSUMS:
   React-microtasksnativemodule: f4762eb5cc8d2287f2513c9e404e48b30bf9fc69
   react-native-add-calendar-event: 4eb42bdf84beb58de81f6d2ce1778a7632223dfe
   react-native-background-timer: 4638ae3bee00320753647900b21260b10587b6f7
-  react-native-daily-js: d72353ec83658ddd946d3bed83c7d2a90e35f695
+  react-native-daily-js: a15efb19edb8327b2f63fc82f7999ab2c0cb0f0a
   react-native-get-random-values: d16467cf726c618e9c7a8c3c39c31faa2244bbba
   react-native-idle-timer: 451ec5df38395c80e998a8ffa2da4237a4d9eb97
   react-native-netinfo: cec9c4e86083cb5b6aba0e0711f563e2fbbff187
   react-native-safe-area-context: bf82c348696971fcb148b76740b98c49ea3a6b6f
   react-native-volume-manager: d9d2863a2374420af89c89662333ea6adf506988
-  react-native-webrtc: 38b16286f2f7da3ff78c17ded0b7720e43c11166
+  react-native-webrtc: 2cd40195c2b0467b878e992527b6277137cbaf87
   react-native-webview: 446fe859ba8ea6caa1b45f32a137edc7d0e3b09c
   React-NativeModulesApple: 76d9e54adf2b333d0939bbd18102c62bdfebb934
   React-oscompat: d5e3366fbd6c7150e17c1bda85eab583a6fa9fce
@@ -4343,9 +4343,9 @@ SPEC CHECKSUMS:
   RNReactNativeHapticFeedback: e3e0584d5906bf7ea34b6c8f47295a88aad06ba5
   RNReanimated: b76f5bf56b7c259e92f6d1abd4d86274b6c7f2a8
   RNScreens: 428dbc68622f63d06eadb67dd9eebd34e0237774
-  RNSentry: 07f4cca4a265440308ba190dec4580ad34789d13
+  RNSentry: 277473ad870ab1099552ef51dacb267882eb5ece
   RNSVG: 42ba148cd5b52d420c92df3bcbb78b20e04e1065
-  Sentry: f8374b5415bc38dfb5645941b3ae31230fbeae57
+  Sentry: 54d0fe6c0df448497c8ed4cce66ccf7027e1823e
   SocketRocket: d4aabe649be1e368d1318fdf28a022d714d65748
   SSZipArchive: c69881e8ac5521f0e622291387add5f60f30f3c4
   Stripe: a232266e1c9709b56cfdeffaa731370407b0e3e2

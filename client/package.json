@@ -21,8 +21,8 @@
     "test": "yarn build:content && yarn test:ts && yarn test:lint && yarn test:jest"
   },
   "dependencies": {
-    "@daily-co/react-native-daily-js": "0.71.0",
-    "@daily-co/react-native-webrtc": "118.0.3-daily.4",
+    "@daily-co/react-native-daily-js": "0.89.0",
+    "@daily-co/react-native-webrtc": "124.0.6-daily.2",
     "@dotlottie/react-player": "^1.6.19",
     "@gorhom/bottom-sheet": "^5.0.6",
     "@kingstinct/react-native-healthkit": "^8.5.0",
@@ -43,7 +43,7 @@
     "@react-navigation/native-stack": "^6.11.0",
     "@react-navigation/stack": "^6.4.1",
     "@revopush/react-native-code-push": "2.5.1",
-    "@sentry/react-native": "^5.33.1",
+    "@sentry/react-native": "^5.36.0",
     "@stripe/stripe-react-native": "0.76.0",
     "@th3rdwave/react-navigation-bottom-sheet": "https://github.com/29ki/react-navigation-bottom-sheet.git#overlay-as-containerComponent",
     "@types/lodash.throttle": "^4.1.9",
