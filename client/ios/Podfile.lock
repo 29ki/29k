@@ -3529,15 +3529,67 @@ PODS:
     - ReactCommon/turbomodule/core
     - SocketRocket
     - Yoga
-  - RNImageCropPicker (0.42.0):
+  - RNImageCropPicker (0.52.0):
+    - boost
+    - DoubleConversion
+    - fast_float
+    - fmt
+    - glog
+    - hermes-engine
+    - RCT-Folly
+    - RCT-Folly/Fabric
+    - RCTRequired
+    - RCTTypeSafety
     - React-Core
+    - React-debug
+    - React-Fabric
+    - React-featureflags
+    - React-graphics
+    - React-ImageManager
+    - React-jsi
+    - React-NativeModulesApple
+    - React-RCTFabric
     - React-RCTImage
-    - RNImageCropPicker/QBImagePickerController (= 0.42.0)
-    - TOCropViewController (~> 2.7.4)
-  - RNImageCropPicker/QBImagePickerController (0.42.0):
+    - React-renderercss
+    - React-rendererdebug
+    - React-utils
+    - ReactCodegen
+    - ReactCommon/turbomodule/bridging
+    - ReactCommon/turbomodule/core
+    - RNImageCropPicker/QBImagePickerController (= 0.52.0)
+    - SocketRocket
+    - TOCropViewController (~> 2.8.0)
+    - Yoga
+  - RNImageCropPicker/QBImagePickerController (0.52.0):
+    - boost
+    - DoubleConversion
+    - fast_float
+    - fmt
+    - glog
+    - hermes-engine
+    - RCT-Folly
+    - RCT-Folly/Fabric
+    - RCTRequired
+    - RCTTypeSafety
     - React-Core
+    - React-debug
+    - React-Fabric
+    - React-featureflags
+    - React-graphics
+    - React-ImageManager
+    - React-jsi
+    - React-NativeModulesApple
+    - React-RCTFabric
     - React-RCTImage
-    - TOCropViewController (~> 2.7.4)
+    - React-renderercss
+    - React-rendererdebug
+    - React-utils
+    - ReactCodegen
+    - ReactCommon/turbomodule/bridging
+    - ReactCommon/turbomodule/core
+    - SocketRocket
+    - TOCropViewController (~> 2.8.0)
+    - Yoga
   - RNLocalize (3.2.1):
     - React-Core
   - RNNotifee (9.1.3):
@@ -3836,7 +3888,7 @@ PODS:
     - StripeUICore (= 26.9.0)
   - StripeUICore (26.9.0):
     - StripeCore (= 26.9.0)
-  - TOCropViewController (2.7.4)
+  - TOCropViewController (2.8.0)
   - Yoga (0.0.0)
 
 DEPENDENCIES:
@@ -4335,7 +4387,7 @@ SPEC CHECKSUMS:
   RNFBFirestore: dea4abf7a2988a89fd7ecb3637bc9b16d111f7de
   RNFBStorage: 8f1c5d17488bd3ae0991ef36be80df7f4548e695
   RNGestureHandler: 251c9de6ad4b1d29ed71acbf98f4da1c1e697137
-  RNImageCropPicker: b0afedeefd8655254a15c34103718455fde6ce59
+  RNImageCropPicker: d12f5db70edf8e66ab96a930fe2808718d328c96
   RNLocalize: e7378161f0b6a6365407eb2377aab46cc38047d8
   RNNotifee: 6635a40b3ccc1660f1025278145499882867d54a
   RNPermissions: a36c132cf225bf1dfe68a9916f0c8c9f19475fd1
@@ -4359,7 +4411,7 @@ SPEC CHECKSUMS:
   StripePaymentSheet: 6ecef03b5032a1acff02a47e0bbfc17fb730bb3d
   StripePaymentsUI: bcb256b2cb9cb0926842ca92cd19e9705c3339f8
   StripeUICore: cd7242a0449cea4e4b38b61d11584dfabb8e28ce
-  TOCropViewController: 80b8985ad794298fb69d3341de183f33d1853654
+  TOCropViewController: 797deaf39c90e6e9ddd848d88817f6b9a8a09888
   Yoga: ff16d80456ce825ffc9400eeccc645a0dfcccdf5
 
 PODFILE CHECKSUM: 3ccb206ebe8697c31357a8106eef85d63e14943c

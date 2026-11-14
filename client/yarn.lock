@@ -4413,7 +4413,7 @@
     "@sentry/utils" "7.119.1"
     localforage "^1.8.1"
 
-"@sentry/react-native@5.36.0":
+"@sentry/react-native@^5.36.0":
   version "5.36.0"
   resolved "https://registry.yarnpkg.com/@sentry/react-native/-/react-native-5.36.0.tgz#25f84cbe6623f4c7f55d10c8c8ab8f985a759fbb"
   integrity sha512-MPTN5Wb6wEplIVydh2oXOdLJYqCAWKvncN5TBPN5OG8XdCsDqF7LyH2Sz+SK2T3hMPKESl3StAMhrrNSmHDbNg==
@@ -11036,10 +11036,10 @@ react-native-idle-timer@^2.2.3:
   resolved "https://registry.yarnpkg.com/react-native-idle-timer/-/react-native-idle-timer-2.2.3.tgz#88304ea562b06e730048dc6b84910e900247294a"
   integrity sha512-psqoUJDHmFkl5o3ublqLI6eiYFiM/o1O7TLeHjW8Fmx/wVXKESoVaWKIP01QqkoUnHqqch3GmBThkDx8plBnVA==
 
-react-native-image-crop-picker@^0.42.0:
-  version "0.42.0"
-  resolved "https://registry.yarnpkg.com/react-native-image-crop-picker/-/react-native-image-crop-picker-0.42.0.tgz#0672c080feb8ffefd65ba00a4e64bc8a1066136e"
-  integrity sha512-EOEkekPJ7g+CNf92HrWAGM4kcDJyVY02gQJUVH7MSNUOK11SHnurXVM0TnwIt410Y4T+lBkq3rfJEA1qDaDDwA==
+react-native-image-crop-picker@0.52.0:
+  version "0.52.0"
+  resolved "https://registry.yarnpkg.com/react-native-image-crop-picker/-/react-native-image-crop-picker-0.52.0.tgz#b533a6fdeed768a18535d4b04d45ab88a23ff027"
+  integrity sha512-yflrkVzqEiza+6kXv1bGpNb9OOXc+NtBLEpOhhQ4vdXXaomH1JySFZjQ3zmFfuJ1B4wDVdgosZlXKu/ui7w7Ew==
 
 react-native-is-edge-to-edge@1.1.7:
   version "1.1.7"
