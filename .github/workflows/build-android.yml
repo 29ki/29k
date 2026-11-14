@@ -60,10 +60,10 @@ jobs:
           distribution: zulu
           cache: gradle
 
-      - name: Use Ruby 2.7.2
+      - name: Use Ruby 2.7.8
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: 2.7.2
+          ruby-version: 2.7.8
 
       - name: Use Node.js v22
         uses: actions/setup-node@v3
