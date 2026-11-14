@@ -13,7 +13,7 @@ jobs:
     runs-on: ubuntu-latest
     environment: cms-${{ inputs.environment }}
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
 
       - name: Use Node.js v22
         uses: actions/setup-node@v3
