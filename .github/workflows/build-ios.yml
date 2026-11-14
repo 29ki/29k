@@ -62,10 +62,10 @@ jobs:
           # deploy key.
           persist-credentials: false
 
-      - name: Use Ruby 2.7.8
+      - name: Use Ruby 3.3
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: 2.7.8
+          ruby-version: '3.3'
 
       - name: Use Node.js v22
         uses: actions/setup-node@v3
