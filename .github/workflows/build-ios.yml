@@ -62,6 +62,12 @@ jobs:
           # deploy key.
           persist-credentials: false
 
+      # Default Xcode on macos-latest is 26.4 or newer. fmt 11.0.2 from React
+      # Native 0.81 fails to compile there. 26.3 is the newest installed
+      # version that still builds it.
+      - name: Use Xcode 26.3
+        run: sudo xcode-select -s /Applications/Xcode_26.3.app
+
       - name: Use Ruby 3.3
         uses: ruby/setup-ruby@v1
         with:
