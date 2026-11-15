@@ -36,7 +36,7 @@
 		</dict>
 	</array>
 	<key>CFBundleVersion</key>
-	<string>195</string>
+	<string>196</string>
 	<key>CodePushServerURL</key>
 	<string>https://api.revopush.org</string>
 	<key>FirebaseDeepLinkPasteboardRetrievalEnabled</key>
