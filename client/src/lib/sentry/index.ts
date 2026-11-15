@@ -12,9 +12,7 @@ export const init = () => {
 
 export const getCorrelationId = () => {
   const correlationId = Math.random().toString(36).substring(2, 12);
-  Sentry.configureScope(scope => {
-    scope.setTag('correlation_id', correlationId);
-  });
+  Sentry.setTag('correlation_id', correlationId);
   return correlationId;
 };
 

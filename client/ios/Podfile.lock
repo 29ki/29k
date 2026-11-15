@@ -3807,7 +3807,7 @@ PODS:
     - ReactCommon/turbomodule/core
     - SocketRocket
     - Yoga
-  - RNSentry (5.36.0):
+  - RNSentry (6.21.0):
     - boost
     - DoubleConversion
     - fast_float
@@ -3834,12 +3834,12 @@ PODS:
     - ReactCodegen
     - ReactCommon/turbomodule/bridging
     - ReactCommon/turbomodule/core
-    - Sentry/HybridSDK (= 8.41.0)
+    - Sentry/HybridSDK (= 8.53.2)
     - SocketRocket
     - Yoga
   - RNSVG (15.16.0):
     - React-Core
-  - Sentry/HybridSDK (8.41.0)
+  - Sentry/HybridSDK (8.53.2)
   - SocketRocket (0.7.1)
   - SSZipArchive (2.5.5)
   - Stripe (26.9.0):
@@ -4395,9 +4395,9 @@ SPEC CHECKSUMS:
   RNReactNativeHapticFeedback: e3e0584d5906bf7ea34b6c8f47295a88aad06ba5
   RNReanimated: b76f5bf56b7c259e92f6d1abd4d86274b6c7f2a8
   RNScreens: 428dbc68622f63d06eadb67dd9eebd34e0237774
-  RNSentry: 277473ad870ab1099552ef51dacb267882eb5ece
+  RNSentry: 5229ae8734a23e2f74a298b68690a46543877fa4
   RNSVG: 42ba148cd5b52d420c92df3bcbb78b20e04e1065
-  Sentry: 54d0fe6c0df448497c8ed4cce66ccf7027e1823e
+  Sentry: 59993bffde4a1ac297ba6d268dc4bbce068d7c1b
   SocketRocket: d4aabe649be1e368d1318fdf28a022d714d65748
   SSZipArchive: c69881e8ac5521f0e622291387add5f60f30f3c4
   Stripe: a232266e1c9709b56cfdeffaa731370407b0e3e2
