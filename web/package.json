@@ -12,12 +12,13 @@
     "test": "yarn build:content && yarn test:ts && yarn test:lint"
   },
   "dependencies": {
+    "@lottiefiles/dotlottie-react": "0.13.5",
     "dayjs": "^1.11.13",
     "hex-to-rgba": "^2.0.1",
     "i18next": "^24.2.2",
-    "next": "14.2.21",
-    "react": "^18",
-    "react-dom": "^18",
+    "next": "15.5.28",
+    "react": "19.1.4",
+    "react-dom": "19.1.4",
     "react-i18next": "^15.4.0",
     "react-native-safe-area-context": "^5.2.0",
     "react-native-svg": "15.4.0",
@@ -26,11 +27,12 @@
   },
   "devDependencies": {
     "@types/node": "^22",
-    "@types/react": "^18",
-    "@types/react-dom": "^18",
+    "@types/react": "^19.1.4",
+    "@types/react-dom": "^19.1.4",
     "@types/react-native-web": "^0.0.0",
     "eslint": "^8",
-    "eslint-config-next": "15.1.7",
+    "eslint-config-next": "15.5.28",
+    "react-native": "0.75.1",
     "typescript": "^5"
   }
 }

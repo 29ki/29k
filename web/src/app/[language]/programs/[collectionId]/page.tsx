@@ -21,6 +21,7 @@ import Columns from '@/lib/components/Columns';
 import {useTranslation} from 'react-i18next';
 import useExercisesByCollectionId from '../../../../../../client/src/lib/content/hooks/useExercisesByCollectionId';
 import Link from 'next/link';
+import {useParams} from 'next/navigation';
 import ExerciseCard from '../../../../../../client/src/lib/components/Cards/SessionCard/ExerciseCard';
 import CardGraphic from '../../../../../../client/src/lib/components/CardGraphic/CardGraphic';
 import {Fragment, MouseEventHandler, useCallback, useState} from 'react';
@@ -103,11 +104,11 @@ const CoCreatorName = styledNative(Body14)({
   textAlign: 'center',
 });
 
-export default function ExercisePage({
-  params: {language, collectionId},
-}: {
-  params: {language: LANGUAGE_TAG; collectionId: string};
-}) {
+export default function ExercisePage() {
+  const {collectionId} = useParams<{
+    language: LANGUAGE_TAG;
+    collectionId: string;
+  }>();
   const {t} = useTranslation('Screen.Collection');
   const collection = useCollectionById(collectionId, undefined, true);
   const exercises = useExercisesByCollectionId(collectionId, undefined, true);

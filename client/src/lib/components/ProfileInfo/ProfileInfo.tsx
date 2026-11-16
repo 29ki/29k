@@ -51,8 +51,8 @@ const ProfileInfo: React.FC<ProfileInfoProps> = ({onSaveCallback}) => {
   const [pictureMissing, setPictureMissing] = useState(false);
 
   useEffect(() => {
-    let pictureTimeoutId: NodeJS.Timeout | undefined;
-    let nameTimeoutId: NodeJS.Timeout | undefined;
+    let pictureTimeoutId: ReturnType<typeof setTimeout> | undefined;
+    let nameTimeoutId: ReturnType<typeof setTimeout> | undefined;
     if (pictureMissing) {
       pictureTimeoutId = setTimeout(() => {
         setPictureMissing(false);

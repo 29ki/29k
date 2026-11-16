@@ -1,4 +1,4 @@
-import codePush from 'react-native-code-push';
+import codePush from '@revopush/react-native-code-push';
 
 const getBundleVersion = async () => {
   const update = await codePush.getUpdateMetadata();

@@ -1,6 +1,6 @@
 import {renderHook, act} from '@testing-library/react-hooks';
 import {pick} from 'ramda';
-import codePush from 'react-native-code-push';
+import codePush from '@revopush/react-native-code-push';
 import useCodePushState from '../state/state';
 
 import useCheckForUpdate from './useCheckForUpdate';

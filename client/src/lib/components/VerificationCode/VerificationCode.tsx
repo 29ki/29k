@@ -112,7 +112,7 @@ const VerificationCode: React.FC<VerificationCodeProps> = ({
   }, [code, onCodeCompleted]);
 
   useEffect(() => {
-    let id: NodeJS.Timeout | undefined;
+    let id: ReturnType<typeof setTimeout> | undefined;
     const codeString = code.join('');
     if (codeString.length === 6 && hasError) {
       id = setTimeout(() => {

@@ -17,7 +17,13 @@ process.env = Object.assign(process.env, {
   STRIPE_PUBLISHABLE_KEY: 'some-stripe-publishable-key',
   STRIPE_APPLE_MERCHANT_IDENTIFIER: 'some-apple-merchant-identifier',
 });
-const modules = ['react-native', '@react-native', '@notifee', 'uuid'];
+const modules = [
+  'react-native',
+  '@react-native',
+  '@notifee',
+  '@revopush',
+  'uuid',
+];
 
 module.exports = {
   preset: 'react-native',

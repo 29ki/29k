@@ -49,7 +49,7 @@ jobs:
       ANDROID_GOOGLE_PLAY_SERVICE_FILE: ./google-play-service.json
 
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
         with:
           lfs: 'true'
 
@@ -60,10 +60,10 @@ jobs:
           distribution: zulu
           cache: gradle
 
-      - name: Use Ruby 2.7.2
+      - name: Use Ruby 3.3
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: 2.7.2
+          ruby-version: '3.3'
 
       - name: Use Node.js v22
         uses: actions/setup-node@v3
@@ -198,7 +198,7 @@ jobs:
 
           node node_modules/react-native/scripts/compose-source-maps.js
           $SOURCEMAPS_DIR/index.android.bundle.packager.map
-          $SOURCEMAPS_DIR/index.android.bundle.hbc.map
+          $BUNDLE_DIR/index.android.bundle.hbc.map
           -o $SOURCEMAPS_DIR/index.android.bundle.map
 
           node node_modules/@sentry/react-native/scripts/copy-debugid.js

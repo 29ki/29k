@@ -1,5 +1,5 @@
 import {renderHook, act} from '@testing-library/react-hooks';
-import codePush from 'react-native-code-push';
+import codePush from '@revopush/react-native-code-push';
 
 import useClearUpdates from './useClearUpdates';
 

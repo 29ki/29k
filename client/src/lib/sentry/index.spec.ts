@@ -18,11 +18,6 @@ describe('getCorrelationId', () => {
   it('generates and sets a correlationId on the current Sentry scope', () => {
     const correlationId = getCorrelationId();
 
-    Sentry.configureScope(scope => {
-      expect(scope.setTag).toHaveBeenCalledWith(
-        'correlation_id',
-        correlationId,
-      );
-    });
+    expect(Sentry.setTag).toHaveBeenCalledWith('correlation_id', correlationId);
   });
 });

@@ -76,6 +76,8 @@ describe('useIsAllowedToJoin', () => {
       });
     } catch (error) {}
 
+    await act(async () => {});
+
     expect(mockGetSession).toHaveBeenCalledWith('some-session-id');
     expect(mockNavigate).toHaveBeenCalledTimes(2);
     expect(mockFetchSessions).toHaveBeenCalledTimes(1);
@@ -102,6 +104,8 @@ describe('useIsAllowedToJoin', () => {
       });
     } catch (error) {}
 
+    await act(async () => {});
+
     expect(mockGetSession).toHaveBeenCalledWith('some-session-id');
     expect(mockNavigate).toHaveBeenCalledTimes(2);
     expect(mockFetchSessions).toHaveBeenCalledTimes(1);
@@ -127,6 +131,8 @@ describe('useIsAllowedToJoin', () => {
         await result.current.isAllowedToJoin('some-session-id');
       });
     } catch (error) {}
+
+    await act(async () => {});
 
     expect(mockGetSession).toHaveBeenCalledWith('some-session-id');
     expect(mockNavigate).toHaveBeenCalledTimes(2);

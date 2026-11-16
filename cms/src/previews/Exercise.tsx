@@ -37,10 +37,15 @@ const ExercisePreview = (props: PreviewTemplateComponentProps) => {
   const setExercise = useSessionState(state => state.setExercise);
 
   const entry = props.entry.get('data').toJS() as ExerciseWithLanguage;
-  const tagsFields = props.fieldsMetaData.getIn(['tags', 'tags'])?.toJS();
-  const tags =
-    entry.tags?.map((tagId: string) => tagsFields && tagsFields[tagId]?.name) ??
-    [];
+  const tagsMeta = props.fieldsMetaData.getIn(['tags', 'tags']);
+  const tagsFields =
+    tagsMeta && typeof tagsMeta === 'object' && 'toJS' in tagsMeta
+      ? (tagsMeta as {toJS: () => Record<string, {name?: string}>}).toJS()
+      : undefined;
+  const tags = (entry.tags ?? []).flatMap((tagId: string) => {
+    const name = tagsFields?.[tagId]?.name;
+    return name ? [name] : [];
+  });
   const language =
     'locale' in props ? (props.locale as LANGUAGE_TAG) : DEFAULT_LANGUAGE_TAG;
 

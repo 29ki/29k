@@ -112,13 +112,10 @@ describe('useAuthenticateUser', () => {
       return data;
     };
 
-    await act(async () => {
-      const rendered = renderHook(useTestHook);
-      await rendered.waitForValueToChange(
-        () => rendered.result.current?.description,
-      );
-      expect(rendered.result.current?.description).toEqual('some description');
-    });
+    const rendered = renderHook(useTestHook);
+    await act(async () => {});
+
+    expect(rendered.result.current?.description).toEqual('some description');
   });
 
   it('should not fetch user data if uid is undefined', async () => {

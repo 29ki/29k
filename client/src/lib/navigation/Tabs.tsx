@@ -1,4 +1,4 @@
-import React, {useMemo} from 'react';
+import {useMemo} from 'react';
 import {Platform} from 'react-native';
 import {
   BottomTabNavigationOptions,
@@ -35,11 +35,7 @@ const StyledText = styled(Body14)<{color: string}>(({color}) => ({
 }));
 
 // This component overrides the way SafeAreaInsets are handled so we have better styling control.
-const TabBar: React.FC<BottomTabBarProps> = ({
-  state,
-  navigation,
-  descriptors,
-}) => (
+const TabBar = ({state, navigation, descriptors}: BottomTabBarProps) => (
   <>
     <BottomTabBar
       state={state}

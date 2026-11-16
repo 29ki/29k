@@ -1,7 +1,7 @@
 import * as yup from 'yup';
 import validator from 'koa-yup-validator';
-import {lt, valid} from 'semver';
-import {createApiPreAuthRouter} from '../../lib/routers';
+import { lt, valid } from 'semver';
+import { createApiPreAuthRouter } from '../../lib/routers';
 import i18next from '../../lib/i18n';
 
 // Binary kill switch, this will permanently disable the entire app.
@@ -9,11 +9,11 @@ import i18next from '../../lib/i18n';
 const KILL_SWITCH = false;
 
 // Specify the minimum required app native version.
-const MIN_APP_VERSION = '2.60.0';
+const MIN_APP_VERSION = '2.61.0';
 
 // Specify the minimum required bundle version.
-const MIN_BUNDLE_VERSION: {[key: string]: {android: number; ios: number}} = {
-  '2.60.0': {
+const MIN_BUNDLE_VERSION: { [key: string]: { android: number; ios: number } } = {
+  '2.61.0': {
     android: 58,
     ios: 59,
   },
@@ -61,10 +61,10 @@ const killSwitchQuerySchema = yup.object().shape({
 
 export const killSwitchRouter = router.get(
   '/',
-  validator({query: killSwitchQuerySchema}),
+  validator({ query: killSwitchQuerySchema }),
   ctx => {
-    const {request, response, language} = ctx;
-    const {version, bundleVersion, platform} = request.query as RequestQuery;
+    const { request, response, language } = ctx;
+    const { version, bundleVersion, platform } = request.query as RequestQuery;
 
     const t = i18next.getFixedT(language, 'Screen.KillSwitch');
 
@@ -94,7 +94,7 @@ export const killSwitchRouter = router.get(
 
     if (!acceptedBundleVersion(platform, version, bundleVersion)) {
       response.status = 200;
-      ctx.body = {requiresBundleUpdate: true};
+      ctx.body = { requiresBundleUpdate: true };
       return;
     }
 

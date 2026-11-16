@@ -41,7 +41,7 @@ jobs:
       DOTENV_STRIPE_API_KEY: ${{ secrets.STRIPE_API_KEY }}
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
 
       - name: Use Node.js v22
         uses: actions/setup-node@v3

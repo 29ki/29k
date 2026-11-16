@@ -110,7 +110,7 @@ const ErrorBanner: React.FC<{children: React.ReactNode}> = ({children}) => {
   }, [onShowError]);
 
   useEffect(() => {
-    let timeout: NodeJS.Timeout | undefined;
+    let timeout: ReturnType<typeof setTimeout> | undefined;
     if (autoClose === true) {
       timeout = setTimeout(onClose, 5000);
     }

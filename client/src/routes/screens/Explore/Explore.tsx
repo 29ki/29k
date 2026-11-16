@@ -44,7 +44,7 @@ const Explore = () => {
   const {t} = useTranslation('Screen.Explore');
   const scrollRef = useRef<ScrollView>(null);
 
-  useScrollToTop(scrollRef);
+  useScrollToTop(scrollRef as React.RefObject<ScrollView>);
 
   const categories = useCategories();
   const collections = useCollections();

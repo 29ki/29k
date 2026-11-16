@@ -18,7 +18,7 @@ import {
   Spacer32,
   Spacer60,
 } from '../../../../../../../client/src/lib/components/Spacers/Spacer';
-import {useRouter, useSearchParams} from 'next/navigation';
+import {useParams, useRouter, useSearchParams} from 'next/navigation';
 import Wrapper from '../components/Wrapper';
 import styled from 'styled-components';
 import {COLORS} from '../../../../../../../shared/src/constants/colors';
@@ -82,11 +82,11 @@ const RightGradient = styled.div<{color?: string}>(({color}) => ({
   )} 100%)`,
 }));
 
-export default function ExerciseHostPage({
-  params: {language, exerciseId},
-}: {
-  params: {language: LANGUAGE_TAG; exerciseId: string};
-}) {
+export default function ExerciseHostPage() {
+  const {language, exerciseId} = useParams<{
+    language: LANGUAGE_TAG;
+    exerciseId: string;
+  }>();
   const searchParams = useSearchParams();
   const noBack = searchParams.has('noBack');
   const returnTo = searchParams.get('returnTo');

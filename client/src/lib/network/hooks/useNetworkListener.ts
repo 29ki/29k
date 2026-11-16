@@ -25,7 +25,7 @@ const useNetworkListener = () => {
 
   // Reports after a 5 second timeout if connection is not reestablished
   useEffect(() => {
-    let timeout: NodeJS.Timeout | undefined;
+    let timeout: ReturnType<typeof setTimeout> | undefined;
     if (isInternetReachable === false && isConnected === false) {
       timeout = setTimeout(() => {
         errorBannerContext?.showError(t('title'), t('message'), {

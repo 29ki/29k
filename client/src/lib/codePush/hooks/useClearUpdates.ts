@@ -1,5 +1,5 @@
 import {useCallback} from 'react';
-import codePush from 'react-native-code-push';
+import codePush from '@revopush/react-native-code-push';
 
 const useClearUpdates = () => useCallback(() => codePush.clearUpdates(), []);
 

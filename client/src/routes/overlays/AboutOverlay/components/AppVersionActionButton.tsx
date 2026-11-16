@@ -1,5 +1,5 @@
 import React from 'react';
-import codePush from 'react-native-code-push';
+import codePush from '@revopush/react-native-code-push';
 import useAppVersion from '../../../../lib/appState/hooks/useAppVersion';
 import {Body12, Body14} from '../../../../lib/components/Typography/Body/Body';
 import {InfoIcon, RewindIcon} from '../../../../lib/components/Icons';

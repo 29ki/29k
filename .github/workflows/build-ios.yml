@@ -54,14 +54,24 @@ jobs:
       MATCH_PASSWORD: ${{ secrets.MATCH_PASSWORD }}
 
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
         with:
           lfs: 'true'
+          # Leave git credentials unset. The default checkout token can only
+          # see this repo, and it would be used instead of the certificates
+          # deploy key.
+          persist-credentials: false
 
-      - name: Use Ruby 2.7.2
+      # Default Xcode on macos-latest is 26.4 or newer. fmt 11.0.2 from React
+      # Native 0.81 fails to compile there. 26.3 is the newest installed
+      # version that still builds it. Sentry Cocoa 8.53.2 builds on 26.3.
+      - name: Use Xcode 26.3
+        run: sudo xcode-select -s /Applications/Xcode_26.3.app
+
+      - name: Use Ruby 3.3
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: 2.7.2
+          ruby-version: '3.3'
 
       - name: Use Node.js v22
         uses: actions/setup-node@v3
@@ -73,7 +83,7 @@ jobs:
         run: bundle install
 
       - name: Add keys repo access key
-        uses: webfactory/ssh-agent@v0.5.4
+        uses: webfactory/ssh-agent@v0.10.0
         with:
           ssh-private-key: ${{ secrets.KEYS_REPO_ACCESS_KEY }}
 
@@ -203,7 +213,7 @@ jobs:
 
           node node_modules/react-native/scripts/compose-source-maps.js
           $SOURCEMAPS_DIR/main.jsbundle.packager.map
-          $SOURCEMAPS_DIR/main.jsbundle.hbc.map
+          $BUNDLE_DIR/main.jsbundle.hbc.map
           -o $SOURCEMAPS_DIR/main.jsbundle.map
 
           node node_modules/@sentry/react-native/scripts/copy-debugid.js

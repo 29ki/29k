@@ -1,4 +1,5 @@
 import React, {useCallback, useMemo, useRef, useState} from 'react';
+import {ScrollView} from 'react-native';
 import {useTranslation} from 'react-i18next';
 import styled from 'styled-components/native';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
@@ -89,7 +90,7 @@ const Home = () => {
     useNavigation<
       NativeStackNavigationProp<OverlayStackProps & ModalStackProps>
     >();
-  const scrollRef = useRef(null);
+  const scrollRef = useRef<ScrollView>(null);
 
   const [isLoading, setIsLoading] = useState(true);
   const recommendedSessions = useRecommendedSessions();
@@ -118,7 +119,7 @@ const Home = () => {
 
   useThrottledFocusEffect(fetch);
 
-  useScrollToTop(scrollRef);
+  useScrollToTop(scrollRef as React.RefObject<ScrollView>);
 
   const onPressEllipsis = useCallback(() => {
     navigate('AboutOverlay');

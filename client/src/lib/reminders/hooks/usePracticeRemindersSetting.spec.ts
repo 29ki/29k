@@ -81,16 +81,12 @@ describe('usePracticeRemindersSetting', () => {
         },
       });
 
-      const {result, waitForNextUpdate} = renderHook(() =>
-        usePracticeRemindersSetting(),
-      );
+      const {result} = renderHook(() => usePracticeRemindersSetting());
 
-      await act(async () => {
-        await waitForNextUpdate();
+      await act(async () => {});
 
-        expect(mockCheckPermission).toHaveBeenCalledTimes(1);
-        expect(result.current.practiceRemindersEnabled).toBe(false);
-      });
+      expect(mockCheckPermission).toHaveBeenCalledTimes(1);
+      expect(result.current.practiceRemindersEnabled).toBe(false);
     });
 
     it('is undefined if practiceReminderConfig == undefined', async () => {
@@ -123,16 +119,12 @@ describe('usePracticeRemindersSetting', () => {
         },
       });
 
-      await act(async () => {
-        const {result, waitForNextUpdate} = renderHook(() =>
-          usePracticeRemindersSetting(),
-        );
-        await waitForNextUpdate();
-        expect(result.current.practiceReminderConfig).toEqual({
-          hour: 0,
-          minute: 0,
-          interval: REMINDER_INTERVALS.DAILY,
-        });
+      const {result} = renderHook(() => usePracticeRemindersSetting());
+
+      expect(result.current.practiceReminderConfig).toEqual({
+        hour: 0,
+        minute: 0,
+        interval: REMINDER_INTERVALS.DAILY,
       });
     });
 
@@ -142,13 +134,9 @@ describe('usePracticeRemindersSetting', () => {
         userState: {'some-uid': {practiceReminderConfig: null}},
       });
 
-      await act(async () => {
-        const {result, waitForNextUpdate} = renderHook(() =>
-          usePracticeRemindersSetting(),
-        );
-        await waitForNextUpdate();
-        expect(result.current.practiceReminderConfig).toBe(null);
-      });
+      const {result} = renderHook(() => usePracticeRemindersSetting());
+
+      expect(result.current.practiceReminderConfig).toBe(null);
     });
 
     it('can be undefined', async () => {
