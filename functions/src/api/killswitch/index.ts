@@ -13,7 +13,7 @@ const MIN_APP_VERSION = '2.61.1';
 
 // Specify the minimum required bundle version.
 const MIN_BUNDLE_VERSION: { [key: string]: { android: number; ios: number } } = {
-  '2.61.0': {
+  '2.61.1': {
     android: 58,
     ios: 59,
   },
